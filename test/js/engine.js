@@ -51,11 +51,23 @@ async function calc() {
 
     // 軽減判定
     const B = Math.max(salaryPensionCount, 1);
-    const extraForIncomeEarners = 100000 * (B - 1);
+    const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
+const extraForIncomeEarners = salaryPensionAdd * (B - 1);
 
-    const sevenTenthsLimit = 430000 + extraForIncomeEarners;
-    const fiveTenthsLimit = 430000 + (305000 * family) + extraForIncomeEarners;
-    const twoTenthsLimit = 430000 + (560000 * family) + extraForIncomeEarners;
+    const sevenTenthsLimit =
+  (data.reduction?.standards?.sevenTenths?.base || 0) +
+  ((data.reduction?.standards?.sevenTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
+
+const fiveTenthsLimit =
+  (data.reduction?.standards?.fiveTenths?.base || 0) +
+  ((data.reduction?.standards?.fiveTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
+
+const twoTenthsLimit =
+  (data.reduction?.standards?.twoTenths?.base || 0) +
+  ((data.reduction?.standards?.twoTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
 
     let reductionLabel = "軽減なし";
     let reductionRate = 0;
