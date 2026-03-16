@@ -42,7 +42,7 @@
     "standards": {
       "sevenTenths": {
         "base": 430000,
-        "perPersonAdd"0
+        "perPersonAdd":0
       },
       "fiveTenths": {
         "base": 430000,
@@ -53,7 +53,7 @@
         "perPersonAdd": 560000
       }
     },
-    "salaryPensionAdd": 100000
+    "salaryPensionAdd": 100000,
     "ratios": {
       "sevenTenths": 0.7,
       "fiveTenths": 0.5,
