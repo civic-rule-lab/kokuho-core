@@ -42,7 +42,7 @@
     "standards": {
       "sevenTenths": {
         "base": 430000,
-        "perPersonAdd": 100000
+        "perPersonAdd"0
       },
       "fiveTenths": {
         "base": 430000,
