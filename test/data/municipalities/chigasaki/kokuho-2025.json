@@ -53,6 +53,7 @@
         "perPersonAdd": 560000
       }
     },
+    "salaryPensionAdd": 100000
     "ratios": {
       "sevenTenths": 0.7,
       "fiveTenths": 0.5,
