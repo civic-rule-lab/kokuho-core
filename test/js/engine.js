@@ -74,13 +74,13 @@ const twoTenthsLimit =
 
     if (income <= sevenTenthsLimit) {
       reductionLabel = "7割軽減";
-      reductionRate = 0.7;
+      reductionRate = data.reduction?.ratios?.sevenTenths || 0;
     } else if (income <= fiveTenthsLimit) {
       reductionLabel = "5割軽減";
-      reductionRate = 0.5;
+      reductionRate = data.reduction?.ratios?.fiveTenths || 0;
     } else if (income <= twoTenthsLimit) {
       reductionLabel = "2割軽減";
-      reductionRate = 0.2;
+      reductionRate = data.reduction?.ratios?.twoTenths || 0;
     }
 
     // 軽減は均等割・平等割に適用
