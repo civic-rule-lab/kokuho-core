@@ -21,3 +21,10 @@ It allows users to estimate insurance premiums based on municipality-specific ru
 ---
 
 ## Structure
+index.html
+↓
+test/chigasaki-kokuho.html
+↓
+test/js/engine.js
+↓
+test/data/municipalities/chigasaki/kokuho-2025.json
