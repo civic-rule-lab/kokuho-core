@@ -11,7 +11,7 @@ console.log("selector.js loaded")
             pages: {
               simple: {
                 name: "かんたん計算",
-                url: "./title-test.html"
+                url: "./chigasaki-kokuho.html"
               },
               income: {
                 name: "所得ベース計算",
