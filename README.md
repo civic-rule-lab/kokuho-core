@@ -16,18 +16,20 @@ It allows users to estimate insurance premiums based on municipality-specific ru
 - Available: Chigasaki City (茅ヶ崎市)
 - Features:
   - Simple calculation
-  - Income-based calculation
-
----
+  - Income-based ---
 
 ## Structure
-index.html
-↓
-test/chigasaki-kokuho.html
-↓
-test/js/engine.js
-↓
+
+Data flow:
+
+index.html  
+↓  
+test/chigasaki-kokuho.html  
+↓  
+test/js/engine.js  
+↓  
 test/data/municipalities/chigasaki/kokuho-2025.json
+
 ---
 
 ## Concept
