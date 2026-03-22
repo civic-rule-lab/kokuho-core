@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Civic Rule Lab | 茅ヶ崎市 国保計算</title>
+  <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">自治体制度の計算ツール</div>
+    <h1>Civic Rule Lab</h1>
+    <div class="subtitle">茅ヶ崎市 国保計算</div>
 
+    <div class="card">
+      <label for="income">前年所得（円）</label>
+      <input id="income" type="text" inputmode="numeric" placeholder="例：2,000,000">
+
+      <label for="family">世帯人数</label>
+      <input id="family" type="number" inputmode="numeric" placeholder="例：3">
+
+      <label for="preschool">未就学児人数</label>
+      <input id="preschool" type="number" inputmode="numeric" placeholder="例：1">
+
+      <label for="care">介護保険人数（40〜64歳）</label>
+      <input id="care" type="number" inputmode="numeric" placeholder="例：1">
+
+      <label for="salaryPensionCount">給与・年金所得者数</label>
+      <input id="salaryPensionCount" type="number" inputmode="numeric" placeholder="例：1">
+
+      <button type="button" onclick="calc()">計算する</button>
+    </div>
+
+    <div id="result" class="result card"></div>
+
+    <div class="links">
+      <a class="back-link" href="../index.html">制度ポータルへ戻る</a>
+      <a class="back-link" href="./kokuho-income.html">所得計算ページへ</a>
+    </div>
+
+    <div class="note">
+      このページは茅ヶ崎市の国民健康保険料の概算を確認するための簡易計算ページです。<br>
+      実際の賦課額は自治体の決定額と異なる場合があります。
+    </div>
+  </div>
+
+  <script src="./js/engine.js"></script>
+</body>
+</html>
