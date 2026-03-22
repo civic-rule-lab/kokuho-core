@@ -311,9 +311,12 @@ color:#3b4cca;
 font-size:15px;
 text-decoration:underline;
 }
-.current-select{
-  background:none;
-  border:none;
+.current-select {
+  background: none;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 12px;
 }
 .action-box{
   background:#eef4ff;
@@ -324,6 +327,8 @@ text-decoration:underline;
 }
 
 .action-box .current-select{
+  background:none;
+  border:none;
   margin-top:0;
 }
 
