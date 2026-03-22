@@ -1,5 +1,6 @@
 console.log("selector.js loaded")
-  const registry = {
+
+const registry = {
   kanagawa: {
     name: "神奈川県",
     municipalities: {
@@ -17,6 +18,7 @@ console.log("selector.js loaded")
                 name: "所得ベース計算",
                 url: "./kokuho-income.html"
               }
+            }
           }
         }
       }
@@ -25,28 +27,25 @@ console.log("selector.js loaded")
 };
 
 function updateCurrent() {
+  const prefecture = document.getElementById("prefecture").value
+  const municipality = document.getElementById("municipality").value
+  const system = document.getElementById("system").value
+  const pageType = document.getElementById("pageType").value
 
-  const prefecture = document.getElementById("prefecture").value;
-  const municipality = document.getElementById("municipality").value;
-  const system = document.getElementById("system").value;
-  const pageType = document.getElementById("pageType").value;
-
-  const prefectureName = registry[prefecture].name;
-  const municipalityName = registry[prefecture].municipalities[municipality].name;
-  const systemName = registry[prefecture].municipalities[municipality].systems[system].name;
-  const pageName = registry[prefecture].municipalities[municipality].systems[system].pages[pageType].name;
+  const prefectureName = registry[prefecture].name
+  const municipalityName = registry[prefecture].municipalities[municipality].name
+  const systemName = registry[prefecture].municipalities[municipality].systems[system].name
+  const pageName = registry[prefecture].municipalities[municipality].systems[system].pages[pageType].name
 
   document.getElementById("currentSelect").textContent =
-    `${prefectureName} / ${municipalityName} / ${systemName} / ${pageName}`;
-
+    `${municipalityName} / ${systemName} / ${pageName}`
 }
 
-function goPage(){
-
-  const prefecture = document.getElementById("prefecture").value;
-  const municipality = document.getElementById("municipality").value;
-  const system = document.getElementById("system").value;
-  const pageType = document.getElementById("pageType").value;
+function goPage() {
+  const prefecture = document.getElementById("prefecture").value
+  const municipality = document.getElementById("municipality").value
+  const system = document.getElementById("system").value
+  const pageType = document.getElementById("pageType").value
 
   const url =
     registry[prefecture]
@@ -56,11 +55,4 @@ function goPage(){
       .url;
 
   window.location.href = url;
-
-}
-function openSelectedPage() {
-  const municipality = document.getElementById("municipality").value;
-  const page = document.getElementById("pageType").value;
-
-  window.location.href = `./${page}.html?city=${municipality}`;
 }
