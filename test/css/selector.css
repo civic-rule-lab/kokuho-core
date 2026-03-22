@@ -342,3 +342,10 @@ text-decoration:underline;
   font-weight:700;
   cursor:pointer;
 }
+.action-box .current-select{
+  background:#eaf3ff !important;
+  border-radius:12px;
+  padding:16px;
+  margin-top:0;
+  margin-bottom:16px;
+}
