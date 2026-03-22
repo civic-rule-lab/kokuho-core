@@ -28,3 +28,30 @@ test/chigasaki-kokuho.html
 test/js/engine.js
 ↓
 test/data/municipalities/chigasaki/kokuho-2025.json
+---
+
+## Concept
+
+- Municipality-based rule engine
+- Transparent calculation logic
+- Expandable to all 1700 municipalities in Japan
+
+---
+
+## Future Plan
+
+- Add more municipalities
+- Add more systems (tax, pension, etc.)
+- Build Civic Rule Lab system
+
+---
+
+## Live Site
+
+https://kokuho-keisan.jp/
+
+---
+
+## Author
+
+Civic Rule Lab
