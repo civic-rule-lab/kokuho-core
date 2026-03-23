@@ -156,8 +156,10 @@ box-shadow:0 0 0 3px rgba(37,99,235,0.15);
 .current-select{
 margin-top:18px;
 padding:10px 12px;
-background:#f1f5f9;
-border:1px solid #e2e8f0;
+.current-select{
+  background:none;
+  border:none;
+}
 border-radius:10px;
 font-size:14px;
 line-height:1.6;
