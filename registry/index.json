@@ -6,6 +6,13 @@
       "cityName": "茅ヶ崎市",
       "prefecture": "神奈川県",
       "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "14205",
+      "citySlug": "fujisawa",
+      "cityName": "藤沢市",
+      "prefecture": "神奈川県",
+      "systems": ["kokuho"]
     }
   ]
 }
