@@ -279,13 +279,12 @@ font-size:15px;
 text-decoration:underline;
 }
 .current-select {
-  margin-top:18px;
-  padding:10px 12px;
-  background:#f1f5f9;
-  border:1px solid #e2e8f0;
-  border-radius:10px;
+  margin:0;
+  padding:0;
+  background:none;
+  border:none;
+  border-radius:0;
   font-size:14px;
   line-height:1.6;
   color:#475569;
-  word-break:break-word;
 }
