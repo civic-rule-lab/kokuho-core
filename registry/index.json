@@ -1,1 +1,11 @@
-
+{
+  "municipalities": [
+    {
+      "cityCode": "14207",
+      "citySlug": "chigasaki",
+      "cityName": "茅ヶ崎市",
+      "prefecture": "神奈川県",
+      "systems": ["kokuho"]
+    }
+  ]
+}
