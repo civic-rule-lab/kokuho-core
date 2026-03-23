@@ -153,13 +153,7 @@ border-color:#2563eb;
 box-shadow:0 0 0 3px rgba(37,99,235,0.15);
 }
 
-.current-select{
-margin-top:18px;
-padding:10px 12px;
-.current-select{
-  background:none;
-  border:none;
-}
+
 border-radius:10px;
 font-size:14px;
 line-height:1.6;
