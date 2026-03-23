@@ -318,37 +318,3 @@ text-decoration:underline;
   border-radius: 12px;
   margin-top: 12px;
 }
-.action-box{
-  background:#eef4ff;
-  border:1px solid #dbe6f6;
-  border-radius:18px;
-  padding:18px;
-  margin-top:16px;
-}
-
-.action-box .current-select{
-  background:none;
-  border:none;
-  margin-top:0;
-}
-
-.open-page-btn{
-  display:block;
-  width:100%;
-  margin-top:16px;
-  padding:18px 20px;
-  border:none;
-  border-radius:999px;
-  background:#2f56e0;
-  color:#fff;
-  font-size:20px;
-  font-weight:700;
-  cursor:pointer;
-}
-.action-box .current-select{
-  background:#eaf3ff !important;
-  border-radius:12px;
-  padding:16px;
-  margin-top:0;
-  margin-bottom:16px;
-}
