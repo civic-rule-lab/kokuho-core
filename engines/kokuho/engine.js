@@ -14,9 +14,9 @@ async function calc() {
       Number(document.getElementById("salaryPensionCount")?.value || 1);
 
     const params = new URLSearchParams(location.search);
-    const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
+    const city = params.get("city") || "chigasaki";
 
-    const response = await fetch(`/data/municipalities/${city}/kokuho-2025.json`);
+    const response = await fetch(`./data/municipalities/${city}/kokuho-2025.json`);
     if (!response.ok) {
       throw new Error("JSON読み込み失敗");
     }
@@ -25,18 +25,22 @@ async function calc() {
 
     const baseIncome = Math.max(income - data.basicDeduction, 0);
 
+    // 所得割
     const medicalIncome = Math.round(baseIncome * data.rate.medical);
     const supportIncome = Math.round(baseIncome * data.rate.support);
     const careIncome = Math.round(baseIncome * data.rate.care);
 
+    // 均等割
     const medicalPerCapita = family * data.perCapita.medical;
     const supportPerCapita = family * data.perCapita.support;
     const carePerCapita = care * data.perCapita.care;
 
+    // 平等割
     const medicalHousehold = data.household?.medical || 0;
     const supportHousehold = data.household?.support || 0;
     const careHousehold = care > 0 ? (data.household?.care || 0) : 0;
 
+    // 未就学児軽減（均等割の医療分・支援分のみ）
     const preschoolReductionMedical = Math.round(
       preschool * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
     );
@@ -45,24 +49,25 @@ async function calc() {
     );
     const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
 
+    // 軽減判定
     const B = Math.max(salaryPensionCount, 1);
     const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
-    const extraForIncomeEarners = salaryPensionAdd * (B - 1);
+const extraForIncomeEarners = salaryPensionAdd * (B - 1);
 
     const sevenTenthsLimit =
-      (data.reduction?.standards?.sevenTenths?.base || 0) +
-      ((data.reduction?.standards?.sevenTenths?.perPersonAdd || 0) * family) +
-      extraForIncomeEarners;
+  (data.reduction?.standards?.sevenTenths?.base || 0) +
+  ((data.reduction?.standards?.sevenTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
 
-    const fiveTenthsLimit =
-      (data.reduction?.standards?.fiveTenths?.base || 0) +
-      ((data.reduction?.standards?.fiveTenths?.perPersonAdd || 0) * family) +
-      extraForIncomeEarners;
+const fiveTenthsLimit =
+  (data.reduction?.standards?.fiveTenths?.base || 0) +
+  ((data.reduction?.standards?.fiveTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
 
-    const twoTenthsLimit =
-      (data.reduction?.standards?.twoTenths?.base || 0) +
-      ((data.reduction?.standards?.twoTenths?.perPersonAdd || 0) * family) +
-      extraForIncomeEarners;
+const twoTenthsLimit =
+  (data.reduction?.standards?.twoTenths?.base || 0) +
+  ((data.reduction?.standards?.twoTenths?.perPersonAdd || 0) * family) +
+  extraForIncomeEarners;
 
     let reductionLabel = "軽減なし";
     let reductionRate = 0;
@@ -78,6 +83,7 @@ async function calc() {
       reductionRate = data.reduction?.ratios?.twoTenths || 0;
     }
 
+    // 軽減は均等割・平等割に適用
     const medicalReductionBase = medicalPerCapita + medicalHousehold;
     const supportReductionBase = supportPerCapita + supportHousehold;
     const careReductionBase = carePerCapita + careHousehold;
@@ -86,10 +92,13 @@ async function calc() {
     const supportReduction = Math.round(supportReductionBase * reductionRate);
     const careReduction = Math.round(careReductionBase * reductionRate);
 
+    // 区分別合計
     let medicalTotal =
       medicalIncome + medicalPerCapita + medicalHousehold - preschoolReductionMedical - medicalReduction;
+
     let supportTotal =
       supportIncome + supportPerCapita + supportHousehold - preschoolReductionSupport - supportReduction;
+
     let careTotal =
       careIncome + carePerCapita + careHousehold - careReduction;
 
@@ -97,6 +106,7 @@ async function calc() {
     supportTotal = Math.max(supportTotal, 0);
     careTotal = Math.max(careTotal, 0);
 
+    // 限度額
     medicalTotal = Math.min(medicalTotal, data.caps.medical);
     supportTotal = Math.min(supportTotal, data.caps.support);
     careTotal = Math.min(careTotal, data.caps.care);
@@ -113,7 +123,7 @@ async function calc() {
       '<div class="result-row"><div class="result-label">法定軽減</div><div class="amount">-' + totalReduction.toLocaleString() + ' 円</div></div>' +
       '<div class="result-row"><div class="result-label">軽減判定</div><div class="amount">' + reductionLabel + '</div></div>' +
       '<div class="result-row"><div class="result-label">年間保険料（概算）</div><div class="amount">約 ' + total.toLocaleString() + ' 円</div></div>' +
-      '<div class="result-row"><div class="result-label">月額目安</div><div class="amount">約 ' + monthly.toLocaleString() + ' 円</div></div>';
+　　　　'<div class="result-row"><div class="result-label">月額目安</div><div class="amount">約 ' + monthly.toLocaleString() + ' 円</div></div>';
 
   } catch (error) {
     result.innerHTML =
