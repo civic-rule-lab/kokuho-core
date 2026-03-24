@@ -22,7 +22,7 @@
 <div class="mode-title">簡単計算</div>
 
   <label for="income">前年所得</label>
-  <input id="income" type="text" inputmode="numeric" placeholder="例：3,000,000" onblur="formatNumber(this)" oncompositionend="formatNumber(this)">
+  <input id="income" type="text" inputmode="numeric" placeholder="例：3,000,000" oninput="if(!event.isComposing){formatNumber(this)}" onblur="formatNumber(this)">
 
   <label for="family">世帯人数</label>
   <input id="family" type="number" placeholder="例：3">
