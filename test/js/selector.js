@@ -21,6 +21,24 @@ const registry = {
             }
           }
         }
+      },
+      fujisawa: {
+        name: "藤沢市",
+        systems: {
+          kokuho: {
+            name: "国民健康保険",
+            pages: {
+              simple: {
+                name: "かんたん計算",
+                url: "./fujisawa-kokuho.html"
+              },
+              income: {
+                name: "所得ベース計算",
+                url: "./kokuho-income.html"
+              }
+            }
+          }
+        }
       }
     }
   }
