@@ -24,6 +24,22 @@ body{
   box-shadow:none;
 }
 
+.brand{
+  font-size:20px;
+  font-weight:700;
+  color:#7fd4e6;
+  text-align:center;
+  margin-bottom:2px;
+}
+
+.tagline{
+  font-size:14px;
+  font-weight:500;
+  color:#7fd4e6;
+  text-align:center;
+  margin-bottom:16px;
+}
+
 h1{
   font-size:30px;
   margin:0 0 6px 0;
