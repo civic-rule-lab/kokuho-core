@@ -13,10 +13,8 @@ async function calc() {
   const result = document.getElementById("result");
 
   try {
-    const incomeInput = document.getElementById("income");
-    formatNumber(incomeInput);
     const income =
-      Number(toHalfWidth(incomeInput.value || "").replace(/[^\d]/g, "")) || 0;
+      Number(toHalfWidth(document.getElementById("income").value || "").replace(/[^\d]/g, "")) || 0;
     const family =
       Number(toHalfWidth(document.getElementById("family").value || "0")) || 0;
     const preschool =
