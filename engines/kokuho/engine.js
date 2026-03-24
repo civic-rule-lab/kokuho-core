@@ -14,9 +14,9 @@ async function calc() {
       Number(document.getElementById("salaryPensionCount")?.value || 1);
 
     const params = new URLSearchParams(location.search);
-    const city = params.get("city") || "chigasaki";
+    const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
 
-    const response = await fetch(`./data/municipalities/${city}/kokuho-2025.json`);
+    const response = await fetch(`/data/municipalities/${city}/kokuho-2025.json`);
     if (!response.ok) {
       throw new Error("JSON読み込み失敗");
     }
