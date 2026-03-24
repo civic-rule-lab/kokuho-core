@@ -1,17 +1,30 @@
+function toHalfWidth(str) {
+  return String(str)
+    .replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
+    .replace(/[，、,]/g, "");
+}
+
+function formatNumber(input) {
+  const raw = toHalfWidth(input.value).replace(/[^\d]/g, "");
+  if (raw) {
+    input.value = Number(raw).toLocaleString("ja-JP");
+  }
+}
+
 async function calc() {
   const result = document.getElementById("result");
 
   try {
     const income =
-      Number((document.getElementById("income").value || "").replace(/,/g, "")) || 0;
+      Number(toHalfWidth(document.getElementById("income").value || "").replace(/[^\d]/g, "")) || 0;
     const family =
-      Number(document.getElementById("family").value || 0);
+      Number(toHalfWidth(document.getElementById("family").value || "0")) || 0;
     const preschool =
-      Number(document.getElementById("preschool").value || 0);
+      Number(toHalfWidth(document.getElementById("preschool").value || "0")) || 0;
     const care =
-      Number(document.getElementById("care").value || 0);
+      Number(toHalfWidth(document.getElementById("care").value || "0")) || 0;
     const salaryPensionCount =
-      Number(document.getElementById("salaryPensionCount")?.value || 1);
+      Number(toHalfWidth(document.getElementById("salaryPensionCount")?.value || "1")) || 1;
 
     const params = new URLSearchParams(location.search);
     const city = params.get("city") || "chigasaki";
