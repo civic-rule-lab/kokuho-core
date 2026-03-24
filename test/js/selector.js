@@ -44,20 +44,10 @@ const registry = {
   }
 };
 
-function updateCurrent() {
-  const prefecture = document.getElementById("prefecture").value
-  const municipality = document.getElementById("municipality").value
-  const system = document.getElementById("system").value
-  const pageType = document.getElementById("pageType").value
-
-  const prefectureName = registry[prefecture].name
-  const municipalityName = registry[prefecture].municipalities[municipality].name
-  const systemName = registry[prefecture].municipalities[municipality].systems[system].name
-  const pageName = registry[prefecture].municipalities[municipality].systems[system].pages[pageType].name
-
-  document.getElementById("currentSelect").textContent =
-    `${municipalityName} / ${systemName} / ${pageName}`
-}
+function updateCurrent() {}
+function updateSystems() {}
+function updatePages() {}
+function updateMunicipalities() {}
 
 function goPage() {
   const prefecture = document.getElementById("prefecture").value
