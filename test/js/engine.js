@@ -6,17 +6,17 @@ function toHalfWidth(str) {
 
 function formatNumber(input) {
   const raw = toHalfWidth(input.value).replace(/[^\d]/g, "");
-  if (raw) {
-    input.value = Number(raw).toLocaleString("ja-JP");
-  }
+  input.value = raw ? Number(raw).toLocaleString("ja-JP") : "";
 }
 
 async function calc() {
   const result = document.getElementById("result");
 
   try {
+    const incomeInput = document.getElementById("income");
+    formatNumber(incomeInput);
     const income =
-      Number(toHalfWidth(document.getElementById("income").value || "").replace(/[^\d]/g, "")) || 0;
+      Number(toHalfWidth(incomeInput.value || "").replace(/[^\d]/g, "")) || 0;
     const family =
       Number(toHalfWidth(document.getElementById("family").value || "0")) || 0;
     const preschool =
