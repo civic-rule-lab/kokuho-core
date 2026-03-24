@@ -1,6 +1,13 @@
 {
   "municipalities": [
     {
+      "cityCode": "14100",
+      "citySlug": "yokohama",
+      "cityName": "横浜市",
+      "prefecture": "神奈川県",
+      "systems": ["kokuho"]
+    },
+    {
       "cityCode": "14207",
       "citySlug": "chigasaki",
       "cityName": "茅ヶ崎市",
