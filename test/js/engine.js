@@ -144,3 +144,15 @@ const twoTenthsLimit =
 }
 
 window.calc = calc;
+
+(function() {
+  const income = document.getElementById('income');
+  if (!income) return;
+  income.addEventListener('compositionend', function() {
+    const el = this;
+    setTimeout(function() { formatNumber(el); }, 0);
+  });
+  income.addEventListener('blur', function() {
+    formatNumber(this);
+  });
+})();
