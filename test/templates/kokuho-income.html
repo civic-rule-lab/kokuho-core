@@ -1,17 +1,30 @@
 <!DOCTYPE html>
+<!--
+  ================================================================
+  テンプレート: 所得ベース計算ページ
+  生成スクリプト: scripts/generate-city-pages.js
+
+  ▼ 自治体追加時に変更する箇所（__で囲まれた部分のみ）
+    __CITY_SLUG__   → 自治体スラグ（例: hiratsuka）
+    __CITY_NAME__   → 自治体名（例: 平塚市）
+
+  ▼ 変更不要な箇所
+    レイアウト・CSS・エンジン・注記・Civic Rule Lab表記
+  ================================================================
+-->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/common.css?v=2">
-<title>国民健康保険料計算｜茅ヶ崎市 所得ベース計算</title>
+<link rel="stylesheet" href="../css/common.css?v=2">
+<title>国民健康保険料計算｜__CITY_NAME__ 所得ベース計算</title>
 </head>
 
 <body>
 
 <div class="wrap">
 
-  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">茅ヶ崎市 国保計算ツール</h1>
+  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">__CITY_NAME__ 国保計算ツール</h1>
 
   <div class="subtitle" style="margin-bottom:32px;">国民健康保険料シミュレーション</div>
 
@@ -38,11 +51,11 @@
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
   <div style="margin-top:16px;font-size:14px;color:#374151;">
-    <a href="./chigasaki-kokuho.html">← かんたん計算に戻る</a>
+    <a href="./__CITY_SLUG__-kokuho.html">← かんたん計算に戻る</a>
   </div>
 
   <div class="back-link" style="margin-top:20px;">
-    <a href="./selector.html">制度ポータルへ戻る</a>
+    <a href="../selector.html">制度ポータルへ戻る</a>
   </div>
 
   <div class="note">
@@ -60,8 +73,8 @@
 
 </div>
 
-<script>const CITY_SLUG = "chigasaki";</script>
-<script src="./js/engine.js?v=2"></script>
+<script>const CITY_SLUG = "__CITY_SLUG__";</script>
+<script src="../js/engine.js?v=2"></script>
 
 </body>
 </html>
