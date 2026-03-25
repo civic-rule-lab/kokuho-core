@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 0.0578,
+    "support": 0.0255,
+    "care": 0.0202
   },
   "perCapita": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 25300,
+    "support": 10900,
+    "care": 10700
   },
   "household": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 20000,
+    "support": 8300,
+    "care": 6000
   },
   "caps": {
     "medical": 660000,
@@ -53,5 +53,5 @@
       "twoTenths": 0.2
     }
   },
-  "_status": "TODO: 公式サイトで料率を確認して更新してください。"
+  "_source": "hayama official"
 }

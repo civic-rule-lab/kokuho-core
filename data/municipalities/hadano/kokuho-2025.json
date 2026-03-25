@@ -7,19 +7,19 @@
   "note": "国民健康保険税方式",
   "basicDeduction": 430000,
   "rate": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 0.0724,
+    "support": 0.0284,
+    "care": 0.0285
   },
   "perCapita": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 25100,
+    "support": 9200,
+    "care": 10600
   },
   "household": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 22500,
+    "support": 8100,
+    "care": 6100
   },
   "caps": {
     "medical": 660000,
@@ -54,5 +54,5 @@
       "twoTenths": 0.2
     }
   },
-  "_status": "TODO: 公式サイトで料率を確認して更新してください。"
+  "_source": "hadano official"
 }
