@@ -1,5 +1,3 @@
-console.log("selector.js loaded")
-
 const registry = {
   kanagawa: {
     name: "神奈川県",
@@ -10,14 +8,8 @@ const registry = {
           kokuho: {
             name: "国民健康保険",
             pages: {
-              simple: {
-                name: "かんたん計算",
-                url: "./chigasaki-kokuho.html"
-              },
-              income: {
-                name: "所得ベース計算",
-                url: "./kokuho-income.html"
-              }
+              simple: { name: "かんたん計算",   url: "./chigasaki-kokuho.html" },
+              income: { name: "所得ベース計算", url: "./kokuho-income.html" }
             }
           }
         }
@@ -28,14 +20,20 @@ const registry = {
           kokuho: {
             name: "国民健康保険",
             pages: {
-              simple: {
-                name: "かんたん計算",
-                url: "./fujisawa-kokuho.html"
-              },
-              income: {
-                name: "所得ベース計算",
-                url: "./kokuho-income.html"
-              }
+              simple: { name: "かんたん計算",   url: "./fujisawa-kokuho.html" },
+              income: { name: "所得ベース計算", url: "./fujisawa-kokuho-income.html" }
+            }
+          }
+        }
+      },
+      hiratsuka: {
+        name: "平塚市",
+        systems: {
+          kokuho: {
+            name: "国民健康保険",
+            pages: {
+              simple: { name: "かんたん計算",   url: "./hiratsuka-kokuho.html" },
+              income: { name: "所得ベース計算", url: "./hiratsuka-kokuho-income.html" }
             }
           }
         }
@@ -50,17 +48,21 @@ function updatePages() {}
 function updateMunicipalities() {}
 
 function goPage() {
-  const prefecture = document.getElementById("prefecture").value
-  const municipality = document.getElementById("municipality").value
-  const system = document.getElementById("system").value
-  const pageType = document.getElementById("pageType").value
+  const prefecture  = document.getElementById("prefecture").value;
+  const municipality = document.getElementById("municipality").value;
+  const system      = document.getElementById("system").value;
+  const pageType    = document.getElementById("pageType").value;
 
   const url =
     registry[prefecture]
-      .municipalities[municipality]
-      .systems[system]
-      .pages[pageType]
-      .url;
+      ?.municipalities[municipality]
+      ?.systems[system]
+      ?.pages[pageType]
+      ?.url;
 
-  window.location.href = url;
+  if (url) {
+    window.location.href = url;
+  } else {
+    alert("ページが見つかりませんでした。");
+  }
 }

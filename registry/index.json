@@ -20,6 +20,13 @@
       "cityName": "藤沢市",
       "prefecture": "神奈川県",
       "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "14203",
+      "citySlug": "hiratsuka",
+      "cityName": "平塚市",
+      "prefecture": "神奈川県",
+      "systems": ["kokuho"]
     }
   ]
 }

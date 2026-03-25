@@ -5,8 +5,8 @@
   生成スクリプト: scripts/generate-city-pages.js
 
   ▼ 自治体追加時に変更する箇所（__で囲まれた部分のみ）
-    __CITY_SLUG__   → 自治体スラグ（例: hiratsuka）
-    __CITY_NAME__   → 自治体名（例: 平塚市）
+    hiratsuka   → 自治体スラグ（例: hiratsuka）
+    平塚市   → 自治体名（例: 平塚市）
 
   ▼ 変更不要な箇所
     レイアウト・CSS・エンジン・注記・Civic Rule Lab表記
@@ -17,14 +17,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/common.css?v=2">
-<title>国民健康保険料計算｜__CITY_NAME__ 国保計算ツール</title>
+<title>国民健康保険料計算｜平塚市 国保計算ツール</title>
 </head>
 
 <body>
 
 <div class="wrap">
 
-  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">__CITY_NAME__ 国保計算ツール</h1>
+  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">平塚市 国保計算ツール</h1>
 
   <div class="subtitle" style="margin-bottom:32px;">国民健康保険料シミュレーション</div>
 
@@ -43,7 +43,7 @@
 
   <div style="margin-top:16px;font-size:14px;color:#374151;">
     未就学児・介護・給与年金人数も含めて計算したい方は
-    <a href="./__CITY_SLUG__-kokuho-income.html">所得ベース計算へ</a>
+    <a href="./hiratsuka-kokuho-income.html">所得ベース計算へ</a>
   </div>
 
   <div class="back-link" style="margin-top:20px;">
@@ -66,7 +66,7 @@
 
 </div>
 
-<script>const CITY_SLUG = "__CITY_SLUG__";</script>
+<script>const CITY_SLUG = "hiratsuka";</script>
 <script src="./js/engine.js?v=2"></script>
 
 </body>
