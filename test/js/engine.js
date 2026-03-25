@@ -18,9 +18,9 @@ async function calc() {
     const family =
       Number(toHalfWidth(document.getElementById("family").value || "0")) || 0;
     const preschool =
-      Number(toHalfWidth(document.getElementById("preschool").value || "0")) || 0;
+      Number(toHalfWidth(document.getElementById("preschool")?.value || "0")) || 0;
     const care =
-      Number(toHalfWidth(document.getElementById("care").value || "0")) || 0;
+      Number(toHalfWidth(document.getElementById("care")?.value || "0")) || 0;
     const salaryPensionCount =
       Number(toHalfWidth(document.getElementById("salaryPensionCount")?.value || "1")) || 1;
 
