@@ -27,7 +27,7 @@ async function calc() {
     const params = new URLSearchParams(location.search);
     const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
 
-    const response = await fetch(`./data/municipalities/${city}/kokuho-2025.json`);
+    const response = await fetch(`./data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("JSON読み込み失敗");
     }
