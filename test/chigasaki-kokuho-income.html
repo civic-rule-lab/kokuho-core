@@ -1,30 +1,17 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  テンプレート: 所得ベース計算ページ
-  生成スクリプト: scripts/generate-city-pages.js
-
-  ▼ 自治体追加時に変更する箇所（__で囲まれた部分のみ）
-    yamakita   → 自治体スラグ（例: hiratsuka）
-    山北町   → 自治体名（例: 平塚市）
-
-  ▼ 変更不要な箇所
-    レイアウト・CSS・エンジン・注記・Civic Rule Lab表記
-  ================================================================
--->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/common.css?v=2">
-<title>国民健康保険料計算｜山北町 所得ベース計算</title>
+<title>国民健康保険料計算｜茅ヶ崎市 所得ベース計算</title>
 </head>
 
 <body>
 
 <div class="wrap">
 
-  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">山北町 国保計算ツール</h1>
+  <h1 style="margin-top:32px;margin-bottom:16px;font-size:clamp(28px,5vw,35px);">茅ヶ崎市 国保計算ツール</h1>
 
   <div class="subtitle" style="margin-bottom:32px;">国民健康保険料シミュレーション</div>
 
@@ -51,7 +38,7 @@
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
   <div style="margin-top:16px;font-size:14px;color:#374151;">
-    <a href="./yamakita-kokuho.html">← かんたん計算に戻る</a>
+    <a href="./chigasaki-kokuho.html">← かんたん計算に戻る</a>
   </div>
 
   <div class="back-link" style="margin-top:20px;">
@@ -61,7 +48,6 @@
   <div class="note">
     ※基礎控除43万円を差し引いた簡易計算です。<br>
     ※軽減判定は目安です。正式な判定ではありません。<br>
-    ※山北町は資産割（固定資産税額に応じた保険料）があります。この計算ツールは資産割を含まないため、実際の保険料より低く表示される場合があります。<br>
     ※実際の保険料は自治体の通知や公式案内でご確認ください。
   </div>
 
@@ -74,7 +60,7 @@
 
 </div>
 
-<script>const CITY_SLUG = "yamakita";</script>
+<script>const CITY_SLUG = "chigasaki";</script>
 <script src="./js/engine.js?v=2"></script>
 
 </body>
