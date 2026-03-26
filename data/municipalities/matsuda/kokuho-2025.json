@@ -11,14 +11,14 @@
     "care": 0.0199
   },
   "perCapita": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
+    "medical": 27500,
+    "support": 10000,
+    "care": 11000
   },
   "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
+    "medical": 26800,
+    "support": 6870,
+    "care": 7800
   },
   "caps": {
     "medical": 660000,
@@ -53,6 +53,5 @@
       "twoTenths": 0.2
     }
   },
-  "_note": "R3年度データ。均等割・平等割は公式サイト未掲載のため0",
-  "_source": "matsuda official"
+  "_source": "https://www1.g-reiki.net/town.matsuda.kanagawa/reiki_honbun/g227RG00000326.html"
 }
