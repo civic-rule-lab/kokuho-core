@@ -34,12 +34,6 @@ async function calc() {
 
     const data = await response.json();
 
-    // 資産割入力欄の表示制御
-    if (data.assetLevy) {
-      const group = document.getElementById("assetLevyGroup");
-      if (group) group.style.display = "";
-    }
-
     const fixedAssetTax =
       Number(toHalfWidth(document.getElementById("fixedAssetTax")?.value || "0").replace(/[^\d]/g, "")) || 0;
     const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.medical) : 0;
@@ -169,4 +163,19 @@ window.calc = calc;
   income.addEventListener('blur', function() {
     formatNumber(this);
   });
+})();
+
+// ページ読み込み時に資産割入力欄を表示制御
+(async function() {
+  try {
+    const params = new URLSearchParams(location.search);
+    const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
+    const res = await fetch(`./data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.assetLevy) {
+      const group = document.getElementById("assetLevyGroup");
+      if (group) group.style.display = "";
+    }
+  } catch (e) {}
 })();
