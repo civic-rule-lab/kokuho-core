@@ -27,7 +27,7 @@ async function calc() {
     const params = new URLSearchParams(location.search);
     const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
 
-    const response = await fetch(`./data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
+    const response = await fetch(`../data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("JSON読み込み失敗");
     }
@@ -170,7 +170,7 @@ window.calc = calc;
   try {
     const params = new URLSearchParams(location.search);
     const city = (typeof CITY_SLUG !== "undefined" ? CITY_SLUG : null) || params.get("city") || "chigasaki";
-    const res = await fetch(`./data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
+    const res = await fetch(`../data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
     if (!res.ok) return;
     const data = await res.json();
     if (data.assetLevy) {
