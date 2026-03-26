@@ -1,37 +1,994 @@
 {
   "municipalities": [
-    { "cityCode": "14100", "citySlug": "yokohama",        "cityName": "横浜市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14130", "citySlug": "kawasaki",        "cityName": "川崎市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14150", "citySlug": "sagamihara",      "cityName": "相模原市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14201", "citySlug": "yokosuka",        "cityName": "横須賀市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14203", "citySlug": "hiratsuka",       "cityName": "平塚市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14204", "citySlug": "kamakura",        "cityName": "鎌倉市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14205", "citySlug": "fujisawa",        "cityName": "藤沢市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14206", "citySlug": "odawara",         "cityName": "小田原市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14207", "citySlug": "chigasaki",       "cityName": "茅ヶ崎市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14208", "citySlug": "zushi",           "cityName": "逗子市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14210", "citySlug": "miura",           "cityName": "三浦市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14211", "citySlug": "hadano",          "cityName": "秦野市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14212", "citySlug": "atsugi",          "cityName": "厚木市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14213", "citySlug": "yamato",          "cityName": "大和市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14214", "citySlug": "isehara",         "cityName": "伊勢原市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14215", "citySlug": "ebina",           "cityName": "海老名市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14216", "citySlug": "zama",            "cityName": "座間市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14217", "citySlug": "minamiashigara",  "cityName": "南足柄市", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14218", "citySlug": "ayase",           "cityName": "綾瀬市",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14301", "citySlug": "hayama",          "cityName": "葉山町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14321", "citySlug": "samukawa",        "cityName": "寒川町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14341", "citySlug": "oiso",            "cityName": "大磯町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14342", "citySlug": "ninomiya",        "cityName": "二宮町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14361", "citySlug": "nakai",           "cityName": "中井町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14362", "citySlug": "oi",              "cityName": "大井町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14363", "citySlug": "matsuda",         "cityName": "松田町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14364", "citySlug": "yamakita",        "cityName": "山北町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14366", "citySlug": "kaisei",          "cityName": "開成町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14382", "citySlug": "hakone",          "cityName": "箱根町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14383", "citySlug": "manazuru",        "cityName": "真鶴町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14384", "citySlug": "yugawara",        "cityName": "湯河原町", "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14401", "citySlug": "aikawa",          "cityName": "愛川町",   "prefecture": "神奈川県", "systems": ["kokuho"] },
-    { "cityCode": "14402", "citySlug": "kiyokawa",        "cityName": "清川村",   "prefecture": "神奈川県", "systems": ["kokuho"] }
+    {
+      "cityCode": "14100",
+      "citySlug": "yokohama",
+      "cityName": "横浜市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14130",
+      "citySlug": "kawasaki",
+      "cityName": "川崎市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14150",
+      "citySlug": "sagamihara",
+      "cityName": "相模原市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14201",
+      "citySlug": "yokosuka",
+      "cityName": "横須賀市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14203",
+      "citySlug": "hiratsuka",
+      "cityName": "平塚市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14204",
+      "citySlug": "kamakura",
+      "cityName": "鎌倉市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14205",
+      "citySlug": "fujisawa",
+      "cityName": "藤沢市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14206",
+      "citySlug": "odawara",
+      "cityName": "小田原市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14207",
+      "citySlug": "chigasaki",
+      "cityName": "茅ヶ崎市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14208",
+      "citySlug": "zushi",
+      "cityName": "逗子市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14210",
+      "citySlug": "miura",
+      "cityName": "三浦市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14211",
+      "citySlug": "hadano",
+      "cityName": "秦野市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14212",
+      "citySlug": "atsugi",
+      "cityName": "厚木市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14213",
+      "citySlug": "yamato",
+      "cityName": "大和市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14214",
+      "citySlug": "isehara",
+      "cityName": "伊勢原市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14215",
+      "citySlug": "ebina",
+      "cityName": "海老名市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14216",
+      "citySlug": "zama",
+      "cityName": "座間市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14217",
+      "citySlug": "minamiashigara",
+      "cityName": "南足柄市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14218",
+      "citySlug": "ayase",
+      "cityName": "綾瀬市",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14301",
+      "citySlug": "hayama",
+      "cityName": "葉山町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14321",
+      "citySlug": "samukawa",
+      "cityName": "寒川町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14341",
+      "citySlug": "oiso",
+      "cityName": "大磯町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14342",
+      "citySlug": "ninomiya",
+      "cityName": "二宮町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14361",
+      "citySlug": "nakai",
+      "cityName": "中井町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14362",
+      "citySlug": "oi",
+      "cityName": "大井町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14363",
+      "citySlug": "matsuda",
+      "cityName": "松田町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14364",
+      "citySlug": "yamakita",
+      "cityName": "山北町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14366",
+      "citySlug": "kaisei",
+      "cityName": "開成町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14382",
+      "citySlug": "hakone",
+      "cityName": "箱根町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14383",
+      "citySlug": "manazuru",
+      "cityName": "真鶴町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14384",
+      "citySlug": "yugawara",
+      "cityName": "湯河原町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14401",
+      "citySlug": "aikawa",
+      "cityName": "愛川町",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "14402",
+      "citySlug": "kiyokawa",
+      "cityName": "清川村",
+      "prefecture": "神奈川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20201",
+      "citySlug": "nagano",
+      "cityName": "長野市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20202",
+      "citySlug": "matsumoto",
+      "cityName": "松本市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20203",
+      "citySlug": "ueda",
+      "cityName": "上田市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20204",
+      "citySlug": "okaya",
+      "cityName": "岡谷市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20205",
+      "citySlug": "iida",
+      "cityName": "飯田市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20206",
+      "citySlug": "suwa",
+      "cityName": "諏訪市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20207",
+      "citySlug": "suzaka",
+      "cityName": "須坂市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20208",
+      "citySlug": "komoro",
+      "cityName": "小諸市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20209",
+      "citySlug": "ina",
+      "cityName": "伊那市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20210",
+      "citySlug": "komagane",
+      "cityName": "駒ヶ根市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20211",
+      "citySlug": "nakano",
+      "cityName": "中野市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20212",
+      "citySlug": "omachi",
+      "cityName": "大町市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20213",
+      "citySlug": "iiyama",
+      "cityName": "飯山市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20214",
+      "citySlug": "chino",
+      "cityName": "茅野市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20215",
+      "citySlug": "shiojiri",
+      "cityName": "塩尻市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20217",
+      "citySlug": "saku",
+      "cityName": "佐久市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20218",
+      "citySlug": "chikuma",
+      "cityName": "千曲市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20219",
+      "citySlug": "tomi",
+      "cityName": "東御市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20220",
+      "citySlug": "azumino",
+      "cityName": "安曇野市",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20303",
+      "citySlug": "koumi",
+      "cityName": "小海町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20304",
+      "citySlug": "kawakami",
+      "cityName": "川上村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20305",
+      "citySlug": "minamimaki",
+      "cityName": "南牧村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20306",
+      "citySlug": "minamiaiki",
+      "cityName": "南相木村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20307",
+      "citySlug": "kitaaiki",
+      "cityName": "北相木村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20309",
+      "citySlug": "sakuho",
+      "cityName": "佐久穂町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20321",
+      "citySlug": "karuizawa",
+      "cityName": "軽井沢町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20323",
+      "citySlug": "miyota",
+      "cityName": "御代田町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20324",
+      "citySlug": "tateshina",
+      "cityName": "立科町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20349",
+      "citySlug": "aoki",
+      "cityName": "青木村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20350",
+      "citySlug": "nagawa",
+      "cityName": "長和町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20361",
+      "citySlug": "shimosuwa",
+      "cityName": "下諏訪町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20362",
+      "citySlug": "fujimi",
+      "cityName": "富士見町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20363",
+      "citySlug": "hara",
+      "cityName": "原村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20382",
+      "citySlug": "tatsuno",
+      "cityName": "辰野町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20383",
+      "citySlug": "minowa",
+      "cityName": "箕輪町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20384",
+      "citySlug": "iijima",
+      "cityName": "飯島町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20385",
+      "citySlug": "minamimino",
+      "cityName": "南箕輪村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20386",
+      "citySlug": "nakagawa",
+      "cityName": "中川村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20388",
+      "citySlug": "miyada",
+      "cityName": "宮田村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20402",
+      "citySlug": "matsukawa",
+      "cityName": "松川町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20403",
+      "citySlug": "takamori",
+      "cityName": "高森町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20404",
+      "citySlug": "anan",
+      "cityName": "阿南町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20407",
+      "citySlug": "achi",
+      "cityName": "阿智村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20409",
+      "citySlug": "hiraya",
+      "cityName": "平谷村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20410",
+      "citySlug": "neba",
+      "cityName": "根羽村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20411",
+      "citySlug": "shimojo",
+      "cityName": "下條村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20412",
+      "citySlug": "uruki",
+      "cityName": "売木村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20413",
+      "citySlug": "tenryu",
+      "cityName": "天龍村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20414",
+      "citySlug": "yasuoka",
+      "cityName": "泰阜村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20415",
+      "citySlug": "takagi",
+      "cityName": "喬木村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20416",
+      "citySlug": "toyooka",
+      "cityName": "豊丘村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20417",
+      "citySlug": "oshika",
+      "cityName": "大鹿村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20422",
+      "citySlug": "agematsu",
+      "cityName": "上松町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20423",
+      "citySlug": "nagiso",
+      "cityName": "南木曽町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20425",
+      "citySlug": "kiso",
+      "cityName": "木祖村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20429",
+      "citySlug": "otaki",
+      "cityName": "王滝村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20430",
+      "citySlug": "okuwamura",
+      "cityName": "大桑村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20432",
+      "citySlug": "kisomachi",
+      "cityName": "木曽町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20446",
+      "citySlug": "omi",
+      "cityName": "麻績村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20448",
+      "citySlug": "ikusaka",
+      "cityName": "生坂村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20450",
+      "citySlug": "yamagata",
+      "cityName": "山形村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20451",
+      "citySlug": "asahi",
+      "cityName": "朝日村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20452",
+      "citySlug": "chikuhoku",
+      "cityName": "筑北村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20481",
+      "citySlug": "ikeda",
+      "cityName": "池田町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20482",
+      "citySlug": "matsukawamura",
+      "cityName": "松川村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20485",
+      "citySlug": "hakuba",
+      "cityName": "白馬村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20486",
+      "citySlug": "otari",
+      "cityName": "小谷村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20521",
+      "citySlug": "sakaki",
+      "cityName": "坂城町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20541",
+      "citySlug": "obuse",
+      "cityName": "小布施町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20543",
+      "citySlug": "takayama",
+      "cityName": "高山村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20561",
+      "citySlug": "yamanouchi",
+      "cityName": "山ノ内町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20562",
+      "citySlug": "kijimadaira",
+      "cityName": "木島平村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20563",
+      "citySlug": "nozawaonsen",
+      "cityName": "野沢温泉村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20583",
+      "citySlug": "shinano",
+      "cityName": "信濃町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20588",
+      "citySlug": "ogawa",
+      "cityName": "小川村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20590",
+      "citySlug": "iizuna",
+      "cityName": "飯綱町",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "20602",
+      "citySlug": "sakae",
+      "cityName": "栄村",
+      "prefecture": "長野県",
+      "systems": [
+        "kokuho"
+      ]
+    }
   ]
 }

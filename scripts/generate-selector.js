@@ -31,7 +31,7 @@ for (const m of registry.municipalities) {
 }
 
 function prefSlugMap(name) {
-  const map = { "神奈川県": "kanagawa" };
+  const map = { "神奈川県": "kanagawa", "長野県": "nagano" };
   return map[name] || name;
 }
 
@@ -64,10 +64,17 @@ const js = `// このファイルは自動生成されます。
 
 const registry = ${JSON.stringify(prefGroups, null, 2)};
 
+function updateMunicipalities() {
+  const pref = document.getElementById("prefecture").value;
+  const sel  = document.getElementById("municipality");
+  const municipalities = registry[pref]?.municipalities || {};
+  sel.innerHTML = Object.entries(municipalities)
+    .map(function(e) { return '<option value="' + e[0] + '">' + e[1].name + '</option>'; })
+    .join("");
+}
 function updateCurrent() {}
 function updateSystems() {}
 function updatePages() {}
-function updateMunicipalities() {}
 
 function goPage() {
   const prefecture   = document.getElementById("prefecture").value;
@@ -93,27 +100,30 @@ function goPage() {
 writeFileSync(OUT, js, "utf-8");
 
 // selector.html のドロップダウンも自動更新
-updateSelectorHtml(registry.municipalities);
+updateSelectorHtml(prefGroups);
 
-function updateSelectorHtml(municipalities) {
+function updateSelectorHtml(groups) {
   const htmlPath = path.join(ROOT, "test", "selector.html");
   let html = readFileSync(htmlPath, "utf-8");
 
-  const options = municipalities
-    .map(m => `<option value="${m.citySlug}">${m.cityName}</option>`)
+  // 都道府県ドロップダウンを置換
+  const prefOptions = Object.entries(groups)
+    .map(([slug, g]) => `    <option value="${slug}">${g.name}</option>`)
     .join("\n");
-
-  // 自治体ドロップダウンを置換（マーカー方式）
   html = html.replace(
-    /<select id="municipality"[^>]*>[\s\S]*?<\/select>/,
-    `<select id="municipality" onchange="updateSystems()">\n${options}\n</select>`
+    /<select id="prefecture"[^>]*>[\s\S]*?<\/select>/,
+    `<select id="prefecture" onchange="updateMunicipalities()">\n${prefOptions}\n  </select>`
   );
 
-  // 注記の自治体リストを更新
-  const cityList = municipalities.map(m => m.cityName).join("・");
+  // 自治体ドロップダウンは最初の都道府県の自治体で初期化
+  const firstPrefSlug = Object.keys(groups)[0];
+  const firstMunis = groups[firstPrefSlug]?.municipalities || {};
+  const muniOptions = Object.entries(firstMunis)
+    .map(([slug, m]) => `<option value="${slug}">${m.name}</option>`)
+    .join("\n");
   html = html.replace(
-    /※現在はテスト版のため、[^<]*対応しています。/,
-    `※現在はテスト版のため、神奈川県・${cityList}・国民健康保険のみ対応しています。`
+    /<select id="municipality"[^>]*>[\s\S]*?<\/select>/,
+    `<select id="municipality" onchange="updateSystems()">\n${muniOptions}\n</select>`
   );
 
   writeFileSync(htmlPath, html, "utf-8");
