@@ -34,6 +34,18 @@ async function calc() {
 
     const data = await response.json();
 
+    // 資産割入力欄の表示制御
+    if (data.assetLevy) {
+      const group = document.getElementById("assetLevyGroup");
+      if (group) group.style.display = "";
+    }
+
+    const fixedAssetTax =
+      Number(toHalfWidth(document.getElementById("fixedAssetTax")?.value || "0").replace(/[^\d]/g, "")) || 0;
+    const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.medical) : 0;
+    const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.support) : 0;
+    const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.care)    : 0;
+
     const baseIncome = Math.max(income - data.basicDeduction, 0);
 
     // 所得割
@@ -103,15 +115,15 @@ const twoTenthsLimit =
     const supportReduction = Math.round(supportReductionBase * reductionRate);
     const careReduction = Math.round(careReductionBase * reductionRate);
 
-    // 区分別合計
+    // 区分別合計（資産割を含む）
     let medicalTotal =
-      medicalIncome + medicalPerCapita + medicalHousehold - preschoolReductionMedical - medicalReduction;
+      medicalIncome + medicalPerCapita + medicalHousehold + assetLevyMedical - preschoolReductionMedical - medicalReduction;
 
     let supportTotal =
-      supportIncome + supportPerCapita + supportHousehold - preschoolReductionSupport - supportReduction;
+      supportIncome + supportPerCapita + supportHousehold + assetLevySupport - preschoolReductionSupport - supportReduction;
 
     let careTotal =
-      careIncome + carePerCapita + careHousehold - careReduction;
+      careIncome + carePerCapita + careHousehold + assetLevyCare - careReduction;
 
     medicalTotal = Math.max(medicalTotal, 0);
     supportTotal = Math.max(supportTotal, 0);
@@ -125,16 +137,18 @@ const twoTenthsLimit =
     const total = medicalTotal + supportTotal + careTotal;
     const monthly = Math.round(total / 12);
     const totalReduction = medicalReduction + supportReduction + careReduction;
+    const assetLevyTotal = assetLevyMedical + assetLevySupport + assetLevyCare;
 
     result.innerHTML =
       '<div class="result-row"><div class="result-label">医療分</div><div class="amount">' + medicalTotal.toLocaleString() + ' 円</div></div>' +
       '<div class="result-row"><div class="result-label">支援分</div><div class="amount">' + supportTotal.toLocaleString() + ' 円</div></div>' +
       '<div class="result-row"><div class="result-label">介護分</div><div class="amount">' + careTotal.toLocaleString() + ' 円</div></div>' +
+      (assetLevyTotal > 0 ? '<div class="result-row"><div class="result-label">資産割（内訳）</div><div class="amount">' + assetLevyTotal.toLocaleString() + ' 円</div></div>' : '') +
       '<div class="result-row"><div class="result-label">未就学児軽減</div><div class="amount">-' + preschoolReduction.toLocaleString() + ' 円</div></div>' +
       '<div class="result-row"><div class="result-label">法定軽減</div><div class="amount">-' + totalReduction.toLocaleString() + ' 円</div></div>' +
       '<div class="result-row"><div class="result-label">軽減判定</div><div class="amount">' + reductionLabel + '</div></div>' +
       '<div class="result-row"><div class="result-label">年間保険料（概算）</div><div class="amount">約 ' + total.toLocaleString() + ' 円</div></div>' +
-　　　　'<div class="result-row"><div class="result-label">月額目安</div><div class="amount">約 ' + monthly.toLocaleString() + ' 円</div></div>';
+      '<div class="result-row"><div class="result-label">月額目安</div><div class="amount">約 ' + monthly.toLocaleString() + ' 円</div></div>';
 
   } catch (error) {
     result.innerHTML =

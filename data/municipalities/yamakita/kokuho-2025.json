@@ -53,5 +53,10 @@
       "twoTenths": 0.2
     }
   },
-  "_source": "yamakita official"
+  "_source": "yamakita official",
+  "assetLevy": {
+    "medical": 0.103,
+    "support": 0.0155,
+    "care": 0.017
+  }
 }

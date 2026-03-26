@@ -45,6 +45,11 @@
   <label for="salaryPensionCount">給与・年金所得者数</label>
   <input id="salaryPensionCount" type="number" placeholder="例：1">
 
+  <div id="assetLevyGroup" style="display:none">
+    <label for="fixedAssetTax">固定資産税額（資産割対象の方のみ）</label>
+    <input id="fixedAssetTax" type="text" inputmode="numeric" placeholder="例：80,000">
+  </div>
+
   <button onclick="calc()">計算する</button>
 
   <div class="result-title">計算結果</div>
