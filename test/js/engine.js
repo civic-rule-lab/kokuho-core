@@ -36,9 +36,9 @@ async function calc() {
 
     const fixedAssetTax =
       Number(toHalfWidth(document.getElementById("fixedAssetTax")?.value || "0").replace(/[^\d]/g, "")) || 0;
-    const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.medical) : 0;
-    const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.support) : 0;
-    const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * data.assetLevy.care)    : 0;
+    const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
+    const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
+    const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
 
     const baseIncome = Math.max(income - data.basicDeduction, 0);
 
