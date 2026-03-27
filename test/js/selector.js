@@ -1,7 +1,7 @@
 // このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: 2026-03-26
+// 最終生成: 2026-03-27
 
 const registry = {
   "kanagawa": {
@@ -2004,21 +2004,17 @@ function updateMunicipalities() {
     .map(function(e) { return '<option value="' + e[0] + '">' + e[1].name + '</option>'; })
     .join("");
 }
-function updateCurrent() {}
-function updateSystems() {}
-function updatePages() {}
 
 function goPage() {
   const prefecture   = document.getElementById("prefecture").value;
   const municipality = document.getElementById("municipality").value;
   const system       = document.getElementById("system").value;
-  const pageType     = document.getElementById("pageType").value;
 
   const url =
     registry[prefecture]
       ?.municipalities[municipality]
       ?.systems[system]
-      ?.pages[pageType]
+      ?.pages["simple"]
       ?.url;
 
   if (url) {

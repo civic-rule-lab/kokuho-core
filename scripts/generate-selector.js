@@ -72,21 +72,17 @@ function updateMunicipalities() {
     .map(function(e) { return '<option value="' + e[0] + '">' + e[1].name + '</option>'; })
     .join("");
 }
-function updateCurrent() {}
-function updateSystems() {}
-function updatePages() {}
 
 function goPage() {
   const prefecture   = document.getElementById("prefecture").value;
   const municipality = document.getElementById("municipality").value;
   const system       = document.getElementById("system").value;
-  const pageType     = document.getElementById("pageType").value;
 
   const url =
     registry[prefecture]
       ?.municipalities[municipality]
       ?.systems[system]
-      ?.pages[pageType]
+      ?.pages["simple"]
       ?.url;
 
   if (url) {

@@ -66,33 +66,22 @@
 
 <label for="system">制度</label>
 
-<select id="system" onchange="updatePages()">
+<select id="system">
 <option value="kokuho">国民健康保険</option>
 </select>
 
-<label for="pageType">ページ</label>
-
-<select id="pageType" onchange="updateCurrent()">
-<option value="simple">かんたん計算</option>
-<option value="income">所得ベース計算</option>
-</select>
-
 <button type="button" onclick="goPage()">
-  このページを開く
+  計算ページを開く
 </button>
 
 <div class="note">
-  ※現在は神奈川県・国民健康保険のみ対応しています（テスト版）。<br>
-  ※料率は暫定値を含みます。正確な金額は各自治体の通知でご確認ください。<br>
-  ※今後、自治体・制度・ページ種別を順次追加予定です。
+  ※神奈川県・長野県の国民健康保険に対応しています（テスト版）。<br>
+  ※料率は令和7年度の公式値を使用しています。<br>
+  ※実際の保険料は各自治体の通知でご確認ください。
 </div>
 
 
 <script src="./js/selector.js"></script>
-
-<script>
-updateCurrent()
-</script>
 
 </body>
 </html>

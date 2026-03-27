@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+  ================================================================
+  テンプレート: かんたん計算ページ
+  生成スクリプト: scripts/generate-city-pages.js
+
+  ▼ 自治体追加時に変更する箇所（__で囲まれた部分のみ）
+    fujisawa   → 自治体スラグ（例: hiratsuka）
+    藤沢市   → 自治体名（例: 平塚市）
+
+  ▼ 変更不要な箇所
+    レイアウト・CSS・エンジン・注記・Civic Rule Lab表記
+  ================================================================
+-->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -28,9 +41,14 @@
   <div class="result-title">計算結果</div>
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
-  <div style="margin-top:16px;font-size:14px;color:#374151;">
-    未就学児・介護・給与年金人数も含めて計算したい方は
-    <a href="./fujisawa-kokuho-income.html">所得ベース計算へ</a>
+  <div style="margin-top:28px;padding:20px;background:#f0f9ff;border-radius:10px;text-align:center;">
+    <div style="font-size:13px;color:#374151;margin-bottom:12px;">
+      未就学児・介護・給与年金人数も含めて<br>より詳しく計算したい方へ
+    </div>
+    <a href="./fujisawa-kokuho-income.html"
+       style="display:inline-block;background:#1d4ed8;color:#fff;font-weight:700;font-size:15px;padding:12px 32px;border-radius:8px;text-decoration:none;">
+      所得ベース計算へ →
+    </a>
   </div>
 
   <div class="back-link" style="margin-top:20px;">
