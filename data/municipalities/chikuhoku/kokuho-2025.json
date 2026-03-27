@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 0.072,
+    "support": 0.0214,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 26000,
+    "support": 9300,
+    "care": 9000
   },
   "household": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 22500,
+    "support": 8600,
+    "care": 7000
   },
   "caps": {
     "medical": 660000,
@@ -53,5 +53,9 @@
       "twoTenths": 0.2
     }
   },
-  "_status": "TODO: 公式サイトで料率を確認して更新してください。"
+  "assetLevy": {
+    "medical": 0.2,
+    "support": 0.06,
+    "care": 0.07
+  }
 }
