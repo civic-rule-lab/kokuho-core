@@ -242,7 +242,7 @@ color:#6b7280;
   color:#7fd4e6;
 }
 .prefecture-group{
-  display:none;
+  display:block;
 }
 .quick-links{
   margin-top:12px;
