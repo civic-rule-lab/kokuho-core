@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+  ================================================================
+  テンプレート: 所得ベース計算ページ
+  生成スクリプト: scripts/generate-city-pages.js
+
+  ▼ 自治体追加時に変更する箇所（__で囲まれた部分のみ）
+    chigasaki   → 自治体スラグ（例: hiratsuka）
+    茅ヶ崎市   → 自治体名（例: 平塚市）
+
+  ▼ 変更不要な箇所
+    レイアウト・CSS・エンジン・注記・Civic Rule Lab表記
+  ================================================================
+-->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -32,13 +45,18 @@
   <label for="salaryPensionCount">給与・年金所得者数</label>
   <input id="salaryPensionCount" type="number" placeholder="例：1">
 
+  <div id="assetLevyGroup" style="display:none">
+    <label for="fixedAssetTax">固定資産税額（資産割対象の方のみ）</label>
+    <input id="fixedAssetTax" type="text" inputmode="numeric" placeholder="例：80,000（年額）">
+  </div>
+
   <button onclick="calc()">計算する</button>
 
   <div class="result-title">計算結果</div>
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
   <div style="margin-top:16px;font-size:14px;color:#374151;">
-    <a href="./chigasaki-kokuho.html">← かんたん計算に戻る</a>
+    <a href="./chigasaki-kokuho.html">← 茅ヶ崎市 かんたん計算に戻る</a>
   </div>
 
   <div class="back-link" style="margin-top:20px;">
