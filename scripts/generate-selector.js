@@ -31,7 +31,7 @@ for (const m of registry.municipalities) {
 }
 
 function prefSlugMap(name) {
-  const map = { "神奈川県": "kanagawa", "長野県": "nagano" };
+  const map = { "神奈川県": "kanagawa", "長野県": "nagano", "東京都": "tokyo" };
   return map[name] || name;
 }
 
