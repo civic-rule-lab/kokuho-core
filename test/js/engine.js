@@ -42,10 +42,10 @@ async function calc() {
 
     const baseIncome = Math.max(income - data.basicDeduction, 0);
 
-    // 所得割
+    // 所得割（介護分は介護対象者がいる世帯のみ）
     const medicalIncome = Math.round(baseIncome * data.rate.medical);
     const supportIncome = Math.round(baseIncome * data.rate.support);
-    const careIncome = Math.round(baseIncome * data.rate.care);
+    const careIncome = care > 0 ? Math.round(baseIncome * data.rate.care) : 0;
 
     // 均等割
     const medicalPerCapita = family * data.perCapita.medical;
