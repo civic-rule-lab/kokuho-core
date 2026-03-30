@@ -1,81 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>国保計算ツール | Civic Rule Lab</title>
-  <style>
-    body{
-      font-family:sans-serif;
-      background:#f5f7fb;
-      margin:0;
-      padding:40px 20px;
-      color:#1f2a44;
-      text-align:center;
-    }
-
-    .wrap{
-      max-width:720px;
-      margin:0 auto;
-      background:#ffffff;
-      border-radius:20px;
-      padding:40px 24px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    h1{
-      margin:0 0 12px;
-      font-size:32px;
-    }
-
-    .sub{
-      font-size:18px;
-      color:#6b7a90;
-      margin-bottom:32px;
-    }
-
-    .link-card{
-      display:block;
-      text-decoration:none;
-      background:#2f46b9;
-      color:#ffffff;
-      font-size:22px;
-      font-weight:700;
-      padding:20px;
-      border-radius:16px;
-      margin:18px 0;
-    }
-
-    .link-sub{
-      display:block;
-      font-size:15px;
-      font-weight:400;
-      opacity:0.9;
-      margin-top:6px;
-    }
-
-    .note{
-      margin-top:28px;
-      font-size:14px;
-      color:#6b7280;
-      line-height:1.8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国保計算ツール｜Civic Rule Lab</title>
+<link rel="stylesheet" href="/css/selector.css?v=3">
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>Civic Rule Lab</h1>
-    <div class="sub">自治体制度の計算ツール</div>
 
-    <a class="link-card" href="./test/chigasaki-kokuho.html">
-      茅ヶ崎市 国保計算
-      <span class="link-sub">国民健康保険料の簡単計算ページ</span>
-    </a>
+<div class="wrap">
+<div class="subtitle">自治体制度の情報サービス</div>
 
-    <div class="note">
-      現在は茅ヶ崎市の国民健康保険計算に対応しています。<br>
-      今後、自治体と制度を順次追加予定です。
-    </div>
-  </div>
+<div class="brand">Civic Rule Lab</div>
+
+<div class="tagline">市民 ↔ 制度</div>
+
+<div class="prefecture-group">
+  <label for="prefecture">都道府県</label>
+  <select id="prefecture" onchange="updateMunicipalities()">
+    <option value="kanagawa">神奈川県</option>
+    <option value="nagano">長野県</option>
+    <option value="tokyo">東京都</option>
+  </select>
+</div>
+
+<label for="municipality">自治体</label>
+
+<select id="municipality" onchange="updateSystems()">
+<option value="yokohama">横浜市</option>
+<option value="kawasaki">川崎市</option>
+<option value="sagamihara">相模原市</option>
+<option value="yokosuka">横須賀市</option>
+<option value="hiratsuka">平塚市</option>
+<option value="kamakura">鎌倉市</option>
+<option value="fujisawa">藤沢市</option>
+<option value="odawara">小田原市</option>
+<option value="chigasaki">茅ヶ崎市</option>
+<option value="zushi">逗子市</option>
+<option value="miura">三浦市</option>
+<option value="hadano">秦野市</option>
+<option value="atsugi">厚木市</option>
+<option value="yamato">大和市</option>
+<option value="isehara">伊勢原市</option>
+<option value="ebina">海老名市</option>
+<option value="zama">座間市</option>
+<option value="minamiashigara">南足柄市</option>
+<option value="ayase">綾瀬市</option>
+<option value="hayama">葉山町</option>
+<option value="samukawa">寒川町</option>
+<option value="oiso">大磯町</option>
+<option value="ninomiya">二宮町</option>
+<option value="nakai">中井町</option>
+<option value="oi">大井町</option>
+<option value="matsuda">松田町</option>
+<option value="yamakita">山北町</option>
+<option value="kaisei">開成町</option>
+<option value="hakone">箱根町</option>
+<option value="manazuru">真鶴町</option>
+<option value="yugawara">湯河原町</option>
+<option value="aikawa">愛川町</option>
+<option value="kiyokawa">清川村</option>
+</select>
+
+<label for="system">制度</label>
+
+<select id="system">
+<option value="kokuho">国民健康保険</option>
+</select>
+
+<button type="button" onclick="goPage()">
+  計算ページを開く
+</button>
+
+<div class="note">
+  ※神奈川県・長野県・東京都の国民健康保険に対応しています。<br>
+  ※料率は令和7年度の公式値を使用しています。<br>
+  ※実際の保険料は各自治体の通知でご確認ください。
+</div>
+
+</div>
+
+<script src="/js/selector.js"></script>
+
 </body>
 </html>
