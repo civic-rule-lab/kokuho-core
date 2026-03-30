@@ -14,8 +14,8 @@
   },
   "household": {
     "medical": 24000,
-    "support": 9000,
-    "care": 7000
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 660000,

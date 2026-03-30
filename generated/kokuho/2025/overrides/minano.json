@@ -1,0 +1,17 @@
+{
+  "citySlug": "minano",
+  "cityName": "皆野町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0685,
+      "support": 0.028,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 37800,
+      "support": 16400,
+      "care": 16200
+    }
+  }
+}

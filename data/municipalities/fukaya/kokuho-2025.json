@@ -4,22 +4,22 @@
   "cityName": "深谷市",
   "fiscalYear": 2025,
   "system": "kokuho",
-  "note": "医療分のみ平等割・資産割あり（4方式）。資産割率9%。",
+  "note": "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率9%。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 0.068,
+    "support": 0.028,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 33000,
+    "support": 16000,
+    "care": 16000
   },
   "household": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 4500,
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 650000,
@@ -56,6 +56,5 @@
       "fiveTenths": 0.5,
       "twoTenths": 0.2
     }
-  },
-  "_status": "TODO: 公式サイトで料率を確認して更新してください。"
+  }
 }

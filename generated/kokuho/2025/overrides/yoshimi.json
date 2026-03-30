@@ -1,0 +1,17 @@
+{
+  "citySlug": "yoshimi",
+  "cityName": "吉見町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.028,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 31500,
+      "support": 14000,
+      "care": 14500
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "citySlug": "omachi",
+  "cityName": "大町市",
+  "signature": "4h[m]|nat|R7std|pre",
+  "override": {
+    "household": {
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

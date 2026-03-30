@@ -1,0 +1,17 @@
+{
+  "citySlug": "hidaka",
+  "cityName": "日高市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.079,
+      "support": 0.029,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 42200,
+      "support": 15600,
+      "care": 17900
+    }
+  }
+}

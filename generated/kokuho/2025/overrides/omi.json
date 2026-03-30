@@ -15,6 +15,7 @@
     },
     "household": {
       "medical": 23000,
+      "support": 9000,
       "care": 5900
     },
     "assetLevy": {

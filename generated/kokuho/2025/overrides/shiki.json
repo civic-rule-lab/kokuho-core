@@ -1,0 +1,17 @@
+{
+  "citySlug": "shiki",
+  "cityName": "志木市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0735,
+      "support": 0.024,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 32800,
+      "support": 13300,
+      "care": 14100
+    }
+  }
+}

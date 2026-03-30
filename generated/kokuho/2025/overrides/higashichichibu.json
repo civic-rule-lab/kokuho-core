@@ -1,0 +1,16 @@
+{
+  "citySlug": "higashichichibu",
+  "cityName": "東秩父村",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0509,
+      "support": 0.026,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 29300,
+      "support": 14700
+    }
+  }
+}

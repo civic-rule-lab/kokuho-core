@@ -1,0 +1,15 @@
+{
+  "citySlug": "yashio",
+  "cityName": "八潮市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078
+    },
+    "perCapita": {
+      "medical": 35000,
+      "support": 15000,
+      "care": 14000
+    }
+  }
+}

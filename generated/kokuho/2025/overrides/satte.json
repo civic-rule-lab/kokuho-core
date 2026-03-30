@@ -1,0 +1,15 @@
+{
+  "citySlug": "satte",
+  "cityName": "幸手市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.026
+    },
+    "perCapita": {
+      "medical": 42000,
+      "support": 15000
+    }
+  }
+}

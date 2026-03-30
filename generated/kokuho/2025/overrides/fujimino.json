@@ -1,0 +1,17 @@
+{
+  "citySlug": "fujimino",
+  "cityName": "ふじみ野市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0756,
+      "support": 0.0218,
+      "care": 0.0214
+    },
+    "perCapita": {
+      "medical": 30800,
+      "support": 11800,
+      "care": 13700
+    }
+  }
+}

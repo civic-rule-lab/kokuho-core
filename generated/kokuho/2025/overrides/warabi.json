@@ -1,0 +1,21 @@
+{
+  "citySlug": "warabi",
+  "cityName": "蕨市",
+  "signature": "4h[m]|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.064,
+      "support": 0.022,
+      "care": 0.022
+    },
+    "perCapita": {
+      "support": 14000
+    },
+    "household": {
+      "medical": 3000
+    },
+    "assetLevy": {
+      "medical": 0.1
+    }
+  }
+}

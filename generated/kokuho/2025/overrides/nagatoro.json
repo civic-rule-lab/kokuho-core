@@ -1,0 +1,23 @@
+{
+  "citySlug": "nagatoro",
+  "cityName": "長瀞町",
+  "signature": "4h[m]|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0652,
+      "support": 0.0206,
+      "care": 0.0191
+    },
+    "perCapita": {
+      "medical": 26100,
+      "support": 11300,
+      "care": 11900
+    },
+    "household": {
+      "medical": 5300
+    },
+    "assetLevy": {
+      "medical": 0.16
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "citySlug": "hatoyama",
+  "cityName": "鳩山町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.016,
+      "care": 0.014
+    },
+    "perCapita": {
+      "support": 12000,
+      "care": 14000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "kasukabe",
+  "cityName": "春日部市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0765,
+      "support": 0.0253,
+      "care": 0.0211
+    },
+    "perCapita": {
+      "medical": 39400,
+      "support": 14500,
+      "care": 14900
+    }
+  }
+}

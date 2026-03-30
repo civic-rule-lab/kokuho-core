@@ -1,0 +1,15 @@
+{
+  "citySlug": "misato",
+  "cityName": "三郷市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 32800,
+      "support": 11600,
+      "care": 13700
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "namegawa",
+  "cityName": "滑川町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.027,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 38000,
+      "support": 15000,
+      "care": 16000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kamikawa",
+  "cityName": "神川町",
+  "signature": "4h[m]|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.063,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 25000,
+      "care": 15000
+    },
+    "household": {
+      "medical": 8000
+    },
+    "assetLevy": {
+      "medical": 0.15
+    }
+  }
+}

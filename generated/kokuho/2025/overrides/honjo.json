@@ -1,0 +1,23 @@
+{
+  "citySlug": "honjo",
+  "cityName": "本庄市",
+  "signature": "4h[m]|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.029,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 19500,
+      "support": 9900,
+      "care": 12400
+    },
+    "household": {
+      "medical": 16000
+    },
+    "assetLevy": {
+      "medical": 0.2
+    }
+  }
+}

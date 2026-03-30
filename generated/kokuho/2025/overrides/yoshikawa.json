@@ -1,0 +1,17 @@
+{
+  "citySlug": "yoshikawa",
+  "cityName": "吉川市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.025,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 37000,
+      "support": 11000,
+      "care": 14000
+    }
+  }
+}

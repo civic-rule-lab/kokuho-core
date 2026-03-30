@@ -1,0 +1,16 @@
+{
+  "citySlug": "higashimatsuyama",
+  "cityName": "東松山市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0744,
+      "support": 0.0265,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 30600,
+      "care": 15400
+    }
+  }
+}

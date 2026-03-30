@@ -7,14 +7,14 @@
   "note": "政令市。区ごとに窓口が異なるが保険料率は市全体で統一。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0884,
-    "support": 0.028,
-    "care": 0.0244
+    "medical": 0.0713,
+    "support": 0.026,
+    "care": 0.0224
   },
   "perCapita": {
-    "medical": 46200,
-    "support": 13800,
-    "care": 16200
+    "medical": 38300,
+    "support": 13500,
+    "care": 14600
   },
   "household": {
     "medical": 0,

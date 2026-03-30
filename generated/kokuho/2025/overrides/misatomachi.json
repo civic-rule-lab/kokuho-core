@@ -1,0 +1,17 @@
+{
+  "citySlug": "misatomachi",
+  "cityName": "美里町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.024,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 39000,
+      "support": 14000,
+      "care": 14000
+    }
+  }
+}

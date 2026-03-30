@@ -1,0 +1,15 @@
+{
+  "citySlug": "hasuda",
+  "cityName": "蓮田市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0715,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "support": 11000,
+      "care": 14000
+    }
+  }
+}

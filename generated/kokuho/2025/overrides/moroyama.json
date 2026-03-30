@@ -1,0 +1,17 @@
+{
+  "citySlug": "moroyama",
+  "cityName": "毛呂山町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.0271,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 42300,
+      "support": 16300,
+      "care": 16200
+    }
+  }
+}

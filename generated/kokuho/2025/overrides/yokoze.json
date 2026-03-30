@@ -1,0 +1,17 @@
+{
+  "citySlug": "yokoze",
+  "cityName": "横瀬町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.062,
+      "support": 0.028,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 16000,
+      "care": 16000
+    }
+  }
+}

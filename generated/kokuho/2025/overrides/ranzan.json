@@ -1,0 +1,17 @@
+{
+  "citySlug": "ranzan",
+  "cityName": "嵐山町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.026,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 40000,
+      "support": 15000,
+      "care": 16000
+    }
+  }
+}

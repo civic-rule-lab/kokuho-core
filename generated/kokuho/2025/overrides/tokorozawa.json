@@ -1,0 +1,17 @@
+{
+  "citySlug": "tokorozawa",
+  "cityName": "所沢市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0696,
+      "support": 0.0267,
+      "care": 0.0241
+    },
+    "perCapita": {
+      "medical": 41300,
+      "support": 16000,
+      "care": 17000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "sugito",
+  "cityName": "杉戸町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.067,
+      "support": 0.027,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 34000,
+      "support": 12000,
+      "care": 14000
+    }
+  }
+}

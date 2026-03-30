@@ -1,0 +1,17 @@
+{
+  "citySlug": "inacho",
+  "cityName": "伊奈町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.027,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 38000,
+      "support": 16000,
+      "care": 13000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "soka",
+  "cityName": "草加市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0787,
+      "support": 0.0263,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 37000,
+      "support": 11600,
+      "care": 13500
+    }
+  }
+}

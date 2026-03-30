@@ -1,0 +1,17 @@
+{
+  "citySlug": "kitamoto",
+  "cityName": "北本市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.073,
+      "support": 0.028,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 38900,
+      "support": 13500,
+      "care": 16100
+    }
+  }
+}

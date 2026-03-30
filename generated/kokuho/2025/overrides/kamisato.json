@@ -1,0 +1,17 @@
+{
+  "citySlug": "kamisato",
+  "cityName": "上里町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0665,
+      "support": 0.026,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 36000,
+      "support": 16000,
+      "care": 16000
+    }
+  }
+}

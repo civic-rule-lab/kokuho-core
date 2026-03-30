@@ -1,0 +1,16 @@
+{
+  "citySlug": "koshigaya",
+  "cityName": "越谷市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 31900,
+      "support": 11500,
+      "care": 12000
+    }
+  }
+}

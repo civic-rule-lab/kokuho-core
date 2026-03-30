@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-30T21:15:17.351Z",
+  "generatedAt": "2026-03-30T21:26:04.681Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 166,
+  "totalMunicipalities": 227,
   "groups": {
     "3h|nat|R7std|pre": {
       "count": 94,
@@ -582,7 +582,7 @@
       ]
     },
     "2h|nat|R7std|pre": {
-      "count": 49,
+      "count": 74,
       "exactCount": 16,
       "description": {
         "signature": "2h|nat|R7std|pre",
@@ -886,6 +886,374 @@
           "name": "さいたま市",
           "pref": "埼玉県",
           "hasOverride": true
+        },
+        {
+          "slug": "konosu",
+          "name": "鴻巣市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "toda",
+          "name": "戸田市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shiki",
+          "name": "志木市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "wako",
+          "name": "和光市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yoshikawa",
+          "name": "吉川市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fujimino",
+          "name": "ふじみ野市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shiraoka",
+          "name": "白岡市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "inacho",
+          "name": "伊奈町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "moroyama",
+          "name": "毛呂山町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogose",
+          "name": "越生町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "namegawa",
+          "name": "滑川町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ranzan",
+          "name": "嵐山町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogawacho",
+          "name": "小川町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawajima",
+          "name": "川島町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yoshimi",
+          "name": "吉見町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tokigawa",
+          "name": "ときがわ町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yokoze",
+          "name": "横瀬町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minano",
+          "name": "皆野町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogano",
+          "name": "小鹿野町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashichichibu",
+          "name": "東秩父村",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "misatomachi",
+          "name": "美里町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kamisato",
+          "name": "上里町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yorii",
+          "name": "寄居町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyashiro",
+          "name": "宮代町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sugito",
+          "name": "杉戸町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        }
+      ]
+    },
+    "2h|650-240-170|R7std|pre": {
+      "count": 34,
+      "exactCount": 0,
+      "description": {
+        "signature": "2h|650-240-170|R7std|pre",
+        "calcType": "2方式（所得割+均等割）",
+        "assetSections": null,
+        "caps": "独自上限（650-240-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "musashino",
+          "name": "武蔵野市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "fuchu",
+          "name": "府中市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "chofu",
+          "name": "調布市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "koganei",
+          "name": "小金井市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kokubunji",
+          "name": "国分寺市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawagoe",
+          "name": "川越市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kumagaya",
+          "name": "熊谷市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawaguchi",
+          "name": "川口市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "gyoda",
+          "name": "行田市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tokorozawa",
+          "name": "所沢市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hanno",
+          "name": "飯能市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kazo",
+          "name": "加須市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashimatsuyama",
+          "name": "東松山市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kasukabe",
+          "name": "春日部市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hanyu",
+          "name": "羽生市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ageo",
+          "name": "上尾市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "soka",
+          "name": "草加市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "koshigaya",
+          "name": "越谷市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iruma",
+          "name": "入間市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "niiza",
+          "name": "新座市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "okegawa",
+          "name": "桶川市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kuki",
+          "name": "久喜市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kitamoto",
+          "name": "北本市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yashio",
+          "name": "八潮市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fujimishi",
+          "name": "富士見市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "misato",
+          "name": "三郷市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hasuda",
+          "name": "蓮田市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakado",
+          "name": "坂戸市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "satte",
+          "name": "幸手市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tsurugashima",
+          "name": "鶴ヶ島市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hidaka",
+          "name": "日高市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyoshi",
+          "name": "三芳町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hatoyama",
+          "name": "鳩山町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsubushi",
+          "name": "松伏町",
+          "pref": "埼玉県",
+          "hasOverride": true
         }
       ]
     },
@@ -975,59 +1343,9 @@
         }
       ]
     },
-    "2h|650-240-170|R7std|pre": {
-      "count": 6,
-      "exactCount": 0,
-      "description": {
-        "signature": "2h|650-240-170|R7std|pre",
-        "calcType": "2方式（所得割+均等割）",
-        "assetSections": null,
-        "caps": "独自上限（650-240-170万）",
-        "reduction": "R7全国標準（7-5-2）",
-        "special": "未就学児軽減"
-      },
-      "municipalities": [
-        {
-          "slug": "musashino",
-          "name": "武蔵野市",
-          "pref": "東京都",
-          "hasOverride": true
-        },
-        {
-          "slug": "fuchu",
-          "name": "府中市",
-          "pref": "東京都",
-          "hasOverride": true
-        },
-        {
-          "slug": "chofu",
-          "name": "調布市",
-          "pref": "東京都",
-          "hasOverride": true
-        },
-        {
-          "slug": "koganei",
-          "name": "小金井市",
-          "pref": "東京都",
-          "hasOverride": true
-        },
-        {
-          "slug": "kokubunji",
-          "name": "国分寺市",
-          "pref": "東京都",
-          "hasOverride": true
-        },
-        {
-          "slug": "kawagoe",
-          "name": "川越市",
-          "pref": "埼玉県",
-          "hasOverride": true
-        }
-      ]
-    },
     "4h[m]|nat|R7std|pre": {
-      "count": 2,
-      "exactCount": 1,
+      "count": 5,
+      "exactCount": 0,
       "description": {
         "signature": "4h[m]|nat|R7std|pre",
         "calcType": "4方式（所得割+資産割+均等割+平等割）",
@@ -1041,12 +1359,74 @@
           "slug": "omachi",
           "name": "大町市",
           "pref": "長野県",
-          "hasOverride": false
+          "hasOverride": true
         },
         {
           "slug": "omi",
           "name": "麻績村",
           "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "honjo",
+          "name": "本庄市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagatoro",
+          "name": "長瀞町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kamikawa",
+          "name": "神川町",
+          "pref": "埼玉県",
+          "hasOverride": true
+        }
+      ]
+    },
+    "4h[m]|650-240-170|R7std|pre": {
+      "count": 5,
+      "exactCount": 0,
+      "description": {
+        "signature": "4h[m]|650-240-170|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": "資産割対象区分: 医療のみ",
+        "caps": "独自上限（650-240-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "chichibu",
+          "name": "秩父市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sayama",
+          "name": "狭山市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fukaya",
+          "name": "深谷市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "warabi",
+          "name": "蕨市",
+          "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "asaka",
+          "name": "朝霞市",
+          "pref": "埼玉県",
           "hasOverride": true
         }
       ]

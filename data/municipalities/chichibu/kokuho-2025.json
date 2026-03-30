@@ -4,22 +4,22 @@
   "cityName": "秩父市",
   "fiscalYear": 2025,
   "system": "kokuho",
-  "note": "医療分のみ平等割・資産割あり（4方式）。資産割率15%。",
+  "note": "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率15%。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 0.062,
+    "support": 0.023,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 21000,
+    "support": 11000,
+    "care": 10500
   },
   "household": {
-    "medical": "TODO",
-    "support": "TODO",
-    "care": "TODO"
+    "medical": 10000,
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 650000,
@@ -56,6 +56,5 @@
       "fiveTenths": 0.5,
       "twoTenths": 0.2
     }
-  },
-  "_status": "TODO: 公式サイトで料率を確認して更新してください。"
+  }
 }

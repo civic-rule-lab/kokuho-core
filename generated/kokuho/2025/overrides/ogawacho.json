@@ -1,0 +1,17 @@
+{
+  "citySlug": "ogawacho",
+  "cityName": "小川町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.026,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 43600,
+      "support": 15400,
+      "care": 16200
+    }
+  }
+}

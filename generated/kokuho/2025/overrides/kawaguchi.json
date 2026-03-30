@@ -1,0 +1,16 @@
+{
+  "citySlug": "kawaguchi",
+  "cityName": "川口市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0745,
+      "care": 0.013
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 9000,
+      "care": 13000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "matsubushi",
+  "cityName": "松伏町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.02,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 37400,
+      "support": 10400,
+      "care": 12300
+    }
+  }
+}

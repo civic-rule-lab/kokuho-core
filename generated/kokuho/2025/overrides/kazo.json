@@ -1,0 +1,17 @@
+{
+  "citySlug": "kazo",
+  "cityName": "加須市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.023,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 40700,
+      "support": 10500,
+      "care": 11000
+    }
+  }
+}
