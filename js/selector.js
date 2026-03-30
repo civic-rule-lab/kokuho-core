@@ -5086,6 +5086,785 @@ const registry = {
         }
       }
     }
+  },
+  "大阪府": {
+    "name": "大阪府",
+    "municipalities": {
+      "osaka": {
+        "name": "大阪市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/osaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/osaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sakai": {
+        "name": "堺市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/sakai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/sakai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kishiwada": {
+        "name": "岸和田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kishiwada/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kishiwada/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toyonaka": {
+        "name": "豊中市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/toyonaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/toyonaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ikedashi": {
+        "name": "池田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/ikedashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/ikedashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "suita": {
+        "name": "吹田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/suita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/suita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izumiotsu": {
+        "name": "泉大津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/izumiotsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/izumiotsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takatsuki": {
+        "name": "高槻市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/takatsuki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/takatsuki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaizuka": {
+        "name": "貝塚市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kaizuka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kaizuka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "moriguchi": {
+        "name": "守口市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/moriguchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/moriguchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirakata": {
+        "name": "枚方市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/hirakata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/hirakata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ibaraki": {
+        "name": "茨木市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/ibaraki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/ibaraki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yao": {
+        "name": "八尾市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/yao/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/yao/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izumisano": {
+        "name": "泉佐野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/izumisano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/izumisano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tondabayashi": {
+        "name": "富田林市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/tondabayashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/tondabayashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "neyagawa": {
+        "name": "寝屋川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/neyagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/neyagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawachinagano": {
+        "name": "河内長野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kawachinagano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kawachinagano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "matsubara": {
+        "name": "松原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/matsubara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/matsubara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "daito": {
+        "name": "大東市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/daito/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/daito/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izumi": {
+        "name": "和泉市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/izumi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/izumi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minoh": {
+        "name": "箕面市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/minoh/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/minoh/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kashiwara": {
+        "name": "柏原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kashiwara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kashiwara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "habikino": {
+        "name": "羽曳野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/habikino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/habikino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kadoma": {
+        "name": "門真市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kadoma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kadoma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "settsu": {
+        "name": "摂津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/settsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/settsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takaishi": {
+        "name": "高石市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/takaishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/takaishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fujiidera": {
+        "name": "藤井寺市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/fujiidera/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/fujiidera/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashiosaka": {
+        "name": "東大阪市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/higashiosaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/higashiosaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sennan": {
+        "name": "泉南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/sennan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/sennan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shijonawate": {
+        "name": "四條畷市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/shijonawate/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/shijonawate/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katano": {
+        "name": "交野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/katano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/katano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "osakasayama": {
+        "name": "大阪狭山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/osakasayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/osakasayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hannan": {
+        "name": "阪南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/hannan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/hannan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimamoto": {
+        "name": "島本町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/shimamoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/shimamoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toyono": {
+        "name": "豊能町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/toyono/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/toyono/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nose": {
+        "name": "能勢町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/nose/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/nose/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tadaoka": {
+        "name": "忠岡町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/tadaoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/tadaoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kumatori": {
+        "name": "熊取町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kumatori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kumatori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tajiri": {
+        "name": "田尻町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/tajiri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/tajiri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "misaki": {
+        "name": "岬町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/misaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/misaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taishi": {
+        "name": "太子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/taishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/taishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanan": {
+        "name": "河南町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/kanan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/kanan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chihayaakasaka": {
+        "name": "千早赤阪村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/大阪府/chihayaakasaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/大阪府/chihayaakasaka/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-30T22:45:43.824Z",
+  "generatedAt": "2026-03-30T23:00:55.682Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 281,
+  "totalMunicipalities": 324,
   "groups": {
     "3h|nat|R7std|pre": {
       "count": 146,
@@ -1360,6 +1360,278 @@
           "name": "富津市",
           "pref": "千葉県",
           "hasOverride": true
+        }
+      ]
+    },
+    "3h|650-240-170|R7std|pre": {
+      "count": 43,
+      "exactCount": 43,
+      "description": {
+        "signature": "3h|650-240-170|R7std|pre",
+        "calcType": "3方式（所得割+均等割+平等割）",
+        "assetSections": null,
+        "caps": "独自上限（650-240-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "osaka",
+          "name": "大阪市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "sakai",
+          "name": "堺市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kishiwada",
+          "name": "岸和田市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "toyonaka",
+          "name": "豊中市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "ikedashi",
+          "name": "池田市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "suita",
+          "name": "吹田市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "izumiotsu",
+          "name": "泉大津市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "takatsuki",
+          "name": "高槻市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kaizuka",
+          "name": "貝塚市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "moriguchi",
+          "name": "守口市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "hirakata",
+          "name": "枚方市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "ibaraki",
+          "name": "茨木市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "yao",
+          "name": "八尾市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "izumisano",
+          "name": "泉佐野市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "tondabayashi",
+          "name": "富田林市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "neyagawa",
+          "name": "寝屋川市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kawachinagano",
+          "name": "河内長野市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "matsubara",
+          "name": "松原市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "daito",
+          "name": "大東市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "izumi",
+          "name": "和泉市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "minoh",
+          "name": "箕面市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kashiwara",
+          "name": "柏原市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "habikino",
+          "name": "羽曳野市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kadoma",
+          "name": "門真市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "settsu",
+          "name": "摂津市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "takaishi",
+          "name": "高石市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "fujiidera",
+          "name": "藤井寺市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "higashiosaka",
+          "name": "東大阪市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "sennan",
+          "name": "泉南市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "shijonawate",
+          "name": "四條畷市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "katano",
+          "name": "交野市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "osakasayama",
+          "name": "大阪狭山市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "hannan",
+          "name": "阪南市",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "shimamoto",
+          "name": "島本町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "toyono",
+          "name": "豊能町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "nose",
+          "name": "能勢町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "tadaoka",
+          "name": "忠岡町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kumatori",
+          "name": "熊取町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "tajiri",
+          "name": "田尻町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "misaki",
+          "name": "岬町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "taishi",
+          "name": "太子町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "kanan",
+          "name": "河南町",
+          "pref": "大阪府",
+          "hasOverride": false
+        },
+        {
+          "slug": "chihayaakasaka",
+          "name": "千早赤阪村",
+          "pref": "大阪府",
+          "hasOverride": false
         }
       ]
     },
