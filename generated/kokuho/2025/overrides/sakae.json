@@ -1,0 +1,20 @@
+{
+  "citySlug": "sakae",
+  "cityName": "栄村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 17500,
+      "support": 8000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 19000,
+      "care": 6700
+    }
+  }
+}

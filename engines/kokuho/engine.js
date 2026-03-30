@@ -28,7 +28,7 @@ async function calc() {
     // 所得割
     const medicalIncome = Math.round(baseIncome * data.rate.medical);
     const supportIncome = Math.round(baseIncome * data.rate.support);
-    const careIncome = Math.round(baseIncome * data.rate.care);
+    const careIncome = care > 0 ? Math.round(baseIncome * data.rate.care) : 0;
 
     // 均等割
     const medicalPerCapita = family * data.perCapita.medical;

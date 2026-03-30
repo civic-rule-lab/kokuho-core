@@ -1,0 +1,21 @@
+{
+  "citySlug": "kisomachi",
+  "cityName": "木曽町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0659,
+      "support": 0.0276,
+      "care": 0.0222
+    },
+    "perCapita": {
+      "medical": 22200,
+      "care": 9300
+    },
+    "household": {
+      "medical": 23000,
+      "support": 8800,
+      "care": 7100
+    }
+  }
+}

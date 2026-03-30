@@ -1,0 +1,25 @@
+{
+  "citySlug": "kawakami",
+  "cityName": "川上村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.024,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 10000,
+      "care": 14000
+    },
+    "household": {
+      "medical": 23000,
+      "care": 13000
+    },
+    "assetLevy": {
+      "medical": 0.05,
+      "support": 0.02,
+      "care": 0.01
+    }
+  }
+}

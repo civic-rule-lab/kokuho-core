@@ -1,0 +1,22 @@
+{
+  "citySlug": "chikuma",
+  "cityName": "千曲市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.024,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 19500,
+      "support": 7500,
+      "care": 7300
+    },
+    "household": {
+      "medical": 22000,
+      "support": 7200,
+      "care": 6300
+    }
+  }
+}

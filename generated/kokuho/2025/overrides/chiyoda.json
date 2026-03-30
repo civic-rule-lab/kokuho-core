@@ -1,0 +1,13 @@
+{
+  "citySlug": "chiyoda",
+  "cityName": "千代田区",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "care": 0.0172
+    },
+    "perCapita": {
+      "care": 16200
+    }
+  }
+}

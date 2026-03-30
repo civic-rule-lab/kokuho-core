@@ -1,0 +1,22 @@
+{
+  "citySlug": "atsugi",
+  "cityName": "厚木市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0624,
+      "support": 0.0211,
+      "care": 0.0212
+    },
+    "perCapita": {
+      "medical": 25744,
+      "support": 8887,
+      "care": 10123
+    },
+    "household": {
+      "medical": 23575,
+      "support": 8138,
+      "care": 6899
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "citySlug": "nagawa",
+  "cityName": "長和町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0685,
+      "support": 0.029,
+      "care": 0.02
+    },
+    "perCapita": {
+      "support": 8400,
+      "care": 8700
+    },
+    "household": {
+      "medical": 19600,
+      "support": 7600
+    },
+    "assetLevy": {
+      "medical": 0.01,
+      "support": 0.04,
+      "care": 0.07
+    }
+  }
+}

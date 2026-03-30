@@ -1,0 +1,17 @@
+{
+  "citySlug": "kodaira",
+  "cityName": "小平市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0601,
+      "support": 0.0229,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 12900,
+      "care": 15900
+    }
+  }
+}

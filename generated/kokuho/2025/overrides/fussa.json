@@ -1,0 +1,17 @@
+{
+  "citySlug": "fussa",
+  "cityName": "福生市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0539,
+      "support": 0.0225,
+      "care": 0.0179
+    },
+    "perCapita": {
+      "medical": 29700,
+      "support": 13200,
+      "care": 14000
+    }
+  }
+}

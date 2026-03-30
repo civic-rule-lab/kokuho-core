@@ -1,0 +1,17 @@
+{
+  "citySlug": "hinohara",
+  "cityName": "檜原村",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0535,
+      "support": 0.0166,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 28100,
+      "support": 9600,
+      "care": 12200
+    }
+  }
+}

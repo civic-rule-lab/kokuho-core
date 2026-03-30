@@ -1,0 +1,17 @@
+{
+  "citySlug": "hino",
+  "cityName": "日野市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.021,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 34500,
+      "support": 12300,
+      "care": 14700
+    }
+  }
+}

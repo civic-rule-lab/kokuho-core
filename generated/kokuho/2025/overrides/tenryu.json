@@ -1,0 +1,21 @@
+{
+  "citySlug": "tenryu",
+  "cityName": "天龍村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0572,
+      "support": 0.0265,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 21200,
+      "support": 10000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 22000,
+      "support": 10000
+    }
+  }
+}

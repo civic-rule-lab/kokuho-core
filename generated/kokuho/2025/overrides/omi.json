@@ -1,0 +1,24 @@
+{
+  "citySlug": "omi",
+  "cityName": "麻績村",
+  "signature": "4h[m]|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.022,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 8700,
+      "care": 7900
+    },
+    "household": {
+      "medical": 23000,
+      "care": 5900
+    },
+    "assetLevy": {
+      "medical": 0.143
+    }
+  }
+}

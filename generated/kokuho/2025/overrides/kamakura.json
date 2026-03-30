@@ -1,0 +1,22 @@
+{
+  "citySlug": "kamakura",
+  "cityName": "鎌倉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0697,
+      "support": 0.032,
+      "care": 0.0299
+    },
+    "perCapita": {
+      "medical": 26730,
+      "support": 12330,
+      "care": 11190
+    },
+    "household": {
+      "medical": 16080,
+      "support": 6120,
+      "care": 5310
+    }
+  }
+}

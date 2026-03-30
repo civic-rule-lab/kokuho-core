@@ -1,0 +1,17 @@
+{
+  "citySlug": "komae",
+  "cityName": "狛江市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0565,
+      "support": 0.0197,
+      "care": 0.0184
+    },
+    "perCapita": {
+      "medical": 27900,
+      "support": 11300,
+      "care": 13600
+    }
+  }
+}

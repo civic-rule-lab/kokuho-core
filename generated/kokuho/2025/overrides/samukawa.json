@@ -1,0 +1,20 @@
+{
+  "citySlug": "samukawa",
+  "cityName": "寒川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 24400,
+      "support": 11000,
+      "care": 10800
+    },
+    "household": {
+      "support": 9800,
+      "care": 7000
+    }
+  }
+}

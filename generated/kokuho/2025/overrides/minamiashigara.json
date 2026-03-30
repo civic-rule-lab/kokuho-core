@@ -1,0 +1,22 @@
+{
+  "citySlug": "minamiashigara",
+  "cityName": "南足柄市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0708,
+      "support": 0.0267,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 10570,
+      "care": 11200
+    },
+    "household": {
+      "medical": 20300,
+      "support": 7670,
+      "care": 6400
+    }
+  }
+}

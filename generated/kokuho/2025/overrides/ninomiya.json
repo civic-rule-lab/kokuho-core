@@ -1,0 +1,22 @@
+{
+  "citySlug": "ninomiya",
+  "cityName": "二宮町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0693,
+      "support": 0.0265,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 25600,
+      "support": 10900,
+      "care": 17000
+    },
+    "household": {
+      "medical": 26200,
+      "support": 7800,
+      "care": 0
+    }
+  }
+}

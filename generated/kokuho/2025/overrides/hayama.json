@@ -1,0 +1,21 @@
+{
+  "citySlug": "hayama",
+  "cityName": "葉山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0578,
+      "support": 0.0255,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 25300,
+      "support": 10900,
+      "care": 10700
+    },
+    "household": {
+      "medical": 20000,
+      "support": 8300
+    }
+  }
+}

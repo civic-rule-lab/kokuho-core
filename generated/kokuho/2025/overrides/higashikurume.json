@@ -1,0 +1,17 @@
+{
+  "citySlug": "higashikurume",
+  "cityName": "東久留米市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0592,
+      "support": 0.0223,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 38300,
+      "support": 13600,
+      "care": 14700
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "isehara",
+  "cityName": "伊勢原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0637,
+      "support": 0.0233,
+      "care": 0.0212
+    },
+    "perCapita": {
+      "medical": 25900,
+      "support": 9600,
+      "care": 9800
+    },
+    "household": {
+      "medical": 18200,
+      "support": 6600,
+      "care": 5200
+    }
+  }
+}

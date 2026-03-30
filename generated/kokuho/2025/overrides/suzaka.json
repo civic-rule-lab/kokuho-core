@@ -1,0 +1,22 @@
+{
+  "citySlug": "suzaka",
+  "cityName": "須坂市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.029,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 19000,
+      "support": 6000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 6000,
+      "care": 7000
+    }
+  }
+}

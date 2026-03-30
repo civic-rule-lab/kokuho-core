@@ -1,0 +1,22 @@
+{
+  "citySlug": "azumino",
+  "cityName": "安曇野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.027,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 20400,
+      "support": 9600,
+      "care": 7000
+    },
+    "household": {
+      "medical": 20400,
+      "support": 9600,
+      "care": 7000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "chigasaki",
+  "cityName": "茅ヶ崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0666,
+      "support": 0.0277,
+      "care": 0.0262
+    },
+    "perCapita": {
+      "medical": 22432,
+      "support": 9231,
+      "care": 9485
+    },
+    "household": {
+      "medical": 27755,
+      "support": 11421,
+      "care": 8789
+    }
+  }
+}

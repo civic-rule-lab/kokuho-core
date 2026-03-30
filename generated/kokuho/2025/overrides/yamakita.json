@@ -1,0 +1,21 @@
+{
+  "citySlug": "yamakita",
+  "cityName": "山北町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.0265,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 28000,
+      "care": 12500
+    },
+    "household": {
+      "medical": 41000,
+      "support": 8500,
+      "care": 7800
+    }
+  }
+}

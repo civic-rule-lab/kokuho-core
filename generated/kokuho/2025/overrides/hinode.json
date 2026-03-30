@@ -1,0 +1,17 @@
+{
+  "citySlug": "hinode",
+  "cityName": "日の出町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.0225,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 31300,
+      "support": 11700,
+      "care": 13200
+    }
+  }
+}

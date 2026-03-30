@@ -1,0 +1,17 @@
+{
+  "citySlug": "inagi",
+  "cityName": "稲城市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0573,
+      "support": 0.0137,
+      "care": 0.0219
+    },
+    "perCapita": {
+      "medical": 37200,
+      "support": 9400,
+      "care": 13100
+    }
+  }
+}

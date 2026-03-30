@@ -1,0 +1,22 @@
+{
+  "citySlug": "yokosuka",
+  "cityName": "横須賀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0726,
+      "support": 0.0279,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 22030,
+      "support": 8450,
+      "care": 8400
+    },
+    "household": {
+      "medical": 33200,
+      "support": 12740,
+      "care": 9420
+    }
+  }
+}

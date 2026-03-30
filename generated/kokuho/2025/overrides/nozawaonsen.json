@@ -1,0 +1,26 @@
+{
+  "citySlug": "nozawaonsen",
+  "cityName": "野沢温泉村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 17800,
+      "support": 6000,
+      "care": 6900
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6700,
+      "care": 5500
+    },
+    "assetLevy": {
+      "medical": 0.07,
+      "support": 0.03,
+      "care": 0.02
+    }
+  }
+}

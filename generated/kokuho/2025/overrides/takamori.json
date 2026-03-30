@@ -1,0 +1,20 @@
+{
+  "citySlug": "takamori",
+  "cityName": "高森町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "care": 0.0272
+    },
+    "perCapita": {
+      "medical": 16000,
+      "support": 9000
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6000,
+      "care": 5500
+    }
+  }
+}

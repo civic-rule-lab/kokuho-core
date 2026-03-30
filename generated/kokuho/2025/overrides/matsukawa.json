@@ -1,0 +1,22 @@
+{
+  "citySlug": "matsukawa",
+  "cityName": "松川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.057,
+      "support": 0.0255,
+      "care": 0.0232
+    },
+    "perCapita": {
+      "medical": 19000,
+      "support": 9200,
+      "care": 9500
+    },
+    "household": {
+      "medical": 17700,
+      "support": 7800,
+      "care": 6500
+    }
+  }
+}

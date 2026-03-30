@@ -1,0 +1,22 @@
+{
+  "citySlug": "matsumoto",
+  "cityName": "松本市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "support": 0.032,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 18800,
+      "support": 6500,
+      "care": 6400
+    },
+    "household": {
+      "medical": 21700,
+      "support": 7400,
+      "care": 6700
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "aikawa",
+  "cityName": "愛川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0686,
+      "support": 0.0262,
+      "care": 0.0218
+    },
+    "perCapita": {
+      "medical": 23500,
+      "care": 9300
+    },
+    "household": {
+      "medical": 21600,
+      "support": 7900,
+      "care": 6900
+    }
+  }
+}

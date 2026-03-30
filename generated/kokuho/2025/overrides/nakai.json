@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakai",
+  "cityName": "中井町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0582,
+      "support": 0.0139,
+      "care": 0.0174
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 6600,
+      "care": 9100
+    },
+    "household": {
+      "medical": 25000,
+      "support": 6000,
+      "care": 7000
+    }
+  }
+}

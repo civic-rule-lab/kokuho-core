@@ -1,0 +1,22 @@
+{
+  "citySlug": "neba",
+  "cityName": "根羽村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0396,
+      "support": 0.0196,
+      "care": 0.0196
+    },
+    "perCapita": {
+      "medical": 15400,
+      "support": 7500,
+      "care": 8200
+    },
+    "household": {
+      "medical": 14500,
+      "support": 7300,
+      "care": 7700
+    }
+  }
+}

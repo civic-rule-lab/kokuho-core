@@ -1,0 +1,22 @@
+{
+  "citySlug": "kiyokawa",
+  "cityName": "清川村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0542,
+      "support": 0.0159,
+      "care": 0.0298
+    },
+    "perCapita": {
+      "medical": 22930,
+      "support": 6840,
+      "care": 10160
+    },
+    "household": {
+      "medical": 10210,
+      "support": 3060,
+      "care": 3410
+    }
+  }
+}

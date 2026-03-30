@@ -1,0 +1,10 @@
+{
+  "citySlug": "bunkyo",
+  "cityName": "文京区",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "care": 0.0223
+    }
+  }
+}

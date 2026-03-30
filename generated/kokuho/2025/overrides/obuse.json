@@ -1,0 +1,21 @@
+{
+  "citySlug": "obuse",
+  "cityName": "小布施町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.062,
+      "support": 0.024,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 23000,
+      "care": 9600
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6700,
+      "care": 5000
+    }
+  }
+}

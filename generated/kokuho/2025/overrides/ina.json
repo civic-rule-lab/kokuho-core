@@ -1,0 +1,21 @@
+{
+  "citySlug": "ina",
+  "cityName": "伊那市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.023
+    },
+    "perCapita": {
+      "medical": 23400,
+      "support": 8800,
+      "care": 10300
+    },
+    "household": {
+      "medical": 24400,
+      "support": 7900,
+      "care": 7700
+    }
+  }
+}

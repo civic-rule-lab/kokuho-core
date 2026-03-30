@@ -1,0 +1,21 @@
+{
+  "citySlug": "ueda",
+  "cityName": "上田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0646,
+      "support": 0.0261,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "support": 8700,
+      "care": 8900
+    },
+    "household": {
+      "medical": 21200,
+      "support": 7300,
+      "care": 6500
+    }
+  }
+}

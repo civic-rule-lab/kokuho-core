@@ -1,0 +1,25 @@
+{
+  "citySlug": "tateshina",
+  "cityName": "立科町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.073,
+      "care": 0.028
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 8000,
+      "care": 11200
+    },
+    "household": {
+      "medical": 21500,
+      "support": 6200
+    },
+    "assetLevy": {
+      "medical": 0.06,
+      "support": 0.0171,
+      "care": 0.0255
+    }
+  }
+}

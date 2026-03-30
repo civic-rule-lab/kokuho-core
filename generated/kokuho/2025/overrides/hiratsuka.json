@@ -1,0 +1,22 @@
+{
+  "citySlug": "hiratsuka",
+  "cityName": "平塚市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0729,
+      "support": 0.0299,
+      "care": 0.0288
+    },
+    "perCapita": {
+      "medical": 28530,
+      "support": 11440,
+      "care": 11690
+    },
+    "household": {
+      "medical": 18500,
+      "support": 7420,
+      "care": 5770
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "hamura",
+  "cityName": "羽村市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0643,
+      "support": 0.0233,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 27300,
+      "support": 11200,
+      "care": 13100
+    }
+  }
+}

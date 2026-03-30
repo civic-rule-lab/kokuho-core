@@ -1,0 +1,25 @@
+{
+  "citySlug": "nakagawa",
+  "cityName": "中川村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "support": 0.024
+    },
+    "perCapita": {
+      "support": 6500,
+      "care": 8500
+    },
+    "household": {
+      "medical": 21000,
+      "support": 6000,
+      "care": 6500
+    },
+    "assetLevy": {
+      "medical": 0.13,
+      "support": 0.035,
+      "care": 0.035
+    }
+  }
+}

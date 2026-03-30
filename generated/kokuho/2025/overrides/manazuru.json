@@ -1,0 +1,22 @@
+{
+  "citySlug": "manazuru",
+  "cityName": "真鶴町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0612,
+      "support": 0.0177,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 29180,
+      "support": 8710,
+      "care": 12640
+    },
+    "household": {
+      "medical": 24110,
+      "support": 7180,
+      "care": 6360
+    }
+  }
+}

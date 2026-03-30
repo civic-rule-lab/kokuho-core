@@ -1,0 +1,22 @@
+{
+  "citySlug": "odawara",
+  "cityName": "小田原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0704,
+      "support": 0.0288,
+      "care": 0.0269
+    },
+    "perCapita": {
+      "medical": 26417,
+      "support": 10816,
+      "care": 10822
+    },
+    "household": {
+      "medical": 18805,
+      "support": 7699,
+      "care": 6167
+    }
+  }
+}

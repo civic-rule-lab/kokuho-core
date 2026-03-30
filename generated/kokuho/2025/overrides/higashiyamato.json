@@ -1,0 +1,17 @@
+{
+  "citySlug": "higashiyamato",
+  "cityName": "東大和市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0742,
+      "support": 0.025,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 37200,
+      "support": 12300,
+      "care": 14100
+    }
+  }
+}

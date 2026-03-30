@@ -1,0 +1,21 @@
+{
+  "citySlug": "ebina",
+  "cityName": "海老名市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0606,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 12000,
+      "care": 12800
+    },
+    "household": {
+      "medical": 21500,
+      "support": 9400,
+      "care": 7100
+    }
+  }
+}

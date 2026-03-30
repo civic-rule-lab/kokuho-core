@@ -1,0 +1,21 @@
+{
+  "citySlug": "zama",
+  "cityName": "座間市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 27800,
+      "support": 10500,
+      "care": 11500
+    },
+    "household": {
+      "medical": 19100,
+      "support": 7400,
+      "care": 6300
+    }
+  }
+}

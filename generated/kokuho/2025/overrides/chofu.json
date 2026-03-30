@@ -1,0 +1,17 @@
+{
+  "citySlug": "chofu",
+  "cityName": "調布市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0552,
+      "support": 0.0198,
+      "care": 0.0175
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 10300,
+      "care": 12000
+    }
+  }
+}

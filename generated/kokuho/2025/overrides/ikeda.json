@@ -1,0 +1,18 @@
+{
+  "citySlug": "ikeda",
+  "cityName": "池田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.064,
+      "support": 0.027,
+      "care": 0.021
+    },
+    "perCapita": {
+      "support": 10000
+    },
+    "household": {
+      "care": 7000
+    }
+  }
+}

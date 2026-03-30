@@ -1,0 +1,22 @@
+{
+  "citySlug": "yamato",
+  "cityName": "大和市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.0295,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 24600,
+      "support": 10200,
+      "care": 12600
+    },
+    "household": {
+      "medical": 25200,
+      "support": 10200,
+      "care": 9000
+    }
+  }
+}

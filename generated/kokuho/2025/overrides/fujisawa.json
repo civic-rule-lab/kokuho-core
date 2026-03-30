@@ -1,0 +1,21 @@
+{
+  "citySlug": "fujisawa",
+  "cityName": "藤沢市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0694,
+      "support": 0.0297,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 28560,
+      "support": 11880,
+      "care": 12480
+    },
+    "household": {
+      "medical": 18480,
+      "support": 7680
+    }
+  }
+}

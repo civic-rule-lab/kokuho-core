@@ -1,0 +1,20 @@
+{
+  "citySlug": "asahi",
+  "cityName": "朝日村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "support": 0.024,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 20000,
+      "support": 9000,
+      "care": 8000
+    },
+    "household": {
+      "care": 7000
+    }
+  }
+}

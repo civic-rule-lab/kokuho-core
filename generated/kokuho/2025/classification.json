@@ -1,0 +1,1103 @@
+{
+  "generatedAt": "2026-03-30T00:45:05.644Z",
+  "fiscalYear": 2025,
+  "totalMunicipalities": 164,
+  "groups": {
+    "3h|nat|R7std|pre": {
+      "count": 94,
+      "exactCount": 0,
+      "description": {
+        "signature": "3h|nat|R7std|pre",
+        "calcType": "3方式（所得割+均等割+平等割）",
+        "assetSections": null,
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "sagamihara",
+          "name": "相模原市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yokosuka",
+          "name": "横須賀市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hiratsuka",
+          "name": "平塚市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kamakura",
+          "name": "鎌倉市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fujisawa",
+          "name": "藤沢市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "odawara",
+          "name": "小田原市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chigasaki",
+          "name": "茅ヶ崎市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "zushi",
+          "name": "逗子市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miura",
+          "name": "三浦市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hadano",
+          "name": "秦野市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "atsugi",
+          "name": "厚木市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yamato",
+          "name": "大和市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "isehara",
+          "name": "伊勢原市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ebina",
+          "name": "海老名市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "zama",
+          "name": "座間市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minamiashigara",
+          "name": "南足柄市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ayase",
+          "name": "綾瀬市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hayama",
+          "name": "葉山町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "samukawa",
+          "name": "寒川町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oiso",
+          "name": "大磯町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ninomiya",
+          "name": "二宮町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nakai",
+          "name": "中井町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oi",
+          "name": "大井町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsuda",
+          "name": "松田町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kaisei",
+          "name": "開成町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hakone",
+          "name": "箱根町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "manazuru",
+          "name": "真鶴町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yugawara",
+          "name": "湯河原町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "aikawa",
+          "name": "愛川町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kiyokawa",
+          "name": "清川村",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagano",
+          "name": "長野市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsumoto",
+          "name": "松本市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ueda",
+          "name": "上田市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "okaya",
+          "name": "岡谷市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iida",
+          "name": "飯田市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "suwa",
+          "name": "諏訪市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "suzaka",
+          "name": "須坂市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "komoro",
+          "name": "小諸市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ina",
+          "name": "伊那市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "komagane",
+          "name": "駒ヶ根市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iiyama",
+          "name": "飯山市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chino",
+          "name": "茅野市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shiojiri",
+          "name": "塩尻市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "saku",
+          "name": "佐久市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikuma",
+          "name": "千曲市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "azumino",
+          "name": "安曇野市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minamimaki",
+          "name": "南牧村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minamiaiki",
+          "name": "南相木村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakuho",
+          "name": "佐久穂町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "karuizawa",
+          "name": "軽井沢町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyota",
+          "name": "御代田町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "aoki",
+          "name": "青木村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shimosuwa",
+          "name": "下諏訪町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fujimi",
+          "name": "富士見町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hara",
+          "name": "原村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minowa",
+          "name": "箕輪町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iijima",
+          "name": "飯島町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minamimino",
+          "name": "南箕輪村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyada",
+          "name": "宮田村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsukawa",
+          "name": "松川町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "takamori",
+          "name": "高森町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "anan",
+          "name": "阿南町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "achi",
+          "name": "阿智村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hiraya",
+          "name": "平谷村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "neba",
+          "name": "根羽村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shimojo",
+          "name": "下條村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "uruki",
+          "name": "売木村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tenryu",
+          "name": "天龍村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yasuoka",
+          "name": "泰阜村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "takagi",
+          "name": "喬木村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "toyooka",
+          "name": "豊丘村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oshika",
+          "name": "大鹿村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "agematsu",
+          "name": "上松町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagiso",
+          "name": "南木曽町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kiso",
+          "name": "木祖村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "otaki",
+          "name": "王滝村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "okuwamura",
+          "name": "大桑村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kisomachi",
+          "name": "木曽町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ikusaka",
+          "name": "生坂村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yamagata",
+          "name": "山形村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "asahi",
+          "name": "朝日村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ikeda",
+          "name": "池田町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsukawamura",
+          "name": "松川村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hakuba",
+          "name": "白馬村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "otari",
+          "name": "小谷村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakaki",
+          "name": "坂城町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "obuse",
+          "name": "小布施町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "takayama",
+          "name": "高山村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yamanouchi",
+          "name": "山ノ内町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kijimadaira",
+          "name": "木島平村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shinano",
+          "name": "信濃町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogawa",
+          "name": "小川村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iizuna",
+          "name": "飯綱町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakae",
+          "name": "栄村",
+          "pref": "長野県",
+          "hasOverride": true
+        }
+      ]
+    },
+    "2h|nat|R7std|pre": {
+      "count": 48,
+      "exactCount": 16,
+      "description": {
+        "signature": "2h|nat|R7std|pre",
+        "calcType": "2方式（所得割+均等割）",
+        "assetSections": null,
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "yokohama",
+          "name": "横浜市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawasaki",
+          "name": "川崎市",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chiyoda",
+          "name": "千代田区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "chuo",
+          "name": "中央区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "minato",
+          "name": "港区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "shinjuku",
+          "name": "新宿区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "bunkyo",
+          "name": "文京区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "taito",
+          "name": "台東区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "sumida",
+          "name": "墨田区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "koto",
+          "name": "江東区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "shinagawa",
+          "name": "品川区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "meguro",
+          "name": "目黒区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "ota",
+          "name": "大田区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "setagaya",
+          "name": "世田谷区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "shibuya",
+          "name": "渋谷区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "nakano-ku",
+          "name": "中野区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "suginami",
+          "name": "杉並区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "toshima",
+          "name": "豊島区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "kita",
+          "name": "北区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "arakawa",
+          "name": "荒川区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "itabashi",
+          "name": "板橋区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "nerima",
+          "name": "練馬区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "adachi",
+          "name": "足立区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "katsushika",
+          "name": "葛飾区",
+          "pref": "東京都",
+          "hasOverride": false
+        },
+        {
+          "slug": "edogawa",
+          "name": "江戸川区",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "hachioji",
+          "name": "八王子市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "mitaka",
+          "name": "三鷹市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "ome",
+          "name": "青梅市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "machida",
+          "name": "町田市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kodaira",
+          "name": "小平市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "hino",
+          "name": "日野市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashimurayama",
+          "name": "東村山市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kunitachi",
+          "name": "国立市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "fussa",
+          "name": "福生市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "komae",
+          "name": "狛江市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashiyamato",
+          "name": "東大和市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kiyose",
+          "name": "清瀬市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashikurume",
+          "name": "東久留米市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "musashimurayama",
+          "name": "武蔵村山市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "tama",
+          "name": "多摩市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "inagi",
+          "name": "稲城市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "hamura",
+          "name": "羽村市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "akiruno",
+          "name": "あきる野市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "nishitokyo",
+          "name": "西東京市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "mizuho",
+          "name": "瑞穂町",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "hinode",
+          "name": "日の出町",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "hinohara",
+          "name": "檜原村",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "okutama",
+          "name": "奥多摩町",
+          "pref": "東京都",
+          "hasOverride": true
+        }
+      ]
+    },
+    "4h|nat|R7std|pre": {
+      "count": 12,
+      "exactCount": 0,
+      "description": {
+        "signature": "4h|nat|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": null,
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "yamakita",
+          "name": "山北町",
+          "pref": "神奈川県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tomi",
+          "name": "東御市",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "koumi",
+          "name": "小海町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawakami",
+          "name": "川上村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kitaaiki",
+          "name": "北相木村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tateshina",
+          "name": "立科町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagawa",
+          "name": "長和町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tatsuno",
+          "name": "辰野町",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nakagawa",
+          "name": "中川村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikuhoku",
+          "name": "筑北村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nozawaonsen",
+          "name": "野沢温泉村",
+          "pref": "長野県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogasawara",
+          "name": "小笠原村",
+          "pref": "東京都",
+          "hasOverride": true
+        }
+      ]
+    },
+    "2h|650-240-170|R7std|pre": {
+      "count": 5,
+      "exactCount": 0,
+      "description": {
+        "signature": "2h|650-240-170|R7std|pre",
+        "calcType": "2方式（所得割+均等割）",
+        "assetSections": null,
+        "caps": "独自上限（650-240-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "musashino",
+          "name": "武蔵野市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "fuchu",
+          "name": "府中市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "chofu",
+          "name": "調布市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "koganei",
+          "name": "小金井市",
+          "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kokubunji",
+          "name": "国分寺市",
+          "pref": "東京都",
+          "hasOverride": true
+        }
+      ]
+    },
+    "4h[m]|nat|R7std|pre": {
+      "count": 2,
+      "exactCount": 1,
+      "description": {
+        "signature": "4h[m]|nat|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": "資産割対象区分: 医療のみ",
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "omachi",
+          "name": "大町市",
+          "pref": "長野県",
+          "hasOverride": false
+        },
+        {
+          "slug": "omi",
+          "name": "麻績村",
+          "pref": "長野県",
+          "hasOverride": true
+        }
+      ]
+    },
+    "4h[ms]|nat|R7std|pre": {
+      "count": 1,
+      "exactCount": 1,
+      "description": {
+        "signature": "4h[ms]|nat|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": "資産割対象区分: 医療+支援のみ",
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "nakano",
+          "name": "中野市",
+          "pref": "長野県",
+          "hasOverride": false
+        }
+      ]
+    },
+    "2h|640-230-170|R7std|pre": {
+      "count": 1,
+      "exactCount": 1,
+      "description": {
+        "signature": "2h|640-230-170|R7std|pre",
+        "calcType": "2方式（所得割+均等割）",
+        "assetSections": null,
+        "caps": "独自上限（640-230-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "tachikawa",
+          "name": "立川市",
+          "pref": "東京都",
+          "hasOverride": false
+        }
+      ]
+    },
+    "2h|660-240-170|R7std|pre": {
+      "count": 1,
+      "exactCount": 1,
+      "description": {
+        "signature": "2h|660-240-170|R7std|pre",
+        "calcType": "2方式（所得割+均等割）",
+        "assetSections": null,
+        "caps": "独自上限（660-240-170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "akishima",
+          "name": "昭島市",
+          "pref": "東京都",
+          "hasOverride": false
+        }
+      ]
+    }
+  }
+}

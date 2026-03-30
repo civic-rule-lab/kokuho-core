@@ -1,0 +1,22 @@
+{
+  "citySlug": "miura",
+  "cityName": "三浦市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0653,
+      "support": 0.0279,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 29600,
+      "support": 17400,
+      "care": 13400
+    },
+    "household": {
+      "medical": 20700,
+      "support": 0,
+      "care": 7000
+    }
+  }
+}

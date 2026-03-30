@@ -1,0 +1,22 @@
+{
+  "citySlug": "okaya",
+  "cityName": "岡谷市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0726,
+      "support": 0.0289,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 23200,
+      "support": 10200,
+      "care": 10000
+    },
+    "household": {
+      "medical": 22600,
+      "support": 8200,
+      "care": 8000
+    }
+  }
+}

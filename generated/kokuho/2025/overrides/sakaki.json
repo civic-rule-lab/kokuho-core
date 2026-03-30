@@ -1,0 +1,20 @@
+{
+  "citySlug": "sakaki",
+  "cityName": "坂城町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0675,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 21800,
+      "care": 8300
+    },
+    "household": {
+      "medical": 21800,
+      "support": 9100,
+      "care": 8200
+    }
+  }
+}

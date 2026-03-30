@@ -1,0 +1,10 @@
+{
+  "citySlug": "itabashi",
+  "cityName": "板橋区",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "care": 0.0222
+    }
+  }
+}

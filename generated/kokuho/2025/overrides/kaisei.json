@@ -1,0 +1,22 @@
+{
+  "citySlug": "kaisei",
+  "cityName": "開成町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0628,
+      "support": 0.024,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 27200,
+      "support": 10200,
+      "care": 11000
+    },
+    "household": {
+      "medical": 16800,
+      "support": 6800,
+      "care": 4900
+    }
+  }
+}

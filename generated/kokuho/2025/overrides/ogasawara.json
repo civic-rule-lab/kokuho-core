@@ -1,0 +1,25 @@
+{
+  "citySlug": "ogasawara",
+  "cityName": "小笠原村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.045,
+      "support": 0.015,
+      "care": 0.014
+    },
+    "perCapita": {
+      "medical": 7800,
+      "support": 6400
+    },
+    "household": {
+      "medical": 22600,
+      "care": 10000
+    },
+    "assetLevy": {
+      "medical": 0.35,
+      "support": 0.15,
+      "care": 0.11
+    }
+  }
+}

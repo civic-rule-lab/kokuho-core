@@ -1,0 +1,21 @@
+{
+  "citySlug": "suwa",
+  "cityName": "諏訪市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.03,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 19900,
+      "support": 8200,
+      "care": 8500
+    },
+    "household": {
+      "medical": 23100,
+      "support": 9800,
+      "care": 7300
+    }
+  }
+}
