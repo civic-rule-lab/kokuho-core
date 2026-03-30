@@ -1,6 +1,6 @@
 # Civic Rule Lab — プロジェクト詳細設計
 
-最終更新: 2026-03-25
+最終更新: 2026-03-30
 
 ---
 
@@ -22,20 +22,18 @@
 Civic Systems（インフラ会社）
 │
 ├─ Civic Rule Lab        制度研究・制度OS
-│   ├ rulesets           制度ルール（年度別）
-│   ├ templates          制度パターン（同型グループ）
-│   ├ municipalities     自治体差分データ
-│   ├ engines            計算エンジン
-│   └ generated          自動生成結果
+│   ├ data               自治体制度データ（164自治体実装済み）
+│   ├ registry           自治体マスタ
+│   ├ engines            計算エンジン（normalize/signature/classify/generate）
+│   └ generated          自動生成結果（テンプレート・オーバーライド）
 │
 ├─ Municipal Control     自治体ネットワーク管理
 │   └ 1700site           1741自治体サイト配信基盤
 │
 ├─ Civic Exchange        市民サービス
-│   ├ 自治体制度ポータル
-│   ├ 国保計算ツール（現在の実装）
-│   ├ 制度検索
-│   └ 自治体ページ
+│   ├ ポータル（index.html）
+│   ├ 国保計算ツール（164自治体、現行実装）
+│   └ 自治体ページ（/{pref}/{slug}/）
 │
 └─ CCP                   循環型リサイクル事業
 ```
@@ -43,26 +41,38 @@ Civic Systems（インフラ会社）
 ### データの流れ
 
 ```
-rulesets（制度ルール）
-    ↓
-templates（制度パターン）
-    ↓
-municipalities（自治体差分）
-    ↓
-engines（計算エンジン）
-    ↓
-generated（生成）
-    ↓
-Municipal Control / 1700site
-    ↓
-Civic Exchange
-    ↓
-市民
+data/municipalities/{slug}/kokuho-2025.json
+    ↓ normalize    数値表記を統一
+    ↓ signature    制度構造の署名を生成
+    ↓ classify     同型自治体をグループ化（現在8グループ）
+    ↓ generate     template + override → generated/kokuho/2025/
+    ↓ publish      {pref}/{slug}/ へ配信
 ```
 
 ---
 
-## 3. Civic Rule Engine — コアアルゴリズム
+## 3. 実装状況（2026-03-30 時点）
+
+| 場所 | 内容 | 状態 |
+|------|------|------|
+| `data/municipalities/{slug}/kokuho-2025.json` | 自治体制度データ | 164自治体（神奈川33・長野77・東京54） |
+| `{pref}/{slug}/index.html` | かんたん計算（正式版） | 164自治体生成済み |
+| `{pref}/{slug}/income.html` | 所得ベース計算（正式版） | 164自治体生成済み |
+| `index.html` | ポータル（都道府県・自治体選択） | 稼働中 |
+| `js/engine.js` | 計算エンジン（絶対パス版） | 稼働中 |
+| `engines/kokuho/normalize.js` | 正規化モジュール | 実装済み |
+| `engines/kokuho/signature.js` | 制度構造署名生成 | 実装済み |
+| `engines/kokuho/classify.js` | 同型自治体分類 | 実装済み |
+| `engines/kokuho/generate.js` | 自動生成パイプライン | 実装済み |
+| `generated/kokuho/2025/` | 分類結果・テンプレート・オーバーライド | 生成済み |
+| `registry/index.json` | 自治体マスタ | 164自治体登録済み |
+| `test/` | テスト版UI（旧メイン） | 引き続き稼働 |
+
+**公開URL：** `https://kokuho-keisan.jp/`
+
+---
+
+## 4. Civic Rule Engine — コアアルゴリズム
 
 ### 処理フロー
 
@@ -73,233 +83,166 @@ Civic Exchange
 4. generate    template + override → generated JSON
 ```
 
-### 3-1. normalize（正規化）
+詳細仕様: `docs/civic-rule-engine-spec.md`
 
-**目的：** 入力差・表記ゆれを比較可能な形に統一。
+### 署名フォーマット
 
-```js
-// 入力例
-{ "incomeRate": "7.3%", "perCapita": "42,000円" }
-
-// 正規化後
-{ "incomeRate": 0.073, "perCapita": 42000 }
+```
+{calcType}|{caps}|{reduction}|{special}
 ```
 
-正規化対象フィールド：
-- `calculationType` / `sections` / `incomeRate` / `perCapita`
-- `householdRate` / `assetRate` / `cap` / `reductionRule`
-- `premiumYear` / `incomeYear` / `specialRule`
+例: `3h|nat|R7std|pre`（3方式・全国標準上限・R7標準軽減・未就学児軽減あり）
 
-### 3-2. signature（構造署名化）
+### 2025年度分類結果（164自治体・8グループ）
 
-**目的：** 税率ではなく「制度構造」で同型判定する。
-
-署名キー：
-
-| キー | 意味 |
-|------|------|
-| `calculationType` | 計算方式（income+perCapita+household 等） |
-| `sections` | 区分構成（medical / support / care） |
-| `limitStructure` | 上限構造（total / separate） |
-| `reductionRule` | 軽減ルール（7-5-2 等） |
-| `premiumYear` | 保険料年度 |
-| `specialRule` | 特例有無 |
-
-### 3-3. classify（同型分類）
-
-**目的：** 同じ署名の自治体をグループ化。
-
-```json
-{
-  "KOKUHO-2026-001": ["kanagawa/chigasaki", "kanagawa/fujisawa"],
-  "KOKUHO-2026-002": ["kanagawa/hiratsuka"]
-}
-```
-
-### 3-4. generate（自動生成）
-
-| ケース | 出力 |
-|--------|------|
-| 署名一致・数値も一致 | template のみ |
-| 署名一致・数値差分あり | template + override |
-| 署名不一致 | custom/（完全個別） |
+| 署名 | 件数 | 完全一致 | 代表自治体 |
+|------|------|----------|-----------|
+| `3h\|nat\|R7std\|pre` | 94件 | 0件 | 神奈川・長野の3方式自治体 |
+| `2h\|nat\|R7std\|pre` | 48件 | 16件 | 東京23区など |
+| `4h\|nat\|R7std\|pre` | 12件 | 0件 | 長野の村落（資産割あり） |
+| `2h\|650-240-170\|R7std\|pre` | 5件 | 0件 | 東京の独自上限市 |
+| その他4グループ | 5件 | 4件 | 立川市・昭島市等 |
 
 ---
 
-## 4. ディレクトリ構造（最終形）
+## 5. URL構造（正式版）
 
 ```
-civic-rule-lab/
-├ docs/
-│  ├ project-overview.md       このファイル
-│  ├ architecture.md
-│  ├ civic-exchange-constitution.md  （未作成）
-│  └ civic-rule-engine-spec.md       （未作成）
-│
+kokuho-keisan.jp/                          ← ポータル
+kokuho-keisan.jp/{pref}/{slug}/            ← かんたん計算
+kokuho-keisan.jp/{pref}/{slug}/income.html ← 所得ベース計算
+```
+
+例:
+```
+kokuho-keisan.jp/kanagawa/chigasaki/
+kokuho-keisan.jp/tokyo/shinjuku/income.html
+kokuho-keisan.jp/nagano/nagano/
+```
+
+---
+
+## 6. ディレクトリ構造（現状）
+
+```
+kokuho-keisan/
+├ index.html                  ポータル（自動生成）
+├ css/
+│  ├ common.css               計算ページ共通スタイル
+│  └ selector.css             ポータルスタイル
+├ js/
+│  ├ engine.js                計算エンジン（絶対パス版）
+│  └ selector.js              ポータルレジストリ（自動生成）
+├ templates/
+│  ├ kokuho-simple.html       かんたん計算テンプレート
+│  └ kokuho-income.html       所得ベース計算テンプレート
+├ kanagawa/{slug}/            神奈川県33自治体 × 2ページ
+├ nagano/{slug}/              長野県77自治体 × 2ページ
+├ tokyo/{slug}/               東京都54自治体 × 2ページ
+├ data/
+│  └ municipalities/{slug}/kokuho-2025.json  生データ（164自治体）
 ├ registry/
-│  ├ municipalities.json       自治体一覧
-│  ├ prefectures.json
-│  └ systems.json              対応制度一覧
-│
+│  └ index.json               自治体マスタ（164自治体）
 ├ engines/
 │  └ kokuho/
-│     ├ engine.js              計算エンジン（稼働中）
-│     ├ normalize.js           （未実装）
-│     ├ signature.js           （未実装）
-│     ├ classify.js            （未実装）
-│     └ generate.js            （未実装）
-│
-├ rulesets/
-│  └ kokuho/
-│     └ 2025.json, 2026.json
-│
-├ templates/
-│  └ kokuho/
-│     └ type-a.json ...
-│
-├ municipalities/
-│  └ kanto/kanagawa/{slug}/systems/kokuho.json
-│
-├ overrides/
-│  └ kokuho/{slug}-{year}.json
-│
-├ custom/                      テンプレ適用外（横浜・大阪等）
-│  └ kokuho/{slug}-{year}.json
-│
+│     ├ engine.js             計算エンジン（test/用）
+│     ├ normalize.js          正規化
+│     ├ signature.js          構造署名化
+│     ├ classify.js           同型分類
+│     └ generate.js           自動生成パイプライン
 ├ generated/
-│  └ kokuho/{year}/{prefecture}/{slug}.json
-│
-├ municipal-control/
-│  └ scripts/
-│     ├ build-generated.js
-│     ├ validate-rules.js
-│     └ publish-sites.js
-│
-├ sites/                       公開サイト
-│  ├ portal/
-│  └ municipalities/{slug}/
-│
-└ data/municipalities/{slug}/kokuho-2025.json   （現行・移行前）
+│  └ kokuho/2025/
+│     ├ classification.json
+│     ├ templates/
+│     └ overrides/
+├ scripts/
+│  ├ generate-official-pages.js  正式版HTML生成
+│  ├ generate-selector.js        ポータル更新
+│  ├ generate-kanagawa-kokuho.js
+│  ├ generate-tokyo-kokuho.js
+│  ├ validate-kokuho-data.js
+│  └ test-calc-verify.js
+├ docs/
+│  ├ project-overview.md         このファイル
+│  ├ architecture.md
+│  ├ civic-rule-engine-spec.md   エンジン技術仕様
+│  └ civic-exchange-constitution.md  プロジェクト憲法
+└ test/                       テスト版UI（旧メイン・引き続き稼働）
 ```
 
 ---
 
-## 5. municipalities JSONフォーマット（目標形式）
+## 7. 自治体追加の手順（現行）
+
+1. `data/municipalities/{slug}/kokuho-2025.json` 作成
+2. `registry/index.json` に追記（cityCode / citySlug / cityName / prefecture / systems）
+3. `node scripts/generate-official-pages.js` — 正式版HTML生成
+4. `node scripts/generate-selector.js` — index.html・js/selector.js 更新
+5. `node engines/kokuho/generate.js` — 分類結果を更新
+6. git push
+
+---
+
+## 8. データ構造（kokuho JSON）
 
 ```json
 {
-  "cityId": "chigasaki",
-  "prefectureId": "kanagawa",
-  "regionBlock": "kanto",
-  "premiumYear": 2026,
-  "incomeYear": 2025,
-  "calculationType": "income+perCapita+household",
-  "sections": ["medical", "support", "care"],
-  "incomeRate": "7.3%",
-  "perCapita": "42000",
-  "householdRate": "18000",
-  "assetRate": "0%",
-  "cap": { "medical": 650000, "support": 240000, "care": 170000 },
-  "reductionRule": "7-5-2",
-  "specialRule": false
+  "cityCode": "14207",
+  "citySlug": "chigasaki",
+  "cityName": "茅ヶ崎市",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": { "medical": 0.0666, "support": 0.0277, "care": 0.0262 },
+  "perCapita": { "medical": 44000, "support": 14700, "care": 14000 },
+  "household": { "medical": 0, "support": 0, "care": 0 },
+  "caps": { "medical": 650000, "support": 240000, "care": 170000 },
+  "preschoolReduction": { "enabled": true, "medicalPerCapitaRate": 0.5, "supportPerCapitaRate": 0.5 },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": { "base": 430000, "perPersonAdd": 0 },
+      "fiveTenths":  { "base": 430000, "perPersonAdd": 305000 },
+      "twoTenths":   { "base": 430000, "perPersonAdd": 560000 }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": { "sevenTenths": 0.7, "fiveTenths": 0.5, "twoTenths": 0.2 }
+  }
 }
 ```
 
----
-
-## 6. 1700site — Municipal Control
-
-### 機能
-
-| 機能 | 内容 |
-|------|------|
-| Municipality Registry | 全国自治体台帳管理 |
-| Rule Distribution | 制度データ配信 |
-| Update Manager | 年度更新・制度改正 |
-| Rollback Manager | 全国 / 都道府県 / 自治体 / 制度 / 年度単位でロールバック |
-| Emergency Broadcast | 災害時緊急通知 |
-
-### 通常更新フロー
-
-```
-Rule Lab → Validation → Municipal Control → 1700site → Staging → Production
-```
-
-### 緊急更新フロー
-
-```
-Emergency Input → Quick Validation → Emergency Broadcast → Target Deployment
-```
+資産割あり自治体は `"assetLevy": { "medical": 0.35, "support": 0.15, "care": 0.11 }` を追加。
 
 ---
 
-## 7. 設計原則
+## 9. 将来の制度拡張
 
-1. **制度ロジックはデータ化** — コードに埋め込まない
-2. **年度分離** — `registry/kokuho/2026/chigasaki.json`
-3. **ID固定** — `prefectureId` / `cityId` / `slug` は変更不可
-4. **個人データ非保持** — 氏名・住所・個別所得は保存しない
-5. **匿名統計のみ** — 利用数・閲覧数のみ取得
-6. **必ずロールバック可能**
+```
+data/municipalities/chigasaki/
+├── kokuho-2025.json    ← 現在実装済み
+├── kaigo-2025.json     ← 介護保険（Phase 2）
+├── hoiku-2025.json     ← 保育料（Phase 2）
+└── jumin-2025.json     ← 住民税（Phase 2）
+```
+
+**入力1回 → 複数制度を同時計算 → 統合表示** が最終形。
 
 ---
 
-## 8. 次の作業優先順位
+## 10. ロードマップ
 
-### Phase 1（現在）：制度コンパイラの実証
-- [ ] `engines/kokuho/normalize.js` 実装
-- [ ] `engines/kokuho/signature.js` 実装
-- [ ] `engines/kokuho/classify.js` 実装
-- [ ] `engines/kokuho/generate.js` 実装
-- [ ] 神奈川県全自治体 kokuho-2025.json 一括生成スクリプト
-- [ ] 茅ヶ崎市公式計算例との照合テスト
-- [ ] `docs/civic-exchange-constitution.md` 作成
-- [ ] `docs/civic-rule-engine-spec.md` 作成
-- [ ] test/ → 正式版（municipalities/）への移行完了
+### Phase 1（完了）：制度コンパイラの実証
+- [x] Civic Rule Engine 実装（normalize / signature / classify / generate）
+- [x] 164自治体データ整備（神奈川・長野・東京）
+- [x] 計算照合テスト（新宿区・長野市・藤沢市）
+- [x] 正式版URL構造への移行（`/{pref}/{slug}/`）
+- [x] docs 整備（engine-spec / constitution）
 
-### Phase 2：制度横展開
-- 住民税・介護保険・保育料エンジン追加
-- 制度横断計算（入力共通化）
-- Municipal Control 自動生成基盤
+### Phase 2（次）：全国展開
+- [ ] 神奈川・長野・東京以外の都道府県データ追加
+- [ ] 1741自治体への拡張
+- [ ] 介護保険・保育料・住民税エンジン追加
 
-### Phase 3：双方向認証基盤（長期）
+### Phase 3（長期）：双方向認証基盤
 - 個人 ↔ 行政の認証システム
 - DID / Verifiable Credentials
-
----
-
-## 9. Claudeからの補足
-
-### このプロジェクトが強い理由
-
-単なる計算ツールではなく：
-1. 制度ルールを**正規化**し
-2. 制度構造の**署名を生成**し
-3. 同型自治体を**自動分類**し
-4. テンプレート＋差分で**自治体サービスを生成**する
-
-この処理構造が**知的財産として強い**。
-
-### 推奨ドキュメント追加
-
-```
-docs/civic-exchange-constitution.md  プロジェクト憲法（思想・原則）
-docs/civic-rule-engine-spec.md       エンジン仕様（技術詳細）
-```
-
-この2つが完成すると「完全な自治体制度OS」になる。
-
-### 最小実装で試す場合
-
-神奈川県3市（茅ヶ崎・藤沢・平塚）で動かすのが最も安全。
-`npm run kokuho:classify` で分類 → 生成まで一気通貫。
-
-### 命名規則まとめ
-
-| 項目 | 形式 | 例 |
-|------|------|-----|
-| slug | ローマ字小文字 | `chigasaki` |
-| cityCode | 総務省6桁コード | `14207` |
-| prefectureId | ローマ字小文字 | `kanagawa` |
-| regionBlock | 地方ブロック名 | `kanto` |
-| ファイル名 | `{year}.json` | `2026.json` |
