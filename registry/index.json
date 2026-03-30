@@ -2042,6 +2042,492 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "12100",
+      "citySlug": "chiba",
+      "cityName": "千葉市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12202",
+      "citySlug": "choshi",
+      "cityName": "銚子市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12203",
+      "citySlug": "ichikawa",
+      "cityName": "市川市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12204",
+      "citySlug": "funabashi",
+      "cityName": "船橋市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12205",
+      "citySlug": "tateyama",
+      "cityName": "館山市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12206",
+      "citySlug": "kisarazu",
+      "cityName": "木更津市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12207",
+      "citySlug": "matsudo",
+      "cityName": "松戸市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12208",
+      "citySlug": "noda",
+      "cityName": "野田市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12210",
+      "citySlug": "mobara",
+      "cityName": "茂原市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12211",
+      "citySlug": "narita",
+      "cityName": "成田市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12212",
+      "citySlug": "sakura",
+      "cityName": "佐倉市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12213",
+      "citySlug": "togane",
+      "cityName": "東金市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12215",
+      "citySlug": "asahishi",
+      "cityName": "旭市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12216",
+      "citySlug": "narashino",
+      "cityName": "習志野市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12217",
+      "citySlug": "kashiwa",
+      "cityName": "柏市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12218",
+      "citySlug": "katsuura",
+      "cityName": "勝浦市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12219",
+      "citySlug": "ichihara",
+      "cityName": "市原市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12220",
+      "citySlug": "nagareyama",
+      "cityName": "流山市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12221",
+      "citySlug": "yachiyo",
+      "cityName": "八千代市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12222",
+      "citySlug": "abiko",
+      "cityName": "我孫子市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12223",
+      "citySlug": "kamogawa",
+      "cityName": "鴨川市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12224",
+      "citySlug": "kamagaya",
+      "cityName": "鎌ケ谷市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12225",
+      "citySlug": "kimitsu",
+      "cityName": "君津市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12226",
+      "citySlug": "futtsu",
+      "cityName": "富津市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12227",
+      "citySlug": "urayasu",
+      "cityName": "浦安市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12228",
+      "citySlug": "yotsukaido",
+      "cityName": "四街道市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12229",
+      "citySlug": "sodegaura",
+      "cityName": "袖ケ浦市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12230",
+      "citySlug": "yachimata",
+      "cityName": "八街市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12231",
+      "citySlug": "inzai",
+      "cityName": "印西市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12232",
+      "citySlug": "shiroi",
+      "cityName": "白井市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12233",
+      "citySlug": "tomisato",
+      "cityName": "富里市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12234",
+      "citySlug": "minamiboso",
+      "cityName": "南房総市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12235",
+      "citySlug": "sosa",
+      "cityName": "匝瑳市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12236",
+      "citySlug": "katori",
+      "cityName": "香取市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12237",
+      "citySlug": "sammu",
+      "cityName": "山武市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12238",
+      "citySlug": "isumi",
+      "cityName": "いすみ市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12239",
+      "citySlug": "oamishirasato",
+      "cityName": "大網白里市",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12322",
+      "citySlug": "shisui",
+      "cityName": "酒々井町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12329",
+      "citySlug": "sakaecho",
+      "cityName": "栄町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12342",
+      "citySlug": "kozaki",
+      "cityName": "神崎町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12347",
+      "citySlug": "tako",
+      "cityName": "多古町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12349",
+      "citySlug": "tohnosho",
+      "cityName": "東庄町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12403",
+      "citySlug": "kujukuri",
+      "cityName": "九十九里町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12409",
+      "citySlug": "shibayama",
+      "cityName": "芝山町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12410",
+      "citySlug": "yokoshibahikari",
+      "cityName": "横芝光町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12421",
+      "citySlug": "ichinomiya",
+      "cityName": "一宮町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12422",
+      "citySlug": "mutsuzawa",
+      "cityName": "睦沢町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12423",
+      "citySlug": "chosei",
+      "cityName": "長生村",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12424",
+      "citySlug": "shirako",
+      "cityName": "白子町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12426",
+      "citySlug": "nagara",
+      "cityName": "長柄町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12427",
+      "citySlug": "chonan",
+      "cityName": "長南町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12441",
+      "citySlug": "otakicho",
+      "cityName": "大多喜町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12443",
+      "citySlug": "onjuku",
+      "cityName": "御宿町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "12463",
+      "citySlug": "kyonan",
+      "cityName": "鋸南町",
+      "prefecture": "千葉県",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "citySlug": "yokoshibahikari",
+  "cityName": "横芝光町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.021,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 13600,
+      "care": 14400
+    },
+    "household": {
+      "medical": 23000
+    }
+  }
+}

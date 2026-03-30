@@ -1,0 +1,19 @@
+{
+  "citySlug": "shibayama",
+  "cityName": "芝山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.03,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 19800,
+      "support": 11900,
+      "care": 11100
+    },
+    "household": {
+      "medical": 20300
+    }
+  }
+}

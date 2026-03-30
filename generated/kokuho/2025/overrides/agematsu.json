@@ -13,7 +13,8 @@
       "care": 8000
     },
     "household": {
-      "support": 6700
+      "support": 6700,
+      "care": 6000
     }
   }
 }

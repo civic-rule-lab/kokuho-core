@@ -1,0 +1,20 @@
+{
+  "citySlug": "otakicho",
+  "cityName": "大多喜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.028,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 14900,
+      "care": 14700
+    },
+    "household": {
+      "medical": 26500
+    }
+  }
+}

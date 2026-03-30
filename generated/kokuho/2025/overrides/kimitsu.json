@@ -1,0 +1,18 @@
+{
+  "citySlug": "kimitsu",
+  "cityName": "君津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0743,
+      "support": 0.0198,
+      "care": 0.0194
+    },
+    "perCapita": {
+      "care": 10000
+    },
+    "household": {
+      "medical": 25000
+    }
+  }
+}

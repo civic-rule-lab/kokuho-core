@@ -1,0 +1,20 @@
+{
+  "citySlug": "kozaki",
+  "cityName": "神崎町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.024,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 10000,
+      "care": 14000
+    },
+    "household": {
+      "medical": 22000
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "citySlug": "urayasu",
+  "cityName": "浦安市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0666,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 17400,
+      "care": 16000
+    },
+    "household": {
+      "medical": 24400
+    }
+  }
+}

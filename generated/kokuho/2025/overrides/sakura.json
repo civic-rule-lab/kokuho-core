@@ -1,0 +1,20 @@
+{
+  "citySlug": "sakura",
+  "cityName": "佐倉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0633,
+      "support": 0.0265,
+      "care": 0.0152
+    },
+    "perCapita": {
+      "medical": 22200,
+      "support": 7000,
+      "care": 14400
+    },
+    "household": {
+      "medical": 29200
+    }
+  }
+}

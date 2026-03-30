@@ -1,0 +1,19 @@
+{
+  "citySlug": "katsuura",
+  "cityName": "勝浦市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 15600,
+      "care": 16200
+    },
+    "household": {
+      "medical": 18000
+    }
+  }
+}

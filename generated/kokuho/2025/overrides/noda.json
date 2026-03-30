@@ -1,0 +1,20 @@
+{
+  "citySlug": "noda",
+  "cityName": "野田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0555,
+      "support": 0.0282,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 21900,
+      "support": 12900,
+      "care": 12600
+    },
+    "household": {
+      "medical": 28800
+    }
+  }
+}

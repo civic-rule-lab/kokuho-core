@@ -1,0 +1,20 @@
+{
+  "citySlug": "inzai",
+  "cityName": "印西市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.023,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 11500,
+      "care": 14000
+    },
+    "household": {
+      "medical": 29000
+    }
+  }
+}

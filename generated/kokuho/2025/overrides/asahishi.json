@@ -1,0 +1,18 @@
+{
+  "citySlug": "asahishi",
+  "cityName": "旭市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.066,
+      "support": 0.023,
+      "care": 0.017
+    },
+    "perCapita": {
+      "care": 14000
+    },
+    "household": {
+      "medical": 26000
+    }
+  }
+}

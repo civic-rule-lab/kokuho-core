@@ -1,0 +1,19 @@
+{
+  "citySlug": "narashino",
+  "cityName": "習志野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 24400,
+      "support": 15400,
+      "care": 15600
+    },
+    "household": {
+      "medical": 13500
+    }
+  }
+}

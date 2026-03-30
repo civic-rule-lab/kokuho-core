@@ -1,0 +1,20 @@
+{
+  "citySlug": "tateyama",
+  "cityName": "館山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0722,
+      "support": 0.0292,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 22200,
+      "support": 15200,
+      "care": 16800
+    },
+    "household": {
+      "medical": 25200
+    }
+  }
+}

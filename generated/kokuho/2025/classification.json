@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-30T21:26:04.681Z",
+  "generatedAt": "2026-03-30T22:45:43.824Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 227,
+  "totalMunicipalities": 281,
   "groups": {
     "3h|nat|R7std|pre": {
-      "count": 94,
+      "count": 146,
       "exactCount": 0,
       "description": {
         "signature": "3h|nat|R7std|pre",
@@ -578,11 +578,323 @@
           "name": "栄村",
           "pref": "長野県",
           "hasOverride": true
+        },
+        {
+          "slug": "chiba",
+          "name": "千葉市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "choshi",
+          "name": "銚子市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ichikawa",
+          "name": "市川市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tateyama",
+          "name": "館山市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kisarazu",
+          "name": "木更津市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "matsudo",
+          "name": "松戸市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "noda",
+          "name": "野田市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "mobara",
+          "name": "茂原市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "narita",
+          "name": "成田市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakura",
+          "name": "佐倉市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "togane",
+          "name": "東金市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "asahishi",
+          "name": "旭市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "narashino",
+          "name": "習志野市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kashiwa",
+          "name": "柏市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "katsuura",
+          "name": "勝浦市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ichihara",
+          "name": "市原市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagareyama",
+          "name": "流山市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yachiyo",
+          "name": "八千代市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "abiko",
+          "name": "我孫子市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kamogawa",
+          "name": "鴨川市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kamagaya",
+          "name": "鎌ケ谷市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kimitsu",
+          "name": "君津市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "urayasu",
+          "name": "浦安市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yotsukaido",
+          "name": "四街道市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sodegaura",
+          "name": "袖ケ浦市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yachimata",
+          "name": "八街市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "inzai",
+          "name": "印西市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shiroi",
+          "name": "白井市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tomisato",
+          "name": "富里市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "minamiboso",
+          "name": "南房総市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sosa",
+          "name": "匝瑳市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "katori",
+          "name": "香取市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sammu",
+          "name": "山武市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "isumi",
+          "name": "いすみ市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oamishirasato",
+          "name": "大網白里市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shisui",
+          "name": "酒々井町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sakaecho",
+          "name": "栄町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kozaki",
+          "name": "神崎町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tako",
+          "name": "多古町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tohnosho",
+          "name": "東庄町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kujukuri",
+          "name": "九十九里町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shibayama",
+          "name": "芝山町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yokoshibahikari",
+          "name": "横芝光町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ichinomiya",
+          "name": "一宮町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "mutsuzawa",
+          "name": "睦沢町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chosei",
+          "name": "長生村",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shirako",
+          "name": "白子町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nagara",
+          "name": "長柄町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chonan",
+          "name": "長南町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "otakicho",
+          "name": "大多喜町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "onjuku",
+          "name": "御宿町",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kyonan",
+          "name": "鋸南町",
+          "pref": "千葉県",
+          "hasOverride": true
         }
       ]
     },
     "2h|nat|R7std|pre": {
-      "count": 74,
+      "count": 76,
       "exactCount": 16,
       "description": {
         "signature": "2h|nat|R7std|pre",
@@ -1035,6 +1347,18 @@
           "slug": "sugito",
           "name": "杉戸町",
           "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "funabashi",
+          "name": "船橋市",
+          "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "futtsu",
+          "name": "富津市",
+          "pref": "千葉県",
           "hasOverride": true
         }
       ]

@@ -1,0 +1,20 @@
+{
+  "citySlug": "kamogawa",
+  "cityName": "鴨川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0705,
+      "support": 0.0284,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 23400,
+      "support": 14600,
+      "care": 15600
+    },
+    "household": {
+      "medical": 28600
+    }
+  }
+}

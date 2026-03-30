@@ -1,0 +1,21 @@
+{
+  "citySlug": "yachiyo",
+  "cityName": "八千代市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0597,
+      "support": 0.0216,
+      "care": 0.0211
+    },
+    "perCapita": {
+      "medical": 27100,
+      "support": 8800,
+      "care": 16600
+    },
+    "household": {
+      "medical": 26300,
+      "support": 8600
+    }
+  }
+}

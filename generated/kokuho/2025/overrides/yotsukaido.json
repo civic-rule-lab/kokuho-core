@@ -1,0 +1,20 @@
+{
+  "citySlug": "yotsukaido",
+  "cityName": "四街道市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0806,
+      "support": 0.0218,
+      "care": 0.0219
+    },
+    "perCapita": {
+      "medical": 21100,
+      "support": 19000,
+      "care": 17300
+    },
+    "household": {
+      "medical": 22100
+    }
+  }
+}

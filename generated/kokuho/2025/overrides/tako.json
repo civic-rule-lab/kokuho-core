@@ -1,0 +1,19 @@
+{
+  "citySlug": "tako",
+  "cityName": "多古町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.024,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 18000,
+      "care": 15000
+    },
+    "household": {
+      "medical": 25000
+    }
+  }
+}

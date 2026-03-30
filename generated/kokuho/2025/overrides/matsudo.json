@@ -1,0 +1,18 @@
+{
+  "citySlug": "matsudo",
+  "cityName": "松戸市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0762,
+      "support": 0.0262,
+      "care": 0.0181
+    },
+    "perCapita": {
+      "care": 15000
+    },
+    "household": {
+      "medical": 18000
+    }
+  }
+}

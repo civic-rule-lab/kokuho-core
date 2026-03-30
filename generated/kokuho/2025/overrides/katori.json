@@ -1,0 +1,19 @@
+{
+  "citySlug": "katori",
+  "cityName": "香取市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.028
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 13000,
+      "care": 16000
+    },
+    "household": {
+      "medical": 28000
+    }
+  }
+}

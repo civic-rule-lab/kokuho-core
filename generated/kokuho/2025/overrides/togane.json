@@ -1,0 +1,19 @@
+{
+  "citySlug": "togane",
+  "cityName": "東金市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.029
+    },
+    "perCapita": {
+      "medical": 19000,
+      "support": 14000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 27000
+    }
+  }
+}

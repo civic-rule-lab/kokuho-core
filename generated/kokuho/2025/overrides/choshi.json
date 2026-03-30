@@ -1,0 +1,20 @@
+{
+  "citySlug": "choshi",
+  "cityName": "銚子市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0705,
+      "support": 0.029,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 15000,
+      "care": 18000
+    },
+    "household": {
+      "medical": 25000
+    }
+  }
+}

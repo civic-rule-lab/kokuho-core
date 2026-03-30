@@ -1,0 +1,20 @@
+{
+  "citySlug": "ichihara",
+  "cityName": "市原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0759,
+      "support": 0.0269,
+      "care": 0.0266
+    },
+    "perCapita": {
+      "medical": 23600,
+      "support": 14400,
+      "care": 15100
+    },
+    "household": {
+      "medical": 25000
+    }
+  }
+}
