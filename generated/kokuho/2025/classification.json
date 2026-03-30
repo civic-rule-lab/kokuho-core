@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-30T00:45:05.644Z",
+  "generatedAt": "2026-03-30T21:15:17.351Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 164,
+  "totalMunicipalities": 166,
   "groups": {
     "3h|nat|R7std|pre": {
       "count": 94,
@@ -582,7 +582,7 @@
       ]
     },
     "2h|nat|R7std|pre": {
-      "count": 48,
+      "count": 49,
       "exactCount": 16,
       "description": {
         "signature": "2h|nat|R7std|pre",
@@ -880,6 +880,12 @@
           "name": "奥多摩町",
           "pref": "東京都",
           "hasOverride": true
+        },
+        {
+          "slug": "saitama",
+          "name": "さいたま市",
+          "pref": "埼玉県",
+          "hasOverride": true
         }
       ]
     },
@@ -970,7 +976,7 @@
       ]
     },
     "2h|650-240-170|R7std|pre": {
-      "count": 5,
+      "count": 6,
       "exactCount": 0,
       "description": {
         "signature": "2h|650-240-170|R7std|pre",
@@ -1009,6 +1015,12 @@
           "slug": "kokubunji",
           "name": "国分寺市",
           "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawagoe",
+          "name": "川越市",
+          "pref": "埼玉県",
           "hasOverride": true
         }
       ]

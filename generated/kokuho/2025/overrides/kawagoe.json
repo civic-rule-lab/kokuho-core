@@ -1,0 +1,17 @@
+{
+  "citySlug": "kawagoe",
+  "cityName": "川越市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.0275,
+      "care": 0.0237
+    },
+    "perCapita": {
+      "medical": 44700,
+      "support": 14200,
+      "care": 14500
+    }
+  }
+}

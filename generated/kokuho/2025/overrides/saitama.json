@@ -1,0 +1,17 @@
+{
+  "citySlug": "saitama",
+  "cityName": "さいたま市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0884,
+      "support": 0.028,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 46200,
+      "support": 13800,
+      "care": 16200
+    }
+  }
+}
