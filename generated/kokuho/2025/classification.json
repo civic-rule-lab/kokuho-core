@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-30T23:00:55.682Z",
+  "generatedAt": "2026-03-31T05:05:14.902Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 324,
+  "totalMunicipalities": 384,
   "groups": {
     "3h|nat|R7std|pre": {
-      "count": 146,
+      "count": 204,
       "exactCount": 0,
       "description": {
         "signature": "3h|nat|R7std|pre",
@@ -889,6 +889,354 @@
           "slug": "kyonan",
           "name": "鋸南町",
           "pref": "千葉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kitakyushu",
+          "name": "北九州市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fukuoka",
+          "name": "福岡市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "omuta",
+          "name": "大牟田市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kurume",
+          "name": "久留米市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nogata",
+          "name": "直方市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "iizuka",
+          "name": "飯塚市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tagawa",
+          "name": "田川市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yanagawa",
+          "name": "柳川市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yame",
+          "name": "八女市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikugo",
+          "name": "筑後市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "okawa",
+          "name": "大川市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yukuhashi",
+          "name": "行橋市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "buzen",
+          "name": "豊前市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nakama",
+          "name": "中間市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ogori",
+          "name": "小郡市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikushino",
+          "name": "筑紫野市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kasuga",
+          "name": "春日市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "onojo",
+          "name": "大野城市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "munakata",
+          "name": "宗像市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "dazaifu",
+          "name": "太宰府市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "koga",
+          "name": "古賀市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fukutsu",
+          "name": "福津市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ukiha",
+          "name": "うきは市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kama",
+          "name": "嘉麻市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "asakura",
+          "name": "朝倉市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyama",
+          "name": "みやま市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "itoshima",
+          "name": "糸島市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nakagawashi",
+          "name": "那珂川市",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "umi",
+          "name": "宇美町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sasaguri",
+          "name": "篠栗町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shime",
+          "name": "志免町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "sue",
+          "name": "須恵町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shingu",
+          "name": "新宮町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hisayama",
+          "name": "久山町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kasuya",
+          "name": "粕屋町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ashiya",
+          "name": "芦屋町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "mizumaki",
+          "name": "水巻町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "okagaki",
+          "name": "岡垣町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "onga",
+          "name": "遠賀町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kotake",
+          "name": "小竹町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kurate",
+          "name": "鞍手町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "keisen",
+          "name": "桂川町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikuzen",
+          "name": "筑前町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "toho",
+          "name": "東峰村",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "tachiarai",
+          "name": "大刀洗町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oki",
+          "name": "大木町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hirokawa",
+          "name": "広川町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawara",
+          "name": "香春町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "soeda",
+          "name": "添田町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "itoda",
+          "name": "糸田町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kawasakimachi",
+          "name": "川崎町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "oto",
+          "name": "大任町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kanda",
+          "name": "苅田町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "miyako",
+          "name": "みやこ町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "fukuchi",
+          "name": "福智町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "chikujo",
+          "name": "築上町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yoshitomi",
+          "name": "吉富町",
+          "pref": "福岡県",
+          "hasOverride": true
+        },
+        {
+          "slug": "koge",
+          "name": "上毛町",
+          "pref": "福岡県",
           "hasOverride": true
         }
       ]
@@ -1854,7 +2202,7 @@
       ]
     },
     "4h|nat|R7std|pre": {
-      "count": 12,
+      "count": 13,
       "exactCount": 0,
       "description": {
         "signature": "4h|nat|R7std|pre",
@@ -1935,6 +2283,12 @@
           "slug": "ogasawara",
           "name": "小笠原村",
           "pref": "東京都",
+          "hasOverride": true
+        },
+        {
+          "slug": "akamura",
+          "name": "赤村",
+          "pref": "福岡県",
           "hasOverride": true
         }
       ]
@@ -2083,6 +2437,26 @@
           "slug": "akishima",
           "name": "昭島市",
           "pref": "東京都",
+          "hasOverride": false
+        }
+      ]
+    },
+    "4h[mc]|nat|R7std|pre": {
+      "count": 1,
+      "exactCount": 1,
+      "description": {
+        "signature": "4h[mc]|nat|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": "資産割対象区分: 医療+介護のみ",
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "miyawaka",
+          "name": "宮若市",
+          "pref": "福岡県",
           "hasOverride": false
         }
       ]

@@ -2915,6 +2915,546 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "40100",
+      "citySlug": "kitakyushu",
+      "cityName": "北九州市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40130",
+      "citySlug": "fukuoka",
+      "cityName": "福岡市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40202",
+      "citySlug": "omuta",
+      "cityName": "大牟田市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40203",
+      "citySlug": "kurume",
+      "cityName": "久留米市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40204",
+      "citySlug": "nogata",
+      "cityName": "直方市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40205",
+      "citySlug": "iizuka",
+      "cityName": "飯塚市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40206",
+      "citySlug": "tagawa",
+      "cityName": "田川市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40207",
+      "citySlug": "yanagawa",
+      "cityName": "柳川市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40208",
+      "citySlug": "yame",
+      "cityName": "八女市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40209",
+      "citySlug": "chikugo",
+      "cityName": "筑後市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40210",
+      "citySlug": "okawa",
+      "cityName": "大川市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40211",
+      "citySlug": "yukuhashi",
+      "cityName": "行橋市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40212",
+      "citySlug": "buzen",
+      "cityName": "豊前市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40213",
+      "citySlug": "nakama",
+      "cityName": "中間市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40214",
+      "citySlug": "ogori",
+      "cityName": "小郡市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40215",
+      "citySlug": "chikushino",
+      "cityName": "筑紫野市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40216",
+      "citySlug": "kasuga",
+      "cityName": "春日市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40217",
+      "citySlug": "onojo",
+      "cityName": "大野城市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40218",
+      "citySlug": "munakata",
+      "cityName": "宗像市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40219",
+      "citySlug": "dazaifu",
+      "cityName": "太宰府市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40221",
+      "citySlug": "koga",
+      "cityName": "古賀市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40222",
+      "citySlug": "fukutsu",
+      "cityName": "福津市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40223",
+      "citySlug": "ukiha",
+      "cityName": "うきは市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40224",
+      "citySlug": "miyawaka",
+      "cityName": "宮若市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40225",
+      "citySlug": "kama",
+      "cityName": "嘉麻市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40226",
+      "citySlug": "asakura",
+      "cityName": "朝倉市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40227",
+      "citySlug": "miyama",
+      "cityName": "みやま市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40228",
+      "citySlug": "itoshima",
+      "cityName": "糸島市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40229",
+      "citySlug": "nakagawashi",
+      "cityName": "那珂川市",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40341",
+      "citySlug": "umi",
+      "cityName": "宇美町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40342",
+      "citySlug": "sasaguri",
+      "cityName": "篠栗町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40343",
+      "citySlug": "shime",
+      "cityName": "志免町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40344",
+      "citySlug": "sue",
+      "cityName": "須恵町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40345",
+      "citySlug": "shingu",
+      "cityName": "新宮町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40348",
+      "citySlug": "hisayama",
+      "cityName": "久山町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40349",
+      "citySlug": "kasuya",
+      "cityName": "粕屋町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40401",
+      "citySlug": "ashiya",
+      "cityName": "芦屋町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40402",
+      "citySlug": "mizumaki",
+      "cityName": "水巻町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40403",
+      "citySlug": "okagaki",
+      "cityName": "岡垣町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40404",
+      "citySlug": "onga",
+      "cityName": "遠賀町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40421",
+      "citySlug": "kotake",
+      "cityName": "小竹町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40422",
+      "citySlug": "kurate",
+      "cityName": "鞍手町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40425",
+      "citySlug": "keisen",
+      "cityName": "桂川町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40431",
+      "citySlug": "chikuzen",
+      "cityName": "筑前町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40433",
+      "citySlug": "toho",
+      "cityName": "東峰村",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40442",
+      "citySlug": "tachiarai",
+      "cityName": "大刀洗町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40443",
+      "citySlug": "oki",
+      "cityName": "大木町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40444",
+      "citySlug": "hirokawa",
+      "cityName": "広川町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40501",
+      "citySlug": "kawara",
+      "cityName": "香春町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40502",
+      "citySlug": "soeda",
+      "cityName": "添田町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40504",
+      "citySlug": "itoda",
+      "cityName": "糸田町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40505",
+      "citySlug": "kawasakimachi",
+      "cityName": "川崎町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40506",
+      "citySlug": "oto",
+      "cityName": "大任町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40507",
+      "citySlug": "akamura",
+      "cityName": "赤村",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40521",
+      "citySlug": "kanda",
+      "cityName": "苅田町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40522",
+      "citySlug": "miyako",
+      "cityName": "みやこ町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40523",
+      "citySlug": "fukuchi",
+      "cityName": "福智町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40524",
+      "citySlug": "chikujo",
+      "cityName": "築上町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40525",
+      "citySlug": "yoshitomi",
+      "cityName": "吉富町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "40526",
+      "citySlug": "koge",
+      "cityName": "上毛町",
+      "prefecture": "福岡県",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

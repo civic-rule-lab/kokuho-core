@@ -1,7 +1,7 @@
 // このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: 2026-03-30
+// 最終生成: 2026-03-31
 
 const registry = {
   "kanagawa": {
@@ -5859,6 +5859,1091 @@ const registry = {
               "income": {
                 "name": "所得ベース計算",
                 "url": "/大阪府/chihayaakasaka/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "福岡県": {
+    "name": "福岡県",
+    "municipalities": {
+      "kitakyushu": {
+        "name": "北九州市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kitakyushu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kitakyushu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukuoka": {
+        "name": "福岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/fukuoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/fukuoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "omuta": {
+        "name": "大牟田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/omuta/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/omuta/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurume": {
+        "name": "久留米市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kurume/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kurume/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nogata": {
+        "name": "直方市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/nogata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/nogata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iizuka": {
+        "name": "飯塚市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/iizuka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/iizuka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tagawa": {
+        "name": "田川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/tagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/tagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yanagawa": {
+        "name": "柳川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/yanagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/yanagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yame": {
+        "name": "八女市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/yame/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/yame/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chikugo": {
+        "name": "筑後市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/chikugo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/chikugo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "okawa": {
+        "name": "大川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/okawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/okawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yukuhashi": {
+        "name": "行橋市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/yukuhashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/yukuhashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "buzen": {
+        "name": "豊前市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/buzen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/buzen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakama": {
+        "name": "中間市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/nakama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/nakama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ogori": {
+        "name": "小郡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/ogori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/ogori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chikushino": {
+        "name": "筑紫野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/chikushino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/chikushino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasuga": {
+        "name": "春日市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kasuga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kasuga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onojo": {
+        "name": "大野城市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/onojo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/onojo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "munakata": {
+        "name": "宗像市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/munakata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/munakata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "dazaifu": {
+        "name": "太宰府市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/dazaifu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/dazaifu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koga": {
+        "name": "古賀市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/koga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/koga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukutsu": {
+        "name": "福津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/fukutsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/fukutsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ukiha": {
+        "name": "うきは市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/ukiha/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/ukiha/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyawaka": {
+        "name": "宮若市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/miyawaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/miyawaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kama": {
+        "name": "嘉麻市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asakura": {
+        "name": "朝倉市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/asakura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/asakura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyama": {
+        "name": "みやま市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/miyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/miyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itoshima": {
+        "name": "糸島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/itoshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/itoshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakagawashi": {
+        "name": "那珂川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/nakagawashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/nakagawashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "umi": {
+        "name": "宇美町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/umi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/umi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sasaguri": {
+        "name": "篠栗町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/sasaguri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/sasaguri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shime": {
+        "name": "志免町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/shime/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/shime/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sue": {
+        "name": "須恵町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/sue/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/sue/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shingu": {
+        "name": "新宮町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/shingu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/shingu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hisayama": {
+        "name": "久山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/hisayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/hisayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasuya": {
+        "name": "粕屋町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kasuya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kasuya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ashiya": {
+        "name": "芦屋町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/ashiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/ashiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mizumaki": {
+        "name": "水巻町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/mizumaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/mizumaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "okagaki": {
+        "name": "岡垣町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/okagaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/okagaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onga": {
+        "name": "遠賀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/onga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/onga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kotake": {
+        "name": "小竹町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kotake/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kotake/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurate": {
+        "name": "鞍手町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kurate/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kurate/income.html"
+              }
+            }
+          }
+        }
+      },
+      "keisen": {
+        "name": "桂川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/keisen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/keisen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chikuzen": {
+        "name": "筑前町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/chikuzen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/chikuzen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toho": {
+        "name": "東峰村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/toho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/toho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tachiarai": {
+        "name": "大刀洗町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/tachiarai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/tachiarai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oki": {
+        "name": "大木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/oki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/oki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirokawa": {
+        "name": "広川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/hirokawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/hirokawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawara": {
+        "name": "香春町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kawara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kawara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "soeda": {
+        "name": "添田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/soeda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/soeda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itoda": {
+        "name": "糸田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/itoda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/itoda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawasakimachi": {
+        "name": "川崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kawasakimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kawasakimachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oto": {
+        "name": "大任町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/oto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/oto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akamura": {
+        "name": "赤村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/akamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/akamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanda": {
+        "name": "苅田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/kanda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/kanda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyako": {
+        "name": "みやこ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/miyako/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/miyako/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukuchi": {
+        "name": "福智町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/fukuchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/fukuchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chikujo": {
+        "name": "築上町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/chikujo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/chikujo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoshitomi": {
+        "name": "吉富町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/yoshitomi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/yoshitomi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koge": {
+        "name": "上毛町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福岡県/koge/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福岡県/koge/income.html"
               }
             }
           }
