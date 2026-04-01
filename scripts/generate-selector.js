@@ -39,7 +39,7 @@ const prefGroups = buildPrefGroups(false);
 const prefGroupsOfficial = buildPrefGroups(true);
 
 function prefSlugMap(name) {
-  const map = { "神奈川県": "kanagawa", "長野県": "nagano", "東京都": "tokyo" };
+  const map = { "神奈川県": "kanagawa", "長野県": "nagano", "東京都": "tokyo", "埼玉県": "saitama", "千葉県": "chiba", "大阪府": "osaka", "福岡県": "fukuoka" };
   return map[name] || name;
 }
 

@@ -1,7 +1,7 @@
 // このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: 2026-03-31
+// 最終生成: 2026-04-01
 
 const registry = {
   "kanagawa": {
@@ -2971,7 +2971,7 @@ const registry = {
       }
     }
   },
-  "埼玉県": {
+  "saitama": {
     "name": "埼玉県",
     "municipalities": {
       "saitama": {
@@ -4110,7 +4110,7 @@ const registry = {
       }
     }
   },
-  "千葉県": {
+  "chiba": {
     "name": "千葉県",
     "municipalities": {
       "chiba": {
@@ -5087,7 +5087,7 @@ const registry = {
       }
     }
   },
-  "大阪府": {
+  "osaka": {
     "name": "大阪府",
     "municipalities": {
       "osaka": {
@@ -5866,7 +5866,7 @@ const registry = {
       }
     }
   },
-  "福岡県": {
+  "fukuoka": {
     "name": "福岡県",
     "municipalities": {
       "kitakyushu": {
