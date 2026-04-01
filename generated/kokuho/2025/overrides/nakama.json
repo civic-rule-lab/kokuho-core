@@ -1,0 +1,20 @@
+{
+  "citySlug": "nakama",
+  "cityName": "中間市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.03,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 24500,
+      "support": 8800,
+      "care": 7000
+    },
+    "household": {
+      "support": 6300,
+      "care": 4500
+    }
+  }
+}

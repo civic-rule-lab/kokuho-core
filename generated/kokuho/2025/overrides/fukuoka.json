@@ -1,0 +1,22 @@
+{
+  "citySlug": "fukuoka",
+  "cityName": "福岡市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0596,
+      "support": 0.0328,
+      "care": 0.0281
+    },
+    "perCapita": {
+      "medical": 19980,
+      "support": 10334,
+      "care": 10386
+    },
+    "household": {
+      "medical": 18863,
+      "support": 9757,
+      "care": 7912
+    }
+  }
+}

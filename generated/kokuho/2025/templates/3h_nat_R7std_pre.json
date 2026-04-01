@@ -3,17 +3,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.075,
+    "medical": 0.085,
     "support": 0.026,
-    "care": 0.022
+    "care": 0.021
   },
   "perCapita": {
     "medical": 21000,
-    "support": 12000,
+    "support": 9000,
     "care": 9000
   },
   "household": {
-    "medical": 21000,
+    "medical": 25000,
     "support": 0,
     "care": 0
   },

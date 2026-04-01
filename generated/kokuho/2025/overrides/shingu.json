@@ -1,0 +1,22 @@
+{
+  "citySlug": "shingu",
+  "cityName": "新宮町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.079,
+      "support": 0.029,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 10000,
+      "care": 10000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 10000,
+      "care": 8000
+    }
+  }
+}

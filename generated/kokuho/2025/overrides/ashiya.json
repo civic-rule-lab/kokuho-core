@@ -1,0 +1,22 @@
+{
+  "citySlug": "ashiya",
+  "cityName": "芦屋町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.023,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 21200,
+      "support": 6700,
+      "care": 6800
+    },
+    "household": {
+      "medical": 23600,
+      "support": 7500,
+      "care": 5100
+    }
+  }
+}

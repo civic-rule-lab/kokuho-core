@@ -1,0 +1,22 @@
+{
+  "citySlug": "soeda",
+  "cityName": "添田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.025,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 24900,
+      "support": 10900,
+      "care": 10400
+    },
+    "household": {
+      "medical": 28300,
+      "support": 10100,
+      "care": 8500
+    }
+  }
+}

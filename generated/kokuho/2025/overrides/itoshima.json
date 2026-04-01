@@ -1,0 +1,21 @@
+{
+  "citySlug": "itoshima",
+  "cityName": "糸島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08,
+      "support": 0.024,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 24700,
+      "support": 7500,
+      "care": 12700
+    },
+    "household": {
+      "medical": 20500,
+      "support": 6200
+    }
+  }
+}

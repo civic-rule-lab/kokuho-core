@@ -1,0 +1,22 @@
+{
+  "citySlug": "sasaguri",
+  "cityName": "篠栗町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.025,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 8800,
+      "care": 10600
+    },
+    "household": {
+      "medical": 30000,
+      "support": 9400,
+      "care": 8300
+    }
+  }
+}

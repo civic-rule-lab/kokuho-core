@@ -1,0 +1,21 @@
+{
+  "citySlug": "kasuya",
+  "cityName": "粕屋町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.032,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 11000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 32000,
+      "support": 12000,
+      "care": 9000
+    }
+  }
+}

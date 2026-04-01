@@ -1,0 +1,20 @@
+{
+  "citySlug": "hirokawa",
+  "cityName": "広川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.03,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 28000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 10000,
+      "care": 8000
+    }
+  }
+}

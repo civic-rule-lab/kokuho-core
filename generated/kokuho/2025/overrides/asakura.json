@@ -1,0 +1,22 @@
+{
+  "citySlug": "asakura",
+  "cityName": "朝倉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.086,
+      "support": 0.029,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 8000,
+      "care": 10000
+    },
+    "household": {
+      "medical": 26000,
+      "support": 9000,
+      "care": 15000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "koga",
+  "cityName": "古賀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.084,
+      "support": 0.029,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 23800,
+      "support": 10100,
+      "care": 16600
+    },
+    "household": {
+      "medical": 26200,
+      "support": 10900
+    }
+  }
+}

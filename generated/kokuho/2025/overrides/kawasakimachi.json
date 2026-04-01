@@ -1,0 +1,22 @@
+{
+  "citySlug": "kawasakimachi",
+  "cityName": "川崎町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1,
+      "support": 0.018,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 7000,
+      "care": 6000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 11000,
+      "care": 4000
+    }
+  }
+}

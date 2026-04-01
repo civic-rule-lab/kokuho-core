@@ -1,0 +1,22 @@
+{
+  "citySlug": "kitakyushu",
+  "cityName": "北九州市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0831,
+      "support": 0.034,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 23550,
+      "support": 9590,
+      "care": 9620
+    },
+    "household": {
+      "medical": 27160,
+      "support": 11060,
+      "care": 8290
+    }
+  }
+}

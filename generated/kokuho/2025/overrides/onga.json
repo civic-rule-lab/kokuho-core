@@ -1,0 +1,22 @@
+{
+  "citySlug": "onga",
+  "cityName": "遠賀町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0717,
+      "support": 0.0253,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 27308,
+      "support": 10749,
+      "care": 11267
+    },
+    "household": {
+      "medical": 26968,
+      "support": 10778,
+      "care": 7447
+    }
+  }
+}

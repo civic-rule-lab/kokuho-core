@@ -1,0 +1,20 @@
+{
+  "citySlug": "dazaifu",
+  "cityName": "太宰府市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0737,
+      "support": 0.0247
+    },
+    "perCapita": {
+      "medical": 26500,
+      "support": 8300,
+      "care": 16200
+    },
+    "household": {
+      "medical": 28000,
+      "support": 9200
+    }
+  }
+}

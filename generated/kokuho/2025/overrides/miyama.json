@@ -1,0 +1,22 @@
+{
+  "citySlug": "miyama",
+  "cityName": "みやま市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0774,
+      "support": 0.0283,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29194,
+      "support": 10563,
+      "care": 10750
+    },
+    "household": {
+      "medical": 29293,
+      "support": 10599,
+      "care": 8236
+    }
+  }
+}

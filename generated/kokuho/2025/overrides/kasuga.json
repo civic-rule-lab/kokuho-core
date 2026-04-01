@@ -1,0 +1,21 @@
+{
+  "citySlug": "kasuga",
+  "cityName": "春日市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0652,
+      "support": 0.0294,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "medical": 27700,
+      "support": 11800,
+      "care": 19100
+    },
+    "household": {
+      "medical": 25300,
+      "support": 10700
+    }
+  }
+}

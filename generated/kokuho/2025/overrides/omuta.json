@@ -1,0 +1,21 @@
+{
+  "citySlug": "omuta",
+  "cityName": "大牟田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.093,
+      "support": 0.0295,
+      "care": 0.0315
+    },
+    "perCapita": {
+      "medical": 19900,
+      "support": 6200,
+      "care": 14200
+    },
+    "household": {
+      "medical": 22400,
+      "support": 7000
+    }
+  }
+}

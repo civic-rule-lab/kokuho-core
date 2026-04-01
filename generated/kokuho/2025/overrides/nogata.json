@@ -1,0 +1,21 @@
+{
+  "citySlug": "nogata",
+  "cityName": "直方市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0945,
+      "support": 0.033,
+      "care": 0.033
+    },
+    "perCapita": {
+      "medical": 22500,
+      "support": 7700,
+      "care": 15300
+    },
+    "household": {
+      "medical": 23300,
+      "support": 8000
+    }
+  }
+}

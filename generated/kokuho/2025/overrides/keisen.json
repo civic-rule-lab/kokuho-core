@@ -1,0 +1,21 @@
+{
+  "citySlug": "keisen",
+  "cityName": "桂川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.038,
+      "care": 0.0105
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 6000,
+      "care": 6600
+    },
+    "household": {
+      "support": 5000,
+      "care": 3700
+    }
+  }
+}

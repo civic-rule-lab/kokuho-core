@@ -1,0 +1,21 @@
+{
+  "citySlug": "ukiha",
+  "cityName": "うきは市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1,
+      "support": 0.027,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 8000,
+      "care": 12000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 6000
+    }
+  }
+}

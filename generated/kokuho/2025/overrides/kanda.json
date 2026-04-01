@@ -1,0 +1,22 @@
+{
+  "citySlug": "kanda",
+  "cityName": "苅田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0769,
+      "support": 0.031,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 27500,
+      "support": 11000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 28000,
+      "support": 10000,
+      "care": 8500
+    }
+  }
+}
