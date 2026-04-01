@@ -220,7 +220,7 @@ ${prefOptions}
 
 <label for="municipality">自治体</label>
 
-<select id="municipality" onchange="updateSystems()">
+<select id="municipality">
 ${muniOptions}
 </select>
 
@@ -235,14 +235,14 @@ ${muniOptions}
 </button>
 
 <div class="note">
-  ※神奈川県・長野県・東京都の国民健康保険に対応しています。<br>
+  ※神奈川県・長野県・東京都・埼玉県・千葉県・大阪府・福岡県の国民健康保険に対応しています。<br>
   ※料率は令和7年度の公式値を使用しています。<br>
   ※実際の保険料は各自治体の通知でご確認ください。
 </div>
 
 </div>
 
-<script src="/js/selector.js"></script>
+<script src="/js/selector.js?v=${new Date().toISOString().slice(0, 10).replace(/-/g, '')}"></script>
 
 </body>
 </html>
