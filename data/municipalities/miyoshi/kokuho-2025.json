@@ -1,28 +1,29 @@
 {
-  "cityCode": "11324",
+  "cityCode": "23235",
   "citySlug": "miyoshi",
-  "cityName": "三芳町",
+  "cityName": "みよし市",
   "fiscalYear": 2025,
   "system": "kokuho",
+  "note": "愛知県R7標準保険料率を使用。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0797,
-    "support": 0.0324,
-    "care": 0.0239
+    "medical": 0.0801,
+    "support": 0.0278,
+    "care": 0.0234
   },
   "perCapita": {
-    "medical": 34300,
-    "support": 11100,
-    "care": 14800
+    "medical": 34342,
+    "support": 11777,
+    "care": 11889
   },
   "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
+    "medical": 22294,
+    "support": 7646,
+    "care": 5884
   },
   "caps": {
-    "medical": 650000,
-    "support": 240000,
+    "medical": 660000,
+    "support": 260000,
     "care": 170000
   },
   "preschoolReduction": {

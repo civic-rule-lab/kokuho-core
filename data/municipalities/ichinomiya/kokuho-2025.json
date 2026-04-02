@@ -1,24 +1,25 @@
 {
-  "cityCode": "12421",
+  "cityCode": "23203",
   "citySlug": "ichinomiya",
-  "cityName": "一宮町",
+  "cityName": "一宮市",
   "fiscalYear": 2025,
   "system": "kokuho",
+  "note": "愛知県R7標準保険料率を使用。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.075,
-    "support": 0.029,
-    "care": 0.021
+    "medical": 0.08,
+    "support": 0.0274,
+    "care": 0.0228
   },
   "perCapita": {
-    "medical": 21000,
-    "support": 10000,
-    "care": 14000
+    "medical": 34327,
+    "support": 11611,
+    "care": 11545
   },
   "household": {
-    "medical": 20000,
-    "support": 0,
-    "care": 0
+    "medical": 22284,
+    "support": 7537,
+    "care": 5714
   },
   "caps": {
     "medical": 660000,

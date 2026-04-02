@@ -2,9 +2,8 @@
  * selector.js / index.html 自動生成スクリプト
  *
  * registry/index.json を読み込み、以下を自動生成する:
- *   - test/js/selector.js   (test/ 用、相対URL)
- *   - js/selector.js        (正式版用、絶対URL /{pref}/{slug}/)
- *   - index.html            (正式版ポータル)
+ *   - js/selector.js   (絶対URL /{pref}/{slug}/)
+ *   - index.html       (正式版ポータル)
  *
  * 実行: node scripts/generate-selector.js
  */
@@ -16,7 +15,6 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
 const REGISTRY  = path.join(ROOT, "registry", "index.json");
-const OUT       = path.join(ROOT, "test", "js", "selector.js");
 const OUT_ROOT  = path.join(ROOT, "js", "selector.js");
 
 const registry = JSON.parse(readFileSync(REGISTRY, "utf-8"));
@@ -26,7 +24,7 @@ function buildPrefGroups(official = false) {
   const groups = {};
   for (const m of registry.municipalities) {
     const pref = m.prefecture || "神奈川県";
-    const prefSlug = prefSlugMap(pref);
+    const prefSlug = m.prefectureSlug || pref;
     if (!groups[prefSlug]) {
       groups[prefSlug] = { name: pref, municipalities: {} };
     }
@@ -35,16 +33,10 @@ function buildPrefGroups(official = false) {
   return groups;
 }
 
-const prefGroups = buildPrefGroups(false);
 const prefGroupsOfficial = buildPrefGroups(true);
 
-function prefSlugMap(name) {
-  const map = { "神奈川県": "kanagawa", "長野県": "nagano", "東京都": "tokyo", "埼玉県": "saitama", "千葉県": "chiba", "大阪府": "osaka", "福岡県": "fukuoka" };
-  return map[name] || name;
-}
-
 function buildMuniEntry(m, official = false) {
-  const prefSlug = prefSlugMap(m.prefecture || "神奈川県");
+  const prefSlug = m.prefectureSlug || m.prefecture;
   const systems = {};
   for (const sys of (m.systems || [])) {
     systems[sys] = buildSystemEntry(m.citySlug, sys, prefSlug, official);
@@ -71,46 +63,7 @@ function buildSystemEntry(slug, system, prefSlug, official = false) {
   return { name: system, pages: {} };
 }
 
-// selector.js 出力
-const js = `// このファイルは自動生成されます。
-// 編集: scripts/generate-selector.js を実行してください。
-// 生成元: registry/index.json
-// 最終生成: ${new Date().toISOString().slice(0, 10)}
-
-const registry = ${JSON.stringify(prefGroups, null, 2)};
-
-function updateMunicipalities() {
-  const pref = document.getElementById("prefecture").value;
-  const sel  = document.getElementById("municipality");
-  const municipalities = registry[pref]?.municipalities || {};
-  sel.innerHTML = Object.entries(municipalities)
-    .map(function(e) { return '<option value="' + e[0] + '">' + e[1].name + '</option>'; })
-    .join("");
-}
-
-function goPage() {
-  const prefecture   = document.getElementById("prefecture").value;
-  const municipality = document.getElementById("municipality").value;
-  const system       = document.getElementById("system").value;
-
-  const url =
-    registry[prefecture]
-      ?.municipalities[municipality]
-      ?.systems[system]
-      ?.pages["simple"]
-      ?.url;
-
-  if (url) {
-    window.location.href = url;
-  } else {
-    alert("ページが見つかりませんでした。");
-  }
-}
-`;
-
-writeFileSync(OUT, js, "utf-8");
-
-// 正式版 js/selector.js 出力（絶対URL版）
+// js/selector.js 出力
 const jsOfficial = `// このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
@@ -150,36 +103,6 @@ writeFileSync(OUT_ROOT, jsOfficial, "utf-8");
 
 // 正式版 index.html 更新
 updateIndexHtml(prefGroupsOfficial);
-
-// test/selector.html のドロップダウンも自動更新
-updateSelectorHtml(prefGroups);
-
-function updateSelectorHtml(groups) {
-  const htmlPath = path.join(ROOT, "test", "selector.html");
-  let html = readFileSync(htmlPath, "utf-8");
-
-  // 都道府県ドロップダウンを置換
-  const prefOptions = Object.entries(groups)
-    .map(([slug, g]) => `    <option value="${slug}">${g.name}</option>`)
-    .join("\n");
-  html = html.replace(
-    /<select id="prefecture"[^>]*>[\s\S]*?<\/select>/,
-    `<select id="prefecture" onchange="updateMunicipalities()">\n${prefOptions}\n  </select>`
-  );
-
-  // 自治体ドロップダウンは最初の都道府県の自治体で初期化
-  const firstPrefSlug = Object.keys(groups)[0];
-  const firstMunis = groups[firstPrefSlug]?.municipalities || {};
-  const muniOptions = Object.entries(firstMunis)
-    .map(([slug, m]) => `<option value="${slug}">${m.name}</option>`)
-    .join("\n");
-  html = html.replace(
-    /<select id="municipality"[^>]*>[\s\S]*?<\/select>/,
-    `<select id="municipality" onchange="updateSystems()">\n${muniOptions}\n</select>`
-  );
-
-  writeFileSync(htmlPath, html, "utf-8");
-}
 
 function updateIndexHtml(groups) {
   const firstPrefSlug = Object.keys(groups)[0];
@@ -235,7 +158,7 @@ ${muniOptions}
 </button>
 
 <div class="note">
-  ※神奈川県・長野県・東京都・埼玉県・千葉県・大阪府・福岡県の国民健康保険に対応しています。<br>
+  ※全国${registry.municipalities.length}自治体の国民健康保険に対応しています。<br>
   ※料率は令和7年度の公式値を使用しています。<br>
   ※実際の保険料は各自治体の通知でご確認ください。
 </div>
@@ -252,7 +175,5 @@ ${muniOptions}
   writeFileSync(htmlPath, html, "utf-8");
 }
 
-console.log(`\n✅ selector.js 生成完了 (${registry.municipalities.length} 自治体)`);
-console.log(`✅ js/selector.js (正式版) 生成完了`);
+console.log(`\n✅ js/selector.js 生成完了 (${registry.municipalities.length} 自治体)`);
 console.log(`✅ index.html 更新完了`);
-console.log(`✅ test/selector.html ドロップダウン更新完了`);
