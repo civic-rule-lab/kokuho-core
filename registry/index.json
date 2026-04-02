@@ -7809,6 +7809,356 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "10201",
+      "citySlug": "maebashi",
+      "cityName": "前橋市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10202",
+      "citySlug": "takasaki",
+      "cityName": "高崎市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10203",
+      "citySlug": "kiryu",
+      "cityName": "桐生市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10204",
+      "citySlug": "isesaki",
+      "cityName": "伊勢崎市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10205",
+      "citySlug": "otashi",
+      "cityName": "太田市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10206",
+      "citySlug": "numatashi",
+      "cityName": "沼田市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10207",
+      "citySlug": "tatebayashi",
+      "cityName": "館林市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10208",
+      "citySlug": "shibukawa",
+      "cityName": "渋川市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10209",
+      "citySlug": "fujioka",
+      "cityName": "藤岡市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10210",
+      "citySlug": "tomioka",
+      "cityName": "富岡市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10211",
+      "citySlug": "annaka",
+      "cityName": "安中市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10212",
+      "citySlug": "midori",
+      "cityName": "みどり市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10301",
+      "citySlug": "shinto",
+      "cityName": "榛東村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10302",
+      "citySlug": "yoshioka",
+      "cityName": "吉岡町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10321",
+      "citySlug": "ueno",
+      "cityName": "上野村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10322",
+      "citySlug": "kanna",
+      "cityName": "神流町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10341",
+      "citySlug": "shimonita",
+      "cityName": "下仁田町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10342",
+      "citySlug": "namoku",
+      "cityName": "南牧村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10343",
+      "citySlug": "kanra",
+      "cityName": "甘楽町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10421",
+      "citySlug": "nakanojo",
+      "cityName": "中之条町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10423",
+      "citySlug": "naganohara",
+      "cityName": "長野原町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10424",
+      "citySlug": "tsumagoi",
+      "cityName": "嬬恋村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10425",
+      "citySlug": "kusatsu",
+      "cityName": "草津町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10427",
+      "citySlug": "takayamamura",
+      "cityName": "高山村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10428",
+      "citySlug": "higashiagatsuma",
+      "cityName": "東吾妻町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10521",
+      "citySlug": "katashina",
+      "cityName": "片品村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10522",
+      "citySlug": "kawaba",
+      "cityName": "川場村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10524",
+      "citySlug": "showa",
+      "cityName": "昭和村",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10525",
+      "citySlug": "minakami",
+      "cityName": "みなかみ町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10601",
+      "citySlug": "tamamura",
+      "cityName": "玉村町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10621",
+      "citySlug": "itakura",
+      "cityName": "板倉町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10622",
+      "citySlug": "meiwa",
+      "cityName": "明和町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10623",
+      "citySlug": "chiyodamachi",
+      "cityName": "千代田町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10624",
+      "citySlug": "oizumi",
+      "cityName": "大泉町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "10625",
+      "citySlug": "ora",
+      "cityName": "邑楽町",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

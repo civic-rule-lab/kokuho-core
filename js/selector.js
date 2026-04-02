@@ -14131,6 +14131,641 @@ const registry = {
         }
       }
     }
+  },
+  "gunma": {
+    "name": "群馬県",
+    "municipalities": {
+      "maebashi": {
+        "name": "前橋市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/maebashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/maebashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takasaki": {
+        "name": "高崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/takasaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/takasaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kiryu": {
+        "name": "桐生市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/kiryu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/kiryu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "isesaki": {
+        "name": "伊勢崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/isesaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/isesaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "otashi": {
+        "name": "太田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/otashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/otashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "numatashi": {
+        "name": "沼田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/numatashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/numatashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tatebayashi": {
+        "name": "館林市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/tatebayashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/tatebayashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shibukawa": {
+        "name": "渋川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/shibukawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/shibukawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fujioka": {
+        "name": "藤岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/fujioka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/fujioka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tomioka": {
+        "name": "富岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/tomioka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/tomioka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "annaka": {
+        "name": "安中市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/annaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/annaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "midori": {
+        "name": "みどり市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/midori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/midori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shinto": {
+        "name": "榛東村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/shinto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/shinto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoshioka": {
+        "name": "吉岡町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/yoshioka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/yoshioka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ueno": {
+        "name": "上野村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/ueno/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/ueno/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanna": {
+        "name": "神流町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/kanna/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/kanna/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimonita": {
+        "name": "下仁田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/shimonita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/shimonita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "namoku": {
+        "name": "南牧村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/namoku/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/namoku/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanra": {
+        "name": "甘楽町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/kanra/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/kanra/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakanojo": {
+        "name": "中之条町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/nakanojo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/nakanojo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "naganohara": {
+        "name": "長野原町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/naganohara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/naganohara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsumagoi": {
+        "name": "嬬恋村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/tsumagoi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/tsumagoi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kusatsu": {
+        "name": "草津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/kusatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/kusatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takayamamura": {
+        "name": "高山村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/takayamamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/takayamamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashiagatsuma": {
+        "name": "東吾妻町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/higashiagatsuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/higashiagatsuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katashina": {
+        "name": "片品村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/katashina/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/katashina/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawaba": {
+        "name": "川場村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/kawaba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/kawaba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "showa": {
+        "name": "昭和村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/showa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/showa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minakami": {
+        "name": "みなかみ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/minakami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/minakami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamamura": {
+        "name": "玉村町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/tamamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/tamamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itakura": {
+        "name": "板倉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/itakura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/itakura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "meiwa": {
+        "name": "明和町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/meiwa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/meiwa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "chiyodamachi": {
+        "name": "千代田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/chiyodamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/chiyodamachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oizumi": {
+        "name": "大泉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/oizumi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/oizumi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ora": {
+        "name": "邑楽町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/ora/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/ora/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
