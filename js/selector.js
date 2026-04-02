@@ -17779,6 +17779,497 @@ const registry = {
         }
       }
     }
+  },
+  "okayama": {
+    "name": "岡山県",
+    "municipalities": {
+      "okayama": {
+        "name": "岡山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/okayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/okayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurashiki": {
+        "name": "倉敷市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/kurashiki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/kurashiki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsuyama": {
+        "name": "津山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/tsuyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/tsuyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamano": {
+        "name": "玉野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/tamano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/tamano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasaoka": {
+        "name": "笠岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/kasaoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/kasaoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ibara": {
+        "name": "井原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/ibara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/ibara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "soja": {
+        "name": "総社市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/soja/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/soja/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takahashi": {
+        "name": "高梁市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/takahashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/takahashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "niimi": {
+        "name": "新見市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/niimi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/niimi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "bizen": {
+        "name": "備前市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/bizen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/bizen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "setouchi": {
+        "name": "瀬戸内市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/setouchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/setouchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akaiwashi": {
+        "name": "赤磐市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/akaiwashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/akaiwashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "maniwa": {
+        "name": "真庭市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/maniwa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/maniwa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mimasaka": {
+        "name": "美作市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/mimasaka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/mimasaka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asakuchi": {
+        "name": "浅口市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/asakuchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/asakuchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "wake": {
+        "name": "和気町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/wake/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/wake/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hayashima": {
+        "name": "早島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/hayashima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/hayashima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "satosho": {
+        "name": "里庄町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/satosho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/satosho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yakage": {
+        "name": "矢掛町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/yakage/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/yakage/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shinjo": {
+        "name": "新庄村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/shinjo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/shinjo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kagamino": {
+        "name": "鏡野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/kagamino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/kagamino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shoo": {
+        "name": "勝央町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/shoo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/shoo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagi": {
+        "name": "奈義町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/nagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/nagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiawakura": {
+        "name": "西粟倉村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/nishiawakura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/nishiawakura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kumenan": {
+        "name": "久米南町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/kumenan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/kumenan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "misakicho": {
+        "name": "美咲町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/misakicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/misakicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kibichuo": {
+        "name": "吉備中央町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/okayama/kibichuo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/okayama/kibichuo/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

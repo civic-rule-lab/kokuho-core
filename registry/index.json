@@ -9819,6 +9819,276 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "33100",
+      "citySlug": "okayama",
+      "cityName": "岡山市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33202",
+      "citySlug": "kurashiki",
+      "cityName": "倉敷市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33203",
+      "citySlug": "tsuyama",
+      "cityName": "津山市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33204",
+      "citySlug": "tamano",
+      "cityName": "玉野市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33205",
+      "citySlug": "kasaoka",
+      "cityName": "笠岡市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33207",
+      "citySlug": "ibara",
+      "cityName": "井原市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33208",
+      "citySlug": "soja",
+      "cityName": "総社市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33209",
+      "citySlug": "takahashi",
+      "cityName": "高梁市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33210",
+      "citySlug": "niimi",
+      "cityName": "新見市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33211",
+      "citySlug": "bizen",
+      "cityName": "備前市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33212",
+      "citySlug": "setouchi",
+      "cityName": "瀬戸内市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33213",
+      "citySlug": "akaiwashi",
+      "cityName": "赤磐市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33214",
+      "citySlug": "maniwa",
+      "cityName": "真庭市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33215",
+      "citySlug": "mimasaka",
+      "cityName": "美作市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33216",
+      "citySlug": "asakuchi",
+      "cityName": "浅口市",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33346",
+      "citySlug": "wake",
+      "cityName": "和気町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33423",
+      "citySlug": "hayashima",
+      "cityName": "早島町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33445",
+      "citySlug": "satosho",
+      "cityName": "里庄町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33461",
+      "citySlug": "yakage",
+      "cityName": "矢掛町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33586",
+      "citySlug": "shinjo",
+      "cityName": "新庄村",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33606",
+      "citySlug": "kagamino",
+      "cityName": "鏡野町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33622",
+      "citySlug": "shoo",
+      "cityName": "勝央町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33623",
+      "citySlug": "nagi",
+      "cityName": "奈義町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33643",
+      "citySlug": "nishiawakura",
+      "cityName": "西粟倉村",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33663",
+      "citySlug": "kumenan",
+      "cityName": "久米南町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33666",
+      "citySlug": "misakicho",
+      "cityName": "美咲町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "33681",
+      "citySlug": "kibichuo",
+      "cityName": "吉備中央町",
+      "prefecture": "岡山県",
+      "prefectureSlug": "okayama",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
