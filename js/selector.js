@@ -14766,6 +14766,461 @@ const registry = {
         }
       }
     }
+  },
+  "tochigi": {
+    "name": "栃木県",
+    "municipalities": {
+      "utsunomiya": {
+        "name": "宇都宮市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/utsunomiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/utsunomiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ashikaga": {
+        "name": "足利市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/ashikaga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/ashikaga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tochigi": {
+        "name": "栃木市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/tochigi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/tochigi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sano": {
+        "name": "佐野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/sano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/sano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanuma": {
+        "name": "鹿沼市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/kanuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/kanuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nikko": {
+        "name": "日光市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nikko/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nikko/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oyama": {
+        "name": "小山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/oyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/oyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "moka": {
+        "name": "真岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/moka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/moka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "otawara": {
+        "name": "大田原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/otawara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/otawara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yaita": {
+        "name": "矢板市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/yaita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/yaita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nasushiobara": {
+        "name": "那須塩原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nasushiobara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nasushiobara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sakurashi": {
+        "name": "さくら市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/sakurashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/sakurashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nasukarasuyama": {
+        "name": "那須烏山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nasukarasuyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nasukarasuyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimotsuke": {
+        "name": "下野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/shimotsuke/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/shimotsuke/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaminokawa": {
+        "name": "上三川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/kaminokawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/kaminokawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mashiko": {
+        "name": "益子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/mashiko/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/mashiko/income.html"
+              }
+            }
+          }
+        }
+      },
+      "motegi": {
+        "name": "茂木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/motegi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/motegi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ichikai": {
+        "name": "市貝町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/ichikai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/ichikai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "haga": {
+        "name": "芳賀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/haga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/haga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mibu": {
+        "name": "壬生町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/mibu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/mibu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nogi": {
+        "name": "野木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nogi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nogi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shioya": {
+        "name": "塩谷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/shioya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/shioya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takanezawa": {
+        "name": "高根沢町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/takanezawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/takanezawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nasu": {
+        "name": "那須町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nasu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nasu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakagawamachi": {
+        "name": "那珂川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/tochigi/nakagawamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/tochigi/nakagawamachi/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

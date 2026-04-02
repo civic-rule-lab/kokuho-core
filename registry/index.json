@@ -8159,6 +8159,256 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "09201",
+      "citySlug": "utsunomiya",
+      "cityName": "宇都宮市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09202",
+      "citySlug": "ashikaga",
+      "cityName": "足利市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09203",
+      "citySlug": "tochigi",
+      "cityName": "栃木市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09204",
+      "citySlug": "sano",
+      "cityName": "佐野市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09205",
+      "citySlug": "kanuma",
+      "cityName": "鹿沼市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09206",
+      "citySlug": "nikko",
+      "cityName": "日光市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09207",
+      "citySlug": "oyama",
+      "cityName": "小山市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09208",
+      "citySlug": "moka",
+      "cityName": "真岡市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09209",
+      "citySlug": "otawara",
+      "cityName": "大田原市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09210",
+      "citySlug": "yaita",
+      "cityName": "矢板市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09213",
+      "citySlug": "nasushiobara",
+      "cityName": "那須塩原市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09214",
+      "citySlug": "sakurashi",
+      "cityName": "さくら市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09215",
+      "citySlug": "nasukarasuyama",
+      "cityName": "那須烏山市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09216",
+      "citySlug": "shimotsuke",
+      "cityName": "下野市",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09301",
+      "citySlug": "kaminokawa",
+      "cityName": "上三川町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09342",
+      "citySlug": "mashiko",
+      "cityName": "益子町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09343",
+      "citySlug": "motegi",
+      "cityName": "茂木町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09344",
+      "citySlug": "ichikai",
+      "cityName": "市貝町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09345",
+      "citySlug": "haga",
+      "cityName": "芳賀町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09361",
+      "citySlug": "mibu",
+      "cityName": "壬生町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09362",
+      "citySlug": "nogi",
+      "cityName": "野木町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09384",
+      "citySlug": "shioya",
+      "cityName": "塩谷町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09386",
+      "citySlug": "takanezawa",
+      "cityName": "高根沢町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09407",
+      "citySlug": "nasu",
+      "cityName": "那須町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "09411",
+      "citySlug": "nakagawamachi",
+      "cityName": "那珂川町",
+      "prefecture": "栃木県",
+      "prefectureSlug": "tochigi",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
