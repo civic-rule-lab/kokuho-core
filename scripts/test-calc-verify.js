@@ -222,6 +222,156 @@ const TEST_SUITES = [
       },
     ],
   },
+
+  // ============================================================
+  // さいたま市（埼玉県）
+  // 料率: 医療7.13% 支援2.60% 介護2.24%
+  // 均等割: 医療38,300 支援13,500 介護14,600 / 平等割なし
+  // 上限: 医療66万 支援26万 介護17万
+  // 手計算による軽減判定・計算確認
+  // ============================================================
+  {
+    slug: "saitama",
+    label: "さいたま市",
+    cases: [
+      {
+        label: "単身・所得0円（7割軽減）",
+        note:  "sevenTenthsLimit=43万。所得0 → 7割軽減。医療=38300×0.3=11490、支援=13500×0.3=4050",
+        input: { income: 0, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 11490, support: 4050, care: 0, total: 15540, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "単身・所得200万（軽減なし）",
+        note:  "twoTenthsLimit=43万+56万=99万 < 200万 → 軽減なし。baseIncome=157万",
+        input: { income: 2000000, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 150241, support: 54320, care: 0, total: 204561, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・所得43万（7割軽減ボーダー）",
+        note:  "sevenTenthsLimit=43万（perPersonAdd=0）。43万 ≤ 43万 → 7割軽減",
+        input: { income: 430000, family: 2, preschool: 0, care: 0 },
+        expected: { reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・所得43.1万（5割軽減）",
+        note:  "fiveTenthsLimit=43万+30.5万×2=104万。43.1万 ≤ 104万 → 5割軽減",
+        input: { income: 431000, family: 2, preschool: 0, care: 0 },
+        expected: { reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 千葉市（千葉県）
+  // 料率: 医療7.14% 支援2.85% 介護2.36%
+  // 均等割: 医療21,840 支援8,640 介護10,680
+  // 平等割: 医療25,800 支援10,320 介護8,040
+  // 上限: 医療66万 支援26万 介護17万
+  // 手計算による確認（平等割あり自治体の動作検証）
+  // ============================================================
+  {
+    slug: "chiba",
+    label: "千葉市",
+    cases: [
+      {
+        label: "単身・所得0円（7割軽減・平等割あり）",
+        note:  "均等割+平等割=47,640。7割軽減=33,348。医療=14,292。支援=5,688",
+        input: { income: 0, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 14292, support: 5688, care: 0, total: 19980, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "単身・所得200万（軽減なし・平等割あり）",
+        note:  "twoTenthsLimit=99万 < 200万 → 軽減なし。医療=112,098+21,840+25,800=159,738",
+        input: { income: 2000000, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 159738, support: 63705, care: 0, total: 223443, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・所得0円（7割軽減・平等割あり）",
+        note:  "均等割2人分+平等割: 医療69,480 支援27,600。7割軽減後: 医療20,844 支援8,280",
+        input: { income: 0, family: 2, preschool: 0, care: 0 },
+        expected: { medical: 20844, support: 8280, care: 0, total: 29124, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 大阪市（大阪府）
+  // 料率: 医療9.30% 支援3.02% 介護2.56%（府統一料率）
+  // 均等割: 医療34,424 支援11,034 介護18,784
+  // 平等割: 医療33,574 支援10,761 介護0
+  // 上限: 医療65万 支援24万 介護17万
+  // 大阪府統一保険料率（R6〜）の動作確認
+  // ============================================================
+  {
+    slug: "osaka",
+    label: "大阪市",
+    cases: [
+      {
+        label: "単身・所得0円（7割軽減・府統一料率）",
+        note:  "均等割+平等割=67,998。7割軽減=47,599。医療=20,399、支援=6,538",
+        input: { income: 0, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 20399, support: 6538, care: 0, total: 26937, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "単身・所得200万（軽減なし・府統一料率）",
+        note:  "twoTenthsLimit=99万 < 200万 → 軽減なし。医療=146,010+34,424+33,574=214,008",
+        input: { income: 2000000, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 214008, support: 69209, care: 0, total: 283217, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・所得43万（7割軽減ボーダー）",
+        note:  "sevenTenthsLimit=43万（perPersonAdd=0）。43万 ≤ 43万 → 7割軽減",
+        input: { income: 430000, family: 2, preschool: 0, care: 0 },
+        expected: { reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 福岡市（福岡県）
+  // 料率: 医療5.96% 支援3.28% 介護2.81%
+  // 均等割: 医療19,980 支援10,334 介護10,386
+  // 平等割: 医療18,863 支援9,757 介護7,912
+  // 上限: 医療66万 支援26万 介護17万
+  // 手計算による確認
+  // ============================================================
+  {
+    slug: "fukuoka",
+    label: "福岡市",
+    cases: [
+      {
+        label: "単身・所得0円（7割軽減）",
+        note:  "均等割+平等割: 医療38,843 支援20,091。7割軽減後: 医療11,653 支援6,027",
+        input: { income: 0, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 11653, support: 6027, care: 0, total: 17680, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "単身・所得200万（軽減なし）",
+        note:  "twoTenthsLimit=99万 < 200万 → 軽減なし。医療=93,572+19,980+18,863=132,415",
+        input: { income: 2000000, family: 1, preschool: 0, care: 0 },
+        expected: { medical: 132415, support: 71587, care: 0, total: 204002, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・所得43万（7割軽減ボーダー）",
+        note:  "sevenTenthsLimit=43万（perPersonAdd=0）。43万 ≤ 43万 → 7割軽減",
+        input: { income: 430000, family: 2, preschool: 0, care: 0 },
+        expected: { reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+    ],
+  },
 ];
 
 // ─── テスト実行 ────────────────────────────────────────────────
