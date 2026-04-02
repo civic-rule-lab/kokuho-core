@@ -18270,6 +18270,1073 @@ const registry = {
         }
       }
     }
+  },
+  "fukushima": {
+    "name": "福島県",
+    "municipalities": {
+      "fukushimashi": {
+        "name": "福島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/fukushimashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/fukushimashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aizuwakamatsu": {
+        "name": "会津若松市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/aizuwakamatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/aizuwakamatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koriyama": {
+        "name": "郡山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/koriyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/koriyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iwaki": {
+        "name": "いわき市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/iwaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/iwaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shirakawashi": {
+        "name": "白河市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/shirakawashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/shirakawashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sukagawa": {
+        "name": "須賀川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/sukagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/sukagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitakatashi": {
+        "name": "喜多方市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kitakatashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kitakatashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "soma": {
+        "name": "相馬市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/soma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/soma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nihonmatsu": {
+        "name": "二本松市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/nihonmatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/nihonmatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamura": {
+        "name": "田村市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamisoma": {
+        "name": "南相馬市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/minamisoma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/minamisoma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "dateshi": {
+        "name": "伊達市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/dateshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/dateshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "motomiya": {
+        "name": "本宮市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/motomiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/motomiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koori": {
+        "name": "桑折町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/koori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/koori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kunimi": {
+        "name": "国見町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kunimi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kunimi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawamata": {
+        "name": "川俣町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kawamata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kawamata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "otama": {
+        "name": "大玉村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/otama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/otama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kagamiishi": {
+        "name": "鏡石町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kagamiishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kagamiishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tenei": {
+        "name": "天栄村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tenei/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tenei/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimogo": {
+        "name": "下郷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/shimogo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/shimogo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hinoemata": {
+        "name": "檜枝岐村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/hinoemata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/hinoemata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tadami": {
+        "name": "只見町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tadami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tadami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitashiobara": {
+        "name": "北塩原村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kitashiobara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kitashiobara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiaizu": {
+        "name": "西会津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/nishiaizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/nishiaizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "bandai": {
+        "name": "磐梯町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/bandai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/bandai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "inawashiro": {
+        "name": "猪苗代町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/inawashiro/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/inawashiro/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aizubange": {
+        "name": "会津坂下町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/aizubange/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/aizubange/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yugawa": {
+        "name": "湯川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/yugawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/yugawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yanaitsu": {
+        "name": "柳津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/yanaitsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/yanaitsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mishimacho": {
+        "name": "三島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/mishimacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/mishimacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaneyama": {
+        "name": "金山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kaneyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kaneyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "showamura": {
+        "name": "昭和村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/showamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/showamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishigo": {
+        "name": "西郷村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/nishigo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/nishigo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izumizaki": {
+        "name": "泉崎村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/izumizaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/izumizaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakajima": {
+        "name": "中島村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/nakajima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/nakajima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yabuki": {
+        "name": "矢吹町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/yabuki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/yabuki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tanagura": {
+        "name": "棚倉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tanagura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tanagura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamatsuri": {
+        "name": "矢祭町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/yamatsuri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/yamatsuri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hanawa": {
+        "name": "塙町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/hanawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/hanawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "samegawa": {
+        "name": "鮫川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/samegawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/samegawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "furudono": {
+        "name": "古殿町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/furudono/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/furudono/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ishikawa": {
+        "name": "石川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/ishikawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/ishikawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamakawa": {
+        "name": "玉川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tamakawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tamakawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirata": {
+        "name": "平田村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/hirata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/hirata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asakawa": {
+        "name": "浅川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/asakawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/asakawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miharu": {
+        "name": "三春町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/miharu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/miharu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onomachi": {
+        "name": "小野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/onomachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/onomachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirono": {
+        "name": "広野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/hirono/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/hirono/income.html"
+              }
+            }
+          }
+        }
+      },
+      "naraha": {
+        "name": "楢葉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/naraha/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/naraha/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tomiokacho": {
+        "name": "富岡町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/tomiokacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/tomiokacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawauchi": {
+        "name": "川内村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/kawauchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/kawauchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "okuma": {
+        "name": "大熊町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/okuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/okuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "futaba": {
+        "name": "双葉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/futaba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/futaba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "namie": {
+        "name": "浪江町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/namie/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/namie/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katsurao": {
+        "name": "葛尾村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/katsurao/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/katsurao/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shinchi": {
+        "name": "新地町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/shinchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/shinchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iitate": {
+        "name": "飯舘村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/iitate/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/iitate/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aizumisato": {
+        "name": "会津美里町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/aizumisato/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/aizumisato/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiaizu": {
+        "name": "南会津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/fukushima/minamiaizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/fukushima/minamiaizu/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

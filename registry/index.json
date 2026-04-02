@@ -10089,6 +10089,596 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "07201",
+      "citySlug": "fukushimashi",
+      "cityName": "福島市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07202",
+      "citySlug": "aizuwakamatsu",
+      "cityName": "会津若松市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07203",
+      "citySlug": "koriyama",
+      "cityName": "郡山市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07204",
+      "citySlug": "iwaki",
+      "cityName": "いわき市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07205",
+      "citySlug": "shirakawashi",
+      "cityName": "白河市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07207",
+      "citySlug": "sukagawa",
+      "cityName": "須賀川市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07208",
+      "citySlug": "kitakatashi",
+      "cityName": "喜多方市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07210",
+      "citySlug": "soma",
+      "cityName": "相馬市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07211",
+      "citySlug": "nihonmatsu",
+      "cityName": "二本松市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07212",
+      "citySlug": "tamura",
+      "cityName": "田村市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07213",
+      "citySlug": "minamisoma",
+      "cityName": "南相馬市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07214",
+      "citySlug": "dateshi",
+      "cityName": "伊達市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07215",
+      "citySlug": "motomiya",
+      "cityName": "本宮市",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07301",
+      "citySlug": "koori",
+      "cityName": "桑折町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07303",
+      "citySlug": "kunimi",
+      "cityName": "国見町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07307",
+      "citySlug": "kawamata",
+      "cityName": "川俣町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07321",
+      "citySlug": "otama",
+      "cityName": "大玉村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07341",
+      "citySlug": "kagamiishi",
+      "cityName": "鏡石町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07342",
+      "citySlug": "tenei",
+      "cityName": "天栄村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07362",
+      "citySlug": "shimogo",
+      "cityName": "下郷町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07363",
+      "citySlug": "hinoemata",
+      "cityName": "檜枝岐村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07365",
+      "citySlug": "tadami",
+      "cityName": "只見町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07366",
+      "citySlug": "kitashiobara",
+      "cityName": "北塩原村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07368",
+      "citySlug": "nishiaizu",
+      "cityName": "西会津町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07369",
+      "citySlug": "bandai",
+      "cityName": "磐梯町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07370",
+      "citySlug": "inawashiro",
+      "cityName": "猪苗代町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07371",
+      "citySlug": "aizubange",
+      "cityName": "会津坂下町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07372",
+      "citySlug": "yugawa",
+      "cityName": "湯川村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07373",
+      "citySlug": "yanaitsu",
+      "cityName": "柳津町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07374",
+      "citySlug": "mishimacho",
+      "cityName": "三島町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07375",
+      "citySlug": "kaneyama",
+      "cityName": "金山町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07376",
+      "citySlug": "showamura",
+      "cityName": "昭和村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07381",
+      "citySlug": "nishigo",
+      "cityName": "西郷村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07382",
+      "citySlug": "izumizaki",
+      "cityName": "泉崎村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07383",
+      "citySlug": "nakajima",
+      "cityName": "中島村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07384",
+      "citySlug": "yabuki",
+      "cityName": "矢吹町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07401",
+      "citySlug": "tanagura",
+      "cityName": "棚倉町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07402",
+      "citySlug": "yamatsuri",
+      "cityName": "矢祭町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07403",
+      "citySlug": "hanawa",
+      "cityName": "塙町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07404",
+      "citySlug": "samegawa",
+      "cityName": "鮫川村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07421",
+      "citySlug": "furudono",
+      "cityName": "古殿町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07422",
+      "citySlug": "ishikawa",
+      "cityName": "石川町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07423",
+      "citySlug": "tamakawa",
+      "cityName": "玉川村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07424",
+      "citySlug": "hirata",
+      "cityName": "平田村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07425",
+      "citySlug": "asakawa",
+      "cityName": "浅川町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07441",
+      "citySlug": "miharu",
+      "cityName": "三春町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07442",
+      "citySlug": "onomachi",
+      "cityName": "小野町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07461",
+      "citySlug": "hirono",
+      "cityName": "広野町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07462",
+      "citySlug": "naraha",
+      "cityName": "楢葉町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07463",
+      "citySlug": "tomiokacho",
+      "cityName": "富岡町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07464",
+      "citySlug": "kawauchi",
+      "cityName": "川内村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07465",
+      "citySlug": "okuma",
+      "cityName": "大熊町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07466",
+      "citySlug": "futaba",
+      "cityName": "双葉町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07467",
+      "citySlug": "namie",
+      "cityName": "浪江町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07468",
+      "citySlug": "katsurao",
+      "cityName": "葛尾村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07481",
+      "citySlug": "shinchi",
+      "cityName": "新地町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07482",
+      "citySlug": "iitate",
+      "cityName": "飯舘村",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07501",
+      "citySlug": "aizumisato",
+      "cityName": "会津美里町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "07561",
+      "citySlug": "minamiaizu",
+      "cityName": "南会津町",
+      "prefecture": "福島県",
+      "prefectureSlug": "fukushima",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
