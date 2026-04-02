@@ -9399,6 +9399,426 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "21201",
+      "citySlug": "gifu",
+      "cityName": "岐阜市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21202",
+      "citySlug": "ogaki",
+      "cityName": "大垣市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21203",
+      "citySlug": "takayamashi",
+      "cityName": "高山市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21204",
+      "citySlug": "tajimi",
+      "cityName": "多治見市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21205",
+      "citySlug": "seki",
+      "cityName": "関市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21206",
+      "citySlug": "nakatsugawa",
+      "cityName": "中津川市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21207",
+      "citySlug": "mino",
+      "cityName": "美濃市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21208",
+      "citySlug": "mizunami",
+      "cityName": "瑞浪市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21209",
+      "citySlug": "hashima",
+      "cityName": "羽島市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21210",
+      "citySlug": "ena",
+      "cityName": "恵那市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21211",
+      "citySlug": "minokamo",
+      "cityName": "美濃加茂市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21212",
+      "citySlug": "toki",
+      "cityName": "土岐市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21213",
+      "citySlug": "kakamigahara",
+      "cityName": "各務原市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21214",
+      "citySlug": "kani",
+      "cityName": "可児市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21215",
+      "citySlug": "yamagatashi",
+      "cityName": "山県市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21216",
+      "citySlug": "mizuhoshi",
+      "cityName": "瑞穂市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21217",
+      "citySlug": "hida",
+      "cityName": "飛騨市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21218",
+      "citySlug": "motosu",
+      "cityName": "本巣市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21219",
+      "citySlug": "gujo",
+      "cityName": "郡上市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21220",
+      "citySlug": "gero",
+      "cityName": "下呂市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21221",
+      "citySlug": "kaizu",
+      "cityName": "海津市",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21302",
+      "citySlug": "ginancho",
+      "cityName": "岐南町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21303",
+      "citySlug": "kasamatsucho",
+      "cityName": "笠松町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21341",
+      "citySlug": "yorocho",
+      "cityName": "養老町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21361",
+      "citySlug": "taruicho",
+      "cityName": "垂井町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21362",
+      "citySlug": "sekigaharacho",
+      "cityName": "関ケ原町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21381",
+      "citySlug": "godocho",
+      "cityName": "神戸町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21382",
+      "citySlug": "wanouchi",
+      "cityName": "輪之内町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21383",
+      "citySlug": "anpachicho",
+      "cityName": "安八町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21401",
+      "citySlug": "ibicho",
+      "cityName": "揖斐川町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21403",
+      "citySlug": "onocho",
+      "cityName": "大野町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21404",
+      "citySlug": "ikedacho",
+      "cityName": "池田町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21421",
+      "citySlug": "kitakata",
+      "cityName": "北方町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21501",
+      "citySlug": "sakahogi",
+      "cityName": "坂祝町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21502",
+      "citySlug": "tomika",
+      "cityName": "富加町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21503",
+      "citySlug": "kawabe",
+      "cityName": "川辺町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21504",
+      "citySlug": "shichiso",
+      "cityName": "七宗町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21505",
+      "citySlug": "yaotsu",
+      "cityName": "八百津町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21506",
+      "citySlug": "shirakawa",
+      "cityName": "白川町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21507",
+      "citySlug": "higashishirakawa",
+      "cityName": "東白川村",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21521",
+      "citySlug": "mitake",
+      "cityName": "御嵩町",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "21604",
+      "citySlug": "shirakawamura",
+      "cityName": "白川村",
+      "prefecture": "岐阜県",
+      "prefectureSlug": "gifu",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

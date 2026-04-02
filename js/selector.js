@@ -17018,6 +17018,767 @@ const registry = {
         }
       }
     }
+  },
+  "gifu": {
+    "name": "岐阜県",
+    "municipalities": {
+      "gifu": {
+        "name": "岐阜市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/gifu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/gifu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ogaki": {
+        "name": "大垣市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/ogaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/ogaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takayamashi": {
+        "name": "高山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/takayamashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/takayamashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tajimi": {
+        "name": "多治見市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/tajimi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/tajimi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "seki": {
+        "name": "関市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/seki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/seki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakatsugawa": {
+        "name": "中津川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/nakatsugawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/nakatsugawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mino": {
+        "name": "美濃市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/mino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/mino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mizunami": {
+        "name": "瑞浪市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/mizunami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/mizunami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hashima": {
+        "name": "羽島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/hashima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/hashima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ena": {
+        "name": "恵那市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/ena/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/ena/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minokamo": {
+        "name": "美濃加茂市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/minokamo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/minokamo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toki": {
+        "name": "土岐市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/toki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/toki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kakamigahara": {
+        "name": "各務原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kakamigahara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kakamigahara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kani": {
+        "name": "可児市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kani/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kani/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamagatashi": {
+        "name": "山県市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/yamagatashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/yamagatashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mizuhoshi": {
+        "name": "瑞穂市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/mizuhoshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/mizuhoshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hida": {
+        "name": "飛騨市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/hida/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/hida/income.html"
+              }
+            }
+          }
+        }
+      },
+      "motosu": {
+        "name": "本巣市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/motosu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/motosu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gujo": {
+        "name": "郡上市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/gujo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/gujo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gero": {
+        "name": "下呂市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/gero/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/gero/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaizu": {
+        "name": "海津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kaizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kaizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ginancho": {
+        "name": "岐南町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/ginancho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/ginancho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasamatsucho": {
+        "name": "笠松町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kasamatsucho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kasamatsucho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yorocho": {
+        "name": "養老町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/yorocho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/yorocho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taruicho": {
+        "name": "垂井町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/taruicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/taruicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sekigaharacho": {
+        "name": "関ケ原町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/sekigaharacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/sekigaharacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "godocho": {
+        "name": "神戸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/godocho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/godocho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "wanouchi": {
+        "name": "輪之内町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/wanouchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/wanouchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "anpachicho": {
+        "name": "安八町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/anpachicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/anpachicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ibicho": {
+        "name": "揖斐川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/ibicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/ibicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onocho": {
+        "name": "大野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/onocho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/onocho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ikedacho": {
+        "name": "池田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/ikedacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/ikedacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitakata": {
+        "name": "北方町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kitakata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kitakata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sakahogi": {
+        "name": "坂祝町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/sakahogi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/sakahogi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tomika": {
+        "name": "富加町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/tomika/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/tomika/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawabe": {
+        "name": "川辺町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/kawabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/kawabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shichiso": {
+        "name": "七宗町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/shichiso/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/shichiso/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yaotsu": {
+        "name": "八百津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/yaotsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/yaotsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shirakawa": {
+        "name": "白川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/shirakawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/shirakawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashishirakawa": {
+        "name": "東白川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/higashishirakawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/higashishirakawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mitake": {
+        "name": "御嵩町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/mitake/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/mitake/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shirakawamura": {
+        "name": "白川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gifu/shirakawamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gifu/shirakawamura/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
