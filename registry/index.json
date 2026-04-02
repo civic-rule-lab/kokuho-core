@@ -8409,6 +8409,416 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "28100",
+      "citySlug": "kobe",
+      "cityName": "神戸市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28201",
+      "citySlug": "himeji",
+      "cityName": "姫路市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28202",
+      "citySlug": "amagasaki",
+      "cityName": "尼崎市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28203",
+      "citySlug": "akashi",
+      "cityName": "明石市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28204",
+      "citySlug": "nishinomiya",
+      "cityName": "西宮市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28205",
+      "citySlug": "sumoto",
+      "cityName": "洲本市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28206",
+      "citySlug": "ashiyashi",
+      "cityName": "芦屋市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28207",
+      "citySlug": "itami",
+      "cityName": "伊丹市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28208",
+      "citySlug": "aioi",
+      "cityName": "相生市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28209",
+      "citySlug": "toyookashi",
+      "cityName": "豊岡市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28210",
+      "citySlug": "kakogawa",
+      "cityName": "加古川市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28212",
+      "citySlug": "ako",
+      "cityName": "赤穂市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28213",
+      "citySlug": "nishiwaki",
+      "cityName": "西脇市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28214",
+      "citySlug": "takarazuka",
+      "cityName": "宝塚市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28215",
+      "citySlug": "miki",
+      "cityName": "三木市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28216",
+      "citySlug": "takasago",
+      "cityName": "高砂市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28217",
+      "citySlug": "kawanishi",
+      "cityName": "川西市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28218",
+      "citySlug": "ono",
+      "cityName": "小野市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28219",
+      "citySlug": "sanda",
+      "cityName": "三田市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28220",
+      "citySlug": "kasai",
+      "cityName": "加西市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28221",
+      "citySlug": "tanbasasayama",
+      "cityName": "丹波篠山市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28222",
+      "citySlug": "yabu",
+      "cityName": "養父市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28223",
+      "citySlug": "tamba",
+      "cityName": "丹波市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28224",
+      "citySlug": "minamiawaji",
+      "cityName": "南あわじ市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28225",
+      "citySlug": "asago",
+      "cityName": "朝来市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28226",
+      "citySlug": "awaji",
+      "cityName": "淡路市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28227",
+      "citySlug": "shiso",
+      "cityName": "宍粟市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28228",
+      "citySlug": "kato",
+      "cityName": "加東市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28229",
+      "citySlug": "tatsunoshi",
+      "cityName": "たつの市",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28301",
+      "citySlug": "inagawa",
+      "cityName": "猪名川町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28365",
+      "citySlug": "taka",
+      "cityName": "多可町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28381",
+      "citySlug": "inami",
+      "cityName": "稲美町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28382",
+      "citySlug": "harima",
+      "cityName": "播磨町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28442",
+      "citySlug": "ichikawamachi",
+      "cityName": "市川町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28443",
+      "citySlug": "fukusaki",
+      "cityName": "福崎町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28446",
+      "citySlug": "kamikawamachi",
+      "cityName": "神河町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28481",
+      "citySlug": "taishimachi",
+      "cityName": "太子町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28501",
+      "citySlug": "kamigori",
+      "cityName": "上郡町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28514",
+      "citySlug": "sayo",
+      "cityName": "佐用町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28585",
+      "citySlug": "mihamacho",
+      "cityName": "香美町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "28586",
+      "citySlug": "shinonsen",
+      "cityName": "新温泉町",
+      "prefecture": "兵庫県",
+      "prefectureSlug": "hyogo",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

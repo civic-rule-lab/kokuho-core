@@ -15221,6 +15221,749 @@ const registry = {
         }
       }
     }
+  },
+  "hyogo": {
+    "name": "兵庫県",
+    "municipalities": {
+      "kobe": {
+        "name": "神戸市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kobe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kobe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "himeji": {
+        "name": "姫路市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/himeji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/himeji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "amagasaki": {
+        "name": "尼崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/amagasaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/amagasaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akashi": {
+        "name": "明石市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/akashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/akashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishinomiya": {
+        "name": "西宮市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/nishinomiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/nishinomiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sumoto": {
+        "name": "洲本市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/sumoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/sumoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ashiyashi": {
+        "name": "芦屋市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/ashiyashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/ashiyashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itami": {
+        "name": "伊丹市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/itami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/itami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aioi": {
+        "name": "相生市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/aioi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/aioi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toyookashi": {
+        "name": "豊岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/toyookashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/toyookashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kakogawa": {
+        "name": "加古川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kakogawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kakogawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ako": {
+        "name": "赤穂市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/ako/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/ako/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiwaki": {
+        "name": "西脇市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/nishiwaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/nishiwaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takarazuka": {
+        "name": "宝塚市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/takarazuka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/takarazuka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miki": {
+        "name": "三木市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/miki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/miki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takasago": {
+        "name": "高砂市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/takasago/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/takasago/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawanishi": {
+        "name": "川西市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kawanishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kawanishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ono": {
+        "name": "小野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/ono/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/ono/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sanda": {
+        "name": "三田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/sanda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/sanda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasai": {
+        "name": "加西市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kasai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kasai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tanbasasayama": {
+        "name": "丹波篠山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/tanbasasayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/tanbasasayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yabu": {
+        "name": "養父市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/yabu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/yabu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamba": {
+        "name": "丹波市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/tamba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/tamba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiawaji": {
+        "name": "南あわじ市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/minamiawaji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/minamiawaji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asago": {
+        "name": "朝来市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/asago/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/asago/income.html"
+              }
+            }
+          }
+        }
+      },
+      "awaji": {
+        "name": "淡路市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/awaji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/awaji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shiso": {
+        "name": "宍粟市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/shiso/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/shiso/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kato": {
+        "name": "加東市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kato/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kato/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tatsunoshi": {
+        "name": "たつの市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/tatsunoshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/tatsunoshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "inagawa": {
+        "name": "猪名川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/inagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/inagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taka": {
+        "name": "多可町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/taka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/taka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "inami": {
+        "name": "稲美町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/inami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/inami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "harima": {
+        "name": "播磨町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/harima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/harima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ichikawamachi": {
+        "name": "市川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/ichikawamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/ichikawamachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukusaki": {
+        "name": "福崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/fukusaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/fukusaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamikawamachi": {
+        "name": "神河町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kamikawamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kamikawamachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taishimachi": {
+        "name": "太子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/taishimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/taishimachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamigori": {
+        "name": "上郡町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/kamigori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/kamigori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sayo": {
+        "name": "佐用町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/sayo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/sayo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mihamacho": {
+        "name": "香美町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/mihamacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/mihamacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shinonsen": {
+        "name": "新温泉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hyogo/shinonsen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hyogo/shinonsen/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
