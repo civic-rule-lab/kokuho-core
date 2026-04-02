@@ -15964,6 +15964,641 @@ const registry = {
         }
       }
     }
+  },
+  "shizuoka": {
+    "name": "静岡県",
+    "municipalities": {
+      "shizuoka": {
+        "name": "静岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/shizuoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/shizuoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hamamatsu": {
+        "name": "浜松市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/hamamatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/hamamatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "numazu": {
+        "name": "沼津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/numazu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/numazu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "atami": {
+        "name": "熱海市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/atami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/atami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mishima": {
+        "name": "三島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/mishima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/mishima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fujinomiya": {
+        "name": "富士宮市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/fujinomiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/fujinomiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ito": {
+        "name": "伊東市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/ito/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/ito/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimada": {
+        "name": "島田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/shimada/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/shimada/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fuji": {
+        "name": "富士市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/fuji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/fuji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iwata": {
+        "name": "磐田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/iwata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/iwata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yaizu": {
+        "name": "焼津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/yaizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/yaizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kakegawa": {
+        "name": "掛川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kakegawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kakegawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fujieda": {
+        "name": "藤枝市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/fujieda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/fujieda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gotemba": {
+        "name": "御殿場市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/gotemba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/gotemba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukuroi": {
+        "name": "袋井市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/fukuroi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/fukuroi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimoda": {
+        "name": "下田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/shimoda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/shimoda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "susono": {
+        "name": "裾野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/susono/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/susono/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kosai": {
+        "name": "湖西市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kosai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kosai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izu": {
+        "name": "伊豆市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/izu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/izu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "omaezaki": {
+        "name": "御前崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/omaezaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/omaezaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kikugawa": {
+        "name": "菊川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kikugawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kikugawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izunokuni": {
+        "name": "伊豆の国市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/izunokuni/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/izunokuni/income.html"
+              }
+            }
+          }
+        }
+      },
+      "makinohara": {
+        "name": "牧之原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/makinohara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/makinohara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashiizu": {
+        "name": "東伊豆町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/higashiizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/higashiizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawazu": {
+        "name": "河津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kawazu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kawazu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiizu": {
+        "name": "南伊豆町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/minamiizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/minamiizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "matsuzaki": {
+        "name": "松崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/matsuzaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/matsuzaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiizu": {
+        "name": "西伊豆町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/nishiizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/nishiizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kannami": {
+        "name": "函南町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kannami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kannami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimizumachi": {
+        "name": "清水町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/shimizumachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/shimizumachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagaizumi": {
+        "name": "長泉町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/nagaizumi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/nagaizumi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oyamamachi": {
+        "name": "小山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/oyamamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/oyamamachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoshida": {
+        "name": "吉田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/yoshida/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/yoshida/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawanehon": {
+        "name": "川根本町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/kawanehon/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/kawanehon/income.html"
+              }
+            }
+          }
+        }
+      },
+      "morimachi": {
+        "name": "森町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shizuoka/morimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shizuoka/morimachi/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

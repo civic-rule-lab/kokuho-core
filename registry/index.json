@@ -8819,6 +8819,356 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "22100",
+      "citySlug": "shizuoka",
+      "cityName": "静岡市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22130",
+      "citySlug": "hamamatsu",
+      "cityName": "浜松市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22203",
+      "citySlug": "numazu",
+      "cityName": "沼津市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22205",
+      "citySlug": "atami",
+      "cityName": "熱海市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22206",
+      "citySlug": "mishima",
+      "cityName": "三島市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22207",
+      "citySlug": "fujinomiya",
+      "cityName": "富士宮市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22208",
+      "citySlug": "ito",
+      "cityName": "伊東市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22209",
+      "citySlug": "shimada",
+      "cityName": "島田市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22210",
+      "citySlug": "fuji",
+      "cityName": "富士市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22211",
+      "citySlug": "iwata",
+      "cityName": "磐田市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22212",
+      "citySlug": "yaizu",
+      "cityName": "焼津市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22213",
+      "citySlug": "kakegawa",
+      "cityName": "掛川市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22214",
+      "citySlug": "fujieda",
+      "cityName": "藤枝市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22215",
+      "citySlug": "gotemba",
+      "cityName": "御殿場市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22216",
+      "citySlug": "fukuroi",
+      "cityName": "袋井市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22219",
+      "citySlug": "shimoda",
+      "cityName": "下田市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22221",
+      "citySlug": "susono",
+      "cityName": "裾野市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22222",
+      "citySlug": "kosai",
+      "cityName": "湖西市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22223",
+      "citySlug": "izu",
+      "cityName": "伊豆市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22224",
+      "citySlug": "omaezaki",
+      "cityName": "御前崎市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22225",
+      "citySlug": "kikugawa",
+      "cityName": "菊川市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22226",
+      "citySlug": "izunokuni",
+      "cityName": "伊豆の国市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22227",
+      "citySlug": "makinohara",
+      "cityName": "牧之原市",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22301",
+      "citySlug": "higashiizu",
+      "cityName": "東伊豆町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22302",
+      "citySlug": "kawazu",
+      "cityName": "河津町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22304",
+      "citySlug": "minamiizu",
+      "cityName": "南伊豆町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22305",
+      "citySlug": "matsuzaki",
+      "cityName": "松崎町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22306",
+      "citySlug": "nishiizu",
+      "cityName": "西伊豆町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22325",
+      "citySlug": "kannami",
+      "cityName": "函南町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22341",
+      "citySlug": "shimizumachi",
+      "cityName": "清水町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22342",
+      "citySlug": "nagaizumi",
+      "cityName": "長泉町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22344",
+      "citySlug": "oyamamachi",
+      "cityName": "小山町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22424",
+      "citySlug": "yoshida",
+      "cityName": "吉田町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22461",
+      "citySlug": "kawanehon",
+      "cityName": "川根本町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "22484",
+      "citySlug": "morimachi",
+      "cityName": "森町",
+      "prefecture": "静岡県",
+      "prefectureSlug": "shizuoka",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
