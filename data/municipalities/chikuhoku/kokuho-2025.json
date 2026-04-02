@@ -25,6 +25,11 @@
     "support": 260000,
     "care": 170000
   },
+  "assetLevy": {
+    "medical": 0.2,
+    "support": 0.06,
+    "care": 0.07
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -52,10 +57,5 @@
       "fiveTenths": 0.5,
       "twoTenths": 0.2
     }
-  },
-  "assetLevy": {
-    "medical": 0.2,
-    "support": 0.06,
-    "care": 0.07
   }
 }

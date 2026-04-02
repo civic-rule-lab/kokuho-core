@@ -11,19 +11,24 @@
     "care": 0.014
   },
   "perCapita": {
-    "medical": 7800,
-    "support": 6400,
-    "care": 10000
-  },
-  "household": {
     "medical": 22600,
     "support": 10000,
     "care": 10000
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 660000,
     "support": 260000,
     "care": 170000
+  },
+  "assetLevy": {
+    "medical": 0.35,
+    "support": 0.15,
+    "care": 0.11
   },
   "preschoolReduction": {
     "enabled": true,
@@ -52,10 +57,5 @@
       "fiveTenths": 0.5,
       "twoTenths": 0.2
     }
-  },
-  "assetLevy": {
-    "medical": 0.35,
-    "support": 0.15,
-    "care": 0.11
   }
 }
