@@ -16599,6 +16599,425 @@ const registry = {
         }
       }
     }
+  },
+  "hiroshima": {
+    "name": "広島県",
+    "municipalities": {
+      "hiroshima": {
+        "name": "広島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/hiroshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/hiroshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kure": {
+        "name": "呉市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/kure/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/kure/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takehara": {
+        "name": "竹原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/takehara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/takehara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mihara": {
+        "name": "三原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/mihara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/mihara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onomichi": {
+        "name": "尾道市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/onomichi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/onomichi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukuyama": {
+        "name": "福山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/fukuyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/fukuyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fuchushi": {
+        "name": "府中市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/fuchushi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/fuchushi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyoshishi": {
+        "name": "三次市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/miyoshishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/miyoshishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shobara": {
+        "name": "庄原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/shobara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/shobara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "otake": {
+        "name": "大竹市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/otake/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/otake/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashihiroshima": {
+        "name": "東広島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/higashihiroshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/higashihiroshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hatsukaichi": {
+        "name": "廿日市市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/hatsukaichi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/hatsukaichi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akitakata": {
+        "name": "安芸高田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/akitakata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/akitakata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "etajima": {
+        "name": "江田島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/etajima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/etajima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fuchucho": {
+        "name": "府中町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/fuchucho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/fuchucho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaita": {
+        "name": "海田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/kaita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/kaita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kumano": {
+        "name": "熊野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/kumano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/kumano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "saka": {
+        "name": "坂町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/saka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/saka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akiota": {
+        "name": "安芸太田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/akiota/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/akiota/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitahiroshimamachi": {
+        "name": "北広島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/kitahiroshimamachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/kitahiroshimamachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "osakikamijima": {
+        "name": "大崎上島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/osakikamijima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/osakikamijima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sera": {
+        "name": "世羅町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/sera/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/sera/income.html"
+              }
+            }
+          }
+        }
+      },
+      "jinsekikogen": {
+        "name": "神石高原町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/hiroshima/jinsekikogen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/hiroshima/jinsekikogen/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

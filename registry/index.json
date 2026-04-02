@@ -9169,6 +9169,236 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "34100",
+      "citySlug": "hiroshima",
+      "cityName": "広島市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34202",
+      "citySlug": "kure",
+      "cityName": "呉市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34203",
+      "citySlug": "takehara",
+      "cityName": "竹原市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34204",
+      "citySlug": "mihara",
+      "cityName": "三原市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34205",
+      "citySlug": "onomichi",
+      "cityName": "尾道市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34207",
+      "citySlug": "fukuyama",
+      "cityName": "福山市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34208",
+      "citySlug": "fuchushi",
+      "cityName": "府中市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34209",
+      "citySlug": "miyoshishi",
+      "cityName": "三次市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34210",
+      "citySlug": "shobara",
+      "cityName": "庄原市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34211",
+      "citySlug": "otake",
+      "cityName": "大竹市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34212",
+      "citySlug": "higashihiroshima",
+      "cityName": "東広島市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34213",
+      "citySlug": "hatsukaichi",
+      "cityName": "廿日市市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34214",
+      "citySlug": "akitakata",
+      "cityName": "安芸高田市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34215",
+      "citySlug": "etajima",
+      "cityName": "江田島市",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34302",
+      "citySlug": "fuchucho",
+      "cityName": "府中町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34304",
+      "citySlug": "kaita",
+      "cityName": "海田町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34307",
+      "citySlug": "kumano",
+      "cityName": "熊野町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34309",
+      "citySlug": "saka",
+      "cityName": "坂町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34368",
+      "citySlug": "akiota",
+      "cityName": "安芸太田町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34369",
+      "citySlug": "kitahiroshimamachi",
+      "cityName": "北広島町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34431",
+      "citySlug": "osakikamijima",
+      "cityName": "大崎上島町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34462",
+      "citySlug": "sera",
+      "cityName": "世羅町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "34545",
+      "citySlug": "jinsekikogen",
+      "cityName": "神石高原町",
+      "prefecture": "広島県",
+      "prefectureSlug": "hiroshima",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
