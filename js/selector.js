@@ -1,7 +1,7 @@
 // このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: 2026-04-01
+// 最終生成: 2026-04-02
 
 const registry = {
   "kanagawa": {
@@ -6944,6 +6944,479 @@ const registry = {
               "income": {
                 "name": "所得ベース計算",
                 "url": "/fukuoka/koge/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "京都府": {
+    "name": "京都府",
+    "municipalities": {
+      "kyoto": {
+        "name": "京都市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kyoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kyoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukuchiyama": {
+        "name": "福知山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/fukuchiyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/fukuchiyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "maizuru": {
+        "name": "舞鶴市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/maizuru/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/maizuru/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ayabe": {
+        "name": "綾部市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/ayabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/ayabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "uji": {
+        "name": "宇治市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/uji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/uji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyazu": {
+        "name": "宮津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/miyazu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/miyazu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kameoka": {
+        "name": "亀岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kameoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kameoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "joyo": {
+        "name": "城陽市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/joyo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/joyo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "muko": {
+        "name": "向日市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/muko/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/muko/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagaokakyo": {
+        "name": "長岡京市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/nagaokakyo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/nagaokakyo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yawata": {
+        "name": "八幡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/yawata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/yawata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kyotanabe": {
+        "name": "京田辺市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kyotanabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kyotanabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kyotango": {
+        "name": "京丹後市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kyotango/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kyotango/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nantan": {
+        "name": "南丹市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/nantan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/nantan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kizugawa": {
+        "name": "木津川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kizugawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kizugawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oyamazaki": {
+        "name": "大山崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/oyamazaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/oyamazaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kumiyama": {
+        "name": "久御山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kumiyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kumiyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ide": {
+        "name": "井手町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/ide/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/ide/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ujitawara": {
+        "name": "宇治田原町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/ujitawara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/ujitawara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kasagi": {
+        "name": "笠置町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kasagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kasagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "wazuka": {
+        "name": "和束町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/wazuka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/wazuka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "seika": {
+        "name": "精華町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/seika/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/seika/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiyamashiro": {
+        "name": "南山城村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/minamiyamashiro/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/minamiyamashiro/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kyotamba": {
+        "name": "京丹波町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/kyotamba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/kyotamba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ine": {
+        "name": "伊根町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/ine/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/ine/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yosano": {
+        "name": "与謝野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/京都府/yosano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/京都府/yosano/income.html"
               }
             }
           }

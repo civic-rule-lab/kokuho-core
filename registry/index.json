@@ -3455,6 +3455,266 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "26100",
+      "citySlug": "kyoto",
+      "cityName": "京都市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26201",
+      "citySlug": "fukuchiyama",
+      "cityName": "福知山市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26202",
+      "citySlug": "maizuru",
+      "cityName": "舞鶴市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26203",
+      "citySlug": "ayabe",
+      "cityName": "綾部市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26204",
+      "citySlug": "uji",
+      "cityName": "宇治市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26205",
+      "citySlug": "miyazu",
+      "cityName": "宮津市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26206",
+      "citySlug": "kameoka",
+      "cityName": "亀岡市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26207",
+      "citySlug": "joyo",
+      "cityName": "城陽市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26208",
+      "citySlug": "muko",
+      "cityName": "向日市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26209",
+      "citySlug": "nagaokakyo",
+      "cityName": "長岡京市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26210",
+      "citySlug": "yawata",
+      "cityName": "八幡市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26211",
+      "citySlug": "kyotanabe",
+      "cityName": "京田辺市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26212",
+      "citySlug": "kyotango",
+      "cityName": "京丹後市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26213",
+      "citySlug": "nantan",
+      "cityName": "南丹市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26214",
+      "citySlug": "kizugawa",
+      "cityName": "木津川市",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26303",
+      "citySlug": "oyamazaki",
+      "cityName": "大山崎町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26322",
+      "citySlug": "kumiyama",
+      "cityName": "久御山町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26343",
+      "citySlug": "ide",
+      "cityName": "井手町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26344",
+      "citySlug": "ujitawara",
+      "cityName": "宇治田原町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26364",
+      "citySlug": "kasagi",
+      "cityName": "笠置町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26365",
+      "citySlug": "wazuka",
+      "cityName": "和束町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26366",
+      "citySlug": "seika",
+      "cityName": "精華町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26367",
+      "citySlug": "minamiyamashiro",
+      "cityName": "南山城村",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26407",
+      "citySlug": "kyotamba",
+      "cityName": "京丹波町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26463",
+      "citySlug": "ine",
+      "cityName": "伊根町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "26465",
+      "citySlug": "yosano",
+      "cityName": "与謝野町",
+      "prefecture": "京都府",
+      "prefectureSlug": "kyoto",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
