@@ -11999,6 +11999,306 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "30201",
+      "citySlug": "wakayama",
+      "cityName": "和歌山市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30202",
+      "citySlug": "kainan",
+      "cityName": "海南市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30203",
+      "citySlug": "hashimoto",
+      "cityName": "橋本市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30204",
+      "citySlug": "arida",
+      "cityName": "有田市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30205",
+      "citySlug": "gobo",
+      "cityName": "御坊市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30206",
+      "citySlug": "tanabe",
+      "cityName": "田辺市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30207",
+      "citySlug": "shingushi",
+      "cityName": "新宮市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30208",
+      "citySlug": "kinokawa",
+      "cityName": "紀の川市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30209",
+      "citySlug": "iwade",
+      "cityName": "岩出市",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30304",
+      "citySlug": "kimino",
+      "cityName": "紀美野町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30341",
+      "citySlug": "katsuragimachi",
+      "cityName": "かつらぎ町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30342",
+      "citySlug": "kudoyama",
+      "cityName": "九度山町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30343",
+      "citySlug": "koya",
+      "cityName": "高野町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30361",
+      "citySlug": "yuasa",
+      "cityName": "湯浅町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30362",
+      "citySlug": "hirogawa",
+      "cityName": "広川町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30371",
+      "citySlug": "aridagawa",
+      "cityName": "有田川町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30381",
+      "citySlug": "mihamawakayama",
+      "cityName": "美浜町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30382",
+      "citySlug": "hidakacho",
+      "cityName": "日高町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30383",
+      "citySlug": "yura",
+      "cityName": "由良町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30390",
+      "citySlug": "hidakagawa",
+      "cityName": "日高川町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30401",
+      "citySlug": "minabe",
+      "cityName": "みなべ町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30421",
+      "citySlug": "inamicho",
+      "cityName": "印南町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30424",
+      "citySlug": "shirahama",
+      "cityName": "白浜町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30426",
+      "citySlug": "kamitonda",
+      "cityName": "上富田町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30428",
+      "citySlug": "susami",
+      "cityName": "すさみ町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30441",
+      "citySlug": "nachikatsuura",
+      "cityName": "那智勝浦町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30442",
+      "citySlug": "taiji",
+      "cityName": "太地町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30445",
+      "citySlug": "kozagawa",
+      "cityName": "古座川町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30447",
+      "citySlug": "kitayama",
+      "cityName": "北山村",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "30449",
+      "citySlug": "kushimoto",
+      "cityName": "串本町",
+      "prefecture": "和歌山県",
+      "prefectureSlug": "wakayama",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

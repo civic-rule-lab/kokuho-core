@@ -21733,6 +21733,551 @@ const registry = {
         }
       }
     }
+  },
+  "wakayama": {
+    "name": "和歌山県",
+    "municipalities": {
+      "wakayama": {
+        "name": "和歌山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/wakayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/wakayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kainan": {
+        "name": "海南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kainan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kainan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hashimoto": {
+        "name": "橋本市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/hashimoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/hashimoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "arida": {
+        "name": "有田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/arida/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/arida/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gobo": {
+        "name": "御坊市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/gobo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/gobo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tanabe": {
+        "name": "田辺市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/tanabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/tanabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shingushi": {
+        "name": "新宮市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/shingushi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/shingushi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kinokawa": {
+        "name": "紀の川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kinokawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kinokawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iwade": {
+        "name": "岩出市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/iwade/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/iwade/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kimino": {
+        "name": "紀美野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kimino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kimino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katsuragimachi": {
+        "name": "かつらぎ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/katsuragimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/katsuragimachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kudoyama": {
+        "name": "九度山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kudoyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kudoyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koya": {
+        "name": "高野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/koya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/koya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yuasa": {
+        "name": "湯浅町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/yuasa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/yuasa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirogawa": {
+        "name": "広川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/hirogawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/hirogawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aridagawa": {
+        "name": "有田川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/aridagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/aridagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mihamawakayama": {
+        "name": "美浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/mihamawakayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/mihamawakayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hidakacho": {
+        "name": "日高町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/hidakacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/hidakacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yura": {
+        "name": "由良町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/yura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/yura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hidakagawa": {
+        "name": "日高川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/hidakagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/hidakagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minabe": {
+        "name": "みなべ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/minabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/minabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "inamicho": {
+        "name": "印南町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/inamicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/inamicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shirahama": {
+        "name": "白浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/shirahama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/shirahama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamitonda": {
+        "name": "上富田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kamitonda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kamitonda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "susami": {
+        "name": "すさみ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/susami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/susami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nachikatsuura": {
+        "name": "那智勝浦町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/nachikatsuura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/nachikatsuura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taiji": {
+        "name": "太地町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/taiji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/taiji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kozagawa": {
+        "name": "古座川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kozagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kozagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitayama": {
+        "name": "北山村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kitayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kitayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kushimoto": {
+        "name": "串本町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/wakayama/kushimoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/wakayama/kushimoto/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
