@@ -10969,6 +10969,196 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "25201",
+      "citySlug": "otsu",
+      "cityName": "大津市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25202",
+      "citySlug": "hikone",
+      "cityName": "彦根市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25203",
+      "citySlug": "nagahama",
+      "cityName": "長浜市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25204",
+      "citySlug": "omihachiman",
+      "cityName": "近江八幡市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25206",
+      "citySlug": "kusatsushi",
+      "cityName": "草津市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25207",
+      "citySlug": "moriyama",
+      "cityName": "守山市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25208",
+      "citySlug": "ritto",
+      "cityName": "栗東市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25209",
+      "citySlug": "koka",
+      "cityName": "甲賀市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25210",
+      "citySlug": "yasu",
+      "cityName": "野洲市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25211",
+      "citySlug": "konanshi",
+      "cityName": "湖南市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25212",
+      "citySlug": "takashima",
+      "cityName": "高島市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25213",
+      "citySlug": "higashiomi",
+      "cityName": "東近江市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25214",
+      "citySlug": "maibara",
+      "cityName": "米原市",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25383",
+      "citySlug": "hinocho",
+      "cityName": "日野町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25384",
+      "citySlug": "ryuo",
+      "cityName": "竜王町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25425",
+      "citySlug": "aisho",
+      "cityName": "愛荘町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25441",
+      "citySlug": "toyosato",
+      "cityName": "豊郷町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25442",
+      "citySlug": "kora",
+      "cityName": "甲良町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "25443",
+      "citySlug": "taga",
+      "cityName": "多賀町",
+      "prefecture": "滋賀県",
+      "prefectureSlug": "shiga",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

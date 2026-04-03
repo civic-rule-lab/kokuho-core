@@ -19864,6 +19864,353 @@ const registry = {
         }
       }
     }
+  },
+  "shiga": {
+    "name": "滋賀県",
+    "municipalities": {
+      "otsu": {
+        "name": "大津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/otsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/otsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hikone": {
+        "name": "彦根市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/hikone/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/hikone/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagahama": {
+        "name": "長浜市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/nagahama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/nagahama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "omihachiman": {
+        "name": "近江八幡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/omihachiman/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/omihachiman/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kusatsushi": {
+        "name": "草津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/kusatsushi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/kusatsushi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "moriyama": {
+        "name": "守山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/moriyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/moriyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ritto": {
+        "name": "栗東市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/ritto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/ritto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koka": {
+        "name": "甲賀市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/koka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/koka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yasu": {
+        "name": "野洲市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/yasu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/yasu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "konanshi": {
+        "name": "湖南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/konanshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/konanshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takashima": {
+        "name": "高島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/takashima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/takashima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashiomi": {
+        "name": "東近江市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/higashiomi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/higashiomi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "maibara": {
+        "name": "米原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/maibara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/maibara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hinocho": {
+        "name": "日野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/hinocho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/hinocho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ryuo": {
+        "name": "竜王町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/ryuo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/ryuo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aisho": {
+        "name": "愛荘町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/aisho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/aisho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toyosato": {
+        "name": "豊郷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/toyosato/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/toyosato/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kora": {
+        "name": "甲良町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/kora/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/kora/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taga": {
+        "name": "多賀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/shiga/taga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/shiga/taga/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
