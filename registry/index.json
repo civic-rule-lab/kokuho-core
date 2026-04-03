@@ -13450,6 +13450,366 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "02201",
+      "citySlug": "aomori",
+      "cityName": "青森市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02202",
+      "citySlug": "hirosaki",
+      "cityName": "弘前市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02203",
+      "citySlug": "hachinohe",
+      "cityName": "八戸市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02204",
+      "citySlug": "kuroishi",
+      "cityName": "黒石市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02205",
+      "citySlug": "goshogawara",
+      "cityName": "五所川原市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02206",
+      "citySlug": "towada",
+      "cityName": "十和田市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02207",
+      "citySlug": "misawa",
+      "cityName": "三沢市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02208",
+      "citySlug": "mutsu",
+      "cityName": "むつ市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02209",
+      "citySlug": "tsugaru",
+      "cityName": "つがる市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02210",
+      "citySlug": "hirakawa",
+      "cityName": "平川市",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02301",
+      "citySlug": "hiranai",
+      "cityName": "平内町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02303",
+      "citySlug": "imabetsu",
+      "cityName": "今別町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02304",
+      "citySlug": "yomogita",
+      "cityName": "蓬田村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02307",
+      "citySlug": "sotogahama",
+      "cityName": "外ヶ浜町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02321",
+      "citySlug": "ajigasawa",
+      "cityName": "鰺ヶ沢町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02323",
+      "citySlug": "fukaura",
+      "cityName": "深浦町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02341",
+      "citySlug": "nishimeya",
+      "cityName": "西目屋村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02361",
+      "citySlug": "fujisaki",
+      "cityName": "藤崎町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02362",
+      "citySlug": "owani",
+      "cityName": "大鰐町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02363",
+      "citySlug": "inakadate",
+      "cityName": "田舎館村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02381",
+      "citySlug": "itayanagi",
+      "cityName": "板柳町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02383",
+      "citySlug": "tsuruta",
+      "cityName": "鶴田町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02384",
+      "citySlug": "nakadomari",
+      "cityName": "中泊町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02401",
+      "citySlug": "noheji",
+      "cityName": "野辺地町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02402",
+      "citySlug": "shichinohe",
+      "cityName": "七戸町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02404",
+      "citySlug": "rokunohe",
+      "cityName": "六戸町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02405",
+      "citySlug": "yokohamacho",
+      "cityName": "横浜町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02407",
+      "citySlug": "tohokucho",
+      "cityName": "東北町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02411",
+      "citySlug": "rokkasho",
+      "cityName": "六ヶ所村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02412",
+      "citySlug": "oirase",
+      "cityName": "おいらせ町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02423",
+      "citySlug": "oma",
+      "cityName": "大間町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02424",
+      "citySlug": "higashidori",
+      "cityName": "東通村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02425",
+      "citySlug": "kazamaura",
+      "cityName": "風間浦村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02426",
+      "citySlug": "sai",
+      "cityName": "佐井村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02441",
+      "citySlug": "sannohe",
+      "cityName": "三戸町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02442",
+      "citySlug": "gonohe",
+      "cityName": "五戸町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02443",
+      "citySlug": "takko",
+      "cityName": "田子町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02445",
+      "citySlug": "nanbu",
+      "cityName": "南部町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02446",
+      "citySlug": "hashikami",
+      "cityName": "階上町",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "02447",
+      "citySlug": "shingo",
+      "cityName": "新郷村",
+      "prefecture": "青森県",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

@@ -24404,6 +24404,731 @@ const registry = {
         }
       }
     }
+  },
+  "青森県": {
+    "name": "青森県",
+    "municipalities": {
+      "aomori": {
+        "name": "青森市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/aomori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/aomori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirosaki": {
+        "name": "弘前市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/hirosaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/hirosaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hachinohe": {
+        "name": "八戸市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/hachinohe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/hachinohe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kuroishi": {
+        "name": "黒石市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/kuroishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/kuroishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "goshogawara": {
+        "name": "五所川原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/goshogawara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/goshogawara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "towada": {
+        "name": "十和田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/towada/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/towada/income.html"
+              }
+            }
+          }
+        }
+      },
+      "misawa": {
+        "name": "三沢市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/misawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/misawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mutsu": {
+        "name": "むつ市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/mutsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/mutsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsugaru": {
+        "name": "つがる市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/tsugaru/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/tsugaru/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirakawa": {
+        "name": "平川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/hirakawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/hirakawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hiranai": {
+        "name": "平内町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/hiranai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/hiranai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "imabetsu": {
+        "name": "今別町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/imabetsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/imabetsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yomogita": {
+        "name": "蓬田村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/yomogita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/yomogita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sotogahama": {
+        "name": "外ヶ浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/sotogahama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/sotogahama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ajigasawa": {
+        "name": "鰺ヶ沢町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/ajigasawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/ajigasawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fukaura": {
+        "name": "深浦町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/fukaura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/fukaura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishimeya": {
+        "name": "西目屋村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/nishimeya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/nishimeya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "fujisaki": {
+        "name": "藤崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/fujisaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/fujisaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "owani": {
+        "name": "大鰐町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/owani/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/owani/income.html"
+              }
+            }
+          }
+        }
+      },
+      "inakadate": {
+        "name": "田舎館村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/inakadate/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/inakadate/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itayanagi": {
+        "name": "板柳町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/itayanagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/itayanagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsuruta": {
+        "name": "鶴田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/tsuruta/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/tsuruta/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakadomari": {
+        "name": "中泊町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/nakadomari/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/nakadomari/income.html"
+              }
+            }
+          }
+        }
+      },
+      "noheji": {
+        "name": "野辺地町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/noheji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/noheji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shichinohe": {
+        "name": "七戸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/shichinohe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/shichinohe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "rokunohe": {
+        "name": "六戸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/rokunohe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/rokunohe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yokohamacho": {
+        "name": "横浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/yokohamacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/yokohamacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tohokucho": {
+        "name": "東北町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/tohokucho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/tohokucho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "rokkasho": {
+        "name": "六ヶ所村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/rokkasho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/rokkasho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oirase": {
+        "name": "おいらせ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/oirase/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/oirase/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oma": {
+        "name": "大間町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/oma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/oma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashidori": {
+        "name": "東通村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/higashidori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/higashidori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kazamaura": {
+        "name": "風間浦村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/kazamaura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/kazamaura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sai": {
+        "name": "佐井村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/sai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/sai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sannohe": {
+        "name": "三戸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/sannohe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/sannohe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gonohe": {
+        "name": "五戸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/gonohe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/gonohe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takko": {
+        "name": "田子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/takko/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/takko/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nanbu": {
+        "name": "南部町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/nanbu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/nanbu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hashikami": {
+        "name": "階上町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/hashikami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/hashikami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shingo": {
+        "name": "新郷村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/青森県/shingo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/青森県/shingo/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
