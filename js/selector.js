@@ -13261,7 +13261,7 @@ const registry = {
           }
         }
       },
-      "misatomachi": {
+      "misatomiyazaki": {
         "name": "美郷町",
         "systems": {
           "kokuho": {
@@ -13269,11 +13269,11 @@ const registry = {
             "pages": {
               "simple": {
                 "name": "かんたん計算",
-                "url": "/miyazaki/misatomachi/"
+                "url": "/miyazaki/misatomiyazaki/"
               },
               "income": {
                 "name": "所得ベース計算",
-                "url": "/miyazaki/misatomachi/income.html"
+                "url": "/miyazaki/misatomiyazaki/income.html"
               }
             }
           }

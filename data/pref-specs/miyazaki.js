@@ -283,7 +283,7 @@ export const MUNICIPALITIES = [
   },
 
   {
-    cityCode: "45431", citySlug: "misatomachi", cityName: "美郷町",
+    cityCode: "45431", citySlug: "misatomiyazaki", cityName: "美郷町",
     note: "4方式。R6から資産割が62.62%→41.75%に大幅変更。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
     caps: CAPS_NAT,
     assetLevy: { medical: 0.2505, support: 0.0752, care: 0.0918 },
