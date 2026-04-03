@@ -11159,6 +11159,456 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "43100",
+      "citySlug": "kumamoto",
+      "cityName": "熊本市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43202",
+      "citySlug": "yatsushiro",
+      "cityName": "八代市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43203",
+      "citySlug": "hitoyoshi",
+      "cityName": "人吉市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43204",
+      "citySlug": "arao",
+      "cityName": "荒尾市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43205",
+      "citySlug": "minamata",
+      "cityName": "水俣市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43206",
+      "citySlug": "tamana",
+      "cityName": "玉名市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43208",
+      "citySlug": "yamaga",
+      "cityName": "山鹿市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43210",
+      "citySlug": "kikuchi",
+      "cityName": "菊池市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43211",
+      "citySlug": "uto",
+      "cityName": "宇土市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43213",
+      "citySlug": "kamiamakusa",
+      "cityName": "上天草市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43214",
+      "citySlug": "ukishi",
+      "cityName": "宇城市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43215",
+      "citySlug": "aso",
+      "cityName": "阿蘇市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43216",
+      "citySlug": "amakusa",
+      "cityName": "天草市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43217",
+      "citySlug": "koshi",
+      "cityName": "合志市",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43348",
+      "citySlug": "misatokuma",
+      "cityName": "美里町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43361",
+      "citySlug": "gyokuto",
+      "cityName": "玉東町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43364",
+      "citySlug": "nankan",
+      "cityName": "南関町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43365",
+      "citySlug": "nagasu",
+      "cityName": "長洲町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43366",
+      "citySlug": "nagomi",
+      "cityName": "和水町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43381",
+      "citySlug": "otsumachi",
+      "cityName": "大津町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43382",
+      "citySlug": "kikuyo",
+      "cityName": "菊陽町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43401",
+      "citySlug": "minamioguni",
+      "cityName": "南小国町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43402",
+      "citySlug": "oguni",
+      "cityName": "小国町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43404",
+      "citySlug": "ubuyama",
+      "cityName": "産山村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43406",
+      "citySlug": "takamorimachi",
+      "cityName": "高森町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43423",
+      "citySlug": "nishiharamura",
+      "cityName": "西原村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43424",
+      "citySlug": "minamiaso",
+      "cityName": "南阿蘇村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43441",
+      "citySlug": "mifune",
+      "cityName": "御船町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43443",
+      "citySlug": "kashimacho",
+      "cityName": "嘉島町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43444",
+      "citySlug": "mashiki",
+      "cityName": "益城町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43446",
+      "citySlug": "kosa",
+      "cityName": "甲佐町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43447",
+      "citySlug": "yamatomachi",
+      "cityName": "山都町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43468",
+      "citySlug": "hikawa",
+      "cityName": "氷川町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43482",
+      "citySlug": "ashikita",
+      "cityName": "芦北町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43484",
+      "citySlug": "tsunagi",
+      "cityName": "津奈木町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43501",
+      "citySlug": "nishiki",
+      "cityName": "錦町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43503",
+      "citySlug": "taragi",
+      "cityName": "多良木町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43504",
+      "citySlug": "yunomae",
+      "cityName": "湯前町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43505",
+      "citySlug": "mizukami",
+      "cityName": "水上村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43508",
+      "citySlug": "sagara",
+      "cityName": "相良村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43510",
+      "citySlug": "itsuki",
+      "cityName": "五木村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43512",
+      "citySlug": "yamae",
+      "cityName": "山江村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43513",
+      "citySlug": "kuma",
+      "cityName": "球磨村",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43514",
+      "citySlug": "asagiri",
+      "cityName": "あさぎり町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "43531",
+      "citySlug": "reihoku",
+      "cityName": "苓北町",
+      "prefecture": "熊本県",
+      "prefectureSlug": "kumamoto",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

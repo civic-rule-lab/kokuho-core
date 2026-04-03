@@ -20211,6 +20211,821 @@ const registry = {
         }
       }
     }
+  },
+  "kumamoto": {
+    "name": "熊本県",
+    "municipalities": {
+      "kumamoto": {
+        "name": "熊本市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kumamoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kumamoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yatsushiro": {
+        "name": "八代市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/yatsushiro/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/yatsushiro/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hitoyoshi": {
+        "name": "人吉市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/hitoyoshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/hitoyoshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "arao": {
+        "name": "荒尾市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/arao/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/arao/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamata": {
+        "name": "水俣市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/minamata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/minamata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tamana": {
+        "name": "玉名市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/tamana/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/tamana/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamaga": {
+        "name": "山鹿市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/yamaga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/yamaga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kikuchi": {
+        "name": "菊池市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kikuchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kikuchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "uto": {
+        "name": "宇土市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/uto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/uto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamiamakusa": {
+        "name": "上天草市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kamiamakusa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kamiamakusa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ukishi": {
+        "name": "宇城市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/ukishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/ukishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aso": {
+        "name": "阿蘇市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/aso/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/aso/income.html"
+              }
+            }
+          }
+        }
+      },
+      "amakusa": {
+        "name": "天草市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/amakusa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/amakusa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koshi": {
+        "name": "合志市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/koshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/koshi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "misatokuma": {
+        "name": "美里町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/misatokuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/misatokuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gyokuto": {
+        "name": "玉東町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/gyokuto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/gyokuto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nankan": {
+        "name": "南関町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/nankan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/nankan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagasu": {
+        "name": "長洲町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/nagasu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/nagasu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagomi": {
+        "name": "和水町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/nagomi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/nagomi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "otsumachi": {
+        "name": "大津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/otsumachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/otsumachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kikuyo": {
+        "name": "菊陽町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kikuyo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kikuyo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamioguni": {
+        "name": "南小国町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/minamioguni/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/minamioguni/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oguni": {
+        "name": "小国町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/oguni/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/oguni/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ubuyama": {
+        "name": "産山村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/ubuyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/ubuyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takamorimachi": {
+        "name": "高森町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/takamorimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/takamorimachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiharamura": {
+        "name": "西原村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/nishiharamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/nishiharamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiaso": {
+        "name": "南阿蘇村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/minamiaso/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/minamiaso/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mifune": {
+        "name": "御船町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/mifune/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/mifune/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kashimacho": {
+        "name": "嘉島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kashimacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kashimacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mashiki": {
+        "name": "益城町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/mashiki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/mashiki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kosa": {
+        "name": "甲佐町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kosa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kosa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamatomachi": {
+        "name": "山都町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/yamatomachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/yamatomachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hikawa": {
+        "name": "氷川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/hikawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/hikawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ashikita": {
+        "name": "芦北町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/ashikita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/ashikita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsunagi": {
+        "name": "津奈木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/tsunagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/tsunagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishiki": {
+        "name": "錦町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/nishiki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/nishiki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taragi": {
+        "name": "多良木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/taragi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/taragi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yunomae": {
+        "name": "湯前町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/yunomae/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/yunomae/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mizukami": {
+        "name": "水上村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/mizukami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/mizukami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sagara": {
+        "name": "相良村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/sagara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/sagara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itsuki": {
+        "name": "五木村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/itsuki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/itsuki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamae": {
+        "name": "山江村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/yamae/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/yamae/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kuma": {
+        "name": "球磨村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/kuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/kuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asagiri": {
+        "name": "あさぎり町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/asagiri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/asagiri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "reihoku": {
+        "name": "苓北町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kumamoto/reihoku/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kumamoto/reihoku/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
