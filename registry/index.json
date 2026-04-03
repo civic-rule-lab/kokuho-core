@@ -13079,6 +13079,206 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "38201",
+      "citySlug": "matsuyama",
+      "cityName": "松山市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38202",
+      "citySlug": "imabari",
+      "cityName": "今治市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38203",
+      "citySlug": "uwajima",
+      "cityName": "宇和島市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38204",
+      "citySlug": "yawatahama",
+      "cityName": "八幡浜市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38205",
+      "citySlug": "niihama",
+      "cityName": "新居浜市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38206",
+      "citySlug": "saijo",
+      "cityName": "西条市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38207",
+      "citySlug": "ozu",
+      "cityName": "大洲市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38210",
+      "citySlug": "iyo",
+      "cityName": "伊予市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38211",
+      "citySlug": "shikokuchuo",
+      "cityName": "四国中央市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38212",
+      "citySlug": "seiyo",
+      "cityName": "西予市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38213",
+      "citySlug": "toon",
+      "cityName": "東温市",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38356",
+      "citySlug": "kamijima",
+      "cityName": "上島町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38386",
+      "citySlug": "kumakogen",
+      "cityName": "久万高原町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38401",
+      "citySlug": "masaki",
+      "cityName": "松前町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38402",
+      "citySlug": "tobe",
+      "cityName": "砥部町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38422",
+      "citySlug": "uchiko",
+      "cityName": "内子町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38442",
+      "citySlug": "ikata",
+      "cityName": "伊方町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38484",
+      "citySlug": "matsuno",
+      "cityName": "松野町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38485",
+      "citySlug": "kihokucho",
+      "cityName": "鬼北町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "38506",
+      "citySlug": "ainan",
+      "cityName": "愛南町",
+      "prefecture": "愛媛県",
+      "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
