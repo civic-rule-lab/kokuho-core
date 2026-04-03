@@ -13999,6 +13999,636 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "03201",
+      "citySlug": "morioka",
+      "cityName": "盛岡市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03202",
+      "citySlug": "miyakoshi",
+      "cityName": "宮古市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03203",
+      "citySlug": "ofunato",
+      "cityName": "大船渡市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03205",
+      "citySlug": "hanamaki",
+      "cityName": "花巻市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03206",
+      "citySlug": "kitakami",
+      "cityName": "北上市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03207",
+      "citySlug": "kuji",
+      "cityName": "久慈市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03208",
+      "citySlug": "tono",
+      "cityName": "遠野市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03209",
+      "citySlug": "ichinoseki",
+      "cityName": "一関市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03210",
+      "citySlug": "rikuzentakata",
+      "cityName": "陸前高田市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03211",
+      "citySlug": "kamaishi",
+      "cityName": "釜石市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03214",
+      "citySlug": "ninohe",
+      "cityName": "二戸市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03215",
+      "citySlug": "hachimantai",
+      "cityName": "八幡平市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03216",
+      "citySlug": "oshu",
+      "cityName": "奥州市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03217",
+      "citySlug": "takizawa",
+      "cityName": "滝沢市",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03301",
+      "citySlug": "shizukuishi",
+      "cityName": "雫石町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03302",
+      "citySlug": "kuzumaki",
+      "cityName": "葛巻町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03303",
+      "citySlug": "iwatemachi",
+      "cityName": "岩手町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03401",
+      "citySlug": "shiwa",
+      "cityName": "紫波町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03402",
+      "citySlug": "yahaba",
+      "cityName": "矢巾町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03501",
+      "citySlug": "nishiwaga",
+      "cityName": "西和賀町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03503",
+      "citySlug": "kanegasaki",
+      "cityName": "金ケ崎町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03601",
+      "citySlug": "hiraizumi",
+      "cityName": "平泉町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03606",
+      "citySlug": "sumita",
+      "cityName": "住田町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03611",
+      "citySlug": "otsuchi",
+      "cityName": "大槌町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03614",
+      "citySlug": "yamada",
+      "cityName": "山田町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03615",
+      "citySlug": "iwaizumi",
+      "cityName": "岩泉町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03616",
+      "citySlug": "tanohata",
+      "cityName": "田野畑村",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03617",
+      "citySlug": "fudai",
+      "cityName": "普代村",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03701",
+      "citySlug": "karumai",
+      "cityName": "軽米町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03702",
+      "citySlug": "nodamura",
+      "cityName": "野田村",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03706",
+      "citySlug": "kunohe",
+      "cityName": "九戸村",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03707",
+      "citySlug": "hironocho",
+      "cityName": "洋野町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "03708",
+      "citySlug": "ichinohe",
+      "cityName": "一戸町",
+      "prefecture": "岩手県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44201",
+      "citySlug": "oita",
+      "cityName": "大分市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44202",
+      "citySlug": "beppu",
+      "cityName": "別府市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44203",
+      "citySlug": "nakatsu",
+      "cityName": "中津市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44204",
+      "citySlug": "hita",
+      "cityName": "日田市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44205",
+      "citySlug": "saiki",
+      "cityName": "佐伯市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44206",
+      "citySlug": "usuki",
+      "cityName": "臼杵市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44207",
+      "citySlug": "tsukumi",
+      "cityName": "津久見市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44208",
+      "citySlug": "taketa",
+      "cityName": "竹田市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44209",
+      "citySlug": "bungotakada",
+      "cityName": "豊後高田市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44210",
+      "citySlug": "kitsuki",
+      "cityName": "杵築市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44211",
+      "citySlug": "usa",
+      "cityName": "宇佐市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44212",
+      "citySlug": "bungoono",
+      "cityName": "豊後大野市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44213",
+      "citySlug": "yufu",
+      "cityName": "由布市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44214",
+      "citySlug": "kunisaki",
+      "cityName": "国東市",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44322",
+      "citySlug": "himeshima",
+      "cityName": "姫島村",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44341",
+      "citySlug": "hiji",
+      "cityName": "日出町",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44461",
+      "citySlug": "kokonoe",
+      "cityName": "九重町",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "44462",
+      "citySlug": "kusu",
+      "cityName": "玖珠町",
+      "prefecture": "大分県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17201",
+      "citySlug": "kanazawa",
+      "cityName": "金沢市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17202",
+      "citySlug": "nanao",
+      "cityName": "七尾市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17203",
+      "citySlug": "komatsu",
+      "cityName": "小松市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17204",
+      "citySlug": "wajima",
+      "cityName": "輪島市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17205",
+      "citySlug": "suzu",
+      "cityName": "珠洲市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17206",
+      "citySlug": "kaga",
+      "cityName": "加賀市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17207",
+      "citySlug": "hakui",
+      "cityName": "羽咋市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17209",
+      "citySlug": "kahoku",
+      "cityName": "かほく市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17210",
+      "citySlug": "hakusan",
+      "cityName": "白山市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17211",
+      "citySlug": "nomi",
+      "cityName": "能美市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17212",
+      "citySlug": "nonoichi",
+      "cityName": "野々市市",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17322",
+      "citySlug": "kawakita",
+      "cityName": "川北町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17361",
+      "citySlug": "tsubata",
+      "cityName": "津幡町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17362",
+      "citySlug": "uchinada",
+      "cityName": "内灘町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17384",
+      "citySlug": "shika",
+      "cityName": "志賀町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17386",
+      "citySlug": "hodatsushimizu",
+      "cityName": "宝達志水町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17407",
+      "citySlug": "nakanoto",
+      "cityName": "中能登町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17461",
+      "citySlug": "anamizu",
+      "cityName": "穴水町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "17463",
+      "citySlug": "notocho",
+      "cityName": "能登町",
+      "prefecture": "石川県",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }
