@@ -23057,6 +23057,641 @@ const registry = {
         }
       }
     }
+  },
+  "miyagi": {
+    "name": "宮城県",
+    "municipalities": {
+      "sendai": {
+        "name": "仙台市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/sendai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/sendai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ishinomaki": {
+        "name": "石巻市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/ishinomaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/ishinomaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shiogama": {
+        "name": "塩竈市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shiogama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shiogama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kesennuma": {
+        "name": "気仙沼市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/kesennuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/kesennuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shiroishi": {
+        "name": "白石市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shiroishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shiroishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "natori": {
+        "name": "名取市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/natori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/natori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kakuda": {
+        "name": "角田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/kakuda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/kakuda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tagajo": {
+        "name": "多賀城市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/tagajo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/tagajo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iwanuma": {
+        "name": "岩沼市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/iwanuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/iwanuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tome": {
+        "name": "登米市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/tome/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/tome/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurihara": {
+        "name": "栗原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/kurihara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/kurihara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashimatsushima": {
+        "name": "東松島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/higashimatsushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/higashimatsushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "osakishi": {
+        "name": "大崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/osakishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/osakishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tomiya": {
+        "name": "富谷市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/tomiya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/tomiya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "zao": {
+        "name": "蔵王町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/zao/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/zao/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shichigashuku": {
+        "name": "七ヶ宿町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shichigashuku/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shichigashuku/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ogawara": {
+        "name": "大河原町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/ogawara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/ogawara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "murata": {
+        "name": "村田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/murata/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/murata/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shibatacho": {
+        "name": "柴田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shibatacho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shibatacho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawasakimiyagi": {
+        "name": "川崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/kawasakimiyagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/kawasakimiyagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "marumori": {
+        "name": "丸森町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/marumori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/marumori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "watari": {
+        "name": "亘理町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/watari/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/watari/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamamoto": {
+        "name": "山元町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/yamamoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/yamamoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "matsushima": {
+        "name": "松島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/matsushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/matsushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shichigahama": {
+        "name": "七ヶ浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shichigahama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shichigahama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "rifu": {
+        "name": "利府町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/rifu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/rifu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "taiwa": {
+        "name": "大和町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/taiwa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/taiwa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "osato": {
+        "name": "大郷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/osato/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/osato/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ohira": {
+        "name": "大衡村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/ohira/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/ohira/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shikama": {
+        "name": "色麻町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/shikama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/shikama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kami": {
+        "name": "加美町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/kami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/kami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "wakuya": {
+        "name": "涌谷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/wakuya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/wakuya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "misatomiyagi": {
+        "name": "美里町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/misatomiyagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/misatomiyagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onagawa": {
+        "name": "女川町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/onagawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/onagawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamisanriku": {
+        "name": "南三陸町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/miyagi/minamisanriku/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/miyagi/minamisanriku/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
