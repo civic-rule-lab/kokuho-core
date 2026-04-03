@@ -22278,6 +22278,785 @@ const registry = {
         }
       }
     }
+  },
+  "kagoshima": {
+    "name": "鹿児島県",
+    "municipalities": {
+      "kagoshima": {
+        "name": "鹿児島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kagoshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kagoshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kanoya": {
+        "name": "鹿屋市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kanoya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kanoya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "makurazaki": {
+        "name": "枕崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/makurazaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/makurazaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "akune": {
+        "name": "阿久根市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/akune/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/akune/income.html"
+              }
+            }
+          }
+        }
+      },
+      "izumishi": {
+        "name": "出水市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/izumishi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/izumishi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ibusuki": {
+        "name": "指宿市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/ibusuki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/ibusuki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nishinoomote": {
+        "name": "西之表市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/nishinoomote/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/nishinoomote/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tarumizu": {
+        "name": "垂水市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/tarumizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/tarumizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "satsumasendai": {
+        "name": "薩摩川内市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/satsumasendai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/satsumasendai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hioki": {
+        "name": "日置市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/hioki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/hioki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "soo": {
+        "name": "曽於市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/soo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/soo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kirishima": {
+        "name": "霧島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kirishima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kirishima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ichikushikino": {
+        "name": "いちき串木野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/ichikushikino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/ichikushikino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamisatsuma": {
+        "name": "南さつま市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/minamisatsuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/minamisatsuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shibushi": {
+        "name": "志布志市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/shibushi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/shibushi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "amami": {
+        "name": "奄美市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/amami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/amami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamikyshu": {
+        "name": "南九州市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/minamikyshu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/minamikyshu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "isa": {
+        "name": "伊佐市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/isa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/isa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aira": {
+        "name": "姶良市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/aira/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/aira/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mishimamura": {
+        "name": "三島村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/mishimamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/mishimamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "toshimamura": {
+        "name": "十島村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/toshimamura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/toshimamura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "satsuma": {
+        "name": "さつま町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/satsuma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/satsuma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagashima": {
+        "name": "長島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/nagashima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/nagashima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yusui": {
+        "name": "湧水町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/yusui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/yusui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "osaki": {
+        "name": "大崎町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/osaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/osaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashikushira": {
+        "name": "東串良町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/higashikushira/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/higashikushira/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kinko": {
+        "name": "錦江町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kinko/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kinko/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiosumi": {
+        "name": "南大隅町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/minamiosumi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/minamiosumi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kimotsuki": {
+        "name": "肝付町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kimotsuki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kimotsuki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakatane": {
+        "name": "中種子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/nakatane/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/nakatane/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamitane": {
+        "name": "南種子町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/minamitane/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/minamitane/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yakushima": {
+        "name": "屋久島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/yakushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/yakushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamatomura": {
+        "name": "大和村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/yamatomura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/yamatomura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "uken": {
+        "name": "宇検村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/uken/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/uken/income.html"
+              }
+            }
+          }
+        }
+      },
+      "setouchicho": {
+        "name": "瀬戸内町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/setouchicho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/setouchicho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tatsugou": {
+        "name": "龍郷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/tatsugou/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/tatsugou/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kikai": {
+        "name": "喜界町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/kikai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/kikai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tokunoshima": {
+        "name": "徳之島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/tokunoshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/tokunoshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "amagi": {
+        "name": "天城町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/amagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/amagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "isen": {
+        "name": "伊仙町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/isen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/isen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "wadomari": {
+        "name": "和泊町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/wadomari/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/wadomari/income.html"
+              }
+            }
+          }
+        }
+      },
+      "china": {
+        "name": "知名町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/china/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/china/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoron": {
+        "name": "与論町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/kagoshima/yoron/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/kagoshima/yoron/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
