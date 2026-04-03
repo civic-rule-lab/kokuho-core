@@ -13810,6 +13810,195 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "42201",
+      "citySlug": "nagasaki",
+      "cityName": "長崎市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42202",
+      "citySlug": "sasebo",
+      "cityName": "佐世保市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42203",
+      "citySlug": "shimabara",
+      "cityName": "島原市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42204",
+      "citySlug": "isahaya",
+      "cityName": "諫早市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42205",
+      "citySlug": "omura",
+      "cityName": "大村市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42206",
+      "citySlug": "hirado",
+      "cityName": "平戸市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42207",
+      "citySlug": "matsuura",
+      "cityName": "松浦市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42208",
+      "citySlug": "tsushimashi",
+      "cityName": "対馬市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42209",
+      "citySlug": "iki",
+      "cityName": "壱岐市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42210",
+      "citySlug": "goto",
+      "cityName": "五島市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42211",
+      "citySlug": "saikai",
+      "cityName": "西海市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42212",
+      "citySlug": "unzen",
+      "cityName": "雲仙市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42213",
+      "citySlug": "minamishimabara",
+      "cityName": "南島原市",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42307",
+      "citySlug": "nagayo",
+      "cityName": "長与町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42308",
+      "citySlug": "togitsu",
+      "cityName": "時津町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42321",
+      "citySlug": "higashisonogi",
+      "cityName": "東彼杵町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42322",
+      "citySlug": "kawatana",
+      "cityName": "川棚町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42323",
+      "citySlug": "hasami",
+      "cityName": "波佐見町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42383",
+      "citySlug": "ojika",
+      "cityName": "小値賀町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42391",
+      "citySlug": "saza",
+      "cityName": "佐々町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "42411",
+      "citySlug": "shinkamigoto",
+      "cityName": "新上五島町",
+      "prefecture": "長崎県",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

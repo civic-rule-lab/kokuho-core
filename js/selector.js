@@ -25129,6 +25129,389 @@ const registry = {
         }
       }
     }
+  },
+  "長崎県": {
+    "name": "長崎県",
+    "municipalities": {
+      "nagasaki": {
+        "name": "長崎市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/nagasaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/nagasaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sasebo": {
+        "name": "佐世保市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/sasebo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/sasebo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimabara": {
+        "name": "島原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/shimabara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/shimabara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "isahaya": {
+        "name": "諫早市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/isahaya/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/isahaya/income.html"
+              }
+            }
+          }
+        }
+      },
+      "omura": {
+        "name": "大村市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/omura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/omura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirado": {
+        "name": "平戸市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/hirado/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/hirado/income.html"
+              }
+            }
+          }
+        }
+      },
+      "matsuura": {
+        "name": "松浦市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/matsuura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/matsuura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsushimashi": {
+        "name": "対馬市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/tsushimashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/tsushimashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iki": {
+        "name": "壱岐市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/iki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/iki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "goto": {
+        "name": "五島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/goto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/goto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "saikai": {
+        "name": "西海市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/saikai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/saikai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "unzen": {
+        "name": "雲仙市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/unzen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/unzen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamishimabara": {
+        "name": "南島原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/minamishimabara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/minamishimabara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagayo": {
+        "name": "長与町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/nagayo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/nagayo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "togitsu": {
+        "name": "時津町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/togitsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/togitsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashisonogi": {
+        "name": "東彼杵町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/higashisonogi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/higashisonogi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawatana": {
+        "name": "川棚町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/kawatana/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/kawatana/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hasami": {
+        "name": "波佐見町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/hasami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/hasami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ojika": {
+        "name": "小値賀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/ojika/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/ojika/income.html"
+              }
+            }
+          }
+        }
+      },
+      "saza": {
+        "name": "佐々町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/saza/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/saza/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shinkamigoto": {
+        "name": "新上五島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/長崎県/shinkamigoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/長崎県/shinkamigoto/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
