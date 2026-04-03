@@ -20,6 +20,11 @@
     "support": 7747,
     "care": 6320
   },
+  "caps": {
+    "medical": 650000,
+    "support": 240000,
+    "care": 170000
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,

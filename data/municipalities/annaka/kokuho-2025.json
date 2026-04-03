@@ -20,6 +20,11 @@
     "support": 5000,
     "care": 4000
   },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000
+  },
   "assetLevy": {
     "medical": 0.24,
     "support": 0.09,
