@@ -11609,6 +11609,396 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "29201",
+      "citySlug": "nara",
+      "cityName": "奈良市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29202",
+      "citySlug": "yamatotakada",
+      "cityName": "大和高田市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29203",
+      "citySlug": "yamatokoriyama",
+      "cityName": "大和郡山市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29204",
+      "citySlug": "tenri",
+      "cityName": "天理市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29205",
+      "citySlug": "kashihara",
+      "cityName": "橿原市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29206",
+      "citySlug": "sakurai",
+      "cityName": "桜井市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29207",
+      "citySlug": "gojo",
+      "cityName": "五條市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29208",
+      "citySlug": "gose",
+      "cityName": "御所市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29209",
+      "citySlug": "ikoma",
+      "cityName": "生駒市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29210",
+      "citySlug": "kashiba",
+      "cityName": "香芝市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29211",
+      "citySlug": "katsuragi",
+      "cityName": "葛城市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29212",
+      "citySlug": "uda",
+      "cityName": "宇陀市",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29322",
+      "citySlug": "yamazoe",
+      "cityName": "山添村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29341",
+      "citySlug": "heguri",
+      "cityName": "平群町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29342",
+      "citySlug": "sango",
+      "cityName": "三郷町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29343",
+      "citySlug": "ikaruga",
+      "cityName": "斑鳩町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29344",
+      "citySlug": "ando",
+      "cityName": "安堵町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29361",
+      "citySlug": "kawanishimachi",
+      "cityName": "川西町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29362",
+      "citySlug": "miyake",
+      "cityName": "三宅町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29363",
+      "citySlug": "tawaramoto",
+      "cityName": "田原本町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29381",
+      "citySlug": "soni",
+      "cityName": "曽爾村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29382",
+      "citySlug": "mitsue",
+      "cityName": "御杖村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29401",
+      "citySlug": "takatori",
+      "cityName": "高取町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29402",
+      "citySlug": "asuka",
+      "cityName": "明日香村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29421",
+      "citySlug": "kamimaki",
+      "cityName": "上牧町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29422",
+      "citySlug": "oji",
+      "cityName": "王寺町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29423",
+      "citySlug": "koryo",
+      "cityName": "広陵町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29424",
+      "citySlug": "kawai",
+      "cityName": "河合町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29441",
+      "citySlug": "yoshino",
+      "cityName": "吉野町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29442",
+      "citySlug": "oyodo",
+      "cityName": "大淀町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29443",
+      "citySlug": "shimoichi",
+      "cityName": "下市町",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29444",
+      "citySlug": "kurotaki",
+      "cityName": "黒滝村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29446",
+      "citySlug": "tenkawa",
+      "cityName": "天川村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29447",
+      "citySlug": "nosegawa",
+      "cityName": "野迫川村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29449",
+      "citySlug": "totsukawa",
+      "cityName": "十津川村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29450",
+      "citySlug": "shimokitayama",
+      "cityName": "下北山村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29451",
+      "citySlug": "kamikitayama",
+      "cityName": "上北山村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29452",
+      "citySlug": "kawakamimura",
+      "cityName": "川上村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "29453",
+      "citySlug": "higashiyoshino",
+      "cityName": "東吉野村",
+      "prefecture": "奈良県",
+      "prefectureSlug": "nara",
+      "systems": [
+        "kokuho"
+      ]
     }
   ]
 }

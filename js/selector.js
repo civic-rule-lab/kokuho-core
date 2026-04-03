@@ -21026,6 +21026,713 @@ const registry = {
         }
       }
     }
+  },
+  "nara": {
+    "name": "奈良県",
+    "municipalities": {
+      "nara": {
+        "name": "奈良市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/nara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/nara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamatotakada": {
+        "name": "大和高田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/yamatotakada/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/yamatotakada/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamatokoriyama": {
+        "name": "大和郡山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/yamatokoriyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/yamatokoriyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tenri": {
+        "name": "天理市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/tenri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/tenri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kashihara": {
+        "name": "橿原市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kashihara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kashihara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sakurai": {
+        "name": "桜井市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/sakurai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/sakurai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gojo": {
+        "name": "五條市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/gojo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/gojo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "gose": {
+        "name": "御所市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/gose/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/gose/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ikoma": {
+        "name": "生駒市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/ikoma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/ikoma/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kashiba": {
+        "name": "香芝市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kashiba/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kashiba/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katsuragi": {
+        "name": "葛城市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/katsuragi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/katsuragi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "uda": {
+        "name": "宇陀市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/uda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/uda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamazoe": {
+        "name": "山添村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/yamazoe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/yamazoe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "heguri": {
+        "name": "平群町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/heguri/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/heguri/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sango": {
+        "name": "三郷町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/sango/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/sango/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ikaruga": {
+        "name": "斑鳩町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/ikaruga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/ikaruga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ando": {
+        "name": "安堵町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/ando/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/ando/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawanishimachi": {
+        "name": "川西町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kawanishimachi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kawanishimachi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyake": {
+        "name": "三宅町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/miyake/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/miyake/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tawaramoto": {
+        "name": "田原本町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/tawaramoto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/tawaramoto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "soni": {
+        "name": "曽爾村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/soni/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/soni/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mitsue": {
+        "name": "御杖村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/mitsue/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/mitsue/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takatori": {
+        "name": "高取町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/takatori/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/takatori/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asuka": {
+        "name": "明日香村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/asuka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/asuka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamimaki": {
+        "name": "上牧町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kamimaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kamimaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oji": {
+        "name": "王寺町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/oji/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/oji/income.html"
+              }
+            }
+          }
+        }
+      },
+      "koryo": {
+        "name": "広陵町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/koryo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/koryo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawai": {
+        "name": "河合町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kawai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kawai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoshino": {
+        "name": "吉野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/yoshino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/yoshino/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oyodo": {
+        "name": "大淀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/oyodo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/oyodo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimoichi": {
+        "name": "下市町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/shimoichi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/shimoichi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurotaki": {
+        "name": "黒滝村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kurotaki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kurotaki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tenkawa": {
+        "name": "天川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/tenkawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/tenkawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nosegawa": {
+        "name": "野迫川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/nosegawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/nosegawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "totsukawa": {
+        "name": "十津川村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/totsukawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/totsukawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shimokitayama": {
+        "name": "下北山村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/shimokitayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/shimokitayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamikitayama": {
+        "name": "上北山村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kamikitayama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kamikitayama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kawakamimura": {
+        "name": "川上村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/kawakamimura/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/kawakamimura/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashiyoshino": {
+        "name": "東吉野村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/nara/higashiyoshino/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/nara/higashiyoshino/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
