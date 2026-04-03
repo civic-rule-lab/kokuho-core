@@ -415,7 +415,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11324", citySlug: "miyoshi", cityName: "三芳町",
+    cityCode: "11324", citySlug: "miyoshicho", cityName: "三芳町",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0797, support: 0.0324, care: 0.0239 },

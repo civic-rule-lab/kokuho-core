@@ -2052,7 +2052,7 @@
     },
     {
       "cityCode": "11324",
-      "citySlug": "miyoshi",
+      "citySlug": "miyoshicho",
       "cityName": "三芳町",
       "prefecture": "埼玉県",
       "systems": [
@@ -13276,6 +13276,177 @@
       "cityName": "愛南町",
       "prefecture": "愛媛県",
       "prefectureSlug": "ehime",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35201",
+      "citySlug": "shimonoseki",
+      "cityName": "下関市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35202",
+      "citySlug": "ube",
+      "cityName": "宇部市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35203",
+      "citySlug": "yamaguchi",
+      "cityName": "山口市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35204",
+      "citySlug": "hagi",
+      "cityName": "萩市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35205",
+      "citySlug": "hofu",
+      "cityName": "防府市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35206",
+      "citySlug": "kudamatsu",
+      "cityName": "下松市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35207",
+      "citySlug": "iwakuni",
+      "cityName": "岩国市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35208",
+      "citySlug": "hikari",
+      "cityName": "光市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35210",
+      "citySlug": "nagato",
+      "cityName": "長門市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35211",
+      "citySlug": "yanai",
+      "cityName": "柳井市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35212",
+      "citySlug": "mine",
+      "cityName": "美祢市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35214",
+      "citySlug": "shunan",
+      "cityName": "周南市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35215",
+      "citySlug": "sanyoonoda",
+      "cityName": "山陽小野田市",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35305",
+      "citySlug": "suooshima",
+      "cityName": "周防大島町",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35321",
+      "citySlug": "waki",
+      "cityName": "和木町",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35341",
+      "citySlug": "kaminoseki",
+      "cityName": "上関町",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35342",
+      "citySlug": "tabuse",
+      "cityName": "田布施町",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35343",
+      "citySlug": "hirao",
+      "cityName": "平生町",
+      "prefecture": "山口県",
+      "systems": [
+        "kokuho"
+      ]
+    },
+    {
+      "cityCode": "35502",
+      "citySlug": "abu",
+      "cityName": "阿武町",
+      "prefecture": "山口県",
       "systems": [
         "kokuho"
       ]

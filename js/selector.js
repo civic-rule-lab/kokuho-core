@@ -3712,7 +3712,7 @@ const registry = {
           }
         }
       },
-      "miyoshi": {
+      "miyoshicho": {
         "name": "三芳町",
         "systems": {
           "kokuho": {
@@ -3720,11 +3720,11 @@ const registry = {
             "pages": {
               "simple": {
                 "name": "かんたん計算",
-                "url": "/saitama/miyoshi/"
+                "url": "/saitama/miyoshicho/"
               },
               "income": {
                 "name": "所得ベース計算",
-                "url": "/saitama/miyoshi/income.html"
+                "url": "/saitama/miyoshicho/income.html"
               }
             }
           }
@@ -24051,6 +24051,353 @@ const registry = {
               "income": {
                 "name": "所得ベース計算",
                 "url": "/ehime/ainan/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "山口県": {
+    "name": "山口県",
+    "municipalities": {
+      "shimonoseki": {
+        "name": "下関市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/shimonoseki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/shimonoseki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ube": {
+        "name": "宇部市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/ube/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/ube/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yamaguchi": {
+        "name": "山口市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/yamaguchi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/yamaguchi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hagi": {
+        "name": "萩市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/hagi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/hagi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hofu": {
+        "name": "防府市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/hofu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/hofu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kudamatsu": {
+        "name": "下松市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/kudamatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/kudamatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "iwakuni": {
+        "name": "岩国市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/iwakuni/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/iwakuni/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hikari": {
+        "name": "光市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/hikari/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/hikari/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nagato": {
+        "name": "長門市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/nagato/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/nagato/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yanai": {
+        "name": "柳井市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/yanai/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/yanai/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mine": {
+        "name": "美祢市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/mine/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/mine/income.html"
+              }
+            }
+          }
+        }
+      },
+      "shunan": {
+        "name": "周南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/shunan/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/shunan/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sanyoonoda": {
+        "name": "山陽小野田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/sanyoonoda/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/sanyoonoda/income.html"
+              }
+            }
+          }
+        }
+      },
+      "suooshima": {
+        "name": "周防大島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/suooshima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/suooshima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "waki": {
+        "name": "和木町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/waki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/waki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaminoseki": {
+        "name": "上関町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/kaminoseki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/kaminoseki/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tabuse": {
+        "name": "田布施町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/tabuse/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/tabuse/income.html"
+              }
+            }
+          }
+        }
+      },
+      "hirao": {
+        "name": "平生町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/hirao/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/hirao/income.html"
+              }
+            }
+          }
+        }
+      },
+      "abu": {
+        "name": "阿武町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/山口県/abu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/山口県/abu/income.html"
               }
             }
           }
