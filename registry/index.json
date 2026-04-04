@@ -14734,6 +14734,174 @@
       "cityName": "朝日町",
       "prefecture": "富山県",
       "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36201",
+      "citySlug": "tokushima",
+      "cityName": "徳島市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36202",
+      "citySlug": "naruto",
+      "cityName": "鳴門市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36203",
+      "citySlug": "komatsushima",
+      "cityName": "小松島市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36204",
+      "citySlug": "anantokushima",
+      "cityName": "阿南市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36205",
+      "citySlug": "yoshinogawa",
+      "cityName": "吉野川市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36206",
+      "citySlug": "awa",
+      "cityName": "阿波市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36207",
+      "citySlug": "mima",
+      "cityName": "美馬市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36208",
+      "citySlug": "miyoshitokushima",
+      "cityName": "三好市",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36301",
+      "citySlug": "katsuuratokushima",
+      "cityName": "勝浦町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36302",
+      "citySlug": "kamikatsu",
+      "cityName": "上勝町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36321",
+      "citySlug": "sanagochi",
+      "cityName": "佐那河内村",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36341",
+      "citySlug": "ishii",
+      "cityName": "石井町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36342",
+      "citySlug": "kamiyama",
+      "cityName": "神山町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36368",
+      "citySlug": "nakatokushima",
+      "cityName": "那賀町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36383",
+      "citySlug": "mugi",
+      "cityName": "牟岐町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36387",
+      "citySlug": "minami",
+      "cityName": "美波町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36388",
+      "citySlug": "kaiyo",
+      "cityName": "海陽町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36401",
+      "citySlug": "matsushige",
+      "cityName": "松茂町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36402",
+      "citySlug": "kitajima",
+      "cityName": "北島町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36403",
+      "citySlug": "aizumi",
+      "cityName": "藍住町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36404",
+      "citySlug": "itano",
+      "cityName": "板野町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36405",
+      "citySlug": "kamiita",
+      "cityName": "上板町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36468",
+      "citySlug": "tsurugi",
+      "cityName": "つるぎ町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "36489",
+      "citySlug": "higashimiyoshi",
+      "cityName": "東みよし町",
+      "prefecture": "徳島県",
+      "systems": ["kokuho"]
     }
   ]
 }

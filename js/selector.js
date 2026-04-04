@@ -27062,6 +27062,443 @@ const registry = {
         }
       }
     }
+  },
+  "徳島県": {
+    "name": "徳島県",
+    "municipalities": {
+      "tokushima": {
+        "name": "徳島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/tokushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/tokushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "naruto": {
+        "name": "鳴門市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/naruto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/naruto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "komatsushima": {
+        "name": "小松島市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/komatsushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/komatsushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "anantokushima": {
+        "name": "阿南市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/anantokushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/anantokushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "yoshinogawa": {
+        "name": "吉野川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/yoshinogawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/yoshinogawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "awa": {
+        "name": "阿波市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/awa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/awa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mima": {
+        "name": "美馬市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/mima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/mima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "miyoshitokushima": {
+        "name": "三好市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/miyoshitokushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/miyoshitokushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katsuuratokushima": {
+        "name": "勝浦町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/katsuuratokushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/katsuuratokushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamikatsu": {
+        "name": "上勝町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/kamikatsu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/kamikatsu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sanagochi": {
+        "name": "佐那河内村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/sanagochi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/sanagochi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ishii": {
+        "name": "石井町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/ishii/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/ishii/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamiyama": {
+        "name": "神山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/kamiyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/kamiyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nakatokushima": {
+        "name": "那賀町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/nakatokushima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/nakatokushima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mugi": {
+        "name": "牟岐町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/mugi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/mugi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minami": {
+        "name": "美波町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/minami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/minami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kaiyo": {
+        "name": "海陽町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/kaiyo/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/kaiyo/income.html"
+              }
+            }
+          }
+        }
+      },
+      "matsushige": {
+        "name": "松茂町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/matsushige/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/matsushige/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kitajima": {
+        "name": "北島町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/kitajima/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/kitajima/income.html"
+              }
+            }
+          }
+        }
+      },
+      "aizumi": {
+        "name": "藍住町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/aizumi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/aizumi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "itano": {
+        "name": "板野町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/itano/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/itano/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamiita": {
+        "name": "上板町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/kamiita/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/kamiita/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsurugi": {
+        "name": "つるぎ町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/tsurugi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/tsurugi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "higashimiyoshi": {
+        "name": "東みよし町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/徳島県/higashimiyoshi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/徳島県/higashimiyoshi/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 
