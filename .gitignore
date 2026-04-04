@@ -1,0 +1,5 @@
+# OMC tool workspace
+.omc/
+
+# node
+node_modules/
