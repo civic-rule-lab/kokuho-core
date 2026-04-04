@@ -146,6 +146,23 @@ function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
 }
 
+function buildIntroText(cityName, prefecture, data, isIncome) {
+  if (isIncome) {
+    if (!data) {
+      return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を詳しく計算できます。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
+    }
+    const r = data.rate?.medical ?? 0;
+    const p = data.perCapita?.medical ?? 0;
+    return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を詳しく計算できます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
+  }
+  if (!data) {
+    return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料でシミュレーションできます。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
+  }
+  const r = data.rate?.medical ?? 0;
+  const p = data.perCapita?.medical ?? 0;
+  return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料でシミュレーションできます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
+}
+
 function buildRateTable(cityName, data) {
   if (!data) return "";
 
@@ -206,6 +223,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const canonical   = buildCanonicalUrl(prefSlug, citySlug, isIncome);
   const jsonLd      = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome);
   const rateTable   = buildRateTable(cityName, data);
+  const introText   = buildIntroText(cityName, prefecture, data, isIncome);
 
   return template
     .replaceAll("__CITY_SLUG__",    citySlug)
@@ -213,7 +231,8 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__META_DESC__",    metaDesc)
     .replaceAll("__CANONICAL_URL__", canonical)
     .replaceAll("__JSON_LD__",      jsonLd)
-    .replaceAll("__RATE_TABLE__",   rateTable);
+    .replaceAll("__RATE_TABLE__",   rateTable)
+    .replaceAll("__INTRO_TEXT__",   introText);
 }
 
 // ─────────────────────────────────────────────────────────────────
