@@ -14629,6 +14629,111 @@
       "systems": [
         "kokuho"
       ]
+    },
+    {
+      "cityCode": "15201",
+      "citySlug": "toyama",
+      "cityName": "富山市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15202",
+      "citySlug": "takaoka",
+      "cityName": "高岡市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15204",
+      "citySlug": "uozu",
+      "cityName": "魚津市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15205",
+      "citySlug": "himi",
+      "cityName": "氷見市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15206",
+      "citySlug": "namerikawa",
+      "cityName": "滑川市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15207",
+      "citySlug": "kurobe",
+      "cityName": "黒部市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15208",
+      "citySlug": "tonami",
+      "cityName": "砺波市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15209",
+      "citySlug": "oyabe",
+      "cityName": "小矢部市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15210",
+      "citySlug": "nanto",
+      "cityName": "南砺市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15211",
+      "citySlug": "imizu",
+      "cityName": "射水市",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15321",
+      "citySlug": "funahashi",
+      "cityName": "舟橋村",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15341",
+      "citySlug": "kamiichi",
+      "cityName": "上市町",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15342",
+      "citySlug": "tateyama",
+      "cityName": "立山町",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15361",
+      "citySlug": "nyuzen",
+      "cityName": "入善町",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "15362",
+      "citySlug": "asahitoyama",
+      "cityName": "朝日町",
+      "prefecture": "富山県",
+      "systems": ["kokuho"]
     }
   ]
 }

@@ -1,7 +1,7 @@
 // このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: 2026-04-03
+// 最終生成: 2026-04-04
 
 const registry = {
   "kanagawa": {
@@ -26781,6 +26781,281 @@ const registry = {
               "income": {
                 "name": "所得ベース計算",
                 "url": "/石川県/notocho/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "富山県": {
+    "name": "富山県",
+    "municipalities": {
+      "toyama": {
+        "name": "富山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/toyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/toyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takaoka": {
+        "name": "高岡市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/takaoka/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/takaoka/income.html"
+              }
+            }
+          }
+        }
+      },
+      "uozu": {
+        "name": "魚津市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/uozu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/uozu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "himi": {
+        "name": "氷見市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/himi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/himi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "namerikawa": {
+        "name": "滑川市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/namerikawa/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/namerikawa/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kurobe": {
+        "name": "黒部市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/kurobe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/kurobe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tonami": {
+        "name": "砺波市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/tonami/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/tonami/income.html"
+              }
+            }
+          }
+        }
+      },
+      "oyabe": {
+        "name": "小矢部市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/oyabe/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/oyabe/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nanto": {
+        "name": "南砺市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/nanto/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/nanto/income.html"
+              }
+            }
+          }
+        }
+      },
+      "imizu": {
+        "name": "射水市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/imizu/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/imizu/income.html"
+              }
+            }
+          }
+        }
+      },
+      "funahashi": {
+        "name": "舟橋村",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/funahashi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/funahashi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "kamiichi": {
+        "name": "上市町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/kamiichi/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/kamiichi/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tateyama": {
+        "name": "立山町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/tateyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/tateyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "nyuzen": {
+        "name": "入善町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/nyuzen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/nyuzen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "asahitoyama": {
+        "name": "朝日町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/富山県/asahitoyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/富山県/asahitoyama/income.html"
               }
             }
           }
