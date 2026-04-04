@@ -27499,6 +27499,263 @@ const registry = {
         }
       }
     }
+  },
+  "福井県": {
+    "name": "福井県",
+    "municipalities": {
+      "fukui": {
+        "name": "福井市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/fukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/fukui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "tsuruga": {
+        "name": "敦賀市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/tsuruga/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/tsuruga/income.html"
+              }
+            }
+          }
+        }
+      },
+      "obama": {
+        "name": "小浜市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/obama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/obama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "onofukui": {
+        "name": "大野市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/onofukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/onofukui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "katsuyama": {
+        "name": "勝山市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/katsuyama/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/katsuyama/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sabae": {
+        "name": "鯖江市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/sabae/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/sabae/income.html"
+              }
+            }
+          }
+        }
+      },
+      "awara": {
+        "name": "あわら市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/awara/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/awara/income.html"
+              }
+            }
+          }
+        }
+      },
+      "echizen": {
+        "name": "越前市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/echizen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/echizen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "sakaifukui": {
+        "name": "坂井市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/sakaifukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/sakaifukui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ikedafukui": {
+        "name": "池田町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/ikedafukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/ikedafukui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "minamiechizen": {
+        "name": "南越前町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/minamiechizen/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/minamiechizen/income.html"
+              }
+            }
+          }
+        }
+      },
+      "echizencho": {
+        "name": "越前町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/echizencho/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/echizencho/income.html"
+              }
+            }
+          }
+        }
+      },
+      "mihamafukui": {
+        "name": "美浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/mihamafukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/mihamafukui/income.html"
+              }
+            }
+          }
+        }
+      },
+      "takahamafukui": {
+        "name": "高浜町",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/福井県/takahamafukui/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/福井県/takahamafukui/income.html"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 };
 

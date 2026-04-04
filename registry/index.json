@@ -14902,6 +14902,104 @@
       "cityName": "東みよし町",
       "prefecture": "徳島県",
       "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18201",
+      "citySlug": "fukui",
+      "cityName": "福井市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18202",
+      "citySlug": "tsuruga",
+      "cityName": "敦賀市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18204",
+      "citySlug": "obama",
+      "cityName": "小浜市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18205",
+      "citySlug": "onofukui",
+      "cityName": "大野市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18206",
+      "citySlug": "katsuyama",
+      "cityName": "勝山市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18207",
+      "citySlug": "sabae",
+      "cityName": "鯖江市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18208",
+      "citySlug": "awara",
+      "cityName": "あわら市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18209",
+      "citySlug": "echizen",
+      "cityName": "越前市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18210",
+      "citySlug": "sakaifukui",
+      "cityName": "坂井市",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18382",
+      "citySlug": "ikedafukui",
+      "cityName": "池田町",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18404",
+      "citySlug": "minamiechizen",
+      "cityName": "南越前町",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18423",
+      "citySlug": "echizencho",
+      "cityName": "越前町",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18442",
+      "citySlug": "mihamafukui",
+      "cityName": "美浜町",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
+    },
+    {
+      "cityCode": "18481",
+      "citySlug": "takahamafukui",
+      "cityName": "高浜町",
+      "prefecture": "福井県",
+      "systems": ["kokuho"]
     }
   ]
 }
