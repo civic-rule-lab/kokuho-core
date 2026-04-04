@@ -1,0 +1,21 @@
+[
+  { "cityCode": "31201", "citySlug": "tottori",            "cityName": "鳥取市",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31202", "citySlug": "yonago",             "cityName": "米子市",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31203", "citySlug": "kurayoshi",          "cityName": "倉吉市",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31204", "citySlug": "sakaiminato",        "cityName": "境港市",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31302", "citySlug": "iwamimachi",         "cityName": "岩美町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31325", "citySlug": "wakasacho",          "cityName": "若桜町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31328", "citySlug": "chizucho",           "cityName": "智頭町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31329", "citySlug": "yazu",               "cityName": "八頭町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31364", "citySlug": "misasa",             "cityName": "三朝町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31370", "citySlug": "yurihama",           "cityName": "湯梨浜町", "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31371", "citySlug": "kotoura",            "cityName": "琴浦町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31372", "citySlug": "hokuei",             "cityName": "北栄町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31384", "citySlug": "hichisomura",        "cityName": "日吉津村", "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31386", "citySlug": "daisen",             "cityName": "大山町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31388", "citySlug": "nanbumachi-tottori", "cityName": "南部町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31389", "citySlug": "hoki",               "cityName": "伯耆町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31401", "citySlug": "nichinanmachi",      "cityName": "日南町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31402", "citySlug": "hinomachi",          "cityName": "日野町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] },
+  { "cityCode": "31403", "citySlug": "kofu-tottori",       "cityName": "江府町",   "prefecture": "鳥取県", "prefectureSlug": "tottori", "systems": ["kokuho"] }
+]

@@ -1,0 +1,22 @@
+[
+  { "cityCode": "41201", "citySlug": "saga",            "cityName": "佐賀市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41202", "citySlug": "karatsu",         "cityName": "唐津市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41203", "citySlug": "tosu",            "cityName": "鳥栖市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41204", "citySlug": "taku",            "cityName": "多久市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41205", "citySlug": "imari",           "cityName": "伊万里市",  "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41206", "citySlug": "takeo",           "cityName": "武雄市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41207", "citySlug": "kashima-saga",         "cityName": "鹿島市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41208", "citySlug": "ogi",             "cityName": "小城市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41209", "citySlug": "ureshino",        "cityName": "嬉野市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41210", "citySlug": "kanzaki",         "cityName": "神埼市",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41327", "citySlug": "yoshinogaricho",  "cityName": "吉野ヶ里町", "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41341", "citySlug": "kiyamamachi",     "cityName": "基山町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41345", "citySlug": "kamiminememachi", "cityName": "上峰町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41346", "citySlug": "miyakimachi",     "cityName": "みやき町",  "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41387", "citySlug": "genkaimachi",     "cityName": "玄海町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41401", "citySlug": "aritamachi",      "cityName": "有田町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41423", "citySlug": "omachimachi",     "cityName": "大町町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41424", "citySlug": "kohokumachi",     "cityName": "江北町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41425", "citySlug": "shiroishicho",    "cityName": "白石町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] },
+  { "cityCode": "41441", "citySlug": "tararacho",       "cityName": "太良町",    "prefecture": "佐賀県", "prefectureSlug": "saga", "systems": ["kokuho"] }
+]

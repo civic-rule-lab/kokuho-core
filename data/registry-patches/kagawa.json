@@ -1,0 +1,19 @@
+[
+  { "cityCode": "37201", "citySlug": "takamatsu",      "cityName": "高松市",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37202", "citySlug": "marugame",        "cityName": "丸亀市",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37203", "citySlug": "sakaide",         "cityName": "坂出市",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37204", "citySlug": "zentsuji",        "cityName": "善通寺市", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37205", "citySlug": "kanonji",         "cityName": "観音寺市", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37206", "citySlug": "sanuki",          "cityName": "さぬき市", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37207", "citySlug": "higashikagawa",   "cityName": "東かがわ市", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37208", "citySlug": "mitoyo",          "cityName": "三豊市",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37322", "citySlug": "tonoshomachi",    "cityName": "土庄町",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37323", "citySlug": "shodoshimamachi", "cityName": "小豆島町", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37341", "citySlug": "mikimachi",       "cityName": "三木町",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37364", "citySlug": "naoshimamachi",   "cityName": "直島町",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37386", "citySlug": "utazumachi",      "cityName": "宇多津町", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37387", "citySlug": "ayagawamachi",    "cityName": "綾川町",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37403", "citySlug": "kotohiramachi",   "cityName": "琴平町",   "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37404", "citySlug": "tadotsumachi",    "cityName": "多度津町", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] },
+  { "cityCode": "37406", "citySlug": "mannomachi",      "cityName": "まんのう町", "prefecture": "香川県", "prefectureSlug": "kagawa", "systems": ["kokuho"] }
+]
