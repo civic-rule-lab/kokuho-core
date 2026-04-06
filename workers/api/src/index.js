@@ -187,6 +187,7 @@ export default {
           fiscalYear: muniData.fiscalYear,
           inputs,
           result,
+          meta: muniData.meta ?? null,
         },
         { headers: CORS_HEADERS }
       );
