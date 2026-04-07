@@ -79,8 +79,10 @@ function check(slug, data, pref) {
       issues.push({ level: "WARN",  msg: `support所得割 要確認: ${(r.support*100).toFixed(2)}%` });
   }
   if (r.care !== undefined && r.care > 0) {
-    if (r.care < 0.005 || r.care > 0.04)
+    if (r.care < 0.002 || r.care > 0.04)
       issues.push({ level: "ERROR", msg: `care所得割 異常値: ${(r.care*100).toFixed(2)}%` });
+    else if (r.care < 0.005)
+      issues.push({ level: "WARN",  msg: `care所得割 低値・要確認: ${(r.care*100).toFixed(2)}%` });
   }
 
   // 均等割（perCapita）
