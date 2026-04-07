@@ -10,7 +10,7 @@
  * 実行: node scripts/validate-kokuho-data.js
  */
 
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, existsSync, readdirSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -172,6 +172,47 @@ for (const [pref, municipalities] of Object.entries(byPref)) {
         console.log(`${icon} ${msg}`);
       }
     }
+  }
+}
+
+// ─── 重複スラグ検出 ────────────────────────────────────────────
+const slugMap = {};
+for (const m of registry.municipalities) {
+  if (!slugMap[m.citySlug]) slugMap[m.citySlug] = [];
+  slugMap[m.citySlug].push(`${m.prefecture} ${m.cityName}`);
+}
+const duplicates = Object.entries(slugMap).filter(([, v]) => v.length > 1);
+if (duplicates.length > 0) {
+  console.log("\n【重複スラグ検出】");
+  for (const [slug, cities] of duplicates) {
+    console.log(`  ⚠️  "${slug}": ${cities.join(" / ")}`);
+    warnings++;
+  }
+}
+
+// ─── JSON存在・HTML存在の照合 ───────────────────────────────────
+const jsonDirs = new Set(readdirSync(DATA_DIR));
+const registrySlugs = new Set(registry.municipalities.map(m => m.citySlug));
+
+// registryにあるがJSONディレクトリがないスラグ（重複含む除外）
+const missingJson = [...registrySlugs].filter(s => !jsonDirs.has(s));
+if (missingJson.length > 0) {
+  console.log("\n【JSONファイルなし（registry登録済み）】");
+  for (const slug of missingJson) {
+    console.log(`  ❌ ${slug}`);
+    errors++;
+  }
+}
+
+// JSONディレクトリがあるがregistryにないスラグ
+const unregistered = [...jsonDirs].filter(
+  s => !registrySlugs.has(s) && !s.includes("-")
+);
+if (unregistered.length > 0) {
+  console.log("\n【registry未登録のJSONディレクトリ】");
+  for (const slug of unregistered) {
+    console.log(`  ⚠️  ${slug}`);
+    warnings++;
   }
 }
 
