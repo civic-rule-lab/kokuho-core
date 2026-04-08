@@ -14,6 +14,9 @@
  * }
  */
 
+// アクセスを拒否するパスパターン
+const DENY_PATHS = /(\.(env|git|htaccess|htpasswd|config|bak|sql|log|pem|key|secret)|\/wp-|\/admin|\/\.)/i;
+
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -30,6 +33,11 @@ function calculateKokuho(data, inputs) {
   const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
   const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
   const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
+
+  // 子ども・子育て支援金分（R8新設・0なら無効）
+  const childcareRate            = data.childcare?.rate      || 0;
+  const childcarePerCapitaUnit   = data.childcare?.perCapita || 0;
+  const childcareHouseholdUnit   = data.childcare?.household || 0;
 
   const baseIncome = Math.max(income - data.basicDeduction, 0);
 
@@ -86,25 +94,32 @@ function calculateKokuho(data, inputs) {
     reductionRate  = data.reduction?.ratios?.twoTenths || 0;
   }
 
-  const medicalReduction = Math.round((medicalPerCapita + medicalHousehold) * reductionRate);
-  const supportReduction = Math.round((supportPerCapita + supportHousehold) * reductionRate);
-  const careReduction    = Math.round((carePerCapita    + careHousehold)    * reductionRate);
+  const childcareIncome        = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
+  const childcarePerCapita     = family * childcarePerCapitaUnit;
+  const childcareHousehold     = childcareRate > 0 ? childcareHouseholdUnit : 0;
 
-  let medicalTotal = medicalIncome + medicalPerCapita + medicalHousehold + assetLevyMedical - preschoolReductionMedical - medicalReduction;
-  let supportTotal = supportIncome + supportPerCapita + supportHousehold + assetLevySupport - preschoolReductionSupport - supportReduction;
-  let careTotal    = careIncome    + carePerCapita    + careHousehold    + assetLevyCare    - careReduction;
+  const medicalReduction   = Math.round((medicalPerCapita  + medicalHousehold)  * reductionRate);
+  const supportReduction   = Math.round((supportPerCapita  + supportHousehold)  * reductionRate);
+  const careReduction      = Math.round((carePerCapita     + careHousehold)     * reductionRate);
+  const childcareReduction = Math.round((childcarePerCapita + childcareHousehold) * reductionRate);
 
-  medicalTotal = Math.min(Math.max(medicalTotal, 0), data.caps.medical);
-  supportTotal = Math.min(Math.max(supportTotal, 0), data.caps.support);
-  careTotal    = Math.min(Math.max(careTotal,    0), data.caps.care);
+  let medicalTotal   = medicalIncome   + medicalPerCapita   + medicalHousehold   + assetLevyMedical - preschoolReductionMedical - medicalReduction;
+  let supportTotal   = supportIncome   + supportPerCapita   + supportHousehold   + assetLevySupport - preschoolReductionSupport - supportReduction;
+  let careTotal      = careIncome      + carePerCapita      + careHousehold      + assetLevyCare    - careReduction;
+  let childcareTotal = childcareIncome + childcarePerCapita + childcareHousehold                    - childcareReduction;
 
-  const total          = medicalTotal + supportTotal + careTotal;
+  medicalTotal   = Math.min(Math.max(medicalTotal,   0), data.caps.medical);
+  supportTotal   = Math.min(Math.max(supportTotal,   0), data.caps.support);
+  careTotal      = Math.min(Math.max(careTotal,      0), data.caps.care);
+  childcareTotal = Math.min(Math.max(childcareTotal, 0), data.caps.childcare || 30000);
+
+  const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
   const monthly        = Math.round(total / 12);
-  const totalReduction = medicalReduction + supportReduction + careReduction;
+  const totalReduction = medicalReduction + supportReduction + careReduction + childcareReduction;
   const assetLevyTotal = assetLevyMedical + assetLevySupport + assetLevyCare;
 
   return {
-    medicalTotal, supportTotal, careTotal,
+    medicalTotal, supportTotal, careTotal, childcareTotal,
     total, monthly,
     preschoolReduction, totalReduction,
     reductionLabel, assetLevyTotal,
@@ -114,13 +129,25 @@ function calculateKokuho(data, inputs) {
 // ─── ハンドラー ───────────────────────────────────────────────────
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // 機密ファイルへのアクセスを拒否
+    if (DENY_PATHS.test(url.pathname)) {
+      return new Response('Not Found', { status: 404 });
+    }
+
+    // レートリミット（60秒間に60リクエストまで）
+    const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+    const { success } = await env.RATE_LIMITER.limit({ key: ip });
+    if (!success) {
+      return new Response('Too Many Requests', { status: 429 });
+    }
+
     // CORS preflight
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
     }
-
-    const url = new URL(request.url);
 
     // ヘルスチェック
     if (url.pathname === '/') {
@@ -150,11 +177,11 @@ export default {
         );
       }
 
-      // 自治体データ取得
-      const dataUrl = `${DATA_BASE_URL}/${city}/kokuho-2025.json`;
+      // 自治体データ取得（2026優先・2025フォールバック）
       let muniData;
       try {
-        const res = await fetch(dataUrl);
+        let res = await fetch(`${DATA_BASE_URL}/${city}/kokuho-2026.json`);
+        if (!res.ok) res = await fetch(`${DATA_BASE_URL}/${city}/kokuho-2025.json`);
         if (!res.ok) {
           return Response.json(
             { error: `自治体データが見つかりません: ${city}` },
