@@ -17,11 +17,31 @@
 // アクセスを拒否するパスパターン
 const DENY_PATHS = /(\.(env|git|htaccess|htpasswd|config|bak|sql|log|pem|key|secret)|\/wp-|\/admin|\/\.)/i;
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+const ALLOWED_ORIGINS = [
+  'https://kokuho-keisan.jp',
+  'https://www.kokuho-keisan.jp',
+];
+
+function getCorsHeaders(origin) {
+  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowed,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+}
+
+// 入力値の上限
+const INPUT_LIMITS = {
+  income:             { min: 0,   max: 99_999_999 },
+  family:             { min: 1,   max: 20 },
+  preschool:          { min: 0,   max: 20 },
+  care:               { min: 0,   max: 20 },
+  salaryPensionCount: { min: 1,   max: 20 },
+  fixedAssetTax:      { min: 0,   max: 99_999_999 },
 };
+
+const MAX_REQUEST_SIZE = 1024; // 1KB
 
 const DATA_BASE_URL = 'https://kokuho-keisan.jp/data/municipalities';
 
@@ -131,6 +151,8 @@ function calculateKokuho(data, inputs) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const origin = request.headers.get('Origin') ?? '';
+    const CORS_HEADERS = getCorsHeaders(origin);
 
     // 機密ファイルへのアクセスを拒否
     if (DENY_PATHS.test(url.pathname)) {
@@ -142,6 +164,12 @@ export default {
     const { success } = await env.RATE_LIMITER.limit({ key: ip });
     if (!success) {
       return new Response('Too Many Requests', { status: 429 });
+    }
+
+    // リクエストサイズ制限（1KB超は拒否）
+    const contentLength = Number(request.headers.get('content-length') ?? 0);
+    if (contentLength > MAX_REQUEST_SIZE) {
+      return new Response('Payload Too Large', { status: 413 });
     }
 
     // CORS preflight
@@ -196,7 +224,7 @@ export default {
         );
       }
 
-      const inputs = {
+      const rawInputs = {
         income:             Number(body.income)             || 0,
         family:             Number(body.family)             || 1,
         preschool:          Number(body.preschool)          || 0,
@@ -204,6 +232,18 @@ export default {
         salaryPensionCount: Number(body.salaryPensionCount) || 1,
         fixedAssetTax:      Number(body.fixedAssetTax)      || 0,
       };
+
+      // 入力値の範囲チェック
+      for (const [key, { min, max }] of Object.entries(INPUT_LIMITS)) {
+        if (rawInputs[key] < min || rawInputs[key] > max) {
+          return Response.json(
+            { error: `${key} の値が範囲外です（${min}〜${max}）` },
+            { status: 400, headers: CORS_HEADERS }
+          );
+        }
+      }
+
+      const inputs = rawInputs;
 
       const result = calculateKokuho(muniData, inputs);
 
