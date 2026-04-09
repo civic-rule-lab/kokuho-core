@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通知バナー サンプル比較</title>
+<style>
+  body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #1f2937; }
+  h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; font-size: 16px; color: #6b7280; }
+  .page-frame { border: 1px solid #d1d5db; border-radius: 12px; padding: 24px; margin-top: 16px; background: #fff; }
+  h1 { font-size: 20px; margin: 0 0 8px; }
+  p.desc { font-size: 13px; color: #374151; margin: 0 0 16px; }
+  input, button { display: block; width: 100%; margin-bottom: 12px; padding: 10px; border-radius: 6px; border: 1px solid #d1d5db; font-size: 14px; box-sizing: border-box; }
+  button { background: #1d4ed8; color: white; border: none; font-weight: bold; cursor: pointer; }
+
+  /* A: ヘッダーバナー（控えめ・青） */
+  .notice-a {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #1e40af;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .notice-a::before { content: "ℹ️"; }
+
+  /* B: 結果の下の注記（小さく・グレー） */
+  .notice-b {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: #f9fafb;
+    border-radius: 6px;
+    border-left: 3px solid #d1d5db;
+    line-height: 1.6;
+  }
+
+  /* C: 計算ボタンの上（黄色・注意） */
+  .notice-c {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #92400e;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .notice-c::before { content: "⚠️"; }
+
+  .result-box { background: #f0f9ff; border-radius: 8px; padding: 16px; margin-top: 12px; font-size: 13px; color: #374151; }
+</style>
+</head>
+<body>
+
+<h2>パターン A：フォームの上に控えめなバナー（青）</h2>
+<div class="page-frame">
+  <h1>横浜市の国民健康保険料計算【令和7年度】</h1>
+  <p class="desc">前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。</p>
+
+  <div class="notice-a">
+    現在、令和7年度（2025年度）のデータを表示しています。令和8年度の料率が確定次第、順次更新予定です。
+  </div>
+
+  <label>前年所得</label>
+  <input type="text" placeholder="例：3,000,000">
+  <label>世帯人数</label>
+  <input type="number" placeholder="例：3">
+  <button>計算する</button>
+</div>
+
+<h2>パターン B：計算結果の下に小さな注記（グレー）</h2>
+<div class="page-frame">
+  <h1>横浜市の国民健康保険料計算【令和7年度】</h1>
+  <p class="desc">前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。</p>
+
+  <label>前年所得</label>
+  <input type="text" placeholder="例：3,000,000">
+  <label>世帯人数</label>
+  <input type="number" placeholder="例：3">
+  <button>計算する</button>
+
+  <div class="result-box">年間保険料目安：約 412,000 円</div>
+
+  <div class="notice-b">
+    ※ 現在、令和7年度（2025年度）のデータを使用しています。令和8年度の公式料率が確定次第、更新します。実際の保険料は各自治体の窓口でご確認ください。
+  </div>
+</div>
+
+<h2>パターン C：計算ボタンの上に注意バナー（黄色）</h2>
+<div class="page-frame">
+  <h1>横浜市の国民健康保険料計算【令和7年度】</h1>
+  <p class="desc">前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。</p>
+
+  <label>前年所得</label>
+  <input type="text" placeholder="例：3,000,000">
+  <label>世帯人数</label>
+  <input type="number" placeholder="例：3">
+
+  <div class="notice-c">
+    令和7年度のデータを使用中。令和8年度料率は確定後に更新します。
+  </div>
+
+  <button>計算する</button>
+</div>
+
+</body>
+</html>

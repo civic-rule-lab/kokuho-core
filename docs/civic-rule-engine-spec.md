@@ -1,6 +1,6 @@
 # Civic Rule Engine — 技術仕様書
 
-最終更新: 2026-03-30
+最終更新: 2026-04-09
 
 ---
 
@@ -307,3 +307,41 @@ node scripts/test-calc-verify.js
 - 藤沢市: 軽減境界 4ケース
 
 全13テスト PASS。
+
+---
+
+## データステータス定義
+
+| status | 意味 | 公開可否 |
+|--------|------|---------|
+| `verified` | 公式資料で確認済み | ✅ 可 |
+| `needs_update` | 前年度からの推定値 | ⚠️ 参考値として可（注記表示） |
+| `draft` | 作成中 | ❌ 不可 |
+
+---
+
+## 将来の多制度展開（2026-04-09確定）
+
+### データ構造
+
+```
+data/municipalities/{slug}/
+├── kokuho-{year}.json      国保（現在）
+├── juminzei-{year}.json    住民税（将来）
+├── kaigo-{year}.json       介護保険（将来）
+└── kodomo-{year}.json      子育て支援金（将来）
+```
+
+### フロントサイト構成
+
+```
+制度別サイト（SEO特化）
+├── kokuho-keisan.jp       稼働中
+├── juminzei-keisan.jp     将来
+└── kaigo-keisan.jp        将来
+
+ポータル（横断計算）
+└── civic-keisan.jp        世帯の年間総負担額を全制度横断で計算
+```
+
+**実装タイミング：国保の needs_update 解消・全ファイル精査完了後に開始。**
