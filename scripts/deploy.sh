@@ -80,7 +80,7 @@ fi
 # ── 3. 件数検証 ──────────────────────────────────────────────────
 CORE_JSON=$(find "$CORE_DIR/data/municipalities" -name "kokuho-2025.json" | wc -l | tr -d ' ')
 PUBLIC_JSON=$(find "$PUBLIC_DIR/data/municipalities" -name "kokuho-2025.json" | wc -l | tr -d ' ')
-CORE_HTML=$(find "$CORE_DIR" -name "index.html" -not -path "*/\.*" | grep -v "^$CORE_DIR/index.html" | wc -l | tr -d ' ')
+CORE_HTML=$(find "$CORE_DIR" -name "index.html" -not -path "*/\.*" -not -path "*/dashboard/*" | grep -v "^$CORE_DIR/index.html" | wc -l | tr -d ' ')
 PUBLIC_HTML=$(find "$PUBLIC_DIR" -name "index.html" -not -path "*/\.*" | grep -v "^$PUBLIC_DIR/index.html" | wc -l | tr -d ' ')
 
 echo ""
