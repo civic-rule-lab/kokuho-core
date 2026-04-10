@@ -3,8 +3,8 @@
 # kokuho-core (private) で生成したファイルを kokuho-keisan (public) へ反映する
 #
 # 使い方:
-#   bash scripts/deploy.sh               # 生成 → 同期 → コミット
-#   bash scripts/deploy.sh --push        # 上記 + git push（両リポジトリ）
+#   bash scripts/deploy.sh               # バリデーション → 生成 → 同期 → コミット
+#   bash scripts/deploy.sh --push        # 上記 + git push（両リポジトリ）+ wrangler deploy
 #   bash scripts/deploy.sh --sync-only   # 生成スキップ、同期のみ
 #   bash scripts/deploy.sh --dry-run     # 変更内容の確認のみ（実行しない）
 
@@ -29,6 +29,25 @@ echo "core:   $CORE_DIR"
 echo "public: $PUBLIC_DIR"
 echo "push:   $PUSH / sync-only: $SYNC_ONLY / dry-run: $DRY_RUN"
 echo ""
+
+# ── 0. バリデーション ────────────────────────────────────────────
+if true; then
+  echo "▶ validate-kokuho-data.js"
+  VALIDATE_OUTPUT=$(node "$CORE_DIR/scripts/validate-kokuho-data.js" 2>&1)
+  echo "$VALIDATE_OUTPUT" | tail -5
+  if echo "$VALIDATE_OUTPUT" | grep -q "❌ ERROR: [^0]"; then
+    echo ""
+    if [ "$DRY_RUN" = true ]; then
+      echo "⚠️  バリデーションエラーがあります（dry-runのため続行）。"
+    else
+      echo "❌ バリデーションエラーがあります。デプロイを中断します。"
+      echo "   node scripts/validate-kokuho-data.js で詳細を確認してください。"
+      exit 1
+    fi
+  fi
+  echo "✅ バリデーション通過"
+  echo ""
+fi
 
 # ── 1. 生成スクリプトを実行 ──────────────────────────────────────
 if [ "$SYNC_ONLY" = false ] && [ "$DRY_RUN" = false ]; then
@@ -121,6 +140,13 @@ if [ "$PUSH" = true ]; then
   cd "$CORE_DIR"
   git push
   echo "✅ kokuho-core push 完了"
+
+  # ── 6. Cloudflare Worker デプロイ ──────────────────────────────
+  echo ""
+  echo "▶ wrangler deploy"
+  cd "$CORE_DIR/workers/api"
+  npx wrangler deploy 2>&1 | tail -5
+  echo "✅ Worker デプロイ完了"
 fi
 
 echo ""
