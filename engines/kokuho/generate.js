@@ -10,8 +10,10 @@
  *       overrides/            テンプレートとの差分（差分なしの自治体はスキップ）
  *
  * 実行:
- *   node engines/kokuho/generate.js
- *   node engines/kokuho/generate.js --dry-run  (ファイル書き出しなし)
+ *   node engines/kokuho/generate.js                  (デフォルト: 環境変数 KOKUHO_YEAR か 2025)
+ *   node engines/kokuho/generate.js --year=2026      (年度指定)
+ *   node engines/kokuho/generate.js 2026             (位置引数でも可)
+ *   node engines/kokuho/generate.js --dry-run        (ファイル書き出しなし)
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
@@ -25,10 +27,30 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT       = path.join(__dirname, "../..");
 const DATA_DIR   = path.join(ROOT, "data", "municipalities");
 const REGISTRY   = path.join(ROOT, "registry", "index.json");
-const YEAR       = 2025;
-const OUT_DIR    = path.join(ROOT, "generated", "kokuho", String(YEAR));
+
+// ─── CLI 引数パース ────────────────────────────────────────────
+// 優先順位: --year=NNNN > 位置引数 > 環境変数 KOKUHO_YEAR > デフォルト 2025
+function parseYear() {
+  const argv = process.argv.slice(2);
+  for (const a of argv) {
+    const m = a.match(/^--year=(\d{4})$/);
+    if (m) return Number(m[1]);
+  }
+  for (const a of argv) {
+    if (/^\d{4}$/.test(a)) return Number(a);
+  }
+  if (process.env.KOKUHO_YEAR && /^\d{4}$/.test(process.env.KOKUHO_YEAR)) {
+    return Number(process.env.KOKUHO_YEAR);
+  }
+  return 2025;
+}
+
+const YEAR    = parseYear();
+const OUT_DIR = path.join(ROOT, "generated", "kokuho", String(YEAR));
 
 const isDryRun = process.argv.includes("--dry-run");
+
+console.log(`[generate] 対象年度: ${YEAR}${isDryRun ? " (dry-run)" : ""}`);
 
 // ─── 1. データ読み込み ─────────────────────────────────────────
 
