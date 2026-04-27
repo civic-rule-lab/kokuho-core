@@ -10,3 +10,9 @@ node_modules/
 *.pem
 *.key
 *.secret
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Dashboard logs
+dashboard/*.log
