@@ -1,0 +1,86 @@
+{
+  "cityCode": "",
+  "citySlug": "",
+  "cityName": "",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+
+  "rate": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "perCapita": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+
+  "childcareLevy": {
+    "enabled": true,
+    "rate": 0,
+    "perCapita": 0,
+    "cap": 30000,
+    "under18Reduction": true
+  },
+
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": { "base": 430000, "perPersonAdd": 0 },
+      "fiveTenths":  { "base": 430000, "perPersonAdd": 305000 },
+      "twoTenths":   { "base": 430000, "perPersonAdd": 560000 }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "1.0.0",
+    "status": "needs_update",
+    "lifecycle": {
+      "createdAt": "",
+      "updatedAt": "",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30"
+    },
+    "source": {
+      "type": "manual",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 0,
+      "completeness": "partial"
+    },
+    "notes": ""
+  }
+}
