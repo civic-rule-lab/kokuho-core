@@ -168,8 +168,17 @@ ${muniOptions}
 
 <div class="note">
   ※全国${registry.municipalities.length}自治体の国民健康保険に対応しています。<br>
-  ※料率は令和7年度の公式値を使用しています。<br>
+  ※料率は令和8年度の公式値を使用しています。<br>
   ※実際の保険料は各自治体の通知でご確認ください。
+</div>
+
+<div style="margin-top:32px;border-top:1px solid #e5e7eb;padding-top:24px;">
+  <div style="font-size:13px;font-weight:700;color:#6b7280;letter-spacing:0.08em;margin-bottom:12px;">都道府県から探す</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px;">
+${Object.entries(groups).map(([slug, g]) =>
+  `    <a href="/${slug}/" style="display:block;padding:6px 8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;font-size:12px;color:#374151;text-decoration:none;text-align:center;white-space:nowrap;">${g.name}</a>`
+).join('\n')}
+  </div>
 </div>
 
 </div>

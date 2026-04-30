@@ -16,71 +16,38 @@
 import { readFileSync, existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const { calculateKokuho } = require("../js/core/kokuho.js");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT     = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data", "municipalities");
 
-// ─── 計算エンジン（engine.js と同一ロジック） ──────────────────
-function calcKokuho(data, { income, family, preschool = 0, care = 0, salaryPensionCount = 1 }) {
-  const baseIncome = Math.max(income - data.basicDeduction, 0);
-
-  const medicalIncome = Math.round(baseIncome * data.rate.medical);
-  const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = care > 0 ? Math.round(baseIncome * data.rate.care) : 0;
-
-  const medicalPerCapita = family * data.perCapita.medical;
-  const supportPerCapita = family * data.perCapita.support;
-  const carePerCapita    = care   * data.perCapita.care;
-
-  const medicalHousehold = data.household?.medical || 0;
-  const supportHousehold = data.household?.support || 0;
-  const careHousehold    = care > 0 ? (data.household?.care || 0) : 0;
-
-  const preschoolReductionMedical = Math.round(
-    preschool * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
-  );
-  const preschoolReductionSupport = Math.round(
-    preschool * data.perCapita.support * (data.preschoolReduction?.supportPerCapitaRate || 0)
-  );
-  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
-
-  const B = Math.max(salaryPensionCount, 1);
-  const extra = (data.reduction?.salaryPensionAdd || 0) * (B - 1);
-
-  const sevenTenthsLimit =
-    (data.reduction?.standards?.sevenTenths?.base || 0) +
-    (data.reduction?.standards?.sevenTenths?.perPersonAdd || 0) * family + extra;
-  const fiveTenthsLimit =
-    (data.reduction?.standards?.fiveTenths?.base || 0) +
-    (data.reduction?.standards?.fiveTenths?.perPersonAdd || 0) * family + extra;
-  const twoTenthsLimit =
-    (data.reduction?.standards?.twoTenths?.base || 0) +
-    (data.reduction?.standards?.twoTenths?.perPersonAdd || 0) * family + extra;
-
-  let reductionLabel = "軽減なし";
-  let reductionRate  = 0;
-  if      (income <= sevenTenthsLimit) { reductionLabel = "7割軽減"; reductionRate = data.reduction?.ratios?.sevenTenths || 0; }
-  else if (income <= fiveTenthsLimit)  { reductionLabel = "5割軽減"; reductionRate = data.reduction?.ratios?.fiveTenths  || 0; }
-  else if (income <= twoTenthsLimit)   { reductionLabel = "2割軽減"; reductionRate = data.reduction?.ratios?.twoTenths   || 0; }
-
-  const medicalReduction = Math.round((medicalPerCapita + medicalHousehold) * reductionRate);
-  const supportReduction = Math.round((supportPerCapita + supportHousehold) * reductionRate);
-  const careReduction    = Math.round((carePerCapita    + careHousehold)    * reductionRate);
-
-  let medicalTotal = medicalIncome + medicalPerCapita + medicalHousehold - preschoolReductionMedical - medicalReduction;
-  let supportTotal = supportIncome + supportPerCapita + supportHousehold - preschoolReductionSupport - supportReduction;
-  let careTotal    = careIncome    + carePerCapita    + careHousehold    - careReduction;
-
-  medicalTotal = Math.min(Math.max(medicalTotal, 0), data.caps.medical);
-  supportTotal = Math.min(Math.max(supportTotal, 0), data.caps.support);
-  careTotal    = Math.min(Math.max(careTotal,    0), data.caps.care);
-
+// ─── テスト用ラッパー ────────────────────────────────────────────
+// expected フィールド名（medical/support/care）と engine 出力（medicalTotal/...）を吸収し、
+// 未指定の入力フィールドにデフォルト値を補う。
+function runKokuho(data, input) {
+  const r = calculateKokuho(data, {
+    income:                  input.income                  ?? 0,
+    family:                  input.family                  ?? 1,
+    preschool:               input.preschool               ?? 0,
+    under18:                 input.under18                 ?? 0,
+    care:                    input.care                    ?? 0,
+    salaryPensionCount:      input.salaryPensionCount      ?? 1,
+    fixedAssetTax:           input.fixedAssetTax           ?? 0,
+    reductionJudgmentIncome: input.reductionJudgmentIncome,  // undefined のまま渡す（フォールバックはエンジン側）
+  });
   return {
-    medical: medicalTotal, support: supportTotal, care: careTotal,
-    total: medicalTotal + supportTotal + careTotal,
-    reductionLabel, preschoolReduction,
-    totalReduction: medicalReduction + supportReduction + careReduction,
+    medical:          r.medicalTotal,
+    support:          r.supportTotal,
+    care:             r.careTotal,
+    childcare:        r.childcareTotal,
+    total:            r.total,
+    reductionLabel:   r.reductionLabel,
+    preschoolReduction: r.preschoolReduction,
+    totalReduction:   r.totalReduction,
   };
 }
 
@@ -372,12 +339,93 @@ const TEST_SUITES = [
       },
     ],
   },
+
+  // ============================================================
+  // 練馬区（東京都）R8 — childcareLevy（子ども・子育て支援金分）検証
+  // rate 0.0027 / perCapita 1873 / cap 30000（verified 2026-04-27）
+  // cap=0 のとき ?? 演算子で正しく 0 になるか（旧バグの回帰テスト）
+  // ============================================================
+  {
+    slug: "nerima",
+    year: 2026,
+    label: "練馬区（R8・子育て支援金分）",
+    cases: [
+      {
+        label: "単身・所得0円（7割軽減・childcare均等割のみ）",
+        note:  "childcarePerCapita=1873、7割軽減額=round(1873×0.7)=1311、childcareTotal=1873-1311=562",
+        input: { income: 0, family: 1, preschool: 0, under18: 0, care: 0 },
+        expected: { childcare: 562, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "単身・所得200万（軽減なし・childcare所得割+均等割）",
+        note:  "baseIncome=157万、childcareIncome=round(1570000×0.0027)=4239、perCapita=1873 → 6112。cap=30000以内",
+        input: { income: 2000000, family: 1, preschool: 0, under18: 0, care: 0 },
+        expected: { childcare: 6112, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "cap=0 の自治体で childcareTotal が 30000 にならないこと（旧バグ回帰）",
+        note:  "cap=0 の自治体データを動的に作成。?? 修正が有効なら 0 のまま",
+        input: { income: 5000000, family: 1, preschool: 0, under18: 0, care: 0 },
+        _overrideData: { childcareLevy: { rate: 0, perCapita: 0, household: 0, cap: 0 } },
+        expected: { childcare: 0 },
+        source: "cap=0バグ回帰テスト（engine.js: childcareCfg?.cap ?? 30000）",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 擬制世帯主テスト（さいたま市 R7 データを流用）
+  //
+  // 世帯主: 会社員（社保加入・国保非加入）、所得600万
+  // 加入者: 配偶者（国保加入）、所得0
+  //
+  // 軽減判定は「世帯主所得 + 加入者所得 = 600万」で行う
+  // （加入者所得0だけで判定すると7割軽減になるが、正しくは軽減なし）
+  //
+  // reductionJudgmentIncome なし → income（0）で判定 → 7割軽減（誤）
+  // reductionJudgmentIncome あり → 600万で判定 → 軽減なし（正）
+  // ============================================================
+  {
+    slug: "saitama",
+    label: "擬制世帯主（さいたま市）",
+    cases: [
+      {
+        label: "reductionJudgmentIncome なし（後方互換）→ 加入者所得0で判定 → 7割軽減",
+        note:  "income=0 のみ。reductionJudgmentIncome 未指定 → income にフォールバック",
+        input: { income: 0, family: 1, preschool: 0, care: 0 },
+        expected: { reductionLabel: "7割軽減" },
+        source: "後方互換確認",
+      },
+      {
+        label: "reductionJudgmentIncome あり → 世帯主所得600万で判定 → 軽減なし",
+        note:  "income=0（加入者所得）、reductionJudgmentIncome=6,000,000（世帯主所得を加算）",
+        input: {
+          income: 0, family: 1, preschool: 0, care: 0,
+          reductionJudgmentIncome: 6_000_000,
+        },
+        expected: { reductionLabel: "軽減なし" },
+        source: "擬制世帯主：世帯主の所得を軽減判定に反映",
+      },
+      {
+        label: "7割軽減ボーダー上で reductionJudgmentIncome が判定を変える",
+        note:  "sevenTenthsLimit=43万（1人世帯）。income=0、reductionJudgmentIncome=430,001 → 軽減なし側へ",
+        input: {
+          income: 0, family: 1, preschool: 0, care: 0,
+          reductionJudgmentIncome: 430_001,
+        },
+        expected: { reductionLabel: "5割軽減" },
+        source: "境界値テスト（43万+1円で7割軽減を外れる）",
+      },
+    ],
+  },
 ];
 
 // ─── テスト実行 ────────────────────────────────────────────────
 const targetSlug = process.argv[2] || null;
 const suites = targetSlug
-  ? TEST_SUITES.filter(s => s.slug === targetSlug)
+  ? TEST_SUITES.filter(s => s.slug === targetSlug || s.label.includes(targetSlug))
   : TEST_SUITES;
 
 if (suites.length === 0) {
@@ -389,24 +437,28 @@ let totalPassed = 0;
 let totalFailed = 0;
 
 for (const suite of suites) {
-  const dataPath = path.join(DATA_DIR, suite.slug, "kokuho-2025.json");
+  const year     = suite.year ?? 2025;
+  const dataPath = path.join(DATA_DIR, suite.slug, `kokuho-${year}.json`);
   if (!existsSync(dataPath)) {
-    console.log(`\n❌ ${suite.label}: kokuho-2025.json が存在しません`);
+    console.log(`\n❌ ${suite.label}: kokuho-${year}.json が存在しません`);
     continue;
   }
-  const data = JSON.parse(readFileSync(dataPath, "utf-8"));
+  const baseData = JSON.parse(readFileSync(dataPath, "utf-8"));
 
   console.log(`\n${"=".repeat(64)}`);
-  console.log(`${suite.label} (${suite.slug})`);
+  console.log(`${suite.label} (${suite.slug} / ${year}年度)`);
   console.log(`${"=".repeat(64)}`);
 
   for (const tc of suite.cases) {
-    const result = calcKokuho(data, tc.input);
+    // _overrideData があれば一部フィールドを上書き（バグ回帰テスト等）
+    const data = tc._overrideData ? { ...baseData, ...tc._overrideData } : baseData;
+
+    const result = runKokuho(data, tc.input);
     const exp    = tc.expected;
     const tol    = tc.tolerance ?? 1;
     const issues = [];
 
-    for (const key of ["medical", "support", "care", "total"]) {
+    for (const key of ["medical", "support", "care", "childcare", "total"]) {
       if (exp[key] != null) {
         const diff = Math.abs(result[key] - exp[key]);
         if (diff > tol) {
@@ -422,11 +474,12 @@ for (const suite of suites) {
     if (ok) totalPassed++; else totalFailed++;
 
     const icon   = ok ? "✅" : "❌";
-    const inputs = `所得${(tc.input.income/10000).toFixed(0)}万 / ${tc.input.family}人 / 介護${tc.input.care} / 未就学${tc.input.preschool}`;
+    const inputs = `所得${(tc.input.income/10000).toFixed(0)}万 / ${tc.input.family}人 / 介護${tc.input.care ?? 0} / 未就学${tc.input.preschool ?? 0}`;
+    const childcareStr = result.childcare > 0 ? ` + 子育て${result.childcare.toLocaleString()}` : "";
     console.log(`${icon} ${tc.label}`);
     if (tc.note) console.log(`   補足: ${tc.note}`);
     console.log(`   入力: ${inputs}`);
-    console.log(`   結果: 医療${result.medical.toLocaleString()} + 支援${result.support.toLocaleString()} + 介護${result.care.toLocaleString()} = 年間${result.total.toLocaleString()}円 [${result.reductionLabel}]`);
+    console.log(`   結果: 医療${result.medical.toLocaleString()} + 支援${result.support.toLocaleString()} + 介護${result.care.toLocaleString()}${childcareStr} = 年間${result.total.toLocaleString()}円 [${result.reductionLabel}]`);
     console.log(`   出典: ${tc.source}`);
     if (!ok) issues.forEach(i => console.log(`   ⚠️  ${i}`));
   }

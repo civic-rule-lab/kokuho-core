@@ -24,12 +24,16 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
 const TMPL_DIR  = path.join(ROOT, "templates");
 const REGISTRY  = path.join(ROOT, "registry", "index.json");
 const BASE_URL  = "https://kokuho-keisan.jp";
+
+const _require = createRequire(import.meta.url);
+const { PREFECTURE_INFO } = _require("../js/core/prefecture-info.js");
 
 // 都道府県名 → スラグ
 const PREF_SLUG = {
@@ -99,9 +103,89 @@ function fmtMan(n) {
 }
 
 function loadCityData(citySlug) {
-  const p = path.join(ROOT, "data", "municipalities", citySlug, "kokuho-2025.json");
-  if (!existsSync(p)) return null;
-  try { return JSON.parse(readFileSync(p, "utf-8")); } catch { return null; }
+  // R8（2026）優先、なければ R7（2025）フォールバック
+  for (const yr of [2026, 2025]) {
+    const p = path.join(ROOT, "data", "municipalities", citySlug, `kokuho-${yr}.json`);
+    if (existsSync(p)) {
+      try { return JSON.parse(readFileSync(p, "utf-8")); } catch { /* skip */ }
+    }
+  }
+  return null;
+}
+
+// 会計年度（4月始まり）を返す
+function getFiscalYear(date = new Date()) {
+  const m = date.getMonth() + 1;
+  return m >= 4 ? date.getFullYear() : date.getFullYear() - 1;
+}
+
+// fiscalYear → 表示文字列（例: 2026 → "令和8年度（2026年度）"）
+function fmtFY(fy) {
+  return `令和${fy - 2018}年度（${fy}年度）`;
+}
+
+// 信頼性バッジ HTML を返す
+function buildTrustBadge(data) {
+  const currentFY = getFiscalYear();
+
+  if (!data) {
+    return `
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--inferred">
+      <span class="trust-badge__icon">ⓘ</span>参考計算（公式料率データ未収録）
+    </span>
+    <p class="trust-badge__note">標準的な計算方式を使用しています。実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>`;
+  }
+
+  const dataFY = data.fiscalYear ?? 2025;
+
+  if (dataFY >= currentFY) {
+    return `
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--verified">
+      <span class="trust-badge__icon">✓</span>${fmtFY(dataFY)}公式データ確認済み
+    </span>
+    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>`;
+  }
+
+  return `
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--needs-update">
+      <span class="trust-badge__icon">⚠</span>${fmtFY(dataFY)}データ使用中・${fmtFY(currentFY)}反映準備中
+    </span>
+    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>`;
+}
+
+// 都道府県の住民税情報ブロック（全県表示）
+function buildPrefectureDesc(prefSlug, prefName, cityName) {
+  const info = PREFECTURE_INFO[prefSlug];
+  if (!info) return '';
+
+  const intro = `${cityName}は${prefName}の住民税が適用されています。`;
+
+  // 超過課税なし → 短いテキストのみ、リンクなし
+  if (!info.surcharge) {
+    return `
+  <div class="pref-desc-block">
+    <div class="pref-desc-block__title">${prefName}の住民税について</div>
+    <p class="pref-desc-block__text">${intro}<br>${info.description.full}</p>
+  </div>`;
+  }
+
+  // 超過課税あり → 説明文 + 公式リンク
+  const sourceUrl = info.sourceUrl ?? null;
+  const linkHtml  = sourceUrl
+    ? `\n    <a class="pref-desc-block__link" href="${sourceUrl}" target="_blank" rel="noopener">${prefName}の住民税について（公式サイト）↗</a>`
+    : '';
+
+  return `
+  <div class="pref-desc-block">
+    <div class="pref-desc-block__title">${prefName}の住民税について</div>
+    <p class="pref-desc-block__text">${intro}<br>${info.description.full}</p>${linkHtml}
+  </div>`;
 }
 
 function buildMetaDesc(cityName, prefecture, data, isIncome) {
@@ -120,11 +204,17 @@ function buildMetaDesc(cityName, prefecture, data, isIncome) {
 
 function buildCanonicalUrl(prefSlug, citySlug, isIncome) {
   const base = `${BASE_URL}/${prefSlug}/${citySlug}/`;
+  // index.html の canonical は income.html を正規版として指定（重複コンテンツ対策）
+  return `${base}income.html`;
+}
+
+function buildSelfUrl(prefSlug, citySlug, isIncome) {
+  const base = `${BASE_URL}/${prefSlug}/${citySlug}/`;
   return isIncome ? `${base}income.html` : base;
 }
 
 function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome) {
-  const pageUrl = buildCanonicalUrl(prefSlug, citySlug, isIncome);
+  const pageUrl = buildSelfUrl(prefSlug, citySlug, isIncome);
   const breadcrumb = {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -224,15 +314,19 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const jsonLd      = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome);
   const rateTable   = buildRateTable(cityName, data);
   const introText   = buildIntroText(cityName, prefecture, data, isIncome);
+  const trustBadge  = buildTrustBadge(data);
+  const prefDesc    = buildPrefectureDesc(prefSlug, prefecture, cityName);
 
   return template
-    .replaceAll("__CITY_SLUG__",    citySlug)
-    .replaceAll("__CITY_NAME__",    cityName)
-    .replaceAll("__META_DESC__",    metaDesc)
-    .replaceAll("__CANONICAL_URL__", canonical)
-    .replaceAll("__JSON_LD__",      jsonLd)
-    .replaceAll("__RATE_TABLE__",   rateTable)
-    .replaceAll("__INTRO_TEXT__",   introText);
+    .replaceAll("__CITY_SLUG__",       citySlug)
+    .replaceAll("__CITY_NAME__",       cityName)
+    .replaceAll("__META_DESC__",       metaDesc)
+    .replaceAll("__CANONICAL_URL__",   canonical)
+    .replaceAll("__JSON_LD__",         jsonLd)
+    .replaceAll("__RATE_TABLE__",      rateTable)
+    .replaceAll("__INTRO_TEXT__",      introText)
+    .replaceAll("__TRUST_BADGE__",     trustBadge)
+    .replaceAll("__PREFECTURE_DESC__", prefDesc);
 }
 
 // ─────────────────────────────────────────────────────────────────

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>trust-badge プレビュー</title>
+<link rel="stylesheet" href="/css/common.css?v=2">
+<style>
+  body { padding: 40px; background: #f0f4f8; }
+  .wrap { max-width: 500px; }
+  h2 { font-size: 16px; color: #374151; margin: 28px 0 8px; }
+  .sep { border: none; border-top: 1px solid #e5e7eb; margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 style="font-size:20px;margin-bottom:4px;">trust-badge 3状態プレビュー</h1>
+  <p style="font-size:13px;color:#6b7280;">css/common.css の表示確認用</p>
+
+  <hr class="sep">
+
+  <h2>✅ verified（令和8年度確認済み）</h2>
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--verified">
+      <span class="trust-badge__icon">✓</span>令和8年度（2026年度）公式データ確認済み
+    </span>
+    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>
+
+  <hr class="sep">
+
+  <h2>⚠ needs_update（令和7年度データ使用中）</h2>
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--needs-update">
+      <span class="trust-badge__icon">⚠</span>令和7年度（2025年度）データ使用中・令和8年度（2026年度）反映準備中
+    </span>
+    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>
+
+  <hr class="sep">
+
+  <h2>ⓘ inferred（公式データ未収録）</h2>
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--inferred">
+      <span class="trust-badge__icon">ⓘ</span>参考計算（公式料率データ未収録）
+    </span>
+    <p class="trust-badge__note">標準的な計算方式を使用しています。実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>
+
+  <hr class="sep">
+
+  <h2>実際のページ例（横浜市）</h2>
+  <p style="font-size:13px;color:#6b7280;">↓ income.html 内のバッジ部分と同一レイアウト</p>
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px;">
+    <div class="result-title">計算結果</div>
+    <div id="result" style="min-height:40px;background:#f9fafb;border-radius:6px;margin-top:8px;padding:12px;font-size:13px;color:#9ca3af;">
+      ここに結果が表示されます
+    </div>
+    <div class="trust-badge-block">
+      <span class="trust-badge trust-badge--verified">
+        <span class="trust-badge__icon">✓</span>令和8年度（2026年度）公式データ確認済み
+      </span>
+      <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

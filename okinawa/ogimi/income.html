@@ -38,16 +38,16 @@
   <input id="income" type="text" inputmode="numeric" placeholder="例：3,000,000">
 
   <label for="family">世帯人数</label>
-  <input id="family" type="number" placeholder="例：3">
+  <input id="family" type="text" inputmode="numeric" placeholder="例：3">
 
   <label for="preschool">未就学児人数（0〜6歳）</label>
-  <input id="preschool" type="number" placeholder="例：1">
+  <input id="preschool" type="text" inputmode="numeric" placeholder="例：1">
 
   <label for="care">介護保険人数（40〜64歳）</label>
-  <input id="care" type="number" placeholder="例：1">
+  <input id="care" type="text" inputmode="numeric" placeholder="例：1">
 
   <label for="salaryPensionCount">給与・年金所得者数</label>
-  <input id="salaryPensionCount" type="number" placeholder="例：1">
+  <input id="salaryPensionCount" type="text" inputmode="numeric" placeholder="例：1">
 
   <div id="assetLevyGroup" style="display:none">
     <label for="fixedAssetTax">固定資産税額（資産割対象の方のみ）</label>
@@ -59,8 +59,18 @@
   <div class="result-title">計算結果</div>
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
-  <div style="font-size:12px;color:#6b7280;margin-top:12px;padding:10px 14px;background:#f9fafb;border-radius:6px;border-left:3px solid #d1d5db;line-height:1.6;">
-    ※ 現在、令和7年度（2025年度）のデータを使用しています。令和8年度の公式料率が確定次第、更新します。実際の保険料は各自治体の窓口でご確認ください。
+
+  <div class="trust-badge-block">
+    <span class="trust-badge trust-badge--verified">
+      <span class="trust-badge__icon">✓</span>令和8年度（2026年度）公式データ確認済み
+    </span>
+    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
+  </div>
+
+
+  <div class="pref-desc-block">
+    <div class="pref-desc-block__title">沖縄県の住民税について</div>
+    <p class="pref-desc-block__text">大宜味村は沖縄県の住民税が適用されています。<br>沖縄県では個人県民税の超過課税はありません。地方税法の標準税率（所得割4%、均等割1,000円）が適用されています。</p>
   </div>
 
   <div style="margin-top:16px;font-size:14px;color:#374151;">
@@ -78,7 +88,7 @@
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">種別</th><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">所得割率</th><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">均等割額</th><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">平等割額</th><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">資産割率</th><th style="padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;">賦課限度額</th></tr></thead>
         <tbody>
-      <tr><td style="padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;font-weight:600;">医療分</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">7.5%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">18,400円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">20,300円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">10.6%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">66万円</td></tr>
+      <tr><td style="padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;font-weight:600;">医療分</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">7.5%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">18,400円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">20,300円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">10.6%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">67万円</td></tr>
       <tr><td style="padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;font-weight:600;">後期高齢者支援金分</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">2.4%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">6,300円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">6,300円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">4.6%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">26万円</td></tr>
       <tr><td style="padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;font-weight:600;">介護分（40〜64歳）</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">1.4%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">6,700円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">4,700円</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">3.1%</td><td style="padding:6px 10px;font-size:12px;text-align:right;border:1px solid #e5e7eb;">17万円</td></tr>
         </tbody>
@@ -112,6 +122,7 @@
 </div>
 
 <script>const CITY_SLUG = "ogimi";</script>
+<script src="/js/core/kokuho.js?v=1"></script>
 <script src="/js/engine.js?v=2"></script>
 
 </body>

@@ -33,17 +33,33 @@ const PREF_SLUG = {
 const registry = JSON.parse(readFileSync(path.join(ROOT, "registry", "index.json"), "utf-8"));
 const today    = new Date().toISOString().slice(0, 10);
 
+const ALL_PREF_SLUGS = [
+  'hokkaido','aomori','iwate','miyagi','akita','yamagata','fukushima',
+  'ibaraki','tochigi','gunma','saitama','chiba','tokyo','kanagawa',
+  'niigata','toyama','ishikawa','fukui','yamanashi','nagano','gifu',
+  'shizuoka','aichi','mie','shiga','kyoto','osaka','hyogo','nara',
+  'wakayama','tottori','shimane','okayama','hiroshima','yamaguchi',
+  'tokushima','kagawa','ehime','kochi','fukuoka','saga','nagasaki',
+  'kumamoto','oita','miyazaki','kagoshima','okinawa',
+];
+
 const urls = [
   // トップページ
   { loc: `${BASE_URL}/`, priority: "1.0", changefreq: "monthly" },
 ];
 
+// 47都道府県ページ（priority高め・canonical 正規版として機能）
+for (const slug of ALL_PREF_SLUGS) {
+  urls.push({ loc: `${BASE_URL}/${slug}/`, priority: "0.9", changefreq: "monthly" });
+}
+
+// 市区町村：income.html を正規版として優先（index.html は canonical で income.html を指定済み）
 for (const m of registry.municipalities) {
   const prefSlug = m.prefectureSlug ?? PREF_SLUG[m.prefecture];
   if (!prefSlug) continue;
   const base = `${BASE_URL}/${prefSlug}/${m.citySlug}/`;
-  urls.push({ loc: base,                  priority: "0.8", changefreq: "yearly" });
-  urls.push({ loc: `${base}income.html`,  priority: "0.7", changefreq: "yearly" });
+  urls.push({ loc: `${base}income.html`,  priority: "0.8", changefreq: "yearly" });
+  urls.push({ loc: base,                  priority: "0.5", changefreq: "yearly" });
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
