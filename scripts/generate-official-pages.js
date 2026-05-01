@@ -124,68 +124,39 @@ function fmtFY(fy) {
   return `令和${fy - 2018}年度（${fy}年度）`;
 }
 
-// 信頼性バッジ HTML を返す
+// 結果直下の免責＋確認済みバッジ（コンパクト版）
 function buildTrustBadge(data) {
   const currentFY = getFiscalYear();
 
   if (!data) {
     return `
-  <div class="trust-badge-block">
-    <span class="trust-badge trust-badge--inferred">
-      <span class="trust-badge__icon">ⓘ</span>参考計算（公式料率データ未収録）
-    </span>
-    <p class="trust-badge__note">標準的な計算方式を使用しています。実際の保険料は各自治体の窓口でご確認ください。</p>
-  </div>`;
+  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
   }
 
   const dataFY = data.fiscalYear ?? 2025;
 
   if (dataFY >= currentFY) {
     return `
-  <div class="trust-badge-block">
-    <span class="trust-badge trust-badge--verified">
-      <span class="trust-badge__icon">✓</span>${fmtFY(dataFY)}公式データ確認済み
-    </span>
-    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
-  </div>`;
+  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(dataFY)}公式データ確認済み</span></p>`;
   }
 
   return `
-  <div class="trust-badge-block">
-    <span class="trust-badge trust-badge--needs-update">
-      <span class="trust-badge__icon">⚠</span>${fmtFY(dataFY)}データ使用中・${fmtFY(currentFY)}反映準備中
-    </span>
-    <p class="trust-badge__note">実際の保険料は各自治体の窓口でご確認ください。</p>
-  </div>`;
+  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(dataFY)}データ使用中</span></p>`;
 }
 
-// 都道府県の住民税情報ブロック（全県表示）
+// 都道府県の住民税補足（※と同列の小テキスト）
 function buildPrefectureDesc(prefSlug, prefName, cityName) {
   const info = PREFECTURE_INFO[prefSlug];
   if (!info) return '';
 
-  const intro = `${cityName}は${prefName}の住民税が適用されています。`;
-
-  // 超過課税なし → 短いテキストのみ、リンクなし
-  if (!info.surcharge) {
-    return `
-  <div class="pref-desc-block">
-    <div class="pref-desc-block__title">${prefName}の住民税について</div>
-    <p class="pref-desc-block__text">${intro}<br>${info.description.full}</p>
-  </div>`;
-  }
-
-  // 超過課税あり → 説明文 + 公式リンク
+  const body = `${cityName}は${prefName}の住民税が適用されています。${info.description.full}`;
   const sourceUrl = info.sourceUrl ?? null;
-  const linkHtml  = sourceUrl
-    ? `\n    <a class="pref-desc-block__link" href="${sourceUrl}" target="_blank" rel="noopener">${prefName}の住民税について（公式サイト）↗</a>`
+  const linkHtml  = sourceUrl && info.surcharge
+    ? ` <a class="note-pref__link" href="${sourceUrl}" target="_blank" rel="noopener">${prefName}の住民税（公式）↗</a>`
     : '';
 
   return `
-  <div class="pref-desc-block">
-    <div class="pref-desc-block__title">${prefName}の住民税について</div>
-    <p class="pref-desc-block__text">${intro}<br>${info.description.full}</p>${linkHtml}
-  </div>`;
+  <p class="note-pref"><span class="note-pref__label">${prefName}の住民税：</span>${body}${linkHtml}</p>`;
 }
 
 function buildMetaDesc(cityName, prefecture, data, isIncome) {

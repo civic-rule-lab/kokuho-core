@@ -331,106 +331,56 @@ button:active{
   color:#6b7280;
 }
 
-/* ─── trust-badge ───────────────────────────────────────────────
-   データの信頼性を示すバッジコンポーネント。
-   状態: verified（緑）/ needs_update（オレンジ）/ inferred（グレー）
+/* ─── result-note ───────────────────────────────────────────────
+   計算結果直下の免責 + 確認済みバッジ（1行コンパクト）
 ──────────────────────────────────────────────────────────────── */
-.trust-badge-block{
-  margin-top:12px;
-}
-
-.trust-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  padding:5px 11px;
-  border-radius:14px;
-  font-size:13px;
-  font-weight:500;
-  border:1px solid transparent;
-  line-height:1.4;
-}
-
-.trust-badge__icon{
-  font-size:14px;
-  font-weight:700;
-  flex-shrink:0;
-}
-
-.trust-badge__note{
-  margin:7px 0 0;
+.result-note{
+  margin:10px 0 0;
   font-size:12px;
   color:#6b7280;
   line-height:1.6;
 }
-
-/* verified: 緑 */
-.trust-badge--verified{
-  background:#f0fdf4;
-  color:#166534;
-  border-color:#bbf7d0;
-}
-.trust-badge--verified .trust-badge__icon{ color:#16a34a; }
-
-/* inferred: グレー */
-.trust-badge--inferred{
-  background:#f9fafb;
-  color:#4b5563;
-  border-color:#e5e7eb;
-}
-.trust-badge--inferred .trust-badge__icon{ color:#6b7280; }
-
-/* needs_update: オレンジ */
-.trust-badge--needs-update{
-  background:#fff7ed;
-  color:#9a3412;
-  border-color:#fed7aa;
-}
-.trust-badge--needs-update .trust-badge__icon{ color:#ea580c; }
-
-@media(max-width:480px){
-  .trust-badge{ font-size:12px; padding:4px 9px; }
-}
-
-/* ─── prefecture-desc ───────────────────────────────────────────
-   都道府県の住民税超過課税情報ブロック（超過課税あり県のみ表示）
-──────────────────────────────────────────────────────────────── */
-.pref-desc-block{
-  margin-top:16px;
-  padding:14px 16px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-left:3px solid #64748b;
+.result-note__badge{
+  margin-left:8px;
+  font-size:11px;
+  font-weight:600;
+  padding:1px 6px;
   border-radius:8px;
-  font-size:13px;
+}
+.result-note__badge--verified{
+  color:#166534;
+  background:#f0fdf4;
+  border:1px solid #bbf7d0;
+}
+.result-note__badge--old{
+  color:#9a3412;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+}
+.result-note__badge--inferred{
+  color:#4b5563;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+}
+
+/* ─── note-pref ─────────────────────────────────────────────────
+   都道府県の住民税補足（※と同列・小テキスト）
+──────────────────────────────────────────────────────────────── */
+.note-pref{
+  margin:8px 0 0;
+  font-size:12px;
+  color:#6b7280;
   line-height:1.7;
-  color:#374151;
 }
-
-.pref-desc-block__title{
-  font-size:12px;
+.note-pref__label{
   font-weight:700;
-  color:#64748b;
-  letter-spacing:0.05em;
-  margin-bottom:6px;
+  color:#4b5563;
 }
-
-.pref-desc-block__text{
-  margin:0;
-}
-
-.pref-desc-block__link{
-  display:inline-block;
-  margin-top:8px;
-  font-size:12px;
+.note-pref__link{
   color:#2563eb;
   text-decoration:none;
 }
-.pref-desc-block__link:hover{ text-decoration:underline; }
-
-@media(max-width:480px){
-  .pref-desc-block{ font-size:12px; padding:12px 13px; }
-}
+.note-pref__link:hover{ text-decoration:underline; }
 
 /* ─── over75-note ───────────────────────────────────────────────
    75歳以上の補足注記（※の下に小さく表示）
