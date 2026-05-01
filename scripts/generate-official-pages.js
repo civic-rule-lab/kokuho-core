@@ -156,7 +156,7 @@ function buildPrefectureDesc(prefSlug, prefName, cityName) {
     : '';
 
   return `
-  <p class="note-pref"><span class="note-pref__label">${prefName}の住民税：</span>${body}${linkHtml}</p>`;
+  <p class="note-pref"><span class="note-pref__label">${prefName}の住民税：</span><br>${body}${linkHtml}</p>`;
 }
 
 function buildMetaDesc(cityName, prefecture, data, isIncome) {
