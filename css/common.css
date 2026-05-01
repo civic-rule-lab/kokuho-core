@@ -341,11 +341,12 @@ button:active{
   line-height:1.6;
 }
 .result-note__badge{
-  margin-left:8px;
-  font-size:11px;
+  margin-left:6px;
+  font-size:10px;
   font-weight:600;
-  padding:1px 6px;
+  padding:1px 5px;
   border-radius:8px;
+  white-space:nowrap;
 }
 .result-note__badge--verified{
   color:#166534;
@@ -367,10 +368,10 @@ button:active{
    都道府県の住民税補足（※と同列・小テキスト）
 ──────────────────────────────────────────────────────────────── */
 .note-pref{
-  margin:8px 0 0;
-  font-size:12px;
+  margin:6px 0 0;
+  font-size:13px;
   color:#6b7280;
-  line-height:1.7;
+  line-height:1.8;
 }
 .note-pref__label{
   font-weight:700;

@@ -85,11 +85,13 @@ if [ "$DRY_RUN" = false ]; then
   rsync -a --delete "$CORE_DIR/data/municipalities/" "$PUBLIC_DIR/data/municipalities/"
 
   # 静的ファイル
-  cp "$CORE_DIR/index.html"     "$PUBLIC_DIR/"
-  cp "$CORE_DIR/js/selector.js" "$PUBLIC_DIR/js/"
-  cp "$CORE_DIR/js/engine.js"   "$PUBLIC_DIR/js/"
-  cp "$CORE_DIR/sitemap.xml"    "$PUBLIC_DIR/"
-  cp "$CORE_DIR/robots.txt"     "$PUBLIC_DIR/"
+  cp "$CORE_DIR/index.html"          "$PUBLIC_DIR/"
+  cp "$CORE_DIR/js/selector.js"      "$PUBLIC_DIR/js/"
+  cp "$CORE_DIR/js/engine.js"        "$PUBLIC_DIR/js/"
+  cp "$CORE_DIR/js/core/kokuho.js"   "$PUBLIC_DIR/js/core/"
+  cp "$CORE_DIR/css/common.css"      "$PUBLIC_DIR/css/"
+  cp "$CORE_DIR/sitemap.xml"         "$PUBLIC_DIR/"
+  cp "$CORE_DIR/robots.txt"          "$PUBLIC_DIR/"
 
   echo "✅ 同期完了"
 else
