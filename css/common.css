@@ -49,6 +49,14 @@ h1{
   text-align:center;
 }
 
+.h1-year{
+  display:block;
+  font-size:0.75em;
+  font-weight:500;
+  color:#6b7280;
+  margin-top:2px;
+}
+
 .subtitle{
   font-size:14px;
   color:#6b7280;
@@ -424,54 +432,14 @@ button:active{
   .pref-desc-block{ font-size:12px; padding:12px 13px; }
 }
 
-/* ─── age-notice ────────────────────────────────────────────────
-   75歳以上・後期高齢者医療制度の注意書き
+/* ─── over75-note ───────────────────────────────────────────────
+   75歳以上の補足注記（※の下に小さく表示）
 ──────────────────────────────────────────────────────────────── */
-.age-notice{
-  margin:8px 0 16px;
-  padding:10px 14px;
-  background:#fffbeb;
-  border:1px solid #fcd34d;
-  border-left:3px solid #f59e0b;
-  border-radius:6px;
-  font-size:13px;
-  line-height:1.7;
-  color:#78350f;
+.over75-note{
+  margin:8px 0 0;
+  font-size:12px;
+  color:#6b7280;
+  line-height:1.6;
 }
-.age-notice strong{ font-weight:700; }
-
-/* ─── over75 入力欄・警告ブロック ─────────────────────────────────── */
-.over75-label{
-  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-}
-.over75-label__badge{
-  font-size:11px;font-weight:600;
-  padding:2px 7px;border-radius:10px;
-  background:#fee2e2;color:#dc2626;
-}
-.over75-hint{
-  margin:4px 0 16px;font-size:12px;color:#6b7280;line-height:1.6;
-}
-
-.critical-warning{
-  display:none;
-  margin:0 0 20px;padding:18px 20px;
-  background:#fef2f2;border:2px solid #dc2626;border-radius:8px;
-  color:#7f1d1d;
-}
-.critical-warning.is-visible{ display:block; }
-.critical-warning__title{
-  margin:0 0 10px;font-size:17px;font-weight:700;color:#dc2626;
-}
-.critical-warning p{ margin:6px 0;font-size:14px;line-height:1.7; }
-.critical-warning details{ margin-top:14px; }
-.critical-warning summary{
-  cursor:pointer;font-weight:600;font-size:14px;padding:6px 0;
-  list-style:none;color:#1d4ed8;
-}
-.critical-warning summary::-webkit-details-marker{ display:none; }
-.critical-warning a{ color:#1d4ed8; }
-@media(max-width:480px){
-  .critical-warning{ padding:14px; }
-  .critical-warning__title{ font-size:15px; }
-}
+.over75-note a{ color:#2563eb; text-decoration:none; }
+.over75-note a:hover{ text-decoration:underline; }
