@@ -127,21 +127,22 @@ function fmtFY(fy) {
 // 結果直下の免責＋確認済みバッジ（コンパクト版）
 function buildTrustBadge(data) {
   const currentFY = getFiscalYear();
+  const disclaimer = `<span class="result-note__text">実際の保険料は各自治体の窓口でご確認ください。</span>`;
 
   if (!data) {
     return `
-  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
   }
 
   const dataFY = data.fiscalYear ?? 2025;
 
   if (dataFY >= currentFY) {
     return `
-  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(dataFY)}公式データ確認済み</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(dataFY)}公式データ確認済み</span></p>`;
   }
 
   return `
-  <p class="result-note">実際の保険料は各自治体の窓口でご確認ください。<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(dataFY)}データ使用中</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(dataFY)}データ使用中</span></p>`;
 }
 
 // 都道府県の住民税補足（※と同列の小テキスト）
