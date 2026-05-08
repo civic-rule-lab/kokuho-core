@@ -21,3 +21,9 @@ dashboard/*.log
 CLAUDE.md
 .claude/
 .cursorrules
+
+# 内部メモ系（コミット禁止）
+docs/claude-code-handoff-*.md
+docs/weekly-review-*.md
+docs/handoff-*.md
+docs/internal-*.md
