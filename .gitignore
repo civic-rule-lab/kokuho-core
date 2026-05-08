@@ -16,3 +16,8 @@ node_modules/
 
 # Dashboard logs
 dashboard/*.log
+
+# 内部用 AI プロジェクトメモ（絶対に commit しない）
+CLAUDE.md
+.claude/
+.cursorrules
