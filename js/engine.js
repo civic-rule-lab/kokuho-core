@@ -44,8 +44,8 @@ const _kokuhoDataCache = new Map();
 async function loadKokuhoData(city) {
   if (_kokuhoDataCache.has(city)) return _kokuhoDataCache.get(city);
   const promise = (async () => {
-    let res = await fetch(`/data/municipalities/${city}/kokuho-2026.json`, { cache: "no-store" });
-    if (!res.ok) res = await fetch(`/data/municipalities/${city}/kokuho-2025.json`, { cache: "no-store" });
+    const year = window.PUBLISH_YEAR || 2025;
+    const res = await fetch(`/data/municipalities/${city}/kokuho-${year}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error("JSON読み込み失敗");
     return await res.json();
   })();
@@ -189,10 +189,14 @@ if (typeof window !== 'undefined') {
     initOver75Link();
   })();
 
-  // ページ読み込み時に資産割入力欄を表示制御
+  // ページ読み込み時に任意入力欄を表示制御
   (async function() {
     try {
       const data = await loadKokuhoData(getCurrentCity());
+      if (data.childcareLevy && (data.childcareLevy.under18Reduction || data.childcareLevy.perCapitaAdult !== undefined)) {
+        const g = document.getElementById("under18Group");
+        if (g) g.style.display = "";
+      }
       if (data.assetLevy) {
         const group = document.getElementById("assetLevyGroup");
         if (group) group.style.display = "";

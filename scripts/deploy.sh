@@ -59,17 +59,41 @@ if [ "$SYNC_ONLY" = false ] && [ "$DRY_RUN" = false ]; then
 
   echo "▶ generate-official-pages.js"
   node "$CORE_DIR/scripts/generate-official-pages.js"
+
+  echo "▶ generate-articles.js"
+  node "$CORE_DIR/scripts/generate-articles.js"
+fi
+
+# ── 1.5 テンプレートスタンプ検証 ─────────────────────────────────
+STAMP_FILE="$CORE_DIR/.build-stamp"
+if [ -f "$STAMP_FILE" ]; then
+  STAMP_HASH=$(cat "$STAMP_FILE")
+  CURRENT_HASH=$(cat \
+    "$CORE_DIR/templates/kokuho-simple.html" \
+    "$CORE_DIR/templates/kokuho-income.html" \
+    "$CORE_DIR/templates/prefecture-page.html" \
+    | shasum -a 256 | awk '{print $1}' | cut -c1-8)
+  if [ "$STAMP_HASH" != "$CURRENT_HASH" ]; then
+    echo ""
+    echo "❌ テンプレートが変更されていますが再生成されていません。"
+    echo "   先に node scripts/generate-official-pages.js を実行してください。"
+    exit 1
+  fi
+  echo "✅ テンプレートスタンプ一致"
+else
+  if [ "$SYNC_ONLY" = true ]; then
+    echo "⚠️  .build-stamp が見つかりません。先に node scripts/generate-official-pages.js を実行してください。"
+    exit 1
+  fi
 fi
 
 # ── 2. 公開リポジトリへ同期 ──────────────────────────────────────
 echo ""
 echo "▶ 公開リポジトリへ同期中..."
 
-PREFS="hokkaido aomori iwate miyagi akita yamagata fukushima ibaraki tochigi gunma \
-       saitama chiba tokyo kanagawa niigata toyama ishikawa fukui yamanashi nagano \
-       gifu shizuoka aichi mie shiga kyoto osaka hyogo nara wakayama tottori shimane \
-       okayama hiroshima yamaguchi tokushima kagawa ehime kochi fukuoka saga nagasaki \
-       kumamoto oita miyazaki kagoshima okinawa"
+# 都道府県ディレクトリを動的に検出（income.htmlが生成済みのもの）
+PREFS=$(find "$CORE_DIR" -mindepth 3 -maxdepth 3 -name "income.html" \
+  | awk -F/ '{print $(NF-2)}' | sort -u | tr '\n' ' ')
 
 if [ "$DRY_RUN" = false ]; then
   # 都道府県HTMLを rsync で同期（削除リスクを最小化）
@@ -90,8 +114,18 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/engine.js"        "$PUBLIC_DIR/js/"
   cp "$CORE_DIR/js/core/kokuho.js"   "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/css/common.css"      "$PUBLIC_DIR/css/"
+  cp "$CORE_DIR/css/article.css"     "$PUBLIC_DIR/css/"
   cp "$CORE_DIR/sitemap.xml"         "$PUBLIC_DIR/"
   cp "$CORE_DIR/robots.txt"          "$PUBLIC_DIR/"
+
+  # 記事ページ（/chigasaki/, /keigen/ 等）
+  for art_dir in "$CORE_DIR"/chigasaki "$CORE_DIR"/keigen; do
+    if [ -d "$art_dir" ]; then
+      slug=$(basename "$art_dir")
+      mkdir -p "$PUBLIC_DIR/$slug"
+      rsync -a --delete "$art_dir/" "$PUBLIC_DIR/$slug/"
+    fi
+  done
 
   echo "✅ 同期完了"
 else
@@ -99,15 +133,23 @@ else
 fi
 
 # ── 3. 件数検証 ──────────────────────────────────────────────────
-CORE_JSON=$(find "$CORE_DIR/data/municipalities" -name "kokuho-2025.json" | wc -l | tr -d ' ')
-PUBLIC_JSON=$(find "$PUBLIC_DIR/data/municipalities" -name "kokuho-2025.json" | wc -l | tr -d ' ')
-CORE_HTML=$(find "$CORE_DIR" -name "index.html" -not -path "*/\.*" -not -path "*/dashboard/*" | grep -v "^$CORE_DIR/index.html" | wc -l | tr -d ' ')
-PUBLIC_HTML=$(find "$PUBLIC_DIR" -name "index.html" -not -path "*/\.*" | grep -v "^$PUBLIC_DIR/index.html" | wc -l | tr -d ' ')
+# 自治体ディレクトリ数（R7・R8 両年度を対象）
+CORE_MUNI=$(find "$CORE_DIR/data/municipalities" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+PUBLIC_MUNI=$(find "$PUBLIC_DIR/data/municipalities" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+# JSONファイル総数（R7+R8）
+CORE_JSON=$(find "$CORE_DIR/data/municipalities" -name "kokuho-*.json" | wc -l | tr -d ' ')
+PUBLIC_JSON=$(find "$PUBLIC_DIR/data/municipalities" -name "kokuho-*.json" | wc -l | tr -d ' ')
+# HTMLファイル総数（index.html + income.html）
+CORE_HTML=$(find "$CORE_DIR" \( -name "index.html" -o -name "income.html" \) \
+  -not -path "*/\.*" -not -path "*/dashboard/*" | grep -v "^$CORE_DIR/index.html" | wc -l | tr -d ' ')
+PUBLIC_HTML=$(find "$PUBLIC_DIR" \( -name "index.html" -o -name "income.html" \) \
+  -not -path "*/\.*" | grep -v "^$PUBLIC_DIR/index.html" | wc -l | tr -d ' ')
 
 echo ""
 echo "▶ 件数検証:"
-echo "  JSON  core=$CORE_JSON  public=$PUBLIC_JSON  $([ "$CORE_JSON" = "$PUBLIC_JSON" ] && echo '✅ 一致' || echo '⚠️  不一致')"
-echo "  HTML  core=$CORE_HTML  public=$PUBLIC_HTML  $([ "$CORE_HTML" = "$PUBLIC_HTML" ] && echo '✅ 一致' || echo '⚠️  不一致')"
+echo "  自治体  core=$CORE_MUNI  public=$PUBLIC_MUNI  $([ "$CORE_MUNI" = "$PUBLIC_MUNI" ] && echo '✅ 一致' || echo '⚠️  不一致')"
+echo "  JSON    core=$CORE_JSON  public=$PUBLIC_JSON  $([ "$CORE_JSON" = "$PUBLIC_JSON" ] && echo '✅ 一致' || echo '⚠️  不一致')"
+echo "  HTML    core=$CORE_HTML  public=$PUBLIC_HTML  $([ "$CORE_HTML" = "$PUBLIC_HTML" ] && echo '✅ 一致' || echo '⚠️  不一致')"
 
 if [ "$DRY_RUN" = true ]; then
   echo ""

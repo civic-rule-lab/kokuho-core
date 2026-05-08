@@ -6,45 +6,53 @@ function calculateKokuho(data, inputs) {
   const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
           reductionJudgmentIncome } = inputs;
 
+  // ① income=undefined 対策：未指定時は 0 として扱う
+  const incomeSafe      = income      || 0;
+  const familySafe      = Math.max(family || 0, 0);
+  // ③ preschool / care が family を超えた場合は family に clamp
+  const preschoolSafe   = Math.min(Math.max(preschool || 0, 0), familySafe);
+  const careSafe        = Math.min(Math.max(care      || 0, 0), familySafe);
+
   // 軽減判定に使う所得。擬制世帯主がいる場合は household.js 側が
   // (加入者所得 + 世帯主所得) を計算してここに渡す。未指定時は income にフォールバック。
-  const reductionBase = reductionJudgmentIncome ?? income;
+  const reductionBase = reductionJudgmentIncome ?? incomeSafe;
 
   // 資産割
   const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
   const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
   const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
 
-  const baseIncome = Math.max(income - data.basicDeduction, 0);
+  const baseIncome = Math.max(incomeSafe - data.basicDeduction, 0);
 
   // 所得割
   const medicalIncome = Math.round(baseIncome * data.rate.medical);
   const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = care > 0 ? Math.round(baseIncome * data.rate.care) : 0;
+  const careIncome    = careSafe > 0 ? Math.round(baseIncome * data.rate.care) : 0;
 
   // 均等割
-  const medicalPerCapita = family * data.perCapita.medical;
-  const supportPerCapita = family * data.perCapita.support;
-  const carePerCapita    = care  * data.perCapita.care;
+  const medicalPerCapita = familySafe * data.perCapita.medical;
+  const supportPerCapita = familySafe * data.perCapita.support;
+  const carePerCapita    = careSafe   * data.perCapita.care;
 
   // 平等割
   const medicalHousehold = data.household?.medical || 0;
   const supportHousehold = data.household?.support || 0;
-  const careHousehold    = care > 0 ? (data.household?.care || 0) : 0;
+  const careHousehold    = careSafe > 0 ? (data.household?.care || 0) : 0;
 
   // 未就学児軽減
   const preschoolReductionMedical = Math.round(
-    preschool * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
+    preschoolSafe * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
   );
   const preschoolReductionSupport = Math.round(
-    preschool * data.perCapita.support * (data.preschoolReduction?.supportPerCapitaRate || 0)
+    preschoolSafe * data.perCapita.support * (data.preschoolReduction?.supportPerCapitaRate || 0)
   );
   const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
 
   // 軽減判定
-  const B = Math.max(salaryPensionCount, 1);
+  // ② salaryPensionCount > family 対策：family を上限として clamp
+  const B = Math.max(Math.min(salaryPensionCount || 0, familySafe || 1), 1);
   const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
-  const extraForIncomeEarners = salaryPensionAdd * (B - 1);
+  const extraForIncomeEarners = salaryPensionAdd * Math.max(0, B - 1);
 
   const sevenTenthsLimit =
     (data.reduction?.standards?.sevenTenths?.base || 0) +
@@ -81,8 +89,37 @@ function calculateKokuho(data, inputs) {
   const childcarePerCapita  = childcareCfg?.perCapita || 0;
   const childcareHousehold  = childcareCfg?.household || 0;
   const childcareIncome     = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
-  const under18Count        = (childcareCfg?.under18Reduction && childcareRate > 0) ? Math.min(under18 || 0, family) : 0;
-  const childcarePerCapitaTotal = (family - under18Count) * childcarePerCapita;
+
+  // 均等割の計算
+  // 新方式: perCapitaAdult が定義されている場合 → 18歳未満は perCapita、18歳以上は perCapitaAdult
+  // 旧方式: under18Reduction=true の場合 → 18歳未満は0、18歳以上は perCapita
+  // 均等割の計算
+  // 新方式(perCapitaAdult あり):
+  //   18歳以上 → perCapita + perCapitaAdult（例: 京都市 1,110 + 60 = 1,170円）
+  //   18歳未満 → 0（under18Reductionで全額減額）
+  // 旧方式(perCapitaAdult なし、under18Reduction: true):
+  //   18歳以上 → perCapita のみ（例: 練馬区 1,873円）
+  //   18歳未満 → 0
+  const u18    = Math.min(under18 || 0, familySafe);
+  const adults = familySafe - u18;
+  let childcarePerCapitaTotal;
+  if (childcareCfg?.perCapitaAdult !== undefined) {
+    // perCapitaAdultScope で均等割の計算方式を切り替える（電話確認後にフラグを確定）
+    //   "all_ages"    : 全員に perCapita 適用＋大人に perCapitaAdult 加算（大人 = perCapita+perCapitaAdult）
+    //   "adults_only" : 大人のみ perCapitaAdult、perCapita は 18歳未満向け名目額（全額減額で実質0）
+    const scope = childcareCfg.perCapitaAdultScope;
+    if (scope === undefined) {
+      throw new Error(`[kokuho] ${data.citySlug}: perCapitaAdult が定義されていますが perCapitaAdultScope がありません。"all_ages" または "adults_only" を設定してください。`);
+    }
+    if (scope === 'adults_only') {
+      childcarePerCapitaTotal = adults * (childcareCfg.perCapitaAdult || 0);
+    } else {
+      childcarePerCapitaTotal = adults * (childcarePerCapita + (childcareCfg.perCapitaAdult || 0));
+    }
+  } else {
+    const under18Excluded = (childcareCfg?.under18Reduction && childcareRate > 0) ? u18 : 0;
+    childcarePerCapitaTotal = (family - under18Excluded) * childcarePerCapita;
+  }
   const childcareHouseholdTotal = childcareRate > 0 ? childcareHousehold : 0;
 
   // 軽減額（均等割＋平等割に適用）

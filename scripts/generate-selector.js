@@ -168,7 +168,16 @@ ${muniOptions}
 
 <div class="note">
   ※全国${registry.municipalities.length}自治体の国民健康保険に対応しています。<br>
-  ※料率は令和8年度の公式値を使用しています。<br>
+  ※${(() => {
+    const counts = { 2025: 0, 2026: 0 };
+    for (const m of registry.municipalities) {
+      const y = m.publishYear?.kokuho ?? 2025;
+      counts[y] = (counts[y] || 0) + 1;
+    }
+    if (counts[2025] === 0) return "料率は令和8年度の公式値を使用しています。";
+    if (counts[2026] === 0) return "料率は令和7年度の公式値を使用しています。令和8年度データは順次更新中です。";
+    return `令和8年度公式データ確定済み: ${counts[2026]}自治体 / 令和7年度継続中: ${counts[2025]}自治体（順次更新）`;
+  })()}<br>
   ※実際の保険料は各自治体の通知でご確認ください。
 </div>
 

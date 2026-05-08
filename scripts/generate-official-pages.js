@@ -22,6 +22,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
@@ -34,6 +35,17 @@ const BASE_URL  = "https://kokuho-keisan.jp";
 
 const _require = createRequire(import.meta.url);
 const { PREFECTURE_INFO } = _require("../js/core/prefecture-info.js");
+
+function fileHash(...filePaths) {
+  const h = createHash("sha256");
+  for (const p of filePaths) h.update(readFileSync(p));
+  return h.digest("hex").slice(0, 8);
+}
+const CSS_V = fileHash(path.join(ROOT, "css", "common.css"));
+const JS_V  = fileHash(
+  path.join(ROOT, "js", "core", "kokuho.js"),
+  path.join(ROOT, "js", "engine.js")
+);
 
 // 都道府県名 → スラグ
 const PREF_SLUG = {
@@ -90,6 +102,11 @@ const PREF_SLUG = {
 // SEO ヘルパー
 // ─────────────────────────────────────────────────────────────────
 
+function buildFiscalYearLabel(publishYear) {
+  const reiwa = publishYear - 2018;  // 2025→令和7, 2026→令和8
+  return `令和${reiwa}年度`;
+}
+
 function fmtRate(r) {
   return (r * 100).toFixed(2).replace(/\.?0+$/, "") + "%";
 }
@@ -102,13 +119,10 @@ function fmtMan(n) {
   return Math.round(n / 10000) + "万円";
 }
 
-function loadCityData(citySlug) {
-  // R8（2026）優先、なければ R7（2025）フォールバック
-  for (const yr of [2026, 2025]) {
-    const p = path.join(ROOT, "data", "municipalities", citySlug, `kokuho-${yr}.json`);
-    if (existsSync(p)) {
-      try { return JSON.parse(readFileSync(p, "utf-8")); } catch { /* skip */ }
-    }
+function loadCityData(citySlug, publishYear = 2025) {
+  const p = path.join(ROOT, "data", "municipalities", citySlug, `kokuho-${publishYear}.json`);
+  if (existsSync(p)) {
+    try { return JSON.parse(readFileSync(p, "utf-8")); } catch (e) { console.warn(`⚠️  JSON parse error: ${p}\n   ${e.message}`); }
   }
   return null;
 }
@@ -125,7 +139,7 @@ function fmtFY(fy) {
 }
 
 // 結果直下の免責＋確認済みバッジ（コンパクト版）
-function buildTrustBadge(data) {
+function buildTrustBadge(data, publishYear) {
   const currentFY = getFiscalYear();
   const disclaimer = `<span class="result-note__text">実際の保険料は各自治体の窓口でご確認ください。</span>`;
 
@@ -134,15 +148,13 @@ function buildTrustBadge(data) {
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
   }
 
-  const dataFY = data.fiscalYear ?? 2025;
-
-  if (dataFY >= currentFY) {
+  if (publishYear >= currentFY) {
     return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(dataFY)}公式データ確認済み</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(publishYear)}公式データ確認済み</span></p>`;
   }
 
   return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(dataFY)}データ使用中</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(publishYear)}データ使用中 / 令和8年度は順次更新中</span></p>`;
 }
 
 // 都道府県の住民税補足（※と同列の小テキスト）
@@ -160,24 +172,24 @@ function buildPrefectureDesc(prefSlug, prefName, cityName) {
   <p class="note-pref"><span class="note-pref__label">${prefName}の住民税：</span><br>${body}${linkHtml}</p>`;
 }
 
-function buildMetaDesc(cityName, prefecture, data, isIncome) {
+function buildMetaDesc(cityName, prefecture, data, isIncome, publishYear) {
+  const fy = buildFiscalYearLabel(publishYear);
   if (!data) {
     return isIncome
-      ? `${cityName}（${prefecture}）の令和7年度 国民健康保険料を詳しく計算。未就学児・介護保険・給与年金も考慮した精密シミュレーション。`
-      : `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料で計算。世帯人数と所得を入力するだけで年間保険料の目安がわかります。`;
+      ? `${cityName}（${prefecture}）の${fy} 国民健康保険料を詳しく計算。未就学児・介護保険・給与年金も考慮した精密シミュレーション。`
+      : `${cityName}（${prefecture}）の${fy} 国民健康保険料を無料で計算。世帯人数と所得を入力するだけで年間保険料の目安がわかります。`;
   }
   const r = data.rate?.medical ?? 0;
   const p = data.perCapita?.medical ?? 0;
   if (isIncome) {
-    return `${cityName}（${prefecture}）の令和7年度 国保料を詳しく計算。医療分所得割${fmtRate(r)}・均等割${fmtYen(p)}。未就学児・介護保険・給与年金も考慮した精密シミュレーション。`;
+    return `${cityName}（${prefecture}）の${fy} 国保料を詳しく計算。医療分所得割${fmtRate(r)}・均等割${fmtYen(p)}。未就学児・介護保険・給与年金も考慮した精密シミュレーション。`;
   }
-  return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料で計算。医療分所得割${fmtRate(r)}・均等割${fmtYen(p)}。所得と世帯人数を入力するだけで年間保険料の目安がわかります。`;
+  return `${cityName}（${prefecture}）の${fy} 国民健康保険料を無料で計算。医療分所得割${fmtRate(r)}・均等割${fmtYen(p)}。所得と世帯人数を入力するだけで年間保険料の目安がわかります。`;
 }
 
 function buildCanonicalUrl(prefSlug, citySlug, isIncome) {
   const base = `${BASE_URL}/${prefSlug}/${citySlug}/`;
-  // index.html の canonical は income.html を正規版として指定（重複コンテンツ対策）
-  return `${base}income.html`;
+  return isIncome ? `${base}income.html` : base;
 }
 
 function buildSelfUrl(prefSlug, citySlug, isIncome) {
@@ -185,8 +197,9 @@ function buildSelfUrl(prefSlug, citySlug, isIncome) {
   return isIncome ? `${base}income.html` : base;
 }
 
-function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome) {
+function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome, publishYear) {
   const pageUrl = buildSelfUrl(prefSlug, citySlug, isIncome);
+  const fy = buildFiscalYearLabel(publishYear);
   const breadcrumb = {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -197,7 +210,7 @@ function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome) {
   };
   const app = {
     "@type": "WebApplication",
-    "name": `${cityName} 国民健康保険料計算ツール（令和7年度）`,
+    "name": `${cityName} 国民健康保険料計算ツール（${fy}）`,
     "description": desc,
     "url": pageUrl,
     "applicationCategory": "FinanceApplication",
@@ -208,24 +221,25 @@ function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
 }
 
-function buildIntroText(cityName, prefecture, data, isIncome) {
+function buildIntroText(cityName, prefecture, data, isIncome, publishYear) {
+  const fy = buildFiscalYearLabel(publishYear);
   if (isIncome) {
     if (!data) {
-      return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を詳しく計算できます。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
+      return `${cityName}（${prefecture}）の${fy} 国民健康保険料を詳しく計算できます。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
     }
     const r = data.rate?.medical ?? 0;
     const p = data.perCapita?.medical ?? 0;
-    return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を詳しく計算できます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
+    return `${cityName}（${prefecture}）の${fy} 国民健康保険料を詳しく計算できます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。未就学児・介護保険対象者・給与年金所得者の人数も入力して、より正確な保険料を試算します。`;
   }
   if (!data) {
-    return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料でシミュレーションできます。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
+    return `${cityName}（${prefecture}）の${fy} 国民健康保険料を無料でシミュレーションできます。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
   }
   const r = data.rate?.medical ?? 0;
   const p = data.perCapita?.medical ?? 0;
-  return `${cityName}（${prefecture}）の令和7年度 国民健康保険料を無料でシミュレーションできます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
+  return `${cityName}（${prefecture}）の${fy} 国民健康保険料を無料でシミュレーションできます。医療分の所得割率は${fmtRate(r)}、均等割額は${fmtYen(p)}です。前年所得と世帯人数を入力するだけで年間保険料の目安を計算します。`;
 }
 
-function buildRateTable(cityName, data) {
+function buildRateTable(cityName, data, publishYear) {
   if (!data) return "";
 
   const rate = data.rate       ?? {};
@@ -234,13 +248,24 @@ function buildRateTable(cityName, data) {
   const caps = data.caps       ?? {};
   const asset = data.assetLevy ?? null;
 
-  const hasHousehold = (hh.medical || 0) + (hh.support || 0) + (hh.care || 0) > 0;
+  const childcare   = data.childcareLevy ?? null;
+  const hasHousehold = (hh.medical || 0) + (hh.support || 0) + (hh.care || 0) + (childcare?.household || 0) > 0;
   const hasAsset     = asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0)) > 0;
+
+  // 子ども・子育て支援金分の均等割表示（18歳未満と18歳以上で異なる場合）
+  const childcarePcLabel = childcare
+    ? (childcare.perCapitaAdult !== undefined
+        ? (childcare.perCapitaAdultScope === 'adults_only'
+            ? `${fmtYen(childcare.perCapita)}（18歳未満・全額減額）/ 18歳以上 ${fmtYen(childcare.perCapitaAdult)}`
+            : `${fmtYen(childcare.perCapita)}（18歳以上 +${fmtYen(childcare.perCapitaAdult)}）`)
+        : fmtYen(childcare.perCapita))
+    : null;
 
   const rows = [
     { label: "医療分",          r: rate.medical,  p: pc.medical,  h: hh.medical,  c: caps.medical,  a: asset?.medical },
     { label: "後期高齢者支援金分", r: rate.support, p: pc.support,  h: hh.support,  c: caps.support,  a: asset?.support },
     { label: "介護分（40〜64歳）", r: rate.care,   p: pc.care,     h: hh.care,     c: caps.care,     a: asset?.care },
+    ...(childcare ? [{ label: "子ども・子育て支援金分", r: childcare.rate, pLabel: childcarePcLabel, h: childcare.household, c: childcare.cap ?? 30000 }] : []),
   ];
 
   const thStyle = "padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;";
@@ -255,7 +280,7 @@ function buildRateTable(cityName, data) {
   const bodyRows = rows.map(row => {
     let cells = `<td style="${tdLStyle}">${row.label}</td>`;
     cells += `<td style="${tdStyle}">${row.r != null ? fmtRate(row.r) : "—"}</td>`;
-    cells += `<td style="${tdStyle}">${row.p != null ? fmtYen(row.p) : "—"}</td>`;
+    cells += `<td style="${tdStyle}">${row.pLabel ?? (row.p != null ? fmtYen(row.p) : "—")}</td>`;
     if (hasHousehold) cells += `<td style="${tdStyle}">${row.h != null ? fmtYen(row.h) : "—"}</td>`;
     if (hasAsset)     cells += `<td style="${tdStyle}">${row.a != null ? fmtRate(row.a) : "—"}</td>`;
     cells += `<td style="${tdStyle}">${row.c != null ? fmtMan(row.c) : "—"}</td>`;
@@ -264,7 +289,7 @@ function buildRateTable(cityName, data) {
 
   return `
   <section style="margin-top:28px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 12px;">令和7年度 ${cityName}の国民健康保険料率</h2>
+    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 12px;">${buildFiscalYearLabel(publishYear)} ${cityName}の国民健康保険料率</h2>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr>${headerCols}</tr></thead>
@@ -280,25 +305,30 @@ function buildRateTable(cityName, data) {
 // render
 // ─────────────────────────────────────────────────────────────────
 
-function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIncome }) {
-  const metaDesc    = buildMetaDesc(cityName, prefecture, data, isIncome);
-  const canonical   = buildCanonicalUrl(prefSlug, citySlug, isIncome);
-  const jsonLd      = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome);
-  const rateTable   = buildRateTable(cityName, data);
-  const introText   = buildIntroText(cityName, prefecture, data, isIncome);
-  const trustBadge  = buildTrustBadge(data);
-  const prefDesc    = buildPrefectureDesc(prefSlug, prefecture, cityName);
+function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIncome, publishYear }) {
+  const metaDesc       = buildMetaDesc(cityName, prefecture, data, isIncome, publishYear);
+  const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
+  const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear);
+  const rateTable      = buildRateTable(cityName, data, publishYear);
+  const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
+  const trustBadge     = buildTrustBadge(data, publishYear);
+  const prefDesc       = buildPrefectureDesc(prefSlug, prefecture, cityName);
+  const fiscalYearLabel = buildFiscalYearLabel(publishYear);
 
   return template
-    .replaceAll("__CITY_SLUG__",       citySlug)
-    .replaceAll("__CITY_NAME__",       cityName)
-    .replaceAll("__META_DESC__",       metaDesc)
-    .replaceAll("__CANONICAL_URL__",   canonical)
-    .replaceAll("__JSON_LD__",         jsonLd)
-    .replaceAll("__RATE_TABLE__",      rateTable)
-    .replaceAll("__INTRO_TEXT__",      introText)
-    .replaceAll("__TRUST_BADGE__",     trustBadge)
-    .replaceAll("__PREFECTURE_DESC__", prefDesc);
+    .replaceAll("__CITY_SLUG__",          citySlug)
+    .replaceAll("__CITY_NAME__",          cityName)
+    .replaceAll("__META_DESC__",          metaDesc)
+    .replaceAll("__CANONICAL_URL__",      canonical)
+    .replaceAll("__JSON_LD__",            jsonLd)
+    .replaceAll("__RATE_TABLE__",         rateTable)
+    .replaceAll("__INTRO_TEXT__",         introText)
+    .replaceAll("__TRUST_BADGE__",        trustBadge)
+    .replaceAll("__PREFECTURE_DESC__",    prefDesc)
+    .replaceAll("__FISCAL_YEAR_LABEL__",  fiscalYearLabel)
+    .replaceAll("__PUBLISH_YEAR__",       String(publishYear))
+    .replaceAll("__CSS_V__",              CSS_V)
+    .replaceAll("__JS_V__",              JS_V);
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -330,8 +360,9 @@ for (const m of targets) {
     continue;
   }
 
-  const data = loadCityData(m.citySlug);
-  const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data };
+  const publishYear = m.publishYear?.kokuho ?? 2025;
+  const data = loadCityData(m.citySlug, publishYear);
+  const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data, publishYear };
 
   const dir = path.join(ROOT, prefSlug, m.citySlug);
   mkdirSync(dir, { recursive: true });
@@ -341,6 +372,14 @@ for (const m of targets) {
 
   generated++;
 }
+
+// テンプレートハッシュをスタンプファイルに書き出す（deploy.sh の変更検知に使用）
+const tmplHash = fileHash(
+  path.join(TMPL_DIR, "kokuho-simple.html"),
+  path.join(TMPL_DIR, "kokuho-income.html"),
+  path.join(TMPL_DIR, "prefecture-page.html")
+);
+writeFileSync(path.join(ROOT, ".build-stamp"), tmplHash, "utf-8");
 
 console.log(`\n✅ ${generated}自治体の正式版ページを生成しました`);
 console.log(`   出力先: {都道府県スラグ}/{自治体スラグ}/index.html & income.html`);

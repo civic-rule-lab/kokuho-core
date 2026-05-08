@@ -9,6 +9,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
@@ -19,6 +20,13 @@ const BASE_URL  = "https://kokuho-keisan.jp";
 
 const _require  = createRequire(import.meta.url);
 const { PREFECTURE_INFO } = _require("../js/core/prefecture-info.js");
+
+function fileHash(...filePaths) {
+  const h = createHash("sha256");
+  for (const p of filePaths) h.update(readFileSync(p));
+  return h.digest("hex").slice(0, 8);
+}
+const CSS_V = fileHash(path.join(ROOT, "css", "common.css"));
 
 const registry  = JSON.parse(readFileSync(path.join(ROOT, "registry", "index.json"), "utf-8"));
 const template  = readFileSync(path.join(ROOT, "templates", "prefecture-page.html"), "utf-8");
@@ -239,7 +247,8 @@ for (const prefSlug of targetSlugs) {
     .replaceAll("__JSON_LD__",           buildJsonLd(prefName, prefSlug, metaDesc))
     .replaceAll("__JUMIN_SECTION__",     buildJuminSection(info))
     .replaceAll("__MUNICIPALITY_LIST__", muniSection)
-    .replaceAll("__FAQ_SECTION__",       buildFaq(prefName, info, designatedNames));
+    .replaceAll("__FAQ_SECTION__",       buildFaq(prefName, info, designatedNames))
+    .replaceAll("__CSS_V__",             CSS_V);
 
   mkdirSync(path.join(ROOT, prefSlug), { recursive: true });
   writeFileSync(path.join(ROOT, prefSlug, "index.html"), html, "utf-8");

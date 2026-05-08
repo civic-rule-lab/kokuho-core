@@ -420,6 +420,243 @@ const TEST_SUITES = [
       },
     ],
   },
+
+  // ============================================================
+  // 京都市（京都府）R8 — perCapitaMode 両解釈フラグ検証
+  //
+  // childcareLevy 構造:
+  //   rate=0.0028 / perCapita=1110 / perCapitaAdult=60 / household=660 / cap=30000
+  //   under18Reduction=true（18歳未満全額減額）
+  //
+  // all_ages モード（大人 = 1110+60=1170円）
+  //   childcarePerCapitaTotal = adults × 1170
+  //   7割軽減: round((1170+660)×0.7) = round(1281) = 1281
+  //   childcareTotal = 0+1170+660-1281 = 549
+  //
+  // adults_only モード（大人 = 60円のみ）
+  //   childcarePerCapitaTotal = adults × 60
+  //   7割軽減: round((60+660)×0.7) = round(504) = 504
+  //   childcareTotal = 0+60+660-504 = 216
+  //
+  // 電話確認（075-222-3500）後に perCapitaMode を確定。
+  // ============================================================
+  {
+    slug: "kyoto",
+    year: 2026,
+    label: "京都市（R8・perCapitaMode 両解釈）",
+    cases: [
+      {
+        label: "all_ages モード・単身・所得0（大人=1170円、7割軽減）",
+        note:  "adults=1。perCapitaTotal=1×(1110+60)=1170。household=660。7割軽減=round(1830×0.7)=1281。childcare=549",
+        input: { income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
+        expected: { childcare: 549, reductionLabel: "7割軽減" },
+        source: "手計算（perCapitaMode=all_ages）",
+      },
+      {
+        label: "adults_only モード・単身・所得0（大人=60円、7割軽減）",
+        note:  "adults=1。perCapitaTotal=1×60=60。household=660。7割軽減=round(720×0.7)=504。childcare=216",
+        input: { income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
+        _overrideData: { childcareLevy: { rate: 0.0028, perCapita: 1110, perCapitaAdult: 60, perCapitaAdultScope: "adults_only", household: 660, cap: 30000, under18Reduction: true } },
+        expected: { childcare: 216, reductionLabel: "7割軽減" },
+        source: "手計算（perCapitaMode=adults_only）",
+      },
+      {
+        label: "all_ages・under18=1（adults=0）→ childcarePerCapita=0、household のみ",
+        note:  "adults=0。perCapitaTotal=0×1170=0。household=660。7割軽減=round(660×0.7)=462。childcare=198",
+        input: { income: 0, family: 1, preschool: 0, under18: 1, care: 0, salaryPensionCount: 1 },
+        expected: { childcare: 198, reductionLabel: "7割軽減" },
+        source: "手計算（under18=family → adults=0）",
+      },
+      {
+        label: "all_ages・軽減なし・所得300万（所得割+perCapita+household）",
+        note:  "baseIncome=257万。childcareIncome=round(2570000×0.0028)=7196。perCapita=1170。household=660。cap内",
+        input: { income: 3000000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
+        expected: { reductionLabel: "軽減なし" },
+        source: "手計算（総額確認）",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 茅ヶ崎市（神奈川県）R7 — 軽減判定境界値テスト
+  //
+  // sevenTenths:  base=43万, perPersonAdd=0
+  // fiveTenths:   base=43万, perPersonAdd=30.5万
+  // twoTenths:    base=43万, perPersonAdd=56万
+  // salaryPensionAdd: 10万（2人目以降の給与・年金所得者に加算）
+  //
+  // 単身・spc=1 の各境界:
+  //   7割上限 = 43万
+  //   5割上限 = 43万 + 30.5万×1 = 73.5万
+  //   2割上限 = 43万 + 56万×1  = 99万
+  //
+  // ============================================================
+  {
+    slug: "chigasaki",
+    label: "茅ヶ崎市（境界値・限度額）",
+    cases: [
+      // ── 7割 / 5割 境界（境界-1 / ちょうど / +1 の3点） ──────────
+      {
+        label: "boundary_7to5_minus1: income=429,999（7割軽減）",
+        note:  "reductionBase=429,999 ≤ 430,000 → 7割。baseIncome=0 なので金額は境界ちょうどと同値",
+        input: { income: 429_999, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 21252, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_7to5_exact: income=430,000（7割軽減）",
+        note:  "reductionBase=430,000 ≤ sevenTenthsLimit=430,000 → 7割軽減",
+        input: { income: 430_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 21252, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_7to5_plus1: income=430,001（5割軽減・境界+1）",
+        note:  "reductionBase=430,001 > 430,000 → 5割軽減",
+        input: { income: 430_001, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 35419, reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+      // ── 5割 / 2割 境界（境界-1 / ちょうど / +1 の3点） ──────────
+      {
+        label: "boundary_5to2_minus1: income=734,999（5割軽減）",
+        note:  "reductionBase=734,999 ≤ 735,000 → 5割。supportIncome が1円少なく total=64,180",
+        input: { income: 734_999, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 64180, reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_5to2_exact: income=735,000（5割軽減）",
+        note:  "reductionBase=735,000 ≤ fiveTenthsLimit=735,000 → 5割軽減",
+        input: { income: 735_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 64181, reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_5to2_plus1: income=73.5万+1円（2割軽減・境界+1）",
+        note:  "reductionBase=735,001 > 735,000 → 2割軽減",
+        input: { income: 735_001, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 85434, reductionLabel: "2割軽減" },
+        source: "手計算",
+      },
+      // ── 2割 / 軽減なし 境界（境界-1 / ちょうど / +1 の3点） ─────
+      {
+        label: "boundary_2toNone_minus1: income=989,999（2割軽減）",
+        note:  "reductionBase=989,999 ≤ 990,000 → 2割。金額は境界ちょうどと同値",
+        input: { income: 989_999, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 109480, reductionLabel: "2割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_2toNone_exact: income=990,000（2割軽減）",
+        note:  "reductionBase=990,000 ≤ twoTenthsLimit=990,000 → 2割軽減",
+        input: { income: 990_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 109480, reductionLabel: "2割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "boundary_2toNone_plus1: income=99万+1円（軽減なし・境界+1）",
+        note:  "reductionBase=990,001 > 990,000 → 軽減なし",
+        input: { income: 990_001, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 123647, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      // ── 未就学児×7割軽減の二重適用（独立加算型） ──────────────
+      {
+        label: "preschool_7ten_double_reduction: 2人世帯・未就学1人・7割軽減",
+        note:  "preschoolReduction(=15,832)と medicalReduction(=50,833)は独立加算型。軽減後の額にさらに5割ではない。total=14,919",
+        input: { income: 0, family: 2, preschool: 1, care: 0, salaryPensionCount: 1 },
+        expected: { total: 14919, reductionLabel: "7割軽減" },
+        source: "手計算（preschoolReduction=15,832 = 元の均等割に対して50%）",
+      },
+      // ── salaryPensionAdd による閾値延長 ─────────────────────────
+      {
+        label: "2人世帯・spc=2・income=53万（7割軽減・salaryPensionAdd延長後の境界）",
+        note:  "sevenTenthsLimit=43万+salaryPensionAdd×(2-1)=53万。income=530,000 ≤ 53万 → 7割軽減",
+        input: { income: 530_000, family: 2, preschool: 0, care: 0, salaryPensionCount: 2 },
+        expected: { total: 40181, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "2人世帯・spc=2・income=53万+1円（5割軽減・境界+1）",
+        note:  "reductionBase=530,001 > 530,000 → 5割軽減",
+        input: { income: 530_001, family: 2, preschool: 0, care: 0, salaryPensionCount: 2 },
+        expected: { total: 60680, reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+      // ── 賦課限度額（高所得世帯） ────────────────────────────────
+      {
+        label: "単身・income=1000万（医療・支援 上限頭打ち）",
+        note:  "medical上限66万、support上限26万。計算値: 医療687,549→66万、支援285,741→26万",
+        input: { income: 10_000_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { medical: 660000, support: 260000, care: 0, total: 920000, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "単身・介護1人・income=1000万（3区分すべて上限）",
+        note:  "medical上限66万 + support上限26万 + care上限17万 = 109万",
+        input: { income: 10_000_000, family: 1, preschool: 0, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 660000, support: 260000, care: 170000, total: 1090000, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+    ],
+  },
+
+  // ============================================================
+  // バグ修正回帰テスト（kokuho.js 入力バリデーション）
+  //
+  // ① income=undefined → NaN 伝播バグ
+  // ② salaryPensionCount > family → 軽減閾値が不正拡張されるバグ
+  // ③ preschool > family → 過剰な未就学児軽減が発生するバグ
+  // ④ care > family → 介護分が余分に計算されるバグ
+  // ============================================================
+  {
+    slug: "chigasaki",
+    label: "茅ヶ崎市（入力バリデーション回帰）",
+    cases: [
+      // ① income=undefined
+      {
+        label: "income=undefined → 0 として計算（NaNにならない）",
+        note:  "修正前: NaN。修正後: income=0 と同値 → 7割軽減 total=21,252",
+        input: { income: undefined, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+        expected: { total: 21252, reductionLabel: "7割軽減" },
+        source: "バグ修正回帰",
+      },
+      // ② salaryPensionCount > family
+      {
+        label: "spc=5 > family=1, income=80万 → 2割軽減（7割軽減にならない）",
+        note:  "修正前: B=5 → 7割閾値=83万 → 7割軽減（誤）。修正後: B=min(5,1)=1 → 7割閾値=43万 → 2割軽減",
+        input: { income: 800_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 5 },
+        expected: { reductionLabel: "2割軽減" },
+        source: "バグ修正回帰",
+      },
+      {
+        label: "spc=10 > family=2, income=80万 → 5割軽減（7割軽減にならない）",
+        note:  "修正前: 7割閾値=133万 → 7割軽減（誤）。修正後: B=min(10,2)=2 → 7割閾値=53万 → 5割軽減",
+        input: { income: 800_000, family: 2, preschool: 0, care: 0, salaryPensionCount: 10 },
+        expected: { reductionLabel: "5割軽減" },
+        source: "バグ修正回帰",
+      },
+      // ③ preschool > family
+      {
+        label: "preschool=3 > family=2 → preschool=2 と同値",
+        note:  "修正前: preschool=3 で過剰減額。修正後: clamp して family=2 と同じ結果になる",
+        input: { income: 800_000, family: 2, preschool: 3, care: 0, salaryPensionCount: 1 },
+        expected: { total: 54478 },
+        source: "バグ修正回帰",
+        _sameAs: { income: 800_000, family: 2, preschool: 2, care: 0, salaryPensionCount: 1 },
+      },
+      // ④ care > family
+      {
+        label: "care=2 > family=1 → care=1 と同値",
+        note:  "修正前: care=2 で介護分が2人分。修正後: clamp して care=1 と同じ結果になる",
+        input: { income: 0, family: 1, preschool: 0, care: 2, salaryPensionCount: 1 },
+        expected: { total: 26734 },
+        source: "バグ修正回帰",
+        _sameAs: { income: 0, family: 1, preschool: 0, care: 1, salaryPensionCount: 1 },
+      },
+    ],
+  },
 ];
 
 // ─── テスト実行 ────────────────────────────────────────────────
