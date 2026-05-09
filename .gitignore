@@ -28,6 +28,9 @@ docs/weekly-review-*.md
 docs/handoff-*.md
 docs/internal-*.md
 
+# セッション運用ファイル（Cowork ↔ Claude Code 連携、commit 禁止）
+.session/
+
 # Cloudflare Workers 関連の機密キャッシュ（厳重）
 .wrangler/**
 **/.wrangler/
