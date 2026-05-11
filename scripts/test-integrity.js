@@ -347,9 +347,11 @@ if (shouldRun("E")) {
     failLine("E", `E-1: HTML 内 cityName 不整合 ${eFail} 件`, htmlFails);
   }
 
-  // 旧 URL（衝突 base slug）の HTML が削除されているか
+  // 旧 URL（衝突 base slug）の HTML が削除 or redirect-only に置換済か
+  // GitHub Pages 配信のため _redirects は無効。旧 URL に meta refresh HTML を残して
+  // client-side redirect する運用を許容（実データが残るのは NG）。
   if (legacy?.collisions) {
-    const oldHtmlRemain = [];
+    const oldHtmlBad = [];
     for (const c of legacy.collisions) {
       const oldSlug = c.slug;
       for (const e of c.entries) {
@@ -359,15 +361,19 @@ if (shouldRun("E")) {
         const matchesBase = legacy.namingConvention?.appliedDecisions?.[oldSlug]?.base?.prefecture === e.prefecture;
         if (isBase && matchesBase) continue;
         const oldPath = path.join(ROOT, e.prefectureSlug, oldSlug, "index.html");
-        if (existsSync(oldPath)) {
-          oldHtmlRemain.push(`${e.prefectureSlug}/${oldSlug}/index.html（${e.prefecture}${e.cityName}の旧 URL）`);
+        if (!existsSync(oldPath)) continue;
+        const html = readFileSync(oldPath, "utf-8");
+        const isRedirectOnly = /<meta\s+http-equiv=["']refresh["']/i.test(html)
+          && /<link\s+rel=["']canonical["']/i.test(html);
+        if (!isRedirectOnly) {
+          oldHtmlBad.push(`${e.prefectureSlug}/${oldSlug}/index.html（${e.prefecture}${e.cityName}の旧 URL に実データ残存）`);
         }
       }
     }
-    if (oldHtmlRemain.length === 0) {
-      passLine(`E-2: 衝突解消 6 件の旧 URL HTML がすべて削除済`);
+    if (oldHtmlBad.length === 0) {
+      passLine(`E-2: 衝突解消 6 件の旧 URL HTML がすべて削除 or redirect-only`);
     } else {
-      failLine("E", `E-2: 旧 URL HTML が ${oldHtmlRemain.length} 件残存`, oldHtmlRemain);
+      failLine("E", `E-2: 旧 URL に実データが残存 ${oldHtmlBad.length} 件`, oldHtmlBad);
     }
   }
 }
