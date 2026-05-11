@@ -137,6 +137,12 @@ for (const [pref, municipalities] of Object.entries(byPref)) {
 
   for (const m of municipalities) {
     const slug = m.citySlug;
+
+    // systems に kokuho が含まれない entry は kokuho データ不要として skip
+    if (!Array.isArray(m.systems) || !m.systems.includes("kokuho")) {
+      continue;
+    }
+
     const jsonPath = path.join(DATA_DIR, slug, "kokuho-2025.json");
 
     // ファイル存在確認
@@ -228,7 +234,12 @@ if (duplicates.length > 0) {
 
 // ─── JSON存在・HTML存在の照合 ───────────────────────────────────
 const jsonDirs = new Set(readdirSync(DATA_DIR));
-const registrySlugs = new Set(registry.municipalities.map(m => m.citySlug));
+// systems が空（または kokuho 未含）の entry は kokuho データ不要として除外
+const registrySlugs = new Set(
+  registry.municipalities
+    .filter(m => Array.isArray(m.systems) && m.systems.includes("kokuho"))
+    .map(m => m.citySlug)
+);
 
 // registryにあるがJSONディレクトリがないスラグ（重複含む除外）
 const missingJson = [...registrySlugs].filter(s => !jsonDirs.has(s));

@@ -6878,7 +6878,7 @@
       }
     },
     {
-      "cityCode": "01393",
+      "cityCode": "01403",
       "citySlug": "tomari",
       "cityName": "泊村",
       "prefecture": "北海道",
@@ -6889,6 +6889,15 @@
       "publishYear": {
         "kokuho": 2025
       }
+    },
+    {
+      "cityCode": "01696",
+      "citySlug": "tomari-kunashir",
+      "cityName": "泊村",
+      "prefecture": "北海道",
+      "prefectureSlug": "hokkaido",
+      "systems": [],
+      "publishYear": {}
     },
     {
       "cityCode": "01404",
