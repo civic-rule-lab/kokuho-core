@@ -411,16 +411,21 @@ if (shouldRun("F")) {
   }
 
   // F-4: pre-commit hook がインストールされているか（.git/hooks/pre-commit）
-  const hookPath = path.join(ROOT, ".git", "hooks", "pre-commit");
-  if (existsSync(hookPath)) {
-    const hookContent = readFileSync(hookPath, "utf-8");
-    if (hookContent.includes("check-slug-precommit") || hookContent.includes("check-citycode-precommit")) {
-      passLine(`F-4: .git/hooks/pre-commit に slug/cityCode 検証が組込み済`);
-    } else {
-      failLine("F", `F-4: .git/hooks/pre-commit に検証フックが組込まれていない`);
-    }
+  // ※ .git/hooks/ は VCS 管理外のため CI 環境では存在しないのが正常 → CI では skip
+  if (process.env.CI === "true") {
+    console.log(`  ⏭️  F-4: pre-commit hook チェックは CI 環境では skip（.git/hooks/ は VCS 管理外）`);
   } else {
-    failLine("F", `F-4: .git/hooks/pre-commit 不在（bash scripts/install-hooks.sh 未実行）`);
+    const hookPath = path.join(ROOT, ".git", "hooks", "pre-commit");
+    if (existsSync(hookPath)) {
+      const hookContent = readFileSync(hookPath, "utf-8");
+      if (hookContent.includes("check-slug-precommit") || hookContent.includes("check-citycode-precommit")) {
+        passLine(`F-4: .git/hooks/pre-commit に slug/cityCode 検証が組込み済`);
+      } else {
+        failLine("F", `F-4: .git/hooks/pre-commit に検証フックが組込まれていない`);
+      }
+    } else {
+      failLine("F", `F-4: .git/hooks/pre-commit 不在（bash scripts/install-hooks.sh 未実行）`);
+    }
   }
 }
 
