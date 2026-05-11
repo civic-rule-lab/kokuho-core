@@ -177,18 +177,52 @@ for (const [pref, municipalities] of Object.entries(byPref)) {
   }
 }
 
-// ─── 重複スラグ検出 ────────────────────────────────────────────
+// ─── 重複スラグ検出（POLICIES §9・allowlist 対応） ─────────────
+// allowlist (registry/legacy-slug-collisions.json) に登録された衝突は WARNING、
+// 未登録の新規衝突は ERROR とする。これにより legacy データの存在で deploy が
+// 全停止することを防ぎつつ、新規衝突は確実に block する。
 const slugMap = {};
 for (const m of registry.municipalities) {
   if (!slugMap[m.citySlug]) slugMap[m.citySlug] = [];
-  slugMap[m.citySlug].push(`${m.prefecture} ${m.cityName}`);
+  slugMap[m.citySlug].push({
+    cityCode: m.cityCode,
+    label: `${m.prefecture} ${m.cityName} (${m.cityCode})`,
+  });
 }
 const duplicates = Object.entries(slugMap).filter(([, v]) => v.length > 1);
+
+// allowlist 読込（任意・ファイル不在なら空とみなす）
+const LEGACY_PATH = path.join(ROOT, "registry", "legacy-slug-collisions.json");
+const legacyAllowed = new Set();
+if (existsSync(LEGACY_PATH)) {
+  try {
+    const legacy = JSON.parse(readFileSync(LEGACY_PATH, "utf-8"));
+    for (const c of legacy.collisions || []) {
+      legacyAllowed.add(c.slug);
+    }
+  } catch (e) {
+    console.log(`  ⚠️  legacy-slug-collisions.json の読込に失敗: ${e.message}`);
+  }
+}
+
 if (duplicates.length > 0) {
-  console.log("\n【重複スラグ検出】");
+  console.log("\n【重複スラグ検出（POLICIES §9）】");
   for (const [slug, cities] of duplicates) {
-    console.log(`  ⚠️  "${slug}": ${cities.join(" / ")}`);
-    warnings++;
+    const isLegacy = legacyAllowed.has(slug);
+    const icon = isLegacy ? "⚠️ " : "❌";
+    const tag = isLegacy ? "[legacy・grandfather]" : "[新規違反]";
+    console.log(`  ${icon} "${slug}" ${tag} が ${cities.length} 件の異なる自治体に割当中:`);
+    for (const c of cities) {
+      console.log(`     - ${c.label}`);
+    }
+    if (isLegacy) {
+      console.log(`     → registry/legacy-slug-collisions.json に登録済、別 PR で URL 移行予定`);
+      warnings++;
+    } else {
+      console.log(`     → 対処: 遅れて登録された側を {base}-{prefSlug} 形式に変更（例: ${slug}-{prefSlug}）`);
+      console.log(`     → 既存 legacy として認める場合は registry/legacy-slug-collisions.json に追記`);
+      errors++;
+    }
   }
 }
 

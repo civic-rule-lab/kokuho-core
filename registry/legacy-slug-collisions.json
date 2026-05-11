@@ -1,0 +1,184 @@
+{
+  "policy": "POLICIES §9 grandfather 条項（2026-05-11 追加）",
+  "policyNote": "本リストに記載された slug 衝突は POLICIES §9 制定（2026-05-11）以前から registry に存在する legacy 状態。validate-kokuho-data.js は本リスト内の衝突を WARNING として扱い（block しない）、リスト外の新規衝突は ERROR で block する。リスト内の各エントリには planned migration を記録し、URL 影響（301 redirect 整備・告知期間）を考慮した別 PR で順次解消する。",
+  "⚠️_CRITICAL_FINDING": "5/12 セッション後半で詳細判明：データは欠落していない、`{pref}-{base}` 命名の別ディレクトリに存在する。しかし registry の citySlug がそれらを参照していない。generate-official-pages.js は registry.citySlug を直接ディレクトリ名として使うため、衝突 slug の片方は正しいデータを取得し、もう片方は衝突相手のデータを誤って取得する。実証: hokkaido/hidaka/index.html は cityName=日高町（registry 由来）として表示されるが、計算データは data/municipalities/hidaka/ = 埼玉日高市のものが読まれている。さらに北海道日高町は registry/data の cityCode が 01604 だが、総務省一次資料では 01604=新冠町、北海道日高町の正準は 01601。隣接コードへの単純な転記ミスも積層している。",
+  "dataLocationEvidence": {
+    "actualDataLocations": {
+      "北海道日高町_01604": {
+        "registryCitySlug": "hidaka",
+        "actualDataDir": "data/municipalities/hokkaido-hidaka/",
+        "directorySlug": "hokkaido-hidaka",
+        "issue": "registry citySlug が誤・データ参照失敗。さらに cityCode 01604 は総務省では新冠町、北海道日高町の正準は 01601"
+      },
+      "北海道池田町_01644": {
+        "registryCitySlug": "ikeda",
+        "actualDataDir": "data/municipalities/hokkaido-ikeda/",
+        "directorySlug": "hokkaido-ikeda",
+        "issue": "registry citySlug が誤・データ参照失敗"
+      },
+      "北海道上川町_01457": {
+        "registryCitySlug": "kamikawa",
+        "actualDataDir": "data/municipalities/hokkaido-kamikawa/",
+        "directorySlug": "hokkaido-kamikawa",
+        "issue": "registry citySlug が誤・データ参照失敗"
+      },
+      "北海道中川町_01475": {
+        "registryCitySlug": "nakagawa",
+        "actualDataDir": "data/municipalities/hokkaido-nakagawa/",
+        "directorySlug": "hokkaido-nakagawa",
+        "issue": "registry citySlug が誤・データ参照失敗"
+      },
+      "千葉県館山市_12205": {
+        "registryCitySlug": "tateyama",
+        "actualDataDir": "data/municipalities/chiba-tateyama/",
+        "directorySlug": "chiba-tateyama",
+        "issue": "registry citySlug が誤・データ参照失敗"
+      },
+      "千葉県一宮町_12421": {
+        "registryCitySlug": "ichinomiya",
+        "actualDataDir": "data/municipalities/chiba-ichinomiya/ ＋ data/municipalities/ichinomiya/kaigo-2026.json",
+        "directorySlug": "chiba-ichinomiya（混在）",
+        "issue": "kaigo-2026.json のみ ichinomiya/ に混入。kokuho 系は chiba-ichinomiya/ に正しく存在するが、registry citySlug=ichinomiya のため参照されない"
+      },
+      "愛知県一宮市_23203": {
+        "registryCitySlug": "ichinomiya",
+        "actualDataDir": "data/municipalities/ichinomiya/",
+        "directorySlug": "ichinomiya",
+        "issue": "kaigo-2026.json だけ千葉一宮町のデータが混入"
+      }
+    },
+    "additionalUnstandardizedDirs": [
+      "hidakacho", "hidakagawa", "hidakamura", "shinhidaka （hidaka 関連）",
+      "ikedacho", "ikedafukui", "ikedashi （ikeda 関連）",
+      "kamikawamachi （kamikawa 関連）",
+      "nakagawamachi", "nakagawashi （nakagawa 関連）"
+    ],
+    "interpretation": "過去複数の命名対応策（-cho・-machi・-shi・-fukui・hokkaido- prefix・suffix なし）が混在。統一命名規約がない。",
+    "publicUrlImpact": "公開 URL は /{pref}/{slug}/ で 12 個生成されているが、衝突 slug の片方は誤データを表示中。タイトル（cityName）は registry 由来なので正しいが、計算 rate/perCapita は衝突相手のデータが埋め込まれている。",
+    "verifiedBy": "scripts/generate-official-pages.js 行 122-123 で `data/municipalities/{citySlug}/kokuho-{year}.json` を直接読込していることをコード確認"
+  },
+  "addedAt": "2026-05-11",
+  "addedBy": "civic-rule-lab (Cowork セッション末で発覚)",
+  "collisions": [
+    {
+      "slug": "hidaka",
+      "entries": [
+        { "cityCode": "11244", "cityName": "日高市", "prefecture": "埼玉県", "prefectureSlug": "saitama", "publicUrl": "/saitama/hidaka/" },
+        { "cityCode": "01604", "cityName": "日高町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/hidaka/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "後発（公開時期遅い方）を hidaka-{prefSlug} に rename。要 git log 確認",
+      "urlImpact": "両自治体とも /{pref}/hidaka/ で公開済、変更には 301 redirect 整備必要"
+    },
+    {
+      "slug": "ichinomiya",
+      "entries": [
+        { "cityCode": "12421", "cityName": "一宮町", "prefecture": "千葉県", "prefectureSlug": "chiba", "publicUrl": "/chiba/ichinomiya/" },
+        { "cityCode": "23203", "cityName": "一宮市", "prefecture": "愛知県", "prefectureSlug": "aichi", "publicUrl": "/aichi/ichinomiya/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "愛知県一宮市は人口38万・中核市で URL 価値高、千葉県一宮町を ichinomiya-chiba に rename が妥当",
+      "urlImpact": "愛知一宮市は被リンク多数想定、SEO 影響大、301 redirect 必須"
+    },
+    {
+      "slug": "ikeda",
+      "entries": [
+        { "cityCode": "20481", "cityName": "池田町", "prefecture": "長野県", "prefectureSlug": "nagano", "publicUrl": "/nagano/ikeda/" },
+        { "cityCode": "01644", "cityName": "池田町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/ikeda/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "両自治体「池田町」で同名、要利用者調査。北海道側を ikeda-hokkaido が無難",
+      "urlImpact": "両自治体規模同等、利用統計を確認してから rename 順序決定"
+    },
+    {
+      "slug": "kamikawa",
+      "entries": [
+        { "cityCode": "11402", "cityName": "神川町", "prefecture": "埼玉県", "prefectureSlug": "saitama", "publicUrl": "/saitama/kamikawa/" },
+        { "cityCode": "01457", "cityName": "上川町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/kamikawa/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "埼玉=神川 / 北海道=上川と漢字が異なるため、訓読の衝突。要漢字併記検討（kamikawa-saitama or shinkawa-saitama？）",
+      "urlImpact": "漢字読み統一の判断が要"
+    },
+    {
+      "slug": "nakagawa",
+      "entries": [
+        { "cityCode": "20386", "cityName": "中川村", "prefecture": "長野県", "prefectureSlug": "nagano", "publicUrl": "/nagano/nakagawa/" },
+        { "cityCode": "01475", "cityName": "中川町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/nakagawa/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "両自治体小規模、後発側を nakagawa-{prefSlug} に rename。git log で先発確認"
+    },
+    {
+      "slug": "tateyama",
+      "entries": [
+        { "cityCode": "12205", "cityName": "館山市", "prefecture": "千葉県", "prefectureSlug": "chiba", "publicUrl": "/chiba/tateyama/" },
+        { "cityCode": "15342", "cityName": "立山町", "prefecture": "富山県", "prefectureSlug": "toyama", "publicUrl": "/toyama/tateyama/" }
+      ],
+      "status": "data-corruption-detected",
+      "plannedRename": "千葉=館山市（観光都市・5万人）/ 富山=立山町（観光地・2.5万人）両方 URL 価値高、tateyama-toyama に rename が無難",
+      "urlImpact": "観光関連被リンク多数想定"
+    }
+  ],
+  "namingConvention": {
+    "ruleVersion": "v1（POLICIES §9 補則・2026-05-11 制定）",
+    "rule": "Romaji 読み同一の自治体群について、人口最大者が `{base}` を取得、それ以外は `{base}-{prefSlug}`。tie-breaker: 市>町>村 → 公開実績 → 50音順",
+    "appliedDecisions": {
+      "hidaka": {
+        "base": { "prefecture": "埼玉県", "cityName": "日高市", "population_approx": 56000, "tier": "市", "newSlug": "hidaka" },
+        "suffixed": [{ "prefecture": "北海道", "cityName": "日高町", "population_approx": 12000, "tier": "町", "newSlug": "hidaka-hokkaido" }],
+        "rationale": "人口優先で埼玉日高市（市・56K）が base、北海道日高町（町・12K）にサフィックス"
+      },
+      "ichinomiya": {
+        "base": { "prefecture": "愛知県", "cityName": "一宮市", "population_approx": 380000, "tier": "市", "newSlug": "ichinomiya" },
+        "suffixed": [{ "prefecture": "千葉県", "cityName": "一宮町", "population_approx": 12000, "tier": "町", "newSlug": "ichinomiya-chiba" }],
+        "rationale": "人口優先で愛知一宮市（中核市・380K）が base、千葉一宮町（町・12K）にサフィックス。既存実態と一致"
+      },
+      "ikeda": {
+        "base": { "prefecture": "長野県", "cityName": "池田町", "population_approx": 10000, "tier": "町", "newSlug": "ikeda" },
+        "suffixed": [{ "prefecture": "北海道", "cityName": "池田町", "population_approx": 6500, "tier": "町", "newSlug": "ikeda-hokkaido" }],
+        "rationale": "人口優先で長野池田町（10K）が base、北海道池田町（6.5K）にサフィックス。両者「池田町」同名なので人口で決定"
+      },
+      "kamikawa": {
+        "base": { "prefecture": "埼玉県", "cityName": "神川町", "population_approx": 13000, "tier": "町", "newSlug": "kamikawa" },
+        "suffixed": [{ "prefecture": "北海道", "cityName": "上川町", "population_approx": 3500, "tier": "町", "newSlug": "kamikawa-hokkaido" }],
+        "rationale": "人口優先で埼玉神川町（13K）が base、北海道上川町（3.5K）にサフィックス。漢字違い（神川 vs 上川）だが Romaji 同じため Rule 3 で同 slug 系、cityName 表示で区別"
+      },
+      "nakagawa": {
+        "base": { "prefecture": "長野県", "cityName": "中川村", "population_approx": 4800, "tier": "村", "newSlug": "nakagawa" },
+        "suffixed": [{ "prefecture": "北海道", "cityName": "中川町", "population_approx": 1500, "tier": "町", "newSlug": "nakagawa-hokkaido" }],
+        "rationale": "人口優先で長野中川村（4.8K）が base、北海道中川町（1.5K）にサフィックス。区分は北海道が町・長野が村だが Rule 1 の人口優先により村が勝つ"
+      },
+      "tateyama": {
+        "base": { "prefecture": "千葉県", "cityName": "館山市", "population_approx": 45000, "tier": "市", "newSlug": "tateyama" },
+        "suffixed": [{ "prefecture": "富山県", "cityName": "立山町", "population_approx": 25000, "tier": "町", "newSlug": "tateyama-toyama" }],
+        "rationale": "人口優先で千葉館山市（市・45K）が base、富山立山町（町・25K）にサフィックス。⚠️ 現状 data/municipalities/tateyama/ には富山立山町データが入っているため、URL 移行とデータ移動を同時実施必要"
+      }
+    },
+    "unnormalizedDirsAlsoToFix": {
+      "note": "以下は legacy-slug-collisions.json のスコープ外だが、本 Rule のもとで命名統合すべき不統一例。次回 Cowork で詳細調査・段階的 rename。",
+      "patterns": ["{base}cho", "{base}machi", "{base}mura", "{base}shi", "hokkaido-{base}", "{base}fukui", "shin{base}"],
+      "knownAffectedDirs": [
+        "hidaka 系: hidakacho / hidakagawa / hidakamura / shinhidaka",
+        "ikeda 系: ikedacho / ikedafukui / ikedashi",
+        "kamikawa 系: kamikawamachi",
+        "nakagawa 系: nakagawamachi / nakagawashi"
+      ]
+    }
+  },
+  "deferredResolutionPlan": {
+    "approach": "URL 移行プロジェクト（別 PR）",
+    "steps": [
+      "1. 各衝突について git log で先発・後発を確認、rename 対象を確定",
+      "2. Cloudflare Workers で 301 redirect ルール作成（旧 URL → 新 URL）",
+      "3. 移行告知（README・トップページ・該当ページ内）を 1-2週間掲示",
+      "4. data/municipalities/{old-slug}/ → {new-slug}/ 移動",
+      "5. registry/index.json の citySlug 更新",
+      "6. data/municipalities/{slug}/kokuho-*.json 内の citySlug 更新",
+      "7. {pref}/{slug}/ 配下の HTML 再生成",
+      "8. 旧 URL リダイレクト動作確認",
+      "9. 検索エンジン再クロール促進"
+    ],
+    "estimatedEffort": "1セッション/衝突（6セッション）か、まとめて1-2セッション"
+  }
+}

@@ -1,0 +1,46 @@
+#!/bin/bash
+# ─────────────────────────────────────────────────────────────────
+# kokuho-core pre-commit hook
+#
+# このファイルは tracked リポ内に置かれた**マスタ版**。
+# .git/hooks/ は VCS 管理外なので、初回セットアップ時に
+#   cp scripts/git-hooks/pre-commit .git/hooks/pre-commit
+#   chmod +x .git/hooks/pre-commit
+# でインストールが必要。
+#
+# 内容:
+#   (1) credential / SUNNET / 個人 identity の混入禁止
+#   (2) slug 衝突拒否（POLICIES §9）
+# ─────────────────────────────────────────────────────────────────
+set -e
+
+# ─── (1) credential / SUNNET / 個人 identity の混入禁止 ──────────
+PATTERN='cap\.chino\.06|yuccosan0619|MacBook-Pro\.local|wrangler-account\.json|hscloud\.sunnet'
+if git diff --cached | grep -qE "$PATTERN"; then
+  echo "❌ pre-commit: 個人 identity / 漏洩済み identifier / SUNNET URL が含まれています"
+  echo "   除外パターン: $PATTERN"
+  exit 1
+fi
+
+# ─── (2) slug 衝突拒否（POLICIES §9） ───────────────────────────
+# ステージされた data/municipalities/{slug}/kokuho-*.json を走査し、
+# registry/index.json と citySlug+cityCode を照合。異なる cityCode で
+# 同一 slug を入れようとした場合 commit を拒否。
+if command -v node >/dev/null 2>&1; then
+  if ! node scripts/check-slug-precommit.js; then
+    exit 1
+  fi
+else
+  echo "⚠️  pre-commit: node 不在のため slug 衝突チェックをスキップ"
+fi
+
+# ─── (3) cityCode 一次資料準拠（POLICIES §10） ──────────────────
+# staged の cityCode を総務省一次資料スナップショットと照合。
+# ERROR レベル（一次資料に存在しない / 値ズレ）は commit 拒否。
+if command -v node >/dev/null 2>&1; then
+  if ! node scripts/check-citycode-precommit.js; then
+    exit 1
+  fi
+else
+  echo "⚠️  pre-commit: node 不在のため cityCode 一次資料チェックをスキップ"
+fi
