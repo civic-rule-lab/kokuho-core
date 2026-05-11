@@ -2376,7 +2376,7 @@
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -5210,7 +5210,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -5990,7 +5990,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -9786,7 +9786,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -10176,7 +10176,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -10189,7 +10189,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -10280,7 +10280,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -10696,7 +10696,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -16143,7 +16143,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -18809,7 +18809,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       }
     },
     {
@@ -22241,6 +22241,32 @@
       "cityName": "太良町",
       "prefecture": "佐賀県",
       "prefectureSlug": "saga",
+      "systems": [
+        "kokuho"
+      ],
+      "publishYear": {
+        "kokuho": 2025
+      }
+    },
+    {
+      "cityCode": "08204",
+      "citySlug": "koga-ibaraki",
+      "cityName": "古河市",
+      "prefecture": "茨城県",
+      "prefectureSlug": "ibaraki",
+      "systems": [
+        "kokuho"
+      ],
+      "publishYear": {
+        "kokuho": 2026
+      }
+    },
+    {
+      "cityCode": "10205",
+      "citySlug": "ota-gunma",
+      "cityName": "太田市",
+      "prefecture": "群馬県",
+      "prefectureSlug": "gunma",
       "systems": [
         "kokuho"
       ],

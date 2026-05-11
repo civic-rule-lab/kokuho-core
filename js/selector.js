@@ -14129,6 +14129,24 @@ const registry = {
             }
           }
         }
+      },
+      "koga-ibaraki": {
+        "name": "古河市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/ibaraki/koga-ibaraki/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/ibaraki/koga-ibaraki/income.html"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -14760,6 +14778,24 @@ const registry = {
               "income": {
                 "name": "所得ベース計算",
                 "url": "/gunma/ora/income.html"
+              }
+            }
+          }
+        }
+      },
+      "ota-gunma": {
+        "name": "太田市",
+        "systems": {
+          "kokuho": {
+            "name": "国民健康保険",
+            "pages": {
+              "simple": {
+                "name": "かんたん計算",
+                "url": "/gunma/ota-gunma/"
+              },
+              "income": {
+                "name": "所得ベース計算",
+                "url": "/gunma/ota-gunma/income.html"
               }
             }
           }
