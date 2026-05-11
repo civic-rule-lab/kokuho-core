@@ -191,6 +191,43 @@ if [ "$PUSH" = true ]; then
   cd "$CORE_DIR/workers/api"
   npx wrangler deploy 2>&1 | tail -5
   echo "✅ Worker デプロイ完了"
+
+  # ── 7. 本番疎通テスト（curl smoke test） ──────────────────────
+  echo ""
+  echo "▶ 本番疎通テスト（最大5分 retry）"
+  BASE_URL="https://kokuho-keisan.jp"
+  # expected: "<URL>|<期待HTTPコード>"
+  SMOKE_CHECKS=(
+    "/|200"
+    "/index.html|200"
+    "/kanagawa/yokohama/|200"
+    "/tokyo/ota/income.html|200"
+    "/hokkaido/tomari/|200"
+    "/hokkaido/tomari-kunashir/|200"
+  )
+  SMOKE_FAIL=0
+  END=$((SECONDS+300))
+  for check in "${SMOKE_CHECKS[@]}"; do
+    url="${check%|*}"
+    expected="${check#*|}"
+    actual=""
+    while [ $SECONDS -lt $END ]; do
+      actual=$(curl -sI -o /dev/null -w "%{http_code}" "${BASE_URL}${url}")
+      [ "$actual" = "$expected" ] && break
+      sleep 15
+    done
+    if [ "$actual" = "$expected" ]; then
+      echo "  ✅ ${url} → HTTP ${actual}"
+    else
+      echo "  ❌ ${url} → HTTP ${actual} (期待値: ${expected})"
+      SMOKE_FAIL=$((SMOKE_FAIL+1))
+    fi
+  done
+  if [ $SMOKE_FAIL -eq 0 ]; then
+    echo "✅ 本番疎通テスト 全件 OK"
+  else
+    echo "⚠️  本番疎通テスト ${SMOKE_FAIL} 件失敗（反映遅延の可能性・要手動確認）"
+  fi
 fi
 
 echo ""

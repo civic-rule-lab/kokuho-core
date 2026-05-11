@@ -1,0 +1,28 @@
+name: integrity-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-integrity:
+    name: registry × 一次資料 × data × HTML 横断検証
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run test-integrity.js
+        run: node scripts/test-integrity.js
+
+      - name: Run validate-kokuho-data.js
+        run: node scripts/validate-kokuho-data.js
