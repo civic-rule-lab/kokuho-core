@@ -155,6 +155,27 @@ if (shouldRun("A")) {
       else failLine("A", `A-3: 一次資料カバレッジ外 ${aSkip} 件（full なのに）`, []);
     }
   }
+
+  // A-4: registry 内 cityCode 重複チェック
+  // 同一 cityCode が複数の slug に紐づく場合 = 旧スラグ未削除 or データ誤り
+  {
+    const codeRegistry = new Map();
+    for (const m of reg.municipalities) {
+      if (!m.cityCode) continue;
+      const code = String(m.cityCode).padStart(5, "0");
+      if (!codeRegistry.has(code)) codeRegistry.set(code, []);
+      codeRegistry.get(code).push(`${m.citySlug} (${m.prefecture}${m.cityName})`);
+    }
+    const codeConflicts = [...codeRegistry.entries()]
+      .filter(([, entries]) => entries.length > 1)
+      .map(([code, entries]) => `cityCode=${code}: ${entries.join(" / ")}`);
+
+    if (codeConflicts.length === 0) {
+      passLine(`A-4: registry 内 cityCode 重複なし`);
+    } else {
+      failLine("A", `A-4: registry 内 cityCode 重複 ${codeConflicts.length} 件（旧スラグ未削除の可能性）`, codeConflicts);
+    }
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -254,6 +275,62 @@ if (shouldRun("C")) {
     console.log(`  ⚠️  C-2: registry にない data dir ${inDirNotInReg.length} 件（古い命名・退役 dir の可能性）`);
     inDirNotInReg.slice(0, 15).forEach(d => console.log(`       - ${d}`));
     if (inDirNotInReg.length > 15) console.log(`       ... (${inDirNotInReg.length - 15} 件省略)`);
+  }
+
+  // C-3: data dir 内 JSON の cityCode が registry の別 slug に紐付いていないか
+  // （旧スラグ残留パターン：移行後に古いディレクトリが削除されずに残存）
+  {
+    // registry の cityCode → slug[] マップ
+    const codeToSlugs = new Map();
+    for (const m of reg.municipalities) {
+      const code = String(m.cityCode || "").padStart(5, "0");
+      if (!code || code === "00000") continue;
+      if (!codeToSlugs.has(code)) codeToSlugs.set(code, []);
+      codeToSlugs.get(code).push(m.citySlug);
+    }
+
+    const staleSlugDirs = [];
+
+    for (const dir of dirs) {
+      const dirPath = path.join(DATA_DIR, dir);
+      // kokuho-*.json を優先、なければ jumin-*.json、kaigo-*.json の順で cityCode を取得
+      let jsonFiles;
+      try {
+        jsonFiles = readdirSync(dirPath).filter(f => /^(kokuho|jumin|kaigo)-\d{4}\.json$/.test(f));
+      } catch { continue; }
+      if (jsonFiles.length === 0) continue;
+
+      let cityCode;
+      for (const f of jsonFiles) {
+        try {
+          const data = JSON.parse(readFileSync(path.join(dirPath, f), "utf-8"));
+          if (data.cityCode) { cityCode = String(data.cityCode).padStart(5, "0"); break; }
+        } catch { continue; }
+      }
+      if (!cityCode || cityCode === "00000") continue;
+
+      const registrySlugs = codeToSlugs.get(cityCode);
+      if (!registrySlugs) continue; // registry 未登録（C-2 で検出済み）
+
+      // dir名が registry の slug として登録されていない → 旧スラグ残留
+      if (!registrySlugs.includes(dir)) {
+        staleSlugDirs.push({
+          dir,
+          cityCode,
+          registrySlug: registrySlugs.join(" / "),
+        });
+      }
+    }
+
+    if (staleSlugDirs.length === 0) {
+      passLine(`C-3: 旧スラグ残留なし（全 data dir の cityCode が registry slug と一致）`);
+    } else {
+      failLine(
+        "C",
+        `C-3: 旧スラグ残留 ${staleSlugDirs.length} 件（移行後の旧 dir 削除漏れ）`,
+        staleSlugDirs.map(s => `${s.dir}  cityCode=${s.cityCode}  →  現 registry slug: ${s.registrySlug}`)
+      );
+    }
   }
 }
 

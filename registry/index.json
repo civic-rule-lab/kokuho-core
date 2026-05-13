@@ -9630,19 +9630,6 @@
       }
     },
     {
-      "cityCode": "08204",
-      "citySlug": "kogashi",
-      "cityName": "古河市",
-      "prefecture": "茨城県",
-      "prefectureSlug": "ibaraki",
-      "systems": [
-        "kokuho"
-      ],
-      "publishYear": {
-        "kokuho": 2025
-      }
-    },
-    {
       "cityCode": "08205",
       "citySlug": "ishioka",
       "cityName": "石岡市",
@@ -10205,19 +10192,6 @@
       "cityCode": "10204",
       "citySlug": "isesaki",
       "cityName": "伊勢崎市",
-      "prefecture": "群馬県",
-      "prefectureSlug": "gunma",
-      "systems": [
-        "kokuho"
-      ],
-      "publishYear": {
-        "kokuho": 2025
-      }
-    },
-    {
-      "cityCode": "10205",
-      "citySlug": "otashi",
-      "cityName": "太田市",
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
@@ -17283,7 +17257,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35202",
@@ -17295,7 +17270,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35203",
@@ -17307,7 +17283,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35204",
@@ -17319,7 +17296,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35206",
@@ -17331,7 +17309,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35207",
@@ -17343,7 +17322,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35208",
@@ -17355,7 +17335,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35210",
@@ -17367,7 +17348,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35211",
@@ -17379,7 +17361,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35212",
@@ -17391,7 +17374,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35213",
@@ -17403,7 +17387,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35215",
@@ -17415,7 +17400,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35216",
@@ -17427,7 +17413,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35305",
@@ -17439,7 +17426,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35321",
@@ -17451,7 +17439,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35341",
@@ -17463,7 +17452,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35343",
@@ -17475,7 +17465,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35344",
@@ -17487,7 +17478,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "35502",
@@ -17499,7 +17491,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "yamaguchi"
     },
     {
       "cityCode": "02201",
@@ -17511,7 +17504,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02202",
@@ -17523,7 +17517,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02203",
@@ -17535,7 +17530,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02204",
@@ -17547,7 +17543,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02205",
@@ -17559,7 +17556,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02206",
@@ -17571,7 +17569,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02207",
@@ -17583,7 +17582,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02208",
@@ -17595,7 +17595,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02209",
@@ -17607,7 +17608,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02210",
@@ -17619,7 +17621,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02301",
@@ -17631,7 +17634,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02303",
@@ -17643,7 +17647,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02304",
@@ -17655,7 +17660,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02307",
@@ -17667,7 +17673,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02321",
@@ -17679,7 +17686,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02323",
@@ -17691,7 +17699,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02343",
@@ -17703,7 +17712,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02361",
@@ -17715,7 +17725,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02362",
@@ -17727,7 +17738,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02367",
@@ -17739,7 +17751,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02381",
@@ -17751,7 +17764,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02384",
@@ -17763,7 +17777,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02387",
@@ -17775,7 +17790,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02401",
@@ -17787,7 +17803,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02402",
@@ -17799,7 +17816,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02405",
@@ -17811,7 +17829,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02406",
@@ -17823,7 +17842,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02408",
@@ -17835,7 +17855,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02411",
@@ -17847,7 +17868,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02412",
@@ -17859,7 +17881,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02423",
@@ -17871,7 +17894,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02424",
@@ -17883,7 +17907,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02425",
@@ -17895,7 +17920,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02426",
@@ -17907,7 +17933,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02441",
@@ -17919,7 +17946,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02442",
@@ -17931,7 +17959,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02443",
@@ -17943,7 +17972,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02445",
@@ -17955,7 +17985,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02446",
@@ -17967,7 +17998,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "02450",
@@ -17979,7 +18011,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "aomori"
     },
     {
       "cityCode": "42201",
@@ -17991,7 +18024,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42202",
@@ -18003,7 +18037,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42203",
@@ -18015,7 +18050,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42204",
@@ -18027,7 +18063,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42205",
@@ -18039,7 +18076,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42207",
@@ -18051,7 +18089,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42208",
@@ -18063,7 +18102,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42209",
@@ -18075,7 +18115,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42210",
@@ -18087,7 +18128,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42211",
@@ -18099,7 +18141,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42212",
@@ -18111,7 +18154,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42213",
@@ -18123,7 +18167,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42214",
@@ -18135,7 +18180,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42307",
@@ -18147,7 +18193,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42308",
@@ -18159,7 +18206,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42321",
@@ -18171,7 +18219,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42322",
@@ -18183,7 +18232,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42323",
@@ -18195,7 +18245,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42383",
@@ -18207,7 +18258,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42391",
@@ -18219,7 +18271,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "42411",
@@ -18231,7 +18284,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "nagasaki"
     },
     {
       "cityCode": "03201",
@@ -18243,7 +18297,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03202",
@@ -18255,7 +18310,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03203",
@@ -18267,7 +18323,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03205",
@@ -18279,7 +18336,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03206",
@@ -18291,7 +18349,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03207",
@@ -18303,7 +18362,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03208",
@@ -18315,7 +18375,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03209",
@@ -18327,7 +18388,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03210",
@@ -18339,7 +18401,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03211",
@@ -18351,7 +18414,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03213",
@@ -18363,7 +18427,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03214",
@@ -18375,7 +18440,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03215",
@@ -18387,7 +18453,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03216",
@@ -18399,7 +18466,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03301",
@@ -18411,7 +18479,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03302",
@@ -18423,7 +18492,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03303",
@@ -18435,7 +18505,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03321",
@@ -18447,7 +18518,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03322",
@@ -18459,7 +18531,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03366",
@@ -18471,7 +18544,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03381",
@@ -18483,7 +18557,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03402",
@@ -18495,7 +18570,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03441",
@@ -18507,7 +18583,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03461",
@@ -18519,7 +18596,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03482",
@@ -18531,7 +18609,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03483",
@@ -18543,7 +18622,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03484",
@@ -18555,7 +18635,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03485",
@@ -18567,7 +18648,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03501",
@@ -18579,7 +18661,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03503",
@@ -18591,7 +18674,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03506",
@@ -18603,7 +18687,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03507",
@@ -18615,7 +18700,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "03524",
@@ -18627,7 +18713,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "iwate"
     },
     {
       "cityCode": "44201",
@@ -18639,7 +18726,8 @@
       ],
       "publishYear": {
         "kokuho": 2026
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44202",
@@ -18651,7 +18739,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44203",
@@ -18663,7 +18752,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44204",
@@ -18675,7 +18765,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44205",
@@ -18687,7 +18778,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44206",
@@ -18699,7 +18791,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44207",
@@ -18711,7 +18804,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44208",
@@ -18723,7 +18817,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44209",
@@ -18735,7 +18830,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44210",
@@ -18747,7 +18843,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44211",
@@ -18759,7 +18856,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44212",
@@ -18771,7 +18869,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44213",
@@ -18783,7 +18882,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44214",
@@ -18795,7 +18895,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44322",
@@ -18807,7 +18908,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44341",
@@ -18819,7 +18921,8 @@
       ],
       "publishYear": {
         "kokuho": 2026
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44461",
@@ -18831,7 +18934,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "44462",
@@ -18843,7 +18947,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "oita"
     },
     {
       "cityCode": "17201",
@@ -18855,7 +18960,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17202",
@@ -18867,7 +18973,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17203",
@@ -18879,7 +18986,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17204",
@@ -18891,7 +18999,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17205",
@@ -18903,7 +19012,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17206",
@@ -18915,7 +19025,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17207",
@@ -18927,7 +19038,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17209",
@@ -18939,7 +19051,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17210",
@@ -18951,7 +19064,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17211",
@@ -18963,7 +19077,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17212",
@@ -18975,7 +19090,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17324",
@@ -18987,7 +19103,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17361",
@@ -18999,7 +19116,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17365",
@@ -19011,7 +19129,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17384",
@@ -19023,7 +19142,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17386",
@@ -19035,7 +19155,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17407",
@@ -19047,7 +19168,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17461",
@@ -19059,7 +19181,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "17463",
@@ -19071,7 +19194,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "ishikawa"
     },
     {
       "cityCode": "16201",
@@ -19083,7 +19207,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16202",
@@ -19095,7 +19220,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16204",
@@ -19107,7 +19233,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16205",
@@ -19119,7 +19246,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16206",
@@ -19131,7 +19259,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16207",
@@ -19143,7 +19272,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16208",
@@ -19155,7 +19285,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16209",
@@ -19167,7 +19298,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16210",
@@ -19179,7 +19311,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16211",
@@ -19191,7 +19324,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16321",
@@ -19203,7 +19337,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16322",
@@ -19215,7 +19350,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16323",
@@ -19240,7 +19376,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "16343",
@@ -19252,7 +19389,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "toyama"
     },
     {
       "cityCode": "36201",
@@ -19264,7 +19402,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36202",
@@ -19276,7 +19415,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36203",
@@ -19288,7 +19428,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36204",
@@ -19300,7 +19441,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36205",
@@ -19312,7 +19454,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36206",
@@ -19324,7 +19467,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36207",
@@ -19336,7 +19480,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36208",
@@ -19348,7 +19493,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36301",
@@ -19360,7 +19506,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36302",
@@ -19372,7 +19519,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36321",
@@ -19384,7 +19532,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36341",
@@ -19396,7 +19545,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36342",
@@ -19408,7 +19558,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36368",
@@ -19420,7 +19571,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36383",
@@ -19432,7 +19584,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36387",
@@ -19444,7 +19597,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36388",
@@ -19456,7 +19610,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36401",
@@ -19468,7 +19623,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36402",
@@ -19480,7 +19636,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36403",
@@ -19492,7 +19649,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36404",
@@ -19504,7 +19662,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36405",
@@ -19516,7 +19675,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36468",
@@ -19528,7 +19688,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "36489",
@@ -19540,7 +19701,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "tokushima"
     },
     {
       "cityCode": "18201",
@@ -19552,7 +19714,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18202",
@@ -19564,7 +19727,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18204",
@@ -19576,7 +19740,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18205",
@@ -19588,7 +19753,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18206",
@@ -19600,7 +19766,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18207",
@@ -19612,7 +19779,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18208",
@@ -19624,7 +19792,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18209",
@@ -19636,7 +19805,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18210",
@@ -19648,7 +19818,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18382",
@@ -19660,7 +19831,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18404",
@@ -19672,7 +19844,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18423",
@@ -19684,7 +19857,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18442",
@@ -19696,7 +19870,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "18481",
@@ -19708,7 +19883,8 @@
       ],
       "publishYear": {
         "kokuho": 2025
-      }
+      },
+      "prefectureSlug": "fukui"
     },
     {
       "cityCode": "05201",
