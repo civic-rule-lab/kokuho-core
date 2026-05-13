@@ -11,7 +11,7 @@
  *   - 全35市町村実際値（令和7年5月作成版PDF）
  *   - 資産割あり（4方式）: 安中市・昭和村・上野村 の3市村
  *   - 賦課限度額: 全市町村で全国標準（660/260/170万円）
- *   - slug競合: 太田市→otashi、沼田市→numatashi、高山村→takayamamura
+ *   - slug競合: 太田市→ota-gunma、沼田市→numatashi、高山村→takayamamura
  */
 
 export const PREF_NAME = "群馬県";
@@ -58,7 +58,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10205", citySlug: "otashi", cityName: "太田市",
+    cityCode: "10205", citySlug: "ota-gunma", cityName: "太田市",
     rates: {
       rate:      { medical: 0.0700, support: 0.0260, care: 0.0210 },
       perCapita: { medical: 25000,  support: 10600,  care: 11400  },

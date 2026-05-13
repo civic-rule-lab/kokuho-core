@@ -43,7 +43,7 @@ export const MUNICIPALITIES = [
   },
   {
     cityCode:   "08204",
-    citySlug:   "kogashi",
+    citySlug:   "koga-ibaraki",
     cityName:   "古河市",
     baseAmount: null,   // TODO: 公式サイトで確認
     status:     "needs_update",

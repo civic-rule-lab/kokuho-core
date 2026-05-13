@@ -49,7 +49,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08204", citySlug: "kogashi", cityName: "古河市",
+    cityCode: "08204", citySlug: "koga-ibaraki", cityName: "古河市",
     rates: {
       rate:      { medical: 0.0672, support: 0.0285, care: 0.0230 },
       perCapita: { medical: 35800,  support: 15700,  care: 15700  },

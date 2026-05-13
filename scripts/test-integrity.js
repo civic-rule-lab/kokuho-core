@@ -221,6 +221,8 @@ if (shouldRun("B")) {
   const decisions = legacy?.namingConvention?.appliedDecisions || {};
   const unexpectedResidual = [];
   for (const [baseSlug, decision] of Object.entries(decisions)) {
+    // 改名のみケース（base なし）は base 比較をスキップ。data dir 残留は C-3 が捕まえる
+    if (decision.base === null || decision.base === undefined) continue;
     const baseKeepsName = decision.base?.newSlug === baseSlug;
     const dirExists = dirs.includes(baseSlug);
     const baseInRegistry = reg.municipalities.some(m =>

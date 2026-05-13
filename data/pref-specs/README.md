@@ -183,7 +183,7 @@
   - 昭和村: 医療10%・後期5%・介護4%
   - 上野村: 医療15%・後期5%・介護5%
 - **賦課限度額**: 全市町村で全国標準（660/260/170万円）
-- slug競合: 太田市→`otashi`、沼田市→`numatashi`、高山村→`takayamamura`
+- slug競合: 太田市→`ota-gunma`、沼田市→`numatashi`、高山村→`takayamamura`
 
 ---
 
@@ -194,7 +194,7 @@
 - **全44市町村が2方式（所得割+均等割）に統一**（令和4年度以降）
 - **平等割・資産割なし**（全市町村）
 - **賦課限度額**: 全市町村で全国標準（660/260/170万円）
-- slug競合: 古河市→`kogashi`、東海村→`tokaimura`、茨城町→`ibarakimachi`、八千代町→`yachiyomachi`、境町→`sakaimachi`
+- slug競合: 古河市→`koga-ibaraki`、東海村→`tokaimura`、茨城町→`ibarakimachi`、八千代町→`yachiyomachi`、境町→`sakaimachi`
 
 ---
 

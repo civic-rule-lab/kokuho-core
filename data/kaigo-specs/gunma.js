@@ -51,7 +51,7 @@ export const MUNICIPALITIES = [
   },
   {
     cityCode:   "10205",
-    citySlug:   "otashi",
+    citySlug:   "ota-gunma",
     cityName:   "太田市",
     baseAmount: null,   // TODO: 公式サイトで確認
     status:     "needs_update",

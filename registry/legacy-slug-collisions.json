@@ -153,6 +153,16 @@
         "base": { "prefecture": "千葉県", "cityName": "館山市", "population_approx": 45000, "tier": "市", "newSlug": "tateyama" },
         "suffixed": [{ "prefecture": "富山県", "cityName": "立山町", "population_approx": 25000, "tier": "町", "newSlug": "tateyama-toyama" }],
         "rationale": "人口優先で千葉館山市（市・45K）が base、富山立山町（町・25K）にサフィックス。⚠️ 現状 data/municipalities/tateyama/ には富山立山町データが入っているため、URL 移行とデータ移動を同時実施必要"
+      },
+      "kogashi": {
+        "base": null,
+        "suffixed": [{ "prefecture": "茨城県", "cityName": "古河市", "population_approx": 140000, "tier": "市", "newSlug": "koga-ibaraki" }],
+        "rationale": "改名のみ（同名衝突なし）。命名規約 prefix-{pref} 化に伴う移行。base 残留なし。"
+      },
+      "otashi": {
+        "base": null,
+        "suffixed": [{ "prefecture": "群馬県", "cityName": "太田市", "population_approx": 220000, "tier": "市", "newSlug": "ota-gunma" }],
+        "rationale": "改名のみ（同名衝突なし）。命名規約 prefix-{pref} 化に伴う移行。base 残留なし。"
       }
     },
     "unnormalizedDirsAlsoToFix": {
