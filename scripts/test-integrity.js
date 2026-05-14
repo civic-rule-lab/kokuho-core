@@ -1,13 +1,14 @@
 /**
  * 5/12 修復作業の整合性テスト（Phase 1〜3 の検証）
  *
- * 検証項目（6 セクション）:
+ * 検証項目（7 セクション）:
  *   A. cityCode 一次資料整合性（registry × 総務省 snapshot）
  *   B. slug 衝突の解消（registry 内に重複なし・data dir に重複 base なし）
  *   C. registry.citySlug ↔ data/municipalities/{slug}/ 整合
  *   D. data dir 内 JSON の cityCode 統一（混在なし）
  *   E. 公開 HTML（{pref}/{slug}/index.html）の自治体名整合
  *   F. 自動防衛線の動作（validator・hook・script の各機構）
+ *   G. R8 検証ライフサイクル（meta.lifecycle.* の cross-field rule）
  *
  * 利用:
  *   node scripts/test-integrity.js           # 全 6 セクション実行
@@ -511,6 +512,127 @@ if (shouldRun("F")) {
     } else {
       failLine("F", `F-4: .git/hooks/pre-commit 不在（bash scripts/install-hooks.sh 未実行）`);
     }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// G. R8 検証ライフサイクル（cross-field rule）
+// ─────────────────────────────────────────────────────────────────
+// meta.lifecycle.r8Stage / sourceStatus 等の意味的整合性チェック。
+// 型/enum 認識は scripts/validate-kokuho-data.js 側に分離。
+// lifecycle 未定義の自治体は「template_r7 相当」として rule 対象外
+// （後方互換、既存 1727+ 自治体は影響なし）。
+// ═══════════════════════════════════════════════════════════════════
+if (shouldRun("G")) {
+  header("G. R8 検証ライフサイクル（meta.lifecycle.* の cross-field rule）");
+
+  // 出典ランク: verified_r8 にして良い 4 値
+  const VERIFIED_SOURCE_STATUSES = new Set([
+    "official_rate_page",
+    "official_rate_pdf",
+    "ordinance_after_revision",
+    "official_final_notice",
+  ]);
+  // 出典ランク: extracted_r8 止まり（議案・改定案系）5 値 — verified_r8 禁止
+  const EXTRACTED_ONLY_SOURCE_STATUSES = new Set([
+    "council_bill",
+    "proposal_pdf",
+    "draft_revision",
+    "budget_material",
+    "press_release",
+  ]);
+  const STAGE_ORDER = {
+    template_r7: 0,
+    source_found_r8: 1,
+    extracted_r8: 2,
+    tested_r8: 3,
+    verified_r8: 4,
+  };
+
+  const dirs = readdirSync(DATA_DIR).filter(d => {
+    try { return statSync(path.join(DATA_DIR, d)).isDirectory(); } catch { return false; }
+  });
+
+  const violations = {
+    sourceUrlsRequired: [],
+    verifiedRequiredFields: [],
+    verifiedSourceStatusViolation: [],
+    extractedOnlyMisVerified: [],
+  };
+  let r8Count = 0;
+  let verifiedR8Count = 0;
+
+  for (const slug of dirs) {
+    const dp = path.join(DATA_DIR, slug);
+    let files;
+    try {
+      files = readdirSync(dp).filter(f => f.startsWith("kokuho-2026") && f.endsWith(".json"));
+    } catch { continue; }
+    for (const f of files) {
+      let j;
+      try {
+        j = JSON.parse(readFileSync(path.join(dp, f), "utf-8"));
+      } catch { continue; }
+      const lc = j.meta?.lifecycle;
+      if (!lc || !lc.r8Stage) continue;  // lifecycle 未定義 = template_r7 相当、rule 対象外
+
+      r8Count++;
+      const stage = lc.r8Stage;
+      const stageRank = STAGE_ORDER[stage] ?? -1;
+
+      // G-1: r8Stage >= source_found_r8 → sourceUrls 必須
+      if (stageRank >= STAGE_ORDER.source_found_r8) {
+        if (!Array.isArray(lc.sourceUrls) || lc.sourceUrls.length === 0) {
+          violations.sourceUrlsRequired.push(`${slug}/${f} (r8Stage=${stage}): sourceUrls 必須だが空/未定義`);
+        }
+      }
+
+      // G-2: r8Stage == verified_r8 → 必須 4 フィールド + r8Updated:true
+      if (stage === "verified_r8") {
+        verifiedR8Count++;
+        const missing = [];
+        if (!Array.isArray(lc.sourceUrls) || lc.sourceUrls.length === 0) missing.push("sourceUrls");
+        if (!lc.sourceStatus) missing.push("sourceStatus");
+        if (!lc.verifiedAt) missing.push("verifiedAt");
+        if (lc.r8Updated !== true) missing.push("r8Updated:true");
+        if (missing.length > 0) {
+          violations.verifiedRequiredFields.push(`${slug}/${f}: verified_r8 だが ${missing.join(", ")} 不足`);
+        }
+
+        // G-3: verified_r8 の sourceStatus は verified 許可リストのみ
+        if (lc.sourceStatus && !VERIFIED_SOURCE_STATUSES.has(lc.sourceStatus)) {
+          violations.verifiedSourceStatusViolation.push(`${slug}/${f}: verified_r8 だが sourceStatus="${lc.sourceStatus}" は許可リスト外`);
+        }
+      }
+
+      // G-4: 議案系 sourceStatus は verified_r8 禁止（誤 verified 防止）
+      if (EXTRACTED_ONLY_SOURCE_STATUSES.has(lc.sourceStatus) && stage === "verified_r8") {
+        violations.extractedOnlyMisVerified.push(`${slug}/${f}: sourceStatus="${lc.sourceStatus}" は extracted_r8 止まりだが r8Stage=verified_r8`);
+      }
+    }
+  }
+
+  console.log(`  対象: kokuho-2026.json で lifecycle 定義済 ${r8Count} 件 / うち verified_r8 ${verifiedR8Count} 件`);
+
+  if (violations.sourceUrlsRequired.length === 0) {
+    passLine(`G-1: source_found_r8 以上の自治体は sourceUrls 必須を満たす`);
+  } else {
+    failLine("G", `G-1: sourceUrls 不足 ${violations.sourceUrlsRequired.length} 件`, violations.sourceUrlsRequired);
+  }
+  if (violations.verifiedRequiredFields.length === 0) {
+    passLine(`G-2: verified_r8 自治体は必須フィールド (sourceUrls/sourceStatus/verifiedAt/r8Updated:true) を満たす`);
+  } else {
+    failLine("G", `G-2: verified_r8 必須フィールド不足 ${violations.verifiedRequiredFields.length} 件`, violations.verifiedRequiredFields);
+  }
+  if (violations.verifiedSourceStatusViolation.length === 0) {
+    passLine(`G-3: verified_r8 の sourceStatus は許可リスト内（official_rate_page 等）`);
+  } else {
+    failLine("G", `G-3: verified_r8 sourceStatus 不正 ${violations.verifiedSourceStatusViolation.length} 件`, violations.verifiedSourceStatusViolation);
+  }
+  if (violations.extractedOnlyMisVerified.length === 0) {
+    passLine(`G-4: 議案系 sourceStatus が verified_r8 に誤昇格していない`);
+  } else {
+    failLine("G", `G-4: 議案系 sourceStatus が verified_r8 ${violations.extractedOnlyMisVerified.length} 件`, violations.extractedOnlyMisVerified);
   }
 }
 
