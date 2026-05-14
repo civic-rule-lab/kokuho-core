@@ -37,3 +37,13 @@
 
 medical/support/care は R7 値と完全一致。医療上限のみ R8 国標準合わせで 670,000 → 660,000。
 childcareLevy は R8 新設で構造ごと追加。`perCapitaAdult + perCapitaAdultScope: "all_ages"` の新方式は kokuho.js の既存サポート機構（京都市等で利用）で計算可能。
+
+## addendum (2026-05-14, R8 国基準軽減判定値の修正)
+
+batch-01 初版で `reduction.standards.{fiveTenths,twoTenths}.perPersonAdd` が R7 国基準のまま残っていたため、三鷹市公式ページの記載（「31万円×（被保険者数）」「57万円×（被保険者数）」）と整合させて R8 公式値に修正。
+
+- reduction.standards.fiveTenths.perPersonAdd: 305,000 → 310,000
+- reduction.standards.twoTenths.perPersonAdd:  560,000 → 570,000
+
+軽減判定基準は国の統一基準で自治体ごとには変わらないため、立川市・武蔵野市も同時修正。
+全国一括適用（残り 1725 自治体）は別 issue で管理。

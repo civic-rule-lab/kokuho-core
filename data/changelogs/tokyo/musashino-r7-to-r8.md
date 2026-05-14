@@ -35,3 +35,13 @@
 
 R7 値はすべて template_r7 状態（registry 自動生成時の仮置き値）。今回 R8 公式ページで全項目を verified 化。
 公式ページに「令和8年4月1日現在公布されている条例に基づく税率等」との明記があり、議案資料・改定案系ではなく確定資料に該当するため verified_r8 に昇格。
+
+## addendum (2026-05-14, R8 国基準軽減判定値の修正)
+
+batch-01 初版で `reduction.standards.{fiveTenths,twoTenths}.perPersonAdd` が R7 国基準のまま残っていたため、R8 公式値（5割: 31万円、2割: 57万円）に修正。
+
+- reduction.standards.fiveTenths.perPersonAdd: 305,000 → 310,000
+- reduction.standards.twoTenths.perPersonAdd:  560,000 → 570,000
+
+軽減判定基準は国の統一基準で自治体ごとには変わらないため、立川市・三鷹市も同時修正。
+全国一括適用（残り 1725 自治体）は別 issue で管理。
