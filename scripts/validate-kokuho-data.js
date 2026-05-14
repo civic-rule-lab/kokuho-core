@@ -6,6 +6,7 @@
  *   [数値] 所得割率・均等割・平等割・上限額の範囲
  *   [整合] registry に登録されているがJSONが存在しない
  *   [感覚] 所得割・均等割が都道府県内の中央値から大きく外れていないか
+ *   [R8 lifecycle] meta.lifecycle.* の型/enum 認識（cross-field rule は test-integrity 側）
  *
  * 実行: node scripts/validate-kokuho-data.js
  */
@@ -123,6 +124,52 @@ function check(slug, data, pref) {
   }
   if (data.reduction?.salaryPensionAdd !== 100000)
     issues.push({ level: "WARN", msg: `salaryPensionAdd 非標準: ${data.reduction?.salaryPensionAdd?.toLocaleString()}` });
+
+  // ─── R8 検証ライフサイクル メタフィールドの型/enum 認識 ──────────
+  // 意味的な cross-field rule（必須組合せ・verified_r8 条件等）は scripts/test-integrity.js 側で検証
+  const lifecycle = data.meta?.lifecycle;
+  if (lifecycle !== undefined) {
+    if (typeof lifecycle !== "object" || Array.isArray(lifecycle) || lifecycle === null) {
+      issues.push({ level: "ERROR", msg: `meta.lifecycle は object 必須: ${typeof lifecycle}` });
+    } else {
+      const R8_STAGE_ENUM = ["template_r7", "source_found_r8", "extracted_r8", "tested_r8", "verified_r8"];
+      const SOURCE_STATUS_ENUM = [
+        "official_rate_page", "official_rate_pdf", "ordinance_after_revision", "official_final_notice",
+        "council_bill", "proposal_pdf", "draft_revision", "budget_material", "press_release",
+        "no_r8_source", "secondary_source", "unclear_source",
+      ];
+
+      if (lifecycle.r8Stage !== undefined && !R8_STAGE_ENUM.includes(lifecycle.r8Stage)) {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.r8Stage 不正値: "${lifecycle.r8Stage}"（許可: ${R8_STAGE_ENUM.join(", ")}）` });
+      }
+      if (lifecycle.sourceStatus !== undefined && !SOURCE_STATUS_ENUM.includes(lifecycle.sourceStatus)) {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.sourceStatus 不正値: "${lifecycle.sourceStatus}"` });
+      }
+      if (lifecycle.sourceUrls !== undefined) {
+        if (!Array.isArray(lifecycle.sourceUrls)) {
+          issues.push({ level: "ERROR", msg: `meta.lifecycle.sourceUrls は array 必須: ${typeof lifecycle.sourceUrls}` });
+        } else {
+          for (const [idx, url] of lifecycle.sourceUrls.entries()) {
+            if (typeof url !== "string") {
+              issues.push({ level: "ERROR", msg: `meta.lifecycle.sourceUrls[${idx}] は string 必須: ${typeof url}` });
+            }
+          }
+        }
+      }
+      if (lifecycle.verifiedAt !== undefined && lifecycle.verifiedAt !== null && typeof lifecycle.verifiedAt !== "string") {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.verifiedAt は string|null 必須: ${typeof lifecycle.verifiedAt}` });
+      }
+      if (lifecycle.r8Updated !== undefined && typeof lifecycle.r8Updated !== "boolean") {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.r8Updated は boolean 必須: ${typeof lifecycle.r8Updated}` });
+      }
+      if (lifecycle.previousYearTemplate !== undefined && typeof lifecycle.previousYearTemplate !== "boolean") {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.previousYearTemplate は boolean 必須: ${typeof lifecycle.previousYearTemplate}` });
+      }
+      if (lifecycle.verificationLevel !== undefined && typeof lifecycle.verificationLevel !== "string") {
+        issues.push({ level: "ERROR", msg: `meta.lifecycle.verificationLevel は string 必須: ${typeof lifecycle.verificationLevel}` });
+      }
+    }
+  }
 
   return issues;
 }
