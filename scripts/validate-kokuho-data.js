@@ -8,6 +8,7 @@
  *   [感覚] 所得割・均等割が都道府県内の中央値から大きく外れていないか
  *   [R8 lifecycle] meta.lifecycle.* の型/enum 認識（cross-field rule は test-integrity 側）
  *   [schoolReduction] schoolReduction.* の型認識（昭島市等の独自減免）
+ *   [R8 reduction] kokuho-2026.json の reduction.standards が R8 国基準 (310000/570000) か照合（issue #6）
  *
  * 実行: node scripts/validate-kokuho-data.js
  */
@@ -345,6 +346,42 @@ if (unregistered.length > 0) {
     console.log(`  ⚠️  ${slug}`);
     warnings++;
   }
+}
+
+// ─── R8 軽減基準の個別チェック（kokuho-2026.json 対象、issue #6 完結用） ──
+// validator の主要 check() は kokuho-2025.json (R7) を対象とするため、
+// R8 baseline 移行後は kokuho-2026.json の reduction.standards も
+// R8 国基準 (5割: 310000, 2割: 570000) であることを別途確認する。
+// 既存 R7 baseline check は影響を受けない（surgical addition）。
+const R8_FIVE_BASELINE = 310000;
+const R8_TWO_BASELINE  = 570000;
+const r8ReductionIssues = [];
+
+for (const m of registry.municipalities) {
+  if (!Array.isArray(m.systems) || !m.systems.includes("kokuho")) continue;
+  const r8path = path.join(DATA_DIR, m.citySlug, "kokuho-2026.json");
+  if (!existsSync(r8path)) continue;
+  let r8data;
+  try { r8data = JSON.parse(readFileSync(r8path, "utf-8")); }
+  catch { continue; }
+  const std = r8data.reduction?.standards;
+  if (!std) continue;
+  const five = std.fiveTenths?.perPersonAdd;
+  const two  = std.twoTenths?.perPersonAdd;
+  if (five !== R8_FIVE_BASELINE) {
+    r8ReductionIssues.push(`${m.citySlug}: 5割perPersonAdd = ${five?.toLocaleString()} (期待 ${R8_FIVE_BASELINE.toLocaleString()})`);
+    warnings++;
+  }
+  if (two !== R8_TWO_BASELINE) {
+    r8ReductionIssues.push(`${m.citySlug}: 2割perPersonAdd = ${two?.toLocaleString()} (期待 ${R8_TWO_BASELINE.toLocaleString()})`);
+    warnings++;
+  }
+}
+
+if (r8ReductionIssues.length > 0) {
+  console.log("\n【R8 軽減基準 非標準（kokuho-2026.json）】");
+  r8ReductionIssues.slice(0, 20).forEach(s => console.log(`  ⚠️  ${s}`));
+  if (r8ReductionIssues.length > 20) console.log(`     ... +${r8ReductionIssues.length - 20} 件省略`);
 }
 
 // ─── 集計 ──────────────────────────────────────────────────────
