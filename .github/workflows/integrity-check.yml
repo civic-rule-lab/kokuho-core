@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [main]
 
+# GitHub Actions runner の Node.js 20 deprecation 対応 (issue #5)。
+# 2026-06-02 以降は強制的に Node.js 24 がデフォルトになり、2026-09-16 に
+# Node.js 20 が runner から削除される。FORCE_JAVASCRIPT_ACTIONS_TO_NODE24
+# を有効化して、JavaScript actions (actions/checkout, actions/setup-node 等)
+# を早期に Node.js 24 上で動作させ、移行時の互換性を CI で先行検証する。
+# 詳細: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   test-integrity:
     name: registry × 一次資料 × data × HTML 横断検証
