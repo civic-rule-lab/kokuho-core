@@ -86,3 +86,63 @@ sakai の値は本再検証で府公式 R8 と完全一致を確認（rate / per
 ### 教訓
 
 「verified_r8」ラベルは「公式値で完全照合済み」を意味するため、partial 確認の段階で verified_r8 を立ててはいけない。今回 PR #20 で lifecycle metadata だけを retrofit した際、既存の値の正確性を再検証せずに verified_r8 化したのが原因。
+
+## addendum 2 (2026-05-15, caps 確定 + childcareLevy 内訳補正 + verified_r8 再昇格)
+
+ユーザーから提供された大阪府公式ページ（pref.osaka.lg.jp/o100080/.../hokenryouritsu2.html）および大阪市公式 保険料の決め方ページ（city.osaka.lg.jp/fukushi/page/0000624098.html）のスクリーンショット画像により、addendum 1 で provisional に降格していた caps 全項目と、子育て分の内訳が直接確認できた。
+
+### 直接確認できた値（大阪府公式 R8 統一保険料率テーブル）
+
+| 項目 | 値 | 確認元 |
+|---|---|---|
+| 医療分 賦課限度額 | 660,000円 (+1万) | 大阪府公式テーブル |
+| 後期支援分 賦課限度額 | 260,000円 (+2万) | 大阪府公式テーブル |
+| 介護分 賦課限度額 | 170,000円 (±0) | 大阪府公式テーブル |
+| 子ども分 賦課限度額 | 30,000円 (新設) | 大阪府公式テーブル |
+| 子ども分 均等割 内訳 | perCapita 1,745 + 18歳以上 96 = 1,841円 | 大阪市公式「保険料の決め方」二段構成表記 |
+
+R7→R8 増減は大阪府公式テーブルの () 表記で確認:
+- 医療: 所得割 +0.20% / 均等割 +566円 / 平等割 +334円 / 上限 +1万円
+- 後期: 所得割 +0.04% / 均等割 +157円 / 平等割 +84円 / 上限 +2万円
+- 介護: 所得割 +0.04% / 均等割 ▲102円 / 上限 ±0
+- 子ども: 新設
+
+### 本 corrective commit の変更
+
+| 項目 | addendum 1 (誤) | addendum 2 (修正) |
+|---|---|---|
+| caps.medical | 650,000 | **660,000** |
+| caps.support | 220,000 | **260,000** |
+| caps.childcare | 37,000 | **30,000** |
+| childcareLevy.perCapita | 1,742 | **1,745** |
+| childcareLevy.perCapitaAdult | 99 | **96** |
+| meta.status | provisional | **verified** |
+| meta.lifecycle.r8Stage | extracted_r8 | **verified_r8** |
+| meta.lifecycle.verifiedAt | null | **"2026-05-15"** |
+| meta.lifecycle.verificationLevel | partial_source_checked | **official_source_checked** |
+| meta.quality.confidenceScore | 0.7 | **0.95** |
+| meta.quality.completeness | partial | **full** |
+| meta.dataVersion | 2.0.2 | **2.0.3** |
+| meta.note (top-level) | "賦課限度額650000/240000円" | "賦課限度額660000/260000/170000/30000円" |
+| meta.notes | 修正経緯説明 (provisional 降格理由) | 完全確認済の確定情報 |
+
+### 子育て分内訳の解釈
+
+addendum 1 で sakai と同じ「1,742 + 99」を採用していたが、大阪市公式ページが「均等割 1,745円 + 18歳以上均等割 96円」と二段表記しているのが直接確認できたため、大阪市独自の表記に合わせて 1,745 + 96 を採用。合計は 1,841円で sakai と同じ。
+
+sakai は引き続き 1,742 + 99 を維持（堺市公式の内訳表記未確認のため、現状維持で別途確認）。大阪府公式テーブルは合計 1,841円のみ掲載で内訳の指定なし。
+
+### verification
+
+- r8Stage: verified_r8（再昇格）
+- test: passed（integrity test 22/22 PASS）
+- verifiedAt: 2026-05-15
+- previousYearTemplate: false
+- r8Updated: true
+- verificationLevel: official_source_checked
+
+### 教訓 (更新)
+
+- 公式 HTML/PDF だけでなく **スクリーンショット直接確認**も official_source_checked の根拠として扱える（人間が見て読み取ったもの）。
+- 一度 provisional 降格しても、出典が揃えば短サイクルで verified_r8 に再昇格できる lifecycle 設計が機能した。
+- 「府内統一」と言われていても、各市公式ページの内訳表記（1,745+96 vs 1,742+99）が異なるため、市単位で公式ページの直接確認が必要。
