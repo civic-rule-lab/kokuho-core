@@ -7,6 +7,7 @@
  *   [整合] registry に登録されているがJSONが存在しない
  *   [感覚] 所得割・均等割が都道府県内の中央値から大きく外れていないか
  *   [R8 lifecycle] meta.lifecycle.* の型/enum 認識（cross-field rule は test-integrity 側）
+ *   [schoolReduction] schoolReduction.* の型認識（昭島市等の独自減免）
  *
  * 実行: node scripts/validate-kokuho-data.js
  */
@@ -124,6 +125,30 @@ function check(slug, data, pref) {
   }
   if (data.reduction?.salaryPensionAdd !== 100000)
     issues.push({ level: "WARN", msg: `salaryPensionAdd 非標準: ${data.reduction?.salaryPensionAdd?.toLocaleString()}` });
+
+  // ─── schoolReduction の型認識（未就学児を除く 18 歳未満の医療・支援均等割減免） ─
+  // 例: 昭島市の独自減免「未就学児を除く 18 歳未満の医療分・支援分均等割を 5割減額」
+  // 既存 preschoolReduction（未就学児）と並列、対象人数は school = under18 - preschool。
+  const schoolRed = data.schoolReduction;
+  if (schoolRed !== undefined) {
+    if (typeof schoolRed !== "object" || Array.isArray(schoolRed) || schoolRed === null) {
+      issues.push({ level: "ERROR", msg: `schoolReduction は object 必須: ${typeof schoolRed}` });
+    } else {
+      if (schoolRed.enabled !== undefined && typeof schoolRed.enabled !== "boolean") {
+        issues.push({ level: "ERROR", msg: `schoolReduction.enabled は boolean 必須: ${typeof schoolRed.enabled}` });
+      }
+      if (schoolRed.medicalPerCapitaRate !== undefined) {
+        if (typeof schoolRed.medicalPerCapitaRate !== "number" || schoolRed.medicalPerCapitaRate < 0 || schoolRed.medicalPerCapitaRate > 1) {
+          issues.push({ level: "ERROR", msg: `schoolReduction.medicalPerCapitaRate は 0〜1 の number 必須: ${schoolRed.medicalPerCapitaRate}` });
+        }
+      }
+      if (schoolRed.supportPerCapitaRate !== undefined) {
+        if (typeof schoolRed.supportPerCapitaRate !== "number" || schoolRed.supportPerCapitaRate < 0 || schoolRed.supportPerCapitaRate > 1) {
+          issues.push({ level: "ERROR", msg: `schoolReduction.supportPerCapitaRate は 0〜1 の number 必須: ${schoolRed.supportPerCapitaRate}` });
+        }
+      }
+    }
+  }
 
   // ─── R8 検証ライフサイクル メタフィールドの型/enum 認識 ──────────
   // 意味的な cross-field rule（必須組合せ・verified_r8 条件等）は scripts/test-integrity.js 側で検証
