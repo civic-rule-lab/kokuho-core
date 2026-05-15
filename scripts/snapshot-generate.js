@@ -16,7 +16,10 @@ import { fileURLToPath } from "url";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const { calculateKokuho } = require("../js/core/kokuho.js");
+// js/core/kokuho.js を直接 require すると、package.json "type": "module" 環境では
+// ESM として解釈され module.exports が機能しない（issue #3 silent failure）。
+// scripts/lib/kokuho-loader.cjs (vm.runInContext 経由ローダー) で読み込む。
+const { calculateKokuho } = require("./lib/kokuho-loader.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT       = path.join(__dirname, "..");
@@ -48,7 +51,11 @@ function loadData(slug) {
 }
 
 // ── 計算実行 ────────────────────────────────────────────────────
-function runPatterns(data) {
+// 計算失敗時は null を返すが、_failedCases に記録して main 末尾で報告する
+// （silent catch 防止、issue #3 acceptance criteria）。
+const _failedCases = [];
+
+function runPatterns(data, slug) {
   return PATTERNS.map(pat => {
     try {
       const r = calculateKokuho(data, {
@@ -61,7 +68,8 @@ function runPatterns(data) {
         fixedAssetTax:      0,
       });
       return r.total;
-    } catch {
+    } catch (e) {
+      _failedCases.push({ slug: slug || "(unknown)", pattern: pat.id, error: e.message });
       return null;
     }
   });
@@ -97,7 +105,7 @@ const data = { ...existing };
 for (const m of targets) {
   const cityData = loadData(m.citySlug);
   if (!cityData) { skip++; continue; }
-  data[m.citySlug] = runPatterns(cityData);
+  data[m.citySlug] = runPatterns(cityData, m.citySlug);
   ok++;
 }
 
@@ -114,5 +122,13 @@ console.log(`✅ スナップショット生成完了`);
 console.log(`   対象: ${ok}自治体 × ${PATTERNS.length}パターン = ${ok * PATTERNS.length}ケース`);
 if (skip > 0) console.log(`   スキップ: ${skip}自治体（データなし）`);
 console.log(`   保存先: snapshots/kokuho.json`);
+
+// silent catch 防止: 計算失敗が出た場合は明示報告（exit code 2 で stderr）
+if (_failedCases.length > 0) {
+  console.error(`\n❌ 計算失敗 ${_failedCases.length} ケース（snapshot に null として記録）:`);
+  _failedCases.slice(0, 10).forEach(f => console.error(`   ${f.slug} / ${f.pattern}: ${f.error}`));
+  if (_failedCases.length > 10) console.error(`   ...（残り ${_failedCases.length - 10} 件略）`);
+  process.exit(2);
+}
 
 } // end isMain

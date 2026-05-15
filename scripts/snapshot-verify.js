@@ -18,7 +18,9 @@ import { createRequire } from "module";
 import { PATTERNS } from "./snapshot-generate.js";
 
 const require = createRequire(import.meta.url);
-const { calculateKokuho } = require("../js/core/kokuho.js");
+// scripts/lib/kokuho-loader.cjs 経由で calculateKokuho を取得（issue #3 fix）。
+// 詳細は loader のヘッダ comment 参照。
+const { calculateKokuho } = require("./lib/kokuho-loader.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
@@ -47,7 +49,10 @@ function loadData(slug) {
   return null;
 }
 
-function runPatterns(data) {
+// silent catch 防止: 計算失敗を _failedCases に記録（issue #3 acceptance criteria）
+const _failedCases = [];
+
+function runPatterns(data, slug) {
   return PATTERNS.map(pat => {
     try {
       const r = calculateKokuho(data, {
@@ -60,7 +65,8 @@ function runPatterns(data) {
         fixedAssetTax:      0,
       });
       return r.total;
-    } catch {
+    } catch (e) {
+      _failedCases.push({ slug: slug || "(unknown)", pattern: pat.id, error: e.message });
       return null;
     }
   });
@@ -83,7 +89,7 @@ for (const m of targets) {
   if (!cityData) { skip++; continue; }
 
   const saved   = snapshot.data[m.citySlug];
-  const current = runPatterns(cityData);
+  const current = runPatterns(cityData, m.citySlug);
 
   if (!saved) {
     // スナップショットに存在しない（新自治体）
@@ -147,6 +153,14 @@ if (UPDATE && diffs.length > 0) {
   console.log(`\n✅ スナップショットを更新しました (${diffs.length}自治体)`);
 } else if (diffs.length > 0 && !UPDATE) {
   console.log(`\n  差分を意図的な変更として受け入れる場合は --update を付けて再実行してください。`);
+}
+
+// silent catch 防止: 計算失敗が出た場合は明示報告（exit code 2）
+if (_failedCases.length > 0) {
+  console.error(`\n❌ 計算失敗 ${_failedCases.length} ケース（verify 比較結果は信頼不可）:`);
+  _failedCases.slice(0, 10).forEach(f => console.error(`   ${f.slug} / ${f.pattern}: ${f.error}`));
+  if (_failedCases.length > 10) console.error(`   ...（残り ${_failedCases.length - 10} 件略）`);
+  process.exit(2);
 }
 
 process.exit(diffs.length > 0 ? 1 : 0);
