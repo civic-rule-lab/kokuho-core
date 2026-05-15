@@ -147,6 +147,18 @@ function check(slug, data, pref) {
           issues.push({ level: "ERROR", msg: `schoolReduction.supportPerCapitaRate は 0〜1 の number 必須: ${schoolRed.supportPerCapitaRate}` });
         }
       }
+
+      // cross-field rule (issue #14): enabled=true なら rate 必須化
+      // engine 側は `|| 0` フォールバックで silent 0 減額になるため、
+      // data 入力ミスを ERROR で検出する。enabled !== true なら何も検査しない（後方互換）。
+      if (schoolRed.enabled === true) {
+        if (schoolRed.medicalPerCapitaRate === undefined || schoolRed.medicalPerCapitaRate === null) {
+          issues.push({ level: "ERROR", msg: `schoolReduction.enabled=true の場合 medicalPerCapitaRate は必須（未定義だと engine 側で || 0 により silent 0 減額になる）` });
+        }
+        if (schoolRed.supportPerCapitaRate === undefined || schoolRed.supportPerCapitaRate === null) {
+          issues.push({ level: "ERROR", msg: `schoolReduction.enabled=true の場合 supportPerCapitaRate は必須（未定義だと engine 側で || 0 により silent 0 減額になる）` });
+        }
+      }
     }
   }
 
