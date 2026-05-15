@@ -7,18 +7,18 @@
   "note": "大阪府統一保険料率。R6より全府統一。介護分は2方式（平等割なし）。賦課限度額650000/240000円。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.061,
-    "support": 0.021,
-    "care": 0.021
+    "medical": 0.095,
+    "support": 0.0306,
+    "care": 0.026
   },
   "perCapita": {
-    "medical": 43500,
-    "support": 14900,
-    "care": 17100
+    "medical": 34990,
+    "support": 11191,
+    "care": 18682
   },
   "household": {
-    "medical": 28500,
-    "support": 9800,
+    "medical": 33908,
+    "support": 10845,
     "care": 0
   },
   "caps": {
@@ -57,44 +57,47 @@
   },
   "meta": {
     "schemaVersion": "2.0",
-    "dataVersion": "2.0.1",
-    "status": "verified",
+    "dataVersion": "2.0.2",
+    "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.042Z",
       "updatedAt": "2026-05-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "verified_r8",
+      "r8Stage": "extracted_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
         "https://www.city.osaka.lg.jp/fukushi/page/0000624098.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
-      "verificationLevel": "official_source_checked"
+      "verifiedAt": null,
+      "verificationLevel": "partial_source_checked"
     },
     "source": {
       "type": "official",
-      "title": "大阪市 保険料の決め方（令和8年度）",
-      "url": "https://www.city.osaka.lg.jp/fukushi/page/0000624098.html",
+      "title": "大阪府 令和8年度大阪府市町村標準保険料率（大阪府統一保険料率）",
+      "url": "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
       "publishedAt": ""
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-04-08",
-      "method": "official-site"
+      "verifiedAt": "2026-05-15",
+      "method": "official-page"
     },
     "quality": {
-      "confidenceScore": 0.9,
-      "completeness": "full"
+      "confidenceScore": 0.7,
+      "completeness": "partial"
     },
-    "notes": "R8公式確認。医療分上限650000・支援分上限220000は大阪市独自設定。子ども支援金分上限37000円。"
+    "notes": "⚠️ PR #20 retrofit 後の再検証で値不整合が判明し本 commit で部分修正。大阪府公式 R8 unified rate ページから rate/perCapita/household および childcareLevy を 大阪府統一保険料率 (R8) に修正: 医療 9.50%・34,990円・33,908円 / 支援 3.06%・11,191円・10,845円 / 介護 2.60%・18,682円。子育て分は perCapita 1,742円 + 18歳以上 99円 (合計 1,841円) を 大阪府統一値として採用 (sakai と同構造)。caps（医療 650000・支援 220000・子育て 37000）は府公式 Excel/PDF (r8ryouritsu.xlsx) でしか確認できないため未確認、現状値を維持。caps 確認後に再昇格予定 → status: provisional / r8Stage: extracted_r8 に降格。"
   },
-  "childcare": {
-    "rate": 0.0046,
-    "perCapita": 3700,
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1742,
+    "perCapitaAdult": 99,
+    "perCapitaAdultScope": "all_ages",
     "household": 0
   }
 }
