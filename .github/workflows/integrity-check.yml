@@ -35,3 +35,9 @@ jobs:
 
       - name: Run validate-kokuho-data.js
         run: node scripts/validate-kokuho-data.js
+
+      - name: Run test-sanity-all.js (全 1700+ 自治体 × 8 パターン 計算回帰検出)
+        run: node scripts/test-sanity-all.js
+
+      - name: Run test-calc-verify.js (公式計算例との照合)
+        run: node scripts/test-calc-verify.js
