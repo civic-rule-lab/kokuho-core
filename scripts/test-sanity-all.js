@@ -22,7 +22,10 @@ import { fileURLToPath } from "url";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const { calculateKokuho } = require("../js/core/kokuho.js");
+// js/core/kokuho.js を直接 require すると、package.json "type": "module" 環境では
+// `module` global が undefined となり、kokuho.js 末尾の module.exports が実行されず
+// 空 object が返る (issue #36)。scripts/lib/kokuho-loader.cjs (vm.runInContext 経由) で読み込む。
+const { calculateKokuho } = require("./lib/kokuho-loader.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT     = path.join(__dirname, "..");
