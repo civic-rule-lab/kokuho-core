@@ -17,9 +17,13 @@ env:
 
 jobs:
   test-integrity:
-    name: registry × 一次資料 × data × HTML 横断検証
+    name: registry × 一次資料 × data × HTML 横断検証 (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['22', '24']
 
     steps:
       - name: Checkout
@@ -28,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: ${{ matrix.node-version }}
 
       - name: Run test-integrity.js
         run: node scripts/test-integrity.js

@@ -21,6 +21,9 @@
     "url": "https://github.com/civic-rule-lab/kokuho-core/issues"
   },
   "homepage": "https://github.com/civic-rule-lab/kokuho-core#readme",
+  "engines": {
+    "node": ">=22"
+  },
   "devDependencies": {
     "gray-matter": "^4.0.3",
     "marked": "^18.0.3"
