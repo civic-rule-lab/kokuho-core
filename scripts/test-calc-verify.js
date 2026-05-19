@@ -32,7 +32,7 @@ const DATA_DIR = path.join(ROOT, "data", "municipalities");
 // expected フィールド名（medical/support/care）と engine 出力（medicalTotal/...）を吸収し、
 // 未指定の入力フィールドにデフォルト値を補う。
 function runKokuho(data, input) {
-  const r = calculateKokuho(data, {
+  const r = calculateKokuho({
     income:                  input.income                  ?? 0,
     family:                  input.family                  ?? 1,
     preschool:               input.preschool               ?? 0,
@@ -41,7 +41,7 @@ function runKokuho(data, input) {
     salaryPensionCount:      input.salaryPensionCount      ?? 1,
     fixedAssetTax:           input.fixedAssetTax           ?? 0,
     reductionJudgmentIncome: input.reductionJudgmentIncome,  // undefined のまま渡す（フォールバックはエンジン側）
-  });
+  }, data);
   return {
     medical:          r.medicalTotal,
     support:          r.supportTotal,

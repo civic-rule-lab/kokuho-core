@@ -160,7 +160,7 @@ function calculateHousehold(municipalityData, householdInput, options = {}) {
   // ── Pass 1: 国保（第2号介護分を内包・社保控除に依存しない） ──────
   const kokuhoInputs = deriveKokuhoInputs(members, fixedAssetTax);
   const kokuho = (mData.kokuho && _calcKokuho)
-    ? _calcKokuho(mData.kokuho, kokuhoInputs)
+    ? _calcKokuho(kokuhoInputs, mData.kokuho)
     : null;
 
   // ── Pass 2: 住民税（メンバーごと）─────────────────────────────

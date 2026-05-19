@@ -95,7 +95,7 @@ console.log('\n== calculateHousehold（国保 + 住民税） ==');
 
   // 直接計算で比較
   const kInputs = deriveKokuhoInputs(members);
-  const kDirect = calculateKokuho(saitamaKokuho, kInputs);
+  const kDirect = calculateKokuho(kInputs, saitamaKokuho);
   const jDirect = calculateJumin(null, { salary: 2_000_000 });
 
   ok('kokuho が計算される',   result.kokuho !== null);

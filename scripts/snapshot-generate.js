@@ -58,7 +58,7 @@ const _failedCases = [];
 function runPatterns(data, slug) {
   return PATTERNS.map(pat => {
     try {
-      const r = calculateKokuho(data, {
+      const r = calculateKokuho({
         income:             pat.income,
         family:             pat.family,
         preschool:          pat.preschool,
@@ -66,7 +66,7 @@ function runPatterns(data, slug) {
         care:               pat.care,
         salaryPensionCount: pat.salaryPensionCount,
         fixedAssetTax:      0,
-      });
+      }, data);
       return r.total;
     } catch (e) {
       _failedCases.push({ slug: slug || "(unknown)", pattern: pat.id, error: e.message });

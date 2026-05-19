@@ -47,8 +47,8 @@ const DATA_BASE_URL = 'https://kokuho-keisan.jp/data/municipalities';
 
 // ─── 計算ロジック（engine.js と同一） ────────────────────────────
 
-function calculateKokuho(data, inputs) {
-  const { income, family, preschool, care, salaryPensionCount, fixedAssetTax } = inputs;
+function calculateKokuho(input, data) {
+  const { income, family, preschool, care, salaryPensionCount, fixedAssetTax } = input;
 
   const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
   const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
@@ -245,7 +245,7 @@ export default {
 
       const inputs = rawInputs;
 
-      const result = calculateKokuho(muniData, inputs);
+      const result = calculateKokuho(inputs, muniData);
 
       return Response.json(
         {

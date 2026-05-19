@@ -101,7 +101,7 @@ for (const slug of slugs) {
     totalCases++;
     let r;
     try {
-      r = calculateKokuho(data, input);
+      r = calculateKokuho(input, data);
     } catch (e) {
       failures.push({ slug, pattern: JSON.stringify(input), issues: [`例外発生: ${e.message}`] });
       totalFailed++;
