@@ -7,6 +7,8 @@
 #   bash scripts/deploy.sh --push        # 上記 + git push（両リポジトリ）+ wrangler deploy
 #   bash scripts/deploy.sh --sync-only   # 生成スキップ、同期のみ
 #   bash scripts/deploy.sh --dry-run     # 変更内容の確認のみ（実行しない）
+#   bash scripts/deploy.sh --force       # untracked が working tree に残っていても deploy 強行
+#                                         (2026-05-20 横浜 deploy 後の *2.html 本番混入事案で追加)
 
 set -e
 
@@ -15,19 +17,21 @@ PUBLIC_DIR="$HOME/Desktop/kokuho-keisan"
 PUSH=false
 SYNC_ONLY=false
 DRY_RUN=false
+FORCE_DEPLOY=false
 
 for arg in "$@"; do
   case $arg in
     --push)      PUSH=true ;;
     --sync-only) SYNC_ONLY=true ;;
     --dry-run)   DRY_RUN=true ;;
+    --force)     FORCE_DEPLOY=true ;;
   esac
 done
 
 echo "=== kokuho-core → kokuho-keisan デプロイ ==="
 echo "core:   $CORE_DIR"
 echo "public: $PUBLIC_DIR"
-echo "push:   $PUSH / sync-only: $SYNC_ONLY / dry-run: $DRY_RUN"
+echo "push:   $PUSH / sync-only: $SYNC_ONLY / dry-run: $DRY_RUN / force: $FORCE_DEPLOY"
 echo ""
 
 # ── 0. バリデーション ────────────────────────────────────────────
@@ -94,6 +98,25 @@ echo "▶ 公開リポジトリへ同期中..."
 # 都道府県ディレクトリを動的に検出（income.htmlが生成済みのもの）
 PREFS=$(find "$CORE_DIR" -mindepth 3 -maxdepth 3 -name "income.html" \
   | awk -F/ '{print $(NF-2)}' | sort -u | tr '\n' ' ')
+
+# untracked ファイルが working tree に残っていると rsync で本番に流れ込む事故が
+# 2026-05-20 横浜 deploy 後に発生 (PR #47 → "* 2.html" 残骸 → cleanup PR f0389d711a)。
+# default で禁止、--force で override 可。dry-run でも検査する (早期発見が目的)。
+if [ "$FORCE_DEPLOY" = false ]; then
+  UNTRACKED_COUNT=$(git -C "$CORE_DIR" ls-files --others --exclude-standard | wc -l | tr -d ' ')
+  if [ "$UNTRACKED_COUNT" -gt 0 ]; then
+    echo "❌ untracked file が $UNTRACKED_COUNT 件 working tree に残っています。"
+    echo "   そのまま rsync すると本番に流れ込みます (2026-05-20 横浜事案と同型)。"
+    echo "   先頭 20 件:"
+    git -C "$CORE_DIR" ls-files --others --exclude-standard | head -20 | sed 's/^/     /'
+    echo ""
+    echo "   対処:"
+    echo "     - 不要なら git clean -fd / rm で削除"
+    echo "     - 必要なら git add → commit"
+    echo "     - どうしても deploy 強行したい場合は bash scripts/deploy.sh --force"
+    exit 1
+  fi
+fi
 
 if [ "$DRY_RUN" = false ]; then
   # 都道府県HTMLを rsync で同期（削除リスクを最小化）
