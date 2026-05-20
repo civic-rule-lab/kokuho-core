@@ -43,3 +43,4 @@ wrangler-account.json
 **/wrangler-account.json
 workers/api/cf.json
 **/cf.json
+*.bak
