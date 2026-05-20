@@ -44,3 +44,6 @@ wrangler-account.json
 workers/api/cf.json
 **/cf.json
 *.bak
+
+# Codex / Cursor agent のローカルキャッシュ (hooks.json が絶対パスでチーム移植不可)
+.codex/
