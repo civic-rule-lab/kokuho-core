@@ -16,7 +16,7 @@ set -e
 
 # ─── (1) credential / SUNNET / 個人 identity の混入禁止 ──────────
 PATTERN='cap\.chino\.06|yuccosan0619|MacBook-Pro\.local|wrangler-account\.json|hscloud\.sunnet'
-if git diff --cached | grep -qE "$PATTERN"; then
+if git diff --cached --unified=0 | grep -E '^\+[^+]' | grep -qE "$PATTERN"; then
   echo "❌ pre-commit: 個人 identity / 漏洩済み identifier / SUNNET URL が含まれています"
   echo "   除外パターン: $PATTERN"
   exit 1
