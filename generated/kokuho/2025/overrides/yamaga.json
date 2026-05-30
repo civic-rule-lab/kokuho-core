@@ -1,0 +1,21 @@
+{
+  "citySlug": "yamaga",
+  "cityName": "山鹿市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0859,
+      "support": 0.031,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 30011,
+      "support": 10807,
+      "care": 16316
+    },
+    "household": {
+      "medical": 20283,
+      "support": 7304
+    }
+  }
+}

@@ -14,7 +14,8 @@
       "care": 15700
     },
     "household": {
-      "medical": 19100
+      "medical": 19100,
+      "support": 0
     }
   }
 }

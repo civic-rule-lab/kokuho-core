@@ -1,0 +1,22 @@
+{
+  "citySlug": "isahaya",
+  "cityName": "諫早市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0914,
+      "support": 0.0349,
+      "care": 0.0282
+    },
+    "perCapita": {
+      "medical": 30340,
+      "support": 11540,
+      "care": 11420
+    },
+    "household": {
+      "medical": 20180,
+      "support": 7670,
+      "care": 5780
+    }
+  }
+}

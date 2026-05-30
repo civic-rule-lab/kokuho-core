@@ -1,0 +1,27 @@
+{
+  "citySlug": "uwajima",
+  "cityName": "宇和島市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.022,
+      "care": 0.0167
+    },
+    "perCapita": {
+      "medical": 19700,
+      "support": 6600,
+      "care": 7300
+    },
+    "household": {
+      "medical": 22500,
+      "support": 7100,
+      "care": 5100
+    },
+    "assetLevy": {
+      "medical": 0.275,
+      "support": 0.07,
+      "care": 0.063
+    }
+  }
+}

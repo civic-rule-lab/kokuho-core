@@ -1,0 +1,22 @@
+{
+  "citySlug": "sera",
+  "cityName": "世羅町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.0274,
+      "care": 0.0213
+    },
+    "perCapita": {
+      "medical": 32574,
+      "support": 11464,
+      "care": 10931
+    },
+    "household": {
+      "medical": 20990,
+      "support": 7389,
+      "care": 5335
+    }
+  }
+}

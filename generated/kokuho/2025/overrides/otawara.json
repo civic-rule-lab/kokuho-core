@@ -1,0 +1,22 @@
+{
+  "citySlug": "otawara",
+  "cityName": "大田原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0551,
+      "support": 0.0243,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 24044,
+      "support": 10494,
+      "care": 10440
+    },
+    "household": {
+      "medical": 16175,
+      "support": 7060,
+      "care": 5248
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "masaki",
+  "cityName": "松前町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.084,
+      "support": 0.03,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 26800,
+      "support": 9400,
+      "care": 9500
+    },
+    "household": {
+      "medical": 19000,
+      "support": 6500,
+      "care": 4700
+    }
+  }
+}

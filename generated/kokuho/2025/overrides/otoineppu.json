@@ -1,0 +1,25 @@
+{
+  "citySlug": "otoineppu",
+  "cityName": "音威子府村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.045,
+      "support": 0.015,
+      "care": 0.009000000000000001
+    },
+    "perCapita": {
+      "medical": 19200
+    },
+    "household": {
+      "medical": 18000,
+      "support": 4800,
+      "care": 4800
+    },
+    "assetLevy": {
+      "medical": 0.5,
+      "support": 0.1,
+      "care": 0.09
+    }
+  }
+}

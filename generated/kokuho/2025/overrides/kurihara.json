@@ -1,0 +1,22 @@
+{
+  "citySlug": "kurihara",
+  "cityName": "栗原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0692,
+      "support": 0.0296,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 27500,
+      "support": 11300,
+      "care": 10600
+    },
+    "household": {
+      "medical": 18700,
+      "support": 9100,
+      "care": 6300
+    }
+  }
+}

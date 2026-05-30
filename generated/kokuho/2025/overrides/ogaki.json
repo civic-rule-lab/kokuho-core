@@ -1,0 +1,22 @@
+{
+  "citySlug": "ogaki",
+  "cityName": "大垣市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0738,
+      "support": 0.0256,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 11000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 20400,
+      "support": 7200,
+      "care": 5500
+    }
+  }
+}

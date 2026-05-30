@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakagawamachi",
+  "cityName": "那珂川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0598,
+      "support": 0.0257,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 26122,
+      "support": 11125,
+      "care": 11110
+    },
+    "household": {
+      "medical": 17572,
+      "support": 7484,
+      "care": 5585
+    }
+  }
+}

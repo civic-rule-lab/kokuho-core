@@ -1,0 +1,22 @@
+{
+  "citySlug": "arida",
+  "cityName": "有田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0916,
+      "support": 0.0312,
+      "care": 0.0257
+    },
+    "perCapita": {
+      "medical": 33020,
+      "support": 10928,
+      "care": 11274
+    },
+    "household": {
+      "medical": 22890,
+      "support": 7576,
+      "care": 5720
+    }
+  }
+}

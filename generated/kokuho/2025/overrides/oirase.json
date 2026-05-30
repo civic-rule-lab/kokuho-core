@@ -1,0 +1,21 @@
+{
+  "citySlug": "oirase",
+  "cityName": "おいらせ町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0745,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 31600,
+      "support": 11400,
+      "care": 13800
+    },
+    "household": {
+      "medical": 21600,
+      "support": 7800,
+      "care": 6800
+    }
+  }
+}

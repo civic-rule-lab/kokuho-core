@@ -1,0 +1,16 @@
+{
+  "citySlug": "kashima",
+  "cityName": "鹿嶋市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.053,
+      "support": 0.028,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 17000
+    }
+  }
+}

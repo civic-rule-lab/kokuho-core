@@ -62,7 +62,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15207", citySlug: "ojiya", cityName: "小千谷市",
+    cityCode: "15208", citySlug: "ojiya", cityName: "小千谷市",
     note: "新潟県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -72,7 +72,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15208", citySlug: "kamo", cityName: "加茂市",
+    cityCode: "15209", citySlug: "kamo", cityName: "加茂市",
     note: "介護分・後期分は平等割なし。取得値は令和8年度料率の可能性あり。要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -82,7 +82,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15209", citySlug: "tokamachi", cityName: "十日町市",
+    cityCode: "15210", citySlug: "tokamachi", cityName: "十日町市",
     note: "新潟県R7標準保険料率を使用（R7は据え置き・R8に改定済）。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -92,7 +92,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15210", citySlug: "mitsuke", cityName: "見附市",
+    cityCode: "15211", citySlug: "mitsuke", cityName: "見附市",
     note: "介護分は平等割なし。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -102,7 +102,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15211", citySlug: "murakami", cityName: "村上市",
+    cityCode: "15212", citySlug: "murakami", cityName: "村上市",
     note: "後期分・介護分は平等割なし。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -242,7 +242,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15385", citySlug: "izumozaki", cityName: "出雲崎町",
+    cityCode: "15405", citySlug: "izumozaki", cityName: "出雲崎町",
     note: "新潟県R7標準保険料率を使用（公式サイトR8に更新済）。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -252,7 +252,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15405", citySlug: "yuzawa", cityName: "湯沢町",
+    cityCode: "15461", citySlug: "yuzawa", cityName: "湯沢町",
     note: "後期分・介護分は平等割なし。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -262,7 +262,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15407", citySlug: "tsunan", cityName: "津南町",
+    cityCode: "15482", citySlug: "tsunan", cityName: "津南町",
     note: "4方式（所得割+資産割+均等割+平等割）。医療分のみ資産割。後期分・介護分は平等割なし。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.2698, support: 0, care: 0 },
@@ -273,7 +273,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15422", citySlug: "kariwa", cityName: "刈羽村",
+    cityCode: "15504", citySlug: "kariwa", cityName: "刈羽村",
     note: "新潟県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -283,7 +283,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15461", citySlug: "sekikawa", cityName: "関川村",
+    cityCode: "15581", citySlug: "sekikawa", cityName: "関川村",
     note: "新潟県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -293,7 +293,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15462", citySlug: "awashimaura", cityName: "粟島浦村",
+    cityCode: "15586", citySlug: "awashimaura", cityName: "粟島浦村",
     note: "4方式（所得割+資産割+均等割+平等割）。医療分資産割31.42%。後期分の資産割額は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.3142, support: 0, care: 0 },
@@ -304,7 +304,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "15481", citySlug: "aga", cityName: "阿賀町",
+    cityCode: "15385", citySlug: "aga", cityName: "阿賀町",
     note: "後期分・介護分は平等割なし。条例令和6年施行版。要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {

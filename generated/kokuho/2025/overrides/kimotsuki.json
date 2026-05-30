@@ -1,0 +1,22 @@
+{
+  "citySlug": "kimotsuki",
+  "cityName": "肝付町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0772,
+      "support": 0.0282,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 32991,
+      "support": 11860,
+      "care": 12209
+    },
+    "household": {
+      "medical": 21371,
+      "support": 7683,
+      "care": 6075
+    }
+  }
+}

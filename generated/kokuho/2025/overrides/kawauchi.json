@@ -1,0 +1,22 @@
+{
+  "citySlug": "kawauchi",
+  "cityName": "川内村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0907,
+      "support": 0.0267,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 39398,
+      "support": 11461,
+      "care": 11509
+    },
+    "household": {
+      "medical": 26154,
+      "support": 7609,
+      "care": 5773
+    }
+  }
+}

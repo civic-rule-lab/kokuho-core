@@ -1,0 +1,22 @@
+{
+  "citySlug": "iwamizawa",
+  "cityName": "岩見沢市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0863,
+      "support": 0.0262,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 27810,
+      "support": 8730,
+      "care": 8660
+    },
+    "household": {
+      "medical": 28220,
+      "support": 8860,
+      "care": 6810
+    }
+  }
+}

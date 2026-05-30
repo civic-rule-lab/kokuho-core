@@ -1,0 +1,22 @@
+{
+  "citySlug": "shihoro",
+  "cityName": "士幌町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0525,
+      "support": 0.023799999999999998,
+      "care": 0.0102
+    },
+    "perCapita": {
+      "medical": 29800,
+      "support": 11100,
+      "care": 12800
+    },
+    "household": {
+      "medical": 26500,
+      "support": 9700,
+      "care": 8300
+    }
+  }
+}

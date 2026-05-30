@@ -1,0 +1,22 @@
+{
+  "citySlug": "hatsukaichi",
+  "cityName": "廿日市市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.028,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 32700,
+      "support": 11400,
+      "care": 10600
+    },
+    "household": {
+      "medical": 23400,
+      "support": 7300,
+      "care": 5300
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "mihamawakayama",
+  "cityName": "美浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0843,
+      "support": 0.031,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 30418,
+      "support": 10853,
+      "care": 11206
+    },
+    "household": {
+      "medical": 21086,
+      "support": 7523,
+      "care": 5686
+    }
+  }
+}

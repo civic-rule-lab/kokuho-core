@@ -1,0 +1,22 @@
+{
+  "citySlug": "sai",
+  "cityName": "佐井村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.096,
+      "support": 0.032,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 25200,
+      "support": 12000,
+      "care": 13200
+    },
+    "household": {
+      "medical": 30000,
+      "support": 5000,
+      "care": 2000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kuriyama",
+  "cityName": "栗山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.022000000000000002,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 7000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 30000,
+      "care": 8000
+    }
+  }
+}

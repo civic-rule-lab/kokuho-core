@@ -1,0 +1,22 @@
+{
+  "citySlug": "minamitane",
+  "cityName": "南種子町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "support": 0.0277,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 26091,
+      "support": 11637,
+      "care": 11169
+    },
+    "household": {
+      "medical": 16901,
+      "support": 7538,
+      "care": 5558
+    }
+  }
+}

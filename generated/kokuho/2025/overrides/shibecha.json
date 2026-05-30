@@ -1,0 +1,26 @@
+{
+  "citySlug": "shibecha",
+  "cityName": "標茶町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0707,
+      "support": 0.0245,
+      "care": 0.022000000000000002
+    },
+    "perCapita": {
+      "medical": 26500,
+      "support": 9500,
+      "care": 10000
+    },
+    "household": {
+      "medical": 21000,
+      "support": 6500
+    },
+    "assetLevy": {
+      "medical": 0.044,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

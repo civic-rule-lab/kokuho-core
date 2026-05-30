@@ -1,0 +1,22 @@
+{
+  "citySlug": "nanae",
+  "cityName": "七飯町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08199999999999999,
+      "support": 0.028999999999999998,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 8000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 29000,
+      "support": 9000,
+      "care": 8000
+    }
+  }
+}

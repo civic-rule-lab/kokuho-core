@@ -1,0 +1,21 @@
+{
+  "citySlug": "akkeshi",
+  "cityName": "厚岸町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08869999999999999,
+      "support": 0.0263,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 29000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 29000,
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

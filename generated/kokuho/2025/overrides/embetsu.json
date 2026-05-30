@@ -1,0 +1,27 @@
+{
+  "citySlug": "embetsu",
+  "cityName": "遠別町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.087,
+      "support": 0.032,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 35400,
+      "support": 12600,
+      "care": 13900
+    },
+    "household": {
+      "medical": 36900,
+      "support": 14000,
+      "care": 11400
+    },
+    "assetLevy": {
+      "medical": 0.4,
+      "support": 0.13,
+      "care": 0.12
+    }
+  }
+}

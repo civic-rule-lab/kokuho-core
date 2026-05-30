@@ -1,0 +1,22 @@
+{
+  "citySlug": "unnan",
+  "cityName": "雲南市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0761,
+      "support": 0.0207,
+      "care": 0.0174
+    },
+    "perCapita": {
+      "medical": 29740,
+      "support": 8060,
+      "care": 8870
+    },
+    "household": {
+      "medical": 19200,
+      "support": 5200,
+      "care": 4290
+    }
+  }
+}

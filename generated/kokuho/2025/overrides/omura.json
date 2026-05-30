@@ -1,0 +1,21 @@
+{
+  "citySlug": "omura",
+  "cityName": "大村市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.086,
+      "support": 0.03,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 9800,
+      "care": 8500
+    },
+    "household": {
+      "support": 10000,
+      "care": 6000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "meiwamachi",
+  "cityName": "明和町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0721,
+      "support": 0.0282,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31126,
+      "support": 12036,
+      "care": 13021
+    },
+    "household": {
+      "medical": 20440,
+      "support": 7904,
+      "care": 6419
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "shimogo",
+  "cityName": "下郷町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0697,
+      "support": 0.0273,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 30257,
+      "support": 11732,
+      "care": 11289
+    },
+    "household": {
+      "medical": 20086,
+      "support": 7789,
+      "care": 5663
+    }
+  }
+}

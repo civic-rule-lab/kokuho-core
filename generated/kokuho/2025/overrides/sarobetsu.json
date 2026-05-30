@@ -1,0 +1,27 @@
+{
+  "citySlug": "sarobetsu",
+  "cityName": "猿払村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.042,
+      "support": 0.008,
+      "care": 0.0034999999999999996
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 5000,
+      "care": 5000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 6000,
+      "care": 6000
+    },
+    "assetLevy": {
+      "medical": 0.15,
+      "support": 0.03,
+      "care": 0.03
+    }
+  }
+}

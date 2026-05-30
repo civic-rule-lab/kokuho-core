@@ -1,0 +1,21 @@
+{
+  "citySlug": "rishirifuji",
+  "cityName": "利尻富士町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.023,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 26000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 8500,
+      "care": 7000
+    }
+  }
+}

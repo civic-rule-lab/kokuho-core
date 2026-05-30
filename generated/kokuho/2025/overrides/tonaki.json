@@ -1,0 +1,27 @@
+{
+  "citySlug": "tonaki",
+  "cityName": "渡名喜村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08,
+      "support": 0.013,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 13000,
+      "support": 3100,
+      "care": 5000
+    },
+    "household": {
+      "medical": 16000,
+      "support": 2600,
+      "care": 2500
+    },
+    "assetLevy": {
+      "medical": 0.45,
+      "support": 0.0428,
+      "care": 0.159
+    }
+  }
+}

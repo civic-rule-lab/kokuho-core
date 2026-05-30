@@ -1,0 +1,16 @@
+{
+  "citySlug": "ryugasaki",
+  "cityName": "龍ケ崎市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.063,
+      "support": 0.03
+    },
+    "perCapita": {
+      "medical": 31500,
+      "support": 14100,
+      "care": 14100
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kamiamakusa",
+  "cityName": "上天草市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0831,
+      "support": 0.0309,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 29018,
+      "support": 10763,
+      "care": 15808
+    },
+    "household": {
+      "medical": 19612,
+      "support": 7274
+    }
+  }
+}

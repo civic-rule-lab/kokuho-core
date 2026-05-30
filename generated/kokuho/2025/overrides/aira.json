@@ -1,0 +1,22 @@
+{
+  "citySlug": "aira",
+  "cityName": "姶良市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0813,
+      "support": 0.0285,
+      "care": 0.0251
+    },
+    "perCapita": {
+      "medical": 34762,
+      "support": 11970,
+      "care": 12542
+    },
+    "household": {
+      "medical": 22518,
+      "support": 7754,
+      "care": 6241
+    }
+  }
+}

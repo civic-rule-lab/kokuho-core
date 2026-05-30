@@ -1,0 +1,26 @@
+{
+  "citySlug": "mimasaka",
+  "cityName": "美作市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.029,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 20400,
+      "support": 7800,
+      "care": 7600
+    },
+    "household": {
+      "support": 6000,
+      "care": 4000
+    },
+    "assetLevy": {
+      "medical": 0.1085,
+      "support": 0.043,
+      "care": 0.0385
+    }
+  }
+}

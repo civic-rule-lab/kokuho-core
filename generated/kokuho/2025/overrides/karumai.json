@@ -1,0 +1,26 @@
+{
+  "citySlug": "karumai",
+  "cityName": "軽米町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.056,
+      "support": 0.017,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 17000,
+      "care": 5500
+    },
+    "household": {
+      "medical": 23000,
+      "support": 6500,
+      "care": 6500
+    },
+    "assetLevy": {
+      "medical": 0.18,
+      "support": 0.09,
+      "care": 0.07
+    }
+  }
+}

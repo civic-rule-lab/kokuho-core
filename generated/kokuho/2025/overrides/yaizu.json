@@ -1,0 +1,21 @@
+{
+  "citySlug": "yaizu",
+  "cityName": "焼津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.0294,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 29317,
+      "support": 11944,
+      "care": 16677
+    },
+    "household": {
+      "medical": 19182,
+      "support": 7815
+    }
+  }
+}

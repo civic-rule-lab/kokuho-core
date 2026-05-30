@@ -1,0 +1,19 @@
+{
+  "citySlug": "semboku",
+  "cityName": "仙北市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.035,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 18000
+    },
+    "household": {
+      "medical": 17000,
+      "care": 4000
+    }
+  }
+}

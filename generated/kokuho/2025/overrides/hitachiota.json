@@ -1,0 +1,16 @@
+{
+  "citySlug": "hitachiota",
+  "cityName": "常陸太田市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 34800,
+      "support": 13800,
+      "care": 15600
+    }
+  }
+}

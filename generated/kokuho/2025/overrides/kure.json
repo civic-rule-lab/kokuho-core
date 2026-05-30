@@ -1,0 +1,21 @@
+{
+  "citySlug": "kure",
+  "cityName": "呉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.0275
+    },
+    "perCapita": {
+      "medical": 33600,
+      "support": 11280,
+      "care": 10440
+    },
+    "household": {
+      "medical": 22080,
+      "support": 7440,
+      "care": 5280
+    }
+  }
+}

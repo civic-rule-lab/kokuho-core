@@ -1,0 +1,27 @@
+{
+  "citySlug": "toyako",
+  "cityName": "洞爺湖町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.087,
+      "support": 0.0206,
+      "care": 0.0129
+    },
+    "perCapita": {
+      "medical": 23700,
+      "support": 7400,
+      "care": 5500
+    },
+    "household": {
+      "medical": 25400,
+      "support": 6500,
+      "care": 5000
+    },
+    "assetLevy": {
+      "medical": 0.117,
+      "support": 0.045,
+      "care": 0.025
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "nanporo",
+  "cityName": "南幌町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.02,
+      "care": 0.0125
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 5000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 36000,
+      "support": 7000,
+      "care": 7000
+    }
+  }
+}

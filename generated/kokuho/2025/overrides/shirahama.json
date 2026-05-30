@@ -1,0 +1,22 @@
+{
+  "citySlug": "shirahama",
+  "cityName": "白浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0791,
+      "support": 0.0308,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 28523,
+      "support": 10794,
+      "care": 11349
+    },
+    "household": {
+      "medical": 19773,
+      "support": 7483,
+      "care": 5759
+    }
+  }
+}

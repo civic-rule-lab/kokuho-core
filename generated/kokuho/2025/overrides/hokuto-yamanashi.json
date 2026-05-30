@@ -1,0 +1,22 @@
+{
+  "citySlug": "hokuto-yamanashi",
+  "cityName": "北杜市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.057,
+      "support": 0.017,
+      "care": 0.014
+    },
+    "perCapita": {
+      "medical": 22800,
+      "support": 7500,
+      "care": 8000
+    },
+    "household": {
+      "medical": 23000,
+      "support": 6000,
+      "care": 6000
+    }
+  }
+}

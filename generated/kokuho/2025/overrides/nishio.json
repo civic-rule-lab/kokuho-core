@@ -1,0 +1,22 @@
+{
+  "citySlug": "nishio",
+  "cityName": "西尾市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0756,
+      "support": 0.0284,
+      "care": 0.0237
+    },
+    "perCapita": {
+      "medical": 32435,
+      "support": 12012,
+      "care": 12006
+    },
+    "household": {
+      "medical": 21056,
+      "support": 7798,
+      "care": 5943
+    }
+  }
+}

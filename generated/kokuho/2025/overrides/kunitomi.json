@@ -1,0 +1,27 @@
+{
+  "citySlug": "kunitomi",
+  "cityName": "国富町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0789,
+      "support": 0.0352,
+      "care": 0.0251
+    },
+    "perCapita": {
+      "medical": 27400,
+      "support": 12000,
+      "care": 12600
+    },
+    "household": {
+      "medical": 19300,
+      "support": 8300,
+      "care": 6500
+    },
+    "assetLevy": {
+      "medical": 0.0873,
+      "support": 0.0383,
+      "care": 0.038
+    }
+  }
+}

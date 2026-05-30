@@ -1,0 +1,22 @@
+{
+  "citySlug": "minamiosumi",
+  "cityName": "南大隅町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0726,
+      "support": 0.029,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 31030,
+      "support": 12204,
+      "care": 11960
+    },
+    "household": {
+      "medical": 20100,
+      "support": 7905,
+      "care": 5951
+    }
+  }
+}

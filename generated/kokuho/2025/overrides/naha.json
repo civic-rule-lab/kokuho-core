@@ -1,0 +1,22 @@
+{
+  "citySlug": "naha",
+  "cityName": "那覇市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.097,
+      "support": 0.0159,
+      "care": 0.0156
+    },
+    "perCapita": {
+      "medical": 18200,
+      "support": 3300,
+      "care": 7700
+    },
+    "household": {
+      "medical": 25400,
+      "support": 5300,
+      "care": 4600
+    }
+  }
+}

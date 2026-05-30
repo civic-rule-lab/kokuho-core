@@ -1,0 +1,26 @@
+{
+  "citySlug": "kunohe",
+  "cityName": "九戸村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.047,
+      "support": 0.022,
+      "care": 0.014
+    },
+    "perCapita": {
+      "medical": 13500,
+      "support": 7000,
+      "care": 5000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 9000
+    },
+    "assetLevy": {
+      "medical": 0.11,
+      "support": 0.1,
+      "care": 0.07
+    }
+  }
+}

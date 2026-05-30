@@ -1,0 +1,21 @@
+{
+  "citySlug": "nagaoka",
+  "cityName": "長岡市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0536,
+      "support": 0.0234,
+      "care": 0.0208
+    },
+    "perCapita": {
+      "medical": 22058,
+      "support": 9509,
+      "care": 14441
+    },
+    "household": {
+      "medical": 14309,
+      "support": 6169
+    }
+  }
+}

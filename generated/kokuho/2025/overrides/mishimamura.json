@@ -1,0 +1,22 @@
+{
+  "citySlug": "mishimamura",
+  "cityName": "三島村",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0541,
+      "support": 0.0311,
+      "care": 0.0275
+    },
+    "perCapita": {
+      "medical": 23113,
+      "support": 13087,
+      "care": 13713
+    },
+    "household": {
+      "medical": 14972,
+      "support": 8478,
+      "care": 6823
+    }
+  }
+}

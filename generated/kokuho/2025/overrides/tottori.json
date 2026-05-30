@@ -1,0 +1,22 @@
+{
+  "citySlug": "tottori",
+  "cityName": "鳥取市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.063,
+      "support": 0.0294,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 25861,
+      "support": 12705,
+      "care": 13432
+    },
+    "household": {
+      "medical": 18024,
+      "support": 8378,
+      "care": 6459
+    }
+  }
+}

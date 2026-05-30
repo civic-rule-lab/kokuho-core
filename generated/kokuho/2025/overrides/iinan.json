@@ -1,0 +1,21 @@
+{
+  "citySlug": "iinan",
+  "cityName": "飯南町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 28500,
+      "support": 9200,
+      "care": 9800
+    },
+    "household": {
+      "medical": 19500,
+      "support": 6200,
+      "care": 5600
+    }
+  }
+}

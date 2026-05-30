@@ -1,0 +1,22 @@
+{
+  "citySlug": "yamatsuri",
+  "cityName": "矢祭町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.062,
+      "support": 0.0265,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 26908,
+      "support": 11380,
+      "care": 11312
+    },
+    "household": {
+      "medical": 17863,
+      "support": 7555,
+      "care": 5674
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "ako",
+  "cityName": "赤穂市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0748,
+      "support": 0.0288,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 29300,
+      "support": 11400,
+      "care": 11900
+    },
+    "household": {
+      "medical": 19300,
+      "support": 7700,
+      "care": 6000
+    }
+  }
+}

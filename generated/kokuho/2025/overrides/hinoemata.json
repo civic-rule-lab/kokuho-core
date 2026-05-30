@@ -1,0 +1,22 @@
+{
+  "citySlug": "hinoemata",
+  "cityName": "檜枝岐村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0536,
+      "support": 0.0284,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 23263,
+      "support": 12231,
+      "care": 12163
+    },
+    "household": {
+      "medical": 15443,
+      "support": 8119,
+      "care": 6101
+    }
+  }
+}

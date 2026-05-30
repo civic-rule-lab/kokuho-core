@@ -1,0 +1,20 @@
+{
+  "citySlug": "nakasatsunai",
+  "cityName": "中札内村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.053,
+      "support": 0.021,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 24000,
+      "care": 18000
+    },
+    "household": {
+      "medical": 29000,
+      "support": 11000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "yabuki",
+  "cityName": "矢吹町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0755,
+      "support": 0.0274,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 32793,
+      "support": 11781,
+      "care": 11810
+    },
+    "household": {
+      "medical": 21770,
+      "support": 7821,
+      "care": 5924
+    }
+  }
+}

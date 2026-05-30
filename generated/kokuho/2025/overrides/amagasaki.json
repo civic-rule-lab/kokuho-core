@@ -1,0 +1,22 @@
+{
+  "citySlug": "amagasaki",
+  "cityName": "尼崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0804,
+      "support": 0.0312,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 31200,
+      "support": 12048,
+      "care": 12132
+    },
+    "household": {
+      "medical": 19404,
+      "support": 7500,
+      "care": 5928
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "citySlug": "saroma",
+  "cityName": "佐呂間町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.021,
+      "care": 0.013999999999999999
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 9000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 28000,
+      "support": 7500,
+      "care": 5500
+    },
+    "assetLevy": {
+      "medical": 0.019,
+      "support": 0.007,
+      "care": 0.004
+    }
+  }
+}

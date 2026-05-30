@@ -1,0 +1,22 @@
+{
+  "citySlug": "matsusaka",
+  "cityName": "松阪市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0739,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31932,
+      "support": 12143,
+      "care": 13023
+    },
+    "household": {
+      "medical": 20970,
+      "support": 7974,
+      "care": 6421
+    }
+  }
+}

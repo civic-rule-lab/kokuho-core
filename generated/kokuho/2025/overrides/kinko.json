@@ -1,0 +1,22 @@
+{
+  "citySlug": "kinko",
+  "cityName": "錦江町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0687,
+      "support": 0.0283,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 29379,
+      "support": 11895,
+      "care": 11631
+    },
+    "household": {
+      "medical": 19031,
+      "support": 7705,
+      "care": 5787
+    }
+  }
+}

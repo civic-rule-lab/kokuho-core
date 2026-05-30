@@ -1,0 +1,22 @@
+{
+  "citySlug": "kesennuma",
+  "cityName": "気仙沼市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0663,
+      "support": 0.0288,
+      "care": 0.0228
+    },
+    "perCapita": {
+      "medical": 29215,
+      "support": 12524,
+      "care": 11849
+    },
+    "household": {
+      "medical": 18706,
+      "support": 8019,
+      "care": 5826
+    }
+  }
+}

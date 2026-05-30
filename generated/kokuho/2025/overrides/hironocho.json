@@ -1,0 +1,26 @@
+{
+  "citySlug": "hironocho",
+  "cityName": "洋野町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.051,
+      "support": 0.027,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 17400,
+      "support": 7800
+    },
+    "household": {
+      "medical": 21000,
+      "support": 9000,
+      "care": 4800
+    },
+    "assetLevy": {
+      "medical": 0.21,
+      "support": 0.09,
+      "care": 0.06
+    }
+  }
+}

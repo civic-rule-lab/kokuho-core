@@ -4,6 +4,7 @@
   "signature": "4h|nat|R7std|pre",
   "override": {
     "rate": {
+      "medical": 0.056,
       "support": 0.024,
       "care": 0.018
     },
@@ -14,6 +15,7 @@
     },
     "household": {
       "medical": 23000,
+      "support": 10000,
       "care": 13000
     },
     "assetLevy": {

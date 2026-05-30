@@ -1,0 +1,22 @@
+{
+  "citySlug": "fudai",
+  "cityName": "普代村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.056,
+      "support": 0.021,
+      "care": 0.01
+    },
+    "perCapita": {
+      "medical": 16800,
+      "support": 6200,
+      "care": 6000
+    },
+    "household": {
+      "medical": 23200,
+      "support": 6800,
+      "care": 5000
+    }
+  }
+}

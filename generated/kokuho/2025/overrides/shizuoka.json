@@ -1,0 +1,21 @@
+{
+  "citySlug": "shizuoka",
+  "cityName": "静岡市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0715,
+      "support": 0.0299,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29936,
+      "support": 12153,
+      "care": 16878
+    },
+    "household": {
+      "medical": 19587,
+      "support": 7952
+    }
+  }
+}

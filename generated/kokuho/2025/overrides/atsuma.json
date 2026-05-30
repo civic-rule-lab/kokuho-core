@@ -1,0 +1,22 @@
+{
+  "citySlug": "atsuma",
+  "cityName": "厚真町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0874,
+      "support": 0.026099999999999998,
+      "care": 0.0196
+    },
+    "perCapita": {
+      "medical": 30514,
+      "support": 9330,
+      "care": 9375
+    },
+    "household": {
+      "medical": 30287,
+      "support": 9261,
+      "care": 7354
+    }
+  }
+}

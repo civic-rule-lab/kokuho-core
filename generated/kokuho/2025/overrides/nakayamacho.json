@@ -1,0 +1,19 @@
+{
+  "citySlug": "nakayamacho",
+  "cityName": "中山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.028
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 9500
+    },
+    "household": {
+      "medical": 21500,
+      "support": 7500,
+      "care": 5300
+    }
+  }
+}

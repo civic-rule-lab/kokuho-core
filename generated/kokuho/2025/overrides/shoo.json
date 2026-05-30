@@ -1,0 +1,22 @@
+{
+  "citySlug": "shoo",
+  "cityName": "勝央町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0802,
+      "support": 0.0291,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 21800,
+      "support": 6800,
+      "care": 6700
+    },
+    "household": {
+      "medical": 17800,
+      "support": 5600,
+      "care": 3500
+    }
+  }
+}

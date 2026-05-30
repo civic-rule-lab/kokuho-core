@@ -1,0 +1,22 @@
+{
+  "citySlug": "kosakacho",
+  "cityName": "小坂町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0528,
+      "support": 0.0317,
+      "care": 0.0272
+    },
+    "perCapita": {
+      "medical": 13129,
+      "support": 8672,
+      "care": 8180
+    },
+    "household": {
+      "medical": 15581,
+      "support": 9516,
+      "care": 7517
+    }
+  }
+}

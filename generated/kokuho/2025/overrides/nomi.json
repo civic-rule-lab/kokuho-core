@@ -1,0 +1,22 @@
+{
+  "citySlug": "nomi",
+  "cityName": "能美市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0764,
+      "support": 0.0239,
+      "care": 0.0211
+    },
+    "perCapita": {
+      "medical": 32100,
+      "support": 9900,
+      "care": 10800
+    },
+    "household": {
+      "medical": 21300,
+      "support": 6600,
+      "care": 5300
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "fuso",
+  "cityName": "扶桑町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0812,
+      "support": 0.0273,
+      "care": 0.0229
+    },
+    "perCapita": {
+      "medical": 34819,
+      "support": 11569,
+      "care": 11603
+    },
+    "household": {
+      "medical": 22604,
+      "support": 7511,
+      "care": 5743
+    }
+  }
+}

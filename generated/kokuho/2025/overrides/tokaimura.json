@@ -1,0 +1,16 @@
+{
+  "citySlug": "tokaimura",
+  "cityName": "東海村",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.026
+    },
+    "perCapita": {
+      "medical": 36600,
+      "support": 13900,
+      "care": 15300
+    }
+  }
+}

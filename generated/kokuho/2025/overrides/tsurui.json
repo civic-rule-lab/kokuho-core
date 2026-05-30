@@ -1,0 +1,27 @@
+{
+  "citySlug": "tsurui",
+  "cityName": "鶴居村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.071,
+      "support": 0.027200000000000002,
+      "care": 0.024900000000000002
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 7500,
+      "care": 8700
+    },
+    "household": {
+      "medical": 27000,
+      "support": 16000,
+      "care": 11000
+    },
+    "assetLevy": {
+      "medical": 0.2,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

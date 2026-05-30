@@ -1,0 +1,22 @@
+{
+  "citySlug": "utsunomiya",
+  "cityName": "宇都宮市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0776,
+      "support": 0.0301,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 33873,
+      "support": 12991,
+      "care": 12804
+    },
+    "household": {
+      "medical": 22786,
+      "support": 8739,
+      "care": 6437
+    }
+  }
+}

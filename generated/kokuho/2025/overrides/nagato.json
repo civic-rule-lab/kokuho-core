@@ -1,0 +1,20 @@
+{
+  "citySlug": "nagato",
+  "cityName": "長門市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.028,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 25200,
+      "care": 9900
+    },
+    "household": {
+      "medical": 23400,
+      "support": 8400,
+      "care": 6300
+    }
+  }
+}

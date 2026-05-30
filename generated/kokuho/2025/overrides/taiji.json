@@ -1,0 +1,22 @@
+{
+  "citySlug": "taiji",
+  "cityName": "太地町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.0296,
+      "care": 0.0263
+    },
+    "perCapita": {
+      "medical": 27048,
+      "support": 10374,
+      "care": 11528
+    },
+    "household": {
+      "medical": 18750,
+      "support": 7192,
+      "care": 5850
+    }
+  }
+}

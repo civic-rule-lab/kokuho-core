@@ -1,0 +1,21 @@
+{
+  "citySlug": "kora",
+  "cityName": "甲良町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0683,
+      "support": 0.0242
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 8000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6000,
+      "care": 5000
+    }
+  }
+}

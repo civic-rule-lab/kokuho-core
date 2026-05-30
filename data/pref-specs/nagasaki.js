@@ -35,21 +35,21 @@ export const MUNICIPALITIES = [
   // 大村市 R7確認
   { cityCode: "42205", citySlug: "omura",            cityName: "大村市",    caps: CAPS, rates: { rate: { medical: 0.086,  support: 0.03,   care: 0.022  }, perCapita: { medical: 23000, support:  9800, care:  8500 }, household: { medical: 22000, support: 10000, care: 6000 } } },
   // 平戸市 R7確認
-  { cityCode: "42206", citySlug: "hirado",           cityName: "平戸市",    caps: CAPS, rates: { rate: { medical: 0.0935, support: 0.028,  care: 0.025  }, perCapita: { medical: 27000, support:  7800, care: 10000 }, household: { medical: 20400, support: 6100, care: 5600 } } },
+  { cityCode: "42207", citySlug: "hirado",           cityName: "平戸市",    caps: CAPS, rates: { rate: { medical: 0.0935, support: 0.028,  care: 0.025  }, perCapita: { medical: 27000, support:  7800, care: 10000 }, household: { medical: 20400, support: 6100, care: 5600 } } },
   // 松浦市 R7確認
-  { cityCode: "42207", citySlug: "matsuura",         cityName: "松浦市",    caps: CAPS, rates: { rate: { medical: 0.097,  support: 0.038,  care: 0.02   }, perCapita: { medical: 32000, support: 12000, care: 11000 }, household: { medical: 22000, support: 12000, care: 5600 } } },
+  { cityCode: "42208", citySlug: "matsuura",         cityName: "松浦市",    caps: CAPS, rates: { rate: { medical: 0.097,  support: 0.038,  care: 0.02   }, perCapita: { medical: 32000, support: 12000, care: 11000 }, household: { medical: 22000, support: 12000, care: 5600 } } },
   // 対馬市 R7確認（slug競合 tsushima→tsushimashi）
-  { cityCode: "42208", citySlug: "tsushimashi",      cityName: "対馬市",    caps: CAPS, rates: { rate: { medical: 0.083,  support: 0.028,  care: 0.026  }, perCapita: { medical: 26000, support:  8500, care:  9700 }, household: { medical: 22000, support: 7300, care: 6000 } } },
+  { cityCode: "42209", citySlug: "tsushimashi",      cityName: "対馬市",    caps: CAPS, rates: { rate: { medical: 0.083,  support: 0.028,  care: 0.026  }, perCapita: { medical: 26000, support:  8500, care:  9700 }, household: { medical: 22000, support: 7300, care: 6000 } } },
   // 壱岐市 R6参考
-  { cityCode: "42209", citySlug: "iki",              cityName: "壱岐市",    caps: CAPS, note: "R6参考値。R7実際値は要確認。", rates: { rate: { medical: 0.085,  support: 0.037,  care: 0.03   }, perCapita: { medical: 22100, support:  9800, care: 11000 }, household: { medical: 21600, support: 9300, care: 7300 } } },
+  { cityCode: "42210", citySlug: "iki",              cityName: "壱岐市",    caps: CAPS, note: "R6参考値。R7実際値は要確認。", rates: { rate: { medical: 0.085,  support: 0.037,  care: 0.03   }, perCapita: { medical: 22100, support:  9800, care: 11000 }, household: { medical: 21600, support: 9300, care: 7300 } } },
   // 五島市 R7確認
-  { cityCode: "42210", citySlug: "goto",             cityName: "五島市",    caps: CAPS, rates: { rate: { medical: 0.0808, support: 0.0354, care: 0.0211 }, perCapita: { medical: 20500, support:  8000, care:  8200 }, household: { medical: 15700, support: 6600, care: 4800 } } },
+  { cityCode: "42211", citySlug: "goto",             cityName: "五島市",    caps: CAPS, rates: { rate: { medical: 0.0808, support: 0.0354, care: 0.0211 }, perCapita: { medical: 20500, support:  8000, care:  8200 }, household: { medical: 15700, support: 6600, care: 4800 } } },
   // 西海市 R7確認
-  { cityCode: "42211", citySlug: "saikai",           cityName: "西海市",    caps: CAPS, rates: { rate: { medical: 0.084,  support: 0.024,  care: 0.023  }, perCapita: { medical: 24000, support:  8000, care: 10000 }, household: { medical: 22000, support: 7000, care: 6000 } } },
+  { cityCode: "42212", citySlug: "saikai",           cityName: "西海市",    caps: CAPS, rates: { rate: { medical: 0.084,  support: 0.024,  care: 0.023  }, perCapita: { medical: 24000, support:  8000, care: 10000 }, household: { medical: 22000, support: 7000, care: 6000 } } },
   // 雲仙市 R7確認
-  { cityCode: "42212", citySlug: "unzen",            cityName: "雲仙市",    caps: CAPS, rates: { rate: { medical: 0.089,  support: 0.031,  care: 0.026  }, perCapita: { medical: 28700, support: 11000, care: 11000 }, household: { medical: 27800, support: 9600, care: 7600 } } },
+  { cityCode: "42213", citySlug: "unzen",            cityName: "雲仙市",    caps: CAPS, rates: { rate: { medical: 0.089,  support: 0.031,  care: 0.026  }, perCapita: { medical: 28700, support: 11000, care: 11000 }, household: { medical: 27800, support: 9600, care: 7600 } } },
   // 南島原市 R7確認
-  { cityCode: "42213", citySlug: "minamishimabara",  cityName: "南島原市",  caps: CAPS, rates: { rate: { medical: 0.095,  support: 0.03,   care: 0.026  }, perCapita: { medical: 27800, support:  8800, care:  9900 }, household: { medical: 24600, support: 8000, care: 8600 } } },
+  { cityCode: "42214", citySlug: "minamishimabara",  cityName: "南島原市",  caps: CAPS, rates: { rate: { medical: 0.095,  support: 0.03,   care: 0.026  }, perCapita: { medical: 27800, support:  8800, care:  9900 }, household: { medical: 24600, support: 8000, care: 8600 } } },
 
   // ── 町（8町）───────────────────────────────────────────────
 

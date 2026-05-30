@@ -1,0 +1,21 @@
+{
+  "citySlug": "tamamura",
+  "cityName": "玉村町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.03,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 29500,
+      "support": 11500
+    },
+    "household": {
+      "medical": 23000,
+      "support": 9000,
+      "care": 8000
+    }
+  }
+}

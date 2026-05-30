@@ -1,0 +1,21 @@
+{
+  "citySlug": "yuzawa",
+  "cityName": "湯沢町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.054,
+      "support": 0.0255,
+      "care": 0.0208
+    },
+    "perCapita": {
+      "medical": 22380,
+      "support": 15360,
+      "care": 15960
+    },
+    "household": {
+      "medical": 15180,
+      "support": 0
+    }
+  }
+}

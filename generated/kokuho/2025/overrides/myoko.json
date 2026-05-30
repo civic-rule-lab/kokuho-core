@@ -1,0 +1,21 @@
+{
+  "citySlug": "myoko",
+  "cityName": "妙高市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0949,
+      "support": 0.042,
+      "care": 0.0289
+    },
+    "perCapita": {
+      "medical": 15600,
+      "support": 6900,
+      "care": 10800
+    },
+    "household": {
+      "medical": 19500,
+      "support": 8600
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "watarai",
+  "cityName": "度会町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0705,
+      "support": 0.0282,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 30440,
+      "support": 12010,
+      "care": 13021
+    },
+    "household": {
+      "medical": 19990,
+      "support": 7887,
+      "care": 6419
+    }
+  }
+}

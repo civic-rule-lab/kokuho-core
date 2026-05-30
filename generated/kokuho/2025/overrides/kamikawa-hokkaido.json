@@ -1,0 +1,26 @@
+{
+  "citySlug": "kamikawa-hokkaido",
+  "cityName": "上川町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.024,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 10000,
+      "care": 15000
+    },
+    "household": {
+      "medical": 8000,
+      "support": 0,
+      "care": 0
+    },
+    "assetLevy": {
+      "medical": 0.15,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

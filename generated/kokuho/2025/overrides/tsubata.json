@@ -1,0 +1,22 @@
+{
+  "citySlug": "tsubata",
+  "cityName": "津幡町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0712,
+      "support": 0.0239,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 28700,
+      "support": 9600,
+      "care": 10200
+    },
+    "household": {
+      "medical": 20100,
+      "support": 6700,
+      "care": 5100
+    }
+  }
+}

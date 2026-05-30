@@ -1,0 +1,22 @@
+{
+  "citySlug": "tosa",
+  "cityName": "土佐市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0812,
+      "support": 0.0277,
+      "care": 0.0268
+    },
+    "perCapita": {
+      "medical": 34100,
+      "support": 11800,
+      "care": 13800
+    },
+    "household": {
+      "medical": 24400,
+      "support": 8500,
+      "care": 7100
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "hamamatsu",
+  "cityName": "浜松市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0762,
+      "support": 0.0297,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 31902,
+      "support": 12065,
+      "care": 17139
+    },
+    "household": {
+      "medical": 20874,
+      "support": 7894
+    }
+  }
+}

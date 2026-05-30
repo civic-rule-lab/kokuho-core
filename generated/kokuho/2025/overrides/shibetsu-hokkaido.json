@@ -1,0 +1,21 @@
+{
+  "citySlug": "shibetsu-hokkaido",
+  "cityName": "標津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.026000000000000002
+    },
+    "perCapita": {
+      "medical": 25700,
+      "support": 8800,
+      "care": 8800
+    },
+    "household": {
+      "medical": 26500,
+      "support": 9000,
+      "care": 6800
+    }
+  }
+}

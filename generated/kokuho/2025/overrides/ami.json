@@ -1,0 +1,17 @@
+{
+  "citySlug": "ami",
+  "cityName": "阿見町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.062,
+      "support": 0.022,
+      "care": 0.013
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 10000,
+      "care": 12000
+    }
+  }
+}

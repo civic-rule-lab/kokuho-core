@@ -1,0 +1,22 @@
+{
+  "citySlug": "nishiwaki",
+  "cityName": "西脇市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0708,
+      "support": 0.0302,
+      "care": 0.0262
+    },
+    "perCapita": {
+      "medical": 30200,
+      "support": 12900,
+      "care": 13600
+    },
+    "household": {
+      "medical": 19800,
+      "support": 8300,
+      "care": 6700
+    }
+  }
+}

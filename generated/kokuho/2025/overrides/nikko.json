@@ -1,0 +1,21 @@
+{
+  "citySlug": "nikko",
+  "cityName": "日光市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0688,
+      "support": 0.0281
+    },
+    "perCapita": {
+      "medical": 30052,
+      "support": 12153,
+      "care": 11867
+    },
+    "household": {
+      "medical": 20216,
+      "support": 8176,
+      "care": 5966
+    }
+  }
+}

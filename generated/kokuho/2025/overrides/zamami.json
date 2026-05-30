@@ -1,0 +1,27 @@
+{
+  "citySlug": "zamami",
+  "cityName": "座間味村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.0198,
+      "care": 0.005
+    },
+    "perCapita": {
+      "medical": 14000,
+      "support": 4600,
+      "care": 5300
+    },
+    "household": {
+      "medical": 16000,
+      "support": 3900,
+      "care": 2800
+    },
+    "assetLevy": {
+      "medical": 0.3,
+      "support": 0.067,
+      "care": 0.1
+    }
+  }
+}

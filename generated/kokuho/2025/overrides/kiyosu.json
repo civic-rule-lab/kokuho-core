@@ -1,0 +1,22 @@
+{
+  "citySlug": "kiyosu",
+  "cityName": "清須市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0741,
+      "support": 0.027,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 31766,
+      "support": 11416,
+      "care": 11411
+    },
+    "household": {
+      "medical": 20622,
+      "support": 7411,
+      "care": 5648
+    }
+  }
+}

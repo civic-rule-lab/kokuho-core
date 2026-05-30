@@ -1,0 +1,22 @@
+{
+  "citySlug": "towada",
+  "cityName": "十和田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.071,
+      "support": 0.029,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 24600,
+      "support": 10100,
+      "care": 12100
+    },
+    "household": {
+      "medical": 20500,
+      "support": 8400,
+      "care": 7800
+    }
+  }
+}

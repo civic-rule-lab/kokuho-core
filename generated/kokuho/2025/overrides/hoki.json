@@ -1,0 +1,22 @@
+{
+  "citySlug": "hoki",
+  "cityName": "伯耆町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0621,
+      "support": 0.0294,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 31064,
+      "support": 12538,
+      "care": 13204
+    },
+    "household": {
+      "medical": 20486,
+      "support": 8268,
+      "care": 6349
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "citySlug": "gokase",
+  "cityName": "五ヶ瀬町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08,
+      "support": 0.035,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 10000,
+      "care": 9500
+    },
+    "household": {
+      "medical": 20000,
+      "support": 8000,
+      "care": 6500
+    },
+    "assetLevy": {
+      "medical": 0.13,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

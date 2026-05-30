@@ -1,0 +1,22 @@
+{
+  "citySlug": "toyota",
+  "cityName": "豊田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.0285,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 33036,
+      "support": 12057,
+      "care": 12128
+    },
+    "household": {
+      "medical": 21446,
+      "support": 7827,
+      "care": 6003
+    }
+  }
+}

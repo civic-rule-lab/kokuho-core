@@ -1,0 +1,22 @@
+{
+  "citySlug": "osaki",
+  "cityName": "大崎町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0676,
+      "support": 0.0282,
+      "care": 0.0243
+    },
+    "perCapita": {
+      "medical": 28926,
+      "support": 11866,
+      "care": 12137
+    },
+    "household": {
+      "medical": 18737,
+      "support": 7687,
+      "care": 6039
+    }
+  }
+}

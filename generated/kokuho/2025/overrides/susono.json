@@ -1,0 +1,21 @@
+{
+  "citySlug": "susono",
+  "cityName": "裾野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0744,
+      "support": 0.0288,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 31134,
+      "support": 11714,
+      "care": 16294
+    },
+    "household": {
+      "medical": 20372,
+      "support": 7664
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "iga",
+  "cityName": "伊賀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0757,
+      "support": 0.0284,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 32705,
+      "support": 12119,
+      "care": 13026
+    },
+    "household": {
+      "medical": 21478,
+      "support": 7958,
+      "care": 6422
+    }
+  }
+}

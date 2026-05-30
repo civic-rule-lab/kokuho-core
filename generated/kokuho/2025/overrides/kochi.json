@@ -1,0 +1,22 @@
+{
+  "citySlug": "kochi",
+  "cityName": "高知市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0862,
+      "support": 0.035,
+      "care": 0.0276
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 7200,
+      "care": 8400
+    },
+    "household": {
+      "medical": 25200,
+      "support": 7800,
+      "care": 6600
+    }
+  }
+}

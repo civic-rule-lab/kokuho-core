@@ -1,0 +1,22 @@
+{
+  "citySlug": "monbetsu",
+  "cityName": "紋別市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0943,
+      "support": 0.028999999999999998,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 32100,
+      "support": 10800,
+      "care": 10400
+    },
+    "household": {
+      "medical": 29800,
+      "support": 10100,
+      "care": 7300
+    }
+  }
+}

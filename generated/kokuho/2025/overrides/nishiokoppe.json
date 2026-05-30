@@ -1,0 +1,19 @@
+{
+  "citySlug": "nishiokoppe",
+  "cityName": "西興部村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.055,
+      "support": 0.02,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 25000
+    },
+    "household": {
+      "medical": 25000,
+      "care": 11000
+    }
+  }
+}

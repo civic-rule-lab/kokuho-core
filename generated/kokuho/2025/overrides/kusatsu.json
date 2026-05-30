@@ -1,0 +1,22 @@
+{
+  "citySlug": "kusatsu",
+  "cityName": "草津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.073,
+      "support": 0.022,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 7200,
+      "care": 8000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 8200,
+      "care": 9000
+    }
+  }
+}

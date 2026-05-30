@@ -12,7 +12,7 @@
       "care": 11000
     },
     "household": {
-      "support": 8000,
+      "medical": 25000,
       "care": 7000
     }
   }

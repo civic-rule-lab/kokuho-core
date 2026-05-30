@@ -1,0 +1,22 @@
+{
+  "citySlug": "ine",
+  "cityName": "伊根町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.035,
+      "support": 0.03,
+      "care": 0.031
+    },
+    "perCapita": {
+      "medical": 11900,
+      "support": 10200,
+      "care": 13500
+    },
+    "household": {
+      "medical": 11900,
+      "support": 10200,
+      "care": 7000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "isa",
+  "cityName": "伊佐市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0632,
+      "support": 0.0299,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 27045,
+      "support": 12573,
+      "care": 12490
+    },
+    "household": {
+      "medical": 17519,
+      "support": 8145,
+      "care": 6215
+    }
+  }
+}

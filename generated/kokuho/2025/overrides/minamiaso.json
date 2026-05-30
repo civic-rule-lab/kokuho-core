@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamiaso",
+  "cityName": "南阿蘇村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0817,
+      "support": 0.0317,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 28540,
+      "support": 11048,
+      "care": 15775
+    },
+    "household": {
+      "medical": 19289,
+      "support": 7467
+    }
+  }
+}

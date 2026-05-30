@@ -1,0 +1,22 @@
+{
+  "citySlug": "fukuchiyama",
+  "cityName": "福知山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0857,
+      "support": 0.0293,
+      "care": 0.0265
+    },
+    "perCapita": {
+      "medical": 30800,
+      "support": 10700,
+      "care": 11500
+    },
+    "household": {
+      "medical": 19500,
+      "support": 6800,
+      "care": 5600
+    }
+  }
+}

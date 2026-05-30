@@ -1,0 +1,22 @@
+{
+  "citySlug": "kyotanabe",
+  "cityName": "京田辺市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0755,
+      "support": 0.0229,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 32959,
+      "support": 9709,
+      "care": 13899
+    },
+    "household": {
+      "medical": 23512,
+      "support": 6110,
+      "care": 7407
+    }
+  }
+}

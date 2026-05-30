@@ -1,0 +1,22 @@
+{
+  "citySlug": "kadogawa",
+  "cityName": "門川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0888,
+      "support": 0.0326,
+      "care": 0.0266
+    },
+    "perCapita": {
+      "medical": 27600,
+      "support": 9360,
+      "care": 9840
+    },
+    "household": {
+      "medical": 19500,
+      "support": 6280,
+      "care": 5620
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "toyookashi",
+  "cityName": "豊岡市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0626,
+      "support": 0.0302,
+      "care": 0.0262
+    },
+    "perCapita": {
+      "medical": 26500,
+      "support": 12900,
+      "care": 13500
+    },
+    "household": {
+      "medical": 17100,
+      "support": 8300,
+      "care": 6700
+    }
+  }
+}

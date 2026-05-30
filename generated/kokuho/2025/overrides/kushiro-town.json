@@ -1,0 +1,21 @@
+{
+  "citySlug": "kushiro-town",
+  "cityName": "釧路町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08259999999999999,
+      "support": 0.0275,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 27000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 26300,
+      "support": 9000,
+      "care": 7400
+    }
+  }
+}

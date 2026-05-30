@@ -1,0 +1,22 @@
+{
+  "citySlug": "awara",
+  "cityName": "あわら市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.025,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 8000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 20000,
+      "support": 6000,
+      "care": 6000
+    }
+  }
+}

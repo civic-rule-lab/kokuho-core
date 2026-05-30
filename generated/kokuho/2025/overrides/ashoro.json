@@ -1,0 +1,22 @@
+{
+  "citySlug": "ashoro",
+  "cityName": "足寄町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0886,
+      "support": 0.0311,
+      "care": 0.022000000000000002
+    },
+    "perCapita": {
+      "medical": 27500,
+      "support": 9100,
+      "care": 9000
+    },
+    "household": {
+      "medical": 27500,
+      "support": 9100,
+      "care": 6500
+    }
+  }
+}

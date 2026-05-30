@@ -1,0 +1,26 @@
+{
+  "citySlug": "kuji",
+  "cityName": "久慈市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.059,
+      "support": 0.026,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 19500,
+      "support": 7500,
+      "care": 7400
+    },
+    "household": {
+      "medical": 20600,
+      "support": 7400
+    },
+    "assetLevy": {
+      "medical": 0.161,
+      "support": 0.06,
+      "care": 0.066
+    }
+  }
+}

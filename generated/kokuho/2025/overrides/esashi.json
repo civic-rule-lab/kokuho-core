@@ -1,0 +1,21 @@
+{
+  "citySlug": "esashi",
+  "cityName": "江差町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0246,
+      "care": 0.0197
+    },
+    "perCapita": {
+      "medical": 25800,
+      "support": 8700,
+      "care": 8600
+    },
+    "household": {
+      "medical": 25700,
+      "support": 8400,
+      "care": 6800
+    }
+  }
+}

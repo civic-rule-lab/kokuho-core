@@ -1,0 +1,21 @@
+{
+  "citySlug": "sumoto",
+  "cityName": "洲本市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.03,
+      "care": 0.027
+    },
+    "perCapita": {
+      "support": 11000,
+      "care": 11800
+    },
+    "household": {
+      "medical": 19000,
+      "support": 7500,
+      "care": 5500
+    }
+  }
+}

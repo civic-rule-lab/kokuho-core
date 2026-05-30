@@ -1,0 +1,22 @@
+{
+  "citySlug": "otama",
+  "cityName": "大玉村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0635,
+      "support": 0.0269,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 27590,
+      "support": 11575,
+      "care": 11334
+    },
+    "household": {
+      "medical": 18316,
+      "support": 7684,
+      "care": 5685
+    }
+  }
+}

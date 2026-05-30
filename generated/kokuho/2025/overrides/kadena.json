@@ -1,0 +1,27 @@
+{
+  "citySlug": "kadena",
+  "cityName": "嘉手納町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0566,
+      "support": 0.018,
+      "care": 0.011
+    },
+    "perCapita": {
+      "medical": 17000,
+      "support": 5500,
+      "care": 6300
+    },
+    "household": {
+      "medical": 21000,
+      "support": 6000,
+      "care": 4000
+    },
+    "assetLevy": {
+      "medical": 0,
+      "support": 0,
+      "care": 0.068
+    }
+  }
+}

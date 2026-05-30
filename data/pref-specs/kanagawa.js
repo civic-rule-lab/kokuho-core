@@ -107,8 +107,14 @@ export const MUNICIPALITIES = [
   },
   {
     cityCode: "14211", citySlug: "hadano", cityName: "秦野市",
-    note: "国民健康保険税方式",
-    rates: null, // TODO: https://www.city.hadano.kanagawa.jp/www/contents/1743405478927/index.html
+    note: "国民健康保険税方式（3方式・平等割あり）。令和7年度＝R8公式ページ「改定前」値。",
+    // 出典: https://www.city.hadano.kanagawa.jp/soshiki/5/1038/5/4/5037.html （R8改定前=R7）
+    rates: {
+      rate:      { medical: 0.0724, support: 0.0284, care: 0.0285 },
+      perCapita: { medical: 25100,  support: 9200,   care: 10600  },
+      household: { medical: 22500,  support: 8100,   care: 6100   },
+      caps:      { medical: 660000, support: 260000, care: 170000 },
+    },
   },
   {
     cityCode: "14212", citySlug: "atsugi", cityName: "厚木市",

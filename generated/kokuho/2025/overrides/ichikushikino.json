@@ -1,0 +1,22 @@
+{
+  "citySlug": "ichikushikino",
+  "cityName": "いちき串木野市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0815,
+      "support": 0.0291,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "medical": 34844,
+      "support": 12226,
+      "care": 12286
+    },
+    "household": {
+      "medical": 22571,
+      "support": 7920,
+      "care": 6113
+    }
+  }
+}

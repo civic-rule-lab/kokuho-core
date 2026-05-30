@@ -1,0 +1,22 @@
+{
+  "citySlug": "kakuda",
+  "cityName": "角田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "support": 0.033,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 27300,
+      "support": 11000,
+      "care": 10600
+    },
+    "household": {
+      "medical": 18600,
+      "support": 7500,
+      "care": 5600
+    }
+  }
+}

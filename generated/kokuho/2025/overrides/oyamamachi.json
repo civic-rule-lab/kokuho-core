@@ -1,0 +1,21 @@
+{
+  "citySlug": "oyamamachi",
+  "cityName": "小山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0759,
+      "support": 0.0279,
+      "care": 0.0219
+    },
+    "perCapita": {
+      "medical": 31769,
+      "support": 11316,
+      "care": 15691
+    },
+    "household": {
+      "medical": 20787,
+      "support": 7404
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "nishiharamura",
+  "cityName": "西原村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0878,
+      "support": 0.0308,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 30685,
+      "support": 10718,
+      "care": 15804
+    },
+    "household": {
+      "medical": 20738,
+      "support": 7244
+    }
+  }
+}

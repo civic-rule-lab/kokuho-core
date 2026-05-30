@@ -1,0 +1,20 @@
+{
+  "citySlug": "gero",
+  "cityName": "下呂市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "support": 0.0216,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 27100,
+      "care": 9700
+    },
+    "household": {
+      "medical": 20000,
+      "care": 6200
+    }
+  }
+}

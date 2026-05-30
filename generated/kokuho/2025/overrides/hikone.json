@@ -1,0 +1,22 @@
+{
+  "citySlug": "hikone",
+  "cityName": "彦根市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0712,
+      "support": 0.0272,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 29800,
+      "support": 11100,
+      "care": 11300
+    },
+    "household": {
+      "medical": 19800,
+      "support": 7400,
+      "care": 5600
+    }
+  }
+}

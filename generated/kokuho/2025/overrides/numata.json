@@ -1,0 +1,27 @@
+{
+  "citySlug": "numata",
+  "cityName": "沼田町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.020099999999999996,
+      "support": 0.006500000000000001,
+      "care": 0.0045000000000000005
+    },
+    "perCapita": {
+      "medical": 37900,
+      "support": 11900,
+      "care": 21500
+    },
+    "household": {
+      "medical": 28100,
+      "support": 8900,
+      "care": 0
+    },
+    "assetLevy": {
+      "medical": 0.2,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

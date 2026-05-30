@@ -1,0 +1,15 @@
+{
+  "citySlug": "shimotsuma",
+  "cityName": "下妻市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.033,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 46000
+    }
+  }
+}

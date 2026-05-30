@@ -1,0 +1,21 @@
+{
+  "citySlug": "kikuyo",
+  "cityName": "菊陽町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0787,
+      "support": 0.0303,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 27489,
+      "support": 10563,
+      "care": 16633
+    },
+    "household": {
+      "medical": 18579,
+      "support": 7139
+    }
+  }
+}

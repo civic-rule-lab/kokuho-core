@@ -1,0 +1,20 @@
+{
+  "citySlug": "sukumo",
+  "cityName": "宿毛市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.023,
+      "care": 0.0288
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 6000,
+      "care": 18700
+    },
+    "household": {
+      "medical": 23000,
+      "support": 5500
+    }
+  }
+}

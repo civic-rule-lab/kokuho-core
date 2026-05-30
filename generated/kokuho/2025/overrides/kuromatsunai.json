@@ -1,0 +1,22 @@
+{
+  "citySlug": "kuromatsunai",
+  "cityName": "黒松内町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07400000000000001,
+      "support": 0.026000000000000002,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 26600,
+      "support": 8700,
+      "care": 9100
+    },
+    "household": {
+      "medical": 27400,
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

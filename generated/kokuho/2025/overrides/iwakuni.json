@@ -1,0 +1,22 @@
+{
+  "citySlug": "iwakuni",
+  "cityName": "岩国市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.088,
+      "support": 0.022,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 24960,
+      "support": 6000,
+      "care": 6960
+    },
+    "household": {
+      "medical": 21120,
+      "support": 4800,
+      "care": 4200
+    }
+  }
+}

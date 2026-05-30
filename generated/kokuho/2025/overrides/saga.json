@@ -1,0 +1,22 @@
+{
+  "citySlug": "saga",
+  "cityName": "佐賀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.107,
+      "support": 0.032,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 30500,
+      "support": 10500,
+      "care": 10700
+    },
+    "household": {
+      "medical": 35500,
+      "support": 8800,
+      "care": 6000
+    }
+  }
+}

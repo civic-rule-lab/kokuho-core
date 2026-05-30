@@ -1,0 +1,22 @@
+{
+  "citySlug": "kashima-saga",
+  "cityName": "鹿島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.111,
+      "support": 0.021,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 25200,
+      "support": 4600,
+      "care": 14300
+    },
+    "household": {
+      "medical": 37100,
+      "support": 6800,
+      "care": 8600
+    }
+  }
+}

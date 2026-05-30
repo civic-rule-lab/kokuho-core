@@ -1,0 +1,22 @@
+{
+  "citySlug": "matsuyama",
+  "cityName": "松山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.032,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 24120,
+      "support": 9120,
+      "care": 9480
+    },
+    "household": {
+      "medical": 20040,
+      "support": 7560,
+      "care": 5880
+    }
+  }
+}

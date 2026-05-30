@@ -1,0 +1,21 @@
+{
+  "citySlug": "ojika",
+  "cityName": "小値賀町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.027,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 26000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 10000,
+      "care": 8000
+    }
+  }
+}

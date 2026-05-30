@@ -306,7 +306,7 @@ export const MUNICIPALITIES = [
   },
   {
     // TODO: 令和7年度の正確な数値を要確認
-    cityCode: "39406", citySlug: "hidakamura", cityName: "日高村",
+    cityCode: "39410", citySlug: "hidakamura", cityName: "日高村",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0700, support: 0.0240, care: 0.0230 },
@@ -316,7 +316,7 @@ export const MUNICIPALITIES = [
   },
   {
     // TODO: 令和7年度の正確な数値を要確認
-    cityCode: "39407", citySlug: "tsunomachi", cityName: "津野町",
+    cityCode: "39411", citySlug: "tsunomachi", cityName: "津野町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0780, support: 0.0260, care: 0.0240 },
@@ -326,7 +326,7 @@ export const MUNICIPALITIES = [
   },
   {
     // TODO: 令和7年度の正確な数値を要確認
-    cityCode: "39408", citySlug: "shimantomachi", cityName: "四万十町",
+    cityCode: "39412", citySlug: "shimantomachi", cityName: "四万十町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0790, support: 0.0260, care: 0.0240 },
@@ -346,7 +346,7 @@ export const MUNICIPALITIES = [
   },
   {
     // TODO: 令和7年度の正確な数値を要確認
-    cityCode: "39425", citySlug: "miharamura", cityName: "三原村",
+    cityCode: "39427", citySlug: "miharamura", cityName: "三原村",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0810, support: 0.0260, care: 0.0240 },
@@ -356,7 +356,7 @@ export const MUNICIPALITIES = [
   },
   {
     // TODO: 令和7年度の正確な数値を要確認
-    cityCode: "39426", citySlug: "kuroshiomachi", cityName: "黒潮町",
+    cityCode: "39428", citySlug: "kuroshiomachi", cityName: "黒潮町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0820, support: 0.0260, care: 0.0240 },

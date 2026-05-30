@@ -1,0 +1,27 @@
+{
+  "citySlug": "nichinan",
+  "cityName": "日南市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0915,
+      "support": 0.0336,
+      "care": 0.0274
+    },
+    "perCapita": {
+      "medical": 25800,
+      "support": 8760,
+      "care": 9240
+    },
+    "household": {
+      "medical": 19700,
+      "support": 6360,
+      "care": 5740
+    },
+    "assetLevy": {
+      "medical": 0.2124,
+      "support": 0.0637,
+      "care": 0.0779
+    }
+  }
+}

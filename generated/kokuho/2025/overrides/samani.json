@@ -1,0 +1,22 @@
+{
+  "citySlug": "samani",
+  "cityName": "様似町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0855,
+      "support": 0.0252,
+      "care": 0.0183
+    },
+    "perCapita": {
+      "medical": 27739,
+      "support": 8348,
+      "care": 8367
+    },
+    "household": {
+      "medical": 29260,
+      "support": 8805,
+      "care": 6518
+    }
+  }
+}

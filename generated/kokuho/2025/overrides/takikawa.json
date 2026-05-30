@@ -1,0 +1,20 @@
+{
+  "citySlug": "takikawa",
+  "cityName": "滝川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.091,
+      "support": 0.027999999999999997
+    },
+    "perCapita": {
+      "medical": 23100,
+      "support": 6600,
+      "care": 12000
+    },
+    "household": {
+      "medical": 23100,
+      "support": 6600
+    }
+  }
+}

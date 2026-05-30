@@ -1,0 +1,22 @@
+{
+  "citySlug": "takasaki",
+  "cityName": "高崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.064,
+      "support": 0.022,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 24200,
+      "support": 7400,
+      "care": 9400
+    },
+    "household": {
+      "medical": 21400,
+      "support": 5800,
+      "care": 6100
+    }
+  }
+}

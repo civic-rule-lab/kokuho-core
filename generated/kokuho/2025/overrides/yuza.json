@@ -1,0 +1,20 @@
+{
+  "citySlug": "yuza",
+  "cityName": "遊佐町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.028,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 27500,
+      "support": 9700,
+      "care": 10200
+    },
+    "household": {
+      "support": 7700,
+      "care": 5600
+    }
+  }
+}

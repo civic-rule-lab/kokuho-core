@@ -1,0 +1,21 @@
+{
+  "citySlug": "gyokuto",
+  "cityName": "玉東町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.089,
+      "support": 0.0244,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 31090,
+      "support": 8500,
+      "care": 16518
+    },
+    "household": {
+      "medical": 21013,
+      "support": 5745
+    }
+  }
+}

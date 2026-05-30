@@ -1,0 +1,21 @@
+{
+  "citySlug": "onagawa",
+  "cityName": "女川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.052,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 19100,
+      "support": 8600,
+      "care": 10800
+    },
+    "household": {
+      "medical": 22800,
+      "support": 10200,
+      "care": 8800
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "yonago",
+  "cityName": "米子市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0795,
+      "support": 0.0255,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 8800,
+      "care": 10500
+    },
+    "household": {
+      "medical": 25500,
+      "support": 8300,
+      "care": 5600
+    }
+  }
+}

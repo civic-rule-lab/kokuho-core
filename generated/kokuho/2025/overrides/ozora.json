@@ -1,0 +1,21 @@
+{
+  "citySlug": "ozora",
+  "cityName": "大空町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0751,
+      "support": 0.024900000000000002,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 27800,
+      "care": 12700
+    },
+    "household": {
+      "medical": 28700,
+      "support": 9300,
+      "care": 9700
+    }
+  }
+}

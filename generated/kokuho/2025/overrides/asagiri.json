@@ -1,0 +1,21 @@
+{
+  "citySlug": "asagiri",
+  "cityName": "あさぎり町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0867,
+      "support": 0.0305,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 30285,
+      "support": 10632,
+      "care": 16287
+    },
+    "household": {
+      "medical": 20469,
+      "support": 7186
+    }
+  }
+}

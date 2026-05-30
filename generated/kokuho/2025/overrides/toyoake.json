@@ -1,0 +1,22 @@
+{
+  "citySlug": "toyoake",
+  "cityName": "豊明市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0678,
+      "support": 0.0235,
+      "care": 0.0192
+    },
+    "perCapita": {
+      "medical": 29095,
+      "support": 9960,
+      "care": 9712
+    },
+    "household": {
+      "medical": 18888,
+      "support": 6466,
+      "care": 4807
+    }
+  }
+}

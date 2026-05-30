@@ -1,0 +1,22 @@
+{
+  "citySlug": "hekinan",
+  "cityName": "碧南市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0763,
+      "support": 0.0279,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 32747,
+      "support": 11811,
+      "care": 12045
+    },
+    "household": {
+      "medical": 21259,
+      "support": 7668,
+      "care": 5962
+    }
+  }
+}

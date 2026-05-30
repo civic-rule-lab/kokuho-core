@@ -1,0 +1,22 @@
+{
+  "citySlug": "nasushiobara",
+  "cityName": "那須塩原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0638,
+      "support": 0.0274,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 27872,
+      "support": 11857,
+      "care": 11705
+    },
+    "household": {
+      "medical": 18750,
+      "support": 7976,
+      "care": 5884
+    }
+  }
+}

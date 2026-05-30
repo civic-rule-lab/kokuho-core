@@ -1,18 +1,21 @@
 {
   "citySlug": "ichinomiya",
-  "cityName": "一宮町",
+  "cityName": "一宮市",
   "signature": "3h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.075,
-      "support": 0.029
+      "support": 0.0274,
+      "care": 0.0228
     },
     "perCapita": {
-      "support": 10000,
-      "care": 14000
+      "medical": 34327,
+      "support": 11611,
+      "care": 11545
     },
     "household": {
-      "medical": 20000
+      "medical": 22284,
+      "support": 7537,
+      "care": 5714
     }
   }
 }

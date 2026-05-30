@@ -1,0 +1,26 @@
+{
+  "citySlug": "sobetsu",
+  "cityName": "壮瞥町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.060700000000000004,
+      "support": 0.03,
+      "care": 0.0172
+    },
+    "perCapita": {
+      "medical": 18000,
+      "support": 11000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 31500,
+      "support": 9500
+    },
+    "assetLevy": {
+      "medical": 0.157,
+      "support": 0.1,
+      "care": 0.08
+    }
+  }
+}

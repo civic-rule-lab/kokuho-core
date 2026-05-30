@@ -1,0 +1,20 @@
+{
+  "citySlug": "agano",
+  "cityName": "阿賀野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 7000,
+      "care": 15000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 9000
+    }
+  }
+}

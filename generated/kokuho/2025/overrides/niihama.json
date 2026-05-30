@@ -1,0 +1,22 @@
+{
+  "citySlug": "niihama",
+  "cityName": "新居浜市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.097,
+      "support": 0.035,
+      "care": 0.034
+    },
+    "perCapita": {
+      "medical": 26290,
+      "support": 10100,
+      "care": 10400
+    },
+    "household": {
+      "medical": 17480,
+      "support": 6500,
+      "care": 4990
+    }
+  }
+}

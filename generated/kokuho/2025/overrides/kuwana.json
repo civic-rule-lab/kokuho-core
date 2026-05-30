@@ -1,0 +1,22 @@
+{
+  "citySlug": "kuwana",
+  "cityName": "桑名市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0765,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 33022,
+      "support": 12172,
+      "care": 13021
+    },
+    "household": {
+      "medical": 21686,
+      "support": 7993,
+      "care": 6419
+    }
+  }
+}

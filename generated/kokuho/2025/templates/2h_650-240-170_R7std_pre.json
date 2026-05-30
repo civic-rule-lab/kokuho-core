@@ -4,8 +4,8 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.072,
-    "support": 0.025,
-    "care": 0.023
+    "support": 0.027,
+    "care": 0.025
   },
   "perCapita": {
     "medical": 30000,

@@ -1,0 +1,22 @@
+{
+  "citySlug": "koka",
+  "cityName": "甲賀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0735,
+      "support": 0.027,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 25700,
+      "support": 9900,
+      "care": 10800
+    },
+    "household": {
+      "medical": 20800,
+      "support": 7300,
+      "care": 6000
+    }
+  }
+}

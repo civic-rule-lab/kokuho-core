@@ -1,0 +1,22 @@
+{
+  "citySlug": "amami",
+  "cityName": "奄美市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0625,
+      "support": 0.0291,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 26734,
+      "support": 12218,
+      "care": 11885
+    },
+    "household": {
+      "medical": 17317,
+      "support": 7915,
+      "care": 5914
+    }
+  }
+}

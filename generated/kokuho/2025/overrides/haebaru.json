@@ -1,0 +1,22 @@
+{
+  "citySlug": "haebaru",
+  "cityName": "南風原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0843,
+      "support": 0.0249,
+      "care": 0.0195
+    },
+    "perCapita": {
+      "medical": 24700,
+      "support": 8700,
+      "care": 7900
+    },
+    "household": {
+      "medical": 23200,
+      "support": 6700,
+      "care": 4800
+    }
+  }
+}

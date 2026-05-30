@@ -1,0 +1,22 @@
+{
+  "citySlug": "komatsu",
+  "cityName": "小松市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.022,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 30600,
+      "support": 9800,
+      "care": 9900
+    },
+    "household": {
+      "medical": 28700,
+      "support": 8600,
+      "care": 6700
+    }
+  }
+}

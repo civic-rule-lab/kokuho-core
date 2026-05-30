@@ -1,0 +1,22 @@
+{
+  "citySlug": "wadomari",
+  "cityName": "和泊町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.0289,
+      "care": 0.0243
+    },
+    "perCapita": {
+      "medical": 29914,
+      "support": 12142,
+      "care": 12126
+    },
+    "household": {
+      "medical": 19377,
+      "support": 7865,
+      "care": 6034
+    }
+  }
+}

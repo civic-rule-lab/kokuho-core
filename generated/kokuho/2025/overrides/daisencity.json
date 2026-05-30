@@ -1,0 +1,22 @@
+{
+  "citySlug": "daisencity",
+  "cityName": "大仙市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.025,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 18300,
+      "support": 5700,
+      "care": 6500
+    },
+    "household": {
+      "medical": 27900,
+      "support": 8100,
+      "care": 7000
+    }
+  }
+}

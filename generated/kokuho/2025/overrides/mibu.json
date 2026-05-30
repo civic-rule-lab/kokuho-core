@@ -1,0 +1,22 @@
+{
+  "citySlug": "mibu",
+  "cityName": "壬生町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0681,
+      "support": 0.0286,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 29752,
+      "support": 12338,
+      "care": 12171
+    },
+    "household": {
+      "medical": 20014,
+      "support": 8300,
+      "care": 6119
+    }
+  }
+}

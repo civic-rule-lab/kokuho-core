@@ -1,0 +1,18 @@
+{
+  "citySlug": "sakawamachi",
+  "cityName": "佐川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "care": 0.024
+    },
+    "perCapita": {
+      "care": 10500
+    },
+    "household": {
+      "support": 6500,
+      "care": 5000
+    }
+  }
+}

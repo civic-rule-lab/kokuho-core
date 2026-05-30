@@ -1,0 +1,22 @@
+{
+  "citySlug": "toin",
+  "cityName": "東員町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 33259,
+      "support": 12158,
+      "care": 13021
+    },
+    "household": {
+      "medical": 21841,
+      "support": 7984,
+      "care": 6419
+    }
+  }
+}

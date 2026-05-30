@@ -1,0 +1,22 @@
+{
+  "citySlug": "yamagatashi",
+  "cityName": "山県市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0785,
+      "support": 0.0284,
+      "care": 0.0209
+    },
+    "perCapita": {
+      "medical": 31500,
+      "support": 10800,
+      "care": 12200
+    },
+    "household": {
+      "medical": 22100,
+      "support": 7100,
+      "care": 4800
+    }
+  }
+}

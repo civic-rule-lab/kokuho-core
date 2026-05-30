@@ -1,0 +1,22 @@
+{
+  "citySlug": "shobara",
+  "cityName": "庄原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0735,
+      "support": 0.0283,
+      "care": 0.0228
+    },
+    "perCapita": {
+      "medical": 31920,
+      "support": 11984,
+      "care": 11670
+    },
+    "household": {
+      "medical": 20440,
+      "support": 7696,
+      "care": 5656
+    }
+  }
+}

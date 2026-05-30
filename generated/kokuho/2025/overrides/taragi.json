@@ -1,0 +1,21 @@
+{
+  "citySlug": "taragi",
+  "cityName": "多良木町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0815,
+      "support": 0.0298,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 28478,
+      "support": 10394,
+      "care": 15622
+    },
+    "household": {
+      "medical": 19247,
+      "support": 7025
+    }
+  }
+}

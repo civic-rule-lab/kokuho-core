@@ -1,0 +1,22 @@
+{
+  "citySlug": "itayanagi",
+  "cityName": "板柳町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.033,
+      "care": 0.0195
+    },
+    "perCapita": {
+      "medical": 24900,
+      "support": 10100,
+      "care": 9000
+    },
+    "household": {
+      "medical": 24500,
+      "support": 9900,
+      "care": 5500
+    }
+  }
+}

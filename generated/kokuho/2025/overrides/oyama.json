@@ -1,0 +1,22 @@
+{
+  "citySlug": "oyama",
+  "cityName": "小山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0706,
+      "support": 0.0291,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 30832,
+      "support": 12584,
+      "care": 12471
+    },
+    "household": {
+      "medical": 20741,
+      "support": 8465,
+      "care": 6269
+    }
+  }
+}

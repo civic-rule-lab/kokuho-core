@@ -1,0 +1,22 @@
+{
+  "citySlug": "anantokushima",
+  "cityName": "阿南市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.0265,
+      "care": 0.0265
+    },
+    "perCapita": {
+      "medical": 31800,
+      "support": 11400,
+      "care": 11100
+    },
+    "household": {
+      "medical": 21000,
+      "support": 7200,
+      "care": 6000
+    }
+  }
+}

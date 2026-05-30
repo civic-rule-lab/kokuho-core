@@ -1,0 +1,17 @@
+{
+  "citySlug": "tsukubamirai",
+  "cityName": "つくばみらい市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.059,
+      "support": 0.021,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 25700,
+      "support": 14300,
+      "care": 14700
+    }
+  }
+}

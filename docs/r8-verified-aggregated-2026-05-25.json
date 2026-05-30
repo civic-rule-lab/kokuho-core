@@ -1,0 +1,3583 @@
+{
+  "generatedAt": "2026-05-25T19:24:36",
+  "generatedBy": "scripts/aggregate-r8-verified.py",
+  "scope": {
+    "filter": "meta.status in [verified]",
+    "scannedJsonCount": 1721,
+    "matchedCount": 89,
+    "verifiedCount": 89,
+    "provisionalCount": 0,
+    "r8StageVerifiedCount": 52,
+    "inconsistentCount": 37
+  },
+  "municipalities": [
+    {
+      "slug": "abiko",
+      "cityCode": "12222",
+      "cityName": "我孫子市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.0708,
+        "support": 0.0338,
+        "care": 0.0217
+      },
+      "perCapita": {
+        "medical": 24400,
+        "support": 12200,
+        "care": 20000
+      },
+      "household": {
+        "medical": 25100,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/kokuho_info/abk10003001020.html",
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/sanshutsu_noufu/calculating/index.html",
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/sanshutsu_noufu/gengakusochi.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "adachi",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "akishima",
+      "cityCode": "13207",
+      "cityName": "昭島市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.059,
+        "support": 0.0225,
+        "care": 0.017
+      },
+      "perCapita": {
+        "medical": 28000,
+        "support": 12000,
+        "care": 15000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.akishima.lg.jp/kurashi/kokuho/1002176/1002195/1002197.html",
+        "https://www.city.akishima.lg.jp/kurashi/kokuho/1002176/1002195/1002199.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "anjo",
+      "cityCode": "23212",
+      "cityName": "安城市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0743,
+        "support": 0.0284,
+        "care": 0.0244
+      },
+      "perCapita": {
+        "medical": 31700,
+        "support": 12000,
+        "care": 12200
+      },
+      "household": {
+        "medical": 20300,
+        "support": 7700,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1300,
+        "household": 700
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "arakawa",
+      "cityCode": "13118",
+      "cityName": "荒川区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "bunkyo",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "chiba",
+      "cityCode": "12100",
+      "cityName": "千葉市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.0721,
+        "support": 0.0285,
+        "care": 0.0257
+      },
+      "perCapita": {
+        "medical": 23280,
+        "support": 8880,
+        "care": 16560
+      },
+      "household": {
+        "medical": 26640,
+        "support": 10320,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0031,
+        "perCapita": 1800,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.chiba.jp/hokenfukushi/iryoeisei/hoken/hokenryou-ketteishimashita.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "chiyoda",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "chofu",
+      "cityCode": "13208",
+      "cityName": "調布市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.058,
+        "support": 0.0208,
+        "care": 0.0184
+      },
+      "perCapita": {
+        "medical": 30500,
+        "support": 10900,
+        "care": 12600
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1900,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "chuo",
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "edogawa",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "fuchu",
+      "cityCode": "13206",
+      "cityName": "府中市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0563,
+        "support": 0.0192,
+        "care": 0.018
+      },
+      "perCapita": {
+        "medical": 28720,
+        "support": 9640,
+        "care": 11440
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.fuchu.tokyo.jp/kurashi/hoken/kokuminkenko/hokenze/kokuhosantei.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "funabashi",
+      "cityCode": "12204",
+      "cityName": "船橋市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.0705,
+        "support": 0.0274,
+        "care": 0.0188
+      },
+      "perCapita": {
+        "medical": 39300,
+        "support": 12700,
+        "care": 13900
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1800,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.funabashi.lg.jp/kenkou/kokuho/002/p001880.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "fussa",
+      "cityCode": "13218",
+      "cityName": "福生市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0594,
+        "support": 0.024,
+        "care": 0.0193
+      },
+      "perCapita": {
+        "medical": 33900,
+        "support": 14200,
+        "care": 14800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1001872.html",
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1021041.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "futtsu",
+      "cityCode": "12226",
+      "cityName": "富津市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.074,
+        "support": 0.025,
+        "care": 0.024
+      },
+      "perCapita": {
+        "medical": 41000,
+        "support": 13800,
+        "care": 13700
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.futtsu.lg.jp/0000000227.html",
+        "https://www.city.futtsu.lg.jp/0000007346.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "hachioji",
+      "cityCode": "13201",
+      "cityName": "八王子市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0742,
+        "support": 0.0285,
+        "care": 0.0241
+      },
+      "perCapita": {
+        "medical": 42500,
+        "support": 17800,
+        "care": 18000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1800,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "hadano",
+      "cityCode": "14211",
+      "cityName": "秦野市",
+      "prefecture": "神奈川県",
+      "rate": {
+        "medical": 0.0769,
+        "support": 0.0315,
+        "care": 0.0315
+      },
+      "perCapita": {
+        "medical": 26500,
+        "support": 10000,
+        "care": 11600
+      },
+      "household": {
+        "medical": 23700,
+        "support": 8800,
+        "care": 6700
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1150,
+        "household": 1000
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "hamamatsu",
+      "cityCode": "22130",
+      "cityName": "浜松市",
+      "prefecture": "静岡県",
+      "rate": {
+        "medical": 0.072,
+        "support": 0.0235,
+        "care": 0.019
+      },
+      "perCapita": {
+        "medical": 25000,
+        "support": 11000,
+        "care": 14500
+      },
+      "household": {
+        "medical": 22000,
+        "support": 8000,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0033,
+        "perCapita": 1800,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "higashiosaka",
+      "cityCode": "27227",
+      "cityName": "東大阪市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.higashiosaka.lg.jp/0000001709.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "hiji",
+      "cityCode": "44341",
+      "cityName": "日出町",
+      "prefecture": "大分県",
+      "rate": {
+        "medical": 0.0877,
+        "support": 0.0308,
+        "care": 0.0286
+      },
+      "perCapita": {
+        "medical": 28300,
+        "support": 9800,
+        "care": 10700
+      },
+      "household": {
+        "medical": 23300,
+        "support": 8000,
+        "care": 6600
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0025,
+        "perCapita": 1100,
+        "household": 700
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "hino",
+      "cityCode": "13212",
+      "cityName": "日野市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.058,
+        "support": 0.021,
+        "care": 0.021
+      },
+      "perCapita": {
+        "medical": 34500,
+        "support": 12300,
+        "care": 14700
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.hino.lg.jp/kurashi/kokuhonenkin/1023198/1023202/1023220.html",
+        "https://www.city.hino.lg.jp/kurashi/kokuhonenkin/1023198/1023199/1028419.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "hirakata",
+      "cityCode": "27210",
+      "cityName": "枚方市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.hirakata.osaka.jp/0000037140.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "hiratsuka",
+      "cityCode": "14203",
+      "cityName": "平塚市",
+      "prefecture": "神奈川県",
+      "rate": {
+        "medical": 0.0779,
+        "support": 0.0294,
+        "care": 0.0295
+      },
+      "perCapita": {
+        "medical": 30900,
+        "support": 11600,
+        "care": 12000
+      },
+      "household": {
+        "medical": 19900,
+        "support": 7500,
+        "care": 5800
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1253,
+        "household": 772
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "hitachi",
+      "cityCode": "08202",
+      "cityName": "日立市",
+      "prefecture": "茨城県",
+      "rate": {
+        "medical": 0.0726,
+        "support": 0.0324,
+        "care": 0.0259
+      },
+      "perCapita": {
+        "medical": 27500,
+        "support": 11900,
+        "care": 12000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0028,
+        "perCapita": 1400,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "hitachinaka",
+      "cityCode": "08221",
+      "cityName": "ひたちなか市",
+      "prefecture": "茨城県",
+      "rate": {
+        "medical": 0.0723,
+        "support": 0.026,
+        "care": 0.0226
+      },
+      "perCapita": {
+        "medical": 44000,
+        "support": 16100,
+        "care": 15800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0023,
+        "perCapita": 1700,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "ichikawa",
+      "cityCode": "12203",
+      "cityName": "市川市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.075,
+        "support": 0.019,
+        "care": 0.0205
+      },
+      "perCapita": {
+        "medical": 12000,
+        "support": 8800,
+        "care": 13600
+      },
+      "household": {
+        "medical": 20400,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.ichikawa.lg.jp/page/4191.html",
+        "https://www.city.ichikawa.lg.jp/pub04/1111000007.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "itabashi",
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kagoshima",
+      "cityCode": "46201",
+      "cityName": "鹿児島市",
+      "prefecture": "鹿児島県",
+      "rate": {
+        "medical": 0.0826,
+        "support": 0.0294,
+        "care": 0.0247
+      },
+      "perCapita": {
+        "medical": 34600,
+        "support": 12200,
+        "care": 12000
+      },
+      "household": {
+        "medical": 23000,
+        "support": 8100,
+        "care": 6100
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kagoshima.lg.jp/shimin/shiminbunka/kokuho/kurashi/hoken/hoken/kokuho/ze.html",
+        "https://www.city.kagoshima.lg.jp/shimin/shiminbunka/kokuho/7kaitei.html"
+      ],
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.1.0"
+    },
+    {
+      "slug": "kariya",
+      "cityCode": "23210",
+      "cityName": "刈谷市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0797,
+        "support": 0.0287,
+        "care": 0.0244
+      },
+      "perCapita": {
+        "medical": 34000,
+        "support": 12100,
+        "care": 12200
+      },
+      "household": {
+        "medical": 21800,
+        "support": 7800,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1200,
+        "household": 700
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kashiwa",
+      "cityCode": "12217",
+      "cityName": "柏市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.072,
+        "support": 0.0268,
+        "care": 0.0217
+      },
+      "perCapita": {
+        "medical": 30000,
+        "support": 14520,
+        "care": 16260
+      },
+      "household": {
+        "medical": 14340,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kashiwa.lg.jp/hokennenkin/kaitei/r8kaitei.html",
+        "https://www.city.kashiwa.lg.jp/hokennenkin/hokennenkin/kokuho/hokenryo/hokenryosante.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kasugai",
+      "cityCode": "23206",
+      "cityName": "春日井市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.073,
+        "support": 0.026,
+        "care": 0.022
+      },
+      "perCapita": {
+        "medical": 31600,
+        "support": 11400,
+        "care": 12290
+      },
+      "household": {
+        "medical": 22000,
+        "support": 9000,
+        "care": 6270
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1170,
+        "household": 720
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "katsushika",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kawagoe",
+      "cityCode": "11201",
+      "cityName": "川越市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0733,
+        "support": 0.0273,
+        "care": 0.0227
+      },
+      "perCapita": {
+        "medical": 44900,
+        "support": 16500,
+        "care": 16300
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1704,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kawaguchi",
+      "cityCode": "11203",
+      "cityName": "川口市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0745,
+        "support": 0.0278,
+        "care": 0.0236
+      },
+      "perCapita": {
+        "medical": 44000,
+        "support": 16000,
+        "care": 17000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1500,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kirishima",
+      "cityCode": "46218",
+      "cityName": "霧島市",
+      "prefecture": "鹿児島県",
+      "rate": {
+        "medical": 0.1,
+        "support": 0.033,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 19900,
+        "support": 7500,
+        "care": 9000
+      },
+      "household": {
+        "medical": 21600,
+        "support": 8000,
+        "care": 5300
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0038,
+        "perCapita": 700,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kiryu",
+      "cityCode": "10203",
+      "cityName": "桐生市",
+      "prefecture": "群馬県",
+      "rate": {
+        "medical": 0.068,
+        "support": 0.026,
+        "care": 0.022
+      },
+      "perCapita": {
+        "medical": 25800,
+        "support": 10300,
+        "care": 10900
+      },
+      "household": {
+        "medical": 19600,
+        "support": 7600,
+        "care": 5600
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1200,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kita",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kitanagoya",
+      "cityCode": "23234",
+      "cityName": "北名古屋市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0778,
+        "support": 0.0266,
+        "care": 0.0245
+      },
+      "perCapita": {
+        "medical": 27800,
+        "support": 9700,
+        "care": 10500
+      },
+      "household": {
+        "medical": 21600,
+        "support": 7400,
+        "care": 6200
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1200,
+        "household": 700
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kiyosu",
+      "cityCode": "23233",
+      "cityName": "清須市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0793,
+        "support": 0.028,
+        "care": 0.0241
+      },
+      "perCapita": {
+        "medical": 33857,
+        "support": 11887,
+        "care": 12117
+      },
+      "household": {
+        "medical": 21734,
+        "support": 7631,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1292,
+        "household": 785
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "koga-ibaraki",
+      "cityCode": "08204",
+      "cityName": "古河市",
+      "prefecture": "茨城県",
+      "rate": {
+        "medical": 0.067,
+        "support": 0.0308,
+        "care": 0.0247
+      },
+      "perCapita": {
+        "medical": 40400,
+        "support": 19000,
+        "care": 18000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1700,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "koganei",
+      "cityCode": "13210",
+      "cityName": "小金井市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0674,
+        "support": 0.0225,
+        "care": 0.02
+      },
+      "perCapita": {
+        "medical": 31000,
+        "support": 14000,
+        "care": 15000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.koganei.lg.jp/kurashi/427/kokuhozei/hokenzei_keisan.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kokubunji",
+      "cityCode": "13214",
+      "cityName": "国分寺市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0653,
+        "support": 0.0246,
+        "care": 0.0227
+      },
+      "perCapita": {
+        "medical": 32200,
+        "support": 14600,
+        "care": 16300
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1959,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "komaki",
+      "cityCode": "23219",
+      "cityName": "小牧市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0665,
+        "support": 0.0245,
+        "care": 0.0218
+      },
+      "perCapita": {
+        "medical": 31300,
+        "support": 11100,
+        "care": 11500
+      },
+      "household": {
+        "medical": 20400,
+        "support": 7400,
+        "care": 6200
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0024,
+        "perCapita": 1100,
+        "household": 700
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "koshigaya",
+      "cityCode": "11222",
+      "cityName": "越谷市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0811,
+        "support": 0.0283,
+        "care": 0.0244
+      },
+      "perCapita": {
+        "medical": 49315,
+        "support": 17086,
+        "care": 17325
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1827,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kota",
+      "cityCode": "23501",
+      "cityName": "幸田町",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0651,
+        "support": 0.0273,
+        "care": 0.0218
+      },
+      "perCapita": {
+        "medical": 27200,
+        "support": 11200,
+        "care": 10900
+      },
+      "household": {
+        "medical": 18500,
+        "support": 7600,
+        "care": 5600
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1366,
+        "household": 821
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "koto",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "kumagaya",
+      "cityCode": "11202",
+      "cityName": "熊谷市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0728,
+        "support": 0.0258,
+        "care": 0.0212
+      },
+      "perCapita": {
+        "medical": 40500,
+        "support": 15500,
+        "care": 15500
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kumagaya.lg.jp/kurashi/kenkohoken/kokuminhoken/kokuhozei2026.html",
+        "https://www.city.kumagaya.lg.jp/kurashi/kenkohoken/kokuminhoken/kodomokosodate.html"
+      ],
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.1.0"
+    },
+    {
+      "slug": "kumamoto",
+      "cityCode": "43100",
+      "cityName": "熊本市",
+      "prefecture": "熊本県",
+      "rate": {
+        "medical": 0.0634,
+        "support": 0.0298,
+        "care": 0.0294
+      },
+      "perCapita": {
+        "medical": 28400,
+        "support": 13300,
+        "care": 20300
+      },
+      "household": {
+        "medical": 18100,
+        "support": 8500,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0025,
+        "perCapita": 1700,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kumiyama",
+      "cityCode": "26322",
+      "cityName": "久御山町",
+      "prefecture": "京都府",
+      "rate": {
+        "medical": 0.1046,
+        "support": 0.031,
+        "care": 0.0301
+      },
+      "perCapita": {
+        "medical": 38895,
+        "support": 11414,
+        "care": 12617
+      },
+      "household": {
+        "medical": 24087,
+        "support": 7069,
+        "care": 6216
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0032,
+        "perCapita": 1158,
+        "household": 739
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "kunitachi",
+      "cityCode": "13215",
+      "cityName": "国立市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.057,
+        "support": 0.0195,
+        "care": 0.0195
+      },
+      "perCapita": {
+        "medical": 23500,
+        "support": 11200,
+        "care": 12000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1931,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kunitachi.tokyo.jp/soshiki/Dept03/Div04/Sec01/gyomu/0116/kokuhozei/1542343600065.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "matsudo",
+      "cityCode": "12207",
+      "cityName": "松戸市",
+      "prefecture": "千葉県",
+      "rate": {
+        "medical": 0.0762,
+        "support": 0.0286,
+        "care": 0.0226
+      },
+      "perCapita": {
+        "medical": 27000,
+        "support": 15000,
+        "care": 18000
+      },
+      "household": {
+        "medical": 18000,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html",
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/ryouhayamihyou.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "matsuyama",
+      "cityCode": "38201",
+      "cityName": "松山市",
+      "prefecture": "愛媛県",
+      "rate": {
+        "medical": 0.076,
+        "support": 0.032,
+        "care": 0.027
+      },
+      "perCapita": {
+        "medical": 25200,
+        "support": 9600,
+        "care": 9660
+      },
+      "household": {
+        "medical": 19920,
+        "support": 7800,
+        "care": 5880
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0022,
+        "perCapita": 996,
+        "household": 600
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "meguro",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "minato",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "mitaka",
+      "cityCode": "13204",
+      "cityName": "三鷹市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.061,
+        "support": 0.023,
+        "care": 0.016
+      },
+      "perCapita": {
+        "medical": 29000,
+        "support": 11800,
+        "care": 13400
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.mitaka.lg.jp/c_service/000/000431.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "mito",
+      "cityCode": "08201",
+      "cityName": "水戸市",
+      "prefecture": "茨城県",
+      "rate": {
+        "medical": 0.0785,
+        "support": 0.035,
+        "care": 0.0237
+      },
+      "perCapita": {
+        "medical": 31600,
+        "support": 13700,
+        "care": 16300
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0023,
+        "perCapita": 1700,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "musashino",
+      "cityCode": "13203",
+      "cityName": "武蔵野市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0579,
+        "support": 0.0209,
+        "care": 0.0184
+      },
+      "perCapita": {
+        "medical": 33000,
+        "support": 12500,
+        "care": 15000
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1900,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.musashino.lg.jp/kurashi_tetsuzuki/kokuminkenkouhoken_kokuminnenkin/kokuminkenkohoken/1052169/1004710.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "nagano",
+      "cityCode": "20201",
+      "cityName": "長野市",
+      "prefecture": "長野県",
+      "rate": {
+        "medical": 0.082,
+        "support": 0.028,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 17760,
+        "support": 6240,
+        "care": 8760
+      },
+      "household": {
+        "medical": 19680,
+        "support": 7560,
+        "care": 7080
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1440,
+        "household": 1200
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "nakano-ku",
+      "cityCode": "13114",
+      "cityName": "中野区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "nerima",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "niigata",
+      "cityCode": "15100",
+      "cityName": "新潟市",
+      "prefecture": "新潟県",
+      "rate": {
+        "medical": 0.074,
+        "support": 0.031,
+        "care": 0.025
+      },
+      "perCapita": {
+        "medical": 14700,
+        "support": 7200,
+        "care": 14100
+      },
+      "household": {
+        "medical": 19200,
+        "support": 9000,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1600,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "nishio",
+      "cityCode": "23213",
+      "cityName": "西尾市",
+      "prefecture": "愛知県",
+      "rate": {
+        "medical": 0.0715,
+        "support": 0.0289,
+        "care": 0.0245
+      },
+      "perCapita": {
+        "medical": 30500,
+        "support": 12200,
+        "care": 12200
+      },
+      "household": {
+        "medical": 19800,
+        "support": 7800,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1300,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "nishitokyo",
+      "cityCode": "13229",
+      "cityName": "西東京市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0563,
+        "support": 0.0181,
+        "care": 0.0172
+      },
+      "perCapita": {
+        "medical": 33100,
+        "support": 7600,
+        "care": 14600
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1900,
+        "household": 0,
+        "under18Reduction": true
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.nishitokyo.lg.jp/kurasi/kokuho/kokuminnkenkouhokeryou/sansyutu_osamekata/sansyutuhouhou.html",
+        "https://www.city.nishitokyo.lg.jp/kurasi/kokuho/kodomokosodate.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "oita",
+      "cityCode": "44201",
+      "cityName": "大分市",
+      "prefecture": "大分県",
+      "rate": {
+        "medical": 0.0868,
+        "support": 0.0268,
+        "care": 0.0248
+      },
+      "perCapita": {
+        "medical": 30600,
+        "support": 9700,
+        "care": 10100
+      },
+      "household": {
+        "medical": 25400,
+        "support": 7500,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.oita.oita.jp/o052/kurashi/kokumin/1193625759256.html"
+      ],
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.1.0"
+    },
+    {
+      "slug": "ome",
+      "cityCode": "13205",
+      "cityName": "青梅市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0637,
+        "support": 0.0217,
+        "care": 0.0203
+      },
+      "perCapita": {
+        "medical": 34400,
+        "support": 12700,
+        "care": 13800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0031,
+        "perCapita": 2014,
+        "household": 0,
+        "under18Reduction": true
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.ome.tokyo.jp/soshiki/18/711.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "osaka",
+      "cityCode": "27100",
+      "cityName": "大阪市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
+        "https://www.city.osaka.lg.jp/fukushi/page/0000624098.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.3"
+    },
+    {
+      "slug": "ota",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "oyama",
+      "cityCode": "09208",
+      "cityName": "小山市",
+      "prefecture": "栃木県",
+      "rate": {
+        "medical": 0.061,
+        "support": 0.028,
+        "care": 0.024
+      },
+      "perCapita": {
+        "medical": 23800,
+        "support": 10000,
+        "care": 9500
+      },
+      "household": {
+        "medical": 19500,
+        "support": 7500,
+        "care": 7500
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.004,
+        "perCapita": 1800,
+        "household": 1000
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "sagamihara",
+      "cityCode": "14150",
+      "cityName": "相模原市",
+      "prefecture": "神奈川県",
+      "rate": {
+        "medical": 0.0675,
+        "support": 0.0278,
+        "care": 0.0232
+      },
+      "perCapita": {
+        "medical": 29000,
+        "support": 11500,
+        "care": 12000
+      },
+      "household": {
+        "medical": 18000,
+        "support": 7000,
+        "care": 6000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0028,
+        "perCapita": 1300,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "saitama",
+      "cityCode": "11100",
+      "cityName": "さいたま市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0764,
+        "support": 0.0273,
+        "care": 0.0237
+      },
+      "perCapita": {
+        "medical": 43300,
+        "support": 14900,
+        "care": 16100
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1700,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "sakai",
+      "cityCode": "27140",
+      "cityName": "堺市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.sakai.lg.jp/kurashi/honen/kokuho/hokenryo/shikumi.html"
+      ],
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "setagaya",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "shibuya",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "shiki",
+      "cityCode": "11228",
+      "cityName": "志木市",
+      "prefecture": "埼玉県",
+      "rate": {
+        "medical": 0.0767,
+        "support": 0.0278,
+        "care": 0.0239
+      },
+      "perCapita": {
+        "medical": 47200,
+        "support": 17000,
+        "care": 17500
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1500,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "shinagawa",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "shinjuku",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "suginami",
+      "cityCode": "13115",
+      "cityName": "杉並区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "suita",
+      "cityCode": "27205",
+      "cityName": "吹田市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.suita.osaka.jp/kenko/1018391/1024421/1024423.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "sumida",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "tachikawa",
+      "cityCode": "13202",
+      "cityName": "立川市",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0685,
+        "support": 0.0229,
+        "care": 0.0173
+      },
+      "perCapita": {
+        "medical": 34200,
+        "support": 12200,
+        "care": 14800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 250000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0031,
+        "perCapita": 2000,
+        "household": 0,
+        "under18Reduction": true
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.tachikawa.lg.jp/kurashi/nenkin/1002478/1002510/1002554/1002560.html"
+      ],
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "taito",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "takasaki",
+      "cityCode": "10202",
+      "cityName": "高崎市",
+      "prefecture": "群馬県",
+      "rate": {
+        "medical": 0.068,
+        "support": 0.025,
+        "care": 0.021
+      },
+      "perCapita": {
+        "medical": 27400,
+        "support": 9700,
+        "care": 10600
+      },
+      "household": {
+        "medical": 21400,
+        "support": 6900,
+        "care": 6100
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1200,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "takatsuki",
+      "cityCode": "27207",
+      "cityName": "高槻市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.takatsuki.osaka.jp/soshiki/31/2366.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "tomioka",
+      "cityCode": "10210",
+      "cityName": "富岡市",
+      "prefecture": "群馬県",
+      "rate": {
+        "medical": 0.0696,
+        "support": 0.0298,
+        "care": 0.025
+      },
+      "perCapita": {
+        "medical": 26000,
+        "support": 11100,
+        "care": 10700
+      },
+      "household": {
+        "medical": 25000,
+        "support": 9000,
+        "care": 6800
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.003,
+        "perCapita": 1200,
+        "household": 800
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "toshima",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "prefecture": "東京都",
+      "rate": {
+        "medical": 0.0751,
+        "support": 0.028,
+        "care": 0.0243
+      },
+      "perCapita": {
+        "medical": 47600,
+        "support": 17600,
+        "care": 17800
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0027,
+        "perCapita": 1873,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "toyonaka",
+      "cityCode": "27203",
+      "cityName": "豊中市",
+      "prefecture": "大阪府",
+      "rate": {
+        "medical": 0.095,
+        "support": 0.0306,
+        "care": 0.026
+      },
+      "perCapita": {
+        "medical": 34990,
+        "support": 11191,
+        "care": 18682
+      },
+      "household": {
+        "medical": 33908,
+        "support": 10845,
+        "care": 0
+      },
+      "caps": {
+        "medical": 660000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.toyonaka.osaka.jp/kenko/kokuho/topics/hokennryokaiseiten.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    },
+    {
+      "slug": "tsukuba",
+      "cityCode": "08220",
+      "cityName": "つくば市",
+      "prefecture": "茨城県",
+      "rate": {
+        "medical": 0.077,
+        "support": 0.0315,
+        "care": 0.025
+      },
+      "perCapita": {
+        "medical": 38500,
+        "support": 15500,
+        "care": 15500
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0029,
+        "perCapita": 1400,
+        "household": 0
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "yamato",
+      "cityCode": "14213",
+      "cityName": "大和市",
+      "prefecture": "神奈川県",
+      "rate": {
+        "medical": 0.078,
+        "support": 0.0295,
+        "care": 0.027
+      },
+      "perCapita": {
+        "medical": 24600,
+        "support": 10200,
+        "care": 12600
+      },
+      "household": {
+        "medical": 25200,
+        "support": 10200,
+        "care": 9000
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {
+        "rate": 0.0026,
+        "perCapita": 1260,
+        "household": 900
+      },
+      "confidence": "verified",
+      "r8Stage": null,
+      "sourceStatus": null,
+      "sourceUrls": [],
+      "verifiedAt": null,
+      "verificationLevel": null,
+      "dataVersion": "2.0.0"
+    },
+    {
+      "slug": "yokohama",
+      "cityCode": "14100",
+      "cityName": "横浜市",
+      "prefecture": "神奈川県",
+      "rate": {
+        "medical": 0.0833,
+        "support": 0.0262,
+        "care": 0.0284
+      },
+      "perCapita": {
+        "medical": 40870,
+        "support": 13380,
+        "care": 16200
+      },
+      "household": {
+        "medical": 0,
+        "support": 0,
+        "care": 0
+      },
+      "caps": {
+        "medical": 670000,
+        "support": 260000,
+        "care": 170000,
+        "childcare": 30000
+      },
+      "childcare": {},
+      "confidence": "verified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/r7hokennryouritu.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04seidokaisei.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04hokenryounituite.html"
+      ],
+      "verifiedAt": "2026-05-20",
+      "verificationLevel": "official_source_checked",
+      "dataVersion": "2.0.1"
+    }
+  ],
+  "inconsistentSlugs": [
+    "anjo",
+    "chofu",
+    "hachioji",
+    "hadano",
+    "hamamatsu",
+    "hiji",
+    "hiratsuka",
+    "hitachi",
+    "hitachinaka",
+    "kariya",
+    "kasugai",
+    "kawagoe",
+    "kawaguchi",
+    "kirishima",
+    "kiryu",
+    "kitanagoya",
+    "kiyosu",
+    "koga-ibaraki",
+    "kokubunji",
+    "komaki",
+    "koshigaya",
+    "kota",
+    "kumamoto",
+    "kumiyama",
+    "matsuyama",
+    "mito",
+    "nagano",
+    "niigata",
+    "nishio",
+    "oyama",
+    "sagamihara",
+    "saitama",
+    "shiki",
+    "takasaki",
+    "tomioka",
+    "tsukuba",
+    "yamato"
+  ],
+  "loadFailures": []
+}

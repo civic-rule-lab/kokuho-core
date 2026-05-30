@@ -1,0 +1,26 @@
+{
+  "citySlug": "kumejima",
+  "cityName": "久米島町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 11700,
+      "support": 3200,
+      "care": 5700
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6600,
+      "care": 4200
+    },
+    "assetLevy": {
+      "medical": 0.18,
+      "support": 0.06,
+      "care": 0.06
+    }
+  }
+}

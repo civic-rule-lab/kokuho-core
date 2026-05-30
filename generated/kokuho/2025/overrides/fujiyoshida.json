@@ -1,0 +1,22 @@
+{
+  "citySlug": "fujiyoshida",
+  "cityName": "富士吉田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.025,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 25200,
+      "support": 8400,
+      "care": 10200
+    },
+    "household": {
+      "medical": 21600,
+      "support": 6600,
+      "care": 6000
+    }
+  }
+}

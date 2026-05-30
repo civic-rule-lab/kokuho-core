@@ -1,0 +1,21 @@
+{
+  "citySlug": "tsushimashi",
+  "cityName": "対馬市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.028,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 8500,
+      "care": 9700
+    },
+    "household": {
+      "support": 7300,
+      "care": 6000
+    }
+  }
+}

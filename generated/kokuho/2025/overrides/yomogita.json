@@ -1,0 +1,21 @@
+{
+  "citySlug": "yomogita",
+  "cityName": "蓬田村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.09,
+      "support": 0.02,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 25200,
+      "support": 12000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 24600,
+      "care": 6000
+    }
+  }
+}

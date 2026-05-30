@@ -1,0 +1,22 @@
+{
+  "citySlug": "aizubange",
+  "cityName": "会津坂下町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0686,
+      "support": 0.028,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29795,
+      "support": 12022,
+      "care": 11893
+    },
+    "household": {
+      "medical": 19780,
+      "support": 7981,
+      "care": 5965
+    }
+  }
+}

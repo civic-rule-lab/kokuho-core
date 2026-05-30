@@ -1,0 +1,22 @@
+{
+  "citySlug": "kembuchi",
+  "cityName": "剣淵町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.051,
+      "support": 0.019,
+      "care": 0.013999999999999999
+    },
+    "perCapita": {
+      "medical": 29800,
+      "support": 10400,
+      "care": 13100
+    },
+    "household": {
+      "medical": 31500,
+      "support": 11200,
+      "care": 10200
+    }
+  }
+}

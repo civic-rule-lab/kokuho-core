@@ -1,0 +1,27 @@
+{
+  "citySlug": "kobayashi",
+  "cityName": "小林市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1171,
+      "support": 0.0387,
+      "care": 0.0292
+    },
+    "perCapita": {
+      "medical": 26800,
+      "support": 7700,
+      "care": 7600
+    },
+    "household": {
+      "medical": 26100,
+      "support": 7900,
+      "care": 6100
+    },
+    "assetLevy": {
+      "medical": 0.1158,
+      "support": 0.0289,
+      "care": 0.03
+    }
+  }
+}

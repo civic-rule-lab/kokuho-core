@@ -1,0 +1,21 @@
+{
+  "citySlug": "nayoro",
+  "cityName": "名寄市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.087,
+      "support": 0.025,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 29000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

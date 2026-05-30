@@ -1,0 +1,22 @@
+{
+  "citySlug": "shibatacho",
+  "cityName": "柴田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.061,
+      "support": 0.025,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "medical": 21500,
+      "support": 8000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 23500,
+      "support": 9000,
+      "care": 4500
+    }
+  }
+}

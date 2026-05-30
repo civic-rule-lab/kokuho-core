@@ -1,0 +1,22 @@
+{
+  "citySlug": "kanazawa",
+  "cityName": "金沢市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.0258,
+      "care": 0.0234
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 10320,
+      "care": 11880
+    },
+    "household": {
+      "medical": 19800,
+      "support": 6720,
+      "care": 6000
+    }
+  }
+}

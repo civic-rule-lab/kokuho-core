@@ -1,0 +1,22 @@
+{
+  "citySlug": "imakane",
+  "cityName": "今金町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0839,
+      "support": 0.0273,
+      "care": 0.0203
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 9100,
+      "care": 9100
+    },
+    "household": {
+      "medical": 30000,
+      "support": 9200,
+      "care": 7300
+    }
+  }
+}

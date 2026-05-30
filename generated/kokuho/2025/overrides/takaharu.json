@@ -1,0 +1,22 @@
+{
+  "citySlug": "takaharu",
+  "cityName": "高原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1034,
+      "support": 0.0421,
+      "care": 0.0146
+    },
+    "perCapita": {
+      "medical": 30977,
+      "support": 11251,
+      "care": 11073
+    },
+    "household": {
+      "medical": 22395,
+      "support": 8134,
+      "care": 5661
+    }
+  }
+}

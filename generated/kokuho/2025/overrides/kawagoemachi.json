@@ -1,0 +1,22 @@
+{
+  "citySlug": "kawagoemachi",
+  "cityName": "川越町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0775,
+      "support": 0.0283,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 33470,
+      "support": 12065,
+      "care": 12989
+    },
+    "household": {
+      "medical": 21980,
+      "support": 7923,
+      "care": 6404
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "imizu",
+  "cityName": "射水市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.025,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 9800,
+      "care": 10400
+    },
+    "household": {
+      "medical": 24000,
+      "support": 6800,
+      "care": 6000
+    }
+  }
+}

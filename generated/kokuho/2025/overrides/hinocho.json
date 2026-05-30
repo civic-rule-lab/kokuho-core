@@ -1,0 +1,21 @@
+{
+  "citySlug": "hinocho",
+  "cityName": "日野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.029,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "support": 11000,
+      "care": 11500
+    },
+    "household": {
+      "medical": 20000,
+      "support": 8500,
+      "care": 6500
+    }
+  }
+}

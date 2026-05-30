@@ -1,0 +1,27 @@
+{
+  "citySlug": "kihokucho",
+  "cityName": "鬼北町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.025,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 17100,
+      "support": 7000,
+      "care": 7400
+    },
+    "household": {
+      "medical": 19000,
+      "support": 5400,
+      "care": 4100
+    },
+    "assetLevy": {
+      "medical": 0.25,
+      "support": 0.1,
+      "care": 0.08
+    }
+  }
+}

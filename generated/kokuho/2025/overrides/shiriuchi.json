@@ -1,0 +1,20 @@
+{
+  "citySlug": "shiriuchi",
+  "cityName": "知内町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.02,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 8000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 25000,
+      "care": 8000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "yanaitsu",
+  "cityName": "柳津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0781,
+      "support": 0.0264,
+      "care": 0.0221
+    },
+    "perCapita": {
+      "medical": 33910,
+      "support": 11364,
+      "care": 11176
+    },
+    "household": {
+      "medical": 22511,
+      "support": 7544,
+      "care": 5606
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "citySlug": "aguni",
+  "cityName": "粟国村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 10000,
+      "support": 4000,
+      "care": 5000
+    },
+    "household": {
+      "medical": 14000,
+      "support": 3600,
+      "care": 3100
+    },
+    "assetLevy": {
+      "medical": 0.3,
+      "support": 0.06,
+      "care": 0.07
+    }
+  }
+}

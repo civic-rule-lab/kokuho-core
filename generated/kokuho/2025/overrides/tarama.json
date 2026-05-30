@@ -1,0 +1,27 @@
+{
+  "citySlug": "tarama",
+  "cityName": "多良間村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.108,
+      "support": 0.015,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 17000,
+      "support": 2200,
+      "care": 6700
+    },
+    "household": {
+      "medical": 21000,
+      "support": 3000,
+      "care": 3600
+    },
+    "assetLevy": {
+      "medical": 0.75,
+      "support": 0.1075,
+      "care": 0.088
+    }
+  }
+}

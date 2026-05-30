@@ -1,0 +1,21 @@
+{
+  "citySlug": "gosen",
+  "cityName": "五泉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0839,
+      "support": 0.0283,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 20800,
+      "support": 11800,
+      "care": 13700
+    },
+    "household": {
+      "medical": 27100,
+      "support": 0
+    }
+  }
+}

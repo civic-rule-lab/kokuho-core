@@ -1,0 +1,22 @@
+{
+  "citySlug": "shichigahama",
+  "cityName": "七ヶ浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0655,
+      "support": 0.0255,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 25600,
+      "support": 9200,
+      "care": 11000
+    },
+    "household": {
+      "medical": 19200,
+      "support": 7100,
+      "care": 6000
+    }
+  }
+}

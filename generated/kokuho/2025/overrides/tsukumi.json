@@ -1,0 +1,22 @@
+{
+  "citySlug": "tsukumi",
+  "cityName": "津久見市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.095,
+      "support": 0.025,
+      "care": 0.0183
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 7300,
+      "care": 6600
+    },
+    "household": {
+      "medical": 17600,
+      "support": 4800,
+      "care": 4000
+    }
+  }
+}

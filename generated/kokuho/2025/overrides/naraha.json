@@ -1,0 +1,22 @@
+{
+  "citySlug": "naraha",
+  "cityName": "楢葉町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0743,
+      "support": 0.0269,
+      "care": 0.0218
+    },
+    "perCapita": {
+      "medical": 32262,
+      "support": 11575,
+      "care": 11037
+    },
+    "household": {
+      "medical": 21417,
+      "support": 7684,
+      "care": 5536
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "kikai",
+  "cityName": "喜界町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0502,
+      "support": 0.0292,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 21486,
+      "support": 12281,
+      "care": 12317
+    },
+    "household": {
+      "medical": 13918,
+      "support": 7956,
+      "care": 6129
+    }
+  }
+}

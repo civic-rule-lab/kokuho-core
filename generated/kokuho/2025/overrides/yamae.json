@@ -1,0 +1,21 @@
+{
+  "citySlug": "yamae",
+  "cityName": "山江村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0795,
+      "support": 0.0307,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 27792,
+      "support": 10706,
+      "care": 15623
+    },
+    "household": {
+      "medical": 18783,
+      "support": 7236
+    }
+  }
+}

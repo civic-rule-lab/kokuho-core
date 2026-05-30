@@ -1,0 +1,22 @@
+{
+  "citySlug": "kumiyama",
+  "cityName": "久御山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1107,
+      "support": 0.0242,
+      "care": 0.0186
+    },
+    "perCapita": {
+      "medical": 40785,
+      "support": 11178,
+      "care": 11880
+    },
+    "household": {
+      "medical": 25564,
+      "support": 8088,
+      "care": 7618
+    }
+  }
+}

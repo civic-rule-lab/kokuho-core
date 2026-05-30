@@ -158,7 +158,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22221", citySlug: "susono", cityName: "裾野市",
+    cityCode: "22220", citySlug: "susono", cityName: "裾野市",
     rates: {
       rate:      { medical: 0.0744, support: 0.0288, care: 0.0227 },
       perCapita: { medical: 31134,  support: 11714,  care: 16294  },
@@ -166,7 +166,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22222", citySlug: "kosai", cityName: "湖西市",
+    cityCode: "22221", citySlug: "kosai", cityName: "湖西市",
     rates: {
       rate:      { medical: 0.0686, support: 0.0295, care: 0.0233 },
       perCapita: { medical: 28726,  support: 11960,  care: 16734  },
@@ -174,7 +174,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22223", citySlug: "izu", cityName: "伊豆市",
+    cityCode: "22222", citySlug: "izu", cityName: "伊豆市",
     rates: {
       rate:      { medical: 0.0724, support: 0.0289, care: 0.0230 },
       perCapita: { medical: 30313,  support: 11718,  care: 16480  },
@@ -182,7 +182,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22224", citySlug: "omaezaki", cityName: "御前崎市",
+    cityCode: "22223", citySlug: "omaezaki", cityName: "御前崎市",
     rates: {
       rate:      { medical: 0.0839, support: 0.0291, care: 0.0230 },
       perCapita: { medical: 35140,  support: 11814,  care: 16503  },
@@ -190,7 +190,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22225", citySlug: "kikugawa", cityName: "菊川市",
+    cityCode: "22224", citySlug: "kikugawa", cityName: "菊川市",
     rates: {
       rate:      { medical: 0.0702, support: 0.0295, care: 0.0239 },
       perCapita: { medical: 29404,  support: 11962,  care: 17165  },
@@ -198,7 +198,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22226", citySlug: "izunokuni", cityName: "伊豆の国市",
+    cityCode: "22225", citySlug: "izunokuni", cityName: "伊豆の国市",
     rates: {
       rate:      { medical: 0.0703, support: 0.0290, care: 0.0232 },
       perCapita: { medical: 29423,  support: 11769,  care: 16665  },
@@ -206,7 +206,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22227", citySlug: "makinohara", cityName: "牧之原市",
+    cityCode: "22226", citySlug: "makinohara", cityName: "牧之原市",
     rates: {
       rate:      { medical: 0.0724, support: 0.0287, care: 0.0219 },
       perCapita: { medical: 30328,  support: 11658,  care: 15682  },
@@ -297,7 +297,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22461", citySlug: "kawanehon", cityName: "川根本町",
+    cityCode: "22429", citySlug: "kawanehon", cityName: "川根本町",
     rates: {
       rate:      { medical: 0.0712, support: 0.0280, care: 0.0225 },
       perCapita: { medical: 29787,  support: 11371,  care: 16134  },
@@ -305,7 +305,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "22484", citySlug: "morimachi", cityName: "森町",
+    cityCode: "22461", citySlug: "morimachi", cityName: "森町",
     rates: {
       rate:      { medical: 0.0765, support: 0.0296, care: 0.0241 },
       perCapita: { medical: 32013,  support: 12026,  care: 17287  },

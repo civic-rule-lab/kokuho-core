@@ -1,0 +1,17 @@
+{
+  "citySlug": "wanouchi",
+  "cityName": "輪之内町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0685,
+      "support": 0.0193,
+      "care": 0.0161
+    },
+    "perCapita": {
+      "medical": 37500,
+      "support": 11400,
+      "care": 12300
+    }
+  }
+}

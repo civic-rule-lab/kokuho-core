@@ -1,0 +1,22 @@
+{
+  "citySlug": "ise",
+  "cityName": "伊勢市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0743,
+      "support": 0.0281,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 32095,
+      "support": 11997,
+      "care": 13021
+    },
+    "household": {
+      "medical": 21077,
+      "support": 7878,
+      "care": 6419
+    }
+  }
+}

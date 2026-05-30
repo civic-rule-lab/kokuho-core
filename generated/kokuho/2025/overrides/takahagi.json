@@ -1,0 +1,17 @@
+{
+  "citySlug": "takahagi",
+  "cityName": "高萩市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0689,
+      "support": 0.0281,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 32000,
+      "support": 12700,
+      "care": 12300
+    }
+  }
+}

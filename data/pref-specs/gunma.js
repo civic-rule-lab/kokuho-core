@@ -126,7 +126,7 @@ export const MUNICIPALITIES = [
   // ── 北群馬郡（2町村）────────────────────────────────────────
 
   {
-    cityCode: "10301", citySlug: "shinto", cityName: "榛東村",
+    cityCode: "10344", citySlug: "shinto", cityName: "榛東村",
     rates: {
       rate:      { medical: 0.0652, support: 0.0226, care: 0.0192 },
       perCapita: { medical: 24000,  support: 8400,   care: 9000   },
@@ -134,7 +134,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10302", citySlug: "yoshioka", cityName: "吉岡町",
+    cityCode: "10345", citySlug: "yoshioka", cityName: "吉岡町",
     rates: {
       rate:      { medical: 0.0670, support: 0.0220, care: 0.0160 },
       perCapita: { medical: 27400,  support: 8400,   care: 6700   },
@@ -145,7 +145,7 @@ export const MUNICIPALITIES = [
   // ── 多野郡（2町村）──────────────────────────────────────────
 
   {
-    cityCode: "10321", citySlug: "ueno", cityName: "上野村",
+    cityCode: "10366", citySlug: "ueno", cityName: "上野村",
     assetLevy: { medical: 0.1500, support: 0.0500, care: 0.0500 },
     rates: {
       rate:      { medical: 0.0720, support: 0.0130, care: 0.0100 },
@@ -154,7 +154,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10322", citySlug: "kanna", cityName: "神流町",
+    cityCode: "10367", citySlug: "kanna", cityName: "神流町",
     rates: {
       rate:      { medical: 0.0700, support: 0.0200, care: 0.0190 },
       perCapita: { medical: 26000,  support: 11500,  care: 11000  },
@@ -165,7 +165,7 @@ export const MUNICIPALITIES = [
   // ── 甘楽郡（3町村）──────────────────────────────────────────
 
   {
-    cityCode: "10341", citySlug: "shimonita", cityName: "下仁田町",
+    cityCode: "10382", citySlug: "shimonita", cityName: "下仁田町",
     rates: {
       rate:      { medical: 0.0665, support: 0.0297, care: 0.0251 },
       perCapita: { medical: 27800,  support: 11900,  care: 12700  },
@@ -173,7 +173,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10342", citySlug: "namoku", cityName: "南牧村",
+    cityCode: "10383", citySlug: "namoku", cityName: "南牧村",
     rates: {
       rate:      { medical: 0.0600, support: 0.0200, care: 0.0150 },
       perCapita: { medical: 17000,  support: 5000,   care: 6000   },
@@ -181,7 +181,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10343", citySlug: "kanra", cityName: "甘楽町",
+    cityCode: "10384", citySlug: "kanra", cityName: "甘楽町",
     rates: {
       rate:      { medical: 0.0680, support: 0.0240, care: 0.0180 },
       perCapita: { medical: 23200,  support: 8000,   care: 8400   },
@@ -200,7 +200,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10423", citySlug: "naganohara", cityName: "長野原町",
+    cityCode: "10424", citySlug: "naganohara", cityName: "長野原町",
     rates: {
       rate:      { medical: 0.0667, support: 0.0260, care: 0.0234 },
       perCapita: { medical: 28000,  support: 11000,  care: 13000  },
@@ -208,7 +208,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10424", citySlug: "tsumagoi", cityName: "嬬恋村",
+    cityCode: "10425", citySlug: "tsumagoi", cityName: "嬬恋村",
     rates: {
       rate:      { medical: 0.0580, support: 0.0180, care: 0.0170 },
       perCapita: { medical: 27000,  support: 9000,   care: 10000  },
@@ -216,7 +216,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10425", citySlug: "kusatsu", cityName: "草津町",
+    cityCode: "10426", citySlug: "kusatsu", cityName: "草津町",
     rates: {
       rate:      { medical: 0.0730, support: 0.0220, care: 0.0190 },
       perCapita: { medical: 25000,  support: 7200,   care: 8000   },
@@ -224,7 +224,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10427", citySlug: "takayamamura", cityName: "高山村",
+    cityCode: "10428", citySlug: "takayamamura", cityName: "高山村",
     rates: {
       rate:      { medical: 0.0630, support: 0.0260, care: 0.0190 },
       perCapita: { medical: 25000,  support: 9500,   care: 8500   },
@@ -232,7 +232,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10428", citySlug: "higashiagatsuma", cityName: "東吾妻町",
+    cityCode: "10429", citySlug: "higashiagatsuma", cityName: "東吾妻町",
     rates: {
       rate:      { medical: 0.0710, support: 0.0300, care: 0.0245 },
       perCapita: { medical: 30000,  support: 12000,  care: 12000  },
@@ -243,7 +243,7 @@ export const MUNICIPALITIES = [
   // ── 利根郡（4町村）──────────────────────────────────────────
 
   {
-    cityCode: "10521", citySlug: "katashina", cityName: "片品村",
+    cityCode: "10443", citySlug: "katashina", cityName: "片品村",
     rates: {
       rate:      { medical: 0.0720, support: 0.0320, care: 0.0300 },
       perCapita: { medical: 22000,  support: 7000,   care: 7000   },
@@ -251,7 +251,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10522", citySlug: "kawaba", cityName: "川場村",
+    cityCode: "10444", citySlug: "kawaba", cityName: "川場村",
     rates: {
       rate:      { medical: 0.0700, support: 0.0230, care: 0.0220 },
       perCapita: { medical: 30300,  support: 10800,  care: 13100  },
@@ -259,7 +259,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10524", citySlug: "showa", cityName: "昭和村",
+    cityCode: "10448", citySlug: "showa", cityName: "昭和村",
     assetLevy: { medical: 0.1000, support: 0.0500, care: 0.0400 },
     rates: {
       rate:      { medical: 0.0690, support: 0.0270, care: 0.0190 },
@@ -268,7 +268,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10525", citySlug: "minakami", cityName: "みなかみ町",
+    cityCode: "10449", citySlug: "minakami", cityName: "みなかみ町",
     rates: {
       rate:      { medical: 0.0660, support: 0.0240, care: 0.0180 },
       perCapita: { medical: 26000,  support: 9700,   care: 9500   },
@@ -279,7 +279,7 @@ export const MUNICIPALITIES = [
   // ── 佐波郡（1町）────────────────────────────────────────────
 
   {
-    cityCode: "10601", citySlug: "tamamura", cityName: "玉村町",
+    cityCode: "10464", citySlug: "tamamura", cityName: "玉村町",
     rates: {
       rate:      { medical: 0.0700, support: 0.0300, care: 0.0270 },
       perCapita: { medical: 29500,  support: 11500,  care: 10000  },
@@ -290,7 +290,7 @@ export const MUNICIPALITIES = [
   // ── 邑楽郡（5町）────────────────────────────────────────────
 
   {
-    cityCode: "10621", citySlug: "itakura", cityName: "板倉町",
+    cityCode: "10521", citySlug: "itakura", cityName: "板倉町",
     rates: {
       rate:      { medical: 0.0620, support: 0.0250, care: 0.0220 },
       perCapita: { medical: 29000,  support: 11000,  care: 12000  },
@@ -298,7 +298,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10622", citySlug: "meiwa", cityName: "明和町",
+    cityCode: "10522", citySlug: "meiwa", cityName: "明和町",
     rates: {
       rate:      { medical: 0.0700, support: 0.0180, care: 0.0130 },
       perCapita: { medical: 28000,  support: 9600,   care: 7900   },
@@ -306,7 +306,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10623", citySlug: "chiyodamachi", cityName: "千代田町",
+    cityCode: "10523", citySlug: "chiyodamachi", cityName: "千代田町",
     rates: {
       rate:      { medical: 0.0650, support: 0.0260, care: 0.0215 },
       perCapita: { medical: 27000,  support: 10500,  care: 10900  },
@@ -314,7 +314,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10624", citySlug: "oizumi", cityName: "大泉町",
+    cityCode: "10524", citySlug: "oizumi", cityName: "大泉町",
     rates: {
       rate:      { medical: 0.0790, support: 0.0260, care: 0.0100 },
       perCapita: { medical: 15000,  support: 7000,   care: 4700   },
@@ -322,7 +322,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "10625", citySlug: "ora", cityName: "邑楽町",
+    cityCode: "10525", citySlug: "ora", cityName: "邑楽町",
     rates: {
       rate:      { medical: 0.0720, support: 0.0280, care: 0.0180 },
       perCapita: { medical: 24000,  support: 9000,   care: 9000   },

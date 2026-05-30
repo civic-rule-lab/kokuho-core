@@ -1,0 +1,22 @@
+{
+  "citySlug": "tadami",
+  "cityName": "只見町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0672,
+      "support": 0.0275,
+      "care": 0.0234
+    },
+    "perCapita": {
+      "medical": 29186,
+      "support": 11824,
+      "care": 11856
+    },
+    "household": {
+      "medical": 19375,
+      "support": 7849,
+      "care": 5947
+    }
+  }
+}

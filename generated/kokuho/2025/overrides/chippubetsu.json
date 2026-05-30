@@ -1,0 +1,27 @@
+{
+  "citySlug": "chippubetsu",
+  "cityName": "秩父別町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0591,
+      "support": 0.0113,
+      "care": 0.0159
+    },
+    "perCapita": {
+      "medical": 36900,
+      "support": 12100,
+      "care": 16700
+    },
+    "household": {
+      "medical": 24600,
+      "support": 8000,
+      "care": 7900
+    },
+    "assetLevy": {
+      "medical": 0.0988,
+      "support": 0.0231,
+      "care": 0.0481
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "shibushi",
+  "cityName": "志布志市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0664,
+      "support": 0.0291,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 28411,
+      "support": 12256,
+      "care": 11863
+    },
+    "household": {
+      "medical": 18404,
+      "support": 7939,
+      "care": 5903
+    }
+  }
+}

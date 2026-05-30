@@ -1,0 +1,22 @@
+{
+  "citySlug": "akiota",
+  "cityName": "安芸太田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0778,
+      "support": 0.0283,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 31900,
+      "support": 11300,
+      "care": 11400
+    },
+    "household": {
+      "medical": 20700,
+      "support": 7600,
+      "care": 5500
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "isen",
+  "cityName": "伊仙町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0408,
+      "support": 0.0306,
+      "care": 0.0266
+    },
+    "perCapita": {
+      "medical": 17441,
+      "support": 12865,
+      "care": 13253
+    },
+    "household": {
+      "medical": 11298,
+      "support": 8334,
+      "care": 6595
+    }
+  }
+}

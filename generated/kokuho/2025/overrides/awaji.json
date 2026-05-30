@@ -1,0 +1,22 @@
+{
+  "citySlug": "awaji",
+  "cityName": "淡路市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.073,
+      "support": 0.027,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 25300,
+      "support": 9100,
+      "care": 9800
+    },
+    "household": {
+      "medical": 22100,
+      "support": 7600,
+      "care": 6200
+    }
+  }
+}

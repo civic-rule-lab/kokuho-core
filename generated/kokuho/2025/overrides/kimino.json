@@ -1,0 +1,22 @@
+{
+  "citySlug": "kimino",
+  "cityName": "紀美野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0823,
+      "support": 0.031,
+      "care": 0.0257
+    },
+    "perCapita": {
+      "medical": 29674,
+      "support": 10870,
+      "care": 11279
+    },
+    "household": {
+      "medical": 20570,
+      "support": 7536,
+      "care": 5723
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "kaminokawa",
+  "cityName": "上三川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0643,
+      "support": 0.0284,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 28083,
+      "support": 12269,
+      "care": 11929
+    },
+    "household": {
+      "medical": 18891,
+      "support": 8253,
+      "care": 5997
+    }
+  }
+}

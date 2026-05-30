@@ -1,0 +1,19 @@
+{
+  "citySlug": "mamurogawa",
+  "cityName": "真室川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.028,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 9500
+    },
+    "household": {
+      "support": 7700,
+      "care": 5500
+    }
+  }
+}

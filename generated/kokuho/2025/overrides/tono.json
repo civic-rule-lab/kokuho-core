@@ -1,0 +1,22 @@
+{
+  "citySlug": "tono",
+  "cityName": "遠野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0765,
+      "support": 0.0265,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 23900,
+      "support": 9300,
+      "care": 8900
+    },
+    "household": {
+      "medical": 19000,
+      "support": 5800,
+      "care": 5000
+    }
+  }
+}

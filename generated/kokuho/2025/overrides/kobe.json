@@ -1,0 +1,22 @@
+{
+  "citySlug": "kobe",
+  "cityName": "神戸市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0774,
+      "support": 0.0302,
+      "care": 0.0267
+    },
+    "perCapita": {
+      "medical": 34400,
+      "support": 13230,
+      "care": 13960
+    },
+    "household": {
+      "medical": 22230,
+      "support": 8550,
+      "care": 6740
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "urakawa",
+  "cityName": "浦河町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08779999999999999,
+      "support": 0.0215,
+      "care": 0.0139
+    },
+    "perCapita": {
+      "medical": 33971,
+      "support": 12380,
+      "care": 9000
+    },
+    "household": {
+      "medical": 32812,
+      "support": 10276,
+      "care": 7860
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "hirakawa",
+  "cityName": "平川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.029,
+      "care": 0.0285
+    },
+    "perCapita": {
+      "medical": 19800,
+      "support": 7400,
+      "care": 9500
+    },
+    "household": {
+      "medical": 21600,
+      "support": 8100,
+      "care": 7700
+    }
+  }
+}

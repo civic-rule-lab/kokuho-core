@@ -1,0 +1,26 @@
+{
+  "citySlug": "urahoro",
+  "cityName": "浦幌町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.012,
+      "care": 0.01
+    },
+    "perCapita": {
+      "medical": 14800,
+      "support": 5200,
+      "care": 8500
+    },
+    "household": {
+      "medical": 42000,
+      "support": 8000,
+      "care": 4500
+    },
+    "assetLevy": {
+      "medical": 0.3,
+      "support": 0.1,
+      "care": 0.04
+    }
+  }
+}

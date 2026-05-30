@@ -1,0 +1,21 @@
+{
+  "citySlug": "otsuki",
+  "cityName": "大月市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0618,
+      "support": 0.0207,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 26000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 6000,
+      "care": 7000
+    }
+  }
+}

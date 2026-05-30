@@ -1,0 +1,22 @@
+{
+  "citySlug": "iwakura",
+  "cityName": "岩倉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0725,
+      "support": 0.0266,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 31119,
+      "support": 11243,
+      "care": 11447
+    },
+    "household": {
+      "medical": 20202,
+      "support": 7299,
+      "care": 5665
+    }
+  }
+}

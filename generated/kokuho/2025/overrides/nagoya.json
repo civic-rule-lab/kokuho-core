@@ -1,0 +1,17 @@
+{
+  "citySlug": "nagoya",
+  "cityName": "名古屋市",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0877,
+      "support": 0.026,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 49728,
+      "support": 15715,
+      "care": 15906
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "nonoichi",
+  "cityName": "野々市市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0803,
+      "support": 0.029,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 33700,
+      "support": 11900,
+      "care": 12900
+    },
+    "household": {
+      "medical": 22100,
+      "support": 7800,
+      "care": 6300
+    }
+  }
+}

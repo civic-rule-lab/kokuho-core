@@ -1,0 +1,22 @@
+{
+  "citySlug": "shintomi",
+  "cityName": "新富町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0848,
+      "support": 0.0311,
+      "care": 0.0254
+    },
+    "perCapita": {
+      "medical": 23100,
+      "support": 7800,
+      "care": 8200
+    },
+    "household": {
+      "medical": 21200,
+      "support": 6840,
+      "care": 6160
+    }
+  }
+}

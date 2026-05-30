@@ -1,0 +1,22 @@
+{
+  "citySlug": "kimobetsu",
+  "cityName": "喜茂別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0721,
+      "support": 0.0258,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 23977,
+      "support": 9050,
+      "care": 9106
+    },
+    "household": {
+      "medical": 23799,
+      "support": 8983,
+      "care": 7143
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "citySlug": "nishimera",
+  "cityName": "西米良村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0746,
+      "support": 0.0274,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 24900,
+      "support": 8440,
+      "care": 8860
+    },
+    "household": {
+      "medical": 20700,
+      "support": 6680,
+      "care": 6020
+    },
+    "assetLevy": {
+      "medical": 0.0816,
+      "support": 0.0245,
+      "care": 0.0299
+    }
+  }
+}

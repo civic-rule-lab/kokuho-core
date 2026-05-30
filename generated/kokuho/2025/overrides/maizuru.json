@@ -1,0 +1,22 @@
+{
+  "citySlug": "maizuru",
+  "cityName": "舞鶴市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0771,
+      "support": 0.0293,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 21500,
+      "support": 8500,
+      "care": 9600
+    },
+    "household": {
+      "medical": 23500,
+      "support": 9000,
+      "care": 7900
+    }
+  }
+}

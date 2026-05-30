@@ -1,0 +1,22 @@
+{
+  "citySlug": "ujitawara",
+  "cityName": "宇治田原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0869,
+      "support": 0.0311,
+      "care": 0.0277
+    },
+    "perCapita": {
+      "medical": 32010,
+      "support": 11294,
+      "care": 11713
+    },
+    "household": {
+      "medical": 20064,
+      "support": 7079,
+      "care": 5772
+    }
+  }
+}

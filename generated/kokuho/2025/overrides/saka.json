@@ -1,0 +1,21 @@
+{
+  "citySlug": "saka",
+  "cityName": "坂町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0737,
+      "care": 0.0204
+    },
+    "perCapita": {
+      "medical": 32700,
+      "support": 11260,
+      "care": 10420
+    },
+    "household": {
+      "medical": 22130,
+      "support": 7600,
+      "care": 5060
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kamikawamachi",
+  "cityName": "神河町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0683,
+      "support": 0.0298,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 26900,
+      "support": 11500,
+      "care": 11800
+    },
+    "household": {
+      "medical": 18900,
+      "care": 5900
+    }
+  }
+}

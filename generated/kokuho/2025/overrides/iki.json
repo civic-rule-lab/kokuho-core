@@ -1,0 +1,22 @@
+{
+  "citySlug": "iki",
+  "cityName": "壱岐市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.037,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 22100,
+      "support": 9800,
+      "care": 11000
+    },
+    "household": {
+      "medical": 21600,
+      "support": 9300,
+      "care": 7300
+    }
+  }
+}

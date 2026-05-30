@@ -1,0 +1,21 @@
+{
+  "citySlug": "takamorimachi",
+  "cityName": "高森町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0803,
+      "support": 0.0302,
+      "care": 0.0237
+    },
+    "perCapita": {
+      "medical": 28046,
+      "support": 10521,
+      "care": 15478
+    },
+    "household": {
+      "medical": 18955,
+      "support": 7111
+    }
+  }
+}

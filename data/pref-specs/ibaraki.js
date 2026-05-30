@@ -292,7 +292,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08304", citySlug: "oarai", cityName: "大洗町",
+    cityCode: "08309", citySlug: "oarai", cityName: "大洗町",
     rates: {
       rate:      { medical: 0.0580, support: 0.0260, care: 0.0210 },
       perCapita: { medical: 37000,  support: 16000,  care: 17000  },
@@ -300,7 +300,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08305", citySlug: "shirosato", cityName: "城里町",
+    cityCode: "08310", citySlug: "shirosato", cityName: "城里町",
     rates: {
       rate:      { medical: 0.0670, support: 0.0280, care: 0.0180 },
       perCapita: { medical: 21000,  support: 8500,   care: 12000  },
@@ -308,7 +308,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08521", citySlug: "tokaimura", cityName: "東海村",
+    cityCode: "08341", citySlug: "tokaimura", cityName: "東海村",
     rates: {
       rate:      { medical: 0.0680, support: 0.0260, care: 0.0250 },
       perCapita: { medical: 36600,  support: 13900,  care: 15300  },
@@ -316,7 +316,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08542", citySlug: "daigo", cityName: "大子町",
+    cityCode: "08364", citySlug: "daigo", cityName: "大子町",
     rates: {
       rate:      { medical: 0.0784, support: 0.0241, care: 0.0205 },
       perCapita: { medical: 39500,  support: 12200,  care: 10300  },
@@ -324,7 +324,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08564", citySlug: "miho", cityName: "美浦村",
+    cityCode: "08442", citySlug: "miho", cityName: "美浦村",
     rates: {
       rate:      { medical: 0.0700, support: 0.0300, care: 0.0260 },
       perCapita: { medical: 36000,  support: 13300,  care: 14600  },
@@ -332,7 +332,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08565", citySlug: "ami", cityName: "阿見町",
+    cityCode: "08443", citySlug: "ami", cityName: "阿見町",
     rates: {
       rate:      { medical: 0.0620, support: 0.0220, care: 0.0130 },
       perCapita: { medical: 22000,  support: 10000,  care: 12000  },
@@ -340,7 +340,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08578", citySlug: "kawachi", cityName: "河内町",
+    cityCode: "08447", citySlug: "kawachi", cityName: "河内町",
     rates: {
       rate:      { medical: 0.0623, support: 0.0232, care: 0.0171 },
       perCapita: { medical: 38500,  support: 14300,  care: 15100  },
@@ -348,7 +348,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08581", citySlug: "yachiyomachi", cityName: "八千代町",
+    cityCode: "08521", citySlug: "yachiyomachi", cityName: "八千代町",
     rates: {
       rate:      { medical: 0.0772, support: 0.0304, care: 0.0230 },
       perCapita: { medical: 39400,  support: 17000,  care: 17200  },
@@ -356,7 +356,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08583", citySlug: "goka", cityName: "五霞町",
+    cityCode: "08542", citySlug: "goka", cityName: "五霞町",
     rates: {
       rate:      { medical: 0.0756, support: 0.0319, care: 0.0260 },
       perCapita: { medical: 43400,  support: 18100,  care: 18900  },
@@ -364,7 +364,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08584", citySlug: "sakaimachi", cityName: "境町",
+    cityCode: "08546", citySlug: "sakaimachi", cityName: "境町",
     rates: {
       rate:      { medical: 0.0720, support: 0.0240, care: 0.0180 },
       perCapita: { medical: 35000,  support: 14000,  care: 14000  },
@@ -372,7 +372,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "08586", citySlug: "tone", cityName: "利根町",
+    cityCode: "08564", citySlug: "tone", cityName: "利根町",
     rates: {
       rate:      { medical: 0.0600, support: 0.0300, care: 0.0200 },
       perCapita: { medical: 39900,  support: 16800,  care: 20800  },

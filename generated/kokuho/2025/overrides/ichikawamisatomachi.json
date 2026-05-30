@@ -1,0 +1,22 @@
+{
+  "citySlug": "ichikawamisatomachi",
+  "cityName": "市川三郷町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0648,
+      "support": 0.0244,
+      "care": 0.0187
+    },
+    "perCapita": {
+      "medical": 26700,
+      "support": 8900,
+      "care": 9700
+    },
+    "household": {
+      "medical": 22700,
+      "support": 7100,
+      "care": 5700
+    }
+  }
+}

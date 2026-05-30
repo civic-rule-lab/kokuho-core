@@ -1,0 +1,21 @@
+{
+  "citySlug": "hitoyoshi",
+  "cityName": "人吉市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0826,
+      "support": 0.0304,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 28871,
+      "support": 10604,
+      "care": 15192
+    },
+    "household": {
+      "medical": 19512,
+      "support": 7167
+    }
+  }
+}

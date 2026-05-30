@@ -1,0 +1,22 @@
+{
+  "citySlug": "misatocho",
+  "cityName": "美郷町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0506,
+      "support": 0.0325,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 19431,
+      "support": 10276,
+      "care": 11451
+    },
+    "household": {
+      "medical": 17593,
+      "support": 8806,
+      "care": 6288
+    }
+  }
+}

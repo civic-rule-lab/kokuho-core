@@ -1,0 +1,22 @@
+{
+  "citySlug": "takahama",
+  "cityName": "高浜市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0782,
+      "support": 0.0271,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 33549,
+      "support": 11466,
+      "care": 11425
+    },
+    "household": {
+      "medical": 21779,
+      "support": 7444,
+      "care": 5655
+    }
+  }
+}

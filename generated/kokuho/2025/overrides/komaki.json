@@ -1,0 +1,22 @@
+{
+  "citySlug": "komaki",
+  "cityName": "小牧市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0743,
+      "support": 0.0275,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 31850,
+      "support": 11614,
+      "care": 11715
+    },
+    "household": {
+      "medical": 20676,
+      "support": 7540,
+      "care": 5798
+    }
+  }
+}

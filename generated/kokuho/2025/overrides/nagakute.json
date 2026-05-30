@@ -1,0 +1,22 @@
+{
+  "citySlug": "nagakute",
+  "cityName": "長久手市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0744,
+      "support": 0.0272,
+      "care": 0.0221
+    },
+    "perCapita": {
+      "medical": 31899,
+      "support": 11494,
+      "care": 11219
+    },
+    "household": {
+      "medical": 20708,
+      "support": 7462,
+      "care": 5553
+    }
+  }
+}

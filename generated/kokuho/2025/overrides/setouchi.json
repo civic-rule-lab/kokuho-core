@@ -1,0 +1,22 @@
+{
+  "citySlug": "setouchi",
+  "cityName": "瀬戸内市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0961,
+      "support": 0.0314,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26663,
+      "support": 9539,
+      "care": 9546
+    },
+    "household": {
+      "medical": 22825,
+      "support": 7355,
+      "care": 6545
+    }
+  }
+}

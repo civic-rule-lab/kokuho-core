@@ -1,0 +1,21 @@
+{
+  "citySlug": "tome",
+  "cityName": "登米市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.03,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 8000,
+      "care": 8500
+    },
+    "household": {
+      "medical": 18000,
+      "care": 6200
+    }
+  }
+}

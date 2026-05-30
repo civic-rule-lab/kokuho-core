@@ -1,0 +1,22 @@
+{
+  "citySlug": "yufu",
+  "cityName": "由布市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0992,
+      "support": 0.0349,
+      "care": 0.0326
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 10500,
+      "care": 11500
+    },
+    "household": {
+      "medical": 19300,
+      "support": 6800,
+      "care": 5700
+    }
+  }
+}

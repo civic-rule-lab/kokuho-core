@@ -1,0 +1,22 @@
+{
+  "citySlug": "tokai",
+  "cityName": "東海市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0778,
+      "support": 0.0268,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 33352,
+      "support": 11333,
+      "care": 11410
+    },
+    "household": {
+      "medical": 21651,
+      "support": 7357,
+      "care": 5647
+    }
+  }
+}

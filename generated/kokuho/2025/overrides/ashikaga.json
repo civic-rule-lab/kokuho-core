@@ -1,0 +1,22 @@
+{
+  "citySlug": "ashikaga",
+  "cityName": "足利市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0658,
+      "support": 0.0294,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 28728,
+      "support": 12707,
+      "care": 12576
+    },
+    "household": {
+      "medical": 19325,
+      "support": 8548,
+      "care": 6322
+    }
+  }
+}

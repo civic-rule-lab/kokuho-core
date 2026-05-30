@@ -1,0 +1,21 @@
+{
+  "citySlug": "kashimacho",
+  "cityName": "嘉島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.0308,
+      "care": 0.0232
+    },
+    "perCapita": {
+      "medical": 29710,
+      "support": 10750,
+      "care": 15110
+    },
+    "household": {
+      "medical": 20079,
+      "support": 7265
+    }
+  }
+}

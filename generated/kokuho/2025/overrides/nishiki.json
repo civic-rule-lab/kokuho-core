@@ -1,0 +1,21 @@
+{
+  "citySlug": "nishiki",
+  "cityName": "錦町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0866,
+      "support": 0.0304,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 30256,
+      "support": 10605,
+      "care": 15792
+    },
+    "household": {
+      "medical": 20449,
+      "support": 7168
+    }
+  }
+}

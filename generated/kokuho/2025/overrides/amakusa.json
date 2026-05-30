@@ -1,0 +1,21 @@
+{
+  "citySlug": "amakusa",
+  "cityName": "天草市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0755,
+      "support": 0.0307,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 26371,
+      "support": 10707,
+      "care": 15980
+    },
+    "household": {
+      "medical": 17823,
+      "support": 7236
+    }
+  }
+}

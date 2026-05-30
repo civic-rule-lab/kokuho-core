@@ -1,0 +1,21 @@
+{
+  "citySlug": "kawakita",
+  "cityName": "川北町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.094,
+      "support": 0.027,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 38000,
+      "support": 11000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 26000,
+      "care": 5000
+    }
+  }
+}

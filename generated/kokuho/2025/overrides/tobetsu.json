@@ -1,0 +1,22 @@
+{
+  "citySlug": "tobetsu",
+  "cityName": "当別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08410000000000001,
+      "support": 0.026099999999999998,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 27900,
+      "support": 9100,
+      "care": 9200
+    },
+    "household": {
+      "medical": 27700,
+      "support": 9100,
+      "care": 7200
+    }
+  }
+}

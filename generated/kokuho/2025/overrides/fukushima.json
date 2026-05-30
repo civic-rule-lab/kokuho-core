@@ -1,0 +1,22 @@
+{
+  "citySlug": "fukushima",
+  "cityName": "福島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0833,
+      "support": 0.0253,
+      "care": 0.0196
+    },
+    "perCapita": {
+      "medical": 27700,
+      "support": 8800,
+      "care": 8900
+    },
+    "household": {
+      "medical": 27400,
+      "support": 8800,
+      "care": 7000
+    }
+  }
+}

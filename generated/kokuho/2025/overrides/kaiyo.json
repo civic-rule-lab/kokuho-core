@@ -1,0 +1,16 @@
+{
+  "citySlug": "kaiyo",
+  "cityName": "海陽町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.029,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 12000,
+      "care": 13000
+    }
+  }
+}

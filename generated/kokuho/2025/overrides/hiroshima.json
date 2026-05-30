@@ -1,0 +1,22 @@
+{
+  "citySlug": "hiroshima",
+  "cityName": "広島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.0278,
+      "care": 0.0234
+    },
+    "perCapita": {
+      "medical": 30133,
+      "support": 10330,
+      "care": 9522
+    },
+    "household": {
+      "medical": 29758,
+      "support": 10201,
+      "care": 7163
+    }
+  }
+}

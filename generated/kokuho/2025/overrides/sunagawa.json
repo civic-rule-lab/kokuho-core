@@ -1,0 +1,22 @@
+{
+  "citySlug": "sunagawa",
+  "cityName": "砂川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.03,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 19900,
+      "support": 5900,
+      "care": 7000
+    },
+    "household": {
+      "medical": 18300,
+      "support": 6500,
+      "care": 5000
+    }
+  }
+}

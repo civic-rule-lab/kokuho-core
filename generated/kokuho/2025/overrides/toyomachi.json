@@ -1,0 +1,19 @@
+{
+  "citySlug": "toyomachi",
+  "cityName": "東洋町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 8500
+    },
+    "household": {
+      "support": 6000,
+      "care": 5000
+    }
+  }
+}

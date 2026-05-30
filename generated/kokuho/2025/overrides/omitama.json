@@ -1,0 +1,16 @@
+{
+  "citySlug": "omitama",
+  "cityName": "小美玉市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "care": 0.023
+    },
+    "perCapita": {
+      "medical": 39000,
+      "support": 17000,
+      "care": 17000
+    }
+  }
+}

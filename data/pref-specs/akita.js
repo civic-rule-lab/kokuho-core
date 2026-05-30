@@ -77,7 +77,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05208", citySlug: "kazuno", cityName: "鹿角市",
+    cityCode: "05209", citySlug: "kazuno", cityName: "鹿角市",
     // ※ 公式サイト（SSL期限切れ）から取得できず、秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0527, support: 0.0326, care: 0.0236 },
@@ -147,7 +147,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05325", citySlug: "kamikoanicho", cityName: "上小阿仁村",
+    cityCode: "05327", citySlug: "kamikoanicho", cityName: "上小阿仁村",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0602, support: 0.0317, care: 0.0287 },
@@ -156,7 +156,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05343", citySlug: "fujisatomachi", cityName: "藤里町",
+    cityCode: "05346", citySlug: "fujisatomachi", cityName: "藤里町",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0622, support: 0.0313, care: 0.0322 },
@@ -165,7 +165,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05344", citySlug: "mitane", cityName: "三種町",
+    cityCode: "05348", citySlug: "mitane", cityName: "三種町",
     rates: {
       rate:      { medical: 0.0576, support: 0.0256, care: 0.0188 },
       perCapita: { medical: 29400,  support: 9300,   care: 9000   },
@@ -173,7 +173,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05345", citySlug: "happocho", cityName: "八峰町",
+    cityCode: "05349", citySlug: "happocho", cityName: "八峰町",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0525, support: 0.0292, care: 0.0246 },
@@ -191,7 +191,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05362", citySlug: "hachirogatacho", cityName: "八郎潟町",
+    cityCode: "05363", citySlug: "hachirogatacho", cityName: "八郎潟町",
     rates: {
       rate:      { medical: 0.0840, support: 0.0210, care: 0.0200 },
       perCapita: { medical: 21600,  support: 5400,   care: 7000   },
@@ -199,7 +199,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05364", citySlug: "ikawacho", cityName: "井川町",
+    cityCode: "05366", citySlug: "ikawacho", cityName: "井川町",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0520, support: 0.0298, care: 0.0292 },
@@ -208,7 +208,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05367", citySlug: "ogatacho", cityName: "大潟村",
+    cityCode: "05368", citySlug: "ogatacho", cityName: "大潟村",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0421, support: 0.0290, care: 0.0163 },
@@ -217,7 +217,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05463", citySlug: "misatocho", cityName: "美郷町",
+    cityCode: "05434", citySlug: "misatocho", cityName: "美郷町",
     // ※ 公式サイト取得できず、秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0506, support: 0.0325, care: 0.0235 },
@@ -226,7 +226,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05464", citySlug: "ugocho", cityName: "羽後町",
+    cityCode: "05463", citySlug: "ugocho", cityName: "羽後町",
     rates: {
       rate:      { medical: 0.0770, support: 0.0280, care: 0.0200 },
       perCapita: { medical: 21000,  support: 7000,   care: 6000   },
@@ -234,7 +234,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "05465", citySlug: "higashinarusemura", cityName: "東成瀬村",
+    cityCode: "05464", citySlug: "higashinarusemura", cityName: "東成瀬村",
     // ※ 秋田県標準一覧（市町村算定方式）の値を使用
     rates: {
       rate:      { medical: 0.0395, support: 0.0311, care: 0.0220 },

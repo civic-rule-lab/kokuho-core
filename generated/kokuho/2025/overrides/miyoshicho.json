@@ -1,0 +1,17 @@
+{
+  "citySlug": "miyoshicho",
+  "cityName": "三芳町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0797,
+      "support": 0.0324,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 34300,
+      "support": 11100,
+      "care": 14800
+    }
+  }
+}

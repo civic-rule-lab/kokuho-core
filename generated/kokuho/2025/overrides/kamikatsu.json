@@ -1,0 +1,22 @@
+{
+  "citySlug": "kamikatsu",
+  "cityName": "上勝町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.063,
+      "support": 0.025,
+      "care": 0.0195
+    },
+    "perCapita": {
+      "medical": 18000,
+      "support": 3000,
+      "care": 5000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 3000,
+      "care": 5000
+    }
+  }
+}

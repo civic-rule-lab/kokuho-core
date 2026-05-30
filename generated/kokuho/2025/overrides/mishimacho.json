@@ -1,0 +1,22 @@
+{
+  "citySlug": "mishimacho",
+  "cityName": "三島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0731,
+      "support": 0.021,
+      "care": 0.0059
+    },
+    "perCapita": {
+      "medical": 31755,
+      "support": 9022,
+      "care": 2972
+    },
+    "household": {
+      "medical": 21081,
+      "support": 5989,
+      "care": 1491
+    }
+  }
+}

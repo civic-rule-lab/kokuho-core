@@ -1,0 +1,22 @@
+{
+  "citySlug": "kawamata",
+  "cityName": "川俣町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0665,
+      "support": 0.0269,
+      "care": 0.0222
+    },
+    "perCapita": {
+      "medical": 28871,
+      "support": 11576,
+      "care": 11235
+    },
+    "household": {
+      "medical": 19166,
+      "support": 7685,
+      "care": 5635
+    }
+  }
+}

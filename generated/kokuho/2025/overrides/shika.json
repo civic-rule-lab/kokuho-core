@@ -1,0 +1,22 @@
+{
+  "citySlug": "shika",
+  "cityName": "志賀町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.024,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 9600,
+      "care": 9000
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6700,
+      "care": 5100
+    }
+  }
+}

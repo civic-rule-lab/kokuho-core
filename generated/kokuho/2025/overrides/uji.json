@@ -1,0 +1,22 @@
+{
+  "citySlug": "uji",
+  "cityName": "宇治市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1018,
+      "support": 0.0307,
+      "care": 0.0274
+    },
+    "perCapita": {
+      "medical": 37400,
+      "support": 11100,
+      "care": 11600
+    },
+    "household": {
+      "medical": 23500,
+      "support": 6900,
+      "care": 5700
+    }
+  }
+}

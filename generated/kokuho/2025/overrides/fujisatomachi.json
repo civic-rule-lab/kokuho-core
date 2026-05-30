@@ -1,0 +1,22 @@
+{
+  "citySlug": "fujisatomachi",
+  "cityName": "藤里町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0622,
+      "support": 0.0313,
+      "care": 0.0322
+    },
+    "perCapita": {
+      "medical": 20672,
+      "support": 10790,
+      "care": 9593
+    },
+    "household": {
+      "medical": 18963,
+      "support": 9646,
+      "care": 6246
+    }
+  }
+}

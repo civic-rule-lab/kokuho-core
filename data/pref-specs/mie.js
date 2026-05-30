@@ -154,7 +154,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24341", citySlug: "toin", cityName: "東員町",
+    cityCode: "24324", citySlug: "toin", cityName: "東員町",
     rates: {
       rate:      { medical: 0.0770, support: 0.0285, care: 0.0248 },
       perCapita: { medical: 33259,  support: 12158,  care: 13021  },
@@ -162,7 +162,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24361", citySlug: "komono", cityName: "菰野町",
+    cityCode: "24341", citySlug: "komono", cityName: "菰野町",
     rates: {
       rate:      { medical: 0.0763, support: 0.0284, care: 0.0248 },
       perCapita: { medical: 32967,  support: 12095,  care: 13021  },
@@ -170,7 +170,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24362", citySlug: "asahicho", cityName: "朝日町",
+    cityCode: "24343", citySlug: "asahicho", cityName: "朝日町",
     rates: {
       rate:      { medical: 0.0758, support: 0.0284, care: 0.0248 },
       perCapita: { medical: 32738,  support: 12114,  care: 13032  },
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24363", citySlug: "kawagoemachi", cityName: "川越町",
+    cityCode: "24344", citySlug: "kawagoemachi", cityName: "川越町",
     rates: {
       rate:      { medical: 0.0775, support: 0.0283, care: 0.0247 },
       perCapita: { medical: 33470,  support: 12065,  care: 12989  },
@@ -186,7 +186,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24401", citySlug: "taki", cityName: "多気町",
+    cityCode: "24441", citySlug: "taki", cityName: "多気町",
     rates: {
       rate:      { medical: 0.0728, support: 0.0281, care: 0.0248 },
       perCapita: { medical: 31425,  support: 11989,  care: 13021  },
@@ -194,7 +194,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24402", citySlug: "meiwamachi", cityName: "明和町",
+    cityCode: "24442", citySlug: "meiwamachi", cityName: "明和町",
     rates: {
       rate:      { medical: 0.0721, support: 0.0282, care: 0.0248 },
       perCapita: { medical: 31126,  support: 12036,  care: 13021  },
@@ -202,7 +202,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24403", citySlug: "odai", cityName: "大台町",
+    cityCode: "24443", citySlug: "odai", cityName: "大台町",
     rates: {
       rate:      { medical: 0.0653, support: 0.0281, care: 0.0248 },
       perCapita: { medical: 28182,  support: 11988,  care: 13022  },
@@ -210,7 +210,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24441", citySlug: "tamaki", cityName: "玉城町",
+    cityCode: "24461", citySlug: "tamaki", cityName: "玉城町",
     rates: {
       rate:      { medical: 0.0758, support: 0.0284, care: 0.0248 },
       perCapita: { medical: 32741,  support: 12092,  care: 13021  },
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24443", citySlug: "watarai", cityName: "度会町",
+    cityCode: "24470", citySlug: "watarai", cityName: "度会町",
     rates: {
       rate:      { medical: 0.0705, support: 0.0282, care: 0.0248 },
       perCapita: { medical: 30440,  support: 12010,  care: 13021  },
@@ -226,7 +226,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24444", citySlug: "taikimachi", cityName: "大紀町",
+    cityCode: "24471", citySlug: "taikimachi", cityName: "大紀町",
     rates: {
       rate:      { medical: 0.0671, support: 0.0283, care: 0.0248 },
       perCapita: { medical: 28960,  support: 12055,  care: 13021  },
@@ -234,7 +234,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "24445", citySlug: "minamiise", cityName: "南伊勢町",
+    cityCode: "24472", citySlug: "minamiise", cityName: "南伊勢町",
     rates: {
       rate:      { medical: 0.0653, support: 0.0283, care: 0.0248 },
       perCapita: { medical: 28211,  support: 12059,  care: 13023  },

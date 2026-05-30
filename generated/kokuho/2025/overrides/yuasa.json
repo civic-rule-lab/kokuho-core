@@ -1,0 +1,22 @@
+{
+  "citySlug": "yuasa",
+  "cityName": "湯浅町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0698,
+      "support": 0.0313,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 25173,
+      "support": 10952,
+      "care": 11178
+    },
+    "household": {
+      "medical": 17450,
+      "support": 7592,
+      "care": 5672
+    }
+  }
+}

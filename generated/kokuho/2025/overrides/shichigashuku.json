@@ -1,0 +1,22 @@
+{
+  "citySlug": "shichigashuku",
+  "cityName": "七ヶ宿町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.01,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 26800,
+      "support": 4000,
+      "care": 8800
+    },
+    "household": {
+      "medical": 17200,
+      "support": 2600,
+      "care": 4200
+    }
+  }
+}

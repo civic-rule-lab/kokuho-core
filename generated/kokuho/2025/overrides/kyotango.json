@@ -1,0 +1,27 @@
+{
+  "citySlug": "kyotango",
+  "cityName": "京丹後市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0656,
+      "support": 0.0222,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 19000,
+      "support": 6200,
+      "care": 7900
+    },
+    "household": {
+      "medical": 30700,
+      "support": 10700,
+      "care": 9300
+    },
+    "assetLevy": {
+      "medical": 0.0955,
+      "support": 0.032,
+      "care": 0.0325
+    }
+  }
+}

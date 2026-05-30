@@ -1,0 +1,21 @@
+{
+  "citySlug": "bungotakada",
+  "cityName": "豊後高田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.104,
+      "support": 0.025,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "support": 6500,
+      "care": 7400
+    },
+    "household": {
+      "medical": 22300,
+      "support": 5200,
+      "care": 4700
+    }
+  }
+}

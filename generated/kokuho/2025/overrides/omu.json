@@ -1,0 +1,27 @@
+{
+  "citySlug": "omu",
+  "cityName": "雄武町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.025,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 9000,
+      "care": 10000
+    },
+    "household": {
+      "medical": 28000,
+      "support": 9000,
+      "care": 8000
+    },
+    "assetLevy": {
+      "medical": 0.1,
+      "support": 0.03,
+      "care": 0
+    }
+  }
+}

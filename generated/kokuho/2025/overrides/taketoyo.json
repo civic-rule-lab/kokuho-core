@@ -1,0 +1,22 @@
+{
+  "citySlug": "taketoyo",
+  "cityName": "武豊町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0819,
+      "support": 0.0276,
+      "care": 0.0229
+    },
+    "perCapita": {
+      "medical": 35118,
+      "support": 11668,
+      "care": 11592
+    },
+    "household": {
+      "medical": 22798,
+      "support": 7574,
+      "care": 5737
+    }
+  }
+}

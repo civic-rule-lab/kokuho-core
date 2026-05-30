@@ -1,0 +1,22 @@
+{
+  "citySlug": "kaminoseki",
+  "cityName": "上関町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.025,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 7500,
+      "care": 9200
+    },
+    "household": {
+      "medical": 20000,
+      "support": 7200,
+      "care": 5700
+    }
+  }
+}

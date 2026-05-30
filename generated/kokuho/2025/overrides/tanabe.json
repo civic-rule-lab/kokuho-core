@@ -1,0 +1,22 @@
+{
+  "citySlug": "tanabe",
+  "cityName": "田辺市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0731,
+      "support": 0.031,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 26380,
+      "support": 10859,
+      "care": 11160
+    },
+    "household": {
+      "medical": 18287,
+      "support": 7528,
+      "care": 5663
+    }
+  }
+}

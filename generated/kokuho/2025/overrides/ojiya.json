@@ -1,0 +1,21 @@
+{
+  "citySlug": "ojiya",
+  "cityName": "小千谷市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0665,
+      "support": 0.0296,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 28492,
+      "support": 17854,
+      "care": 18333
+    },
+    "household": {
+      "medical": 18732,
+      "support": 0
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "nagasaki",
+  "cityName": "長崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.093,
+      "support": 0.033,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 27700,
+      "support": 9700,
+      "care": 9500
+    },
+    "household": {
+      "medical": 19800,
+      "support": 6900,
+      "care": 5400
+    }
+  }
+}

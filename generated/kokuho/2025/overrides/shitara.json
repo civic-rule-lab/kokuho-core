@@ -1,0 +1,22 @@
+{
+  "citySlug": "shitara",
+  "cityName": "設楽町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0778,
+      "support": 0.0279,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 33376,
+      "support": 11787,
+      "care": 12144
+    },
+    "household": {
+      "medical": 21667,
+      "support": 7652,
+      "care": 6010
+    }
+  }
+}

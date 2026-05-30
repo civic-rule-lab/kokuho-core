@@ -1,0 +1,26 @@
+{
+  "citySlug": "maniwa",
+  "cityName": "真庭市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.071,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 7800,
+      "care": 9400
+    },
+    "household": {
+      "medical": 20400,
+      "support": 6000,
+      "care": 5200
+    },
+    "assetLevy": {
+      "medical": 0.166,
+      "support": 0.043,
+      "care": 0.045
+    }
+  }
+}

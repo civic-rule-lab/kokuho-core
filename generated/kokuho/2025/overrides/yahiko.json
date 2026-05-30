@@ -1,0 +1,21 @@
+{
+  "citySlug": "yahiko",
+  "cityName": "弥彦村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0646,
+      "support": 0.0291,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 27694,
+      "support": 17530,
+      "care": 18356
+    },
+    "household": {
+      "medical": 18207,
+      "support": 0
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "tsu",
+  "cityName": "津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0788,
+      "support": 0.0284,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 34027,
+      "support": 12112,
+      "care": 13026
+    },
+    "household": {
+      "medical": 22346,
+      "support": 7954,
+      "care": 6422
+    }
+  }
+}

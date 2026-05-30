@@ -1,0 +1,22 @@
+{
+  "citySlug": "furudono",
+  "cityName": "古殿町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0747,
+      "support": 0.027,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 32430,
+      "support": 11597,
+      "care": 11516
+    },
+    "household": {
+      "medical": 21529,
+      "support": 7698,
+      "care": 5777
+    }
+  }
+}

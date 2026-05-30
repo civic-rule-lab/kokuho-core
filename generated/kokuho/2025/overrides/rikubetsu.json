@@ -1,0 +1,21 @@
+{
+  "citySlug": "rikubetsu",
+  "cityName": "陸別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07200000000000001,
+      "support": 0.025,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 23700,
+      "care": 9600
+    },
+    "household": {
+      "medical": 24400,
+      "support": 8400,
+      "care": 8400
+    }
+  }
+}

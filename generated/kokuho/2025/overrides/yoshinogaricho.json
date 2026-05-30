@@ -1,0 +1,20 @@
+{
+  "citySlug": "yoshinogaricho",
+  "cityName": "吉野ヶ里町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.096,
+      "support": 0.029,
+      "care": 0.025
+    },
+    "perCapita": {
+      "care": 10500
+    },
+    "household": {
+      "medical": 30000,
+      "support": 8500,
+      "care": 5500
+    }
+  }
+}

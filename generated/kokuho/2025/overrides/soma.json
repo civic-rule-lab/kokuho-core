@@ -1,0 +1,22 @@
+{
+  "citySlug": "soma",
+  "cityName": "相馬市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0704,
+      "support": 0.0276,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 30559,
+      "support": 11870,
+      "care": 11795
+    },
+    "household": {
+      "medical": 20287,
+      "support": 7880,
+      "care": 5917
+    }
+  }
+}

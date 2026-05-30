@@ -1,0 +1,22 @@
+{
+  "citySlug": "tomakomai",
+  "cityName": "苫小牧市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0883,
+      "support": 0.0281,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 21500,
+      "support": 8900,
+      "care": 8900
+    },
+    "household": {
+      "medical": 29900,
+      "support": 9100,
+      "care": 6900
+    }
+  }
+}

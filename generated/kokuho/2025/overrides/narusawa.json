@@ -1,0 +1,21 @@
+{
+  "citySlug": "narusawa",
+  "cityName": "鳴沢村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.05,
+      "support": 0.0201,
+      "care": 0.0146
+    },
+    "perCapita": {
+      "medical": 20000,
+      "support": 10000
+    },
+    "household": {
+      "medical": 18000,
+      "support": 5000,
+      "care": 5000
+    }
+  }
+}

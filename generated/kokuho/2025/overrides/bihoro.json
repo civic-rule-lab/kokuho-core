@@ -1,0 +1,22 @@
+{
+  "citySlug": "bihoro",
+  "cityName": "美幌町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.084,
+      "support": 0.027000000000000003,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 8000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 27600,
+      "support": 9200,
+      "care": 7200
+    }
+  }
+}

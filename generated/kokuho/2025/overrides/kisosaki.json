@@ -1,0 +1,22 @@
+{
+  "citySlug": "kisosaki",
+  "cityName": "木曽岬町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0722,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31166,
+      "support": 12150,
+      "care": 13021
+    },
+    "household": {
+      "medical": 20467,
+      "support": 7979,
+      "care": 6419
+    }
+  }
+}

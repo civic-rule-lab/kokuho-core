@@ -1,0 +1,22 @@
+{
+  "citySlug": "tochigi",
+  "cityName": "栃木市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.0293,
+      "care": 0.0242
+    },
+    "perCapita": {
+      "medical": 33181,
+      "support": 12641,
+      "care": 12500
+    },
+    "household": {
+      "medical": 22321,
+      "support": 8504,
+      "care": 6284
+    }
+  }
+}

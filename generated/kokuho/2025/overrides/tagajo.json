@@ -1,0 +1,22 @@
+{
+  "citySlug": "tagajo",
+  "cityName": "多賀城市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.02,
+      "care": 0.014
+    },
+    "perCapita": {
+      "medical": 26880,
+      "support": 7680,
+      "care": 8640
+    },
+    "household": {
+      "medical": 23520,
+      "support": 7680,
+      "care": 5400
+    }
+  }
+}

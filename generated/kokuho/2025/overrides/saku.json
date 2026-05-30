@@ -10,7 +10,8 @@
     },
     "perCapita": {
       "medical": 20800,
-      "support": 7300
+      "support": 7300,
+      "care": 9000
     },
     "household": {
       "medical": 24400,

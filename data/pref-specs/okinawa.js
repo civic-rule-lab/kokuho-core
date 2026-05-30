@@ -20,7 +20,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47202", citySlug: "ginowan", cityName: "宜野湾市",
+    cityCode: "47205", citySlug: "ginowan", cityName: "宜野湾市",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0743, support: 0.0266, care: 0.0280 },
@@ -29,7 +29,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47204", citySlug: "nago", cityName: "名護市",
+    cityCode: "47209", citySlug: "nago", cityName: "名護市",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.200, support: 0.090, care: 0.040 },
@@ -40,7 +40,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47206", citySlug: "okinawashi", cityName: "沖縄市",
+    cityCode: "47211", citySlug: "okinawashi", cityName: "沖縄市",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0687, support: 0.0283, care: 0.0237 },
@@ -67,7 +67,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47209", citySlug: "itoman", cityName: "糸満市",
+    cityCode: "47210", citySlug: "itoman", cityName: "糸満市",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0800, support: 0.0245, care: 0.0195 },
@@ -76,7 +76,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47210", citySlug: "tomigusuku", cityName: "豊見城市",
+    cityCode: "47212", citySlug: "tomigusuku", cityName: "豊見城市",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0844, support: 0.0261, care: 0.0210 },
@@ -85,7 +85,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47212", citySlug: "nanjo", cityName: "南城市",
+    cityCode: "47215", citySlug: "nanjo", cityName: "南城市",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0790, support: 0.0241, care: 0.0215 },
@@ -114,7 +114,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47215", citySlug: "yaese", cityName: "八重瀬町",
+    cityCode: "47362", citySlug: "yaese", cityName: "八重瀬町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0717, support: 0.0272, care: 0.0190 },
@@ -156,7 +156,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47305", citySlug: "nakijin", cityName: "今帰仁村",
+    cityCode: "47306", citySlug: "nakijin", cityName: "今帰仁村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.2169, support: 0.0764, care: 0.0632 },
@@ -167,7 +167,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47307", citySlug: "motobu", cityName: "本部町",
+    cityCode: "47308", citySlug: "motobu", cityName: "本部町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.240, support: 0.160, care: 0.044 },
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47310", citySlug: "onna", cityName: "恩納村",
+    cityCode: "47311", citySlug: "onna", cityName: "恩納村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0670, support: 0.0230, care: 0.0230 },
@@ -187,7 +187,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47311", citySlug: "ginoza", cityName: "宜野座村",
+    cityCode: "47313", citySlug: "ginoza", cityName: "宜野座村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.080, support: 0.040, care: 0.030 },
@@ -198,7 +198,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47312", citySlug: "kin", cityName: "金武町",
+    cityCode: "47314", citySlug: "kin", cityName: "金武町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0514, support: 0.0203, care: 0.0245 },
@@ -207,7 +207,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47313", citySlug: "ie", cityName: "伊江村",
+    cityCode: "47315", citySlug: "ie", cityName: "伊江村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.300, support: 0.094, care: 0.050 },
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47322", citySlug: "yomitan", cityName: "読谷村",
+    cityCode: "47324", citySlug: "yomitan", cityName: "読谷村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0720, support: 0.0260, care: 0.0190 },
@@ -227,7 +227,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47323", citySlug: "kadena", cityName: "嘉手納町",
+    cityCode: "47325", citySlug: "kadena", cityName: "嘉手納町",
     note: "介護分のみ資産割あり（医療分・後期分は3方式）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0, support: 0, care: 0.0680 },
@@ -238,7 +238,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47324", citySlug: "chatan", cityName: "北谷町",
+    cityCode: "47326", citySlug: "chatan", cityName: "北谷町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0750, support: 0.0246, care: 0.0210 },
@@ -247,7 +247,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47325", citySlug: "kitanakagusuku", cityName: "北中城村",
+    cityCode: "47327", citySlug: "kitanakagusuku", cityName: "北中城村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0660, support: 0.0240, care: 0.0190 },
@@ -256,7 +256,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47326", citySlug: "nakagusuku", cityName: "中城村",
+    cityCode: "47328", citySlug: "nakagusuku", cityName: "中城村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0790, support: 0.0260, care: 0.0215 },
@@ -265,7 +265,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47327", citySlug: "nishihara", cityName: "西原町",
+    cityCode: "47329", citySlug: "nishihara", cityName: "西原町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0800, support: 0.0280, care: 0.0230 },
@@ -274,7 +274,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47332", citySlug: "yonabaru", cityName: "与那原町",
+    cityCode: "47348", citySlug: "yonabaru", cityName: "与那原町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0695, support: 0.0310, care: 0.0205 },
@@ -283,7 +283,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47334", citySlug: "haebaru", cityName: "南風原町",
+    cityCode: "47350", citySlug: "haebaru", cityName: "南風原町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0843, support: 0.0249, care: 0.0195 },
@@ -292,7 +292,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47336", citySlug: "kumejima", cityName: "久米島町",
+    cityCode: "47361", citySlug: "kumejima", cityName: "久米島町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.180, support: 0.060, care: 0.060 },
@@ -303,7 +303,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47341", citySlug: "tokashiki", cityName: "渡嘉敷村",
+    cityCode: "47353", citySlug: "tokashiki", cityName: "渡嘉敷村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.250, support: 0.050, care: 0.120 },
@@ -314,7 +314,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47342", citySlug: "zamami", cityName: "座間味村",
+    cityCode: "47354", citySlug: "zamami", cityName: "座間味村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.300, support: 0.067, care: 0.100 },
@@ -325,7 +325,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47343", citySlug: "aguni", cityName: "粟国村",
+    cityCode: "47355", citySlug: "aguni", cityName: "粟国村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.300, support: 0.060, care: 0.070 },
@@ -336,7 +336,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47344", citySlug: "tonaki", cityName: "渡名喜村",
+    cityCode: "47356", citySlug: "tonaki", cityName: "渡名喜村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.450, support: 0.0428, care: 0.159 },
@@ -347,7 +347,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47346", citySlug: "minamidaito", cityName: "南大東村",
+    cityCode: "47357", citySlug: "minamidaito", cityName: "南大東村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.350, support: 0.045, care: 0.070 },
@@ -358,7 +358,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47347", citySlug: "kitadaito", cityName: "北大東村",
+    cityCode: "47358", citySlug: "kitadaito", cityName: "北大東村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.170, support: 0.032, care: 0.105 },
@@ -369,7 +369,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47348", citySlug: "iheya", cityName: "伊平屋村",
+    cityCode: "47359", citySlug: "iheya", cityName: "伊平屋村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.384, support: 0.096, care: 0.088 },
@@ -380,7 +380,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47349", citySlug: "izena", cityName: "伊是名村",
+    cityCode: "47360", citySlug: "izena", cityName: "伊是名村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.360, support: 0.090, care: 0.066 },
@@ -391,7 +391,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "47361", citySlug: "tarama", cityName: "多良間村",
+    cityCode: "47375", citySlug: "tarama", cityName: "多良間村",
     note: "4方式（所得割+資産割+均等割+平等割）。医療分資産割75%は県内最高。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.750, support: 0.1075, care: 0.088 },

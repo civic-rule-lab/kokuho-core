@@ -1,0 +1,21 @@
+{
+  "citySlug": "nisshin",
+  "cityName": "日進市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0753,
+      "support": 0.0277
+    },
+    "perCapita": {
+      "medical": 32287,
+      "support": 11735,
+      "care": 11679
+    },
+    "household": {
+      "medical": 20960,
+      "support": 7618,
+      "care": 5781
+    }
+  }
+}

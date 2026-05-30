@@ -1,0 +1,22 @@
+{
+  "citySlug": "owariasahi",
+  "cityName": "尾張旭市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0808,
+      "support": 0.0275,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 34642,
+      "support": 11640,
+      "care": 11736
+    },
+    "household": {
+      "medical": 22489,
+      "support": 7556,
+      "care": 5809
+    }
+  }
+}

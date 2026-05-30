@@ -1,0 +1,22 @@
+{
+  "citySlug": "fuchushi",
+  "cityName": "府中市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0831,
+      "support": 0.0284,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 35612,
+      "support": 12015,
+      "care": 11819
+    },
+    "household": {
+      "medical": 22868,
+      "support": 7715,
+      "care": 5728
+    }
+  }
+}

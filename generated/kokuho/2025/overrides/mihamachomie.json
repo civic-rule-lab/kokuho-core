@@ -1,0 +1,22 @@
+{
+  "citySlug": "mihamachomie",
+  "cityName": "御浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0697,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 30100,
+      "support": 12166,
+      "care": 13021
+    },
+    "household": {
+      "medical": 19767,
+      "support": 7990,
+      "care": 6419
+    }
+  }
+}

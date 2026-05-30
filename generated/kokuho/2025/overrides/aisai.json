@@ -1,0 +1,22 @@
+{
+  "citySlug": "aisai",
+  "cityName": "愛西市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0807,
+      "support": 0.028,
+      "care": 0.0228
+    },
+    "perCapita": {
+      "medical": 34621,
+      "support": 11826,
+      "care": 11571
+    },
+    "household": {
+      "medical": 22475,
+      "support": 7677,
+      "care": 5727
+    }
+  }
+}

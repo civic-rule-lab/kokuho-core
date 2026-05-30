@@ -1,0 +1,22 @@
+{
+  "citySlug": "wake",
+  "cityName": "和気町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.028,
+      "care": 0.028
+    },
+    "perCapita": {
+      "medical": 25200,
+      "support": 9400,
+      "care": 10700
+    },
+    "household": {
+      "medical": 18500,
+      "support": 6600,
+      "care": 6600
+    }
+  }
+}

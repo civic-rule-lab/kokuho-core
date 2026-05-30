@@ -1,0 +1,17 @@
+{
+  "citySlug": "ushiku",
+  "cityName": "牛久市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0539,
+      "support": 0.0295,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 28800,
+      "support": 14400,
+      "care": 15600
+    }
+  }
+}

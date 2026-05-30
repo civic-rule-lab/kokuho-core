@@ -1,0 +1,22 @@
+{
+  "citySlug": "asakawa",
+  "cityName": "浅川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0578,
+      "support": 0.0272,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 25109,
+      "support": 11692,
+      "care": 11361
+    },
+    "household": {
+      "medical": 16669,
+      "support": 7762,
+      "care": 5699
+    }
+  }
+}

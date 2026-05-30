@@ -1,0 +1,21 @@
+{
+  "citySlug": "kakegawa",
+  "cityName": "掛川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0706,
+      "support": 0.0296,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29541,
+      "support": 12008,
+      "care": 16851
+    },
+    "household": {
+      "medical": 19329,
+      "support": 7857
+    }
+  }
+}

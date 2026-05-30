@@ -1,0 +1,22 @@
+{
+  "citySlug": "toba",
+  "cityName": "鳥羽市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0734,
+      "support": 0.0281,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31711,
+      "support": 11987,
+      "care": 13040
+    },
+    "household": {
+      "medical": 20825,
+      "support": 7872,
+      "care": 6429
+    }
+  }
+}

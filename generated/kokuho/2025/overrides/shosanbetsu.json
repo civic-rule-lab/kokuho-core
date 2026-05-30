@@ -1,0 +1,27 @@
+{
+  "citySlug": "shosanbetsu",
+  "cityName": "初山別村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.013999999999999999,
+      "care": 0.006
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 6600,
+      "care": 6500
+    },
+    "household": {
+      "medical": 38000,
+      "support": 8400,
+      "care": 3900
+    },
+    "assetLevy": {
+      "medical": 0.3,
+      "support": 0.095,
+      "care": 0.075
+    }
+  }
+}

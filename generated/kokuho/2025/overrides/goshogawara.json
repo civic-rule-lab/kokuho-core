@@ -1,0 +1,22 @@
+{
+  "citySlug": "goshogawara",
+  "cityName": "五所川原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0727,
+      "support": 0.0221,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 25210,
+      "support": 7400,
+      "care": 9400
+    },
+    "household": {
+      "medical": 21500,
+      "support": 6400,
+      "care": 5500
+    }
+  }
+}

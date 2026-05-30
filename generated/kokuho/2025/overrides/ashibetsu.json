@@ -1,0 +1,22 @@
+{
+  "citySlug": "ashibetsu",
+  "cityName": "芦別市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0675,
+      "support": 0.0255,
+      "care": 0.019799999999999998
+    },
+    "perCapita": {
+      "medical": 22600,
+      "support": 8900,
+      "care": 9000
+    },
+    "household": {
+      "medical": 23400,
+      "support": 8800,
+      "care": 7000
+    }
+  }
+}

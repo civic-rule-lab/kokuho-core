@@ -1,0 +1,22 @@
+{
+  "citySlug": "taki",
+  "cityName": "多気町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0728,
+      "support": 0.0281,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31425,
+      "support": 11989,
+      "care": 13021
+    },
+    "household": {
+      "medical": 20637,
+      "support": 7873,
+      "care": 6419
+    }
+  }
+}

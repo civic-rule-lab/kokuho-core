@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakafurano",
+  "cityName": "中富良野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08199999999999999,
+      "support": 0.027000000000000003,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 8300,
+      "care": 9400
+    },
+    "household": {
+      "medical": 26200,
+      "support": 9000,
+      "care": 6900
+    }
+  }
+}

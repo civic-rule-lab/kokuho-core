@@ -1,0 +1,19 @@
+{
+  "citySlug": "naganohara",
+  "cityName": "長野原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0667,
+      "care": 0.0234
+    },
+    "perCapita": {
+      "support": 11000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 20000,
+      "care": 7000
+    }
+  }
+}

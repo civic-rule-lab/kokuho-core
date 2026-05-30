@@ -1,0 +1,22 @@
+{
+  "citySlug": "okayama",
+  "cityName": "岡山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0815,
+      "support": 0.0295,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 28320,
+      "support": 10320,
+      "care": 10920
+    },
+    "household": {
+      "medical": 20880,
+      "support": 6960,
+      "care": 5280
+    }
+  }
+}

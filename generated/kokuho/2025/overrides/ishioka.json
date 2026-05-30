@@ -1,0 +1,15 @@
+{
+  "citySlug": "ishioka",
+  "cityName": "石岡市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.063,
+      "support": 0.029,
+      "care": 0.021
+    },
+    "perCapita": {
+      "care": 13000
+    }
+  }
+}

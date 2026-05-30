@@ -1,0 +1,21 @@
+{
+  "citySlug": "izunokuni",
+  "cityName": "伊豆の国市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0703,
+      "support": 0.029,
+      "care": 0.0232
+    },
+    "perCapita": {
+      "medical": 29423,
+      "support": 11769,
+      "care": 16665
+    },
+    "household": {
+      "medical": 19252,
+      "support": 7701
+    }
+  }
+}

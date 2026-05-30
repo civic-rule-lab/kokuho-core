@@ -1,0 +1,27 @@
+{
+  "citySlug": "kitadaito",
+  "cityName": "北大東村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.036,
+      "support": 0.018,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 16000,
+      "support": 6500,
+      "care": 8000
+    },
+    "household": {
+      "medical": 16000,
+      "support": 5000,
+      "care": 6000
+    },
+    "assetLevy": {
+      "medical": 0.17,
+      "support": 0.032,
+      "care": 0.105
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "kitayama",
+  "cityName": "北山村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0852,
+      "support": 0.0261,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 30721,
+      "support": 9149,
+      "care": 7442
+    },
+    "household": {
+      "medical": 21297,
+      "support": 6342,
+      "care": 3776
+    }
+  }
+}

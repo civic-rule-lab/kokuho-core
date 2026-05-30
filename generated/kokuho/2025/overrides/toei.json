@@ -1,0 +1,22 @@
+{
+  "citySlug": "toei",
+  "cityName": "東栄町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1451,
+      "support": 0.0284,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 62242,
+      "support": 12028,
+      "care": 12402
+    },
+    "household": {
+      "medical": 40406,
+      "support": 7808,
+      "care": 6139
+    }
+  }
+}

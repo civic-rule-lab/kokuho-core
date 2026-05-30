@@ -1,0 +1,22 @@
+{
+  "citySlug": "fujikawamachi",
+  "cityName": "富士川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.024,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 25500,
+      "support": 10700,
+      "care": 10300
+    },
+    "household": {
+      "medical": 26300,
+      "support": 10000,
+      "care": 8800
+    }
+  }
+}

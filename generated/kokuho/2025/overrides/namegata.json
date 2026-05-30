@@ -1,0 +1,16 @@
+{
+  "citySlug": "namegata",
+  "cityName": "行方市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.032
+    },
+    "perCapita": {
+      "medical": 38000,
+      "support": 19000,
+      "care": 18000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "rifu",
+  "cityName": "利府町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.031,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 33000,
+      "support": 13000,
+      "care": 12800
+    },
+    "household": {
+      "support": 9000,
+      "care": 6500
+    }
+  }
+}

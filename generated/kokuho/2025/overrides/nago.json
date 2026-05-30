@@ -1,0 +1,26 @@
+{
+  "citySlug": "nago",
+  "cityName": "名護市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.027,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 14500,
+      "support": 5900,
+      "care": 4300
+    },
+    "household": {
+      "medical": 12500,
+      "support": 5100,
+      "care": 3600
+    },
+    "assetLevy": {
+      "medical": 0.2,
+      "support": 0.09,
+      "care": 0.04
+    }
+  }
+}

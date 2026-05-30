@@ -1,0 +1,27 @@
+{
+  "citySlug": "misatomiyazaki",
+  "cityName": "美郷町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0769,
+      "support": 0.0282,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 31200,
+      "support": 10560,
+      "care": 11040
+    },
+    "household": {
+      "medical": 21400,
+      "support": 6900,
+      "care": 6200
+    },
+    "assetLevy": {
+      "medical": 0.2505,
+      "support": 0.0752,
+      "care": 0.0918
+    }
+  }
+}

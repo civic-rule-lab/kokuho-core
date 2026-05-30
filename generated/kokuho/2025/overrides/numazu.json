@@ -1,0 +1,21 @@
+{
+  "citySlug": "numazu",
+  "cityName": "沼津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0714,
+      "support": 0.0283,
+      "care": 0.0221
+    },
+    "perCapita": {
+      "medical": 29898,
+      "support": 11484,
+      "care": 15828
+    },
+    "household": {
+      "medical": 19563,
+      "support": 7514
+    }
+  }
+}

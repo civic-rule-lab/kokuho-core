@@ -1,0 +1,22 @@
+{
+  "citySlug": "utashinai",
+  "cityName": "歌志内市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.022000000000000002,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 15700,
+      "support": 4300,
+      "care": 5900
+    },
+    "household": {
+      "medical": 17300,
+      "support": 4700,
+      "care": 3700
+    }
+  }
+}

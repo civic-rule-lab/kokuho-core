@@ -1,0 +1,22 @@
+{
+  "citySlug": "horonobe",
+  "cityName": "幌延町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.055,
+      "support": 0.026000000000000002,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 31800,
+      "support": 10800,
+      "care": 12000
+    },
+    "household": {
+      "medical": 26400,
+      "support": 9000,
+      "care": 9000
+    }
+  }
+}

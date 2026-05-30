@@ -1,0 +1,25 @@
+{
+  "citySlug": "yosano",
+  "cityName": "与謝野町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.022
+    },
+    "perCapita": {
+      "medical": 30400,
+      "support": 11000,
+      "care": 13600
+    },
+    "household": {
+      "medical": 20400,
+      "support": 7400,
+      "care": 7200
+    },
+    "assetLevy": {
+      "medical": 0.35,
+      "support": 0.135,
+      "care": 0.193
+    }
+  }
+}

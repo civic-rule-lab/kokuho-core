@@ -1,0 +1,23 @@
+{
+  "citySlug": "akaiwa",
+  "cityName": "赤井川村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.062,
+      "support": 0.018000000000000002,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 19000
+    },
+    "household": {
+      "medical": 30000
+    },
+    "assetLevy": {
+      "medical": 0.6,
+      "support": 0.1,
+      "care": 0.1
+    }
+  }
+}

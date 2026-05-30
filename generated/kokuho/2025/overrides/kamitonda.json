@@ -1,0 +1,22 @@
+{
+  "citySlug": "kamitonda",
+  "cityName": "上富田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0829,
+      "support": 0.0306,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 29890,
+      "support": 10708,
+      "care": 11050
+    },
+    "household": {
+      "medical": 20720,
+      "support": 7423,
+      "care": 5607
+    }
+  }
+}

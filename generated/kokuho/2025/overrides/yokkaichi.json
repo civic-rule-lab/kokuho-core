@@ -1,0 +1,22 @@
+{
+  "citySlug": "yokkaichi",
+  "cityName": "四日市市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0778,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 33592,
+      "support": 12154,
+      "care": 13023
+    },
+    "household": {
+      "medical": 22060,
+      "support": 7981,
+      "care": 6420
+    }
+  }
+}

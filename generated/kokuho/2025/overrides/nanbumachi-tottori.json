@@ -1,0 +1,22 @@
+{
+  "citySlug": "nanbumachi-tottori",
+  "cityName": "南部町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0718,
+      "support": 0.0235,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 26900,
+      "support": 8800,
+      "care": 11300
+    },
+    "household": {
+      "medical": 19400,
+      "support": 6300,
+      "care": 5600
+    }
+  }
+}

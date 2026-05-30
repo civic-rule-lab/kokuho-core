@@ -1,0 +1,22 @@
+{
+  "citySlug": "minabe",
+  "cityName": "みなべ町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0731,
+      "support": 0.0277,
+      "care": 0.0192
+    },
+    "perCapita": {
+      "medical": 26369,
+      "support": 9688,
+      "care": 8429
+    },
+    "household": {
+      "medical": 18279,
+      "support": 6716,
+      "care": 4277
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "satsumasendai",
+  "cityName": "薩摩川内市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0775,
+      "support": 0.0296,
+      "care": 0.0254
+    },
+    "perCapita": {
+      "medical": 33155,
+      "support": 12432,
+      "care": 12662
+    },
+    "household": {
+      "medical": 21477,
+      "support": 8053,
+      "care": 6301
+    }
+  }
+}

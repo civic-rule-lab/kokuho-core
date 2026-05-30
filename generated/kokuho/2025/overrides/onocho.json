@@ -1,0 +1,22 @@
+{
+  "citySlug": "onocho",
+  "cityName": "大野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0676,
+      "support": 0.0197,
+      "care": 0.0241
+    },
+    "perCapita": {
+      "medical": 28500,
+      "support": 8700,
+      "care": 13000
+    },
+    "household": {
+      "medical": 23500,
+      "support": 7300,
+      "care": 7500
+    }
+  }
+}

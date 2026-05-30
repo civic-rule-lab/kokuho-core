@@ -1,0 +1,22 @@
+{
+  "citySlug": "handa",
+  "cityName": "半田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0801,
+      "support": 0.0282,
+      "care": 0.0237
+    },
+    "perCapita": {
+      "medical": 34361,
+      "support": 11952,
+      "care": 11999
+    },
+    "household": {
+      "medical": 22306,
+      "support": 7759,
+      "care": 5939
+    }
+  }
+}

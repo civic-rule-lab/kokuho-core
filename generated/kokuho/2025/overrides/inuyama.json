@@ -1,0 +1,22 @@
+{
+  "citySlug": "inuyama",
+  "cityName": "犬山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0801,
+      "support": 0.0264,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 34348,
+      "support": 11166,
+      "care": 11446
+    },
+    "household": {
+      "medical": 22298,
+      "support": 7248,
+      "care": 5665
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "citySlug": "sakahogi",
+  "cityName": "坂祝町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.024,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 10000
+    },
+    "household": {
+      "medical": 18000,
+      "care": 5000
+    }
+  }
+}

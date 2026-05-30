@@ -1,0 +1,22 @@
+{
+  "citySlug": "motomiya",
+  "cityName": "本宮市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0691,
+      "support": 0.0272,
+      "care": 0.0222
+    },
+    "perCapita": {
+      "medical": 29999,
+      "support": 11696,
+      "care": 11258
+    },
+    "household": {
+      "medical": 19915,
+      "support": 7764,
+      "care": 5647
+    }
+  }
+}

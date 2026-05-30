@@ -1,0 +1,22 @@
+{
+  "citySlug": "sotogahama",
+  "cityName": "外ヶ浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.102,
+      "support": 0.02,
+      "care": 0.0166
+    },
+    "perCapita": {
+      "medical": 27600,
+      "support": 5400,
+      "care": 6000
+    },
+    "household": {
+      "medical": 36000,
+      "support": 7800,
+      "care": 8400
+    }
+  }
+}

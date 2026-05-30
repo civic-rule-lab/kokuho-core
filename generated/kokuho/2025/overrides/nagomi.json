@@ -1,0 +1,21 @@
+{
+  "citySlug": "nagomi",
+  "cityName": "和水町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0882,
+      "support": 0.0303,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 30802,
+      "support": 10561,
+      "care": 15390
+    },
+    "household": {
+      "medical": 20818,
+      "support": 7138
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "minobu",
+  "cityName": "身延町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.079,
+      "support": 0.0195,
+      "care": 0.0195
+    },
+    "perCapita": {
+      "medical": 27400,
+      "support": 7200,
+      "care": 8100
+    },
+    "household": {
+      "medical": 29200,
+      "support": 7700,
+      "care": 6800
+    }
+  }
+}

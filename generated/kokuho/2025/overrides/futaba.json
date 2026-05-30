@@ -1,0 +1,22 @@
+{
+  "citySlug": "futaba",
+  "cityName": "双葉町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0862,
+      "support": 0.0275,
+      "care": 0.0228
+    },
+    "perCapita": {
+      "medical": 37419,
+      "support": 11832,
+      "care": 11535
+    },
+    "household": {
+      "medical": 24841,
+      "support": 7855,
+      "care": 5786
+    }
+  }
+}

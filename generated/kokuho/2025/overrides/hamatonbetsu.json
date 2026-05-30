@@ -1,0 +1,21 @@
+{
+  "citySlug": "hamatonbetsu",
+  "cityName": "浜頓別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.026000000000000002,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 30000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 32000,
+      "support": 9000,
+      "care": 9000
+    }
+  }
+}

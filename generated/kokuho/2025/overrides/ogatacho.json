@@ -1,0 +1,22 @@
+{
+  "citySlug": "ogatacho",
+  "cityName": "大潟村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0421,
+      "support": 0.029,
+      "care": 0.0163
+    },
+    "perCapita": {
+      "medical": 22158,
+      "support": 16122,
+      "care": 17143
+    },
+    "household": {
+      "medical": 25449,
+      "support": 15144,
+      "care": 17116
+    }
+  }
+}

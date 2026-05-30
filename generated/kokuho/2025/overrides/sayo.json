@@ -1,0 +1,22 @@
+{
+  "citySlug": "sayo",
+  "cityName": "佐用町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0725,
+      "support": 0.0285,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 11600,
+      "care": 12800
+    },
+    "household": {
+      "medical": 19600,
+      "support": 7600,
+      "care": 6800
+    }
+  }
+}

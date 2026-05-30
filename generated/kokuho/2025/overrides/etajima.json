@@ -1,0 +1,22 @@
+{
+  "citySlug": "etajima",
+  "cityName": "江田島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0887,
+      "support": 0.0288,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 37995,
+      "support": 12171,
+      "care": 12015
+    },
+    "household": {
+      "medical": 24399,
+      "support": 7816,
+      "care": 5823
+    }
+  }
+}

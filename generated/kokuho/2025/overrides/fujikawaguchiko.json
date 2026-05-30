@@ -1,0 +1,21 @@
+{
+  "citySlug": "fujikawaguchiko",
+  "cityName": "富士河口湖町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0308,
+      "care": 0.0257
+    },
+    "perCapita": {
+      "medical": 32500,
+      "support": 12300,
+      "care": 14000
+    },
+    "household": {
+      "medical": 25300,
+      "support": 9600,
+      "care": 8300
+    }
+  }
+}

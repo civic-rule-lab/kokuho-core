@@ -1,0 +1,17 @@
+{
+  "citySlug": "obanazawa",
+  "cityName": "尾花沢市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.029
+    },
+    "perCapita": {
+      "support": 10000
+    },
+    "household": {
+      "support": 7800,
+      "care": 5500
+    }
+  }
+}

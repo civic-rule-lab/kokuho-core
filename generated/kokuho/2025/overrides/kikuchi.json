@@ -1,0 +1,21 @@
+{
+  "citySlug": "kikuchi",
+  "cityName": "菊池市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0823,
+      "support": 0.0307,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 28748,
+      "support": 10707,
+      "care": 15526
+    },
+    "household": {
+      "medical": 19430,
+      "support": 7236
+    }
+  }
+}

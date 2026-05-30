@@ -1,0 +1,22 @@
+{
+  "citySlug": "shodoshimamachi",
+  "cityName": "小豆島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.024,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 29800,
+      "support": 9100,
+      "care": 9400
+    },
+    "household": {
+      "medical": 20100,
+      "support": 6100,
+      "care": 4600
+    }
+  }
+}

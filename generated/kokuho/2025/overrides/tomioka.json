@@ -1,0 +1,22 @@
+{
+  "citySlug": "tomioka",
+  "cityName": "富岡市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0696,
+      "support": 0.0298,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 11100,
+      "care": 10700
+    },
+    "household": {
+      "medical": 25000,
+      "support": 9000,
+      "care": 6800
+    }
+  }
+}

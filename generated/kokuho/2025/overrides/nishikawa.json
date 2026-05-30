@@ -1,0 +1,19 @@
+{
+  "citySlug": "nishikawa",
+  "cityName": "西川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.079,
+      "support": 0.027
+    },
+    "perCapita": {
+      "support": 9700,
+      "care": 10500
+    },
+    "household": {
+      "support": 7700,
+      "care": 5500
+    }
+  }
+}

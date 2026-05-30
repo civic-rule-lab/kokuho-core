@@ -1,0 +1,22 @@
+{
+  "citySlug": "dateshi",
+  "cityName": "伊達市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0711,
+      "support": 0.0275,
+      "care": 0.0228
+    },
+    "perCapita": {
+      "medical": 30878,
+      "support": 11809,
+      "care": 11538
+    },
+    "household": {
+      "medical": 20499,
+      "support": 7839,
+      "care": 5787
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "tsunagi",
+  "cityName": "津奈木町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0212,
+      "support": 0.0302,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 7411,
+      "support": 10520,
+      "care": 15371
+    },
+    "household": {
+      "medical": 5009,
+      "support": 7110
+    }
+  }
+}

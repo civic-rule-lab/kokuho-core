@@ -1,0 +1,22 @@
+{
+  "citySlug": "yoron",
+  "cityName": "与論町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0506,
+      "support": 0.0284,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 21652,
+      "support": 11927,
+      "care": 11944
+    },
+    "household": {
+      "medical": 14026,
+      "support": 7726,
+      "care": 5943
+    }
+  }
+}

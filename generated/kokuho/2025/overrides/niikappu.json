@@ -1,0 +1,27 @@
+{
+  "citySlug": "niikappu",
+  "cityName": "新冠町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08,
+      "support": 0.023,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 8500,
+      "care": 7800
+    },
+    "household": {
+      "medical": 33000,
+      "support": 8000,
+      "care": 6800
+    },
+    "assetLevy": {
+      "medical": 0.38,
+      "support": 0.12,
+      "care": 0.04
+    }
+  }
+}

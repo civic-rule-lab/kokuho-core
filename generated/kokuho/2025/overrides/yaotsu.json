@@ -1,0 +1,20 @@
+{
+  "citySlug": "yaotsu",
+  "cityName": "八百津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.057,
+      "support": 0.019,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 29000,
+      "care": 12000
+    },
+    "household": {
+      "medical": 27000,
+      "care": 8000
+    }
+  }
+}

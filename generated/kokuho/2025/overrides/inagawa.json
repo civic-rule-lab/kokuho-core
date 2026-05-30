@@ -1,0 +1,22 @@
+{
+  "citySlug": "inagawa",
+  "cityName": "猪名川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0611,
+      "support": 0.0239,
+      "care": 0.0261
+    },
+    "perCapita": {
+      "medical": 26800,
+      "support": 10300,
+      "care": 12300
+    },
+    "household": {
+      "medical": 19800,
+      "support": 7600,
+      "care": 6200
+    }
+  }
+}

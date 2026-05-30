@@ -1,0 +1,22 @@
+{
+  "citySlug": "kunimi",
+  "cityName": "国見町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0722,
+      "support": 0.0279,
+      "care": 0.0234
+    },
+    "perCapita": {
+      "medical": 31363,
+      "support": 12004,
+      "care": 11827
+    },
+    "household": {
+      "medical": 20820,
+      "support": 7969,
+      "care": 5933
+    }
+  }
+}

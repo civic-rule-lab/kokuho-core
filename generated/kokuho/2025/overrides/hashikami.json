@@ -1,0 +1,19 @@
+{
+  "citySlug": "hashikami",
+  "cityName": "階上町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.073,
+      "support": 0.027,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 23000
+    },
+    "household": {
+      "medical": 21000,
+      "care": 6000
+    }
+  }
+}

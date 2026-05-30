@@ -1,0 +1,27 @@
+{
+  "citySlug": "naruto",
+  "cityName": "鳴門市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0924,
+      "support": 0.0264,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 26100,
+      "support": 7800,
+      "care": 10700
+    },
+    "household": {
+      "medical": 22500,
+      "support": 6700,
+      "care": 5500
+    },
+    "assetLevy": {
+      "medical": 0.269,
+      "support": 0.0787,
+      "care": 0.1025
+    }
+  }
+}

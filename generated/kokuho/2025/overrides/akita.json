@@ -1,0 +1,22 @@
+{
+  "citySlug": "akita",
+  "cityName": "秋田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0922,
+      "support": 0.0251,
+      "care": 0.0288
+    },
+    "perCapita": {
+      "medical": 22960,
+      "support": 6620,
+      "care": 8950
+    },
+    "household": {
+      "medical": 28690,
+      "support": 7450,
+      "care": 8570
+    }
+  }
+}

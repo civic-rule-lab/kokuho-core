@@ -1,0 +1,20 @@
+{
+  "citySlug": "shibukawa",
+  "cityName": "渋川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.027,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 26000
+    },
+    "household": {
+      "medical": 24000,
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

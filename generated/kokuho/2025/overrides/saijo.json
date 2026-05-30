@@ -1,0 +1,22 @@
+{
+  "citySlug": "saijo",
+  "cityName": "西条市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0671,
+      "support": 0.0278,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 28840,
+      "support": 11730,
+      "care": 12200
+    },
+    "household": {
+      "medical": 18970,
+      "support": 7710,
+      "care": 5990
+    }
+  }
+}

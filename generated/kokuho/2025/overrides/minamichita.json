@@ -1,0 +1,22 @@
+{
+  "citySlug": "minamichita",
+  "cityName": "南知多町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0822,
+      "support": 0.0287,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 35273,
+      "support": 12127,
+      "care": 12192
+    },
+    "household": {
+      "medical": 22898,
+      "support": 7872,
+      "care": 6034
+    }
+  }
+}

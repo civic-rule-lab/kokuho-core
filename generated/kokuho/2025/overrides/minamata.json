@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamata",
+  "cityName": "水俣市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.026,
+      "support": 0.0309,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 9093,
+      "support": 10764,
+      "care": 16946
+    },
+    "household": {
+      "medical": 6146,
+      "support": 7275
+    }
+  }
+}

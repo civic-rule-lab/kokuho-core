@@ -1,0 +1,21 @@
+{
+  "citySlug": "kumamoto",
+  "cityName": "熊本市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0846,
+      "support": 0.0328,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 29577,
+      "support": 11419,
+      "care": 16922
+    },
+    "household": {
+      "medical": 19989,
+      "support": 7718
+    }
+  }
+}

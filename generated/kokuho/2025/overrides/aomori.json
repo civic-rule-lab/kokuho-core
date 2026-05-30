@@ -1,0 +1,22 @@
+{
+  "citySlug": "aomori",
+  "cityName": "青森市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0971,
+      "support": 0.0246,
+      "care": 0.0274
+    },
+    "perCapita": {
+      "medical": 20040,
+      "support": 6360,
+      "care": 9260
+    },
+    "household": {
+      "medical": 24720,
+      "support": 7680,
+      "care": 4540
+    }
+  }
+}

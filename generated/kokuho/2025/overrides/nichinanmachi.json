@@ -1,0 +1,22 @@
+{
+  "citySlug": "nichinanmachi",
+  "cityName": "日南町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.066,
+      "support": 0.037,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 20600,
+      "support": 8500,
+      "care": 7400
+    },
+    "household": {
+      "medical": 16600,
+      "support": 9200,
+      "care": 7600
+    }
+  }
+}

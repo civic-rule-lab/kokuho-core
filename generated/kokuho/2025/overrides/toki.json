@@ -1,0 +1,22 @@
+{
+  "citySlug": "toki",
+  "cityName": "土岐市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0685,
+      "support": 0.0257,
+      "care": 0.0193
+    },
+    "perCapita": {
+      "medical": 30120,
+      "support": 11360,
+      "care": 11160
+    },
+    "household": {
+      "medical": 19940,
+      "support": 7530,
+      "care": 5570
+    }
+  }
+}

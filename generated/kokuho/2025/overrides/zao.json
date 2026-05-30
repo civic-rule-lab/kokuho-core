@@ -1,0 +1,22 @@
+{
+  "citySlug": "zao",
+  "cityName": "蔵王町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.02,
+      "care": 0.013
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 7000,
+      "care": 5900
+    },
+    "household": {
+      "medical": 12400,
+      "support": 4000,
+      "care": 3100
+    }
+  }
+}

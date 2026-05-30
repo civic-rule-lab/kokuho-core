@@ -1,0 +1,22 @@
+{
+  "citySlug": "gobo",
+  "cityName": "御坊市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0752,
+      "support": 0.0305,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 27122,
+      "support": 10683,
+      "care": 10817
+    },
+    "household": {
+      "medical": 18801,
+      "support": 7406,
+      "care": 5489
+    }
+  }
+}

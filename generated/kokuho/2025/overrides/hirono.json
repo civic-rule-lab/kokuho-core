@@ -1,0 +1,21 @@
+{
+  "citySlug": "hirono",
+  "cityName": "広野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0275,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 34747,
+      "support": 11830,
+      "care": 11417
+    },
+    "household": {
+      "medical": 23067,
+      "support": 7853,
+      "care": 5727
+    }
+  }
+}

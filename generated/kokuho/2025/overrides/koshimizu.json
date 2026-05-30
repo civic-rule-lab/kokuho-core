@@ -1,0 +1,22 @@
+{
+  "citySlug": "koshimizu",
+  "cityName": "小清水町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07780000000000001,
+      "support": 0.024,
+      "care": 0.0288
+    },
+    "perCapita": {
+      "medical": 27400,
+      "support": 9300,
+      "care": 9900
+    },
+    "household": {
+      "medical": 28800,
+      "support": 9300,
+      "care": 6900
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kannami",
+  "cityName": "函南町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.072,
+      "support": 0.0287,
+      "care": 0.0222
+    },
+    "perCapita": {
+      "medical": 30136,
+      "support": 11643,
+      "care": 15894
+    },
+    "household": {
+      "medical": 19718,
+      "support": 7618
+    }
+  }
+}

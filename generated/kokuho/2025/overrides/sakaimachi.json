@@ -1,0 +1,15 @@
+{
+  "citySlug": "sakaimachi",
+  "cityName": "境町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.024,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 35000,
+      "care": 14000
+    }
+  }
+}

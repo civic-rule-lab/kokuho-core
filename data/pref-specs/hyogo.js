@@ -319,7 +319,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "28481", citySlug: "taishimachi", cityName: "太子町",
+    cityCode: "28464", citySlug: "taishimachi", cityName: "太子町",
     rates: {
       rate:      { medical: 0.0736, support: 0.0285, care: 0.0289 },
       perCapita: { medical: 30900,  support: 11800,  care: 13300  },
@@ -327,7 +327,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "28501", citySlug: "kamigori", cityName: "上郡町",
+    cityCode: "28481", citySlug: "kamigori", cityName: "上郡町",
     rates: {
       rate:      { medical: 0.0730, support: 0.0290, care: 0.0275 },
       perCapita: { medical: 28500,  support: 11000,  care: 11000  },
@@ -335,7 +335,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "28514", citySlug: "sayo", cityName: "佐用町",
+    cityCode: "28501", citySlug: "sayo", cityName: "佐用町",
     rates: {
       rate:      { medical: 0.0725, support: 0.0285, care: 0.0260 },
       perCapita: { medical: 29000,  support: 11600,  care: 12800  },

@@ -1,0 +1,21 @@
+{
+  "citySlug": "sakaiminato",
+  "cityName": "境港市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0868,
+      "support": 0.0275,
+      "care": 0.0262
+    },
+    "perCapita": {
+      "medical": 25600,
+      "support": 7700,
+      "care": 9400
+    },
+    "household": {
+      "medical": 30000,
+      "care": 6000
+    }
+  }
+}

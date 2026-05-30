@@ -191,7 +191,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23218", citySlug: "komaki", cityName: "小牧市",
+    cityCode: "23219", citySlug: "komaki", cityName: "小牧市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -201,7 +201,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23219", citySlug: "inazawa", cityName: "稲沢市",
+    cityCode: "23220", citySlug: "inazawa", cityName: "稲沢市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -211,7 +211,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23220", citySlug: "shinshiro", cityName: "新城市",
+    cityCode: "23221", citySlug: "shinshiro", cityName: "新城市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -221,7 +221,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23221", citySlug: "tokai", cityName: "東海市",
+    cityCode: "23222", citySlug: "tokai", cityName: "東海市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -231,7 +231,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23222", citySlug: "obu", cityName: "大府市",
+    cityCode: "23223", citySlug: "obu", cityName: "大府市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -241,7 +241,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23223", citySlug: "chita", cityName: "知多市",
+    cityCode: "23224", citySlug: "chita", cityName: "知多市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -251,7 +251,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23224", citySlug: "chiryu", cityName: "知立市",
+    cityCode: "23225", citySlug: "chiryu", cityName: "知立市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -261,7 +261,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23225", citySlug: "owariasahi", cityName: "尾張旭市",
+    cityCode: "23226", citySlug: "owariasahi", cityName: "尾張旭市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -271,7 +271,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23226", citySlug: "takahama", cityName: "高浜市",
+    cityCode: "23227", citySlug: "takahama", cityName: "高浜市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -281,7 +281,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23227", citySlug: "iwakura", cityName: "岩倉市",
+    cityCode: "23228", citySlug: "iwakura", cityName: "岩倉市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -291,7 +291,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23228", citySlug: "toyoake", cityName: "豊明市",
+    cityCode: "23229", citySlug: "toyoake", cityName: "豊明市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -301,7 +301,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23229", citySlug: "nisshin", cityName: "日進市",
+    cityCode: "23230", citySlug: "nisshin", cityName: "日進市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -311,7 +311,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23230", citySlug: "tahara", cityName: "田原市",
+    cityCode: "23231", citySlug: "tahara", cityName: "田原市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -321,7 +321,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23231", citySlug: "aisai", cityName: "愛西市",
+    cityCode: "23232", citySlug: "aisai", cityName: "愛西市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -331,7 +331,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23232", citySlug: "kiyosu", cityName: "清須市",
+    cityCode: "23233", citySlug: "kiyosu", cityName: "清須市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -341,7 +341,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23233", citySlug: "kitanagoya", cityName: "北名古屋市",
+    cityCode: "23234", citySlug: "kitanagoya", cityName: "北名古屋市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -351,7 +351,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23234", citySlug: "yatomi", cityName: "弥富市",
+    cityCode: "23235", citySlug: "yatomi", cityName: "弥富市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -361,7 +361,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23235", citySlug: "miyoshi", cityName: "みよし市",
+    cityCode: "23236", citySlug: "miyoshi", cityName: "みよし市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -371,7 +371,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23236", citySlug: "ama", cityName: "あま市",
+    cityCode: "23237", citySlug: "ama", cityName: "あま市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -381,7 +381,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23237", citySlug: "nagakute", cityName: "長久手市",
+    cityCode: "23238", citySlug: "nagakute", cityName: "長久手市",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -401,7 +401,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23303", citySlug: "toyoyama", cityName: "豊山町",
+    cityCode: "23342", citySlug: "toyoyama", cityName: "豊山町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -411,7 +411,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23342", citySlug: "oguchi", cityName: "大口町",
+    cityCode: "23361", citySlug: "oguchi", cityName: "大口町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -421,7 +421,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23343", citySlug: "fuso", cityName: "扶桑町",
+    cityCode: "23362", citySlug: "fuso", cityName: "扶桑町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -431,7 +431,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23361", citySlug: "oharu", cityName: "大治町",
+    cityCode: "23424", citySlug: "oharu", cityName: "大治町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -441,7 +441,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23362", citySlug: "kanie", cityName: "蟹江町",
+    cityCode: "23425", citySlug: "kanie", cityName: "蟹江町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -451,7 +451,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23363", citySlug: "tobishima", cityName: "飛島村",
+    cityCode: "23427", citySlug: "tobishima", cityName: "飛島村",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -461,7 +461,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23381", citySlug: "agui", cityName: "阿久比町",
+    cityCode: "23441", citySlug: "agui", cityName: "阿久比町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -471,7 +471,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23382", citySlug: "higashiura", cityName: "東浦町",
+    cityCode: "23442", citySlug: "higashiura", cityName: "東浦町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -481,7 +481,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23384", citySlug: "minamichita", cityName: "南知多町",
+    cityCode: "23445", citySlug: "minamichita", cityName: "南知多町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -491,7 +491,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23385", citySlug: "mihama", cityName: "美浜町",
+    cityCode: "23446", citySlug: "mihama", cityName: "美浜町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -501,7 +501,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23386", citySlug: "taketoyo", cityName: "武豊町",
+    cityCode: "23447", citySlug: "taketoyo", cityName: "武豊町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -511,7 +511,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23425", citySlug: "kota", cityName: "幸田町",
+    cityCode: "23501", citySlug: "kota", cityName: "幸田町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -521,7 +521,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23441", citySlug: "shitara", cityName: "設楽町",
+    cityCode: "23561", citySlug: "shitara", cityName: "設楽町",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -531,7 +531,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23442", citySlug: "toei", cityName: "東栄町",
+    cityCode: "23562", citySlug: "toei", cityName: "東栄町",
     note: "愛知県R7標準保険料率を使用。医療分所得割が異常に高い（14.51%）のは標準値通り。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
@@ -541,7 +541,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23443", citySlug: "toyone", cityName: "豊根村",
+    cityCode: "23563", citySlug: "toyone", cityName: "豊根村",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {

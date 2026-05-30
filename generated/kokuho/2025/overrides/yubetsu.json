@@ -1,0 +1,21 @@
+{
+  "citySlug": "yubetsu",
+  "cityName": "湧別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0687,
+      "support": 0.0182,
+      "care": 0.0139
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 8500,
+      "care": 9000
+    },
+    "household": {
+      "medical": 30000,
+      "care": 6500
+    }
+  }
+}

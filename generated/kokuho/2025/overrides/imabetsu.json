@@ -1,0 +1,22 @@
+{
+  "citySlug": "imabetsu",
+  "cityName": "今別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.06,
+      "care": 0.01
+    },
+    "perCapita": {
+      "medical": 15600,
+      "support": 12000,
+      "care": 6700
+    },
+    "household": {
+      "medical": 21600,
+      "support": 12000,
+      "care": 10000
+    }
+  }
+}

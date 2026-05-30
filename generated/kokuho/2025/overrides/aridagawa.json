@@ -1,0 +1,22 @@
+{
+  "citySlug": "aridagawa",
+  "cityName": "有田川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0834,
+      "support": 0.031,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 30090,
+      "support": 10872,
+      "care": 11224
+    },
+    "household": {
+      "medical": 20859,
+      "support": 7537,
+      "care": 5695
+    }
+  }
+}

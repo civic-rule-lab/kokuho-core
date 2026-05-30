@@ -1,0 +1,21 @@
+{
+  "citySlug": "hikawa",
+  "cityName": "氷川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0768,
+      "support": 0.0288,
+      "care": 0.0213
+    },
+    "perCapita": {
+      "medical": 26835,
+      "support": 10045,
+      "care": 13919
+    },
+    "household": {
+      "medical": 18137,
+      "support": 6789
+    }
+  }
+}

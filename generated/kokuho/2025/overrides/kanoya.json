@@ -1,0 +1,22 @@
+{
+  "citySlug": "kanoya",
+  "cityName": "鹿屋市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0649,
+      "support": 0.0287,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 27735,
+      "support": 12048,
+      "care": 12602
+    },
+    "household": {
+      "medical": 17966,
+      "support": 7804,
+      "care": 6271
+    }
+  }
+}

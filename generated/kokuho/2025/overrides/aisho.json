@@ -1,0 +1,21 @@
+{
+  "citySlug": "aisho",
+  "cityName": "愛荘町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0656,
+      "support": 0.0253,
+      "care": 0.0211
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 10000,
+      "care": 11000
+    },
+    "household": {
+      "medical": 18000,
+      "care": 6000
+    }
+  }
+}

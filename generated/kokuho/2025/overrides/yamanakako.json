@@ -1,0 +1,22 @@
+{
+  "citySlug": "yamanakako",
+  "cityName": "山中湖村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.071,
+      "support": 0.021,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 8300,
+      "care": 9600
+    },
+    "household": {
+      "medical": 26000,
+      "support": 6700,
+      "care": 6100
+    }
+  }
+}

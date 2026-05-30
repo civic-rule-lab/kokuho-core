@@ -1,0 +1,22 @@
+{
+  "citySlug": "izumishi",
+  "cityName": "出水市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0506,
+      "support": 0.0285,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 21627,
+      "support": 11969,
+      "care": 12208
+    },
+    "household": {
+      "medical": 14009,
+      "support": 7753,
+      "care": 6074
+    }
+  }
+}

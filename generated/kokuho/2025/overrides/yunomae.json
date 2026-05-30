@@ -1,0 +1,21 @@
+{
+  "citySlug": "yunomae",
+  "cityName": "湯前町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0839,
+      "support": 0.0303,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 29308,
+      "support": 10552,
+      "care": 15624
+    },
+    "household": {
+      "medical": 19808,
+      "support": 7132
+    }
+  }
+}

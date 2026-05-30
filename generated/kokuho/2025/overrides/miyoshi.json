@@ -1,17 +1,22 @@
 {
   "citySlug": "miyoshi",
-  "cityName": "三芳町",
-  "signature": "2h|650-240-170|R7std|pre",
+  "cityName": "みよし市",
+  "signature": "3h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0797,
-      "support": 0.0324,
-      "care": 0.0239
+      "medical": 0.0801,
+      "support": 0.0278,
+      "care": 0.0234
     },
     "perCapita": {
-      "medical": 34300,
-      "support": 11100,
-      "care": 14800
+      "medical": 34342,
+      "support": 11777,
+      "care": 11889
+    },
+    "household": {
+      "medical": 22294,
+      "support": 7646,
+      "care": 5884
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "citySlug": "sanjo",
+  "cityName": "三条市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0642,
+      "support": 0.0285,
+      "care": 0.0193
+    },
+    "perCapita": {
+      "medical": 22500,
+      "support": 9500,
+      "care": 13000
+    },
+    "household": {
+      "medical": 18300,
+      "support": 7800
+    }
+  }
+}

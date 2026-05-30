@@ -1,0 +1,22 @@
+{
+  "citySlug": "honbetsu",
+  "cityName": "本別町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0824,
+      "support": 0.026600000000000002,
+      "care": 0.0197
+    },
+    "perCapita": {
+      "medical": 27300,
+      "support": 9300,
+      "care": 9100
+    },
+    "household": {
+      "medical": 26800,
+      "support": 9400,
+      "care": 7200
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "citySlug": "seiyo",
+  "cityName": "西予市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.025,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 20500,
+      "support": 6500,
+      "care": 7100
+    },
+    "household": {
+      "medical": 25000,
+      "support": 8800,
+      "care": 7500
+    },
+    "assetLevy": {
+      "medical": 0.25,
+      "support": 0.13,
+      "care": 0.096
+    }
+  }
+}

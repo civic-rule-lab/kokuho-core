@@ -1,0 +1,22 @@
+{
+  "citySlug": "yanai",
+  "cityName": "柳井市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.025,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 25800,
+      "support": 8700,
+      "care": 8000
+    },
+    "household": {
+      "medical": 20400,
+      "support": 7400,
+      "care": 6600
+    }
+  }
+}

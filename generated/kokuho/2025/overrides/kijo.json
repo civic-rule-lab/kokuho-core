@@ -1,0 +1,27 @@
+{
+  "citySlug": "kijo",
+  "cityName": "木城町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0857,
+      "support": 0.0326,
+      "care": 0.0212
+    },
+    "perCapita": {
+      "medical": 25500,
+      "support": 9000,
+      "care": 10300
+    },
+    "household": {
+      "medical": 21400,
+      "support": 7500,
+      "care": 4700
+    },
+    "assetLevy": {
+      "medical": 0.2,
+      "support": 0.06,
+      "care": 0.07
+    }
+  }
+}

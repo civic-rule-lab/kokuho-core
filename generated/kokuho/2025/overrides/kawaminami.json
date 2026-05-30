@@ -1,0 +1,17 @@
+{
+  "citySlug": "kawaminami",
+  "cityName": "川南町",
+  "signature": "2h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0803,
+      "support": 0.0281,
+      "care": 0.0222
+    },
+    "perCapita": {
+      "medical": 45000,
+      "support": 15900,
+      "care": 17900
+    }
+  }
+}

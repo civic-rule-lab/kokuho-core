@@ -1,0 +1,22 @@
+{
+  "citySlug": "kota",
+  "cityName": "幸田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0629,
+      "support": 0.0245,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 26996,
+      "support": 10381,
+      "care": 10252
+    },
+    "household": {
+      "medical": 17525,
+      "support": 6739,
+      "care": 5074
+    }
+  }
+}

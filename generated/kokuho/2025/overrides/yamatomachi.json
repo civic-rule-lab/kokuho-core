@@ -1,0 +1,21 @@
+{
+  "citySlug": "yamatomachi",
+  "cityName": "山都町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0829,
+      "support": 0.0301,
+      "care": 0.0241
+    },
+    "perCapita": {
+      "medical": 28957,
+      "support": 10500,
+      "care": 15735
+    },
+    "household": {
+      "medical": 19570,
+      "support": 7097
+    }
+  }
+}

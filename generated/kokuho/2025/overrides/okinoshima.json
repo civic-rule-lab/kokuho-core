@@ -1,0 +1,22 @@
+{
+  "citySlug": "okinoshima",
+  "cityName": "隠岐の島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.089,
+      "support": 0.0292,
+      "care": 0.0252
+    },
+    "perCapita": {
+      "medical": 30500,
+      "support": 9900,
+      "care": 10300
+    },
+    "household": {
+      "medical": 20500,
+      "support": 6600,
+      "care": 6000
+    }
+  }
+}

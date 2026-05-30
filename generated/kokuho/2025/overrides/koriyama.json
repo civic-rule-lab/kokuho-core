@@ -1,0 +1,22 @@
+{
+  "citySlug": "koriyama",
+  "cityName": "郡山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0655,
+      "support": 0.0271,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 28427,
+      "support": 11634,
+      "care": 11408
+    },
+    "household": {
+      "medical": 18871,
+      "support": 7723,
+      "care": 5722
+    }
+  }
+}

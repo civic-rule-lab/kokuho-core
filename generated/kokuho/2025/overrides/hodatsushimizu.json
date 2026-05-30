@@ -1,0 +1,21 @@
+{
+  "citySlug": "hodatsushimizu",
+  "cityName": "宝達志水町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.0185,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 7500,
+      "care": 10600
+    },
+    "household": {
+      "medical": 20500,
+      "support": 5500
+    }
+  }
+}

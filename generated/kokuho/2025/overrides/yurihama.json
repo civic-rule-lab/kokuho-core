@@ -1,0 +1,21 @@
+{
+  "citySlug": "yurihama",
+  "cityName": "湯梨浜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.074,
+      "support": 0.02,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 7000,
+      "care": 7500
+    },
+    "household": {
+      "support": 6000,
+      "care": 6000
+    }
+  }
+}

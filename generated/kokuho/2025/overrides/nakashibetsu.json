@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakashibetsu",
+  "cityName": "中標津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08199999999999999,
+      "support": 0.026000000000000002,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 26400,
+      "support": 8500,
+      "care": 8500
+    },
+    "household": {
+      "medical": 28000,
+      "support": 9000,
+      "care": 6600
+    }
+  }
+}

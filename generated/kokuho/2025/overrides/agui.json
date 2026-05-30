@@ -1,0 +1,22 @@
+{
+  "citySlug": "agui",
+  "cityName": "阿久比町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0792,
+      "support": 0.0278,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 33992,
+      "support": 11777,
+      "care": 11798
+    },
+    "household": {
+      "medical": 22067,
+      "support": 7646,
+      "care": 5839
+    }
+  }
+}

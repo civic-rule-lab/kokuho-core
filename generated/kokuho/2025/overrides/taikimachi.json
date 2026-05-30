@@ -1,0 +1,22 @@
+{
+  "citySlug": "taikimachi",
+  "cityName": "大紀町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0671,
+      "support": 0.0283,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 28960,
+      "support": 12055,
+      "care": 13021
+    },
+    "household": {
+      "medical": 19018,
+      "support": 7917,
+      "care": 6419
+    }
+  }
+}

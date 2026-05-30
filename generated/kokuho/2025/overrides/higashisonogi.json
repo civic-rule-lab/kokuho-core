@@ -1,0 +1,21 @@
+{
+  "citySlug": "higashisonogi",
+  "cityName": "東彼杵町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0926,
+      "support": 0.0281,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 29900,
+      "care": 9800
+    },
+    "household": {
+      "medical": 22500,
+      "support": 7100,
+      "care": 5200
+    }
+  }
+}

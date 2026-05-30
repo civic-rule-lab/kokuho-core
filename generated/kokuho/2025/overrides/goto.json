@@ -1,0 +1,22 @@
+{
+  "citySlug": "goto",
+  "cityName": "五島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0808,
+      "support": 0.0354,
+      "care": 0.0211
+    },
+    "perCapita": {
+      "medical": 20500,
+      "support": 8000,
+      "care": 8200
+    },
+    "household": {
+      "medical": 15700,
+      "support": 6600,
+      "care": 4800
+    }
+  }
+}

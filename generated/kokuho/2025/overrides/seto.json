@@ -1,0 +1,22 @@
+{
+  "citySlug": "seto",
+  "cityName": "瀬戸市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0774,
+      "support": 0.0264,
+      "care": 0.0218
+    },
+    "perCapita": {
+      "medical": 33199,
+      "support": 11167,
+      "care": 11072
+    },
+    "household": {
+      "medical": 21552,
+      "support": 7249,
+      "care": 5480
+    }
+  }
+}

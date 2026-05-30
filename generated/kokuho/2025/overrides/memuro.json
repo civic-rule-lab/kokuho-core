@@ -1,0 +1,22 @@
+{
+  "citySlug": "memuro",
+  "cityName": "芽室町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08710000000000001,
+      "support": 0.026699999999999998,
+      "care": 0.0204
+    },
+    "perCapita": {
+      "medical": 28981,
+      "support": 9356,
+      "care": 9337
+    },
+    "household": {
+      "medical": 28766,
+      "support": 9287,
+      "care": 7324
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "kawachi",
+  "cityName": "河内町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0623,
+      "support": 0.0232,
+      "care": 0.0171
+    },
+    "perCapita": {
+      "medical": 38500,
+      "support": 14300,
+      "care": 15100
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "shiso",
+  "cityName": "宍粟市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0735,
+      "support": 0.0302,
+      "care": 0.0262
+    },
+    "perCapita": {
+      "medical": 30400,
+      "support": 11900,
+      "care": 13300
+    },
+    "household": {
+      "medical": 21000,
+      "support": 7700,
+      "care": 6300
+    }
+  }
+}

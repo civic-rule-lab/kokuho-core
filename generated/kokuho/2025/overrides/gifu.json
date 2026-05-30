@@ -1,0 +1,21 @@
+{
+  "citySlug": "gifu",
+  "cityName": "岐阜市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0237,
+      "care": 0.0168
+    },
+    "perCapita": {
+      "medical": 28200,
+      "support": 8760,
+      "care": 7920
+    },
+    "household": {
+      "medical": 29280,
+      "support": 9240,
+      "care": 6120
+    }
+  }
+}

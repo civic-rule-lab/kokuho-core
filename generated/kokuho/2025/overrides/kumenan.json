@@ -1,0 +1,22 @@
+{
+  "citySlug": "kumenan",
+  "cityName": "久米南町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.027,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 9500,
+      "care": 8000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 7000,
+      "care": 4500
+    }
+  }
+}

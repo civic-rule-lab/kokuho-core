@@ -1,0 +1,22 @@
+{
+  "citySlug": "hichisomura",
+  "cityName": "日吉津村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0656,
+      "support": 0.0292,
+      "care": 0.0254
+    },
+    "perCapita": {
+      "medical": 26920,
+      "support": 12434,
+      "care": 12849
+    },
+    "household": {
+      "medical": 17753,
+      "support": 8200,
+      "care": 6179
+    }
+  }
+}

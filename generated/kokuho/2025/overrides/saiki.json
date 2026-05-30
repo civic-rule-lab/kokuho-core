@@ -1,0 +1,22 @@
+{
+  "citySlug": "saiki",
+  "cityName": "佐伯市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.095,
+      "support": 0.0216,
+      "care": 0.0183
+    },
+    "perCapita": {
+      "medical": 26000,
+      "support": 6600,
+      "care": 7900
+    },
+    "household": {
+      "medical": 23000,
+      "support": 5100,
+      "care": 4500
+    }
+  }
+}

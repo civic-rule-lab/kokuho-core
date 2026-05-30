@@ -1,0 +1,20 @@
+{
+  "citySlug": "rokkasho",
+  "cityName": "六ヶ所村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 33000,
+      "support": 9600,
+      "care": 9000
+    },
+    "household": {
+      "medical": 23000,
+      "care": 6500
+    }
+  }
+}

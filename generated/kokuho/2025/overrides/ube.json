@@ -1,0 +1,22 @@
+{
+  "citySlug": "ube",
+  "cityName": "宇部市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.095,
+      "support": 0.03,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 25700,
+      "support": 8500,
+      "care": 8500
+    },
+    "household": {
+      "medical": 21900,
+      "support": 7300,
+      "care": 5500
+    }
+  }
+}

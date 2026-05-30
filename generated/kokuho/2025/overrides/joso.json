@@ -1,0 +1,17 @@
+{
+  "citySlug": "joso",
+  "cityName": "常総市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0747,
+      "support": 0.0339,
+      "care": 0.0285
+    },
+    "perCapita": {
+      "medical": 42200,
+      "support": 19400,
+      "care": 20400
+    }
+  }
+}

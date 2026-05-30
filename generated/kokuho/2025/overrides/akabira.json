@@ -1,0 +1,21 @@
+{
+  "citySlug": "akabira",
+  "cityName": "赤平市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0726,
+      "support": 0.0275
+    },
+    "perCapita": {
+      "medical": 21600,
+      "support": 8100,
+      "care": 9100
+    },
+    "household": {
+      "medical": 20700,
+      "support": 7700,
+      "care": 5800
+    }
+  }
+}

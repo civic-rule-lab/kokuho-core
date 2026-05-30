@@ -1,0 +1,20 @@
+{
+  "citySlug": "kohokumachi",
+  "cityName": "江北町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.1,
+      "support": 0.03,
+      "care": 0.026
+    },
+    "perCapita": {
+      "care": 11000
+    },
+    "household": {
+      "medical": 33000,
+      "support": 8500,
+      "care": 6000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "shimizumachi",
+  "cityName": "清水町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0695,
+      "support": 0.0286,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 29082,
+      "support": 11619,
+      "care": 15977
+    },
+    "household": {
+      "medical": 19028,
+      "support": 7603
+    }
+  }
+}

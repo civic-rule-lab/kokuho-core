@@ -1,0 +1,22 @@
+{
+  "citySlug": "kanuma",
+  "cityName": "鹿沼市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0677,
+      "support": 0.0282,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 29564,
+      "support": 12178,
+      "care": 12206
+    },
+    "household": {
+      "medical": 19888,
+      "support": 8192,
+      "care": 6136
+    }
+  }
+}

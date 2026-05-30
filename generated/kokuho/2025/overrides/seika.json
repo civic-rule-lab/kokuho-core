@@ -1,0 +1,21 @@
+{
+  "citySlug": "seika",
+  "cityName": "精華町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0785,
+      "support": 0.0245,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 26000,
+      "care": 9500
+    },
+    "household": {
+      "medical": 25000,
+      "support": 7000,
+      "care": 5500
+    }
+  }
+}

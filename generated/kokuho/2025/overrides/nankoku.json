@@ -1,0 +1,21 @@
+{
+  "citySlug": "nankoku",
+  "cityName": "南国市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.028,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26300,
+      "support": 8500
+    },
+    "household": {
+      "medical": 30000,
+      "support": 8500,
+      "care": 5500
+    }
+  }
+}

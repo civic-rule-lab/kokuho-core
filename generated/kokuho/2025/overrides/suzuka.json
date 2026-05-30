@@ -1,0 +1,22 @@
+{
+  "citySlug": "suzuka",
+  "cityName": "鈴鹿市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0781,
+      "support": 0.0285,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 33725,
+      "support": 12150,
+      "care": 13029
+    },
+    "household": {
+      "medical": 22147,
+      "support": 7979,
+      "care": 6423
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "citySlug": "oarai",
+  "cityName": "大洗町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.026,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 37000,
+      "support": 16000,
+      "care": 17000
+    }
+  }
+}

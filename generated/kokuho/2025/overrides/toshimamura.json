@@ -1,0 +1,22 @@
+{
+  "citySlug": "toshimamura",
+  "cityName": "十島村",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0896,
+      "support": 0.0285,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 38320,
+      "support": 11977,
+      "care": 12331
+    },
+    "household": {
+      "medical": 24823,
+      "support": 7758,
+      "care": 6136
+    }
+  }
+}

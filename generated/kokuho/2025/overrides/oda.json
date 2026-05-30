@@ -1,0 +1,20 @@
+{
+  "citySlug": "oda",
+  "cityName": "大田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.088
+    },
+    "perCapita": {
+      "medical": 28800,
+      "support": 8760,
+      "care": 9480
+    },
+    "household": {
+      "medical": 18360,
+      "support": 5640,
+      "care": 4560
+    }
+  }
+}

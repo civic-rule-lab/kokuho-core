@@ -1,0 +1,21 @@
+{
+  "citySlug": "higashiura",
+  "cityName": "東浦町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0794,
+      "support": 0.0275
+    },
+    "perCapita": {
+      "medical": 34076,
+      "support": 11623,
+      "care": 11650
+    },
+    "household": {
+      "medical": 22121,
+      "support": 7545,
+      "care": 5766
+    }
+  }
+}

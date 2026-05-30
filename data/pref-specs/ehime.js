@@ -64,16 +64,16 @@ export const MUNICIPALITIES = [
     rates: { rate: { medical: 0.0880, support: 0.0310, care: 0.0260 }, perCapita: { medical: 26400, support: 9500, care: 9800 }, household: { medical: 29300, support: 10500, care: 7400 } },
   },
   {
-    cityCode: "38211", citySlug: "shikokuchuo", cityName: "四国中央市", caps: CAPS,
+    cityCode: "38213", citySlug: "shikokuchuo", cityName: "四国中央市", caps: CAPS,
     rates: { rate: { medical: 0.0811, support: 0.0301, care: 0.0244 }, perCapita: { medical: 33600, support: 12000, care: 12300 }, household: { medical: 22800, support: 8100, care: 6300 } },
   },
   {
-    cityCode: "38212", citySlug: "seiyo", cityName: "西予市", caps: CAPS,
+    cityCode: "38214", citySlug: "seiyo", cityName: "西予市", caps: CAPS,
     rates: { rate: { medical: 0.0780, support: 0.0250, care: 0.0220 }, perCapita: { medical: 20500, support: 6500, care: 7100 }, household: { medical: 25000, support: 8800, care: 7500 } },
     assetLevy: { medical: 0.25, support: 0.13, care: 0.096 },
   },
   {
-    cityCode: "38213", citySlug: "toon", cityName: "東温市", caps: CAPS,
+    cityCode: "38215", citySlug: "toon", cityName: "東温市", caps: CAPS,
     rates: { rate: { medical: 0.0950, support: 0.0300, care: 0.0280 }, perCapita: { medical: 26500, support: 10700, care: 10900 }, household: { medical: 18400, support: 6900, care: 5500 } },
   },
 
@@ -112,7 +112,7 @@ export const MUNICIPALITIES = [
     assetLevy: { medical: 0.175, support: 0.045, care: 0.04 },
   },
   {
-    cityCode: "38485", citySlug: "kihokucho", cityName: "鬼北町", caps: CAPS,
+    cityCode: "38488", citySlug: "kihokucho", cityName: "鬼北町", caps: CAPS,
     rates: { rate: { medical: 0.0720, support: 0.0250, care: 0.0220 }, perCapita: { medical: 17100, support: 7000, care: 7400 }, household: { medical: 19000, support: 5400, care: 4100 } },
     assetLevy: { medical: 0.25, support: 0.10, care: 0.08 },
   },

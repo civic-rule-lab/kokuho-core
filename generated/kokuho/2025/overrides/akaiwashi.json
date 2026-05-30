@@ -1,0 +1,21 @@
+{
+  "citySlug": "akaiwashi",
+  "cityName": "赤磐市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 7900,
+      "care": 7800
+    },
+    "household": {
+      "medical": 21000,
+      "support": 6000,
+      "care": 5500
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "tsuwano",
+  "cityName": "津和野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.086,
+      "support": 0.0285,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 9300,
+      "care": 9800
+    },
+    "household": {
+      "medical": 19500,
+      "support": 6300,
+      "care": 5700
+    }
+  }
+}

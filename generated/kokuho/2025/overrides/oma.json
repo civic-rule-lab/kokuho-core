@@ -1,0 +1,21 @@
+{
+  "citySlug": "oma",
+  "cityName": "大間町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.02,
+      "care": 0.0144
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 8000,
+      "care": 13500
+    },
+    "household": {
+      "medical": 40000,
+      "support": 5500,
+      "care": 5500
+    }
+  }
+}

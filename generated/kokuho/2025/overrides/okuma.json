@@ -1,0 +1,22 @@
+{
+  "citySlug": "okuma",
+  "cityName": "大熊町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0846,
+      "support": 0.0281,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 36741,
+      "support": 12076,
+      "care": 11786
+    },
+    "household": {
+      "medical": 24391,
+      "support": 8017,
+      "care": 5912
+    }
+  }
+}

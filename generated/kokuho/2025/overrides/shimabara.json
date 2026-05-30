@@ -1,0 +1,22 @@
+{
+  "citySlug": "shimabara",
+  "cityName": "島原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.103,
+      "support": 0.035,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 28600,
+      "support": 9800,
+      "care": 10900
+    },
+    "household": {
+      "medical": 23200,
+      "support": 7600,
+      "care": 6100
+    }
+  }
+}

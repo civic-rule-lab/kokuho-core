@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamiuonuma",
+  "cityName": "南魚沼市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.03,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 18500,
+      "care": 19000
+    },
+    "household": {
+      "medical": 21000,
+      "support": 0
+    }
+  }
+}

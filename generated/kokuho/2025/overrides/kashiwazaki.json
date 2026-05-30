@@ -1,0 +1,21 @@
+{
+  "citySlug": "kashiwazaki",
+  "cityName": "柏崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0586,
+      "support": 0.0291,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "medical": 25125,
+      "support": 17565,
+      "care": 17932
+    },
+    "household": {
+      "medical": 16518,
+      "support": 0
+    }
+  }
+}

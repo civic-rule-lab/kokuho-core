@@ -1,0 +1,22 @@
+{
+  "citySlug": "oshu",
+  "cityName": "奥州市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.025,
+      "care": 0.0178
+    },
+    "perCapita": {
+      "medical": 19800,
+      "support": 7800,
+      "care": 6600
+    },
+    "household": {
+      "medical": 19800,
+      "support": 7800,
+      "care": 6000
+    }
+  }
+}

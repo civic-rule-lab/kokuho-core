@@ -1,0 +1,22 @@
+{
+  "citySlug": "ikawacho",
+  "cityName": "井川町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.052,
+      "support": 0.0298,
+      "care": 0.0292
+    },
+    "perCapita": {
+      "medical": 24426,
+      "support": 12828,
+      "care": 9206
+    },
+    "household": {
+      "medical": 15102,
+      "support": 7915,
+      "care": 6679
+    }
+  }
+}

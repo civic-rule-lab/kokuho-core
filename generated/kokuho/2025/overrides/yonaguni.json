@@ -1,0 +1,27 @@
+{
+  "citySlug": "yonaguni",
+  "cityName": "与那国町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0648,
+      "support": 0.0236,
+      "care": 0.0175
+    },
+    "perCapita": {
+      "medical": 14200,
+      "support": 5200,
+      "care": 6600
+    },
+    "household": {
+      "medical": 12500,
+      "support": 4600,
+      "care": 3800
+    },
+    "assetLevy": {
+      "medical": 0.3095,
+      "support": 0.1126,
+      "care": 0.0803
+    }
+  }
+}

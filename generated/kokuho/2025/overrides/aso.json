@@ -1,0 +1,21 @@
+{
+  "citySlug": "aso",
+  "cityName": "阿蘇市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0908,
+      "support": 0.031,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 31718,
+      "support": 10809,
+      "care": 16276
+    },
+    "household": {
+      "medical": 21437,
+      "support": 7305
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "hita",
+  "cityName": "日田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0834,
+      "support": 0.0315,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 24800,
+      "support": 9100,
+      "care": 9600
+    },
+    "household": {
+      "medical": 18500,
+      "support": 6800,
+      "care": 5100
+    }
+  }
+}

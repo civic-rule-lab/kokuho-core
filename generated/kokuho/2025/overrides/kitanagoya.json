@@ -1,0 +1,22 @@
+{
+  "citySlug": "kitanagoya",
+  "cityName": "北名古屋市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0783,
+      "support": 0.0271,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 33587,
+      "support": 11445,
+      "care": 11518
+    },
+    "household": {
+      "medical": 21804,
+      "support": 7430,
+      "care": 5701
+    }
+  }
+}

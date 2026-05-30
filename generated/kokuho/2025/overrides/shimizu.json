@@ -1,0 +1,22 @@
+{
+  "citySlug": "shimizu",
+  "cityName": "清水町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.026000000000000002,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 27408,
+      "support": 9340,
+      "care": 9284
+    },
+    "household": {
+      "medical": 27739,
+      "support": 9452,
+      "care": 7387
+    }
+  }
+}

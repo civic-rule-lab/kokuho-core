@@ -1,0 +1,22 @@
+{
+  "citySlug": "owase",
+  "cityName": "尾鷲市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0722,
+      "support": 0.0282,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 31186,
+      "support": 12011,
+      "care": 13022
+    },
+    "household": {
+      "medical": 20480,
+      "support": 7888,
+      "care": 6420
+    }
+  }
+}

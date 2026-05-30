@@ -1,0 +1,22 @@
+{
+  "citySlug": "ugocho",
+  "cityName": "羽後町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.028,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 21000,
+      "support": 7000,
+      "care": 6000
+    },
+    "household": {
+      "medical": 25000,
+      "support": 9000,
+      "care": 9000
+    }
+  }
+}

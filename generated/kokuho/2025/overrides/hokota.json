@@ -1,0 +1,17 @@
+{
+  "citySlug": "hokota",
+  "cityName": "鉾田市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.071,
+      "support": 0.033,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 32000,
+      "support": 18000,
+      "care": 16000
+    }
+  }
+}

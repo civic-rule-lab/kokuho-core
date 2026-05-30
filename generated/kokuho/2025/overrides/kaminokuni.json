@@ -1,0 +1,22 @@
+{
+  "citySlug": "kaminokuni",
+  "cityName": "上ノ国町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0795,
+      "support": 0.03,
+      "care": 0.0204
+    },
+    "perCapita": {
+      "medical": 18400,
+      "support": 6400,
+      "care": 6800
+    },
+    "household": {
+      "medical": 23700,
+      "support": 9600,
+      "care": 8400
+    }
+  }
+}

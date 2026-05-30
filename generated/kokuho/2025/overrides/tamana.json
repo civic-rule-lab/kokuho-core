@@ -1,0 +1,21 @@
+{
+  "citySlug": "tamana",
+  "cityName": "玉名市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0876,
+      "support": 0.0309,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 30618,
+      "support": 10759,
+      "care": 15984
+    },
+    "household": {
+      "medical": 20693,
+      "support": 7271
+    }
+  }
+}

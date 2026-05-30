@@ -1,0 +1,22 @@
+{
+  "citySlug": "tahara",
+  "cityName": "田原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0741,
+      "support": 0.0294,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "medical": 31784,
+      "support": 12422,
+      "care": 12479
+    },
+    "household": {
+      "medical": 20633,
+      "support": 8064,
+      "care": 6177
+    }
+  }
+}

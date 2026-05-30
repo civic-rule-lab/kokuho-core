@@ -1,0 +1,21 @@
+{
+  "citySlug": "ginowan",
+  "cityName": "宜野湾市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0743,
+      "support": 0.0266,
+      "care": 0.028
+    },
+    "perCapita": {
+      "medical": 23000,
+      "support": 8300,
+      "care": 9600
+    },
+    "household": {
+      "medical": 22800,
+      "care": 6600
+    }
+  }
+}

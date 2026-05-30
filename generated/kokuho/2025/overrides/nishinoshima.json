@@ -1,0 +1,21 @@
+{
+  "citySlug": "nishinoshima",
+  "cityName": "西ノ島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.087,
+      "support": 0.0285,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 29500,
+      "support": 9600
+    },
+    "household": {
+      "medical": 19800,
+      "support": 6400,
+      "care": 5800
+    }
+  }
+}

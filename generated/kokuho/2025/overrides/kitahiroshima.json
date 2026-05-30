@@ -1,0 +1,22 @@
+{
+  "citySlug": "kitahiroshima",
+  "cityName": "北広島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0842,
+      "support": 0.0273,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 26100,
+      "support": 8900,
+      "care": 8600
+    },
+    "household": {
+      "medical": 26600,
+      "support": 9200,
+      "care": 5900
+    }
+  }
+}

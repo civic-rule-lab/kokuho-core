@@ -1,0 +1,22 @@
+{
+  "citySlug": "ayabe",
+  "cityName": "綾部市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0841,
+      "support": 0.0275,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 31600,
+      "support": 10300,
+      "care": 11500
+    },
+    "household": {
+      "medical": 20600,
+      "support": 6800,
+      "care": 5800
+    }
+  }
+}

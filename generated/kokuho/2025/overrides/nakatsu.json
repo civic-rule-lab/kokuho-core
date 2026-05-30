@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakatsu",
+  "cityName": "中津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0872,
+      "support": 0.0253,
+      "care": 0.0264
+    },
+    "perCapita": {
+      "medical": 22700,
+      "support": 7400,
+      "care": 9200
+    },
+    "household": {
+      "medical": 17700,
+      "support": 5000,
+      "care": 4700
+    }
+  }
+}

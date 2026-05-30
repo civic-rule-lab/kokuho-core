@@ -1,0 +1,21 @@
+{
+  "citySlug": "noshiro",
+  "cityName": "能代市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0745,
+      "support": 0.0288,
+      "care": 0.0193
+    },
+    "perCapita": {
+      "medical": 17300,
+      "support": 6600,
+      "care": 5800
+    },
+    "household": {
+      "medical": 20700,
+      "care": 5100
+    }
+  }
+}

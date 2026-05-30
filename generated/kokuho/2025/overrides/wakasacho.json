@@ -1,0 +1,22 @@
+{
+  "citySlug": "wakasacho",
+  "cityName": "若桜町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0609,
+      "support": 0.0292,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 27692,
+      "support": 12415,
+      "care": 13339
+    },
+    "household": {
+      "medical": 18262,
+      "support": 8187,
+      "care": 6414
+    }
+  }
+}

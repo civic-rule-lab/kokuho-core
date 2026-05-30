@@ -1,0 +1,27 @@
+{
+  "citySlug": "okoppe",
+  "cityName": "興部町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0837,
+      "support": 0.0253,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 30300,
+      "support": 9200,
+      "care": 8700
+    },
+    "household": {
+      "medical": 35000,
+      "support": 9300,
+      "care": 6900
+    },
+    "assetLevy": {
+      "medical": 0.0666,
+      "support": 0.0175,
+      "care": 0.009
+    }
+  }
+}

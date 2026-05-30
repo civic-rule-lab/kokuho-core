@@ -1,0 +1,21 @@
+{
+  "citySlug": "fujieda",
+  "cityName": "藤枝市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0674,
+      "support": 0.0295,
+      "care": 0.0231
+    },
+    "perCapita": {
+      "medical": 28201,
+      "support": 11978,
+      "care": 16527
+    },
+    "household": {
+      "medical": 18452,
+      "support": 7837
+    }
+  }
+}

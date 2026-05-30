@@ -1,0 +1,22 @@
+{
+  "citySlug": "haga",
+  "cityName": "芳賀町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0645,
+      "support": 0.0286,
+      "care": 0.0238
+    },
+    "perCapita": {
+      "medical": 28152,
+      "support": 12344,
+      "care": 12267
+    },
+    "household": {
+      "medical": 18938,
+      "support": 8304,
+      "care": 6167
+    }
+  }
+}

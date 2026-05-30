@@ -1,0 +1,22 @@
+{
+  "citySlug": "obihiro",
+  "cityName": "帯広市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0775,
+      "support": 0.0225,
+      "care": 0.0179
+    },
+    "perCapita": {
+      "medical": 28190,
+      "support": 8850,
+      "care": 9500
+    },
+    "household": {
+      "medical": 28170,
+      "support": 8840,
+      "care": 7340
+    }
+  }
+}

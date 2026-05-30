@@ -1,0 +1,21 @@
+{
+  "citySlug": "arao",
+  "cityName": "荒尾市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0849,
+      "support": 0.0309,
+      "care": 0.0251
+    },
+    "perCapita": {
+      "medical": 29663,
+      "support": 10777,
+      "care": 16354
+    },
+    "household": {
+      "medical": 20048,
+      "support": 7284
+    }
+  }
+}

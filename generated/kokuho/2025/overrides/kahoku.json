@@ -1,0 +1,22 @@
+{
+  "citySlug": "kahoku",
+  "cityName": "かほく市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0842,
+      "support": 0.0265,
+      "care": 0.0232
+    },
+    "perCapita": {
+      "medical": 35400,
+      "support": 10900,
+      "care": 11800
+    },
+    "household": {
+      "medical": 23400,
+      "support": 7200,
+      "care": 5800
+    }
+  }
+}

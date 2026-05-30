@@ -1,0 +1,22 @@
+{
+  "citySlug": "happocho",
+  "cityName": "八峰町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0525,
+      "support": 0.0292,
+      "care": 0.0246
+    },
+    "perCapita": {
+      "medical": 18156,
+      "support": 10821,
+      "care": 9649
+    },
+    "household": {
+      "medical": 14787,
+      "support": 9253,
+      "care": 7641
+    }
+  }
+}

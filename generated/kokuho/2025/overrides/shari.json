@@ -1,0 +1,22 @@
+{
+  "citySlug": "shari",
+  "cityName": "斜里町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0904,
+      "support": 0.026699999999999998,
+      "care": 0.020499999999999997
+    },
+    "perCapita": {
+      "medical": 30056,
+      "support": 9360,
+      "care": 9362
+    },
+    "household": {
+      "medical": 29833,
+      "support": 9291,
+      "care": 7343
+    }
+  }
+}

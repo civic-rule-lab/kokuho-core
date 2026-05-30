@@ -1,0 +1,22 @@
+{
+  "citySlug": "oshamanbe",
+  "cityName": "長万部町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.115,
+      "support": 0.0375,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 27800,
+      "support": 8500,
+      "care": 6400
+    },
+    "household": {
+      "medical": 27500,
+      "support": 8300,
+      "care": 6000
+    }
+  }
+}

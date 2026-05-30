@@ -1,0 +1,22 @@
+{
+  "citySlug": "ishinomaki",
+  "cityName": "石巻市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0721,
+      "support": 0.0251,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 31000,
+      "support": 10000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 25400,
+      "support": 8200,
+      "care": 8200
+    }
+  }
+}

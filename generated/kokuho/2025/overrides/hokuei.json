@@ -1,0 +1,22 @@
+{
+  "citySlug": "hokuei",
+  "cityName": "北栄町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.064,
+      "support": 0.0294,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 28491,
+      "support": 12511,
+      "care": 13340
+    },
+    "household": {
+      "medical": 18789,
+      "support": 8251,
+      "care": 6415
+    }
+  }
+}

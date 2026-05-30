@@ -1,0 +1,22 @@
+{
+  "citySlug": "shinonsen",
+  "cityName": "新温泉町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0536,
+      "support": 0.0274,
+      "care": 0.0294
+    },
+    "perCapita": {
+      "medical": 19200,
+      "support": 11500,
+      "care": 14500
+    },
+    "household": {
+      "medical": 14400,
+      "support": 7400,
+      "care": 7500
+    }
+  }
+}

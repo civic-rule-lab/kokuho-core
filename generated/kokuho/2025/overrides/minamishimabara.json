@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamishimabara",
+  "cityName": "南島原市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.095,
+      "support": 0.03,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 27800,
+      "support": 8800,
+      "care": 9900
+    },
+    "household": {
+      "medical": 24600,
+      "care": 8600
+    }
+  }
+}

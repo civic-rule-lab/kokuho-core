@@ -1,0 +1,22 @@
+{
+  "citySlug": "kagoshima",
+  "cityName": "鹿児島市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0816,
+      "support": 0.03,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 34904,
+      "support": 12594,
+      "care": 12724
+    },
+    "household": {
+      "medical": 22610,
+      "support": 8158,
+      "care": 6332
+    }
+  }
+}

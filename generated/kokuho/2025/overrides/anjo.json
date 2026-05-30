@@ -1,0 +1,22 @@
+{
+  "citySlug": "anjo",
+  "cityName": "安城市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0675,
+      "support": 0.0278,
+      "care": 0.0232
+    },
+    "perCapita": {
+      "medical": 28971,
+      "support": 11767,
+      "care": 11766
+    },
+    "household": {
+      "medical": 18807,
+      "support": 7639,
+      "care": 5824
+    }
+  }
+}

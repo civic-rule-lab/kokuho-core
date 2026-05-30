@@ -1,0 +1,22 @@
+{
+  "citySlug": "kofu",
+  "cityName": "甲府市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0849,
+      "support": 0.0234,
+      "care": 0.0218
+    },
+    "perCapita": {
+      "medical": 27300,
+      "support": 9600,
+      "care": 9800
+    },
+    "household": {
+      "medical": 25500,
+      "support": 6700,
+      "care": 6000
+    }
+  }
+}

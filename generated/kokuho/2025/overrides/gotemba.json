@@ -1,0 +1,21 @@
+{
+  "citySlug": "gotemba",
+  "cityName": "御殿場市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0763,
+      "support": 0.0306,
+      "care": 0.0243
+    },
+    "perCapita": {
+      "medical": 31954,
+      "support": 12409,
+      "care": 17405
+    },
+    "household": {
+      "medical": 20907,
+      "support": 8119
+    }
+  }
+}

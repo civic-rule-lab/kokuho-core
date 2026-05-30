@@ -118,7 +118,7 @@ export const MUNICIPALITIES = [
   },
   {
     // 出典: 小豆島町サイト（令和6年度）。R7要確認
-    cityCode: "37323", citySlug: "shodoshimamachi", cityName: "小豆島町",
+    cityCode: "37324", citySlug: "shodoshimamachi", cityName: "小豆島町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0760, support: 0.0240, care: 0.0180 },

@@ -1,0 +1,19 @@
+{
+  "citySlug": "shichinohe",
+  "cityName": "七戸町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0625,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 11000,
+      "care": 14000
+    },
+    "household": {
+      "care": 6000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "minamikyshu",
+  "cityName": "南九州市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0792,
+      "support": 0.0288,
+      "care": 0.0243
+    },
+    "perCapita": {
+      "medical": 33874,
+      "support": 12131,
+      "care": 12140
+    },
+    "household": {
+      "medical": 21943,
+      "support": 7858,
+      "care": 6041
+    }
+  }
+}

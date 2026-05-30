@@ -1,0 +1,22 @@
+{
+  "citySlug": "mashike",
+  "cityName": "増毛町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083,
+      "support": 0.0215,
+      "care": 0.011000000000000001
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 8000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 18000,
+      "support": 6000,
+      "care": 6000
+    }
+  }
+}

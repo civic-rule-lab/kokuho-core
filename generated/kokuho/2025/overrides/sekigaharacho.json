@@ -1,0 +1,22 @@
+{
+  "citySlug": "sekigaharacho",
+  "cityName": "関ケ原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0572,
+      "support": 0.0197,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 23090,
+      "support": 7960,
+      "care": 8070
+    },
+    "household": {
+      "medical": 16140,
+      "support": 5560,
+      "care": 3820
+    }
+  }
+}

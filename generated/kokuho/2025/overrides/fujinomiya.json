@@ -1,0 +1,21 @@
+{
+  "citySlug": "fujinomiya",
+  "cityName": "富士宮市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0723,
+      "support": 0.0291,
+      "care": 0.0233
+    },
+    "perCapita": {
+      "medical": 30265,
+      "support": 11825,
+      "care": 16707
+    },
+    "household": {
+      "medical": 19803,
+      "support": 7737
+    }
+  }
+}

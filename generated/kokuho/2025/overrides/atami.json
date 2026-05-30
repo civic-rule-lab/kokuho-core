@@ -1,0 +1,21 @@
+{
+  "citySlug": "atami",
+  "cityName": "熱海市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0695,
+      "support": 0.03,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 29113,
+      "support": 12175,
+      "care": 16223
+    },
+    "household": {
+      "medical": 19049,
+      "support": 7966
+    }
+  }
+}

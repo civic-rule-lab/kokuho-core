@@ -1,0 +1,22 @@
+{
+  "citySlug": "kawasakimiyagi",
+  "cityName": "川崎町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.03,
+      "care": 0.014
+    },
+    "perCapita": {
+      "medical": 29500,
+      "support": 12000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 12500,
+      "support": 5000,
+      "care": 3000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "ibusuki",
+  "cityName": "指宿市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0709,
+      "support": 0.0288,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 30331,
+      "support": 12111,
+      "care": 12159
+    },
+    "household": {
+      "medical": 19648,
+      "support": 7845,
+      "care": 6050
+    }
+  }
+}

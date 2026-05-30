@@ -1,0 +1,22 @@
+{
+  "citySlug": "inawashiro",
+  "cityName": "猪苗代町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0701,
+      "support": 0.0271,
+      "care": 0.0216
+    },
+    "perCapita": {
+      "medical": 30453,
+      "support": 11642,
+      "care": 10951
+    },
+    "household": {
+      "medical": 20216,
+      "support": 7728,
+      "care": 5493
+    }
+  }
+}

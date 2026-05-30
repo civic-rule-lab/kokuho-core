@@ -1,0 +1,19 @@
+{
+  "citySlug": "yamabecho",
+  "cityName": "山辺町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "support": 0.028
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 9800
+    },
+    "household": {
+      "support": 7700,
+      "care": 5500
+    }
+  }
+}

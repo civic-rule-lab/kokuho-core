@@ -1,0 +1,25 @@
+{
+  "citySlug": "minamidaito",
+  "cityName": "南大東村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.05,
+      "support": 0.015,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 16000,
+      "support": 4600
+    },
+    "household": {
+      "support": 3900,
+      "care": 3500
+    },
+    "assetLevy": {
+      "medical": 0.35,
+      "support": 0.045,
+      "care": 0.07
+    }
+  }
+}

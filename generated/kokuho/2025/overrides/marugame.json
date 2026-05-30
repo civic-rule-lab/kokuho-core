@@ -1,0 +1,20 @@
+{
+  "citySlug": "marugame",
+  "cityName": "丸亀市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.083
+    },
+    "perCapita": {
+      "medical": 27500,
+      "support": 7000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 28300,
+      "support": 7000,
+      "care": 5000
+    }
+  }
+}

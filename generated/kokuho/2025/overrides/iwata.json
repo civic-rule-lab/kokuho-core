@@ -1,0 +1,21 @@
+{
+  "citySlug": "iwata",
+  "cityName": "磐田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0706,
+      "support": 0.0292,
+      "care": 0.0236
+    },
+    "perCapita": {
+      "medical": 29559,
+      "support": 11860,
+      "care": 16933
+    },
+    "household": {
+      "medical": 19340,
+      "support": 7760
+    }
+  }
+}

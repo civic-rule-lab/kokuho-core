@@ -1,0 +1,20 @@
+{
+  "citySlug": "genkaimachi",
+  "cityName": "玄海町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.092,
+      "support": 0.028,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 27000,
+      "support": 8500
+    },
+    "household": {
+      "medical": 29000,
+      "care": 5000
+    }
+  }
+}

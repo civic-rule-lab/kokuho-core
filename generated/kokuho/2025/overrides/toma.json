@@ -1,0 +1,26 @@
+{
+  "citySlug": "toma",
+  "cityName": "当麻町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07200000000000001,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 29500,
+      "support": 9000,
+      "care": 9200
+    },
+    "household": {
+      "medical": 29000,
+      "support": 9000,
+      "care": 7200
+    },
+    "assetLevy": {
+      "medical": 0.035,
+      "support": 0.009,
+      "care": 0.004
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "kitahiroshimamachi",
+  "cityName": "北広島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.0284,
+      "care": 0.0202
+    },
+    "perCapita": {
+      "medical": 33793,
+      "support": 11735,
+      "care": 10472
+    },
+    "household": {
+      "medical": 22201,
+      "support": 7712,
+      "care": 5087
+    }
+  }
+}

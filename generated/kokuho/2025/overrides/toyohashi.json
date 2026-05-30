@@ -1,0 +1,22 @@
+{
+  "citySlug": "toyohashi",
+  "cityName": "豊橋市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.0272,
+      "care": 0.0229
+    },
+    "perCapita": {
+      "medical": 32586,
+      "support": 11509,
+      "care": 11597
+    },
+    "household": {
+      "medical": 21154,
+      "support": 7472,
+      "care": 5740
+    }
+  }
+}

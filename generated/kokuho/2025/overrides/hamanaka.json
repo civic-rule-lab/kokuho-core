@@ -1,0 +1,22 @@
+{
+  "citySlug": "hamanaka",
+  "cityName": "浜中町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0713,
+      "support": 0.0203,
+      "care": 0.0183
+    },
+    "perCapita": {
+      "medical": 29300,
+      "support": 9500,
+      "care": 9600
+    },
+    "household": {
+      "medical": 30400,
+      "support": 9800,
+      "care": 7500
+    }
+  }
+}

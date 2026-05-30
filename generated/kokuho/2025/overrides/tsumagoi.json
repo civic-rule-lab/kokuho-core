@@ -1,0 +1,19 @@
+{
+  "citySlug": "tsumagoi",
+  "cityName": "嬬恋村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.018,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 27000
+    },
+    "household": {
+      "medical": 27000,
+      "care": 8000
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "osakishi",
+  "cityName": "大崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.0225,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 20700,
+      "support": 8000,
+      "care": 9600
+    },
+    "household": {
+      "medical": 15800,
+      "support": 5800,
+      "care": 4700
+    }
+  }
+}

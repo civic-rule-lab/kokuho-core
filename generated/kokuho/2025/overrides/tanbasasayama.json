@@ -1,0 +1,22 @@
+{
+  "citySlug": "tanbasasayama",
+  "cityName": "丹波篠山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0723,
+      "support": 0.0297,
+      "care": 0.0259
+    },
+    "perCapita": {
+      "medical": 29304,
+      "support": 12000,
+      "care": 12696
+    },
+    "household": {
+      "medical": 20100,
+      "support": 7848,
+      "care": 6216
+    }
+  }
+}

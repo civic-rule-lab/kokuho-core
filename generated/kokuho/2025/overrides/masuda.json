@@ -1,0 +1,22 @@
+{
+  "citySlug": "masuda",
+  "cityName": "益田市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0785,
+      "support": 0.0302,
+      "care": 0.0275
+    },
+    "perCapita": {
+      "medical": 27300,
+      "support": 11080,
+      "care": 11420
+    },
+    "household": {
+      "medical": 18760,
+      "support": 7400,
+      "care": 6620
+    }
+  }
+}

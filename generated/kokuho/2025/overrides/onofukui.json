@@ -1,0 +1,21 @@
+{
+  "citySlug": "onofukui",
+  "cityName": "大野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0685,
+      "support": 0.022,
+      "care": 0.02
+    },
+    "perCapita": {
+      "support": 8800,
+      "care": 10900
+    },
+    "household": {
+      "medical": 20200,
+      "support": 6400,
+      "care": 5500
+    }
+  }
+}

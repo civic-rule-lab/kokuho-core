@@ -1,0 +1,21 @@
+{
+  "citySlug": "kawanehon",
+  "cityName": "川根本町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0712,
+      "support": 0.028,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 29787,
+      "support": 11371,
+      "care": 16134
+    },
+    "household": {
+      "medical": 19490,
+      "support": 7440
+    }
+  }
+}

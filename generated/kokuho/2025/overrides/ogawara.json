@@ -1,0 +1,22 @@
+{
+  "citySlug": "ogawara",
+  "cityName": "大河原町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.02,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 22500,
+      "support": 7000,
+      "care": 8500
+    },
+    "household": {
+      "medical": 23000,
+      "support": 6500,
+      "care": 6000
+    }
+  }
+}

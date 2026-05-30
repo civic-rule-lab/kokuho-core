@@ -1,0 +1,27 @@
+{
+  "citySlug": "awashimaura",
+  "cityName": "粟島浦村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0722,
+      "support": 0.0276,
+      "care": 0.0177
+    },
+    "perCapita": {
+      "medical": 25900,
+      "support": 7700,
+      "care": 10400
+    },
+    "household": {
+      "medical": 20900,
+      "support": 6200,
+      "care": 0
+    },
+    "assetLevy": {
+      "medical": 0.3142,
+      "support": 0,
+      "care": 0
+    }
+  }
+}

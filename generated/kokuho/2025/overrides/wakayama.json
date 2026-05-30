@@ -1,0 +1,22 @@
+{
+  "citySlug": "wakayama",
+  "cityName": "和歌山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0764,
+      "support": 0.0313,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 27544,
+      "support": 10947,
+      "care": 11102
+    },
+    "household": {
+      "medical": 19094,
+      "support": 7589,
+      "care": 5633
+    }
+  }
+}

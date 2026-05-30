@@ -1,0 +1,22 @@
+{
+  "citySlug": "mutsu",
+  "cityName": "むつ市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0801,
+      "support": 0.0301,
+      "care": 0.0304
+    },
+    "perCapita": {
+      "medical": 21700,
+      "support": 8300,
+      "care": 13900
+    },
+    "household": {
+      "medical": 34900,
+      "support": 13300,
+      "care": 7000
+    }
+  }
+}

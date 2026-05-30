@@ -1,0 +1,22 @@
+{
+  "citySlug": "asahicho",
+  "cityName": "朝日町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0758,
+      "support": 0.0284,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 32738,
+      "support": 12114,
+      "care": 13032
+    },
+    "household": {
+      "medical": 21499,
+      "support": 7955,
+      "care": 6425
+    }
+  }
+}

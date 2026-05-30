@@ -1,0 +1,21 @@
+{
+  "citySlug": "shinshinotsu",
+  "cityName": "新篠津村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.027000000000000003,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 29000,
+      "care": 8000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 9000,
+      "care": 7000
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kawamoto",
+  "cityName": "川本町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.028,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 9500
+    },
+    "household": {
+      "medical": 20000,
+      "support": 6500,
+      "care": 5800
+    }
+  }
+}

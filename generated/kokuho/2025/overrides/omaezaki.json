@@ -1,0 +1,20 @@
+{
+  "citySlug": "omaezaki",
+  "cityName": "御前崎市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0839,
+      "support": 0.0291
+    },
+    "perCapita": {
+      "medical": 35140,
+      "support": 11814,
+      "care": 16503
+    },
+    "household": {
+      "medical": 22993,
+      "support": 7730
+    }
+  }
+}

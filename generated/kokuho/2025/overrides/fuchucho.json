@@ -1,0 +1,21 @@
+{
+  "citySlug": "fuchucho",
+  "cityName": "府中町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0865,
+      "support": 0.0282
+    },
+    "perCapita": {
+      "medical": 37055,
+      "support": 11918,
+      "care": 11754
+    },
+    "household": {
+      "medical": 23795,
+      "support": 7653,
+      "care": 5697
+    }
+  }
+}

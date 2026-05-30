@@ -1,0 +1,22 @@
+{
+  "citySlug": "togitsu",
+  "cityName": "時津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.099,
+      "support": 0.021,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 29900,
+      "support": 6700,
+      "care": 9900
+    },
+    "household": {
+      "medical": 27200,
+      "support": 6500,
+      "care": 6900
+    }
+  }
+}

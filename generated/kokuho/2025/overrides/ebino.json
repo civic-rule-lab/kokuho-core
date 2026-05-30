@@ -1,0 +1,27 @@
+{
+  "citySlug": "ebino",
+  "cityName": "えびの市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0974,
+      "support": 0.0284,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26800,
+      "support": 8200,
+      "care": 8800
+    },
+    "household": {
+      "medical": 22400,
+      "support": 6100,
+      "care": 6100
+    },
+    "assetLevy": {
+      "medical": 0.21,
+      "support": 0.06,
+      "care": 0.0757
+    }
+  }
+}

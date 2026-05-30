@@ -1,0 +1,21 @@
+{
+  "citySlug": "mikasa",
+  "cityName": "三笠市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08460000000000001,
+      "support": 0.0229,
+      "care": 0.0096
+    },
+    "perCapita": {
+      "medical": 19700,
+      "support": 5700
+    },
+    "household": {
+      "medical": 22500,
+      "support": 6400,
+      "care": 6400
+    }
+  }
+}

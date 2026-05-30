@@ -1,0 +1,22 @@
+{
+  "citySlug": "wakkanai",
+  "cityName": "稚内市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0802,
+      "support": 0.0254,
+      "care": 0.0148
+    },
+    "perCapita": {
+      "medical": 26200,
+      "support": 8120,
+      "care": 8140
+    },
+    "household": {
+      "medical": 30557,
+      "support": 9295,
+      "care": 6500
+    }
+  }
+}

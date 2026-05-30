@@ -1,0 +1,27 @@
+{
+  "citySlug": "miyakonojo",
+  "cityName": "都城市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.097,
+      "support": 0.0355,
+      "care": 0.029
+    },
+    "perCapita": {
+      "medical": 23100,
+      "support": 7800,
+      "care": 8200
+    },
+    "household": {
+      "medical": 22700,
+      "support": 7300,
+      "care": 6600
+    },
+    "assetLevy": {
+      "medical": 0.1812,
+      "support": 0.0544,
+      "care": 0.0664
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "citySlug": "izena",
+  "cityName": "伊是名村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.054,
+      "support": 0.014,
+      "care": 0.012
+    },
+    "perCapita": {
+      "medical": 11200,
+      "support": 2800,
+      "care": 5200
+    },
+    "household": {
+      "medical": 15100,
+      "support": 3900,
+      "care": 2800
+    },
+    "assetLevy": {
+      "medical": 0.36,
+      "support": 0.09,
+      "care": 0.066
+    }
+  }
+}

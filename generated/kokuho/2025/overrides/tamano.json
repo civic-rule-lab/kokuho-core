@@ -1,0 +1,22 @@
+{
+  "citySlug": "tamano",
+  "cityName": "玉野市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.029,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 8400,
+      "care": 7100
+    },
+    "household": {
+      "medical": 21300,
+      "support": 7900,
+      "care": 5500
+    }
+  }
+}

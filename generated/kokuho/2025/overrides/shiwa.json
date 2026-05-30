@@ -1,0 +1,22 @@
+{
+  "citySlug": "shiwa",
+  "cityName": "紫波町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.027,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 24600,
+      "support": 11000,
+      "care": 10600
+    },
+    "household": {
+      "medical": 17200,
+      "support": 7800,
+      "care": 4800
+    }
+  }
+}

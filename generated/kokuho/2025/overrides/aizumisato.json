@@ -1,0 +1,22 @@
+{
+  "citySlug": "aizumisato",
+  "cityName": "会津美里町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0663,
+      "support": 0.0272,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 28811,
+      "support": 11683,
+      "care": 11449
+    },
+    "household": {
+      "medical": 19126,
+      "support": 7756,
+      "care": 5743
+    }
+  }
+}

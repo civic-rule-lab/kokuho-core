@@ -1,0 +1,21 @@
+{
+  "citySlug": "morimachi",
+  "cityName": "森町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0765,
+      "support": 0.0296,
+      "care": 0.0241
+    },
+    "perCapita": {
+      "medical": 32013,
+      "support": 12026,
+      "care": 17287
+    },
+    "household": {
+      "medical": 20946,
+      "support": 7868
+    }
+  }
+}

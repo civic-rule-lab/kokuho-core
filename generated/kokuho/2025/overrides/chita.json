@@ -1,0 +1,22 @@
+{
+  "citySlug": "chita",
+  "cityName": "知多市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0735,
+      "support": 0.0269,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 31509,
+      "support": 11396,
+      "care": 11169
+    },
+    "household": {
+      "medical": 20455,
+      "support": 7398,
+      "care": 5528
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "mizunami",
+  "cityName": "瑞浪市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0711,
+      "support": 0.0256,
+      "care": 0.0224
+    },
+    "perCapita": {
+      "medical": 31700,
+      "support": 11700,
+      "care": 12200
+    },
+    "household": {
+      "medical": 21400,
+      "support": 7800,
+      "care": 6000
+    }
+  }
+}

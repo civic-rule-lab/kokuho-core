@@ -1,0 +1,21 @@
+{
+  "citySlug": "mori",
+  "cityName": "森町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.08529999999999999,
+      "support": 0.025699999999999997,
+      "care": 0.0199
+    },
+    "perCapita": {
+      "medical": 28400,
+      "care": 9100
+    },
+    "household": {
+      "medical": 28200,
+      "support": 9000,
+      "care": 7100
+    }
+  }
+}

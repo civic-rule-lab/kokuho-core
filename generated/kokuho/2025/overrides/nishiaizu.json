@@ -1,0 +1,22 @@
+{
+  "citySlug": "nishiaizu",
+  "cityName": "西会津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0622,
+      "support": 0.0266,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 27018,
+      "support": 11437,
+      "care": 10879
+    },
+    "household": {
+      "medical": 17936,
+      "support": 7592,
+      "care": 5457
+    }
+  }
+}

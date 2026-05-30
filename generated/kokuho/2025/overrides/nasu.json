@@ -1,0 +1,22 @@
+{
+  "citySlug": "nasu",
+  "cityName": "那須町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0614,
+      "support": 0.0272,
+      "care": 0.0225
+    },
+    "perCapita": {
+      "medical": 26825,
+      "support": 11745,
+      "care": 11605
+    },
+    "household": {
+      "medical": 18045,
+      "support": 7901,
+      "care": 5834
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "kawai",
+  "cityName": "河合町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0764,
+      "support": 0.0327,
+      "care": 0.0303
+    },
+    "perCapita": {
+      "medical": 27600,
+      "support": 11500,
+      "care": 16900
+    },
+    "household": {
+      "medical": 20000,
+      "support": 8400
+    }
+  }
+}

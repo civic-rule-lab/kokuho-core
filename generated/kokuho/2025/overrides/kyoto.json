@@ -1,0 +1,22 @@
+{
+  "citySlug": "kyoto",
+  "cityName": "京都市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0827,
+      "support": 0.0267,
+      "care": 0.0237
+    },
+    "perCapita": {
+      "medical": 29840,
+      "support": 9990,
+      "care": 10090
+    },
+    "household": {
+      "medical": 18070,
+      "support": 6050,
+      "care": 4940
+    }
+  }
+}

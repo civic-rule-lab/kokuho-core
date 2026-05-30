@@ -1,0 +1,21 @@
+{
+  "citySlug": "tendo",
+  "cityName": "天童市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.025,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 29200,
+      "support": 10100,
+      "care": 10300
+    },
+    "household": {
+      "support": 7400,
+      "care": 5800
+    }
+  }
+}

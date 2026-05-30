@@ -165,7 +165,7 @@ export const MUNICIPALITIES = [
   },
   {
     // R7確認済み（南部町公式サイト）。slug衝突回避（青森県南部町と区別）
-    cityCode: "31388", citySlug: "nanbumachi-tottori", cityName: "南部町",
+    cityCode: "31389", citySlug: "nanbumachi-tottori", cityName: "南部町",
     rates: {
       rate:      { medical: 0.0718, support: 0.0235, care: 0.0223 },
       perCapita: { medical: 26900,  support: 8800,   care: 11300  },
@@ -174,7 +174,7 @@ export const MUNICIPALITIES = [
   },
   {
     // 標準保険料率PDF記載値
-    cityCode: "31389", citySlug: "hoki", cityName: "伯耆町",
+    cityCode: "31390", citySlug: "hoki", cityName: "伯耆町",
     rates: {
       rate:      { medical: 0.0621, support: 0.0294, care: 0.0260 },
       perCapita: { medical: 31064,  support: 12538,  care: 13204  },

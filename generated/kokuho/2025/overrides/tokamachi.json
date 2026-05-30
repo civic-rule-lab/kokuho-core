@@ -1,0 +1,21 @@
+{
+  "citySlug": "tokamachi",
+  "cityName": "十日町市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0605,
+      "support": 0.029,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 25928,
+      "support": 17493,
+      "care": 18384
+    },
+    "household": {
+      "medical": 17047,
+      "support": 0
+    }
+  }
+}

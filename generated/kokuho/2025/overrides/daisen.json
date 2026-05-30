@@ -1,0 +1,22 @@
+{
+  "citySlug": "daisen",
+  "cityName": "大山町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0716,
+      "support": 0.0294,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 28429,
+      "support": 12505,
+      "care": 13103
+    },
+    "household": {
+      "medical": 18748,
+      "support": 8247,
+      "care": 6301
+    }
+  }
+}

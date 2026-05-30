@@ -1,0 +1,19 @@
+{
+  "citySlug": "utazumachi",
+  "cityName": "宇多津町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.025,
+      "care": 0.022
+    },
+    "perCapita": {
+      "support": 8500,
+      "care": 9000
+    },
+    "household": {
+      "support": 6200,
+      "care": 5000
+    }
+  }
+}

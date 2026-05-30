@@ -1,0 +1,22 @@
+{
+  "citySlug": "takarazuka",
+  "cityName": "宝塚市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.084,
+      "support": 0.022,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 31600,
+      "support": 8900,
+      "care": 12100
+    },
+    "household": {
+      "medical": 23900,
+      "support": 6200,
+      "care": 6200
+    }
+  }
+}

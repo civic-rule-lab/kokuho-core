@@ -391,7 +391,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "12421", citySlug: "ichinomiya", cityName: "一宮町",
+    cityCode: "23203", citySlug: "ichinomiya", cityName: "一宮町",
     rates: {
       rate:      { medical: 0.0750, support: 0.0290, care: 0.0210 },
       perCapita: { medical: 21000,  support: 10000,  care: 14000  },

@@ -1,0 +1,26 @@
+{
+  "citySlug": "kibichuo",
+  "cityName": "吉備中央町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.024,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 23500,
+      "support": 9000,
+      "care": 9500
+    },
+    "household": {
+      "medical": 15500,
+      "support": 6200,
+      "care": 4800
+    },
+    "assetLevy": {
+      "medical": 0.196,
+      "support": 0.081,
+      "care": 0.088
+    }
+  }
+}

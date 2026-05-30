@@ -1,0 +1,21 @@
+{
+  "citySlug": "yakage",
+  "cityName": "矢掛町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "support": 0.031,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 28900,
+      "support": 11200
+    },
+    "household": {
+      "medical": 17700,
+      "support": 6800,
+      "care": 4700
+    }
+  }
+}

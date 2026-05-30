@@ -1,0 +1,22 @@
+{
+  "citySlug": "katsuyama",
+  "cityName": "勝山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.065,
+      "support": 0.021,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 26500,
+      "support": 8500,
+      "care": 9000
+    },
+    "household": {
+      "medical": 19000,
+      "support": 6000,
+      "care": 4000
+    }
+  }
+}

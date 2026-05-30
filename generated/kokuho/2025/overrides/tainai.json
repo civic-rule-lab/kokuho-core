@@ -1,0 +1,21 @@
+{
+  "citySlug": "tainai",
+  "cityName": "胎内市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.0286,
+      "care": 0.0209
+    },
+    "perCapita": {
+      "medical": 25900,
+      "support": 9500,
+      "care": 15400
+    },
+    "household": {
+      "medical": 18500,
+      "support": 6800
+    }
+  }
+}

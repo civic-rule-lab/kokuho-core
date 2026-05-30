@@ -1,0 +1,17 @@
+{
+  "citySlug": "hitachi",
+  "cityName": "日立市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0747,
+      "support": 0.0336,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 28600,
+      "support": 12200,
+      "care": 12300
+    }
+  }
+}

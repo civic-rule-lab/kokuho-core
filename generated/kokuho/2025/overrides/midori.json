@@ -1,0 +1,21 @@
+{
+  "citySlug": "midori",
+  "cityName": "みどり市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.027
+    },
+    "perCapita": {
+      "medical": 27600,
+      "support": 9800,
+      "care": 11600
+    },
+    "household": {
+      "medical": 30000,
+      "support": 8500,
+      "care": 6000
+    }
+  }
+}

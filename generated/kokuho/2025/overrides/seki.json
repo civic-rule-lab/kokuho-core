@@ -1,0 +1,22 @@
+{
+  "citySlug": "seki",
+  "cityName": "関市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0672,
+      "support": 0.0246,
+      "care": 0.0193
+    },
+    "perCapita": {
+      "medical": 30700,
+      "support": 11000,
+      "care": 12700
+    },
+    "household": {
+      "medical": 22500,
+      "support": 8100,
+      "care": 6600
+    }
+  }
+}

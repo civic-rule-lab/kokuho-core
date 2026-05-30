@@ -1,0 +1,22 @@
+{
+  "citySlug": "kusatsushi",
+  "cityName": "草津市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.027,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 11200,
+      "care": 11500
+    },
+    "household": {
+      "medical": 19000,
+      "support": 7300,
+      "care": 6100
+    }
+  }
+}

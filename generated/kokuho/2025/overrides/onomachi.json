@@ -1,0 +1,22 @@
+{
+  "citySlug": "onomachi",
+  "cityName": "小野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0628,
+      "support": 0.0275,
+      "care": 0.0227
+    },
+    "perCapita": {
+      "medical": 27291,
+      "support": 11842,
+      "care": 11510
+    },
+    "household": {
+      "medical": 18117,
+      "support": 7861,
+      "care": 5773
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "moriyama",
+  "cityName": "守山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0657,
+      "support": 0.027,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29086,
+      "support": 12193,
+      "care": 12720
+    },
+    "household": {
+      "medical": 20670,
+      "support": 8583,
+      "care": 6330
+    }
+  }
+}

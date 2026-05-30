@@ -1,0 +1,21 @@
+{
+  "citySlug": "nankan",
+  "cityName": "南関町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0731,
+      "support": 0.0304,
+      "care": 0.0247
+    },
+    "perCapita": {
+      "medical": 25532,
+      "support": 10601,
+      "care": 16098
+    },
+    "household": {
+      "medical": 17256,
+      "support": 7165
+    }
+  }
+}

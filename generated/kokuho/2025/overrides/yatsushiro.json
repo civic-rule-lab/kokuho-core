@@ -1,0 +1,21 @@
+{
+  "citySlug": "yatsushiro",
+  "cityName": "八代市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0846,
+      "support": 0.0307,
+      "care": 0.0244
+    },
+    "perCapita": {
+      "medical": 29559,
+      "support": 10695,
+      "care": 15910
+    },
+    "household": {
+      "medical": 19977,
+      "support": 7228
+    }
+  }
+}

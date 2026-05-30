@@ -1,0 +1,17 @@
+{
+  "citySlug": "shirosato",
+  "cityName": "城里町",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.067,
+      "support": 0.028,
+      "care": 0.018
+    },
+    "perCapita": {
+      "medical": 21000,
+      "support": 8500,
+      "care": 12000
+    }
+  }
+}

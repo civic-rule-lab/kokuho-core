@@ -1,0 +1,22 @@
+{
+  "citySlug": "kotoura",
+  "cityName": "琴浦町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.0297,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 29478,
+      "support": 12649,
+      "care": 13190
+    },
+    "household": {
+      "medical": 19439,
+      "support": 8341,
+      "care": 6343
+    }
+  }
+}

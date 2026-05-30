@@ -1,0 +1,22 @@
+{
+  "citySlug": "amagi",
+  "cityName": "天城町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0473,
+      "support": 0.0294,
+      "care": 0.0267
+    },
+    "perCapita": {
+      "medical": 20220,
+      "support": 12360,
+      "care": 13344
+    },
+    "household": {
+      "medical": 13098,
+      "support": 8006,
+      "care": 6640
+    }
+  }
+}

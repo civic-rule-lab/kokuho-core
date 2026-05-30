@@ -1,0 +1,22 @@
+{
+  "citySlug": "koya",
+  "cityName": "高野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0883,
+      "support": 0.0316,
+      "care": 0.027
+    },
+    "perCapita": {
+      "medical": 31831,
+      "support": 11054,
+      "care": 11813
+    },
+    "household": {
+      "medical": 22066,
+      "support": 7663,
+      "care": 5994
+    }
+  }
+}

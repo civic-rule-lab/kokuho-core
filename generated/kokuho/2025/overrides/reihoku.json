@@ -1,0 +1,21 @@
+{
+  "citySlug": "reihoku",
+  "cityName": "苓北町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0725,
+      "support": 0.0306,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 25321,
+      "support": 10659,
+      "care": 16152
+    },
+    "household": {
+      "medical": 17113,
+      "support": 7204
+    }
+  }
+}

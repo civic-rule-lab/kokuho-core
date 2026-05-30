@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamiizu",
+  "cityName": "南伊豆町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0651,
+      "support": 0.028,
+      "care": 0.0229
+    },
+    "perCapita": {
+      "medical": 27242,
+      "support": 11356,
+      "care": 16405
+    },
+    "household": {
+      "medical": 17825,
+      "support": 7431
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "citySlug": "sakuragawa",
+  "cityName": "桜川市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.029,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 33800,
+      "support": 16400,
+      "care": 18500
+    }
+  }
+}

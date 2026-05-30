@@ -1,0 +1,23 @@
+{
+  "citySlug": "ie",
+  "cityName": "伊江村",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.058,
+      "support": 0.0212
+    },
+    "perCapita": {
+      "medical": 14000
+    },
+    "household": {
+      "support": 4000,
+      "care": 3000
+    },
+    "assetLevy": {
+      "medical": 0.3,
+      "support": 0.094,
+      "care": 0.05
+    }
+  }
+}

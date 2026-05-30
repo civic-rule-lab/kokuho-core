@@ -1,0 +1,26 @@
+{
+  "citySlug": "ichinohe",
+  "cityName": "一戸町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.023,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 8000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 24000,
+      "care": 8000
+    },
+    "assetLevy": {
+      "medical": 0.16,
+      "support": 0.04,
+      "care": 0.086
+    }
+  }
+}

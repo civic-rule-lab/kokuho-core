@@ -1,0 +1,22 @@
+{
+  "citySlug": "matsushima",
+  "cityName": "松島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.066,
+      "support": 0.024,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 18000,
+      "support": 6600,
+      "care": 7500
+    },
+    "household": {
+      "medical": 13800,
+      "support": 5200,
+      "care": 4000
+    }
+  }
+}

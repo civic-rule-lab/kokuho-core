@@ -1,0 +1,21 @@
+{
+  "citySlug": "nagasu",
+  "cityName": "長洲町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0849,
+      "support": 0.0309,
+      "care": 0.0257
+    },
+    "perCapita": {
+      "medical": 29680,
+      "support": 10762,
+      "care": 16768
+    },
+    "household": {
+      "medical": 20059,
+      "support": 7274
+    }
+  }
+}

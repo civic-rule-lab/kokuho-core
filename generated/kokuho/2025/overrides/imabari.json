@@ -1,0 +1,27 @@
+{
+  "citySlug": "imabari",
+  "cityName": "今治市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.082,
+      "support": 0.032,
+      "care": 0.03
+    },
+    "perCapita": {
+      "medical": 19800,
+      "support": 7100,
+      "care": 7600
+    },
+    "household": {
+      "medical": 25500,
+      "support": 7400,
+      "care": 6500
+    },
+    "assetLevy": {
+      "medical": 0.175,
+      "support": 0.052,
+      "care": 0.048
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "rishiri",
+  "cityName": "利尻町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.022000000000000002,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 8000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 30000,
+      "support": 7000,
+      "care": 6000
+    }
+  }
+}

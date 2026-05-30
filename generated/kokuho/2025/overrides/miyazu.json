@@ -1,0 +1,27 @@
+{
+  "citySlug": "miyazu",
+  "cityName": "宮津市",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.057,
+      "support": 0.023,
+      "care": 0.019
+    },
+    "perCapita": {
+      "medical": 28000,
+      "support": 11200,
+      "care": 12500
+    },
+    "household": {
+      "medical": 18500,
+      "support": 7400,
+      "care": 6000
+    },
+    "assetLevy": {
+      "medical": 0.346,
+      "support": 0.138,
+      "care": 0.185
+    }
+  }
+}

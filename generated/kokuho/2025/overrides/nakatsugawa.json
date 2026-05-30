@@ -1,0 +1,22 @@
+{
+  "citySlug": "nakatsugawa",
+  "cityName": "中津川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0707,
+      "support": 0.0279,
+      "care": 0.0221
+    },
+    "perCapita": {
+      "medical": 29800,
+      "support": 11400,
+      "care": 11300
+    },
+    "household": {
+      "medical": 20400,
+      "support": 7700,
+      "care": 5700
+    }
+  }
+}

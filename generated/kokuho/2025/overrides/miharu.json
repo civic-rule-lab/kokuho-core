@@ -1,0 +1,22 @@
+{
+  "citySlug": "miharu",
+  "cityName": "三春町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0677,
+      "support": 0.028,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 29394,
+      "support": 12020,
+      "care": 11886
+    },
+    "household": {
+      "medical": 19513,
+      "support": 7980,
+      "care": 5962
+    }
+  }
+}

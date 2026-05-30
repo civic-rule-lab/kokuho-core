@@ -1,0 +1,21 @@
+{
+  "citySlug": "kofu-tottori",
+  "cityName": "江府町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0279,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 25109,
+      "support": 11900,
+      "care": 12634
+    },
+    "household": {
+      "medical": 16558,
+      "support": 7847,
+      "care": 6075
+    }
+  }
+}

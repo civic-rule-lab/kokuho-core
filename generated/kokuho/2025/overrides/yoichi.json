@@ -1,0 +1,22 @@
+{
+  "citySlug": "yoichi",
+  "cityName": "余市町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0862,
+      "support": 0.025699999999999997,
+      "care": 0.0169
+    },
+    "perCapita": {
+      "medical": 28100,
+      "support": 8500,
+      "care": 8100
+    },
+    "household": {
+      "medical": 29900,
+      "support": 9000,
+      "care": 6400
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "koori",
+  "cityName": "桑折町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0791,
+      "support": 0.0274,
+      "care": 0.0229
+    },
+    "perCapita": {
+      "medical": 34343,
+      "support": 11785,
+      "care": 11581
+    },
+    "household": {
+      "medical": 22799,
+      "support": 7823,
+      "care": 5809
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "hioki",
+  "cityName": "日置市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0763,
+      "support": 0.0282,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 32626,
+      "support": 11853,
+      "care": 12202
+    },
+    "household": {
+      "medical": 21134,
+      "support": 7678,
+      "care": 6071
+    }
+  }
+}

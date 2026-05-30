@@ -1,0 +1,16 @@
+{
+  "citySlug": "kitaibaraki",
+  "cityName": "北茨城市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.069,
+      "support": 0.029
+    },
+    "perCapita": {
+      "medical": 27700,
+      "support": 11300,
+      "care": 14500
+    }
+  }
+}

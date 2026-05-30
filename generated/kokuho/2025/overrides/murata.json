@@ -1,0 +1,22 @@
+{
+  "citySlug": "murata",
+  "cityName": "村田町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0638,
+      "support": 0.0237,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 8000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 16000,
+      "support": 5000,
+      "care": 6000
+    }
+  }
+}

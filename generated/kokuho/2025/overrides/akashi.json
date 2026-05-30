@@ -1,0 +1,22 @@
+{
+  "citySlug": "akashi",
+  "cityName": "明石市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0696,
+      "support": 0.0267,
+      "care": 0.0255
+    },
+    "perCapita": {
+      "medical": 30330,
+      "support": 12400,
+      "care": 12880
+    },
+    "household": {
+      "medical": 20520,
+      "support": 8670,
+      "care": 6620
+    }
+  }
+}

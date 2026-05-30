@@ -1,0 +1,22 @@
+{
+  "citySlug": "kyogoku",
+  "cityName": "京極町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.085,
+      "support": 0.037000000000000005,
+      "care": 0.011000000000000001
+    },
+    "perCapita": {
+      "medical": 25000,
+      "support": 2000,
+      "care": 7000
+    },
+    "household": {
+      "medical": 33000,
+      "support": 2000,
+      "care": 7000
+    }
+  }
+}

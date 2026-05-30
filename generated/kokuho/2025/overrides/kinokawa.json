@@ -1,0 +1,22 @@
+{
+  "citySlug": "kinokawa",
+  "cityName": "紀の川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0829,
+      "support": 0.0311,
+      "care": 0.0257
+    },
+    "perCapita": {
+      "medical": 29887,
+      "support": 10883,
+      "care": 11256
+    },
+    "household": {
+      "medical": 20719,
+      "support": 7544,
+      "care": 5712
+    }
+  }
+}

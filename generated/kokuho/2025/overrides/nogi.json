@@ -1,0 +1,22 @@
+{
+  "citySlug": "nogi",
+  "cityName": "野木町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0638,
+      "support": 0.0276,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 27842,
+      "support": 11945,
+      "care": 11643
+    },
+    "household": {
+      "medical": 18730,
+      "support": 8036,
+      "care": 5853
+    }
+  }
+}

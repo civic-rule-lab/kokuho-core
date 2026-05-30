@@ -1,0 +1,22 @@
+{
+  "citySlug": "toyoura",
+  "cityName": "豊浦町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0956,
+      "support": 0.0229,
+      "care": 0.0286
+    },
+    "perCapita": {
+      "medical": 16700,
+      "support": 3600,
+      "care": 6600
+    },
+    "household": {
+      "medical": 43400,
+      "support": 10700,
+      "care": 12500
+    }
+  }
+}

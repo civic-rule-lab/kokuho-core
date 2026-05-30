@@ -1,0 +1,21 @@
+{
+  "citySlug": "shinkamigoto",
+  "cityName": "新上五島町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.0332,
+      "care": 0.0275
+    },
+    "perCapita": {
+      "medical": 24782,
+      "support": 10923,
+      "care": 11177
+    },
+    "household": {
+      "medical": 16481,
+      "support": 7255,
+      "care": 5616
+    }
+  }
+}

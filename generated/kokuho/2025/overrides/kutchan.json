@@ -1,0 +1,21 @@
+{
+  "citySlug": "kutchan",
+  "cityName": "倶知安町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.022000000000000002,
+      "care": 0.0175
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 10000,
+      "care": 11500
+    },
+    "household": {
+      "medical": 25000,
+      "care": 5500
+    }
+  }
+}

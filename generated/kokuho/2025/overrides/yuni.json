@@ -1,0 +1,21 @@
+{
+  "citySlug": "yuni",
+  "cityName": "由仁町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.021,
+      "care": 0.013999999999999999
+    },
+    "perCapita": {
+      "medical": 27000,
+      "care": 9000
+    },
+    "household": {
+      "medical": 25000,
+      "support": 7000,
+      "care": 6000
+    }
+  }
+}

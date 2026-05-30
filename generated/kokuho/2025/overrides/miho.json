@@ -1,0 +1,17 @@
+{
+  "citySlug": "miho",
+  "cityName": "美浦村",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07,
+      "support": 0.03,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 36000,
+      "support": 13300,
+      "care": 14600
+    }
+  }
+}

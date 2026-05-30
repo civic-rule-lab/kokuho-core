@@ -1,0 +1,21 @@
+{
+  "citySlug": "niigata",
+  "cityName": "新潟市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.031,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 17700,
+      "support": 7200,
+      "care": 14100
+    },
+    "household": {
+      "medical": 22200,
+      "support": 9000
+    }
+  }
+}

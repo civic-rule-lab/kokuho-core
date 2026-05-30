@@ -1,0 +1,22 @@
+{
+  "citySlug": "akune",
+  "cityName": "阿久根市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0692,
+      "support": 0.0291,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 29598,
+      "support": 12219,
+      "care": 12468
+    },
+    "household": {
+      "medical": 19173,
+      "support": 7915,
+      "care": 6204
+    }
+  }
+}

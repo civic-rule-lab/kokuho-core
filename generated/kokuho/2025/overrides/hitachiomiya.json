@@ -1,0 +1,17 @@
+{
+  "citySlug": "hitachiomiya",
+  "cityName": "常陸大宮市",
+  "signature": "2h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0607,
+      "support": 0.0277,
+      "care": 0.0177
+    },
+    "perCapita": {
+      "medical": 32800,
+      "support": 14800,
+      "care": 12000
+    }
+  }
+}

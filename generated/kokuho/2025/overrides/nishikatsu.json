@@ -1,0 +1,21 @@
+{
+  "citySlug": "nishikatsu",
+  "cityName": "西桂町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.054,
+      "support": 0.022,
+      "care": 0.02
+    },
+    "perCapita": {
+      "medical": 24200,
+      "support": 8600,
+      "care": 10200
+    },
+    "household": {
+      "support": 7700,
+      "care": 7100
+    }
+  }
+}

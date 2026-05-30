@@ -1,0 +1,21 @@
+{
+  "citySlug": "itoigawa",
+  "cityName": "糸魚川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0565,
+      "support": 0.023,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "medical": 19200,
+      "support": 7600,
+      "care": 11800
+    },
+    "household": {
+      "medical": 15400,
+      "support": 6100
+    }
+  }
+}

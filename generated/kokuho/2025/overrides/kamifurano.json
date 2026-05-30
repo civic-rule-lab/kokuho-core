@@ -1,0 +1,22 @@
+{
+  "citySlug": "kamifurano",
+  "cityName": "上富良野町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.07400000000000001,
+      "support": 0.026000000000000002,
+      "care": 0.016
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 9300,
+      "care": 9200
+    },
+    "household": {
+      "medical": 25000,
+      "support": 9000,
+      "care": 6000
+    }
+  }
+}

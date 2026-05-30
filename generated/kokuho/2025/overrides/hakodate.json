@@ -1,0 +1,22 @@
+{
+  "citySlug": "hakodate",
+  "cityName": "函館市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0875,
+      "support": 0.0258,
+      "care": 0.0223
+    },
+    "perCapita": {
+      "medical": 29170,
+      "support": 8940,
+      "care": 8760
+    },
+    "household": {
+      "medical": 23640,
+      "support": 7250,
+      "care": 5620
+    }
+  }
+}

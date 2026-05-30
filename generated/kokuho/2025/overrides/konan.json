@@ -1,0 +1,22 @@
+{
+  "citySlug": "konan",
+  "cityName": "江南市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0739,
+      "support": 0.0248,
+      "care": 0.0207
+    },
+    "perCapita": {
+      "medical": 31691,
+      "support": 10489,
+      "care": 10496
+    },
+    "household": {
+      "medical": 20573,
+      "support": 6809,
+      "care": 5195
+    }
+  }
+}

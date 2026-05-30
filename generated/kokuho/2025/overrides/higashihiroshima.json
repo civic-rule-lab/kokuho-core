@@ -1,0 +1,22 @@
+{
+  "citySlug": "higashihiroshima",
+  "cityName": "東広島市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0771,
+      "support": 0.0289,
+      "care": 0.0235
+    },
+    "perCapita": {
+      "medical": 33195,
+      "support": 12211,
+      "care": 11996
+    },
+    "household": {
+      "medical": 21294,
+      "support": 7841,
+      "care": 5814
+    }
+  }
+}

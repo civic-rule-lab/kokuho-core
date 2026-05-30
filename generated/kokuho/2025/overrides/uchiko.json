@@ -1,0 +1,27 @@
+{
+  "citySlug": "uchiko",
+  "cityName": "内子町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.081,
+      "support": 0.03,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 10000,
+      "care": 9200
+    },
+    "household": {
+      "medical": 20000,
+      "support": 8000,
+      "care": 5500
+    },
+    "assetLevy": {
+      "medical": 0.128,
+      "support": 0.041,
+      "care": 0.04
+    }
+  }
+}

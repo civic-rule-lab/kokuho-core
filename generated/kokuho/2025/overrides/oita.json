@@ -1,0 +1,22 @@
+{
+  "citySlug": "oita",
+  "cityName": "大分市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0865,
+      "support": 0.0249,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26500,
+      "support": 7700,
+      "care": 8700
+    },
+    "household": {
+      "medical": 25700,
+      "support": 6900,
+      "care": 5900
+    }
+  }
+}

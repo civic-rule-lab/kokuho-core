@@ -1,0 +1,27 @@
+{
+  "citySlug": "taketomi",
+  "cityName": "竹富町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0615,
+      "support": 0.0218,
+      "care": 0.0182
+    },
+    "perCapita": {
+      "medical": 18100,
+      "support": 6100,
+      "care": 7000
+    },
+    "household": {
+      "medical": 14300,
+      "support": 4800,
+      "care": 3800
+    },
+    "assetLevy": {
+      "medical": 0.2574,
+      "support": 0.0896,
+      "care": 0.0603
+    }
+  }
+}

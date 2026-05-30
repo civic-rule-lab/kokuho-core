@@ -1,0 +1,22 @@
+{
+  "citySlug": "amamachi",
+  "cityName": "海士町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.088,
+      "support": 0.029,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 9800,
+      "care": 10200
+    },
+    "household": {
+      "medical": 20000,
+      "support": 6500,
+      "care": 5900
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "mashiki",
+  "cityName": "益城町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0769,
+      "support": 0.0306,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26872,
+      "support": 10653,
+      "care": 16328
+    },
+    "household": {
+      "medical": 18162,
+      "support": 7200
+    }
+  }
+}

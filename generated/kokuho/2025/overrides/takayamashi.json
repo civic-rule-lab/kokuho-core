@@ -1,0 +1,22 @@
+{
+  "citySlug": "takayamashi",
+  "cityName": "高山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0551,
+      "support": 0.024,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "medical": 28700,
+      "support": 12100,
+      "care": 14100
+    },
+    "household": {
+      "medical": 20700,
+      "support": 8400,
+      "care": 7300
+    }
+  }
+}

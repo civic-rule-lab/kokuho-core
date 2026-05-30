@@ -1,0 +1,21 @@
+{
+  "citySlug": "sekikawa",
+  "cityName": "関川村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0783,
+      "support": 0.0293,
+      "care": 0.0253
+    },
+    "perCapita": {
+      "medical": 33583,
+      "support": 17634,
+      "care": 18421
+    },
+    "household": {
+      "medical": 22079,
+      "support": 0
+    }
+  }
+}

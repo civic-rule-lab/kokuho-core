@@ -1,0 +1,20 @@
+{
+  "citySlug": "shimantomachi",
+  "cityName": "四万十町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.079,
+      "care": 0.024
+    },
+    "perCapita": {
+      "medical": 16000,
+      "support": 8500
+    },
+    "household": {
+      "medical": 19800,
+      "support": 6500,
+      "care": 5000
+    }
+  }
+}

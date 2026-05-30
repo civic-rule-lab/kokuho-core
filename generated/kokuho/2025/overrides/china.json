@@ -1,0 +1,22 @@
+{
+  "citySlug": "china",
+  "cityName": "知名町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0718,
+      "support": 0.0286,
+      "care": 0.0241
+    },
+    "perCapita": {
+      "medical": 30701,
+      "support": 12021,
+      "care": 12035
+    },
+    "household": {
+      "medical": 19888,
+      "support": 7787,
+      "care": 5989
+    }
+  }
+}

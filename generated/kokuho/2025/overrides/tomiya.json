@@ -1,0 +1,22 @@
+{
+  "citySlug": "tomiya",
+  "cityName": "富谷市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.055,
+      "support": 0.0165,
+      "care": 0.0175
+    },
+    "perCapita": {
+      "medical": 22700,
+      "support": 7300,
+      "care": 9500
+    },
+    "household": {
+      "medical": 20200,
+      "support": 6600,
+      "care": 7000
+    }
+  }
+}

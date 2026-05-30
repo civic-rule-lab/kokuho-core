@@ -170,7 +170,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11219", citySlug: "fukaya", cityName: "深谷市",
+    cityCode: "11218", citySlug: "fukaya", cityName: "深谷市",
     note: "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率9%。",
     caps: CAPS_650,
     assetLevy: { medical: 0.09 },
@@ -181,7 +181,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11220", citySlug: "ageo", cityName: "上尾市",
+    cityCode: "11219", citySlug: "ageo", cityName: "上尾市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0720, support: 0.0270, care: 0.0240 },
@@ -190,7 +190,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11222", citySlug: "soka", cityName: "草加市",
+    cityCode: "11221", citySlug: "soka", cityName: "草加市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0787, support: 0.0263, care: 0.0223 },
@@ -199,7 +199,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11223", citySlug: "koshigaya", cityName: "越谷市",
+    cityCode: "11222", citySlug: "koshigaya", cityName: "越谷市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0750, support: 0.0250, care: 0.0220 },
@@ -208,7 +208,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11224", citySlug: "warabi", cityName: "蕨市",
+    cityCode: "11223", citySlug: "warabi", cityName: "蕨市",
     note: "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率10%。",
     caps: CAPS_650,
     assetLevy: { medical: 0.10 },
@@ -219,7 +219,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11225", citySlug: "toda", cityName: "戸田市",
+    cityCode: "11224", citySlug: "toda", cityName: "戸田市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0800, support: 0.0160, care: 0.0142 },
@@ -228,7 +228,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11227", citySlug: "iruma", cityName: "入間市",
+    cityCode: "11225", citySlug: "iruma", cityName: "入間市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0650, support: 0.0270, care: 0.0230 },
@@ -237,7 +237,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11229", citySlug: "asaka", cityName: "朝霞市",
+    cityCode: "11227", citySlug: "asaka", cityName: "朝霞市",
     note: "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率20%。",
     caps: CAPS_650,
     assetLevy: { medical: 0.20 },
@@ -248,7 +248,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11230", citySlug: "shiki", cityName: "志木市",
+    cityCode: "11228", citySlug: "shiki", cityName: "志木市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0735, support: 0.0240, care: 0.0220 },
@@ -257,7 +257,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11231", citySlug: "wako", cityName: "和光市",
+    cityCode: "11229", citySlug: "wako", cityName: "和光市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0730, support: 0.0230, care: 0.0180 },
@@ -266,7 +266,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11232", citySlug: "niiza", cityName: "新座市",
+    cityCode: "11230", citySlug: "niiza", cityName: "新座市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0730, support: 0.0232, care: 0.0222 },
@@ -275,7 +275,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11233", citySlug: "okegawa", cityName: "桶川市",
+    cityCode: "11231", citySlug: "okegawa", cityName: "桶川市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0720, support: 0.0220, care: 0.0180 },
@@ -284,7 +284,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11234", citySlug: "kuki", cityName: "久喜市",
+    cityCode: "11232", citySlug: "kuki", cityName: "久喜市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0781, support: 0.0309, care: 0.0287 },
@@ -293,7 +293,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11235", citySlug: "kitamoto", cityName: "北本市",
+    cityCode: "11233", citySlug: "kitamoto", cityName: "北本市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0730, support: 0.0280, care: 0.0220 },
@@ -302,7 +302,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11236", citySlug: "yashio", cityName: "八潮市",
+    cityCode: "11234", citySlug: "yashio", cityName: "八潮市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0780, support: 0.0250, care: 0.0230 },
@@ -312,7 +312,7 @@ export const MUNICIPALITIES = [
   },
   {
     // slug競合: 長野県富士見町(fujimi)と重複 → fujimishi
-    cityCode: "11237", citySlug: "fujimishi", cityName: "富士見市",
+    cityCode: "11235", citySlug: "fujimishi", cityName: "富士見市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0749, support: 0.0242, care: 0.0194 },
@@ -321,7 +321,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11239", citySlug: "misato", cityName: "三郷市",
+    cityCode: "11237", citySlug: "misato", cityName: "三郷市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0720, support: 0.0250, care: 0.0220 },
@@ -330,7 +330,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11240", citySlug: "hasuda", cityName: "蓮田市",
+    cityCode: "11238", citySlug: "hasuda", cityName: "蓮田市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0715, support: 0.0250, care: 0.0185 },
@@ -339,7 +339,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11241", citySlug: "sakado", cityName: "坂戸市",
+    cityCode: "11239", citySlug: "sakado", cityName: "坂戸市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0784, support: 0.0233, care: 0.0198 },
@@ -348,7 +348,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11242", citySlug: "satte", cityName: "幸手市",
+    cityCode: "11240", citySlug: "satte", cityName: "幸手市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0760, support: 0.0260, care: 0.0230 },
@@ -357,7 +357,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11243", citySlug: "tsurugashima", cityName: "鶴ヶ島市",
+    cityCode: "11241", citySlug: "tsurugashima", cityName: "鶴ヶ島市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0730, support: 0.0240, care: 0.0230 },
@@ -366,7 +366,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11244", citySlug: "hidaka", cityName: "日高市",
+    cityCode: "11242", citySlug: "hidaka", cityName: "日高市",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0790, support: 0.0290, care: 0.0250 },
@@ -375,7 +375,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11245", citySlug: "yoshikawa", cityName: "吉川市",
+    cityCode: "11243", citySlug: "yoshikawa", cityName: "吉川市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0690, support: 0.0250, care: 0.0230 },
@@ -384,7 +384,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11247", citySlug: "fujimino", cityName: "ふじみ野市",
+    cityCode: "11245", citySlug: "fujimino", cityName: "ふじみ野市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0756, support: 0.0218, care: 0.0214 },
@@ -393,7 +393,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11248", citySlug: "shiraoka", cityName: "白岡市",
+    cityCode: "11246", citySlug: "shiraoka", cityName: "白岡市",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0715, support: 0.0254, care: 0.0225 },
@@ -424,7 +424,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11341", citySlug: "moroyama", cityName: "毛呂山町",
+    cityCode: "11326", citySlug: "moroyama", cityName: "毛呂山町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0690, support: 0.0271, care: 0.0226 },
@@ -433,7 +433,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11342", citySlug: "ogose", cityName: "越生町",
+    cityCode: "11327", citySlug: "ogose", cityName: "越生町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0740, support: 0.0200, care: 0.0190 },
@@ -442,7 +442,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11361", citySlug: "namegawa", cityName: "滑川町",
+    cityCode: "11341", citySlug: "namegawa", cityName: "滑川町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0760, support: 0.0270, care: 0.0240 },
@@ -451,7 +451,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11362", citySlug: "ranzan", cityName: "嵐山町",
+    cityCode: "11342", citySlug: "ranzan", cityName: "嵐山町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0760, support: 0.0260, care: 0.0220 },
@@ -461,7 +461,7 @@ export const MUNICIPALITIES = [
   },
   {
     // slug競合: 長野県小川村(ogawa)と重複 → ogawacho
-    cityCode: "11363", citySlug: "ogawacho", cityName: "小川町",
+    cityCode: "11343", citySlug: "ogawacho", cityName: "小川町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0720, support: 0.0260, care: 0.0230 },
@@ -470,7 +470,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11365", citySlug: "kawajima", cityName: "川島町",
+    cityCode: "11346", citySlug: "kawajima", cityName: "川島町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0620, support: 0.0240, care: 0.0190 },
@@ -479,7 +479,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11366", citySlug: "yoshimi", cityName: "吉見町",
+    cityCode: "11347", citySlug: "yoshimi", cityName: "吉見町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0750, support: 0.0280, care: 0.0230 },
@@ -488,7 +488,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11367", citySlug: "hatoyama", cityName: "鳩山町",
+    cityCode: "11348", citySlug: "hatoyama", cityName: "鳩山町",
     caps: CAPS_650,
     rates: {
       rate:      { medical: 0.0680, support: 0.0160, care: 0.0140 },
@@ -497,7 +497,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11369", citySlug: "tokigawa", cityName: "ときがわ町",
+    cityCode: "11349", citySlug: "tokigawa", cityName: "ときがわ町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0770, support: 0.0200, care: 0.0190 },
@@ -506,7 +506,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11381", citySlug: "yokoze", cityName: "横瀬町",
+    cityCode: "11361", citySlug: "yokoze", cityName: "横瀬町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0620, support: 0.0280, care: 0.0240 },
@@ -515,7 +515,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11382", citySlug: "minano", cityName: "皆野町",
+    cityCode: "11362", citySlug: "minano", cityName: "皆野町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0685, support: 0.0280, care: 0.0255 },
@@ -524,7 +524,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11383", citySlug: "nagatoro", cityName: "長瀞町",
+    cityCode: "11363", citySlug: "nagatoro", cityName: "長瀞町",
     note: "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率16%。",
     caps: CAPS_NAT,
     assetLevy: { medical: 0.16 },
@@ -535,7 +535,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11384", citySlug: "ogano", cityName: "小鹿野町",
+    cityCode: "11365", citySlug: "ogano", cityName: "小鹿野町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0620, support: 0.0273, care: 0.0236 },
@@ -544,7 +544,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11385", citySlug: "higashichichibu", cityName: "東秩父村",
+    cityCode: "11369", citySlug: "higashichichibu", cityName: "東秩父村",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0509, support: 0.0260, care: 0.0233 },
@@ -554,7 +554,7 @@ export const MUNICIPALITIES = [
   },
   {
     // slug競合: 埼玉県三郷市(misato)と重複 → misatomachi
-    cityCode: "11401", citySlug: "misatomachi", cityName: "美里町",
+    cityCode: "11381", citySlug: "misatomachi", cityName: "美里町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0680, support: 0.0240, care: 0.0190 },
@@ -563,7 +563,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11402", citySlug: "kamikawa", cityName: "神川町",
+    cityCode: "11383", citySlug: "kamikawa", cityName: "神川町",
     note: "医療分のみ平等割・資産割あり（4h[m]構造）。資産割率15%。",
     caps: CAPS_NAT,
     assetLevy: { medical: 0.15 },
@@ -574,7 +574,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11404", citySlug: "kamisato", cityName: "上里町",
+    cityCode: "11385", citySlug: "kamisato", cityName: "上里町",
     caps: CAPS_NAT,
     rates: {
       rate:      { medical: 0.0665, support: 0.0260, care: 0.0240 },

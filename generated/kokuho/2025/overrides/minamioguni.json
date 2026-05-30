@@ -1,0 +1,21 @@
+{
+  "citySlug": "minamioguni",
+  "cityName": "南小国町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0877,
+      "support": 0.0299,
+      "care": 0.0205
+    },
+    "perCapita": {
+      "medical": 30637,
+      "support": 10434,
+      "care": 13366
+    },
+    "household": {
+      "medical": 20706,
+      "support": 7052
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "oguni",
+  "cityName": "小国町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0847,
+      "support": 0.031,
+      "care": 0.0248
+    },
+    "perCapita": {
+      "medical": 29593,
+      "support": 10791,
+      "care": 16201
+    },
+    "household": {
+      "medical": 20000,
+      "support": 7293
+    }
+  }
+}

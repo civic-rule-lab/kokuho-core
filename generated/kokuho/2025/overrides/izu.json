@@ -1,0 +1,20 @@
+{
+  "citySlug": "izu",
+  "cityName": "伊豆市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0724,
+      "support": 0.0289
+    },
+    "perCapita": {
+      "medical": 30313,
+      "support": 11718,
+      "care": 16480
+    },
+    "household": {
+      "medical": 19834,
+      "support": 7667
+    }
+  }
+}

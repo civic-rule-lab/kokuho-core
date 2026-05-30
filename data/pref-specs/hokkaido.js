@@ -475,7 +475,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01370", citySlug: "setana", cityName: "せたな町",
+    cityCode: "01371", citySlug: "setana", cityName: "せたな町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0789, support: 0.0245, care: 0.0184 },
@@ -484,7 +484,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01371", citySlug: "imakane", cityName: "今金町",
+    cityCode: "01370", citySlug: "imakane", cityName: "今金町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0839, support: 0.0273, care: 0.0203 },
@@ -493,7 +493,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01381", citySlug: "shimamaki", cityName: "島牧村",
+    cityCode: "01391", citySlug: "shimamaki", cityName: "島牧村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.087, support: 0.024, care: 0.015 },
@@ -502,7 +502,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01382", citySlug: "suttsu", cityName: "寿都町",
+    cityCode: "01392", citySlug: "suttsu", cityName: "寿都町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.078, support: 0.026000000000000002, care: 0.019 },
@@ -511,7 +511,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01383", citySlug: "kuromatsunai", cityName: "黒松内町",
+    cityCode: "01393", citySlug: "kuromatsunai", cityName: "黒松内町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07400000000000001, support: 0.026000000000000002, care: 0.017 },
@@ -520,7 +520,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01384", citySlug: "rankoshi", cityName: "蘭越町",
+    cityCode: "01394", citySlug: "rankoshi", cityName: "蘭越町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.45, support: 0.15, care: 0.07 },
@@ -531,7 +531,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01385", citySlug: "niseko", cityName: "ニセコ町",
+    cityCode: "01395", citySlug: "niseko", cityName: "ニセコ町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08, support: 0.0258, care: 0.019799999999999998 },
@@ -540,7 +540,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01386", citySlug: "makkari", cityName: "真狩村",
+    cityCode: "01396", citySlug: "makkari", cityName: "真狩村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0767, support: 0.026600000000000002, care: 0.0204 },
@@ -549,7 +549,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01387", citySlug: "rusutsu", cityName: "留寿都村",
+    cityCode: "01397", citySlug: "rusutsu", cityName: "留寿都村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0683, support: 0.0271, care: 0.0202 },
@@ -558,7 +558,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01388", citySlug: "kimobetsu", cityName: "喜茂別町",
+    cityCode: "01398", citySlug: "kimobetsu", cityName: "喜茂別町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0721, support: 0.0258, care: 0.0199 },
@@ -567,7 +567,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01389", citySlug: "kyogoku", cityName: "京極町",
+    cityCode: "01399", citySlug: "kyogoku", cityName: "京極町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.085, support: 0.037000000000000005, care: 0.011000000000000001 },
@@ -576,7 +576,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01390", citySlug: "kutchan", cityName: "倶知安町",
+    cityCode: "01400", citySlug: "kutchan", cityName: "倶知安町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.075, support: 0.022000000000000002, care: 0.0175 },
@@ -585,7 +585,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01391", citySlug: "kyowa", cityName: "共和町",
+    cityCode: "01401", citySlug: "kyowa", cityName: "共和町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08800000000000001, support: 0.035, care: 0.02 },
@@ -594,7 +594,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01392", citySlug: "iwanai", cityName: "岩内町",
+    cityCode: "01402", citySlug: "iwanai", cityName: "岩内町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.142, support: 0.041, care: 0.049 },
@@ -605,7 +605,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01393", citySlug: "tomari", cityName: "泊村",
+    cityCode: "01403", citySlug: "tomari", cityName: "泊村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.4215, support: 0.0221, care: 0.046 },
@@ -616,7 +616,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01394", citySlug: "kamoenai", cityName: "神恵内村",
+    cityCode: "01404", citySlug: "kamoenai", cityName: "神恵内村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.64, support: 0.125, care: 0.087 },
@@ -627,7 +627,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01395", citySlug: "shakotan", cityName: "積丹町",
+    cityCode: "01405", citySlug: "shakotan", cityName: "積丹町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.6, support: 0.19, care: 0.13 },
@@ -638,7 +638,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01396", citySlug: "furubira", cityName: "古平町",
+    cityCode: "01406", citySlug: "furubira", cityName: "古平町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.8, support: 0.1, care: 0.14 },
@@ -649,7 +649,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01397", citySlug: "niki", cityName: "仁木町",
+    cityCode: "01407", citySlug: "niki", cityName: "仁木町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.065, support: 0.025, care: 0.013000000000000001 },
@@ -658,7 +658,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01398", citySlug: "yoichi", cityName: "余市町",
+    cityCode: "01408", citySlug: "yoichi", cityName: "余市町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0862, support: 0.025699999999999997, care: 0.0169 },
@@ -667,7 +667,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01399", citySlug: "akaiwa", cityName: "赤井川村",
+    cityCode: "01409", citySlug: "akaiwa", cityName: "赤井川村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.6, support: 0.1, care: 0.1 },
@@ -705,7 +705,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01426", citySlug: "yuni", cityName: "由仁町",
+    cityCode: "01427", citySlug: "yuni", cityName: "由仁町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.076, support: 0.021, care: 0.013999999999999999 },
@@ -714,7 +714,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01427", citySlug: "naganuma", cityName: "長沼町",
+    cityCode: "01428", citySlug: "naganuma", cityName: "長沼町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.081, support: 0.025, care: 0.018000000000000002 },
@@ -723,7 +723,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01428", citySlug: "kuriyama", cityName: "栗山町",
+    cityCode: "01429", citySlug: "kuriyama", cityName: "栗山町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.085, support: 0.022000000000000002, care: 0.015 },
@@ -732,7 +732,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01429", citySlug: "tsukigata", cityName: "月形町",
+    cityCode: "01430", citySlug: "tsukigata", cityName: "月形町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.064, support: 0.022000000000000002, care: 0.016 },
@@ -741,7 +741,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01430", citySlug: "urausu", cityName: "浦臼町",
+    cityCode: "01431", citySlug: "urausu", cityName: "浦臼町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07, support: 0.023, care: 0.016 },
@@ -750,7 +750,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01431", citySlug: "shintotsu", cityName: "新十津川町",
+    cityCode: "01432", citySlug: "shintotsu", cityName: "新十津川町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.1, support: 0.0175, care: 0.02 },
@@ -761,7 +761,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01432", citySlug: "moseushi", cityName: "妹背牛町",
+    cityCode: "01433", citySlug: "moseushi", cityName: "妹背牛町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.020099999999999996, support: 0.0087, care: 0.0063 },
@@ -770,7 +770,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01433", citySlug: "chippubetsu", cityName: "秩父別町",
+    cityCode: "01434", citySlug: "chippubetsu", cityName: "秩父別町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.0988, support: 0.0231, care: 0.0481 },
@@ -781,7 +781,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01434", citySlug: "uryu", cityName: "雨竜町",
+    cityCode: "01436", citySlug: "uryu", cityName: "雨竜町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.075, support: 0.025, care: 0.02 },
@@ -790,7 +790,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01435", citySlug: "hokuryu", cityName: "北竜町",
+    cityCode: "01437", citySlug: "hokuryu", cityName: "北竜町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.0105, support: 0.0034, care: 0.0037 },
@@ -801,7 +801,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01436", citySlug: "numata", cityName: "沼田町",
+    cityCode: "01438", citySlug: "numata", cityName: "沼田町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.2, support: 0, care: 0 },
@@ -812,7 +812,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01438", citySlug: "horokanai", cityName: "幌加内町",
+    cityCode: "01472", citySlug: "horokanai", cityName: "幌加内町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.044199999999999996, support: 0.0104, care: 0.0105 },
@@ -859,7 +859,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01457", citySlug: "kamikawa", cityName: "上川町",
+    cityCode: "11383", citySlug: "kamikawa", cityName: "上川町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0736, support: 0.025, care: 0.0191 },
@@ -868,7 +868,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01462", citySlug: "kamifurano", cityName: "上富良野町",
+    cityCode: "01460", citySlug: "kamifurano", cityName: "上富良野町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07400000000000001, support: 0.026000000000000002, care: 0.016 },
@@ -877,7 +877,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01463", citySlug: "nakafurano", cityName: "中富良野町",
+    cityCode: "01461", citySlug: "nakafurano", cityName: "中富良野町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08199999999999999, support: 0.027000000000000003, care: 0.018000000000000002 },
@@ -886,7 +886,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01464", citySlug: "minamifurano", cityName: "南富良野町",
+    cityCode: "01462", citySlug: "minamifurano", cityName: "南富良野町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.26, support: 0.06, care: 0.06 },
@@ -897,7 +897,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01465", citySlug: "shimukappu", cityName: "占冠村",
+    cityCode: "01463", citySlug: "shimukappu", cityName: "占冠村",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.069, support: 0.031, care: 0.021 },
@@ -906,7 +906,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01468", citySlug: "wassamu", cityName: "和寒町",
+    cityCode: "01464", citySlug: "wassamu", cityName: "和寒町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07, support: 0.025, care: 0.02 },
@@ -915,7 +915,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01469", citySlug: "kembuchi", cityName: "剣淵町",
+    cityCode: "01465", citySlug: "kembuchi", cityName: "剣淵町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.051, support: 0.019, care: 0.013999999999999999 },
@@ -924,7 +924,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01472", citySlug: "shimokawa", cityName: "下川町",
+    cityCode: "01468", citySlug: "shimokawa", cityName: "下川町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.6, support: 0.25, care: 0.062 },
@@ -935,7 +935,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01473", citySlug: "bifuka", cityName: "美深町",
+    cityCode: "01469", citySlug: "bifuka", cityName: "美深町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.062, support: 0.023, care: 0.0165 },
@@ -944,7 +944,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01474", citySlug: "otoineppu", cityName: "音威子府村",
+    cityCode: "01470", citySlug: "otoineppu", cityName: "音威子府村",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.5, support: 0.1, care: 0.09 },
@@ -955,7 +955,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01475", citySlug: "nakagawa", cityName: "中川町",
+    cityCode: "20386", citySlug: "nakagawa", cityName: "中川町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.053399999999999996, support: 0.013999999999999999, care: 0.0106 },
@@ -1035,7 +1035,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01517", citySlug: "horonobe", cityName: "幌延町",
+    cityCode: "01520", citySlug: "horonobe", cityName: "幌延町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.055, support: 0.026000000000000002, care: 0.016 },
@@ -1091,7 +1091,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01518", citySlug: "rebun", cityName: "礼文町",
+    cityCode: "01517", citySlug: "rebun", cityName: "礼文町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.062, support: 0.019, care: 0.013999999999999999 },
@@ -1100,7 +1100,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01519", citySlug: "rishiri", cityName: "利尻町",
+    cityCode: "01518", citySlug: "rishiri", cityName: "利尻町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.075, support: 0.022000000000000002, care: 0.017 },
@@ -1109,7 +1109,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01520", citySlug: "rishirifuji", cityName: "利尻富士町",
+    cityCode: "01519", citySlug: "rishirifuji", cityName: "利尻富士町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.065, support: 0.023, care: 0.017 },
@@ -1118,7 +1118,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01544", citySlug: "ozora", cityName: "大空町",
+    cityCode: "01564", citySlug: "ozora", cityName: "大空町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0751, support: 0.024900000000000002, care: 0.0233 },
@@ -1127,7 +1127,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01541", citySlug: "bihoro", cityName: "美幌町",
+    cityCode: "01543", citySlug: "bihoro", cityName: "美幌町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.084, support: 0.027000000000000003, care: 0.018000000000000002 },
@@ -1136,7 +1136,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01542", citySlug: "tsubetsu", cityName: "津別町",
+    cityCode: "01544", citySlug: "tsubetsu", cityName: "津別町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07400000000000001, support: 0.024, care: 0.021 },
@@ -1145,7 +1145,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01543", citySlug: "shari", cityName: "斜里町",
+    cityCode: "01545", citySlug: "shari", cityName: "斜里町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0904, support: 0.026699999999999998, care: 0.020499999999999997 },
@@ -1154,7 +1154,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01545", citySlug: "kiyosato", cityName: "清里町",
+    cityCode: "01546", citySlug: "kiyosato", cityName: "清里町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.071, support: 0.02, care: 0.013999999999999999 },
@@ -1163,7 +1163,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01546", citySlug: "koshimizu", cityName: "小清水町",
+    cityCode: "01547", citySlug: "koshimizu", cityName: "小清水町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.07780000000000001, support: 0.024, care: 0.0288 },
@@ -1172,7 +1172,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01548", citySlug: "kunneppu", cityName: "訓子府町",
+    cityCode: "01549", citySlug: "kunneppu", cityName: "訓子府町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.02, support: 0.03, care: 0.01 },
@@ -1183,7 +1183,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01549", citySlug: "oketo", cityName: "置戸町",
+    cityCode: "01550", citySlug: "oketo", cityName: "置戸町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.05, support: 0.02, care: 0.005 },
@@ -1194,7 +1194,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01551", citySlug: "saroma", cityName: "佐呂間町",
+    cityCode: "01552", citySlug: "saroma", cityName: "佐呂間町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.019, support: 0.007, care: 0.004 },
@@ -1272,7 +1272,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01576", citySlug: "toyako", cityName: "洞爺湖町",
+    cityCode: "01584", citySlug: "toyako", cityName: "洞爺湖町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.117, support: 0.045, care: 0.025 },
@@ -1283,7 +1283,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01572", citySlug: "sobetsu", cityName: "壮瞥町",
+    cityCode: "01575", citySlug: "sobetsu", cityName: "壮瞥町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.157, support: 0.1, care: 0.08 },
@@ -1294,7 +1294,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01581", citySlug: "shiraoi", cityName: "白老町",
+    cityCode: "01578", citySlug: "shiraoi", cityName: "白老町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.087, support: 0.021, care: 0.017 },
@@ -1303,7 +1303,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01584", citySlug: "abira", cityName: "安平町",
+    cityCode: "01585", citySlug: "abira", cityName: "安平町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.51, support: 0.054, care: 0.1 },
@@ -1314,7 +1314,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01585", citySlug: "atsuma", cityName: "厚真町",
+    cityCode: "01581", citySlug: "atsuma", cityName: "厚真町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0874, support: 0.026099999999999998, care: 0.0196 },
@@ -1323,7 +1323,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01587", citySlug: "mukawa", cityName: "むかわ町",
+    cityCode: "01586", citySlug: "mukawa", cityName: "むかわ町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0852, support: 0.0277, care: 0.0204 },
@@ -1332,7 +1332,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01601", citySlug: "biratori", cityName: "平取町",
+    cityCode: "01602", citySlug: "biratori", cityName: "平取町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08900000000000001, support: 0.027000000000000003, care: 0.016 },
@@ -1341,7 +1341,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01604", citySlug: "hidaka", cityName: "日高町",
+    cityCode: "11242", citySlug: "hidaka", cityName: "日高町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.073, support: 0.025, care: 0.016 },
@@ -1350,7 +1350,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01605", citySlug: "niikappu", cityName: "新冠町",
+    cityCode: "01604", citySlug: "niikappu", cityName: "新冠町",
     note: "4方式（所得割+資産割+均等割+平等割）",
     caps: { medical: 660000, support: 260000, care: 170000 },
     assetLevy: { medical: 0.38, support: 0.12, care: 0.04 },
@@ -1361,7 +1361,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01607", citySlug: "shinhidaka", cityName: "新ひだか町",
+    cityCode: "01610", citySlug: "shinhidaka", cityName: "新ひだか町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08900000000000001, support: 0.028999999999999998, care: 0.02 },
@@ -1370,7 +1370,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01608", citySlug: "urakawa", cityName: "浦河町",
+    cityCode: "01607", citySlug: "urakawa", cityName: "浦河町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.08779999999999999, support: 0.0215, care: 0.0139 },
@@ -1379,7 +1379,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01609", citySlug: "samani", cityName: "様似町",
+    cityCode: "01608", citySlug: "samani", cityName: "様似町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0855, support: 0.0252, care: 0.0183 },
@@ -1388,7 +1388,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01610", citySlug: "erimo", cityName: "えりも町",
+    cityCode: "01609", citySlug: "erimo", cityName: "えりも町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0843, support: 0.0279, care: 0.020499999999999997 },
@@ -1507,7 +1507,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "01644", citySlug: "ikeda", cityName: "池田町",
+    cityCode: "20481", citySlug: "ikeda", cityName: "池田町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.078, support: 0.025, care: 0.017 },

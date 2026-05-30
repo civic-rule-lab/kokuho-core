@@ -1,0 +1,22 @@
+{
+  "citySlug": "yorocho",
+  "cityName": "養老町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0692,
+      "support": 0.0301,
+      "care": 0.0305
+    },
+    "perCapita": {
+      "medical": 27700,
+      "support": 11600,
+      "care": 9000
+    },
+    "household": {
+      "medical": 29000,
+      "support": 4200,
+      "care": 8000
+    }
+  }
+}

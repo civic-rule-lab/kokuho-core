@@ -1,0 +1,21 @@
+{
+  "citySlug": "uto",
+  "cityName": "宇土市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0773,
+      "support": 0.0315,
+      "care": 0.0249
+    },
+    "perCapita": {
+      "medical": 27015,
+      "support": 10961,
+      "care": 16234
+    },
+    "household": {
+      "medical": 18258,
+      "support": 7408
+    }
+  }
+}

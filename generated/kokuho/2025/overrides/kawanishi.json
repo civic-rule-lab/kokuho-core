@@ -1,0 +1,21 @@
+{
+  "citySlug": "kawanishi",
+  "cityName": "川西市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0707,
+      "support": 0.0276,
+      "care": 0.0269
+    },
+    "perCapita": {
+      "medical": 29000,
+      "support": 10200,
+      "care": 11600
+    },
+    "household": {
+      "medical": 20800,
+      "care": 6000
+    }
+  }
+}

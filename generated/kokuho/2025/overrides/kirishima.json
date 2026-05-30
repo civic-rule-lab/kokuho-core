@@ -1,0 +1,22 @@
+{
+  "citySlug": "kirishima",
+  "cityName": "霧島市",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.0287,
+      "care": 0.0245
+    },
+    "perCapita": {
+      "medical": 29092,
+      "support": 12068,
+      "care": 12205
+    },
+    "household": {
+      "medical": 18845,
+      "support": 7817,
+      "care": 6073
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "shikaoibetsu",
+  "cityName": "鹿追町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.078,
+      "support": 0.019,
+      "care": 0.018000000000000002
+    },
+    "perCapita": {
+      "medical": 29000,
+      "care": 12300
+    },
+    "household": {
+      "medical": 30000,
+      "support": 12000,
+      "care": 8000
+    }
+  }
+}

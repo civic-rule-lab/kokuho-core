@@ -1,0 +1,22 @@
+{
+  "citySlug": "hagi",
+  "cityName": "萩市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0774,
+      "support": 0.0239,
+      "care": 0.0215
+    },
+    "perCapita": {
+      "medical": 27100,
+      "support": 8500,
+      "care": 9400
+    },
+    "household": {
+      "medical": 21000,
+      "support": 6500,
+      "care": 5400
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "citySlug": "ogi",
+  "cityName": "小城市",
+  "signature": "3h|670-260-170|R7std|pre",
+  "override": {
+    "rate": {
+      "support": 0.029,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 32500,
+      "support": 9400,
+      "care": 9000
+    },
+    "household": {
+      "medical": 34900,
+      "support": 9400,
+      "care": 5200
+    }
+  }
+}

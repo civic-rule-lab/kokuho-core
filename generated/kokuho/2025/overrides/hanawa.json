@@ -1,0 +1,22 @@
+{
+  "citySlug": "hanawa",
+  "cityName": "塙町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0657,
+      "support": 0.0273,
+      "care": 0.0226
+    },
+    "perCapita": {
+      "medical": 28543,
+      "support": 11745,
+      "care": 11454
+    },
+    "household": {
+      "medical": 18948,
+      "support": 7797,
+      "care": 5745
+    }
+  }
+}

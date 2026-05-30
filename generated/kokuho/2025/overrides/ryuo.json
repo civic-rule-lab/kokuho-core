@@ -1,0 +1,22 @@
+{
+  "citySlug": "ryuo",
+  "cityName": "竜王町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.06,
+      "support": 0.025,
+      "care": 0.021
+    },
+    "perCapita": {
+      "medical": 25100,
+      "support": 10200,
+      "care": 11800
+    },
+    "household": {
+      "medical": 18900,
+      "support": 7600,
+      "care": 6000
+    }
+  }
+}

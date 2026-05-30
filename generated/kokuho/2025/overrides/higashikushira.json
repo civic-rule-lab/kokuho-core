@@ -1,0 +1,22 @@
+{
+  "citySlug": "higashikushira",
+  "cityName": "東串良町",
+  "signature": "3h|650-240-170|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0686,
+      "support": 0.0286,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 29325,
+      "support": 12020,
+      "care": 11928
+    },
+    "household": {
+      "medical": 18996,
+      "support": 7786,
+      "care": 5935
+    }
+  }
+}

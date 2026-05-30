@@ -1,0 +1,22 @@
+{
+  "citySlug": "higashishirakawa",
+  "cityName": "東白川村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.068,
+      "support": 0.025,
+      "care": 0.0185
+    },
+    "perCapita": {
+      "medical": 30000,
+      "support": 11000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 25000,
+      "support": 9500,
+      "care": 7000
+    }
+  }
+}

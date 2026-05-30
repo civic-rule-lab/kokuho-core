@@ -75,7 +75,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "09207", citySlug: "oyama", cityName: "小山市",
+    cityCode: "09208", citySlug: "oyama", cityName: "小山市",
     rates: {
       rate:      { medical: 0.0706, support: 0.0291, care: 0.0242 },
       perCapita: { medical: 30832,  support: 12584,  care: 12471  },
@@ -83,7 +83,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "09208", citySlug: "moka", cityName: "真岡市",
+    cityCode: "09209", citySlug: "moka", cityName: "真岡市",
     rates: {
       rate:      { medical: 0.0638, support: 0.0283, care: 0.0237 },
       perCapita: { medical: 27873,  support: 12227,  care: 12215  },
@@ -91,7 +91,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "09209", citySlug: "otawara", cityName: "大田原市",
+    cityCode: "09210", citySlug: "otawara", cityName: "大田原市",
     rates: {
       rate:      { medical: 0.0551, support: 0.0243, care: 0.0202 },
       perCapita: { medical: 24044,  support: 10494,  care: 10440  },
@@ -99,7 +99,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "09210", citySlug: "yaita", cityName: "矢板市",
+    cityCode: "09211", citySlug: "yaita", cityName: "矢板市",
     rates: {
       rate:      { medical: 0.0627, support: 0.0281, care: 0.0230 },
       perCapita: { medical: 27392,  support: 12138,  care: 11886  },
@@ -190,7 +190,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "09362", citySlug: "nogi", cityName: "野木町",
+    cityCode: "09364", citySlug: "nogi", cityName: "野木町",
     rates: {
       rate:      { medical: 0.0638, support: 0.0276, care: 0.0226 },
       perCapita: { medical: 27842,  support: 11945,  care: 11643  },

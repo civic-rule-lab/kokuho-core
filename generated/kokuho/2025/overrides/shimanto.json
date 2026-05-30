@@ -1,0 +1,22 @@
+{
+  "citySlug": "shimanto",
+  "cityName": "四万十市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.064,
+      "support": 0.032,
+      "care": 0.026
+    },
+    "perCapita": {
+      "medical": 22000,
+      "support": 11000,
+      "care": 13000
+    },
+    "household": {
+      "medical": 15000,
+      "support": 7000,
+      "care": 6000
+    }
+  }
+}

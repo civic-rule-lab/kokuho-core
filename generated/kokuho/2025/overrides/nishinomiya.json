@@ -1,0 +1,22 @@
+{
+  "citySlug": "nishinomiya",
+  "cityName": "西宮市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0729,
+      "support": 0.029,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 32280,
+      "support": 12480,
+      "care": 12840
+    },
+    "household": {
+      "medical": 20640,
+      "support": 7680,
+      "care": 6240
+    }
+  }
+}

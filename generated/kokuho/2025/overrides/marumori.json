@@ -1,0 +1,22 @@
+{
+  "citySlug": "marumori",
+  "cityName": "丸森町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.052,
+      "support": 0.0413,
+      "care": 0.0164
+    },
+    "perCapita": {
+      "medical": 19800,
+      "support": 11300,
+      "care": 9100
+    },
+    "household": {
+      "medical": 16400,
+      "support": 9400,
+      "care": 5200
+    }
+  }
+}

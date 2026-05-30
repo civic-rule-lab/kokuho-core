@@ -1,0 +1,22 @@
+{
+  "citySlug": "shiraoi",
+  "cityName": "白老町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.087,
+      "support": 0.021,
+      "care": 0.017
+    },
+    "perCapita": {
+      "medical": 21000,
+      "support": 4500,
+      "care": 4400
+    },
+    "household": {
+      "medical": 27000,
+      "support": 9000,
+      "care": 6800
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "citySlug": "kami",
+  "cityName": "加美町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.076,
+      "support": 0.019,
+      "care": 0.015
+    },
+    "perCapita": {
+      "medical": 22800,
+      "support": 6000,
+      "care": 7200
+    },
+    "household": {
+      "medical": 17000,
+      "support": 8400,
+      "care": 6000
+    }
+  }
+}

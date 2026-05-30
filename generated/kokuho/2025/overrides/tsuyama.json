@@ -1,0 +1,21 @@
+{
+  "citySlug": "tsuyama",
+  "cityName": "津山市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.077,
+      "support": 0.03,
+      "care": 0.028
+    },
+    "perCapita": {
+      "medical": 23400,
+      "care": 9000
+    },
+    "household": {
+      "medical": 16800,
+      "support": 6000,
+      "care": 4800
+    }
+  }
+}

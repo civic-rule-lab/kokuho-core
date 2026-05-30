@@ -175,7 +175,7 @@ export const MUNICIPALITIES = [
   },
   {
     // R7未確認。隠岐離島。slug衝突回避（愛知県あま市と区別）
-    cityCode: "32601", citySlug: "amamachi", cityName: "海士町",
+    cityCode: "32525", citySlug: "amamachi", cityName: "海士町",
     rates: {
       rate:      { medical: 0.0880, support: 0.0290, care: 0.0250 },
       perCapita: { medical: 30000,  support: 9800,   care: 10200  },
@@ -184,7 +184,7 @@ export const MUNICIPALITIES = [
   },
   {
     // R7未確認。隠岐離島
-    cityCode: "32602", citySlug: "nishinoshima", cityName: "西ノ島町",
+    cityCode: "32526", citySlug: "nishinoshima", cityName: "西ノ島町",
     rates: {
       rate:      { medical: 0.0870, support: 0.0285, care: 0.0245 },
       perCapita: { medical: 29500,  support: 9600,   care: 10000  },
@@ -193,7 +193,7 @@ export const MUNICIPALITIES = [
   },
   {
     // R7未確認。隠岐離島
-    cityCode: "32603", citySlug: "chibumura", cityName: "知夫村",
+    cityCode: "32527", citySlug: "chibumura", cityName: "知夫村",
     rates: {
       rate:      { medical: 0.0860, support: 0.0280, care: 0.0240 },
       perCapita: { medical: 29000,  support: 9300,   care: 9700   },
@@ -202,7 +202,7 @@ export const MUNICIPALITIES = [
   },
   {
     // R7未確認。隠岐離島
-    cityCode: "32604", citySlug: "okinoshima", cityName: "隠岐の島町",
+    cityCode: "32528", citySlug: "okinoshima", cityName: "隠岐の島町",
     rates: {
       rate:      { medical: 0.0890, support: 0.0292, care: 0.0252 },
       perCapita: { medical: 30500,  support: 9900,   care: 10300  },

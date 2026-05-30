@@ -1,0 +1,22 @@
+{
+  "citySlug": "minami-alps",
+  "cityName": "南アルプス市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0618,
+      "support": 0.0234,
+      "care": 0.0175
+    },
+    "perCapita": {
+      "medical": 23500,
+      "support": 8600,
+      "care": 9000
+    },
+    "household": {
+      "medical": 22500,
+      "support": 7800,
+      "care": 6700
+    }
+  }
+}

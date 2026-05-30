@@ -1,0 +1,22 @@
+{
+  "citySlug": "katsurao",
+  "cityName": "葛尾村",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.053,
+      "support": 0.0273,
+      "care": 0.022
+    },
+    "perCapita": {
+      "medical": 23021,
+      "support": 11747,
+      "care": 11128
+    },
+    "household": {
+      "medical": 15283,
+      "support": 7798,
+      "care": 5582
+    }
+  }
+}

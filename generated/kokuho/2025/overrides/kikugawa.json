@@ -1,0 +1,21 @@
+{
+  "citySlug": "kikugawa",
+  "cityName": "菊川市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0702,
+      "support": 0.0295,
+      "care": 0.0239
+    },
+    "perCapita": {
+      "medical": 29404,
+      "support": 11962,
+      "care": 17165
+    },
+    "household": {
+      "medical": 19239,
+      "support": 7827
+    }
+  }
+}

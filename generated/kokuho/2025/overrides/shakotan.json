@@ -1,0 +1,27 @@
+{
+  "citySlug": "shakotan",
+  "cityName": "積丹町",
+  "signature": "4h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.075,
+      "support": 0.018000000000000002,
+      "care": 0.013999999999999999
+    },
+    "perCapita": {
+      "medical": 24000,
+      "support": 7500,
+      "care": 9400
+    },
+    "household": {
+      "medical": 38000,
+      "support": 6300,
+      "care": 6000
+    },
+    "assetLevy": {
+      "medical": 0.6,
+      "support": 0.19,
+      "care": 0.13
+    }
+  }
+}

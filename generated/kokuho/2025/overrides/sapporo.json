@@ -1,0 +1,22 @@
+{
+  "citySlug": "sapporo",
+  "cityName": "札幌市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0935,
+      "support": 0.0278,
+      "care": 0.0254
+    },
+    "perCapita": {
+      "medical": 19830,
+      "support": 6150,
+      "care": 5790
+    },
+    "household": {
+      "medical": 33380,
+      "support": 10330,
+      "care": 7690
+    }
+  }
+}

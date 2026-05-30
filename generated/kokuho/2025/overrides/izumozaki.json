@@ -1,0 +1,21 @@
+{
+  "citySlug": "izumozaki",
+  "cityName": "出雲崎町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0679,
+      "support": 0.03,
+      "care": 0.0256
+    },
+    "perCapita": {
+      "medical": 29102,
+      "support": 18109,
+      "care": 18653
+    },
+    "household": {
+      "medical": 19133,
+      "support": 0
+    }
+  }
+}

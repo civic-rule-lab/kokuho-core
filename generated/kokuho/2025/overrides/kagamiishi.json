@@ -1,0 +1,21 @@
+{
+  "citySlug": "kagamiishi",
+  "cityName": "鏡石町",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.0625,
+      "support": 0.0277
+    },
+    "perCapita": {
+      "medical": 27146,
+      "support": 11896,
+      "care": 11654
+    },
+    "household": {
+      "medical": 18021,
+      "support": 7897,
+      "care": 5846
+    }
+  }
+}

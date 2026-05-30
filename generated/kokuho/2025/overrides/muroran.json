@@ -1,0 +1,22 @@
+{
+  "citySlug": "muroran",
+  "cityName": "室蘭市",
+  "signature": "3h|nat|R7std|pre",
+  "override": {
+    "rate": {
+      "medical": 0.094,
+      "support": 0.027000000000000003,
+      "care": 0.025
+    },
+    "perCapita": {
+      "medical": 26070,
+      "support": 12560,
+      "care": 12020
+    },
+    "household": {
+      "medical": 29060,
+      "support": 1710,
+      "care": 1020
+    }
+  }
+}
