@@ -148,11 +148,11 @@ function buildTrustBadge(data, publishYear) {
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
   }
 
-  // 県標準保険料率（参考値）: 市町村が未告示で、県公表の標準料率を暫定採用している場合。
-  // 標準料率は法定外繰入ゼロ前提の理論値のため、実際の料率と異なる場合がある旨を明示する。
+  // 県標準保険料率（参考値）= standard_r8: バッジは出さない。
+  // 同じ内容を結果直下の青枠カード（buildStandardNote / __STANDARD_NOTE__）で丁寧に表示するため、
+  // 小バッジ＋免責行は重複になるので省略する。
   if (data.meta?.lifecycle?.r8Stage === "standard_r8" || data.meta?.source?.type === "prefecture_standard") {
-    return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--standard">県標準保険料率（参考値）／市町村は未告示・法定外繰入等で実際の料率と異なる場合があります</span></p>`;
+    return "";
   }
 
   if (publishYear >= currentFY) {
@@ -162,6 +162,18 @@ function buildTrustBadge(data, publishYear) {
 
   return `
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(publishYear)}データ使用中 / 令和8年度は順次更新中</span></p>`;
+}
+
+// 県標準保険料率（参考値 = standard_r8）採用ページにのみ表示する青枠の注意書き。
+// 計算結果直下（バッジの近く）に置く。verified / R7 ページでは空文字。
+function buildStandardNote(data, cityName, prefecture) {
+  const isStandard = data?.meta?.lifecycle?.r8Stage === "standard_r8" || data?.meta?.source?.type === "prefecture_standard";
+  if (!isStandard) return "";
+  return `
+  <div class="standard-note" style="margin-top:16px;padding:14px 16px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;">
+    <p style="margin:0 0 6px;font-size:15px;font-weight:700;color:#1d4ed8;">【ご注意】令和8年度の料率について</p>
+    <p style="margin:0;font-size:13px;line-height:1.8;color:#374151;">このページの令和8年度の保険料率は、${prefecture}が公表した<strong>標準保険料率（参考値）</strong>です。${cityName}が実際に決定・告示する保険料率とは異なる場合があります。標準保険料率は、各市町村の法定外繰入等を行わない前提で県が算定した理論上の値です。確定した料率は${cityName}の公式案内をご確認ください。</p>
+  </div>`;
 }
 
 // 都道府県の住民税補足（※と同列の小テキスト）
@@ -319,6 +331,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const rateTable      = buildRateTable(cityName, data, publishYear);
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
+  const standardNote   = buildStandardNote(data, cityName, prefecture);
   const prefDesc       = buildPrefectureDesc(prefSlug, prefecture, cityName);
   const fiscalYearLabel = buildFiscalYearLabel(publishYear);
 
@@ -331,6 +344,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__RATE_TABLE__",         rateTable)
     .replaceAll("__INTRO_TEXT__",         introText)
     .replaceAll("__TRUST_BADGE__",        trustBadge)
+    .replaceAll("__STANDARD_NOTE__",      standardNote)
     .replaceAll("__PREFECTURE_DESC__",    prefDesc)
     .replaceAll("__FISCAL_YEAR_LABEL__",  fiscalYearLabel)
     .replaceAll("__PUBLISH_YEAR__",       String(publishYear))

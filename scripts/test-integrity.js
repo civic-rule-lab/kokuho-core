@@ -545,6 +545,7 @@ if (shouldRun("G")) {
     template_r7: 0,
     source_found_r8: 1,
     extracted_r8: 2,
+    standard_r8: 2,
     tested_r8: 3,
     verified_r8: 4,
   };
@@ -558,9 +559,11 @@ if (shouldRun("G")) {
     verifiedRequiredFields: [],
     verifiedSourceStatusViolation: [],
     extractedOnlyMisVerified: [],
+    standardR8Requirements: [],
   };
   let r8Count = 0;
   let verifiedR8Count = 0;
+  let standardR8Count = 0;
 
   for (const slug of dirs) {
     const dp = path.join(DATA_DIR, slug);
@@ -609,10 +612,22 @@ if (shouldRun("G")) {
       if (EXTRACTED_ONLY_SOURCE_STATUSES.has(lc.sourceStatus) && stage === "verified_r8") {
         violations.extractedOnlyMisVerified.push(`${slug}/${f}: sourceStatus="${lc.sourceStatus}" は extracted_r8 止まりだが r8Stage=verified_r8`);
       }
+
+      // G-5: standard_r8（県標準保険料率を参考値採用・市町村未告示）→ source.type=prefecture_standard かつ sourceUrls 必須。
+      //      verified_r8 とは別トラックで、verified の必須フィールド（verifiedAt 等）は課さない。
+      if (stage === "standard_r8") {
+        standardR8Count++;
+        const okType = j.meta?.source?.type === "prefecture_standard";
+        const okUrls = Array.isArray(lc.sourceUrls) && lc.sourceUrls.length > 0;
+        if (!okType || !okUrls) {
+          const miss = [!okType ? "source.type≠prefecture_standard" : null, !okUrls ? "sourceUrls空" : null].filter(Boolean).join(", ");
+          violations.standardR8Requirements.push(`${slug}/${f}: standard_r8 だが ${miss}`);
+        }
+      }
     }
   }
 
-  console.log(`  対象: kokuho-2026.json で lifecycle 定義済 ${r8Count} 件 / うち verified_r8 ${verifiedR8Count} 件`);
+  console.log(`  対象: kokuho-2026.json で lifecycle 定義済 ${r8Count} 件 / うち verified_r8 ${verifiedR8Count} 件 / standard_r8 ${standardR8Count} 件`);
 
   if (violations.sourceUrlsRequired.length === 0) {
     passLine(`G-1: source_found_r8 以上の自治体は sourceUrls 必須を満たす`);
@@ -633,6 +648,11 @@ if (shouldRun("G")) {
     passLine(`G-4: 議案系 sourceStatus が verified_r8 に誤昇格していない`);
   } else {
     failLine("G", `G-4: 議案系 sourceStatus が verified_r8 ${violations.extractedOnlyMisVerified.length} 件`, violations.extractedOnlyMisVerified);
+  }
+  if (violations.standardR8Requirements.length === 0) {
+    passLine(`G-5: standard_r8 は source.type=prefecture_standard + sourceUrls を満たす`);
+  } else {
+    failLine("G", `G-5: standard_r8 要件不足 ${violations.standardR8Requirements.length} 件`, violations.standardR8Requirements);
   }
 }
 
