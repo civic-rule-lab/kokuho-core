@@ -148,6 +148,13 @@ function buildTrustBadge(data, publishYear) {
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ 参考計算（公式データ未収録）</span></p>`;
   }
 
+  // 県標準保険料率（参考値）: 市町村が未告示で、県公表の標準料率を暫定採用している場合。
+  // 標準料率は法定外繰入ゼロ前提の理論値のため、実際の料率と異なる場合がある旨を明示する。
+  if (data.meta?.lifecycle?.r8Stage === "standard_r8" || data.meta?.source?.type === "prefecture_standard") {
+    return `
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--standard">県標準保険料率（参考値）／市町村は未告示・法定外繰入等で実際の料率と異なる場合があります</span></p>`;
+  }
+
   if (publishYear >= currentFY) {
     return `
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(publishYear)}公式データ確認済み</span></p>`;
