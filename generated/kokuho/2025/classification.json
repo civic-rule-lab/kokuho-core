@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-31T05:52:34.424Z",
+  "generatedAt": "2026-06-03T12:50:50.355Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 1727,
+  "totalMunicipalities": 1730,
   "groups": {
     "3h|nat|R7std|pre": {
-      "count": 1284,
+      "count": 1287,
       "exactCount": 0,
       "description": {
         "signature": "3h|nat|R7std|pre",
@@ -7717,6 +7717,24 @@
           "slug": "ota-gunma",
           "name": "太田市",
           "pref": "群馬県",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashikawa",
+          "name": "東川町",
+          "pref": "北海道",
+          "hasOverride": true
+        },
+        {
+          "slug": "biei",
+          "name": "美瑛町",
+          "pref": "北海道",
+          "hasOverride": true
+        },
+        {
+          "slug": "higashikagura",
+          "name": "東神楽町",
+          "pref": "北海道",
           "hasOverride": true
         }
       ]
