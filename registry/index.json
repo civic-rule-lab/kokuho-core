@@ -19713,7 +19713,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19726,7 +19726,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19739,7 +19739,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19752,7 +19752,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19765,7 +19765,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19778,7 +19778,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19791,7 +19791,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19804,7 +19804,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19817,7 +19817,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19830,7 +19830,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19843,7 +19843,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19856,7 +19856,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19869,7 +19869,7 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19882,9 +19882,48 @@
         "kokuho"
       ],
       "publishYear": {
-        "kokuho": 2025
+        "kokuho": 2026
       },
       "prefectureSlug": "fukui"
+    },
+    {
+      "cityCode": "18322",
+      "citySlug": "eiheiji",
+      "cityName": "永平寺町",
+      "prefecture": "福井県",
+      "prefectureSlug": "fukui",
+      "systems": [
+        "kokuho"
+      ],
+      "publishYear": {
+        "kokuho": 2026
+      }
+    },
+    {
+      "cityCode": "18483",
+      "citySlug": "ooi",
+      "cityName": "おおい町",
+      "prefecture": "福井県",
+      "prefectureSlug": "fukui",
+      "systems": [
+        "kokuho"
+      ],
+      "publishYear": {
+        "kokuho": 2026
+      }
+    },
+    {
+      "cityCode": "18501",
+      "citySlug": "wakasa",
+      "cityName": "若狭町",
+      "prefecture": "福井県",
+      "prefectureSlug": "fukui",
+      "systems": [
+        "kokuho"
+      ],
+      "publishYear": {
+        "kokuho": 2026
+      }
     },
     {
       "cityCode": "05201",
