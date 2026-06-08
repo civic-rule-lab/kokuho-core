@@ -59,6 +59,7 @@ export function generateSignature(data) {
       assetLevy.medical != null ? "m" : "",
       assetLevy.support != null ? "s" : "",
       assetLevy.care    != null ? "c" : "",
+      assetLevy.childcare != null ? "k" : "",
     ].filter(Boolean).join("");
     // 全3区分でない場合は区分を明示
     if (sections !== "msc") calcType += `[${sections}]`;
