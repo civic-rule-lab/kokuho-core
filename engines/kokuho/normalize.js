@@ -134,6 +134,7 @@ export function normalize(raw) {
     if (al.medical != null) out.assetLevy.medical = coerceRate(al.medical, "assetLevy.medical");
     if (al.support != null) out.assetLevy.support = coerceRate(al.support, "assetLevy.support");
     if (al.care    != null) out.assetLevy.care    = coerceRate(al.care,    "assetLevy.care");
+    if (al.childcare != null) out.assetLevy.childcare = coerceRate(al.childcare, "assetLevy.childcare");
   }
 
   // ─ 未就学児軽減 ───────────────────────────────────────────────

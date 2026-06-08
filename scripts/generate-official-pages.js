@@ -269,7 +269,7 @@ function buildRateTable(cityName, data, publishYear) {
 
   const childcare   = data.childcareLevy ?? null;
   const hasHousehold = (hh.medical || 0) + (hh.support || 0) + (hh.care || 0) + (childcare?.household || 0) > 0;
-  const hasAsset     = asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0)) > 0;
+  const hasAsset     = asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0) + (asset.childcare || 0)) > 0;
 
   // 子ども・子育て支援金分の均等割表示（18歳未満と18歳以上で異なる場合）
   const childcarePcLabel = childcare
@@ -284,7 +284,7 @@ function buildRateTable(cityName, data, publishYear) {
     { label: "医療分",          r: rate.medical,  p: pc.medical,  h: hh.medical,  c: caps.medical,  a: asset?.medical },
     { label: "後期高齢者支援金分", r: rate.support, p: pc.support,  h: hh.support,  c: caps.support,  a: asset?.support },
     { label: "介護分（40〜64歳）", r: rate.care,   p: pc.care,     h: hh.care,     c: caps.care,     a: asset?.care },
-    ...(childcare ? [{ label: "子ども・子育て支援金分", r: childcare.rate, pLabel: childcarePcLabel, h: childcare.household, c: childcare.cap ?? 30000 }] : []),
+    ...(childcare ? [{ label: "子ども・子育て支援金分", r: childcare.rate, pLabel: childcarePcLabel, h: childcare.household, c: childcare.cap ?? 30000, a: asset?.childcare }] : []),
   ];
 
   const thStyle = "padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:center;border:1px solid #e5e7eb;white-space:nowrap;";
