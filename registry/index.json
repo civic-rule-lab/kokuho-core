@@ -6,11 +6,13 @@
       "cityName": "横浜市",
       "prefecture": "神奈川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -19,11 +21,13 @@
       "cityName": "川崎市",
       "prefecture": "神奈川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -32,11 +36,13 @@
       "cityName": "相模原市",
       "prefecture": "神奈川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -2138,11 +2144,13 @@
       "cityName": "さいたま市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -2957,11 +2965,13 @@
       "cityName": "千葉市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -3659,11 +3669,13 @@
       "cityName": "大阪市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -3672,11 +3684,13 @@
       "cityName": "堺市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -4218,11 +4232,13 @@
       "cityName": "北九州市",
       "prefecture": "福岡県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "fukuoka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -4231,11 +4247,13 @@
       "cityName": "福岡市",
       "prefecture": "福岡県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "fukuoka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -4999,10 +5017,12 @@
       "prefecture": "京都府",
       "prefectureSlug": "kyoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -5337,10 +5357,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -6039,10 +6061,12 @@
       "prefecture": "北海道",
       "prefectureSlug": "hokkaido",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -8869,10 +8893,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -10923,10 +10949,12 @@
       "prefecture": "兵庫県",
       "prefectureSlug": "hyogo",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -11040,10 +11068,12 @@
       "prefecture": "兵庫県",
       "prefectureSlug": "hyogo",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -11456,10 +11486,12 @@
       "prefecture": "静岡県",
       "prefectureSlug": "shizuoka",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -11469,10 +11501,12 @@
       "prefecture": "静岡県",
       "prefectureSlug": "shizuoka",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -11911,10 +11945,12 @@
       "prefecture": "広島県",
       "prefectureSlug": "hiroshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -12756,10 +12792,12 @@
       "prefecture": "岡山県",
       "prefectureSlug": "okayama",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -14498,10 +14536,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -16539,10 +16579,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {

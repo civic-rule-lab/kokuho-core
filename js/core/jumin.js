@@ -33,6 +33,38 @@ const JUMIN_DEFAULTS = {
 
 // ─── 計算関数 ─────────────────────────────────────────────────
 
+// ─── 非課税限度額（標準・生活保護1級地） ───────────────────────────
+// 均等割: 35万円 ×（本人＋同一生計配偶者＋扶養親族）＋ 10万円 ＋ 加算21万円（扶養等がいる場合）
+// 所得割: 35万円 ×（同上）＋ 10万円 ＋ 加算32万円（扶養等がいる場合）
+// dependents = 同一生計配偶者＋扶養親族の数（本人を除く）。単身は 0。
+function _kintoNonTaxableLimit(dependents) {
+  const n = 1 + Math.max(0, dependents | 0);
+  return 350_000 * n + 100_000 + (dependents > 0 ? 210_000 : 0);
+}
+function _shotokuNonTaxableLimit(dependents) {
+  const n = 1 + Math.max(0, dependents | 0);
+  return 350_000 * n + 100_000 + (dependents > 0 ? 320_000 : 0);
+}
+
+// ─── 調整控除（所得割の税額控除） ─────────────────────────────────
+// 税源移譲に伴う所得税・住民税の人的控除差を調整する。
+//   課税総所得金額 ≤ 200万円: min(人的控除差合計, 課税総所得金額) × 5%
+//   課税総所得金額 > 200万円: { 人的控除差合計 −（課税総所得金額 − 200万円）} × 5%（最低 2,500円）
+//   合計所得金額 2,500万円超: 適用なし
+// 内訳は県民税2%＋市民税3%＝5%。差額の標準は基礎控除差 5万円（単身）。
+function _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome) {
+  if (taxableIncome <= 0) return 0;
+  if (totalIncome > 25_000_000) return 0;
+  const diff = Math.max(0, humanDeductionDiff);
+  let base;
+  if (taxableIncome <= 2_000_000) {
+    base = Math.min(diff, taxableIncome);
+  } else {
+    base = Math.max(diff - (taxableIncome - 2_000_000), 50_000);
+  }
+  return Math.floor(base * 0.05);
+}
+
 /**
  * 個人住民税を計算する。
  *
@@ -47,14 +79,21 @@ const JUMIN_DEFAULTS = {
  * @param {number} [inputs.dependentDeduction=0]
  * @param {number} [inputs.disabilityDeduction=0]
  * @param {number} [inputs.singleParentDeduction=0]
+ * @param {number} [inputs.lifeInsuranceDeduction=0] - 生命保険料控除
+ * @param {number} [inputs.earthquakeInsuranceDeduction=0] - 地震保険料控除
+ * @param {number} [inputs.medicalDeduction=0]   - 医療費控除
+ * @param {number} [inputs.dependents=0]          - 同一生計配偶者＋扶養親族の数（非課税判定用）
+ * @param {number} [inputs.humanDeductionDiff=50000] - 人的控除差の合計（調整控除用。標準=基礎控除差5万）
+ * @param {number} [inputs.taxCredits=0]          - ふるさと納税・住宅ローン等の税額控除合計（所得割から控除）
  * @returns {Object}
- *   taxableIncome    - 課税所得（所得割の算定基礎）
+ *   taxableIncome    - 課税総所得金額（所得割の算定基礎）
  *   totalIncome      - 合計所得金額（介護保険段階判定に使用）
- *   incomeLevy       - 所得割
+ *   incomeLevy       - 所得割（調整控除・税額控除適用後）
+ *   adjustmentCredit - 適用した調整控除額
  *   perCapita        - 均等割（森林環境税を含む）
  *   total            - 年間住民税
  *   monthly          - 月額目安
- *   isTaxable        - 住民税課税者か（介護保険段階判定に使用）
+ *   isTaxable        - 均等割課税者か（介護保険段階判定に使用）
  */
 function calculateJumin(data, inputs) {
   const cfg = { ...JUMIN_DEFAULTS, ...(data || {}) };
@@ -66,36 +105,52 @@ function calculateJumin(data, inputs) {
     dependentDeduction = 0,
     disabilityDeduction = 0,
     singleParentDeduction = 0,
+    lifeInsuranceDeduction = 0,
+    earthquakeInsuranceDeduction = 0,
+    medicalDeduction = 0,
+    dependents = 0,
+    humanDeductionDiff = 50_000,
+    taxCredits = 0,
   } = inputs || {};
 
   // 合計所得金額（介護保険段階判定・基礎控除前）
   const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome });
 
-  // 住民税課税所得（所得控除後）
-  const taxableIncome = _income.calcTaxableIncomeForJumin({
+  // 住民税課税所得（所得控除後）。1,000円未満切捨て（課税標準）。
+  const taxableRaw = _income.calcTaxableIncomeForJumin({
     salary, pension, age, otherIncome,
-    socialInsurance, spouseDeduction, dependentDeduction,
+    socialInsurance,
+    spouseDeduction, dependentDeduction,
     disabilityDeduction, singleParentDeduction,
-    basicDeductionJumin: cfg.basicDeductionJumin,
+    // 保険料・医療費控除も所得控除として差し引く
+    basicDeductionJumin:
+      cfg.basicDeductionJumin + lifeInsuranceDeduction + earthquakeInsuranceDeduction + medicalDeduction,
   });
+  const taxableIncome = Math.floor(taxableRaw / 1000) * 1000;
 
-  // 所得割
-  const incomeLevy = Math.floor(taxableIncome * (cfg.prefRate + cfg.cityRate));
+  // ── 非課税判定（標準・1級地） ──
+  const kintoTaxable   = totalIncome > _kintoNonTaxableLimit(dependents);
+  const shotokuTaxable = taxableIncome > 0 && totalIncome > _shotokuNonTaxableLimit(dependents);
 
-  // 課税判定（Phase 1 簡易版: 課税所得 > 0 を課税の代理変数とする）
-  // 正確には合計所得金額 ≤ 35万円（単身）→ 均等割非課税 だが、
-  // 課税所得 = 0 の場合は合計所得 ≤ 43万円（基礎控除）なので非課税に落ちる。
-  const isTaxable = taxableIncome > 0;
+  // ── 所得割（調整控除・税額控除適用後） ──
+  let incomeLevy = 0;
+  let adjustmentCredit = 0;
+  if (shotokuTaxable) {
+    const gross = Math.floor(taxableIncome * (cfg.prefRate + cfg.cityRate));
+    adjustmentCredit = _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome);
+    incomeLevy = Math.max(0, gross - adjustmentCredit - Math.max(0, taxCredits));
+    incomeLevy = Math.floor(incomeLevy / 100) * 100; // 100円未満切捨て
+  }
 
-  // 均等割 + 森林環境税（課税者のみ）
-  const perCapita = isTaxable
+  // ── 均等割 ＋ 森林環境税（均等割課税者のみ） ──
+  const perCapita = kintoTaxable
     ? cfg.prefPerCapita + cfg.cityPerCapita + cfg.forestTax
     : 0;
 
   const total   = incomeLevy + perCapita;
   const monthly = Math.round(total / 12);
 
-  return { taxableIncome, totalIncome, incomeLevy, perCapita, total, monthly, isTaxable };
+  return { taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly, isTaxable: kintoTaxable };
 }
 
 if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS };
