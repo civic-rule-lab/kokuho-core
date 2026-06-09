@@ -83,6 +83,150 @@ function buildCalcExamples(cityName, data, publishYear) {
   </section>`;
 }
 
+// ─────────────────────────────────────────────────────────────────
+// 計算例 enrichment ①: R7→R8 料率変化（市固有コンテンツ＝SEO索引対策）
+// ─────────────────────────────────────────────────────────────────
+
+// 近隣比較・前年比較で同じ JSON を何度も読むためのキャッシュ
+const _cityDataCache = new Map();
+function loadCityDataCached(citySlug, publishYear) {
+  const key = `${citySlug}:${publishYear}`;
+  if (!_cityDataCache.has(key)) _cityDataCache.set(key, loadCityData(citySlug, publishYear));
+  return _cityDataCache.get(key);
+}
+
+// 比較用の代表モデル（既存の計算例と同じ前提）
+const COMPARE_MODEL = { label: "夫婦2人（年収500万円・40代）", salary: 5_000_000, age: 40, family: 2 };
+
+function calcModelTotal(data, model = COMPARE_MODEL) {
+  const income = calcSalaryIncome(model.salary);
+  const r = calculateKokuho(
+    { income, family: model.family, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 },
+    data
+  );
+  return r.total;
+}
+
+function sumRate(data)      { const r = data?.rate ?? {};      return (r.medical || 0) + (r.support || 0) + (r.care || 0); }
+function sumPerCapita(data) { const p = data?.perCapita ?? {}; return (p.medical || 0) + (p.support || 0) + (p.care || 0); }
+
+// R7→R8 の料率変化セクション。publishYear=2026 のページで、2025 データがある場合のみ生成。
+function buildRateChangeSection(cityName, citySlug, data, publishYear) {
+  if (publishYear !== 2026 || !data) return "";
+  const prev = loadCityDataCached(citySlug, 2025);
+  if (!prev) return "";
+
+  const isStandard = data.meta?.lifecycle?.r8Stage === "standard_r8" || data.meta?.source?.type === "prefecture_standard";
+
+  const r7Rate = sumRate(prev), r8Rate = sumRate(data);
+  const r7Pc   = sumPerCapita(prev), r8Pc = sumPerCapita(data);
+  const r7Total = calcModelTotal(prev), r8Total = calcModelTotal(data);
+
+  const trend = (a, b, up = "上昇", down = "引き下げ", flat = "据え置き") =>
+    b > a ? up : b < a ? down : flat;
+
+  // 索引対策の核となる固有プローズ（「9.6%→9.87%に上昇」型）
+  const rateSentence = r8Rate === r7Rate
+    ? `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度から${fmtRate(r8Rate)}で据え置きです。`
+    : `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度の${fmtRate(r7Rate)}から令和8年度は${fmtRate(r8Rate)}に${trend(r7Rate, r8Rate)}しました。`;
+  const diffYen = r8Total - r7Total;
+  const totalSentence = diffYen === 0
+    ? `${COMPARE_MODEL.label}のモデル世帯では、年間保険料の目安は約${fmtYen(r8Total)}で前年度と同水準です。`
+    : `${COMPARE_MODEL.label}のモデル世帯では、年間保険料の目安は約${fmtYen(r7Total)}→約${fmtYen(r8Total)}（${diffYen > 0 ? "＋" : "−"}${fmtYen(Math.abs(diffYen))}）となります。`;
+
+  const standardCaveat = isStandard
+    ? `<p style="font-size:11px;color:#6b7280;margin:8px 0 0;">※令和8年度の値は県の標準保険料率（参考値）に基づく比較です。市が決定する実際の料率とは異なる場合があります。</p>`
+    : "";
+
+  const thStyle = "padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:left;border:1px solid #e5e7eb;white-space:nowrap;";
+  const tdStyle = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;";
+  const tdL     = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;font-weight:600;";
+
+  const row = (label, a, b, fmt) =>
+    `<tr><td style="${tdL}">${label}</td><td style="${tdStyle}">${fmt(a)}</td><td style="${tdStyle}">${fmt(b)}</td>` +
+    `<td style="${tdStyle}">${b === a ? "→ 据え置き" : (b > a ? "↑ 上昇" : "↓ 低下")}</td></tr>`;
+
+  return `
+  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${cityName}の国保料率の推移（令和7年度→令和8年度）</h2>
+    <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:0 0 12px;">${rateSentence}${totalSentence}</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead><tr><th style="${thStyle}">項目</th><th style="${thStyle}">令和7年度</th><th style="${thStyle}">令和8年度</th><th style="${thStyle}">増減</th></tr></thead>
+        <tbody>
+      ${row("所得割率（合計）", r7Rate, r8Rate, fmtRate)}
+      ${row("均等割額（合計・1人あたり）", r7Pc, r8Pc, fmtYen)}
+      ${row(`モデル世帯の年間保険料（${COMPARE_MODEL.label}）`, r7Total, r8Total, n => "約 " + fmtYen(n))}
+        </tbody>
+      </table>
+    </div>${standardCaveat}
+  </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 計算例 enrichment ②: 近隣自治体比較（市固有コンテンツ＝SEO索引対策）
+// ─────────────────────────────────────────────────────────────────
+
+// 同一都道府県内で cityCode が近い順に最大5自治体を選ぶ
+function pickNeighbors(self, municipalities, count = 5) {
+  const selfCode = parseInt(self.cityCode, 10);
+  return municipalities
+    .filter(m => m.prefecture === self.prefecture && m.citySlug !== self.citySlug && m.cityCode)
+    .sort((a, b) => Math.abs(parseInt(a.cityCode, 10) - selfCode) - Math.abs(parseInt(b.cityCode, 10) - selfCode))
+    .slice(0, count);
+}
+
+function buildNeighborCompareSection(self, data, publishYear, municipalities) {
+  if (!data || !self.cityCode) return "";
+  const neighbors = pickNeighbors(self, municipalities);
+  if (neighbors.length === 0) return "";
+
+  const selfTotal = calcModelTotal(data);
+  const rows = [];
+  for (const n of neighbors) {
+    const ny = n.publishYear?.kokuho ?? 2025;
+    const nd = loadCityDataCached(n.citySlug, ny);
+    if (!nd) continue;
+    rows.push({ name: n.cityName, year: ny, total: calcModelTotal(nd), diff: calcModelTotal(nd) - selfTotal });
+  }
+  if (rows.length < 2) return "";
+
+  const thStyle = "padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:left;border:1px solid #e5e7eb;white-space:nowrap;";
+  const tdStyle = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;";
+  const tdL     = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;";
+
+  const selfRow =
+    `<tr style="background:#eef2ff;"><td style="${tdL}font-weight:700;">${self.cityName}（このページ）</td>` +
+    `<td style="${tdStyle}font-weight:700;">約 ${fmtYen(selfTotal)}</td><td style="${tdStyle}">—</td></tr>`;
+  const body = rows.map(r =>
+    `<tr><td style="${tdL}">${r.name}</td><td style="${tdStyle}">約 ${fmtYen(r.total)}</td>` +
+    `<td style="${tdStyle}">${r.diff === 0 ? "同額" : (r.diff > 0 ? "＋" : "−") + fmtYen(Math.abs(r.diff))}</td></tr>`
+  ).join("\n      ");
+
+  const cheaper = rows.filter(r => r.diff > 0).length;
+  const position =
+    cheaper === rows.length ? `近隣${rows.length}自治体のいずれと比べても低い水準です` :
+    cheaper === 0           ? `近隣${rows.length}自治体と比べると高めの水準です` :
+                              `近隣${rows.length}自治体のうち${cheaper}自治体より低い水準です`;
+  const prose = `${COMPARE_MODEL.label}のモデル世帯で比較すると、${self.cityName}の年間保険料の目安は約${fmtYen(selfTotal)}で、${position}。国民健康保険料は自治体ごとに料率が異なるため、同じ収入・世帯構成でも金額に差が出ます。`;
+
+  return `
+  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${self.cityName}と近隣自治体の国保料比較</h2>
+    <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:0 0 12px;">${prose}</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead><tr><th style="${thStyle}">自治体</th><th style="${thStyle}">年間保険料（概算）</th><th style="${thStyle}">${self.cityName}との差</th></tr></thead>
+        <tbody>
+      ${selfRow}
+      ${body}
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:#6b7280;margin:8px 0 0;">※各自治体の公開年度の料率（令和7年度または令和8年度）に基づく概算です。減免・軽減の適用条件は自治体により異なります。</p>
+  </section>`;
+}
+
 function fileHash(...filePaths) {
   const h = createHash("sha256");
   for (const p of filePaths) h.update(readFileSync(p));
@@ -371,12 +515,16 @@ function buildRateTable(cityName, data, publishYear) {
 // render
 // ─────────────────────────────────────────────────────────────────
 
-function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIncome, publishYear }) {
+function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIncome, publishYear, regEntry, municipalities }) {
   const metaDesc       = buildMetaDesc(cityName, prefecture, data, isIncome, publishYear);
   const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
   const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear);
   const rateTable      = buildRateTable(cityName, data, publishYear);
-  const calcExamples   = isIncome ? "" : buildCalcExamples(cityName, data, publishYear);
+  const calcExamples   = isIncome ? "" : (
+    buildCalcExamples(cityName, data, publishYear) +
+    buildRateChangeSection(cityName, citySlug, data, publishYear) +
+    (regEntry && municipalities ? buildNeighborCompareSection(regEntry, data, publishYear, municipalities) : "")
+  );
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
   const standardNote   = buildStandardNote(data, cityName, prefecture);
@@ -420,10 +568,18 @@ if (targets.length === 0) {
   process.exit(1);
 }
 
+// 実行時間に制約がある環境向けの分割実行（例: GEN_SLICE=0:400 → 先頭400件のみ）
+let runTargets = targets;
+if (process.env.GEN_SLICE) {
+  const [s, c] = process.env.GEN_SLICE.split(":").map(Number);
+  runTargets = targets.slice(s, s + c);
+  console.log(`▶ GEN_SLICE=${process.env.GEN_SLICE}: ${runTargets.length}件を処理`);
+}
+
 let generated = 0;
 const skipped = [];
 
-for (const m of targets) {
+for (const m of runTargets) {
   const prefSlug = m.prefectureSlug ?? PREF_SLUG[m.prefecture];
   if (!prefSlug) {
     skipped.push(`${m.cityName}: 都道府県スラグ未定義 (${m.prefecture})`);
@@ -431,8 +587,8 @@ for (const m of targets) {
   }
 
   const publishYear = m.publishYear?.kokuho ?? 2025;
-  const data = loadCityData(m.citySlug, publishYear);
-  const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data, publishYear };
+  const data = loadCityDataCached(m.citySlug, publishYear);
+  const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data, publishYear, regEntry: m, municipalities: registry.municipalities };
 
   const dir = path.join(ROOT, prefSlug, m.citySlug);
   mkdirSync(dir, { recursive: true });

@@ -72,6 +72,95 @@ function buildJuminExamples(cityName, data, fy) {
   </div>`;
 }
 
+// ─── enrichment: 税率の特徴＋他都市比較（市固有コンテンツ＝SEO索引対策） ───
+
+const STD_PREF_RATE = 0.04, STD_CITY_RATE = 0.06; // 標準税率（政令市は県2%/市8%）
+const SEIREI_PREF_RATE = 0.02, SEIREI_CITY_RATE = 0.08;
+const COMPARE_SALARY = 5_000_000; // 比較モデル: 年収500万円・単身・40歳
+
+function rateLabel(r) { return (r * 100).toFixed(3).replace(/\.?0+$/, '') + '%'; }
+
+function modelTax(data) {
+  const social = Math.round(COMPARE_SALARY * 0.144);
+  return calculateJumin(data, { salary: COMPARE_SALARY, pension: 0, age: 40, socialInsurance: social }).total;
+}
+
+// 標準税率との比較プローズ（超過課税・減税の市だけ固有の文章になる）
+function buildRateCharacter(cityName, data) {
+  if (!data) return '';
+  const pr = data.prefRate ?? STD_PREF_RATE;
+  const cr = data.cityRate ?? STD_CITY_RATE;
+  const total = pr + cr;
+  const isSeirei = Math.abs(pr - SEIREI_PREF_RATE) < 0.005 || pr < 0.04; // 税源移譲（県2%/市8%）型
+  const stdTotal = 0.10;
+
+  let sentence;
+  if (Math.abs(total - stdTotal) < 0.0001) {
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、全国の標準税率と同じです。`;
+  } else if (total < stdTotal) {
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、標準税率の10%より${rateLabel(stdTotal - total)}低くなっています。`;
+  } else {
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、標準税率の10%より${rateLabel(total - stdTotal)}高い超過課税が行われています。`;
+  }
+  if (isSeirei && Math.abs(total - stdTotal) < 0.0001) {
+    sentence += `（政令指定都市は税源移譲により県民税2%・市民税8%の配分です）`;
+  }
+  return sentence;
+}
+
+// 他の公開都市との比較表。同一県の都市を優先し、cityCode が近い順に最大4都市。
+const _juminCache = new Map();
+function loadJuminCached(slug, year) {
+  const key = `${slug}:${year}`;
+  if (!_juminCache.has(key)) _juminCache.set(key, loadJumin(slug, year));
+  return _juminCache.get(key);
+}
+
+function buildJuminCompare(self, data, fy, publishedTargets) {
+  if (!data || !self.cityCode) return '';
+  const selfCode = parseInt(self.cityCode, 10);
+  const others = publishedTargets
+    .filter(m => m.citySlug !== self.citySlug && m.cityCode)
+    .sort((a, b) => {
+      const samePrefA = a.prefecture === self.prefecture ? 0 : 1;
+      const samePrefB = b.prefecture === self.prefecture ? 0 : 1;
+      if (samePrefA !== samePrefB) return samePrefA - samePrefB;
+      return Math.abs(parseInt(a.cityCode, 10) - selfCode) - Math.abs(parseInt(b.cityCode, 10) - selfCode);
+    })
+    .slice(0, 4);
+  if (others.length < 2) return '';
+
+  const selfTax = modelTax(data);
+  const rows = [];
+  for (const o of others) {
+    const oy = (o.publishYear && o.publishYear.jumin) || DEFAULT_YEAR;
+    const od = loadJuminCached(o.citySlug, oy);
+    if (!od) continue;
+    const t = modelTax(od);
+    rows.push({ name: o.cityName, rate: (od.prefRate ?? STD_PREF_RATE) + (od.cityRate ?? STD_CITY_RATE), tax: t, diff: t - selfTax });
+  }
+  if (rows.length < 2) return '';
+
+  const th = 'padding:6px 10px;background:#f3f6fb;font-size:12px;font-weight:600;text-align:left;border:1px solid #e5e7eb;white-space:nowrap;';
+  const td = 'padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;';
+  const tdR = td + 'text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;';
+
+  const selfRate = (data.prefRate ?? STD_PREF_RATE) + (data.cityRate ?? STD_CITY_RATE);
+  const selfRow = `<tr style="background:#eef2ff;"><td style="${td}font-weight:700;">${self.cityName}（このページ）</td>` +
+    `<td style="${tdR}font-weight:700;">${rateLabel(selfRate)}</td><td style="${tdR}font-weight:700;">約 ${selfTax.toLocaleString()}円</td><td style="${tdR}">—</td></tr>`;
+  const body = rows.map(r =>
+    `<tr><td style="${td}">${r.name}</td><td style="${tdR}">${rateLabel(r.rate)}</td><td style="${tdR}">約 ${r.tax.toLocaleString()}円</td>` +
+    `<td style="${tdR}">${r.diff === 0 ? '同額' : (r.diff > 0 ? '＋' : '−') + Math.abs(r.diff).toLocaleString() + '円'}</td></tr>`
+  ).join('');
+
+  return `
+  <div class="jt-card">
+    <div class="jt-card-title">${self.cityName}と他の都市の住民税比較（${fy}）</div>
+    <p style="font-size:11px;color:#6b7280;margin:0 0 8px;">年収500万円（単身・40歳）のモデルで、所得割の合計税率と住民税額の目安を比較しました。住民税は税率がほぼ全国一律のため大きな差は出ませんが、超過課税や減税を行う自治体では金額が変わります。</p>
+    <table class="jt-table"><thead><tr><th style="${th}">自治体</th><th style="${th}">所得割合計</th><th style="${th}">住民税（年額）</th><th style="${th}">差額</th></tr></thead><tbody>${selfRow}${body}</tbody></table>
+  </div>`;
+}
+
 // ─── バージョンハッシュ（キャッシュバスティング） ───
 function fileHash(...filePaths) {
   const h = createHash('sha256');
@@ -158,6 +247,11 @@ const tmplKakeibo = readFileSync(path.join(TMPL_DIR, 'city-integrated.html'), 'u
 const registry   = JSON.parse(readFileSync(REGISTRY, 'utf-8'));
 const targetSlug = process.argv[2] || null;
 
+// 比較表の母集団は常に「公開対象の全都市」（slug 指定実行時もブレないように）
+const publishedJumin = registry.municipalities.filter(
+  m => (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin)
+);
+
 let targets;
 if (targetSlug) {
   targets = registry.municipalities.filter(m => m.citySlug === targetSlug);
@@ -195,9 +289,9 @@ for (const m of targets) {
     '__META_DESC__': simpleDesc,
     '__CANONICAL_URL__': simpleUrl,
     '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール'),
-    '__INTRO_TEXT__': introText(cityName, fy, data),
+    '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data) : ''),
     '__JUMIN_DATA__': juminDataLiteral,
-    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy),
+    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin),
     '__PORTAL_LINK__': '../kakeibo/',
     '__PUBLISH_YEAR__': String(year),
     '__CSS_V__': CSS_V,
