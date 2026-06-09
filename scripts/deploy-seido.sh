@@ -140,6 +140,9 @@ fi
 
 # ── 6. push（オプション・GitHub Pages auto-deploy） ──────────────
 if [ "$PUSH" = true ]; then
+  # GitHub が custom domain 設定時に CNAME を自動コミットするとリモートが先行する。
+  # push 前に pull/merge して非fast-forward拒否を回避（2026-06-09 事案対策）。
+  git pull --no-rebase --no-edit origin main || true
   git push
   echo "✅ seido-keisan push 完了"
   cd "$CORE_DIR"; git push; echo "✅ kokuho-core push 完了"
