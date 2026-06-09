@@ -35,6 +35,53 @@ const BASE_URL  = "https://kokuho-keisan.jp";
 
 const _require = createRequire(import.meta.url);
 const { PREFECTURE_INFO } = _require("../js/core/prefecture-info.js");
+const { calculateKokuho } = _require("../js/core/kokuho.js");
+const { calcSalaryIncome, calcPensionIncome } = _require("../js/core/shared/income.js");
+
+// 世帯モデル別の計算例（市ごとに数字が変わる固有コンテンツ＝SEO索引対策）。
+// かんたん計算と同じ入力前提（所得＋世帯人数のみ・care/preschool等は0）で一致させる。
+const CALC_EXAMPLE_MODELS = [
+  { label: "単身（年収300万円）",          salary: 3_000_000, pension: 0,         age: 40, family: 1 },
+  { label: "夫婦2人（年収500万円）",       salary: 5_000_000, pension: 0,         age: 40, family: 2 },
+  { label: "夫婦＋子ども2人（年収600万円）", salary: 6_000_000, pension: 0,         age: 40, family: 4 },
+  { label: "年金暮らしの夫婦（年金250万円・65歳）", salary: 0,   pension: 2_500_000, age: 65, family: 2 },
+];
+
+function buildCalcExamples(cityName, data, publishYear) {
+  if (!data) return "";
+  const rows = CALC_EXAMPLE_MODELS.map(m => {
+    const income = calcSalaryIncome(m.salary) + calcPensionIncome(m.pension, m.age);
+    const r = calculateKokuho(
+      { income, family: m.family, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 },
+      data
+    );
+    return { label: m.label, total: r.total, monthly: r.monthly };
+  });
+
+  const thStyle = "padding:6px 10px;background:#f3f4f6;font-size:12px;font-weight:600;text-align:left;border:1px solid #e5e7eb;";
+  const tdStyle = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;";
+  const tdR     = tdStyle + "text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;";
+
+  const body = rows.map(r =>
+    `<tr><td style="${tdStyle}">${r.label}</td>` +
+    `<td style="${tdR}">約 ${fmtYen(r.total)}</td>` +
+    `<td style="${tdR}">約 ${fmtYen(r.monthly)}</td></tr>`
+  ).join("\n      ");
+
+  return `
+  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${cityName}の国民健康保険料の計算例（${buildFiscalYearLabel(publishYear)}）</h2>
+    <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（前年所得・世帯人数のみの概算）。</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead><tr><th style="${thStyle}">世帯モデル</th><th style="${thStyle}">年間保険料（概算）</th><th style="${thStyle}">月額目安</th></tr></thead>
+        <tbody>
+      ${body}
+        </tbody>
+      </table>
+    </div>
+  </section>`;
+}
 
 function fileHash(...filePaths) {
   const h = createHash("sha256");
@@ -329,6 +376,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
   const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear);
   const rateTable      = buildRateTable(cityName, data, publishYear);
+  const calcExamples   = isIncome ? "" : buildCalcExamples(cityName, data, publishYear);
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
   const standardNote   = buildStandardNote(data, cityName, prefecture);
@@ -342,6 +390,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__CANONICAL_URL__",      canonical)
     .replaceAll("__JSON_LD__",            jsonLd)
     .replaceAll("__RATE_TABLE__",         rateTable)
+    .replaceAll("__CALC_EXAMPLES__",      calcExamples)
     .replaceAll("__INTRO_TEXT__",         introText)
     .replaceAll("__TRUST_BADGE__",        trustBadge)
     .replaceAll("__STANDARD_NOTE__",      standardNote)

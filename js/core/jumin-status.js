@@ -10,7 +10,7 @@
  * @param {Date} [date]
  * @returns {number} 会計年度（例: 2026年4月〜2027年3月 → 2026）
  */
-export function getFiscalYear(date = new Date()) {
+function getFiscalYear(date = new Date()) {
   const year  = date.getFullYear();
   const month = date.getMonth() + 1;
   return month >= 4 ? year : year - 1;
@@ -22,7 +22,7 @@ export function getFiscalYear(date = new Date()) {
  * @param {Date} [currentDate]
  * @returns {'verified'|'needs_update'|'inferred'}
  */
-export function getDataStatus(spec, currentDate = new Date()) {
+function getDataStatus(spec, currentDate = new Date()) {
   if (!spec) return 'inferred';
   if (spec.status === 'inferred') return 'inferred';
 

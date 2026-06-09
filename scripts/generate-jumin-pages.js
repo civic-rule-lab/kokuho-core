@@ -29,6 +29,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, '..');
@@ -37,6 +38,39 @@ const REGISTRY  = path.join(ROOT, 'registry', 'index.json');
 const DATA_DIR  = path.join(ROOT, 'data', 'municipalities');
 const BASE_URL  = 'https://seido-keisan.jp';
 const DEFAULT_YEAR = 2026;
+
+const _require = createRequire(import.meta.url);
+const { calculateJumin } = _require('../js/core/jumin.js');
+const { calcSalaryIncome, calcPensionIncome } = _require('../js/core/shared/income.js');
+
+// 年収帯別の住民税 計算例（市ごとに数字が変わる固有コンテンツ＝SEO索引対策）。
+// かんたん計算ページと同じ前提（社保を給与の約14.4%で概算）で一致させる。
+const JUMIN_CALC_MODELS = [
+  { label: '年収300万円（単身）', salary: 3_000_000, pension: 0,         age: 40 },
+  { label: '年収500万円（単身）', salary: 5_000_000, pension: 0,         age: 40 },
+  { label: '年収700万円（単身）', salary: 7_000_000, pension: 0,         age: 40 },
+  { label: '公的年金250万円（65歳）', salary: 0,      pension: 2_500_000, age: 65 },
+];
+
+function buildJuminExamples(cityName, data, fy) {
+  const rows = JUMIN_CALC_MODELS.map(m => {
+    const social = Math.round(m.salary * 0.144);
+    const r = calculateJumin(data, { salary: m.salary, pension: m.pension, age: m.age, socialInsurance: social });
+    return { label: m.label, total: r.total, monthly: r.monthly };
+  });
+  const th = 'padding:6px 10px;background:#f3f6fb;font-size:12px;font-weight:600;text-align:left;border:1px solid #e5e7eb;';
+  const td = 'padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;';
+  const tdR = td + 'text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;';
+  const body = rows.map(r =>
+    `<tr><td style="${td}">${r.label}</td><td style="${tdR}">約 ${r.total.toLocaleString()}円</td><td style="${tdR}">約 ${r.monthly.toLocaleString()}円</td></tr>`
+  ).join('');
+  return `
+  <div class="jt-card">
+    <div class="jt-card-title">${cityName}の住民税の計算例（${fy}）</div>
+    <p style="font-size:11px;color:#6b7280;margin:0 0 8px;">${cityName}の税率で、年収別の住民税額の目安を試算しました（給与所得控除・社会保険料控除を概算した単身の概算）。</p>
+    <table class="jt-table"><thead><tr><th style="${th}">モデル</th><th style="${th}">住民税（年額）</th><th style="${th}">月額目安</th></tr></thead><tbody>${body}</tbody></table>
+  </div>`;
+}
 
 // ─── バージョンハッシュ（キャッシュバスティング） ───
 function fileHash(...filePaths) {
@@ -163,6 +197,7 @@ for (const m of targets) {
     '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール'),
     '__INTRO_TEXT__': introText(cityName, fy, data),
     '__JUMIN_DATA__': juminDataLiteral,
+    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy),
     '__PORTAL_LINK__': '../kakeibo/',
     '__PUBLISH_YEAR__': String(year),
     '__CSS_V__': CSS_V,
