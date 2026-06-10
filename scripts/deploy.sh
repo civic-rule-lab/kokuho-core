@@ -209,10 +209,23 @@ if [ "$PUSH" = true ]; then
   echo "✅ kokuho-core push 完了"
 
   # ── 6. Cloudflare Worker デプロイ ──────────────────────────────
+  # NOTE: 旧実装 `npx wrangler deploy | tail -5` は set -e でも tail の
+  # 終了コードしか見ないため、wrangler 失敗が ✅ 表示で握りつぶされていた
+  # (2026-06-10 CLOUDFLARE_API_TOKEN 未設定事案)。exit code を明示検査する。
   echo ""
   echo "▶ wrangler deploy"
   cd "$CORE_DIR/workers/api"
-  npx wrangler deploy 2>&1 | tail -5
+  WRANGLER_OUTPUT=$(npx wrangler deploy 2>&1) && WRANGLER_RC=0 || WRANGLER_RC=$?
+  echo "$WRANGLER_OUTPUT" | tail -5
+  if [ "$WRANGLER_RC" -ne 0 ]; then
+    echo ""
+    echo "❌ wrangler deploy 失敗 (exit code: $WRANGLER_RC)。デプロイを中断します。"
+    if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+      echo "   CLOUDFLARE_API_TOKEN が未設定です。"
+      echo "   export CLOUDFLARE_API_TOKEN=... を設定して再実行してください。"
+    fi
+    exit 1
+  fi
   echo "✅ Worker デプロイ完了"
 
   # ── 7. 本番疎通テスト（curl smoke test） ──────────────────────
@@ -249,7 +262,8 @@ if [ "$PUSH" = true ]; then
   if [ $SMOKE_FAIL -eq 0 ]; then
     echo "✅ 本番疎通テスト 全件 OK"
   else
-    echo "⚠️  本番疎通テスト ${SMOKE_FAIL} 件失敗（反映遅延の可能性・要手動確認）"
+    echo "❌ 本番疎通テスト ${SMOKE_FAIL} 件失敗（反映遅延の可能性・要手動確認）"
+    exit 1
   fi
 fi
 
