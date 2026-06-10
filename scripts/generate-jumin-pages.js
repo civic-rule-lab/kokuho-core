@@ -165,6 +165,76 @@ function buildJuminCompare(self, data, fy, publishedTargets) {
   </div>`;
 }
 
+// ─── enrichment: 個別Q&A（市固有の数字入り＋FAQPage構造化データ） ───
+
+function calcModelTax(data, salary) {
+  const social = Math.round(salary * 0.144);
+  return calculateJumin(data, { salary, pension: 0, age: 40, socialInsurance: social }).total;
+}
+
+function buildJuminFaq(cityName, data, fy, prefSlug) {
+  if (!data) return { html: '', entity: null };
+  const isTokyo = prefSlug === 'tokyo';
+  const cityLabel = isTokyo ? '特別区民税' : '市民税';
+  const prefLabel = isTokyo ? '都民税' : '県民税';
+  const pr = data.prefRate ?? STD_PREF_RATE;
+  const cr = data.cityRate ?? STD_CITY_RATE;
+  const total = pr + cr;
+  const pc = (data.cityPerCapita ?? 3000) + (data.prefPerCapita ?? 1000);
+  const qa = [];
+
+  // Q1: いくら？
+  const t300 = calcModelTax(data, 3_000_000);
+  const t500 = calcModelTax(data, 5_000_000);
+  qa.push({
+    q: `${cityName}の住民税はいくらですか？`,
+    a: `${cityName}の${fy}の住民税は、単身・年収300万円なら年間約${t300.toLocaleString()}円（月約${Math.round(t300 / 12).toLocaleString()}円）、年収500万円なら年間約${t500.toLocaleString()}円が目安です（社会保険料控除を概算した単身の場合）。このページの計算機で、年収・年齢に応じた金額を無料で試算できます。`,
+  });
+
+  // Q2: 税率は？
+  const stdDiff = Math.abs(total - 0.10) < 0.0001 ? '全国の標準税率と同じです'
+    : total < 0.10 ? `標準税率の10%より${rateLabel(0.10 - total)}低い税率です`
+    : `標準税率の10%より${rateLabel(total - 0.10)}高い超過課税です`;
+  qa.push({
+    q: `${cityName}の住民税の税率はいくつですか？`,
+    a: `${fy}の${cityName}の所得割は合計${rateLabel(total)}（${cityLabel}${rateLabel(cr)}＋${prefLabel}${rateLabel(pr)}）で、${stdDiff}。均等割は${cityLabel}${(data.cityPerCapita ?? 3000).toLocaleString()}円＋${prefLabel}${(data.prefPerCapita ?? 1000).toLocaleString()}円に森林環境税（国税）1,000円を加えた合計${(pc + 1000).toLocaleString()}円です。`,
+  });
+
+  // Q3: 他の市より高い？
+  qa.push({
+    q: `${cityName}の住民税は他の市町村より高いですか？`,
+    a: `住民税の所得割はほぼ全国一律の10%なので、住む場所による違いは基本的にわずかです。${cityName}は${stdDiff.replace('です', '')}ため、${Math.abs(total - 0.10) < 0.0001 ? '他の多くの市町村と同水準です' : '一部の市町村と金額が異なります'}。均等割は都道府県の森林環境税等の上乗せにより数百円〜千円程度の地域差があります。`,
+  });
+
+  // Q4: いつから払う？
+  qa.push({
+    q: `住民税はいつ・どうやって払いますか？`,
+    a: `住民税は前年1月〜12月の所得に対して翌年度に課税され、毎年6月から納付が始まります。会社員は給与天引き（特別徴収・6月〜翌年5月の12回）、自営業や年金受給者などは納付書や口座振替（普通徴収・通常6月・8月・10月・翌年1月の4回）で納めます。`,
+  });
+
+  const items = qa.map(x => `
+    <details style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:8px;background:#fff;">
+      <summary style="font-size:13px;font-weight:700;color:#374151;cursor:pointer;">${x.q}</summary>
+      <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:8px 0 0;">${x.a}</p>
+    </details>`).join('');
+
+  const html = `
+  <div class="jt-card">
+    <div class="jt-card-title">${cityName}の住民税 よくある質問</div>
+    ${items}
+  </div>`;
+
+  const entity = {
+    '@type': 'FAQPage',
+    mainEntity: qa.map(x => ({
+      '@type': 'Question',
+      name: x.q,
+      acceptedAnswer: { '@type': 'Answer', text: x.a },
+    })),
+  };
+  return { html, entity };
+}
+
 // ─── バージョンハッシュ（キャッシュバスティング） ───
 function fileHash(...filePaths) {
   const h = createHash('sha256');
@@ -213,7 +283,7 @@ function introText(cityName, fy, data) {
   return `${cityName}の住民税（市民税・県民税）が${fy}いくらになるか、無料でシミュレーションできます。所得割の合計税率は${rate}です。給与収入・年金・年齢を入力すると、社会保険料控除を概算した年間の住民税額の目安を計算します。`;
 }
 
-function jsonLd(cityName, prefName, prefSlug, citySlug, desc, url, fy, appName) {
+function jsonLd(cityName, prefName, prefSlug, citySlug, desc, url, fy, appName, extraEntities = []) {
   const breadcrumb = {
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -232,7 +302,7 @@ function jsonLd(cityName, prefName, prefSlug, citySlug, desc, url, fy, appName) 
     inLanguage: 'ja',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
   };
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app] });
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app, ...extraEntities] });
 }
 
 // 共通プレースホルダ置換
@@ -286,16 +356,17 @@ for (const m of targets) {
   // 1) かんたん計算: {pref}/{slug}/jumin/index.html
   const simpleUrl = `${cityBase}/jumin/`;
   const simpleDesc = metaDesc(cityName, fy, data, 'simple');
+  const faq = buildJuminFaq(cityName, data, fy, prefSlug);
   const simpleHtml = fill(tmplSimple, {
     '__CITY_NAME__': cityName,
     '__CITY_SLUG__': citySlug,
     '__FISCAL_YEAR_LABEL__': fy,
     '__META_DESC__': simpleDesc,
     '__CANONICAL_URL__': simpleUrl,
-    '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール'),
+    '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール', faq.entity ? [faq.entity] : []),
     '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data, prefSlug) : ''),
     '__JUMIN_DATA__': juminDataLiteral,
-    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin),
+    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin) + faq.html,
     '__PORTAL_LINK__': '../kakeibo/',
     '__PUBLISH_YEAR__': String(year),
     '__CSS_V__': CSS_V,

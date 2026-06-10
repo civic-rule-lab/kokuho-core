@@ -128,7 +128,7 @@ function buildRateChangeSection(cityName, citySlug, data, publishYear) {
   // 索引対策の核となる固有プローズ（「9.6%→9.87%に上昇」型）
   const rateSentence = r8Rate === r7Rate
     ? `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度から${fmtRate(r8Rate)}で据え置きです。`
-    : `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度の${fmtRate(r7Rate)}から令和8年度は${fmtRate(r8Rate)}に${trend(r7Rate, r8Rate)}しました。`;
+    : `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度の${fmtRate(r7Rate)}から令和8年度は${fmtRate(r8Rate)}に${r8Rate > r7Rate ? "上昇" : "低下"}しました。`;
   const diffYen = r8Total - r7Total;
   const totalSentence = diffYen === 0
     ? `${COMPARE_MODEL.label}のモデル世帯では、年間保険料の目安は約${fmtYen(r8Total)}で前年度と同水準です。`
@@ -225,6 +225,99 @@ function buildNeighborCompareSection(self, data, publishYear, municipalities) {
     </div>
     <p style="font-size:11px;color:#6b7280;margin:8px 0 0;">※各自治体の公開年度の料率（令和7年度または令和8年度）に基づく概算です。減免・軽減の適用条件は自治体により異なります。</p>
   </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 計算例 enrichment ③: 個別Q&A（市固有の数字入り＋FAQPage構造化データ）
+// ─────────────────────────────────────────────────────────────────
+
+function buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalities) {
+  if (!data) return { html: "", entity: null };
+  const fy = buildFiscalYearLabel(publishYear);
+  const qa = [];
+
+  // Q1: いくら？（計算例の数字を引用）
+  const exSingle = calcModelTotal(data, { salary: 3_000_000, age: 40, family: 1 });
+  const exFamily = calcModelTotal(data, { salary: 6_000_000, age: 40, family: 4 });
+  qa.push({
+    q: `${cityName}の国民健康保険料はいくらですか？`,
+    a: `${cityName}の${fy}の国民健康保険料は前年の所得と世帯人数で決まります。目安として、単身・年収300万円なら年間約${fmtYen(exSingle)}（月約${fmtYen(Math.round(exSingle / 12))}）、夫婦＋子ども2人・年収600万円なら年間約${fmtYen(exFamily)}です。このページの計算機で、ご自身の所得・世帯人数に応じた金額を無料で試算できます。`,
+  });
+
+  // Q2: 前年から上がった？（publishYear=2026 かつ R7データがある場合のみ）
+  if (publishYear === 2026) {
+    const prev = loadCityDataCached(citySlug, 2025);
+    if (prev) {
+      const r7 = calcModelTotal(prev), r8 = calcModelTotal(data);
+      const diff = r8 - r7;
+      const trend = diff > 0 ? `上がりました。年間で約${fmtYen(Math.abs(diff))}の増加` : diff < 0 ? `下がりました。年間で約${fmtYen(Math.abs(diff))}の減少` : `ほぼ横ばいです`;
+      qa.push({
+        q: `${cityName}の国保料は令和8年度に上がりましたか？`,
+        a: `${COMPARE_MODEL.label}のモデル世帯で比較すると、令和7年度の約${fmtYen(r7)}から令和8年度は約${fmtYen(r8)}となり、${trend}（概算）です。所得割率の合計は${fmtRate(sumRate(prev))}→${fmtRate(sumRate(data))}です。`,
+      });
+    }
+  }
+
+  // Q3: 近隣と比べて高い？
+  if (regEntry && municipalities && regEntry.cityCode) {
+    const neighbors = pickNeighbors(regEntry, municipalities, 5);
+    const rows = [];
+    const selfTotal = calcModelTotal(data);
+    for (const n of neighbors) {
+      const nd = loadCityDataCached(n.citySlug, n.publishYear?.kokuho ?? 2025);
+      if (nd) rows.push({ name: n.cityName, total: calcModelTotal(nd) });
+    }
+    if (rows.length >= 2) {
+      const cheaper = rows.filter(r => r.total > selfTotal).length;
+      const pos = cheaper === rows.length ? "低い水準" : cheaper === 0 ? "高めの水準" : "中間的な水準";
+      qa.push({
+        q: `${cityName}の国保料は近隣の自治体と比べて高いですか？`,
+        a: `${COMPARE_MODEL.label}のモデル世帯では${cityName}は年間約${fmtYen(selfTotal)}で、近隣${rows.length}自治体（${rows.map(r => r.name).join("・")}）と比べると${pos}です。国民健康保険は自治体ごとに料率が異なるため、同じ収入でも金額に差が出ます。`,
+      });
+    }
+  }
+
+  // Q4: 賦課限度額
+  const caps = data.caps ?? {};
+  if (caps.medical) {
+    const capTotal = (caps.medical || 0) + (caps.support || 0) + (caps.care || 0) + (caps.childcare || 0);
+    qa.push({
+      q: `${cityName}の国保料の上限（賦課限度額）はいくらですか？`,
+      a: `${fy}の${cityName}の賦課限度額は、医療分${fmtMan(caps.medical)}・後期高齢者支援金分${fmtMan(caps.support || 0)}${caps.care ? `・介護分${fmtMan(caps.care)}` : ""}${caps.childcare ? `・子ども・子育て支援金分${fmtMan(caps.childcare)}` : ""}で、合計${fmtMan(capTotal)}です。どれだけ所得が多くてもこの金額を超えることはありません。`,
+    });
+  }
+
+  // Q5: 40歳になると上がる？
+  if (data.rate?.care || data.perCapita?.care) {
+    qa.push({
+      q: `40歳になると${cityName}の国保料は上がりますか？`,
+      a: `はい。40〜64歳の加入者には介護分（介護納付金分）が加わります。${cityName}の${fy}の介護分は所得割${fmtRate(data.rate?.care || 0)}・均等割${fmtYen(data.perCapita?.care || 0)}${data.household?.care ? `・平等割${fmtYen(data.household.care)}` : ""}です。65歳になると介護分はなくなり、介護保険料として別に納めます。`,
+    });
+  }
+
+  if (qa.length === 0) return { html: "", entity: null };
+
+  const items = qa.map(x => `
+    <details style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;margin-bottom:8px;background:#fff;">
+      <summary style="font-size:13px;font-weight:700;color:#374151;cursor:pointer;">${x.q}</summary>
+      <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:8px 0 0;">${x.a}</p>
+    </details>`).join("");
+
+  const html = `
+  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 12px;">${cityName}の国民健康保険料 よくある質問</h2>
+    ${items}
+  </section>`;
+
+  const entity = {
+    "@type": "FAQPage",
+    "mainEntity": qa.map(x => ({
+      "@type": "Question",
+      "name": x.q,
+      "acceptedAnswer": { "@type": "Answer", "text": x.a },
+    })),
+  };
+  return { html, entity };
 }
 
 function fileHash(...filePaths) {
@@ -407,7 +500,7 @@ function buildSelfUrl(prefSlug, citySlug, isIncome) {
   return isIncome ? `${base}income.html` : base;
 }
 
-function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome, publishYear) {
+function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome, publishYear, extraEntities = []) {
   const pageUrl = buildSelfUrl(prefSlug, citySlug, isIncome);
   const fy = buildFiscalYearLabel(publishYear);
   const breadcrumb = {
@@ -428,7 +521,7 @@ function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome, p
     "inLanguage": "ja",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
   };
-  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, ...extraEntities] });
 }
 
 function buildIntroText(cityName, prefecture, data, isIncome, publishYear) {
@@ -518,12 +611,14 @@ function buildRateTable(cityName, data, publishYear) {
 function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIncome, publishYear, regEntry, municipalities }) {
   const metaDesc       = buildMetaDesc(cityName, prefecture, data, isIncome, publishYear);
   const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
-  const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear);
+  const faq            = isIncome ? { html: "", entity: null } : buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalities);
+  const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear, faq.entity ? [faq.entity] : []);
   const rateTable      = buildRateTable(cityName, data, publishYear);
   const calcExamples   = isIncome ? "" : (
     buildCalcExamples(cityName, data, publishYear) +
     buildRateChangeSection(cityName, citySlug, data, publishYear) +
-    (regEntry && municipalities ? buildNeighborCompareSection(regEntry, data, publishYear, municipalities) : "")
+    (regEntry && municipalities ? buildNeighborCompareSection(regEntry, data, publishYear, municipalities) : "") +
+    faq.html
   );
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
