@@ -128,7 +128,7 @@ function buildRateChangeSection(cityName, citySlug, data, publishYear) {
   // 索引対策の核となる固有プローズ（「9.6%→9.87%に上昇」型）
   const rateSentence = r8Rate === r7Rate
     ? `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度から${fmtRate(r8Rate)}で据え置きです。`
-    : `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度の${fmtRate(r7Rate)}から令和8年度は${fmtRate(r8Rate)}に${trend(r7Rate, r8Rate)}しました。`;
+    : `${cityName}の国保の所得割率（医療分＋支援金分＋介護分の合計）は、令和7年度の${fmtRate(r7Rate)}から令和8年度は${fmtRate(r8Rate)}に${r8Rate > r7Rate ? "上昇" : "低下"}しました。`;
   const diffYen = r8Total - r7Total;
   const totalSentence = diffYen === 0
     ? `${COMPARE_MODEL.label}のモデル世帯では、年間保険料の目安は約${fmtYen(r8Total)}で前年度と同水準です。`
