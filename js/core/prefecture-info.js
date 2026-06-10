@@ -12,7 +12,7 @@
  * 再生成: node scripts/build-prefecture-info.js
  */
 
-export const PREFECTURE_INFO = {
+const PREFECTURE_INFO = {
   "aichi": {
     "name": "愛知県",
     "prefRate": 0.04,

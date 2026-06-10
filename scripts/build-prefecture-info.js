@@ -171,9 +171,9 @@ const output = `/**
  * 再生成: node scripts/build-prefecture-info.js
  */
 
-export const PREFECTURE_INFO = ${JSON.stringify(info, null, 2)};
+const PREFECTURE_INFO = ${JSON.stringify(info, null, 2)};
 
-// Node.js 環境向け
+// Node.js 環境向け（js/core/package.json で type:commonjs のため CJS で書き出す）
 if (typeof module !== 'undefined') module.exports = { PREFECTURE_INFO };
 `;
 
