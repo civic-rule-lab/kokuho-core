@@ -1442,11 +1442,13 @@
       "cityName": "千代田区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1455,11 +1457,13 @@
       "cityName": "中央区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1468,11 +1472,13 @@
       "cityName": "港区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1481,11 +1487,13 @@
       "cityName": "新宿区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1494,11 +1502,13 @@
       "cityName": "文京区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1507,11 +1517,13 @@
       "cityName": "台東区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1520,11 +1532,13 @@
       "cityName": "墨田区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1533,11 +1547,13 @@
       "cityName": "江東区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1546,11 +1562,13 @@
       "cityName": "品川区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1559,11 +1577,13 @@
       "cityName": "目黒区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1572,11 +1592,13 @@
       "cityName": "大田区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1585,11 +1607,13 @@
       "cityName": "世田谷区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1598,11 +1622,13 @@
       "cityName": "渋谷区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1611,11 +1637,13 @@
       "cityName": "中野区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1624,11 +1652,13 @@
       "cityName": "杉並区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1637,11 +1667,13 @@
       "cityName": "豊島区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1650,11 +1682,13 @@
       "cityName": "北区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1663,11 +1697,13 @@
       "cityName": "荒川区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1676,11 +1712,13 @@
       "cityName": "板橋区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1689,11 +1727,13 @@
       "cityName": "練馬区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1702,11 +1742,13 @@
       "cityName": "足立区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1715,11 +1757,13 @@
       "cityName": "葛飾区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -1728,11 +1772,13 @@
       "cityName": "江戸川区",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {

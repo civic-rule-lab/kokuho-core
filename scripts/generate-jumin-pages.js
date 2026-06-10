@@ -86,21 +86,25 @@ function modelTax(data) {
 }
 
 // 標準税率との比較プローズ（超過課税・減税の市だけ固有の文章になる）
-function buildRateCharacter(cityName, data) {
+function buildRateCharacter(cityName, data, prefSlug) {
   if (!data) return '';
   const pr = data.prefRate ?? STD_PREF_RATE;
   const cr = data.cityRate ?? STD_CITY_RATE;
   const total = pr + cr;
   const isSeirei = Math.abs(pr - SEIREI_PREF_RATE) < 0.005 || pr < 0.04; // 税源移譲（県2%/市8%）型
   const stdTotal = 0.10;
+  const isTokyo = prefSlug === 'tokyo';
+  const cityLabel = isTokyo ? '特別区民税' : '市民税';
+  const prefLabel = isTokyo ? '都民税' : '県民税';
+  const breakdown = `（${cityLabel}${rateLabel(cr)}＋${prefLabel}${rateLabel(pr)}）`;
 
   let sentence;
   if (Math.abs(total - stdTotal) < 0.0001) {
-    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、全国の標準税率と同じです。`;
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}${breakdown}で、全国の標準税率と同じです。`;
   } else if (total < stdTotal) {
-    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、標準税率の10%より${rateLabel(stdTotal - total)}低くなっています。`;
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}${breakdown}で、標準税率の10%より${rateLabel(stdTotal - total)}低くなっています。`;
   } else {
-    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}（市民税${rateLabel(cr)}＋県民税${rateLabel(pr)}）で、標準税率の10%より${rateLabel(total - stdTotal)}高い超過課税が行われています。`;
+    sentence = `${cityName}の住民税所得割の合計税率は${rateLabel(total)}${breakdown}で、標準税率の10%より${rateLabel(total - stdTotal)}高い超過課税が行われています。`;
   }
   if (isSeirei && Math.abs(total - stdTotal) < 0.0001) {
     sentence += `（政令指定都市は税源移譲により県民税2%・市民税8%の配分です）`;
@@ -289,7 +293,7 @@ for (const m of targets) {
     '__META_DESC__': simpleDesc,
     '__CANONICAL_URL__': simpleUrl,
     '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール'),
-    '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data) : ''),
+    '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data, prefSlug) : ''),
     '__JUMIN_DATA__': juminDataLiteral,
     '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin),
     '__PORTAL_LINK__': '../kakeibo/',
