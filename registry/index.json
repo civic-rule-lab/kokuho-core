@@ -1787,11 +1787,13 @@
       "cityName": "八王子市",
       "prefecture": "東京都",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "tokyo",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -2231,11 +2233,13 @@
       "cityName": "川口市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -3052,11 +3056,13 @@
       "cityName": "船橋市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -4070,11 +4076,13 @@
       "cityName": "東大阪市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -10670,10 +10678,12 @@
       "prefecture": "栃木県",
       "prefectureSlug": "tochigi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -11010,10 +11020,12 @@
       "prefecture": "兵庫県",
       "prefectureSlug": "hyogo",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -12292,10 +12304,12 @@
       "prefecture": "岐阜県",
       "prefectureSlug": "gifu",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -16066,10 +16080,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -17082,10 +17098,12 @@
       "prefecture": "愛媛県",
       "prefectureSlug": "ehime",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       }
     },
     {
@@ -19044,10 +19062,12 @@
       "cityName": "金沢市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "jumin"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "jumin": 2026
       },
       "prefectureSlug": "ishikawa"
     },
