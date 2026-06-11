@@ -21,7 +21,9 @@ if [ -z "$SLUG" ]; then
   exit 1
 fi
 
-COWORK_DIR="~/Documents/Claude/Projects/国保　修正プログラム"
+# retrofit 素材フォルダ。実行前に環境変数で指定する:
+#   export RETROFIT_SRC_DIR="$HOME/Documents/（素材フォルダのパス）"
+COWORK_DIR="${RETROFIT_SRC_DIR:?環境変数 RETROFIT_SRC_DIR が未設定です。retrofit 素材フォルダのパスを設定してください}"
 RETRO_JSON="$COWORK_DIR/$SLUG-kokuho-2026-retrofit.json"
 CHANGELOG="$COWORK_DIR/$SLUG-r7-to-r8.md"
 PR_BODY="$COWORK_DIR/$SLUG-pr-body.md"
