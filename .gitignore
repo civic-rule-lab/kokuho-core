@@ -47,5 +47,3 @@ workers/api/cf.json
 
 # Codex / Cursor agent のローカルキャッシュ (hooks.json が絶対パスでチーム移植不可)
 .codex/
-data/url-hashes/
-docs/change-reports/

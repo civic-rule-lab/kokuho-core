@@ -99,6 +99,18 @@ echo "▶ 公開リポジトリへ同期中..."
 PREFS=$(find "$CORE_DIR" -mindepth 3 -maxdepth 3 -name "income.html" \
   | awk -F/ '{print $(NF-2)}' | sort -u | tr '\n' ' ')
 
+# 運用ログ（verify-reports / change-reports / url-hashes）は記録用の生成物なので
+# 自動コミット（untracked 検査で deploy が止まるのを防ぐ。2026-06-11 追加）
+if [ "$DRY_RUN" = false ]; then
+  LOG_PATHS="docs/verify-reports docs/change-reports data/url-hashes"
+  LOG_CHANGES=$(git -C "$CORE_DIR" status --porcelain -- $LOG_PATHS | wc -l | tr -d ' ')
+  if [ "$LOG_CHANGES" -gt 0 ]; then
+    git -C "$CORE_DIR" add -- $LOG_PATHS
+    git -C "$CORE_DIR" commit -m "chore: 運用ログ自動コミット ($(date +%Y-%m-%d))" -- $LOG_PATHS
+    echo "✅ 運用ログを自動コミットしました（$LOG_CHANGES 件）"
+  fi
+fi
+
 # untracked ファイルが working tree に残っていると rsync で本番に流れ込む事故が
 # 2026-05-20 横浜 deploy 後に発生 (PR #47 → "* 2.html" 残骸 → cleanup PR f0389d711a)。
 # default で禁止、--force で override 可。dry-run でも検査する (早期発見が目的)。
