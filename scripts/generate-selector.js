@@ -20,9 +20,15 @@ const OUT_ROOT  = path.join(ROOT, "js", "selector.js");
 const registry = JSON.parse(readFileSync(REGISTRY, "utf-8"));
 
 // 都道府県ごとにグループ化（test用・正式版両方）
+// プルダウンの並びは registry の登録順ではなく JIS 市区町村コード順に統一する。
+// cityCode の先頭2桁が都道府県コードのため、このソートだけで
+// 都道府県（北海道→沖縄）・自治体（政令市→市→町村）の両方が標準順になる。
 function buildPrefGroups(official = false) {
   const groups = {};
-  for (const m of registry.municipalities) {
+  const sorted = [...registry.municipalities].sort((a, b) =>
+    String(a.cityCode).localeCompare(String(b.cityCode))
+  );
+  for (const m of sorted) {
     const pref = m.prefecture || "神奈川県";
     const prefSlug = m.prefectureSlug || pref;
     if (!groups[prefSlug]) {
