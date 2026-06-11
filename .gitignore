@@ -14,9 +14,6 @@ node_modules/
 *.key
 *.secret
 
-# Cloudflare Wrangler
-.wrangler/
-
 # Dashboard logs
 dashboard/*.log
 
@@ -34,15 +31,11 @@ docs/internal-*.md
 # セッション運用ファイル（Cowork ↔ Claude Code 連携、commit 禁止）
 .session/
 
-# Cloudflare Workers 関連の機密キャッシュ（厳重）
-.wrangler/**
+# Cloudflare Wrangler 関連の機密キャッシュ（厳重・どの階層でも無視）
+# ※ スラッシュを含まないパターンは全階層にマッチするため、これだけで網羅できる
 **/.wrangler/
-**/.wrangler/cache/
-workers/**/.wrangler/
 wrangler-account.json
-**/wrangler-account.json
-workers/api/cf.json
-**/cf.json
+cf.json
 *.bak
 
 # Codex / Cursor agent のローカルキャッシュ (hooks.json が絶対パスでチーム移植不可)
