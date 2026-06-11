@@ -31,7 +31,7 @@ const SAITAMA = [
   { cityCode: "11219", citySlug: "fukaya",           cityName: "深谷市" },
   { cityCode: "11220", citySlug: "ageo",             cityName: "上尾市" },
   { cityCode: "11222", citySlug: "soka",             cityName: "草加市" },
-  { cityCode: "11223", citySlug: "koshigaya",        cityName: "越谷市" },
+  { cityCode: "11222", citySlug: "koshigaya",        cityName: "越谷市" },
   { cityCode: "11224", citySlug: "warabi",           cityName: "蕨市" },
   { cityCode: "11225", citySlug: "toda",             cityName: "戸田市" },
   { cityCode: "11227", citySlug: "iruma",            cityName: "入間市" },
