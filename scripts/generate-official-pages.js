@@ -551,7 +551,9 @@ function buildRateTable(cityName, data, publishYear) {
   const caps = data.caps       ?? {};
   const asset = data.assetLevy ?? null;
 
-  const childcare   = data.childcareLevy ?? null;
+  // calc側（js/core/kokuho.js）と同じ優先順位: childcareLevy → 旧フラット childcare。
+  // 旧フラットのみの自治体でも料率表に子育て行を表示する（表示と計算の不整合防止）
+  const childcare   = data.childcareLevy ?? data.childcare ?? null;
   const hasHousehold = (hh.medical || 0) + (hh.support || 0) + (hh.care || 0) + (childcare?.household || 0) > 0;
   const hasAsset     = asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0) + (asset.childcare || 0)) > 0;
 
