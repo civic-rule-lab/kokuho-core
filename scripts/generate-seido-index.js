@@ -23,17 +23,19 @@ const OUT      = path.join(ROOT, 'seido-index.html');
 const registry = JSON.parse(readFileSync(REGISTRY, 'utf-8'));
 
 // jumin 公開自治体を都道府県でグルーピング
+// プルダウンの並びは JIS 市区町村コード順に統一する（kokuho側 selector と同方針）。
+// cityCode 先頭2桁が都道府県コードのため、事前ソートだけで
+// 都道府県（北海道→沖縄）・市区町村（政令市→市→町村）の両方が標準順になる。
 const index = {};
-for (const m of registry.municipalities) {
+const sorted = [...registry.municipalities].sort((a, b) =>
+  String(a.cityCode).localeCompare(String(b.cityCode))
+);
+for (const m of sorted) {
   const published = (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin);
   if (!published) continue;
   const prefName = m.prefecture;
   if (!index[prefName]) index[prefName] = { slug: m.prefectureSlug, cities: [] };
   index[prefName].cities.push({ slug: m.citySlug, name: m.cityName });
-}
-// 市区町村名で安定ソート
-for (const pn of Object.keys(index)) {
-  index[pn].cities.sort((a, b) => a.name.localeCompare(b.name, 'ja'));
 }
 
 const cityCount = Object.values(index).reduce((n, p) => n + p.cities.length, 0);
