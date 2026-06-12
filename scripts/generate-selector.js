@@ -47,6 +47,10 @@ function buildMuniEntry(m, official = false) {
   for (const sys of (m.systems || [])) {
     systems[sys] = buildSystemEntry(m.citySlug, sys, prefSlug, official);
   }
+  // jumin 公開自治体は統合シミュレーター（家計簿）も利用可能
+  if (systems.jumin) {
+    systems.kakeibo = buildSystemEntry(m.citySlug, "kakeibo", prefSlug, official);
+  }
   return { name: m.cityName, systems };
 }
 
@@ -62,6 +66,33 @@ function buildSystemEntry(slug, system, prefSlug, official = false) {
         income: {
           name: "所得ベース計算",
           url: official ? `/${prefSlug}/${slug}/income.html` : `./${slug}-kokuho-income.html`,
+        },
+      },
+    };
+  }
+  // 住民税・家計簿は制度ポータル（seido-keisan.jp）側で公開
+  if (system === "jumin") {
+    return {
+      name: "住民税",
+      pages: {
+        simple: {
+          name: "かんたん計算",
+          url: `https://seido-keisan.jp/${prefSlug}/${slug}/jumin/`,
+        },
+        income: {
+          name: "詳しく計算",
+          url: `https://seido-keisan.jp/${prefSlug}/${slug}/jumin/income.html`,
+        },
+      },
+    };
+  }
+  if (system === "kakeibo") {
+    return {
+      name: "まとめて試算（家計簿）",
+      pages: {
+        simple: {
+          name: "家計簿シミュレーター",
+          url: `https://seido-keisan.jp/${prefSlug}/${slug}/kakeibo/`,
         },
       },
     };
@@ -84,7 +115,27 @@ function updateMunicipalities() {
   sel.innerHTML = Object.entries(municipalities)
     .map(function(e) { return '<option value="' + e[0] + '">' + e[1].name + '</option>'; })
     .join("");
+  updateSystems();
 }
+
+// 選択中の自治体で利用できる制度だけ選択可能にする
+// （住民税・家計簿は制度ポータル公開済み自治体のみ）
+function updateSystems() {
+  const prefecture   = document.getElementById("prefecture").value;
+  const municipality = document.getElementById("municipality").value;
+  const sysSel       = document.getElementById("system");
+  const available    = registry[prefecture]?.municipalities[municipality]?.systems || {};
+  for (const opt of sysSel.options) {
+    if (opt.value === "kaigo") continue; // 介護は全体準備中（常にdisabled）
+    const ok = !!available[opt.value];
+    opt.disabled = !ok;
+    opt.textContent = opt.dataset.label + (ok ? "" : "（この自治体は準備中）");
+  }
+  if (sysSel.selectedOptions[0] && sysSel.selectedOptions[0].disabled) {
+    sysSel.value = "kokuho";
+  }
+}
+document.addEventListener("DOMContentLoaded", updateSystems);
 
 function goPage() {
   const prefecture   = document.getElementById("prefecture").value;
@@ -158,14 +209,17 @@ ${prefOptions}
 
 <label for="municipality">自治体</label>
 
-<select id="municipality">
+<select id="municipality" onchange="updateSystems()">
 ${muniOptions}
 </select>
 
 <label for="system">制度</label>
 
 <select id="system">
-<option value="kokuho">国民健康保険</option>
+<option value="kokuho" data-label="国民健康保険">国民健康保険</option>
+<option value="jumin" data-label="住民税">住民税</option>
+<option value="kakeibo" data-label="まとめて試算（家計簿シミュレーター）">まとめて試算（家計簿シミュレーター）</option>
+<option value="kaigo" data-label="介護保険" disabled>介護保険（準備中）</option>
 </select>
 
 <button type="button" onclick="goPage()">
@@ -177,6 +231,7 @@ ${muniOptions}
   ※${(() => {
     const counts = { 2025: 0, 2026: 0 };
     for (const m of registry.municipalities) {
+      if (!m.systems?.includes("kokuho")) continue; // 北方領土の泊村など kokuho 非対象を除外
       const y = m.publishYear?.kokuho ?? 2025;
       counts[y] = (counts[y] || 0) + 1;
     }
