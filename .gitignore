@@ -40,3 +40,6 @@ cf.json
 
 # Codex / Cursor agent のローカルキャッシュ (hooks.json が絶対パスでチーム移植不可)
 .codex/
+
+# 作業用スクラッチ（県突合の元XLSX等・git管理外の参照データ。deploy の untracked ガードに引っかかるため無視。rsync 対象外なので本番には流れない）
+tmp/
