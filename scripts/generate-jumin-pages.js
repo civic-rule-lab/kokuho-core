@@ -326,14 +326,18 @@ const publishedJumin = registry.municipalities.filter(
   m => (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin)
 );
 
+// jumin 公開 = 住民税ページ（単独 + 統合）を出す自治体
+const isJuminPublished = m => (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin);
+// kaigo 公開 = 住民税は未整備だが介護が verified/inferred で、統合(家計簿)ページだけ出す自治体
+const isKaigoPublished = m => (m.systems && m.systems.includes('kaigo')) || (m.publishYear && m.publishYear.kaigo);
+
 let targets;
 if (targetSlug) {
   targets = registry.municipalities.filter(m => m.citySlug === targetSlug);
   if (targets.length === 0) { console.error(`❌ スラグが見つかりません: ${targetSlug}`); process.exit(1); }
 } else {
-  targets = registry.municipalities.filter(
-    m => (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin)
-  );
+  // jumin 公開 or kaigo 公開のどちらかがあれば対象
+  targets = registry.municipalities.filter(m => isJuminPublished(m) || isKaigoPublished(m));
 }
 
 let generated = 0;
@@ -351,45 +355,58 @@ for (const m of targets) {
   const data = loadJumin(citySlug, year);
   const juminDataLiteral = data ? JSON.stringify(data) : 'null';
 
+  // jumin が公開対象の自治体だけ住民税の単独ページを出す。
+  // kaigo のみ公開（住民税未整備）の自治体は統合(家計簿)ページのみ生成する。
+  const juminHere = isJuminPublished(m);
+  const juminLinkBlock = juminHere ? '<a href="../jumin/">住民税だけ詳しく →</a>' : '';
+
   const cityBase = `${BASE_URL}/${prefSlug}/${citySlug}`;
 
-  // 1) かんたん計算: {pref}/{slug}/jumin/index.html
-  const simpleUrl = `${cityBase}/jumin/`;
-  const simpleDesc = metaDesc(cityName, fy, data, 'simple');
-  const faq = buildJuminFaq(cityName, data, fy, prefSlug);
-  const simpleHtml = fill(tmplSimple, {
-    '__CITY_NAME__': cityName,
-    '__CITY_SLUG__': citySlug,
-    '__FISCAL_YEAR_LABEL__': fy,
-    '__META_DESC__': simpleDesc,
-    '__CANONICAL_URL__': simpleUrl,
-    '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール', faq.entity ? [faq.entity] : []),
-    '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data, prefSlug) : ''),
-    '__JUMIN_DATA__': juminDataLiteral,
-    '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin) + faq.html,
-    '__PORTAL_LINK__': '../kakeibo/',
-    '__PUBLISH_YEAR__': String(year),
-    '__CSS_V__': CSS_V,
-    '__JS_V__': JS_V,
-  });
+  // 1)+2) 住民税の単独ページ（jumin 公開自治体のみ生成。kaigo のみ公開は出さない）
+  if (juminHere) {
+    // 1) かんたん計算: {pref}/{slug}/jumin/index.html
+    const simpleUrl = `${cityBase}/jumin/`;
+    const simpleDesc = metaDesc(cityName, fy, data, 'simple');
+    const faq = buildJuminFaq(cityName, data, fy, prefSlug);
+    const simpleHtml = fill(tmplSimple, {
+      '__CITY_NAME__': cityName,
+      '__CITY_SLUG__': citySlug,
+      '__FISCAL_YEAR_LABEL__': fy,
+      '__META_DESC__': simpleDesc,
+      '__CANONICAL_URL__': simpleUrl,
+      '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, simpleDesc, simpleUrl, fy, '住民税計算ツール', faq.entity ? [faq.entity] : []),
+      '__INTRO_TEXT__': introText(cityName, fy, data) + (data ? ' ' + buildRateCharacter(cityName, data, prefSlug) : ''),
+      '__JUMIN_DATA__': juminDataLiteral,
+      '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin) + faq.html,
+      '__PORTAL_LINK__': '../kakeibo/',
+      '__PUBLISH_YEAR__': String(year),
+      '__CSS_V__': CSS_V,
+      '__JS_V__': JS_V,
+    });
 
-  // 2) 詳しく計算: {pref}/{slug}/jumin/income.html
-  const incomeUrl = `${cityBase}/jumin/income.html`;
-  const incomeDesc = metaDesc(cityName, fy, data, 'income');
-  const incomeHtml = fill(tmplIncome, {
-    '__CITY_NAME__': cityName,
-    '__CITY_SLUG__': citySlug,
-    '__FISCAL_YEAR_LABEL__': fy,
-    '__META_DESC__': incomeDesc,
-    '__CANONICAL_URL__': incomeUrl,
-    '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, incomeDesc, incomeUrl, fy, '住民税計算ツール（詳しく）'),
-    '__JUMIN_DATA__': juminDataLiteral,
-    '__PUBLISH_YEAR__': String(year),
-    '__CSS_V__': CSS_V,
-    '__JS_V__': JS_V,
-  });
+    // 2) 詳しく計算: {pref}/{slug}/jumin/income.html
+    const incomeUrl = `${cityBase}/jumin/income.html`;
+    const incomeDesc = metaDesc(cityName, fy, data, 'income');
+    const incomeHtml = fill(tmplIncome, {
+      '__CITY_NAME__': cityName,
+      '__CITY_SLUG__': citySlug,
+      '__FISCAL_YEAR_LABEL__': fy,
+      '__META_DESC__': incomeDesc,
+      '__CANONICAL_URL__': incomeUrl,
+      '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, incomeDesc, incomeUrl, fy, '住民税計算ツール（詳しく）'),
+      '__JUMIN_DATA__': juminDataLiteral,
+      '__PUBLISH_YEAR__': String(year),
+      '__CSS_V__': CSS_V,
+      '__JS_V__': JS_V,
+    });
 
-  // 3) 統合（負担まとめて）: {pref}/{slug}/kakeibo/index.html
+    const juminDir = path.join(ROOT, prefSlug, citySlug, 'jumin');
+    mkdirSync(juminDir, { recursive: true });
+    writeFileSync(path.join(juminDir, 'index.html'),  simpleHtml, 'utf-8');
+    writeFileSync(path.join(juminDir, 'income.html'), incomeHtml, 'utf-8');
+  }
+
+  // 3) 統合（負担まとめて）: {pref}/{slug}/kakeibo/index.html（全対象で生成）
   const kakeiboUrl = `${cityBase}/kakeibo/`;
   const kakeiboDesc = metaDesc(cityName, fy, data, 'kakeibo');
   const kakeiboHtml = fill(tmplKakeibo, {
@@ -399,7 +416,8 @@ for (const m of targets) {
     '__META_DESC__': kakeiboDesc,
     '__CANONICAL_URL__': kakeiboUrl,
     '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, kakeiboDesc, kakeiboUrl, fy, '家計簿シミュレーター'),
-    '__LINK_JUMIN__': '../jumin/',
+    // 住民税の単独ページがある自治体だけ「住民税だけ詳しく」リンクを出す（kaigo のみ公開は空）
+    '__LINK_JUMIN_BLOCK__': juminLinkBlock,
     // 暫定: seido-keisan に国保ページが無い間は、既存の kokuho-keisan.jp の該当ページを参照。
     // 国保を seido-keisan へ移行したら '../' に戻す（templates の target=_blank も外す）。
     '__LINK_KOKUHO__': `https://kokuho-keisan.jp/${prefSlug}/${citySlug}/`,
@@ -407,13 +425,9 @@ for (const m of targets) {
     '__JS_V__': JS_V,
   });
 
-  const juminDir   = path.join(ROOT, prefSlug, citySlug, 'jumin');
   const kakeiboDir = path.join(ROOT, prefSlug, citySlug, 'kakeibo');
-  mkdirSync(juminDir,   { recursive: true });
   mkdirSync(kakeiboDir, { recursive: true });
-  writeFileSync(path.join(juminDir,   'index.html'),  simpleHtml,  'utf-8');
-  writeFileSync(path.join(juminDir,   'income.html'), incomeHtml,  'utf-8');
-  writeFileSync(path.join(kakeiboDir, 'index.html'),  kakeiboHtml, 'utf-8');
+  writeFileSync(path.join(kakeiboDir, 'index.html'), kakeiboHtml, 'utf-8');
 
   generated++;
 }

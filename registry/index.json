@@ -116,11 +116,13 @@
       "cityName": "茅ヶ崎市",
       "prefecture": "神奈川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -19311,10 +19313,12 @@
       "cityName": "富山市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19324,10 +19328,12 @@
       "cityName": "高岡市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19337,10 +19343,12 @@
       "cityName": "魚津市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19350,10 +19358,12 @@
       "cityName": "氷見市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19363,10 +19373,12 @@
       "cityName": "滑川市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19376,10 +19388,12 @@
       "cityName": "黒部市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19389,10 +19403,12 @@
       "cityName": "砺波市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19402,10 +19418,12 @@
       "cityName": "小矢部市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19415,10 +19433,12 @@
       "cityName": "南砺市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19428,10 +19448,12 @@
       "cityName": "射水市",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19441,10 +19463,12 @@
       "cityName": "舟橋村",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19454,10 +19478,12 @@
       "cityName": "上市町",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19468,10 +19494,12 @@
       "prefecture": "富山県",
       "prefectureSlug": "toyama",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -19480,10 +19508,12 @@
       "cityName": "入善町",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
@@ -19493,10 +19523,12 @@
       "cityName": "朝日町",
       "prefecture": "富山県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "toyama"
     },
