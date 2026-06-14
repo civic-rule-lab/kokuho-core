@@ -31,7 +31,9 @@ const sorted = [...registry.municipalities].sort((a, b) =>
   String(a.cityCode).localeCompare(String(b.cityCode))
 );
 for (const m of sorted) {
-  const published = (m.systems && m.systems.includes('jumin')) || (m.publishYear && m.publishYear.jumin);
+  // jumin 公開 or kaigo 公開（介護のみ＝家計簿ページのみ）の自治体をインデックスに載せる
+  const published = (m.systems && (m.systems.includes('jumin') || m.systems.includes('kaigo')))
+    || (m.publishYear && (m.publishYear.jumin || m.publishYear.kaigo));
   if (!published) continue;
   const prefName = m.prefecture;
   if (!index[prefName]) index[prefName] = { slug: m.prefectureSlug, cities: [] };
