@@ -5,9 +5,20 @@
 // データ駆動方式。自治体ごとの段階数（9〜16段階）に自動対応。
 //
 // 境界値の格納方法:
-//   pensionIncomeMax/Min, totalIncomeMax/Min はすべて「含む（≤）」で格納する。
+//   pensionIncomeMax/Min, totalIncomeMax/Min, sumIncomeMax/Min はすべて
+//   「含む（≤）」で格納する。
 //   「〜未満」は値を -1 した整数で表す（例: 120万円未満 → totalIncomeMax: 1199999）。
 //   「〜以上」は値をそのままで表す（例: 120万円以上 → totalIncomeMin: 1200000）。
+//
+// criteria フィールドの所得語彙:
+//   pensionIncome - 課税年金収入額（控除前の収入額）
+//   totalIncome   - 合計所得金額（給与/年金所得控除後）
+//   sumIncome     - 段階判定用の合算所得 = 課税年金収入額
+//                   ＋（公的年金等に係る所得を除く合計所得金額）。
+//                   国の第1〜5段階の標準判定（「課税年金収入額＋合計所得金額が
+//                   80万/120万 …」）はこの合算しきい値で表す。pensionIncome のみで
+//                   近似すると年金以外の所得がある被保険者で段階を取り違えるため、
+//                   合算型の自治体は sumIncomeMax/Min を使う。
 
 'use strict';
 
@@ -43,6 +54,12 @@ function matchBracket(ctx, bracket) {
   if (c.totalIncomeMin !== undefined &&
       ctx.totalIncome < c.totalIncomeMin) return false;
 
+  if (c.sumIncomeMax !== undefined &&
+      ctx.sumIncome > c.sumIncomeMax) return false;
+
+  if (c.sumIncomeMin !== undefined &&
+      ctx.sumIncome < c.sumIncomeMin) return false;
+
   return true;
 }
 
@@ -68,6 +85,10 @@ function calculateKaigo(data, memberContext) {
   const ctx = {
     pensionIncome:             memberContext.pensionIncome            ?? 0,
     totalIncome:               memberContext.totalIncome              ?? 0,
+    // sumIncome 未指定時は pensionIncome + totalIncome へフォールバックせず、
+    // 合算型 criteria を持つ自治体では呼び出し側が必ず sumIncome を渡す前提。
+    // （誤フォールバックで二重計上しないよう 0 既定）
+    sumIncome:                 memberContext.sumIncome                ?? 0,
     isSelfTaxable:             memberContext.isSelfTaxable            ?? false,
     isHouseholdAllNonTaxable:  memberContext.isHouseholdAllNonTaxable ?? false,
   };
