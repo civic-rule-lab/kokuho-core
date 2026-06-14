@@ -76,19 +76,23 @@ if [ "$FORCE_DEPLOY" = false ]; then
 fi
 
 # ── 3. 同期（住民税ページ＋依存ファイルのみ） ───────────────────
-# jumin ページを持つ {pref}/{slug} を検出し、jumin/ と kakeibo/ サブディレクトリだけ同期
-SLUG_DIRS=$(find "$CORE_DIR" -path '*/jumin/index.html' | sed "s#/jumin/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
+# kakeibo ページを持つ {pref}/{slug} を検出（jumin公開・kaigo公開の両方を網羅）。
+# kakeibo/ は全対象を同期し、jumin/ は存在する自治体（住民税公開）だけ同期する。
+SLUG_DIRS=$(find "$CORE_DIR" -path '*/kakeibo/index.html' | sed "s#/kakeibo/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
 
 if [ "$DRY_RUN" = false ]; then
   if [ ! -d "$PUBLIC_DIR" ]; then
     echo "❌ $PUBLIC_DIR がありません。先に seido-keisan リポを clone してください。"
     exit 1
   fi
-  echo "▶ 住民税ページを同期中..."
+  echo "▶ 住民税・家計簿ページを同期中..."
   for d in $SLUG_DIRS; do
-    mkdir -p "$PUBLIC_DIR/$d/jumin" "$PUBLIC_DIR/$d/kakeibo"
-    rsync -a --delete "$CORE_DIR/$d/jumin/"   "$PUBLIC_DIR/$d/jumin/"
+    mkdir -p "$PUBLIC_DIR/$d/kakeibo"
     rsync -a --delete "$CORE_DIR/$d/kakeibo/" "$PUBLIC_DIR/$d/kakeibo/"
+    if [ -d "$CORE_DIR/$d/jumin" ]; then
+      mkdir -p "$PUBLIC_DIR/$d/jumin"
+      rsync -a --delete "$CORE_DIR/$d/jumin/" "$PUBLIC_DIR/$d/jumin/"
+    fi
   done
 
   # データ（住民税＝jumin、家計簿が参照する国保・介護も含めて同期）
@@ -115,8 +119,9 @@ fi
 
 # ── 4. 件数検証 ──────────────────────────────────────────────────
 CORE_JUMIN=$(find "$CORE_DIR" -path '*/jumin/index.html' | wc -l | tr -d ' ')
+CORE_KAKEIBO=$(find "$CORE_DIR" -path '*/kakeibo/index.html' | wc -l | tr -d ' ')
 echo ""
-echo "▶ 件数: jumin ページ $CORE_JUMIN 自治体分"
+echo "▶ 件数: 家計簿ページ $CORE_KAKEIBO 自治体分（うち住民税ページ $CORE_JUMIN 自治体分）"
 
 if [ "$DRY_RUN" = true ]; then
   echo ""
