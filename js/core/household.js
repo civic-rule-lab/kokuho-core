@@ -110,11 +110,18 @@ function _buildTaxStatus(juminByMember, members) {
   const byMember = {};
   members.forEach((m, i) => {
     const j = juminByMember[i];
+    const totalIncome = j ? j.totalIncome : 0;     // 合計所得金額（年金所得を含む・第6段階以上用）
+    const rawPension  = m.pension || 0;            // 課税年金収入額（控除前）
+    const pensionShotoku = _income.calcPensionIncome(rawPension, m.age);
+    // その他の合計所得金額 = 合計所得金額 − 公的年金等に係る所得（負なら0）
+    const otherTotal  = Math.max(0, totalIncome - pensionShotoku);
     byMember[m.id] = {
       isSelfTaxable:  j ? j.isTaxable   : false,
-      totalIncome:    j ? j.totalIncome  : 0,
-      // kaigo 段階1〜3 の判定に使う年金受給額（控除前・収入額）
-      pensionIncome:  m.pension || 0,
+      totalIncome,
+      // kaigo 段階1〜3（年金のみ近似）の判定に使う年金受給額（控除前・収入額）
+      pensionIncome:  rawPension,
+      // kaigo 第1〜5段階の合算しきい値 = 課税年金収入額 ＋ その他の合計所得金額
+      sumIncome:      rawPension + otherTotal,
     };
   });
   const isAllNonTaxable = Object.values(byMember).every(s => !s.isSelfTaxable);
@@ -126,6 +133,7 @@ function _buildKaigoMemberContext(member, taxStatus) {
   return {
     pensionIncome:            ms.pensionIncome            ?? 0,
     totalIncome:              ms.totalIncome              ?? 0,
+    sumIncome:                ms.sumIncome                ?? 0,
     isSelfTaxable:            ms.isSelfTaxable            ?? false,
     isHouseholdAllNonTaxable: taxStatus.household.isAllNonTaxable,
   };
