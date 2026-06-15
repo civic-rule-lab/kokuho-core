@@ -224,6 +224,106 @@ const CASES = [
       { level: "13", annual: 160800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 神奈川県29件充填（2026-06-15）代表市の公式段階別額（独立転記の二重チェック） ──
+  {
+    slug: "yokosuka", name: "横須賀市", source: "city.yokosuka.kanagawa.jp .../l100050586.html",
+    levels: [
+      { level: "1",  annual: 20860,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80520,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 87840,  ctx: { isSelfTaxable: true, totalIncome: 900000 } },
+      { level: "18", annual: 204960, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "fujisawa", name: "藤沢市", source: "city.fujisawa.kanagawa.jp .../kaigohokenryou.html",
+    levels: [
+      { level: "1",  annual: 21540,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83160,  ctx: { isSelfTaxable: true, totalIncome: 600000 } },
+      { level: "18", annual: 241920, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "hiratsuka", name: "平塚市", source: "city.hiratsuka.kanagawa.jp .../page-c_02687.html",
+    levels: [
+      { level: "1",  annual: 19960,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70032,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80537,  ctx: { isSelfTaxable: true, totalIncome: 300000 } },
+      { level: "7",  annual: 84039,  ctx: { isSelfTaxable: true, totalIncome: 800000 } },
+      { level: "17", annual: 196090, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "kamakura", name: "鎌倉市", source: "city.kamakura.kanagawa.jp .../kaigohokenryo_9.pdf",
+    levels: [
+      { level: "1",  annual: 15840,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 72600,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "16", annual: 198000, ctx: { isSelfTaxable: true, totalIncome: 30000000 } },
+    ],
+  },
+  {
+    slug: "yamato", name: "大和市", source: "city.yamato.lg.jp .../6649.html",
+    levels: [
+      { level: "1",  annual: 22179,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77820,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85602,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "19", annual: 404664, ctx: { isSelfTaxable: true, totalIncome: 40000000 } },
+    ],
+  },
+  {
+    slug: "zama", name: "座間市", source: "city.zama.kanagawa.jp .../1002968.html",
+    levels: [
+      { level: "1",  annual: 20030,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70300,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "20", annual: 217930, ctx: { isSelfTaxable: true, totalIncome: 15000000 } },
+    ],
+  },
+  {
+    slug: "samukawa", name: "寒川町", source: "town.samukawa.kanagawa.jp .../1497234601572.html",
+    levels: [
+      { level: "1",  annual: 17780,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 62400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 74880,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "13", annual: 149760, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "miura", name: "三浦市", source: "city.miura.kanagawa.jp .../1867.html",
+    levels: [
+      { level: "1",  annual: 22570,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 190080, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "yugawara", name: "湯河原町", source: "town.yugawara.kanagawa.jp .../1103.html",
+    levels: [
+      { level: "1",  annual: 19836,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "15", annual: 153120, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kaisei", name: "開成町", source: "town.kaisei.kanagawa.jp .../hokenryou9-R8.pdf",
+    levels: [
+      { level: "1",  annual: 19150,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 63840,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 84000,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "14", annual: 168000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "manazuru", name: "真鶴町", source: "town.manazuru.kanagawa.jp .../111.html",
+    levels: [
+      { level: "1",  annual: 19494,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 82080,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "13", annual: 164160, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
