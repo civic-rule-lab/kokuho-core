@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 71400,
   "brackets": [
     {
@@ -202,10 +202,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.hadano.kanagawa.jp/soshiki/5/1036/1/1/3/3589.html",
+    "url": "https://www.city.hadano.kanagawa.jp/iryo-kenko-fukushi/kaigo/1/3/8625.html",
     "pdfUrl": null,
     "pageTitle": "秦野市 介護保険料（令和6〜8年度・16段階）",
     "retrievedAt": "2026-06-15"
   },
-  "notes": "公式ページがJS描画/サーバ拒否で取得不可のため、第三者集計(kokuho-keisan)の16段階・年額で暫定充填。基準額71,400円。境界R8=82.65万を適用。要・公式PDFでの段階別額/境界の裏取り。"
+  "notes": "秦野市公式HPで全16段階を確認(ユーザー提供スクショ)。基準額71,400円。第1-3は公費軽減後の年額(第1=0.285/20,340・第2=0.485/34,620・第3=0.685/48,900)。HP表記80万9千円→R8=82.65万を適用。"
 }

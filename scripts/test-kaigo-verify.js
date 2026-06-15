@@ -324,6 +324,30 @@ const CASES = [
       { level: "13", annual: 164160, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "hadano", name: "秦野市", source: "city.hadano.kanagawa.jp .../8625.html",
+    levels: [
+      { level: "1",  annual: 20340,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85680,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "13", annual: 171360, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "16", annual: 192780, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "aikawa", name: "愛川町", source: "town.aikawa.kanagawa.jp .../1422276526053.html",
+    // 第6以降の合計所得境界が非標準（120/200/300/500/700/1000/1500万）。
+    levels: [
+      { level: "1",  annual: 20862,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87840,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 91500,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 109800, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "9",  annual: 124440, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "11", annual: 146400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "13", annual: 161040, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
