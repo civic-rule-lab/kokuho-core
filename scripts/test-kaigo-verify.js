@@ -348,6 +348,131 @@ const CASES = [
       { level: "13", annual: 161040, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
     ],
   },
+  // ── 石川・福井30件充填（2026-06-15）代表自治体の公式段階別額（非標準境界の二重チェック） ──
+  {
+    slug: "kanazawa", name: "金沢市", source: "city.kanazawa.ishikawa.jp 条例",
+    levels: [
+      { level: "1",  annual: 19770,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79080,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 118620, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "10", annual: 138390, ctx: { isSelfTaxable: true, totalIncome: 6000000 } },
+      { level: "13", annual: 181884, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "tsubata", name: "津幡町（12段階）", source: "town.tsubata.lg.jp",
+    levels: [
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 82000,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "12", annual: 147000, ctx: { isSelfTaxable: true, totalIncome: 7000000 } },
+    ],
+  },
+  {
+    slug: "uchinada", name: "内灘町（160万境界）", source: "town.uchinada.lg.jp",
+    levels: [
+      { level: "7",  annual: 90480,  ctx: { isSelfTaxable: true, totalIncome: 1400000 } },
+      { level: "8",  annual: 97440,  ctx: { isSelfTaxable: true, totalIncome: 1800000 } },
+      { level: "13", annual: 139200, ctx: { isSelfTaxable: true, totalIncome: 7000000 } },
+    ],
+  },
+  {
+    slug: "komatsu", name: "小松市（135万境界）", source: "city.komatsu.lg.jp",
+    levels: [
+      { level: "6",  annual: 90700,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 94500,  ctx: { isSelfTaxable: true, totalIncome: 1800000 } },
+      { level: "13", annual: 189000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "nomi", name: "能美市（80万始まり14段）", source: "city.nomi.lg.jp",
+    levels: [
+      { level: "6",  annual: 91080,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 95040,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 205920, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "obama", name: "小浜市（16段階）", source: "city.obama.fukui.jp",
+    levels: [
+      { level: "5",  annual: 78960,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "16", annual: 236880, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "fukui", name: "福井市（独自軽減・125万）", source: "city.fukui.lg.jp",
+    levels: [
+      { level: "1",  annual: 11880,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95040,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 190080, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "sabae", name: "鯖江市（独自境界）", source: "city.sabae.fukui.jp",
+    levels: [
+      { level: "6",  annual: 81360,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 115320, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "13", annual: 156000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "awara", name: "あわら市（坂井広域15段）", source: "kouiki.sakai.fukui.jp",
+    levels: [
+      { level: "6",  annual: 81840,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 89280,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 186000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "sakaifukui", name: "坂井市（坂井広域・awaraと同一）", source: "kouiki.sakai.fukui.jp",
+    levels: [
+      { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "15", annual: 186000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "shika", name: "志賀町", source: "town.shika.lg.jp/page/1936.html",
+    levels: [
+      { level: "1",  annual: 20520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 172800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "wakasa", name: "若狭町", source: "town.fukui-wakasa.lg.jp .../leaflet2.pdf",
+    levels: [
+      { level: "1",  annual: 21540,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 181440, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nakanoto", name: "中能登町", source: "town.nakanoto.ishikawa.jp .../2024032001.pdf",
+    levels: [
+      { level: "1",  annual: 23256,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 195840, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "hodatsushimizu", name: "宝達志水町", source: "g-reiki hodatsushimizu 条例",
+    levels: [
+      { level: "1",  annual: 21888,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 184320, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kaga", name: "加賀市（15段・80万始まり）", source: "city.kaga.ishikawa.jp .../1878.html",
+    levels: [
+      { level: "1",  annual: 21880,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84480,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 92160,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 119040, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "15", annual: 184320, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");

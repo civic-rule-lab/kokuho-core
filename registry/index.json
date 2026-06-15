@@ -19123,11 +19123,13 @@
       "prefecture": "石川県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19137,10 +19139,12 @@
       "cityName": "七尾市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19150,10 +19154,12 @@
       "cityName": "小松市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19163,10 +19169,12 @@
       "cityName": "輪島市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19176,10 +19184,12 @@
       "cityName": "珠洲市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19189,10 +19199,12 @@
       "cityName": "加賀市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19202,10 +19214,12 @@
       "cityName": "羽咋市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19215,10 +19229,12 @@
       "cityName": "かほく市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19228,10 +19244,12 @@
       "cityName": "白山市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19241,10 +19259,12 @@
       "cityName": "能美市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19254,10 +19274,12 @@
       "cityName": "野々市市",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19267,10 +19289,12 @@
       "cityName": "川北町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19280,10 +19304,12 @@
       "cityName": "津幡町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19293,10 +19319,12 @@
       "cityName": "内灘町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19306,10 +19334,12 @@
       "cityName": "志賀町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19319,10 +19349,12 @@
       "cityName": "宝達志水町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19332,10 +19364,12 @@
       "cityName": "中能登町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19345,10 +19379,12 @@
       "cityName": "穴水町",
       "prefecture": "石川県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -19908,10 +19944,12 @@
       "cityName": "福井市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19921,10 +19959,12 @@
       "cityName": "敦賀市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19934,10 +19974,12 @@
       "cityName": "小浜市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19947,10 +19989,12 @@
       "cityName": "大野市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19960,10 +20004,12 @@
       "cityName": "勝山市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19973,10 +20019,12 @@
       "cityName": "鯖江市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19986,10 +20034,12 @@
       "cityName": "あわら市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -19999,10 +20049,12 @@
       "cityName": "越前市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20012,10 +20064,12 @@
       "cityName": "坂井市",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20025,10 +20079,12 @@
       "cityName": "池田町",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20038,10 +20094,12 @@
       "cityName": "南越前町",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20051,10 +20109,12 @@
       "cityName": "越前町",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20064,10 +20124,12 @@
       "cityName": "美浜町",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20077,10 +20139,12 @@
       "cityName": "高浜町",
       "prefecture": "福井県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "fukui"
     },
@@ -20091,10 +20155,12 @@
       "prefecture": "福井県",
       "prefectureSlug": "fukui",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -20104,10 +20170,12 @@
       "prefecture": "福井県",
       "prefectureSlug": "fukui",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -20117,10 +20185,12 @@
       "prefecture": "福井県",
       "prefectureSlug": "fukui",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
