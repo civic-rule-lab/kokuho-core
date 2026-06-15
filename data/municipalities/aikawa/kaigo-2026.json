@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 73200,
   "brackets": [
     {
@@ -88,9 +88,9 @@
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
-        "totalIncomeMax": 2099999
+        "totalIncomeMax": 1999999
       },
-      "condition": "本人課税・合計所得120万円以上210万円未満"
+      "condition": "本人課税・合計所得120万円以上200万円未満"
     },
     {
       "level": "8",
@@ -99,10 +99,10 @@
       "annual": 109800,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 2100000,
-        "totalIncomeMax": 3199999
+        "totalIncomeMin": 2000000,
+        "totalIncomeMax": 2999999
       },
-      "condition": "本人課税・合計所得210万円以上320万円未満"
+      "condition": "本人課税・合計所得200万円以上300万円未満"
     },
     {
       "level": "9",
@@ -111,10 +111,10 @@
       "annual": 124440,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 3200000,
-        "totalIncomeMax": 4199999
+        "totalIncomeMin": 3000000,
+        "totalIncomeMax": 4999999
       },
-      "condition": "本人課税・合計所得320万円以上420万円未満"
+      "condition": "本人課税・合計所得300万円以上500万円未満"
     },
     {
       "level": "10",
@@ -123,10 +123,10 @@
       "annual": 135420,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 4200000,
-        "totalIncomeMax": 5199999
+        "totalIncomeMin": 5000000,
+        "totalIncomeMax": 6999999
       },
-      "condition": "本人課税・合計所得420万円以上520万円未満"
+      "condition": "本人課税・合計所得500万円以上700万円未満"
     },
     {
       "level": "11",
@@ -135,10 +135,10 @@
       "annual": 146400,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 5200000,
-        "totalIncomeMax": 6199999
+        "totalIncomeMin": 7000000,
+        "totalIncomeMax": 9999999
       },
-      "condition": "本人課税・合計所得520万円以上620万円未満"
+      "condition": "本人課税・合計所得700万円以上1000万円未満"
     },
     {
       "level": "12",
@@ -147,10 +147,10 @@
       "annual": 153720,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 6200000,
-        "totalIncomeMax": 7199999
+        "totalIncomeMin": 10000000,
+        "totalIncomeMax": 14999999
       },
-      "condition": "本人課税・合計所得620万円以上720万円未満"
+      "condition": "本人課税・合計所得1000万円以上1500万円未満"
     },
     {
       "level": "13",
@@ -159,9 +159,9 @@
       "annual": 161040,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 7200000
+        "totalIncomeMin": 15000000
       },
-      "condition": "本人課税・合計所得720万円以上"
+      "condition": "本人課税・合計所得1500万円以上"
     }
   ],
   "fallbackLevel": "5",
@@ -171,5 +171,5 @@
     "pageTitle": "愛川町 介護保険料（令和6〜8年度・13段階）",
     "retrievedAt": "2026-06-15"
   },
-  "notes": "愛川町公式HPの比較表から各段階の年額を確定(基準額73,200円・月6,100円)。段階別の所得境界は公式が画像内のため標準刻み(120/210/320/420/520/620/720万)を適用・要画像確認。境界R8=82.65万を適用。"
+  "notes": "愛川町公式HP(ユーザー提供スクショ)で全13段階の年額＋所得境界を確定。基準額73,200円(月6,100円)。第1-3は公費軽減後。第6以降の合計所得境界が非標準(第7=120-200万・第8=200-300万・第9=300-500万・第10=500-700万・第11=700-1000万・第12=1000-1500万・第13=1500万以上)。第1-5境界R8=82.65万を適用。"
 }
