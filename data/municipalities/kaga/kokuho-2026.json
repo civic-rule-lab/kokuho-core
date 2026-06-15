@@ -65,7 +65,7 @@
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
-      "sourceStatus": "municipal_official_rate",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
         "https://www.city.kaga.ishikawa.jp/soshiki/siminseikatu/hoken_nenkin/1/5/1270.html"
       ],
