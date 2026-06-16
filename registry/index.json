@@ -10620,10 +10620,12 @@
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -10693,10 +10695,12 @@
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -10706,10 +10710,12 @@
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -10734,10 +10740,12 @@
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -10867,10 +10875,12 @@
       "prefecture": "群馬県",
       "prefectureSlug": "gunma",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
