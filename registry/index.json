@@ -501,11 +501,13 @@
       "cityName": "長野市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -514,11 +516,13 @@
       "cityName": "松本市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -527,11 +531,13 @@
       "cityName": "上田市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -540,11 +546,13 @@
       "cityName": "岡谷市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -553,11 +561,13 @@
       "cityName": "飯田市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -566,11 +576,13 @@
       "cityName": "諏訪市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -579,11 +591,13 @@
       "cityName": "須坂市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -592,11 +606,13 @@
       "cityName": "小諸市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -605,11 +621,13 @@
       "cityName": "伊那市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -618,11 +636,13 @@
       "cityName": "駒ヶ根市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -631,11 +651,13 @@
       "cityName": "中野市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -644,11 +666,13 @@
       "cityName": "大町市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -657,11 +681,13 @@
       "cityName": "飯山市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -670,11 +696,13 @@
       "cityName": "茅野市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -683,11 +711,13 @@
       "cityName": "塩尻市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -696,11 +726,13 @@
       "cityName": "佐久市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -709,11 +741,13 @@
       "cityName": "千曲市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -722,11 +756,13 @@
       "cityName": "東御市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -735,11 +771,13 @@
       "cityName": "安曇野市",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -748,11 +786,13 @@
       "cityName": "小海町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -761,11 +801,13 @@
       "cityName": "川上村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -774,11 +816,13 @@
       "cityName": "南牧村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -813,11 +857,13 @@
       "cityName": "佐久穂町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -826,11 +872,13 @@
       "cityName": "軽井沢町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -839,11 +887,13 @@
       "cityName": "御代田町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -852,11 +902,13 @@
       "cityName": "立科町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -865,11 +917,13 @@
       "cityName": "青木村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -878,11 +932,13 @@
       "cityName": "長和町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -891,11 +947,13 @@
       "cityName": "下諏訪町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -904,11 +962,13 @@
       "cityName": "富士見町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -917,11 +977,13 @@
       "cityName": "原村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -930,11 +992,13 @@
       "cityName": "辰野町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -943,11 +1007,13 @@
       "cityName": "箕輪町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -956,11 +1022,13 @@
       "cityName": "飯島町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -969,11 +1037,13 @@
       "cityName": "南箕輪村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -982,11 +1052,13 @@
       "cityName": "中川村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -995,11 +1067,13 @@
       "cityName": "宮田村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1008,11 +1082,13 @@
       "cityName": "松川町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1021,11 +1097,13 @@
       "cityName": "高森町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1034,11 +1112,13 @@
       "cityName": "阿南町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1047,11 +1127,13 @@
       "cityName": "阿智村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1060,11 +1142,13 @@
       "cityName": "平谷村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1073,11 +1157,13 @@
       "cityName": "根羽村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1086,11 +1172,13 @@
       "cityName": "下條村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1099,11 +1187,13 @@
       "cityName": "売木村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1112,11 +1202,13 @@
       "cityName": "天龍村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1125,11 +1217,13 @@
       "cityName": "泰阜村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1151,11 +1245,13 @@
       "cityName": "豊丘村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1164,11 +1260,13 @@
       "cityName": "大鹿村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1177,11 +1275,13 @@
       "cityName": "上松町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1190,11 +1290,13 @@
       "cityName": "南木曽町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1203,11 +1305,13 @@
       "cityName": "木祖村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1216,11 +1320,13 @@
       "cityName": "王滝村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1229,11 +1335,13 @@
       "cityName": "大桑村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1242,11 +1350,13 @@
       "cityName": "木曽町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1255,11 +1365,13 @@
       "cityName": "麻績村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1268,11 +1380,13 @@
       "cityName": "生坂村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1281,11 +1395,13 @@
       "cityName": "山形村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1294,11 +1410,13 @@
       "cityName": "朝日村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1320,11 +1438,13 @@
       "cityName": "池田町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1333,11 +1453,13 @@
       "cityName": "松川村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1346,11 +1468,13 @@
       "cityName": "白馬村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1359,11 +1483,13 @@
       "cityName": "小谷村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1372,11 +1498,13 @@
       "cityName": "坂城町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1385,11 +1513,13 @@
       "cityName": "小布施町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1398,11 +1528,13 @@
       "cityName": "高山村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1411,11 +1543,13 @@
       "cityName": "山ノ内町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1437,11 +1571,13 @@
       "cityName": "野沢温泉村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1450,11 +1586,13 @@
       "cityName": "信濃町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1463,11 +1601,13 @@
       "cityName": "小川村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1476,11 +1616,13 @@
       "cityName": "飯綱町",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1489,11 +1631,13 @@
       "cityName": "栄村",
       "prefecture": "長野県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9008,11 +9152,13 @@
       "prefectureSlug": "niigata",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9022,10 +9168,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9035,10 +9183,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9048,10 +9198,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9061,10 +9213,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9074,10 +9228,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9087,10 +9243,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9100,10 +9258,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9113,10 +9273,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9126,10 +9288,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9139,10 +9303,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9152,10 +9318,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9165,10 +9333,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9178,10 +9348,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9191,10 +9363,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9204,10 +9378,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9217,10 +9393,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9230,10 +9408,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9243,10 +9423,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9256,10 +9438,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9269,10 +9453,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9282,10 +9468,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9295,10 +9483,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9308,10 +9498,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9321,10 +9513,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9334,10 +9528,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9347,10 +9543,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9360,10 +9558,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9373,10 +9573,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -9386,10 +9588,12 @@
       "prefecture": "新潟県",
       "prefectureSlug": "niigata",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
