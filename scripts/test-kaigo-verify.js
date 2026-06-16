@@ -940,6 +940,70 @@ const CASES = [
       { level: "13", annual: 138240, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ─── 群馬（第9期 R6-8）──────────────────────────────────────────
+  {
+    slug: "takasaki", name: "高崎市", source: "city.takasaki.gunma.jp/page/2227.html",
+    // 16段階・基準額79,100円。第6=合計所得80万未満(独自最下位境界)。第6-16境界80/120/210/320/420/520/620/720/820/920万。
+    levels: [
+      { level: "1",  annual: 21300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 37100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 79100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90900,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 94900,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 102800, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "16", annual: 205600, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "kiryu", name: "桐生市", source: "city.kiryu.lg.jp/.../1001798.html",
+    // 14段階・基準額78,000円。第6-14境界80/125/200/290/400/600/800/1000万(独自)。
+    levels: [
+      { level: "1",  annual: 22200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 91300,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 93600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 171600, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "midori", name: "みどり市", source: "city.midori.gunma.jp/.../1002417.html",
+    // 17段階・基準額68,400円。第6-17境界120/210/320/420/520/620/720/900/1100/1500/2000万。
+    levels: [
+      { level: "1",  annual: 19400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 82000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 218800, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "showa", name: "昭和村（独自軽減）", source: "vill.showa.gunma.jp/.../2017-0303-1313-1.html",
+    // 13段階・基準額73,200円。第1-3は公式公表額(0.455/0.685/0.69、公式注記で軽減後とされる)。
+    levels: [
+      { level: "1",  annual: 33300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 50500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 175700, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kusatsu", name: "草津町（県内最安）", source: "town.kusatsu.gunma.jp/.../gaiyo.pdf",
+    // 13段階・基準額43,200円(月3,600)。
+    levels: [
+      { level: "1",  annual: 12312,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 43200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 103600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "ota-gunma", name: "太田市", source: "city.ota.gunma.jp/page/1276.html",
+    // 15段階・基準額70,700円。第6=×1.30(120万)。第6-15境界120/210/320/420/520/620/720/820/1000万。
+    levels: [
+      { level: "1",  annual: 20100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70700,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 91900,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 205000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
