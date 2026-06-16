@@ -712,6 +712,97 @@ const CASES = [
       { level: "13", annual: 144000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 静岡県（第9期・独立保険者35。R8境界82.65万。代表10市を独立転記）──
+  {
+    slug: "shizuoka", name: "静岡市（15段・独自境界）", source: "city.shizuoka.lg.jp/s2984/s002938.html",
+    levels: [
+      { level: "1",  annual: 21700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 68500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 91400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 129500, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 171400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "15", annual: 190500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "hamamatsu", name: "浜松市（生保段統合・15bracket）", source: "city.hamamatsu.shizuoka.jp/kaigo/care/20230126kimarikata.html",
+    levels: [
+      { level: "1",  annual: 20178,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 46021,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 70802,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84962,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 134523, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "15", annual: 198245, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "fuji", name: "富士市（第6=125万・第9が320-520統合）", source: "city.fuji.shizuoka.jp/1020040000/p003225.html",
+    levels: [
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 78648,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 118320, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "13", annual: 187920, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "mishima", name: "三島市（独自境界125/200/300）", source: "city.mishima.shizuoka.jp/page/3108.html",
+    levels: [
+      { level: "1",  annual: 18800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 75900,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 85800,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 105600, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 171600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kakegawa", name: "掛川市（15段・820/920境界）", source: "city.kakegawa.shizuoka.jp/gyosei/docs/791787.html",
+    levels: [
+      { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 168000, ctx: { isSelfTaxable: true, totalIncome: 8500000 } },
+      { level: "15", annual: 174720, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "gotemba", name: "御殿場市（独自高位乗率）", source: "city.gotemba.lg.jp/kenkou/c-2/c-2-4/508.html",
+    levels: [
+      { level: "1",  annual: 18100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 76300,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 133500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "morimachi", name: "森町（県内最高額・軽減後）", source: "town.morimachi.shizuoka.jp/.../4213.html",
+    levels: [
+      { level: "1",  annual: 21888,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 52608,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 76800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 184320, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kawazu", name: "河津町（軽減後≠軽減前）", source: "town.kawazu.shizuoka.jp/.../gaiyou.pdf",
+    levels: [
+      { level: "1",  annual: 21600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 51800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "13", annual: 181400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shimada", name: "島田市（県内最低基準額60000）", source: "city.shimada.shizuoka.jp/kurashi-docs/kaigo_hokenryou.html",
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 66000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 126000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fujinomiya", name: "富士宮市（国標準型13段）", source: "city.fujinomiya.lg.jp/1035210000/p001477.html",
+    levels: [
+      { level: "1",  annual: 20700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "8",  annual: 109300, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 174900, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
