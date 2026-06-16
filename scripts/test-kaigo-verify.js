@@ -886,6 +886,60 @@ const CASES = [
       { level: "13", annual: 139300, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 山梨 取得不能フィル（スクショ/条例で確定）──
+  {
+    slug: "tsuru", name: "都留市（軽減表で第1-3確定）", source: "city.tsuru.yamanashi.jp/soshiki/choujukaigo/1/5/1164.html",
+    levels: [
+      { level: "1",  annual: 20500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 86100,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 172100, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fuefuki", name: "笛吹市（上位独自乗率1.88/1.89/1.9）", source: "city.fuefuki.yamanashi.jp/documents/6143/kaigohokenryou.pdf",
+    levels: [
+      { level: "10", annual: 129600, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "11", annual: 135360, ctx: { isSelfTaxable: true, totalIncome: 5500000 } },
+      { level: "13", annual: 136800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "chuo-yamanashi", name: "中央市（15段・独自境界）", source: "city.chuo.yamanashi.jp/.../12534.html",
+    levels: [
+      { level: "1",  annual: 18900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "8",  annual: 102300, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 125400, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },
+      { level: "15", annual: 138600, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "minobu", name: "身延町（国標準13段）", source: "town.minobu.lg.jp/page/2074.html",
+    levels: [
+      { level: "1",  annual: 21380,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "13", annual: 180000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fujikawamachi", name: "富士川町（国標準13段）", source: "town.fujikawa.yamanashi.jp/.../R7kaigohokennryou.pdf",
+    levels: [
+      { level: "6",  annual: 87840,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 175680, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tabayamamura", name: "丹波山村（第9期PDF）", source: "vill.tabayama.yamanashi.jp/.../dai9ki.tabayayakaigo.pdf",
+    levels: [
+      { level: "1",  annual: 19200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "13", annual: 162000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "yamanakako", name: "山中湖村（計画PDF・inferred第1-3）", source: "vill.yamanakako.lg.jp/div/kaigo/pdf/kaigohokenkeikaku9.pdf",
+    levels: [
+      { level: "5",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 138240, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
