@@ -803,6 +803,89 @@ const CASES = [
       { level: "13", annual: 174900, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 山梨県（第9期・独立保険者27。R8境界82.65万。代表7市町を独立転記）──
+  {
+    slug: "kofu", name: "甲府市（15段・独自境界190/200/290/400/600/800）", source: "city.kofu.yamanashi.jp/.../hokenryo.html",
+    levels: [
+      { level: "1",  annual: 22170,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "7",  annual: 97220,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 101110, ctx: { isSelfTaxable: true, totalIncome: 1950000 } },
+      { level: "10", annual: 136110, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "15", annual: 202220, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "kai", name: "甲斐市（14段・独自境界410/500/590/680/770）", source: "city.kai.yamanashi.jp/.../5058.html",
+    levels: [
+      { level: "6",  annual: 72000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 105000, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "14", annual: 144000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "koshu", name: "甲州市（独自境界500/700/900/1100・L10=1.85）", source: "city.koshu.yamanashi.jp/docs/2021051900024/",
+    levels: [
+      { level: "9",  annual: 121500, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "11", annual: 139400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "13", annual: 157300, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "showamachi", name: "昭和町（14段・独自境界430/540/650/900/1200）", source: "town.showa.yamanashi.jp/soshiki/12/12164.html",
+    levels: [
+      { level: "1",  annual: 16758,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "9",  annual: 99960,  ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "12", annual: 117600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "14", annual: 129360, ctx: { isSelfTaxable: true, totalIncome: 13000000 } },
+    ],
+  },
+  {
+    slug: "nirasaki", name: "韮崎市（15段・上位2段追加820/1000）", source: "city.nirasaki.lg.jp/.../1944.html",
+    levels: [
+      { level: "13", annual: 155600, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },
+      { level: "15", annual: 168500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "oshinomura", name: "忍野村（県内最安・軽減後）", source: "vill.oshino.lg.jp/page/1399.html",
+    levels: [
+      { level: "1",  annual: 16500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 138240, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fujikawaguchiko", name: "富士河口湖町（条例・inferred第1-3）", source: "town.fujikawaguchiko.lg.jp/ka/info.php?if_id=364",
+    levels: [
+      { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  // ── 静岡 取得不能フィル（スクショ/条例で確定・国標準13段）──
+  {
+    slug: "makinohara", name: "牧之原市（ガイドブック・スクショ確定）", source: "city.makinohara.shizuoka.jp/uploaded/attachment/49811.pdf",
+    levels: [
+      { level: "1",  annual: 19152,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shimizumachi", name: "清水町（公式HTML・スクショ確定）", source: "town.shimizu.shizuoka.jp/kokuho/kokuho00021.html",
+    levels: [
+      { level: "1",  annual: 17400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "8",  annual: 91800,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 146800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "higashiizu", name: "東伊豆町（介護保険条例・確定）", source: "g-reiki.net/town.higashiizu.shizuoka/.../g323RG00000483.html",
+    levels: [
+      { level: "1",  annual: 16500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 58000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 139300, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
