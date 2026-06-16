@@ -587,6 +587,131 @@ const CASES = [
       { level: "13", annual: 201600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 長野県（2026-06-16）代表自治体・非標準境界の独立転記 ──
+  {
+    slug: "okaya", name: "岡谷市（諏訪広域・14段・80万境界）", source: "union.suwa.lg.jp/site/kaigo/hokenryo.html",
+    levels: [
+      { level: "1",  annual: 18981,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 69930,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 73260,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 156510, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "kisomachi", name: "木曽町（木曽広域・標準13段）", source: "kisoji.com .../0604_hokenryo_1gou.html",
+    levels: [
+      { level: "1",  annual: 19200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 160800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "omachi", name: "大町市（北アルプス広域・標準13段）", source: "kita-alps.omachi.nagano.jp .../kaigo_hokenryou.html",
+    levels: [
+      { level: "1",  annual: 19836,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 167040, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "matsumoto", name: "松本市（14段・430/840万境界）", source: "city.matsumoto.nagano.jp/site/kourei/137842.html",
+    levels: [
+      { level: "1",  annual: 19760,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69360,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 117910, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 159520, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "14", annual: 166460, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "iida", name: "飯田市（16段）", source: "city.iida.lg.jp/soshiki/14/9kikaigohokenryou.html",
+    levels: [
+      { level: "1",  annual: 20088,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71760,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "16", annual: 193752, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "nagano", name: "長野市（13段・第12=620-1000万）", source: "city.nagano.nagano.jp .../p002457.html",
+    levels: [
+      { level: "1",  annual: 19050,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "12", annual: 156490, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "13", annual: 163290, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "chikuma", name: "千曲市（独自境界125/200/300万）", source: "city.chikuma.lg.jp .../1291.html",
+    levels: [
+      { level: "6",  annual: 69216,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 77250,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 126690, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tatsuno", name: "辰野町（独自境界・680万）", source: "town.tatsuno.lg.jp .../3359.html",
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "9",  annual: 90000,  ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "12", annual: 102000, ctx: { isSelfTaxable: true, totalIncome: 6500000 } },
+      { level: "13", annual: 105000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "minowa", name: "箕輪町（独自境界190万）", source: "town.minowa.lg.jp .../kaigohokennryou.pdf",
+    levels: [
+      { level: "7",  annual: 76800,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 79200,  ctx: { isSelfTaxable: true, totalIncome: 2000000 } },
+      { level: "9",  annual: 91200,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 120000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "minamimino", name: "南箕輪村（15段・独自境界290万）", source: "vill.minamiminowa.lg.jp .../11208_66810_misc.JPG",
+    levels: [
+      { level: "1",  annual: 17880,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 62760,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 94200,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "9",  annual: 100440, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "15", annual: 150600, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "miyada", name: "宮田村（標準13段・調整率0.325始まり）", source: "vill.miyada.nagano.jp",
+    levels: [
+      { level: "1",  annual: 23400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 172800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "yasuoka", name: "泰阜村（9段階）", source: "vill.yasuoka.nagano.jp/docs/2502.html",
+    levels: [
+      { level: "1",  annual: 26460,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 58800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 70560,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "8",  annual: 88200,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "9",  annual: 99960,  ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+    ],
+  },
+  {
+    slug: "minamimaki", name: "南牧村（独自境界200万）", source: "minamimakimura.jp .../326.html",
+    levels: [
+      { level: "1",  annual: 23400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 82200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 106800, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 123300, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 197200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "takayama", name: "高山村（独自境界・軽減後）", source: "vill.takayama.nagano.jp/docs/686.html",
+    levels: [
+      { level: "1",  annual: 15000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "7",  annual: 90000,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 144000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
