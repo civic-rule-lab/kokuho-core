@@ -995,6 +995,27 @@ const CASES = [
     ],
   },
   {
+    slug: "tomioka", name: "富岡市", source: "city.tomioka.lg.jp/.../1548725579973/index.html",
+    // 13段階・基準額69,200円。標準境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 19700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 47400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 69200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 166000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kawaba", name: "川場村（県内最高）", source: "vill.kawaba.gunma.jp/.../62ef19f710c2...pdf p.92",
+    // 13段階・基準額91,200円(月7,600)。第1-3軽減後・各段100円丸め。
+    levels: [
+      { level: "1",  annual: 25900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 91200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 109400, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 218800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
     slug: "ota-gunma", name: "太田市", source: "city.ota.gunma.jp/page/1276.html",
     // 15段階・基準額70,700円。第6=×1.30(120万)。第6-15境界120/210/320/420/520/620/720/820/1000万。
     levels: [
