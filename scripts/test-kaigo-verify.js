@@ -56,6 +56,84 @@ function ctxFromCriteria(c = {}) {
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
   {
+    slug: "gifu", name: "岐阜市", source: "city.gifu.lg.jp .../1004834.html",
+    // 第9期 基準額 年82,800円・13段階。第1〜5合算所得(sumIncome)・第6〜13合計所得。第1-3軽減後。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 23500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 56700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 82800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 99300,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 107600, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 198700, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "minokamo", name: "美濃加茂市", source: "city.minokamo.lg.jp .../17793.pdf",
+    // 第9期 基準額 年67,200円・16段階。第6〜16合計所得120/210/320/420/520/620/720/800/900/1000万。
+    levels: [
+      { level: "1",  annual: 19150,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 73920,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 181440, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "kani", name: "可児市", source: "city.kani.lg.jp/2796.htm",
+    // 第9期 基準額 年68,400円・17段階。第1-3は可児市独自軽減後(0.25/0.40/0.65)。第6〜17合計所得120/210/320/420/520/620/720/800/900/1000/1500万。
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 44460,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 75240,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 194940, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "seki", name: "関市", source: "city.seki.lg.jp/0000000692.html",
+    // 第9期 基準額 年68,400円・14段階。第6境界が独自(82.65万未満)。境界82.65/125/200/290/400/540/700/1000万。
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 71820,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 75240,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 171000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "mizuhoshi", name: "瑞穂市(もとす広域連合)", source: "motosu-union.gifu.jp/care/about",
+    // 第9期 基準額 年72,200円・13段階(広域連合共通)。第6境界125万・第8=210〜400万。境界125/210/400/500/600/700/800万。
+    levels: [
+      { level: "1",  annual: 20500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 108300, ctx: { isSelfTaxable: true, totalIncome: 3000000 } },
+      { level: "13", annual: 158900, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "gero", name: "下呂市", source: "city.gero.lg.jp .../28088_59487_misc.pdf",
+    // 第9期 基準額 年57,600円・13段。第1-3は下呂独自軽減後(0.29/0.49/0.69)。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 16700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 39740,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 69120,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 138240, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shirakawamura", name: "白川村", source: "g-reiki.net/shirakawa-go .../i390RG00000394.html (条例第2条)",
+    // 第9期 基準額 年70,800円・13段。★第9(320-420万)と第10(420-520万)が同額134,520(共に×1.90)。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 20180,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 134520, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "10", annual: 134520, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "13", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
     slug: "kawasaki", name: "川崎市", source: "city.kawasaki.jp .../hokenryoudankai202508.pdf",
     // 第9期 基準額 年79,090円・19段階(第1=生保/老齢福祉と第2=非課税≤82.65万が同額→level1統合)。
     // 第1〜6は合算所得(sumIncome)、第7〜19は合計所得(totalIncome)。境界R8=82.65万。
