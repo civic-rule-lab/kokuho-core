@@ -1103,6 +1103,105 @@ const CASES = [
       { level: "15", annual: 205000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
     ],
   },
+  {
+    slug: "miyawaka", name: "宮若市(福岡県介護保険広域連合Aグループ)", source: "fukuoka-kaigo.jp/fee/detail/nursing5_a.html",
+    // 25段。基準85,835円。第1-3=公費軽減後0.28/0.48/0.68。第9以降340-620万を20万刻み。境界120/210/320/340.../620/720万。
+    levels: [
+      { level: "1",  annual: 24034,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 58368,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 85835,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 103002, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 128753, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "25", annual: 214588, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "sasaguri", name: "篠栗町(福岡県介護保険広域連合Cグループ)", source: "fukuoka-kaigo.jp/fee/detail/nursing5_c.html",
+    // 25段。基準59,710円。Aグループの料率を低基準額に適用(A値×59710/85835)。
+    levels: [
+      { level: "1",  annual: 16719,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 59710,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 71652,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "25", annual: 149275, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fukuoka", name: "福岡市", source: "city.fukuoka.lg.jp .../3-010203.html",
+    // 15段。基準82,784円。第1-3=福岡市独自軽減後(0.245/0.395/0.685)。境界125/200/300/400/500/600/700/800/900万。
+    levels: [
+      { level: "1",  annual: 20282,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 82784,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 91063,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 223517, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "kitakyushu", name: "北九州市", source: "city.kitakyushu.lg.jp/contents/924_11152.html",
+    // 15段。基準79,070円。第2=0.435(非標準)。第6-9境界80/120/160/210万・以降320/420.../720万。
+    levels: [
+      { level: "1",  annual: 22530,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79070,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86970,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "9",  annual: 98830,  ctx: { isSelfTaxable: true, totalIncome: 1800000 } },
+      { level: "10", annual: 118600, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "15", annual: 189760, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kasuya", name: "粕屋町(独立保険者)", source: "town.kasuya.fukuoka.jp .../20191121231304.html",
+    // 16段。基準67,200円。第2=0.44(非標準)。境界120/160/210/260/320/370/420/470/620/720万。
+    levels: [
+      { level: "1",  annual: 19152,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 100800, ctx: { isSelfTaxable: true, totalIncome: 2300000 } },
+      { level: "16", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "itoshima", name: "糸島市", source: "city.itoshima.lg.jp .../20210528152143.html",
+    // 14段。基準67,200円。第6=×1.16(125万以下)。第8上限を公式300万→320万に補正(第9下限と連続化)。境界125/210/320/420/520/620/720/820万。
+    levels: [
+      { level: "1",  annual: 19150,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 77950,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 110880, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "14", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "nakama", name: "中間市", source: "city.nakama.lg.jp/soshiki/17/1406.html",
+    // 13段。基準70,248円。高所得帯が200万刻み。境界120/210/320/420/620/820/1020万。
+    levels: [
+      { level: "1",  annual: 20021,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70248,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84298,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 133472, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+      { level: "13", annual: 168596, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "omuta", name: "大牟田市", source: "city.omuta.lg.jp/kiji00315142/index.html",
+    // 13段。基準72,000円。第4=0.80(非標準・57600)。境界125/200/300/400/500/600/700万。
+    levels: [
+      { level: "1",  annual: 20520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79200,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 151200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "koga", name: "古賀市", source: "city.koga.fukuoka.jp .../030.php (公式画像スクショ)",
+    // 13段。基準63,600円。国標準13段・端数処理なしのbase×乗率実額。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 18126,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 43566,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 63600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 76320,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 152640, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
