@@ -1340,6 +1340,67 @@ const CASES = [
       { level: "13", annual: 136800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ─── 熊本県(第9期・45独立保険者) ───
+  {
+    slug: "kumamoto", name: "熊本市", source: "city.kumamoto.jp/kiji0039042/ (15段・市独自料率)",
+    // 15段。基準76,800。第2=0.37/第3=0.645/第4=0.875は熊本市独自(軽減前後取り違えなし=公式確認)。境界…720/820/920万。
+    levels: [
+      { level: "1",  annual: 21888,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 28416,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 76800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84480,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 222720, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "yatsushiro", name: "八代市", source: "city.yatsushiro.lg.jp/reiki/…r371RG00000486 (条例第3条減額賦課)",
+    // 13段。基準72,000。第1-3=条例第3条第2-4項の軽減後18700/33800/48900(取り違えなし=条例確認)。
+    levels: [
+      { level: "1",  annual: 18700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 33800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "3",  annual: 48900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 151200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "oguni", name: "小国町(熊本県)", source: "town.kumamoto-oguni.lg.jp/…/22150 (基準75600が正・山形県小国町と誤帰属注意)",
+    // 13段。基準75,600(月6300)。MHLW表の5890は山形県小国町。
+    levels: [
+      { level: "1",  annual: 21480,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90720,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 181440, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "ashikita", name: "芦北町", source: "town.ashikita.lg.jp/…r172RG00000306 (条例第2条・県内最低水準)",
+    // 13段。基準59,900(県内最低水準)。条例第2条第2-4項。
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 59900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 143700, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kuma", name: "球磨村", source: "d1-law kuma 介護保険条例第2条 (基準90000=県内最高水準)",
+    // 13段。基準90,000(月7500)。条例第2条に年額直接規定。
+    levels: [
+      { level: "1",  annual: 25650,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 90000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 108000, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 216000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "reihoku", name: "苓北町(推計)", source: "第9期計画ページ本文で基準69600確認・段階表非公表→国標準13段で推計",
+    // 13段(推計)。基準69,600(月5800)。公式サイトは旧8期表のみ→国標準乗率floor100。
+    levels: [
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 167000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
