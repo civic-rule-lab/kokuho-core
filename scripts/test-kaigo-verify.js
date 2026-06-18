@@ -1401,6 +1401,57 @@ const CASES = [
       { level: "13", annual: 167000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ─── 佐賀県(第9期・3広域連合＋独立4) ───
+  {
+    slug: "saga", name: "佐賀市(佐賀中部広域連合)", source: "chubu.saga.saga.jp/kaigohoken/hokenryo/_1370.html",
+    // 13段。基準71,520(月5960)。第1-3軽減後(0.285/0.485/0.685)。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 20388,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71520,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85824,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 171648, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tosu", name: "鳥栖市(鳥栖地区広域)", source: "tosu-kouiki.jp/about_hokenryou/1gou/",
+    // 13段。基準68,292(月5691)。第1-3軽減後。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 19464,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68292,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 81960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 163908, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "takeo", name: "武雄市(杵藤地区広域)", source: "city.takeo.lg.jp 広報たけお2024.6 P19 (★第7-9乗率が組合独自)",
+    // 13段。基準71,832(月5986)。★第7=1.35/第8=1.60/第9=1.85(標準と相違)。端数=月額切上×12。
+    levels: [
+      { level: "1",  annual: 20484,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71832,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 96984,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "9",  annual: 132900, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 172404, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "genkaimachi", name: "玄海町(独立・県内最高)", source: "town.genkai.lg.jp/soshiki/23/1181.html",
+    // 13段。基準82,200。第1-3軽減後。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 23427,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 82200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 197280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "aritamachi", name: "有田町(独立・県内最低)", source: "town.arita.lg.jp 介護保険条例別表",
+    // 13段。基準67,200(月5600)。第1-3軽減後(条例§6-8)。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 19152,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
