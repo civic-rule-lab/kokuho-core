@@ -1202,6 +1202,81 @@ const CASES = [
       { level: "13", annual: 152640, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "nishihara", name: "西原町(沖縄県介護保険広域連合)", source: "okinawa-kouiki.jp/docs/2024010400016/ (均一賦課)",
+    // 16段。基準83,148(月6929)。令和6年度から均一賦課(単一料率)。第1-3軽減後0.285/0.485/0.685。境界120/210/320/420/520/620/720/820/920/1020万。
+    levels: [
+      { level: "1",  annual: 23697,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 83148,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 99777,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 124722, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "16", annual: 249444, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "naha", name: "那覇市", source: "city.naha.okinawa.jp .../r8hpver.2.pdf",
+    // 16段。基準82,512。第6=×1.12。境界120/210/320/420/520/620/720/1000/1500/2000万。
+    levels: [
+      { level: "1",  annual: 23520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 82512,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 92424,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 247536, ctx: { isSelfTaxable: true, totalIncome: 21000000 } },
+    ],
+  },
+  {
+    slug: "okinawashi", name: "沖縄市", source: "city.okinawa.okinawa.jp 介護保険条例第6条",
+    // 13段。基準87,300。第1-3減額賦課=24876/33168/53244(第2=0.38/第3=0.61独自)。境界120/210/320/420/520/620/720万。
+    levels: [
+      { level: "1",  annual: 24876,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 53244,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 87300,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 101268, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 218244, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "miyakojima", name: "宮古島市", source: "city.miyakojima.lg.jp .../hokenryo.html",
+    // 15段。基準86,820。★第1=0.425(非標準・公式確認)。境界120/210/320/420/520/620/720/820/920万。
+    levels: [
+      { level: "1",  annual: 36900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 86820,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 104184, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 234420, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "urasoe", name: "浦添市", source: "urasoe介護保険条例第3条",
+    // 15段。基準81,600。第2=0.365(非標準・条例第3条第3項)。第10=420-620万の200万刻み。境界120/210/320/420/620/820/1000/1500/2000万。
+    levels: [
+      { level: "1",  annual: 23256,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 29784,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 97920,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 212160, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "ginowan", name: "宜野湾市", source: "city.ginowan.lg.jp .../2932.html",
+    // 15段。基準78,000。第2=0.40(非標準=31200)。境界120/210/320/420/520/620/720/820/1000万。
+    levels: [
+      { level: "1",  annual: 22230,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 31200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 78000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 214500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "nago", name: "名護市", source: "city.nago.okinawa.jp .../R8.pdf",
+    // 15段。基準88,220。第6=80万未満始まり・独自境界80/120/150/190/290/400/500/600/700万。
+    levels: [
+      { level: "1",  annual: 25143,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 88220,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 97040,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 101450, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 238200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
