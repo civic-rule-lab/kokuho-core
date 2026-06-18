@@ -15281,11 +15281,13 @@
       "prefectureSlug": "kumamoto",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15295,10 +15297,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15308,10 +15312,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15321,10 +15327,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15334,10 +15342,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15347,10 +15357,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15360,10 +15372,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15373,10 +15387,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15386,10 +15402,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15399,10 +15417,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15412,10 +15432,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15425,10 +15447,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15438,10 +15462,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15451,10 +15477,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15464,10 +15492,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15477,10 +15507,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15490,10 +15522,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15503,10 +15537,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15516,10 +15552,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15529,10 +15567,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15542,10 +15582,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15555,10 +15597,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15568,10 +15612,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15581,10 +15627,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15594,10 +15642,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15607,10 +15657,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15620,10 +15672,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15633,10 +15687,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15646,10 +15702,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15659,10 +15717,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15672,10 +15732,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15685,10 +15747,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15698,10 +15762,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15711,10 +15777,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15724,10 +15792,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15737,10 +15807,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15750,10 +15822,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15763,10 +15837,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15776,10 +15852,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15789,10 +15867,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15802,10 +15882,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15815,10 +15897,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15828,10 +15912,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15841,10 +15927,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15854,10 +15942,12 @@
       "prefecture": "熊本県",
       "prefectureSlug": "kumamoto",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
