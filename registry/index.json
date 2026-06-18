@@ -19512,10 +19512,12 @@
       "cityName": "大分市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19525,10 +19527,12 @@
       "cityName": "別府市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19538,10 +19542,12 @@
       "cityName": "中津市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19551,10 +19557,12 @@
       "cityName": "日田市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19564,10 +19572,12 @@
       "cityName": "佐伯市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19577,10 +19587,12 @@
       "cityName": "臼杵市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19590,10 +19602,12 @@
       "cityName": "津久見市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19603,10 +19617,12 @@
       "cityName": "竹田市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19616,10 +19632,12 @@
       "cityName": "豊後高田市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19629,10 +19647,12 @@
       "cityName": "杵築市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19642,10 +19662,12 @@
       "cityName": "宇佐市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19655,10 +19677,12 @@
       "cityName": "豊後大野市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19668,10 +19692,12 @@
       "cityName": "由布市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19681,10 +19707,12 @@
       "cityName": "国東市",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19694,10 +19722,12 @@
       "cityName": "姫島村",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19707,10 +19737,12 @@
       "cityName": "日出町",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19720,10 +19752,12 @@
       "cityName": "九重町",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
@@ -19733,10 +19767,12 @@
       "cityName": "玖珠町",
       "prefecture": "大分県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "oita"
     },
