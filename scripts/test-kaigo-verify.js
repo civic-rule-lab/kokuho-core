@@ -1452,6 +1452,65 @@ const CASES = [
       { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ─── 宮崎県(第9期・26独立保険者) ───
+  {
+    slug: "miyazaki", name: "宮崎市(14段)", source: "city.miyazaki.miyazaki.jp .../12331.html (第6境界125万・820万まで)",
+    // 14段。基準75,600。第4=0.85。第6境界125万。
+    levels: [
+      { level: "1",  annual: 21500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90700,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 185200, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "nobeoka", name: "延岡市(15段)", source: "city.nobeoka.miyazaki.jp/soshiki/28/34088.html (第6=1.25・第7境界160万)",
+    // 15段。基準70,800(月5900据置)。独自乗率/境界。
+    levels: [
+      { level: "1",  annual: 20170,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 88500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "miyakonojo", name: "都城市(条例・第6-8独自乗率)", source: "g-reiki mkj 介護保険条例第5条 (第6-8=1.25/1.35/1.55)",
+    // 13段。基準74,400。★第6-8乗率1.25/1.35/1.55(国標準より高い)。
+    levels: [
+      { level: "1",  annual: 21200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 115320, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 178560, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "aya", name: "綾町(第9=1.65非標準)", source: "town.aya.miyazaki.jp 第9期保険料額PDF",
+    // 13段。基準70,800。第9段階のみ1.65。
+    levels: [
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 116800, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 169900, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "gokase", name: "五ヶ瀬町(県内最低)", source: "town.gokase.miyazaki.jp 9ki hokenryo PDF (月4600)",
+    // 13段。基準55,200(月4600)。
+    levels: [
+      { level: "1",  annual: 15732,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 55200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 132480, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "morotsuka", name: "諸塚村(推計)", source: "厚労省001253800で基準60000確認・条例別表非取得→国標準13段で推計",
+    // 13段(推計)。基準60,000(月5000)。国標準乗率floor100。
+    levels: [
+      { level: "5",  annual: 60000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 72000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 144000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
