@@ -1579,6 +1579,61 @@ const CASES = [
       { level: "13", annual: 139680, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "kimotsuki", name: "肝付町(県内最高・10円切捨)", source: "kimotsuki-town.jp 画像表(スクショ確定)",
+    levels: [
+      { level: "1",  annual: 24620,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 86400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 207360, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tatsugou", name: "龍郷町(100円切捨)", source: "town.tatsugo.lg.jp HTML表(スクショ確定)",
+    levels: [
+      { level: "1",  annual: 23200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 138700, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 195800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+
+  // ─── 長崎県(第9期・18市町個別＋島原広域3市統一=19料率表) ───
+  {
+    slug: "isahaya", name: "諫早市(第6境界125万)", source: "city.isahaya.nagasaki.jp/soshiki/25/30410.html",
+    levels: [
+      { level: "5",  annual: 71640,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85920,  ctx: { isSelfTaxable: true, totalIncome: 1240000 } },  // <125万(非標準)
+      { level: "7",  annual: 93120,  ctx: { isSelfTaxable: true, totalIncome: 1300000 } },  // 125-210万
+      { level: "13", annual: 171960, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tsushimashi", name: "対馬市(14段・独自乗率)", source: "city.tsushima.nagasaki.jp .../1005.html",
+    levels: [
+      { level: "4",  annual: 68250,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } }, // 0.875独自
+      { level: "5",  annual: 78000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87750,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },  // 1.125独自
+      { level: "13", annual: 179400, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },  // 720-820万
+      { level: "14", annual: 187200, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },  // 820万+
+    ],
+  },
+  {
+    slug: "goto", name: "五島市(第6-9独自乗率)", source: "city.goto.nagasaki.jp 広報ごとうR6.12 PDF",
+    levels: [
+      { level: "5",  annual: 81360,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 101700, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },  // 1.25独自
+      { level: "9",  annual: 142380, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },  // 1.75独自
+      { level: "13", annual: 195260, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nagasaki", name: "長崎市", source: "city.nagasaki.lg.jp/page/1436.html",
+    levels: [
+      { level: "1",  annual: 23300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 195800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
