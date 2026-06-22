@@ -55,6 +55,130 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 滋賀県(2026-06-22 横展開・独立転記) ──
+  {
+    slug: "koka", name: "甲賀市", source: "city.koka.lg.jp PDF(スクショ確定)",
+    // 14段・★第1=0.28/第2=0.38/第4=0.87/第6=1.13/第7=1.25独自・課税125万境界。
+    levels: [
+      { level: "1",  annual: 19956,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 27084,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 71280,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80544,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 89100,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "9",  annual: 124740, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "14", annual: 185328, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "toyosato", name: "豊郷町", source: "town.toyosato.shiga.jp(スクショ確定)",
+    // 13段・国標準・基準80400。
+    levels: [
+      { level: "1",  annual: 22920,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 96480,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 192960, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "otsu", name: "大津市", source: "city.otsu.lg.jp",
+    // 中核市・第4=0.80・独自境界100/125/200/350/500/750/1000万・独自乗率。
+    levels: [
+      { level: "1",  annual: 19545,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68580,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 77495,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 82296,  ctx: { isSelfTaxable: true, totalIncome: 1100000 } },
+      { level: "13", annual: 162191, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "nagahama", name: "長浜市", source: "city.nagahama.lg.jp",
+    // ★第1=0.255/第2=0.435独自軽減・課税80万境界。
+    levels: [
+      { level: "1",  annual: 20090,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 34290,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 78840,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90660,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 94600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 181330, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "moriyama", name: "守山市", source: "city.moriyama.lg.jp",
+    // 独自境界125/190/290/400/500/600/700万。
+    levels: [
+      { level: "1",  annual: 20178,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 106200, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "konanshi", name: "湖南市", source: "city.shiga-konan.lg.jp",
+    // 15段・独自境界125/200/350/450/590/680/750/1000/1500万。
+    levels: [
+      { level: "1",  annual: 20892,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73320,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84324,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 108516, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "15", annual: 175968, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "maibara", name: "米原市", source: "city.maibara.lg.jp",
+    // ★第1=0.275/第2=0.48独自軽減・独自境界45/120/210/320/410/500/590/680万。
+    levels: [
+      { level: "1",  annual: 22800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 39840,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 82800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95280,  ctx: { isSelfTaxable: true, totalIncome: 300000 } },
+      { level: "7",  annual: 99360,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 198720, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "aisho", name: "愛荘町", source: "town.aisho.shiga.jp",
+    // ★第6=1.30始まり独自乗率。
+    levels: [
+      { level: "1",  annual: 20178,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 92040,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 99120,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 152220, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kora", name: "甲良町", source: "kouratown.jp",
+    // 県内最高基準額・第6-7独自乗率1.25/1.45。
+    levels: [
+      { level: "1",  annual: 24624,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 86400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 108000, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 125280, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 207360, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "hinocho", name: "日野町", source: "town.shiga-hino.lg.jp",
+    // 15段・第2軽減後0.45・第4=0.88。
+    levels: [
+      { level: "1",  annual: 21204,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 33480,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84072,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 193440, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "ryuo", name: "竜王町", source: "town.ryuoh.shiga.jp",
+    // 低段は月額丸め×12。
+    levels: [
+      { level: "1",  annual: 20184,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 兵庫県(2026-06-22 横展開・独立転記) ──
   {
     slug: "kobe", name: "神戸市", source: "city.kobe.lg.jp あらまし第9期",
