@@ -19068,10 +19068,12 @@
       "cityName": "島原市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19201,10 +19203,12 @@
       "cityName": "雲仙市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19214,10 +19218,12 @@
       "cityName": "南島原市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19272,10 +19278,12 @@
       "cityName": "川棚町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19285,10 +19293,12 @@
       "cityName": "波佐見町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
