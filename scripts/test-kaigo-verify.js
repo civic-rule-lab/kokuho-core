@@ -55,6 +55,133 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 大阪府(2026-06-22 横展開・独立転記) ──
+  {
+    slug: "osaka", name: "大阪市", source: "city.osaka.lg.jp .../R6_p31.pdf(2026-06-22スクショ確定)",
+    // 官15段(統合後14br)・基準110988・base@官第6。標準5低段(世帯非課税3バンド0.335/0.485/0.685・本人非課税0.85/1.00)。課税≤125万始まり。
+    levels: [
+      { level: "1",  annual: 37181,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 53830,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "3",  annual: 76027,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "4",  annual: 94340,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 110988, ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 122087, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 138735, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 288569, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "14", annual: 332964, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "ibaraki", name: "茨木市", source: "city.ibaraki.osaka.jp 条例第10条",
+    // 23段・基準77760。第6=80万未満始まり。
+    levels: [
+      { level: "1",  annual: 22162,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77760,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83592,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "11", annual: 115862, ctx: { isSelfTaxable: true, totalIncome: 2300000 } },
+      { level: "23", annual: 225504, ctx: { isSelfTaxable: true, totalIncome: 35000000 } },
+    ],
+  },
+  {
+    slug: "suita", name: "吹田市", source: "city.suita.osaka.jp/.../1034224.html",
+    // 20段・基準75360。第6=60万未満始まり。
+    levels: [
+      { level: "1",  annual: 21478,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75360,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 81012,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "11", annual: 118315, ctx: { isSelfTaxable: true, totalIncome: 2300000 } },
+      { level: "20", annual: 263760, ctx: { isSelfTaxable: true, totalIncome: 30000000 } },
+    ],
+  },
+  {
+    slug: "tondabayashi", name: "富田林市", source: "city.tondabayashi.lg.jp .../96710.pdf",
+    // 官19段(統合後18br)・基準83120(base@官第6)。第3=0.45独自・課税125/200/300…万。
+    levels: [
+      { level: "1",  annual: 23680,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 37400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "3",  annual: 56930,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "4",  annual: 70650,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 83120,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 91430,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 103900, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "18", annual: 207800, ctx: { isSelfTaxable: true, totalIncome: 15000000 } },
+    ],
+  },
+  {
+    slug: "settsu", name: "摂津市", source: "city.settsu.osaka.jp/.../1981.html",
+    // 17段・基準77880。第2=0.45。★課税70万未満始まり・70/150/250万独自。
+    levels: [
+      { level: "1",  annual: 22200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77880,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93456,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 97356,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 186912, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "kanan", name: "河南町", source: "town.kanan.osaka.jp .../reiwa6kaigohokennryo.pdf",
+    // 17段・基準(軽減前)73433・第4(0.85)/第5(0.95)も軽減=軽減後69760。
+    levels: [
+      { level: "1",  annual: 20930,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 62420,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69760,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 88120,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 205630, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "chihayaakasaka", name: "千早赤阪村", source: "vill.chihayaakasaka.osaka.jp .../0329.pdf",
+    // 15段・府内最低基準額55990。410/500/590/680/770/860万独自境界。
+    levels: [
+      { level: "1",  annual: 15960,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 55990,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 67190,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 95180,  ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "15", annual: 145570, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "moriguchi", name: "守口市", source: "city.moriguchi.osaka.jp .../dai9ki_kaigodankai_reiwa7.pdf",
+    // 16段・基準107640(くすのき解散後単独)。1020万まで細分。
+    levels: [
+      { level: "1",  annual: 30680,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 107640, ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 129170, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 290630, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "osakasayama", name: "大阪狭山市", source: "city.osakasayama.osaka.jp .../hokenryou.pdf",
+    // 14段・基準76080。170/620/820/1020万独自境界。
+    levels: [
+      { level: "1",  annual: 21683,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76080,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 91296,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "14", annual: 190200, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "takaishi", name: "高石市", source: "city.takaishi.lg.jp .../kaigohokenryou2024-26.pdf",
+    // 13段・基準73640。第2=0.385。第9=1.75/400万独自。
+    levels: [
+      { level: "1",  annual: 20980,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73640,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 128870, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "10", annual: 147280, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "13", annual: 176730, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "sennan", name: "泉南市", source: "city.sennan.lg.jp .../1455013607623.html",
+    // 14段・基準75000。第2=0.40。★課税80万未満始まり・450/800万独自・高位乗率2.8/3.3。
+    levels: [
+      { level: "1",  annual: 21375,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90000,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "13", annual: 210000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+      { level: "14", annual: 247500, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
   {
     slug: "gifu", name: "岐阜市", source: "city.gifu.lg.jp .../1004834.html",
     // 第9期 基準額 年82,800円・13段階。第1〜5合算所得(sumIncome)・第6〜13合計所得。第1-3軽減後。境界120/210/320/420/520/620/720万。
