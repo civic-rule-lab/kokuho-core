@@ -17328,10 +17328,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17371,10 +17373,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17384,10 +17388,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17427,10 +17433,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17455,10 +17463,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17468,10 +17478,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17496,10 +17508,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -17524,10 +17538,12 @@
       "prefecture": "鹿児島県",
       "prefectureSlug": "kagoshima",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -19022,10 +19038,12 @@
       "cityName": "長崎市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19035,10 +19053,12 @@
       "cityName": "佐世保市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19061,10 +19081,12 @@
       "cityName": "諫早市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19074,10 +19096,12 @@
       "cityName": "大村市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19087,10 +19111,12 @@
       "cityName": "平戸市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19100,10 +19126,12 @@
       "cityName": "松浦市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19113,10 +19141,12 @@
       "cityName": "対馬市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19126,10 +19156,12 @@
       "cityName": "壱岐市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19139,10 +19171,12 @@
       "cityName": "五島市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19152,10 +19186,12 @@
       "cityName": "西海市",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19191,10 +19227,12 @@
       "cityName": "長与町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19204,10 +19242,12 @@
       "cityName": "時津町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19217,10 +19257,12 @@
       "cityName": "東彼杵町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19256,10 +19298,12 @@
       "cityName": "小値賀町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19269,10 +19313,12 @@
       "cityName": "佐々町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
@@ -19282,10 +19328,12 @@
       "cityName": "新上五島町",
       "prefecture": "長崎県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "nagasaki"
     },
