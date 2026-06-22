@@ -1634,6 +1634,15 @@ const CASES = [
       { level: "13", annual: 195800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "shimabara", name: "島原広域(3市統一・100円切上)", source: "shimabara-area.net 組合公式表(スクショ確定)",
+    // 島原/雲仙/南島原 同一表。基準75600。100円切上。
+    levels: [
+      { level: "1",  annual: 21600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 181500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
