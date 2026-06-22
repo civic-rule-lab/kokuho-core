@@ -55,6 +55,60 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 京都府(2026-06-22 横展開・独立転記) ──
+  {
+    slug: "kyoto", name: "京都市", source: "city.kyoto.lg.jp(政令市・公式HTML)",
+    // 14段・政令市・第2=0.43/第4=0.9・高所得125/190/400/550/700/850/1000/1150万独自境界。
+    levels: [
+      { level: "1",  annual: 24487,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 85920,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 94512,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 137472, ctx: { isSelfTaxable: true, totalIncome: 3000000 } },
+      { level: "14", annual: 266352, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "ide", name: "井手町", source: "town.ide.kyoto.jp(公式HTML直接確認)",
+    // 16段・★第3=0.698/第4=0.95/第6=1.35/第7=1.37独自(急峻)・第6境界125万。
+    levels: [
+      { level: "1",  annual: 21194,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "3",  annual: 51907,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 74364,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 100392, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 101879, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "16", annual: 189629, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "joyo", name: "城陽市", source: "city.joyo.kyoto.jp",
+    // 18段(府内最多)・基準65730(府内最低)・高所得125/200/300〜1500/2000万独自境界。
+    levels: [
+      { level: "1",  annual: 15450,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 65730,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 73950,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "18", annual: 216910, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "kasagi", name: "笠置町", source: "town.kasagi.lg.jp(条例)",
+    // 13段・府内最高基準85680・令第38条独自基準所得で境界120/200/250/300/350/450/600万。
+    levels: [
+      { level: "1",  annual: 39000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 85680,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 111480, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 240000, ctx: { isSelfTaxable: true, totalIncome: 7000000 } },
+    ],
+  },
+  {
+    slug: "miyazu", name: "宮津市", source: "city.miyazu.kyoto.jp",
+    // 15段・★第1=0.25/第2=0.45/第4=0.85・独自境界125/210/320/400/500/650/800/900/1000万。
+    levels: [
+      { level: "1",  annual: 18450,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73770,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 88520,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 173350, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
   // ── 滋賀県(2026-06-22 横展開・独立転記) ──
   {
     slug: "koka", name: "甲賀市", source: "city.koka.lg.jp PDF(スクショ確定)",
