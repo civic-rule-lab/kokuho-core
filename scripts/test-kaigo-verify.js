@@ -1511,6 +1511,74 @@ const CASES = [
       { level: "13", annual: 144000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+
+  // ─── 鹿児島県(第9期・43独立保険者。組合は事務共同のみ・基準額バラバラ) ───
+  {
+    slug: "kagoshima", name: "鹿児島市(15段)", source: "city.kagoshima.lg.jp .../65sai.html (第2=0.486・第6/7境界125万・15段)",
+    levels: [
+      { level: "1",  annual: 21400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89900,  ctx: { isSelfTaxable: true, totalIncome: 1240000 } },  // <125万 (独自境界)
+      { level: "7",  annual: 97400,  ctx: { isSelfTaxable: true, totalIncome: 1300000 } },  // 125-210万
+      { level: "13", annual: 164800, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },  // 720-800万
+      { level: "14", annual: 172300, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },  // 800-1000万
+      { level: "15", annual: 179800, ctx: { isSelfTaxable: true, totalIncome: 11000000 } }, // 1000万+
+    ],
+  },
+  {
+    slug: "izumishi", name: "出水市(14段・第2独自0.435)", source: "city.kagoshima-izumi.lg.jp/page/page_30033.html",
+    levels: [
+      { level: "2",  annual: 32880,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } }, // 独自軽減0.435
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90720,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },  // <120万
+      { level: "7",  annual: 94440,  ctx: { isSelfTaxable: true, totalIncome: 1300000 } },  // 120-160万 (独自境界)
+      { level: "8",  annual: 98280,  ctx: { isSelfTaxable: true, totalIncome: 1700000 } },  // 160-210万 (独自境界)
+      { level: "14", annual: 181440, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "amami", name: "奄美市(16段・独自境界)", source: "city.amami.lg.jp .../hokenryo.html (第4=0.84・第6<100万・16段)",
+    levels: [
+      { level: "4",  annual: 68544,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } }, // 独自0.84
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84048,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },   // <100万 (独自境界)
+      { level: "7",  annual: 89760,  ctx: { isSelfTaxable: true, totalIncome: 1100000 } },  // 100-120万
+      { level: "16", annual: 212160, ctx: { isSelfTaxable: true, totalIncome: 11000000 } }, // 1000万+
+    ],
+  },
+  {
+    slug: "kanoya", name: "鹿屋市(高所得独自境界)", source: "city.kanoya.lg.jp .../hokenryo.html (320/400/600/800/1000万)",
+    levels: [
+      { level: "5",  annual: 80400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 136680, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },  // 320-400万 (独自境界)
+      { level: "10", annual: 152760, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },  // 400-600万
+      { level: "13", annual: 192960, ctx: { isSelfTaxable: true, totalIncome: 11000000 } }, // 1000万+
+    ],
+  },
+  {
+    slug: "tarumizu", name: "垂水市(高位独自抑制)", source: "city.tarumizu.lg.jp .../hokenryou.html (第10-13が独自低乗率)",
+    levels: [
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "10", annual: 124200, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },  // 独自低乗率
+      { level: "13", annual: 129600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kirishima", name: "霧島市(独自軽減0.26/0.47/0.68)", source: "city-kirishima.jp .../hokenryo.html (姶良伊佐組合・霧島分)",
+    levels: [
+      { level: "1",  annual: 18096,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } }, // 独自軽減
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 146160, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "isa", name: "伊佐市(県内最低4850)", source: "city.isa.kagoshima.jp/health/fukushi/hoken-care/",
+    levels: [
+      { level: "1",  annual: 16600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 58200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 139680, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
