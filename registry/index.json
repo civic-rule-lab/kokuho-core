@@ -3926,12 +3926,14 @@
       "prefecture": "大阪府",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3941,12 +3943,14 @@
       "prefecture": "大阪府",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3955,11 +3959,13 @@
       "cityName": "岸和田市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3968,11 +3974,13 @@
       "cityName": "豊中市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3981,11 +3989,13 @@
       "cityName": "池田市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3994,11 +4004,13 @@
       "cityName": "吹田市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4007,11 +4019,13 @@
       "cityName": "泉大津市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4020,11 +4034,13 @@
       "cityName": "高槻市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4033,11 +4049,13 @@
       "cityName": "貝塚市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4046,11 +4064,13 @@
       "cityName": "守口市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4059,11 +4079,13 @@
       "cityName": "枚方市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4072,11 +4094,13 @@
       "cityName": "茨木市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4085,11 +4109,13 @@
       "cityName": "八尾市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4098,11 +4124,13 @@
       "cityName": "泉佐野市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4111,11 +4139,13 @@
       "cityName": "富田林市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4124,11 +4154,13 @@
       "cityName": "寝屋川市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4137,11 +4169,13 @@
       "cityName": "河内長野市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4150,11 +4184,13 @@
       "cityName": "松原市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4163,11 +4199,13 @@
       "cityName": "大東市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4176,11 +4214,13 @@
       "cityName": "和泉市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4189,11 +4229,13 @@
       "cityName": "箕面市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4202,11 +4244,13 @@
       "cityName": "柏原市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4215,11 +4259,13 @@
       "cityName": "羽曳野市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4228,11 +4274,13 @@
       "cityName": "門真市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4241,11 +4289,13 @@
       "cityName": "摂津市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4254,11 +4304,13 @@
       "cityName": "高石市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4267,11 +4319,13 @@
       "cityName": "藤井寺市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4281,12 +4335,14 @@
       "prefecture": "大阪府",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4295,11 +4351,13 @@
       "cityName": "泉南市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4308,11 +4366,13 @@
       "cityName": "四條畷市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4321,11 +4381,13 @@
       "cityName": "交野市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4334,11 +4396,13 @@
       "cityName": "大阪狭山市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4347,11 +4411,13 @@
       "cityName": "阪南市",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4360,11 +4426,13 @@
       "cityName": "島本町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4373,11 +4441,13 @@
       "cityName": "豊能町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4386,11 +4456,13 @@
       "cityName": "能勢町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4399,11 +4471,13 @@
       "cityName": "忠岡町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4412,11 +4486,13 @@
       "cityName": "熊取町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4425,11 +4501,13 @@
       "cityName": "田尻町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4438,11 +4516,13 @@
       "cityName": "岬町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4451,11 +4531,13 @@
       "cityName": "太子町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4464,11 +4546,13 @@
       "cityName": "河南町",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4477,11 +4561,13 @@
       "cityName": "千早赤阪村",
       "prefecture": "大阪府",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
