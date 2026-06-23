@@ -55,6 +55,70 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 三重県(2026-06-23 横展開・独立転記。広域連合レバー=鈴鹿亀山/紀北/紀南) ──
+  {
+    slug: "yokkaichi", name: "四日市市", source: "city.yokkaichi.lg.jp",
+    // 15段・★第1-3独自軽減0.26/0.39/0.66・第4=0.88・高所得820/1000万。
+    levels: [
+      { level: "1",  annual: 16536,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 63600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 75048,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 184440, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "ise", name: "伊勢市", source: "city.ise.mie.jp",
+    // 14段・★第1-2独自0.28/0.40・独自境界第6=60万未満/第7=60-120万。
+    levels: [
+      { level: "1",  annual: 22562,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80580,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 92667,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 96696,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 193392, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "matsusaka", name: "松阪市", source: "city.matsusaka.mie.jp(公式HTML)",
+    // 16段・★第1-3松阪独自軽減0.25/0.40/0.55・独自境界80/125万始まり・1000/1300万。
+    levels: [
+      { level: "1",  annual: 20940,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 83760,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 104700, ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "8",  annual: 121452, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "16", annual: 234528, ctx: { isSelfTaxable: true, totalIncome: 14000000 } },
+    ],
+  },
+  {
+    slug: "tsu", name: "津市", source: "info.city.tsu.mie.jp",
+    // 13段・独自境界250/500/750万。
+    levels: [
+      { level: "1",  annual: 21690,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77470,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 92960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 116200, ctx: { isSelfTaxable: true, totalIncome: 2300000 } },
+      { level: "13", annual: 178180, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kumanoshi", name: "熊野市(紀南介護保険広域連合)", source: "kinankaigokouiki.jp",
+    // 紀南広域(熊野/御浜/紀宝)統一13段・基準86640(月7220)。
+    levels: [
+      { level: "1",  annual: 24690,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 86640,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 103960, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 207930, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "suzuka", name: "鈴鹿市(鈴鹿亀山地区広域連合)", source: "city.suzuka.lg.jp",
+    // 鈴鹿亀山広域(鈴鹿/亀山)統一13段・基準75060(月6255)。
+    levels: [
+      { level: "1",  annual: 21390,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75060,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90070,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 180140, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 京都府(2026-06-22 横展開・独立転記) ──
   {
     slug: "kyoto", name: "京都市", source: "city.kyoto.lg.jp(政令市・公式HTML)",
