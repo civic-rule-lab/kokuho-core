@@ -57,6 +57,16 @@ function ctxFromCriteria(c = {}) {
 const CASES = [
   // ── 三重県(2026-06-23 横展開・独立転記。広域連合レバー=鈴鹿亀山/紀北/紀南) ──
   {
+    slug: "asahicho", name: "朝日町", source: "town.asahi.mie.jp 計画PDF p105(スクショ確定)",
+    // 13段(国標準)・基準67200・第1-3軽減後・全段=基準×乗率。
+    levels: [
+      { level: "1",  annual: 19152,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
     slug: "yokkaichi", name: "四日市市", source: "city.yokkaichi.lg.jp",
     // 15段・★第1-3独自軽減0.26/0.39/0.66・第4=0.88・高所得820/1000万。
     levels: [
