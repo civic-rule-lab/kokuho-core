@@ -55,6 +55,73 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 奈良県(2026-06-23 横展開・独立転記。全39独立保険者・レバーなし) ──
+  {
+    slug: "nara", name: "奈良市", source: "city.nara.lg.jp(中核市)",
+    // 18段・★第1-3独自軽減0.285/0.445/0.645・高所得800/1000/1200/1500/2000万独自細分。
+    levels: [
+      { level: "1",  annual: 21300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85800,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 112000, ctx: { isSelfTaxable: true, totalIncome: 2700000 } },
+      { level: "18", annual: 216500, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "gojo", name: "五條市", source: "city.gojo.lg.jp",
+    // 13段・★第1-3独自0.30/0.45/0.70・独自境界320/400/600/800/1000万。
+    levels: [
+      { level: "1",  annual: 23760,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95040,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 126720, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 166320, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kashihara", name: "橿原市", source: "city.kashihara.nara.jp",
+    // 16段・基準58500(県内最低)・第4=0.85・高所得820/920/1020万。
+    levels: [
+      { level: "1",  annual: 16700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 58500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 70300,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "12", annual: 134700, ctx: { isSelfTaxable: true, totalIncome: 6700000 } },
+      { level: "13", annual: 140600, ctx: { isSelfTaxable: true, totalIncome: 7700000 } },
+      { level: "16", annual: 158200, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "heguri", name: "平群町", source: "town.heguri.nara.jp",
+    // 17段・★独自境界170/220/270/370万で50万刻み細分。
+    levels: [
+      { level: "1",  annual: 19100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67300,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80700,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 87400,  ctx: { isSelfTaxable: true, totalIncome: 2000000 } },
+      { level: "17", annual: 174900, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kamimaki", name: "上牧町", source: "town.kanmaki.nara.jp",
+    // 16段・★独自境界160/250/350万。
+    levels: [
+      { level: "1",  annual: 19800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 97400,  ctx: { isSelfTaxable: true, totalIncome: 2300000 } },
+      { level: "16", annual: 167000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tenkawa", name: "天川村", source: "vill.tenkawa.nara.jp(県内最高基準)",
+    // 13段(国標準)・基準93600(県内最高)。
+    levels: [
+      { level: "1",  annual: 26676,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 93600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 112320, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 224640, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 三重県(2026-06-23 横展開・独立転記。広域連合レバー=鈴鹿亀山/紀北/紀南) ──
   {
     slug: "asahicho", name: "朝日町", source: "town.asahi.mie.jp 計画PDF p105(スクショ確定)",
