@@ -13840,10 +13840,12 @@
       "prefecture": "岡山県",
       "prefectureSlug": "okayama",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -14093,10 +14095,12 @@
       "prefecture": "岡山県",
       "prefectureSlug": "okayama",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -14151,10 +14155,12 @@
       "prefecture": "岡山県",
       "prefectureSlug": "okayama",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
