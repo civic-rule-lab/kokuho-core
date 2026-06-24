@@ -2362,6 +2362,17 @@ const CASES = [
       { level: "15", annual: 192200, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
     ],
   },
+  {
+    slug: "tsuyama", name: "津山市", source: "g-reiki 津山市介護保険条例第4条(R6-8)",
+    // 13段・基準72000・★第4=×0.8(57600非標準)・第1-3軽減後(条例第2-4項)。
+    levels: [
+      { level: "1",  annual: 20520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 172800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
