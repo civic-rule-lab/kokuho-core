@@ -23101,10 +23101,12 @@
       "prefecture": "島根県",
       "prefectureSlug": "shimane",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -23114,10 +23116,12 @@
       "prefecture": "島根県",
       "prefectureSlug": "shimane",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -23127,10 +23131,12 @@
       "prefecture": "島根県",
       "prefectureSlug": "shimane",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
