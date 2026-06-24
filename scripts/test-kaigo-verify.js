@@ -55,6 +55,61 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 和歌山県(2026-06-23 横展開・独立転記。全30独立保険者・レバーなし) ──
+  {
+    slug: "wakayama", name: "和歌山市", source: "city.wakayama.wakayama.jp",
+    // 15段・独自境界(第9=320-400万・第13/14=800/1000万)。
+    levels: [
+      { level: "1",  annual: 23250,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 97920,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 138720, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "15", annual: 212160, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kainan", name: "海南市", source: "city.kainan.lg.jp",
+    // 14段・★第2=0.41独自・第4=0.879・第14=820万以上。
+    levels: [
+      { level: "1",  annual: 20500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 180000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "gobo", name: "御坊市", source: "city.gobo.lg.jp(県内最高基準)",
+    // 15段・基準93600(県内最高)・独自境界(第13=720-850・第15=1000万)。
+    levels: [
+      { level: "1",  annual: 26676,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 93600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 112320, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 224640, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "15", annual: 243360, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "kinokawa", name: "紀の川市", source: "city.kinokawa.lg.jp",
+    // 15段・★第2=0.44独自・独自境界(第8/9/10=720-820/820-920/920万)。
+    levels: [
+      { level: "1",  annual: 22800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 152000, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "15", annual: 212000, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "shirahama", name: "白浜町", source: "town.shirahama.wakayama.jp",
+    // 14段・★第6=80万未満/第7=80-120万の独自細分。
+    levels: [
+      { level: "1",  annual: 24600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 86400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 99400,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 103700, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 207400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 奈良県(2026-06-23 横展開・独立転記。全39独立保険者・レバーなし) ──
   {
     slug: "nara", name: "奈良市", source: "city.nara.lg.jp(中核市)",
