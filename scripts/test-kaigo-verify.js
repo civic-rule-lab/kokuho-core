@@ -2373,6 +2373,60 @@ const CASES = [
       { level: "13", annual: 172800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 広島県(2026-06-24 横展開・全独立保険者・レバーなし・代表非標準を転記) ──
+  {
+    slug: "hiroshima", name: "広島市", source: "city.hiroshima.lg.jp(17段独自境界)",
+    // 17段・基準76800・独自境界(第6≦125/200/300/400/500/600/700/800/1000/1500/2000万)。
+    levels: [
+      { level: "1",  annual: 21888,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84480,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 96000,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "17", annual: 215040, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "kure", name: "呉市", source: "city.kure.lg.jp(14段・深い軽減)",
+    // 14段・基準66000・★第1-3=0.24/0.42/0.65独自軽減・第4=0.75・第6境界135万。
+    levels: [
+      { level: "1",  annual: 15840,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 72600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 82500,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "14", annual: 151800, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "fukuyama", name: "福山市", source: "city.fukuyama.hiroshima.jp(16段)",
+    // 16段・基準77800・第1=0.271独自・上位820/920/1020万細分。
+    levels: [
+      { level: "1",  annual: 21100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90200,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 217800, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "fuchucho", name: "府中町(安芸郡)", source: "town.fuchu.hiroshima.jp(17段独自)",
+    // 17段・基準73200・第2=0.385独自・独自境界(125/200/300/400/500/600/700/800/1000/1500/2000万)。
+    levels: [
+      { level: "1",  annual: 20900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 174300, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "jinsekikogen", name: "神石高原町", source: "jinsekigun.jp(14段・60万境界新設)",
+    // 14段・基準76200・★第6を合計所得60万未満で新設(60/120/210/320…)。
+    levels: [
+      { level: "1",  annual: 21720,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83820,  ctx: { isSelfTaxable: true, totalIncome: 400000 } },
+      { level: "7",  annual: 91440,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 182880, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
