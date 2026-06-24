@@ -2295,6 +2295,19 @@ const CASES = [
       { level: "13", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "unnan", name: "雲南広域連合(島根・雲南/奥出雲/飯南)", source: "unnan.jp/kaigo(令和6-8表)",
+    // 13段・基準72000・★非標準乗率(第1=0.257/第2=0.446/第6=1.125/第7=1.25/第9=1.75/第10=1.8/第11=2.1/第12=2.2/第13=2.3)。3市町に同一表展開。
+    levels: [
+      { level: "1",  annual: 18600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 32160,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 81000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 90000,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "10", annual: 129600, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "13", annual: 165600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
