@@ -2427,6 +2427,49 @@ const CASES = [
       { level: "14", annual: 182880, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 山口県(2026-06-24 横展開・全独立保険者・レバーなし・代表非標準を転記) ──
+  {
+    slug: "shimonoseki", name: "下関市", source: "city.shimonoseki.lg.jp(16段・第2=0.385)",
+    levels: [
+      { level: "1",  annual: 18810,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 25410,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 66000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79200,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 158400, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "yamaguchi", name: "山口市", source: "city.yamaguchi.lg.jp(15段独自境界130/220/330)",
+    levels: [
+      { level: "1",  annual: 18845,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66120,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79344,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 85956,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "15", annual: 171912, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "hikari", name: "光市", source: "city.hikari.lg.jp(独自境界125/190/290)",
+    // 13段・基準66090・第2=0.435・第4=0.875・独自境界(125/190/290/400/500/600/700万)。
+    levels: [
+      { level: "1",  annual: 18830,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66090,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 74350,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 82610,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 150350, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shunan", name: "周南市", source: "city.shunan.lg.jp(14段)",
+    // 14段・基準59520・第4=0.85・第13を720-1000/1000で2分割。
+    levels: [
+      { level: "1",  annual: 16970,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 59520,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 68450,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 142850, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "14", annual: 154760, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
