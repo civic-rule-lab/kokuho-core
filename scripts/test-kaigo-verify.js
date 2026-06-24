@@ -2272,6 +2272,29 @@ const CASES = [
       { level: "13", annual: 181500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 中国四国(2026-06-24 広域連合レバー先取り) ──
+  {
+    slug: "nanbumachi-tottori", name: "南部箕蚊屋広域連合(鳥取・日吉津/南部/伯耆)", source: "cms.top-page.jp/p/nan-mino(段階別額JPG)",
+    // 国標準13段・基準67500・低5層境界82.65万/120万。3町に同一表展開。
+    levels: [
+      { level: "1",  annual: 19300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 60700,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 81000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 162000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "naharimachi", name: "中芸広域連合(高知・奈半利/田野/安田/北川/馬路)", source: "chugei-kouiki.jp 介護保険パンフPDF",
+    // 国標準13段・基準70800・低5層境界82.65万/120万。5町村に同一表展開。
+    levels: [
+      { level: "1",  annual: 20178,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 63720,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 169920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
