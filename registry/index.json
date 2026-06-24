@@ -18815,10 +18815,12 @@
       "cityName": "下関市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18828,10 +18830,12 @@
       "cityName": "宇部市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18841,10 +18845,12 @@
       "cityName": "山口市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18854,10 +18860,12 @@
       "cityName": "萩市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18867,10 +18875,12 @@
       "cityName": "防府市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18880,10 +18890,12 @@
       "cityName": "下松市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18893,10 +18905,12 @@
       "cityName": "岩国市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18906,10 +18920,12 @@
       "cityName": "光市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18919,10 +18935,12 @@
       "cityName": "長門市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18932,10 +18950,12 @@
       "cityName": "柳井市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18945,10 +18965,12 @@
       "cityName": "美祢市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18958,10 +18980,12 @@
       "cityName": "周南市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18971,10 +18995,12 @@
       "cityName": "山陽小野田市",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18984,10 +19010,12 @@
       "cityName": "周防大島町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -18997,10 +19025,12 @@
       "cityName": "和木町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -19010,10 +19040,12 @@
       "cityName": "上関町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -19023,10 +19055,12 @@
       "cityName": "田布施町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -19036,10 +19070,12 @@
       "cityName": "平生町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
@@ -19049,10 +19085,12 @@
       "cityName": "阿武町",
       "prefecture": "山口県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "yamaguchi"
     },
