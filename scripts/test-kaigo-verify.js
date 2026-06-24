@@ -2308,6 +2308,60 @@ const CASES = [
       { level: "13", annual: 165600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  {
+    slug: "okinoshima", name: "隠岐広域連合(島根・海士/西ノ島/知夫/隠岐の島)", source: "okikouiki.jp/care-insurance/system/fee(令和7年度=第9期)",
+    // 14段・基準78600・標準乗率・★第13(720-820万)/第14(820万超)で最上位2分割。4町村に同一表展開。
+    levels: [
+      { level: "1",  annual: 22392,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 94320,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 188640, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },
+      { level: "14", annual: 196500, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  // ── 岡山県(2026-06-24 横展開・全独立保険者・レバーなし・代表非標準を転記) ──
+  {
+    slug: "okayama", name: "岡山市", source: "city.okayama.jp PDF(独自境界14段)",
+    // 14段・基準79680・★独自境界(第6<80/80-125/125-200/200-400/400-600/600-800/800-1000/1000-1200/1200万)・第4=0.85。
+    levels: [
+      { level: "1",  annual: 22704,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79680,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87648,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 91632,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 119520, ctx: { isSelfTaxable: true, totalIncome: 3000000 } },
+      { level: "14", annual: 219120, ctx: { isSelfTaxable: true, totalIncome: 13000000 } },
+    ],
+  },
+  {
+    slug: "kurashiki", name: "倉敷市", source: "city.kurashiki.okayama.jp PDF(15段)",
+    // 15段・基準77400・第2=0.425/第3=0.665/第4=0.855独自・上位820/920万細分。
+    levels: [
+      { level: "1",  annual: 22060,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 92880,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 201240, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "kasaoka", name: "笠岡市", source: "city.kasaoka.okayama.jp(独自境界)",
+    // 13段・基準75000・★独自境界(320-450/450-600/600-700/700-800/800万)。
+    levels: [
+      { level: "1",  annual: 21400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 120000, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "13", annual: 150000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "maniwa", name: "真庭市", source: "city.maniwa.lg.jp(15段・独自分割)",
+    // 15段・基準68640・上位720/820/920万で3分割(×2.4/2.6/2.8)。
+    levels: [
+      { level: "1",  annual: 19580,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68640,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 164740, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },
+      { level: "15", annual: 192200, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
