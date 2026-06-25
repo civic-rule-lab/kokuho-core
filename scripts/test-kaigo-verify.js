@@ -2712,6 +2712,57 @@ const CASES = [
       { level: "13", annual: 192300, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 秋田県(2026-06-24・本荘由利/大曲仙北の2広域レバー・代表非標準を転記) ──
+  {
+    slug: "akita", name: "秋田市", source: "city.akita.lg.jp(独自境界150/180/250)",
+    levels: [
+      { level: "1",  annual: 21314,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74784,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89741,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 97220,  ctx: { isSelfTaxable: true, totalIncome: 1400000 } },
+      { level: "13", annual: 142090, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "noshiro", name: "能代市", source: "city.noshiro.lg.jp(15段・第4=0.80)",
+    levels: [
+      { level: "1",  annual: 23250,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89800,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 102000, ctx: { isSelfTaxable: true, totalIncome: 1400000 } },
+      { level: "15", annual: 195900, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "odate", name: "大館市", source: "city.odate.lg.jp(独自deep軽減0.225)",
+    levels: [
+      { level: "1",  annual: 18288,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81252,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 104004, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 195012, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "daisencity", name: "大仙市(大曲仙北広域=仙北/美郷と同一)", source: "oskaigonet.or.jp",
+    // ★第2=0.375/第4=0.875独自。3市町同一表。
+    levels: [
+      { level: "1",  annual: 22914,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 30150,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 80400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 96480,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 192960, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "ikawacho", name: "井川町(軽減後修正)", source: "条例第2-4項=公費軽減後",
+    // ★第1-3は条例第2-4項の公費軽減後(24200/41300/58300)。本表(第1項38700=×0.455)は不採用。
+    levels: [
+      { level: "1",  annual: 24200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 85200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 102200, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 204400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
