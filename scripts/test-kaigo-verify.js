@@ -55,6 +55,77 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 茨城県(2026-06-25 横展開。44独立保険者・レバーなし。多段階/独自境界/独自乗率の代表をロック) ──
+  {
+    slug: "mito", name: "水戸市", source: "city.mito.lg.jp",
+    // 13段(中核市)・独自境界400/500/600/1000万・最終2.7。
+    levels: [
+      { level: "1",  annual: 20880,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "12", annual: 175680, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "13", annual: 197640, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "joso", name: "常総市", source: "city.joso.lg.jp",
+    // 14段・独自に800万境界。
+    levels: [
+      { level: "1",  annual: 20400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 177000, ctx: { isSelfTaxable: true, totalIncome: 7500000 } },
+      { level: "14", annual: 191400, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "tsukuba", name: "つくば市", source: "city.tsukuba.lg.jp",
+    // 16段・独自境界400/500/600/700/800/900/1000万。
+    levels: [
+      { level: "1",  annual: 20700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 123400, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "16", annual: 174200, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "moriya", name: "守谷市", source: "city.moriya.ibaraki.jp",
+    // 15段・独自境界500/700/850/1000/1200/1500万。
+    levels: [
+      { level: "1",  annual: 16400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 57600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 92100,  ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "15", annual: 120900, ctx: { isSelfTaxable: true, totalIncome: 20000000 } },
+    ],
+  },
+  {
+    slug: "hitachiomiya", name: "常陸大宮市", source: "city.hitachiomiya.lg.jp",
+    // 15段・独自境界125/200/300/400/500/600/700/800/1000万。
+    levels: [
+      { level: "1",  annual: 19800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69360,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79800,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 156120, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "toride", name: "取手市", source: "city.toride.ibaraki.jp",
+    // 13段・★独自乗率第6=1.10/最高2.20。
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 60000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 66000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 132000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kashima", name: "鹿嶋市", source: "city.kashima.ibaraki.jp",
+    // 13段・★独自乗率第6=1.15/7=1.25/8=1.45/9=1.65/10=1.90。
+    levels: [
+      { level: "1",  annual: 17780,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 62400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 71760,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 118560, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+    ],
+  },
   // ── 千葉県(2026-06-25 横展開。48保険者・全独立(長生郡市/君津/夷隅広域は介護非運営)。多段階/政令39条/deep軽減の代表をロック) ──
   {
     slug: "chiba", name: "千葉市", source: "city.chiba.jp",
