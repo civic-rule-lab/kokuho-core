@@ -2600,6 +2600,46 @@ const CASES = [
       { level: "13", annual: 199500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 香川県(2026-06-24・全独立保険者・レバーなし・代表非標準を転記) ──
+  {
+    slug: "takamatsu", name: "高松市", source: "city.takamatsu.kagawa.jp(14段)",
+    levels: [
+      { level: "1",  annual: 22700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 199000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "marugame", name: "丸亀市", source: "city.marugame.lg.jp(第6=135万境界)",
+    levels: [
+      { level: "1",  annual: 14220,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 61800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 72310,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 82820,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 148320, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "sakaide", name: "坂出市", source: "city.sakaide.lg.jp(第7=190万境界)",
+    levels: [
+      { level: "1",  annual: 19100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 67100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 83800,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 161000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "zentsuji", name: "善通寺市", source: "city.zentsuji.kagawa.jp(第7=190万境界・県内最安)",
+    levels: [
+      { level: "1",  annual: 15900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 55500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 72200,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 83300,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 133200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
