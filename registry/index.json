@@ -19975,10 +19975,12 @@
       "cityName": "盛岡市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -19988,10 +19990,12 @@
       "cityName": "宮古市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20001,10 +20005,12 @@
       "cityName": "大船渡市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20014,10 +20020,12 @@
       "cityName": "花巻市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20027,10 +20035,12 @@
       "cityName": "北上市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20040,10 +20050,12 @@
       "cityName": "久慈市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20053,10 +20065,12 @@
       "cityName": "遠野市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20066,10 +20080,12 @@
       "cityName": "一関市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20079,10 +20095,12 @@
       "cityName": "陸前高田市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20092,10 +20110,12 @@
       "cityName": "釜石市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20105,10 +20125,12 @@
       "cityName": "二戸市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20118,10 +20140,12 @@
       "cityName": "八幡平市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20131,10 +20155,12 @@
       "cityName": "奥州市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20144,10 +20170,12 @@
       "cityName": "滝沢市",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20157,10 +20185,12 @@
       "cityName": "雫石町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20170,10 +20200,12 @@
       "cityName": "葛巻町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20183,10 +20215,12 @@
       "cityName": "岩手町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20196,10 +20230,12 @@
       "cityName": "紫波町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20209,10 +20245,12 @@
       "cityName": "矢巾町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20222,10 +20260,12 @@
       "cityName": "西和賀町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20235,10 +20275,12 @@
       "cityName": "金ケ崎町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20248,10 +20290,12 @@
       "cityName": "平泉町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20261,10 +20305,12 @@
       "cityName": "住田町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20274,10 +20320,12 @@
       "cityName": "大槌町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20287,10 +20335,12 @@
       "cityName": "山田町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20300,10 +20350,12 @@
       "cityName": "岩泉町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20313,10 +20365,12 @@
       "cityName": "田野畑村",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20326,10 +20380,12 @@
       "cityName": "普代村",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20339,10 +20395,12 @@
       "cityName": "軽米町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20352,10 +20410,12 @@
       "cityName": "野田村",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20365,10 +20425,12 @@
       "cityName": "九戸村",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20378,10 +20440,12 @@
       "cityName": "洋野町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
@@ -20391,10 +20455,12 @@
       "cityName": "一戸町",
       "prefecture": "岩手県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "iwate"
     },
