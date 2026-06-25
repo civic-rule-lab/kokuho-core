@@ -21144,10 +21144,12 @@
       "cityName": "徳島市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21157,10 +21159,12 @@
       "cityName": "鳴門市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21170,10 +21174,12 @@
       "cityName": "小松島市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21183,10 +21189,12 @@
       "cityName": "阿南市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21196,10 +21204,12 @@
       "cityName": "吉野川市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21209,10 +21219,12 @@
       "cityName": "阿波市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21222,10 +21234,12 @@
       "cityName": "美馬市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21235,10 +21249,12 @@
       "cityName": "三好市",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21248,10 +21264,12 @@
       "cityName": "勝浦町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21261,10 +21279,12 @@
       "cityName": "上勝町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21274,10 +21294,12 @@
       "cityName": "佐那河内村",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21287,10 +21309,12 @@
       "cityName": "石井町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21300,10 +21324,12 @@
       "cityName": "神山町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21313,10 +21339,12 @@
       "cityName": "那賀町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21326,10 +21354,12 @@
       "cityName": "牟岐町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21339,10 +21369,12 @@
       "cityName": "美波町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21352,10 +21384,12 @@
       "cityName": "海陽町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21365,10 +21399,12 @@
       "cityName": "松茂町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21378,10 +21414,12 @@
       "cityName": "北島町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21391,10 +21429,12 @@
       "cityName": "藍住町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21404,10 +21444,12 @@
       "cityName": "板野町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21417,10 +21459,12 @@
       "cityName": "上板町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21430,10 +21474,12 @@
       "cityName": "つるぎ町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
@@ -21443,10 +21489,12 @@
       "cityName": "東みよし町",
       "prefecture": "徳島県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "tokushima"
     },
