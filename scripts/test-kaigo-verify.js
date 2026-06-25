@@ -55,6 +55,71 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 青森県(2026-06-25 横展開。40独立保険者・レバーなし。非標準6件をロック) ──
+  {
+    slug: "aomori", name: "青森市", source: "city.aomori.aomori.jp",
+    // 13段・★第4=0.85/第6=1.10・上位境界400/600/800/1000万。第5=81800(100円切捨)。
+    levels: [
+      { level: "1",  annual: 23300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 81800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90000,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 155500, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+      { level: "13", annual: 204700, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "hirosaki", name: "弘前市", source: "city.hirosaki.aomori.jp",
+    // 15段・独自境界125/190/320/400/500/600/700/800/1000万。
+    levels: [
+      { level: "1",  annual: 23710,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 83170,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95650,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 133080, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "15", annual: 216250, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "hachinohe", name: "八戸市", source: "city.hachinohe.aomori.jp",
+    // 15段・★第4=0.85・上位境界820/1000万。
+    levels: [
+      { level: "1",  annual: 19836,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83520,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 174000, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+      { level: "15", annual: 187920, ctx: { isSelfTaxable: true, totalIncome: 11000000 } },
+    ],
+  },
+  {
+    slug: "towada", name: "十和田市", source: "city.towada.lg.jp",
+    // 14段・独自境界200/300/400/500/600/700/800万・第8=1.60。
+    levels: [
+      { level: "1",  annual: 24453,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 85800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 137280, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "14", annual: 205920, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "misawa", name: "三沢市", source: "city.misawa.lg.jp",
+    // 14段・★第6=合計所得40万未満/第7=40-120万の独自細分。
+    levels: [
+      { level: "1",  annual: 22900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 88400,  ctx: { isSelfTaxable: true, totalIncome: 300000 } },
+      { level: "7",  annual: 96400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 192900, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "itayanagi", name: "板柳町", source: "town.itayanagi.aomori.jp",
+    // 13段・★上位乗率独自(第10=1.8/第11=1.9/第12=2.0/第13=2.1)。
+    levels: [
+      { level: "1",  annual: 24012,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 82800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "10", annual: 149040, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+      { level: "13", annual: 173880, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 和歌山県(2026-06-23 横展開・独立転記。全30独立保険者・レバーなし) ──
   {
     slug: "wakayama", name: "和歌山市", source: "city.wakayama.wakayama.jp",
