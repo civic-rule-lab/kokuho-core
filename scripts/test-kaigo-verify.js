@@ -2470,6 +2470,136 @@ const CASES = [
       { level: "14", annual: 154760, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
     ],
   },
+  // ── 徳島県(2026-06-24・みよし広域=三好/東みよし・代表非標準を転記) ──
+  {
+    slug: "tokushima", name: "徳島市", source: "city.tokushima.tokushima.jp(15段)",
+    levels: [
+      { level: "1",  annual: 22846,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80160,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 96192,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 208416, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "naruto", name: "鳴門市", source: "city.naruto.lg.jp(16段・第6=50万境界)",
+    // 16段・基準79200・★第6を合計所得50万未満で新設・年額=基準額×乗率。
+    levels: [
+      { level: "1",  annual: 22572,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87120,  ctx: { isSelfTaxable: true, totalIncome: 300000 } },
+      { level: "7",  annual: 95040,  ctx: { isSelfTaxable: true, totalIncome: 800000 } },
+      { level: "16", annual: 205920, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "anantokushima", name: "阿南市", source: "city.anan.tokushima.jp(15段)",
+    levels: [
+      { level: "1",  annual: 22800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95700,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 207400, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "kamikatsu", name: "上勝町", source: "kamikatsu.jp 広報(第7=200/第8=300独自境界)",
+    levels: [
+      { level: "1",  annual: 20520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 93600,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "8",  annual: 108000, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 172800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "miyoshitokushima", name: "三好市(みよし広域=東みよしと同一)", source: "miyoshikouiki.jp 条例",
+    levels: [
+      { level: "1",  annual: 21204,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89280,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 178560, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  // ── 鳥取単独/島根単独 A-case再追加(2026-06-24・git競合で消失分を復元・回帰検知用) ──
+  {
+    slug: "tottori", name: "鳥取市(再)", source: "city.tottori.lg.jp 条例",
+    levels: [
+      { level: "1",  annual: 20862,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 98820,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 175680, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "yonago", name: "米子市(再)", source: "city.yonago.lg.jp",
+    levels: [
+      { level: "1",  annual: 19500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89500,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "14", annual: 202300, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "kurayoshi", name: "倉吉市(再)", source: "city.kurayoshi.lg.jp(独自境界)",
+    levels: [
+      { level: "1",  annual: 21800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 76700,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86300,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 199400, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "yurihama", name: "湯梨浜町(再)", source: "yurihama.jp 条例(15段)",
+    levels: [
+      { level: "1",  annual: 23000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "15", annual: 210300, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "oda", name: "大田市(再)", source: "city.oda.lg.jp(17段・県内最高)",
+    levels: [
+      { level: "1",  annual: 25800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 87600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 105120, ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "17", annual: 271560, ctx: { isSelfTaxable: true, totalIncome: 15000000 } },
+    ],
+  },
+  {
+    slug: "yasugi", name: "安来市(再)", source: "city.yasugi.shimane.jp(15段・60万境界)",
+    levels: [
+      { level: "1",  annual: 19500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93600,  ctx: { isSelfTaxable: true, totalIncome: 400000 } },
+      { level: "15", annual: 187200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "matsue", name: "松江市(再)", source: "city.matsue.lg.jp(独自境界)",
+    levels: [
+      { level: "1",  annual: 22400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 90400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 188700, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "hamada", name: "浜田市(再・浜田地区広域=江津と同一)", source: "hamadakouiki.jp",
+    levels: [
+      { level: "1",  annual: 22572,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 110880, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 205920, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kawamoto", name: "川本町(再・邑智郡=美郷/邑南と同一)", source: "ohchijim.com",
+    levels: [
+      { level: "1",  annual: 27930,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 91770,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 199500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
