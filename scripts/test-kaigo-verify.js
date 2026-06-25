@@ -55,6 +55,91 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 千葉県(2026-06-25 横展開。48保険者・全独立(長生郡市/君津/夷隅広域は介護非運営)。多段階/政令39条/deep軽減の代表をロック) ──
+  {
+    slug: "chiba", name: "千葉市", source: "city.chiba.jp",
+    // 政令市13段・課税層独自境界80/125/190/300/500/700/900万。
+    levels: [
+      { level: "1",  annual: 21546,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83160,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "9",  annual: 117180, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 204120, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "ichikawa", name: "市川市", source: "city.ichikawa.lg.jp",
+    // 20段・★第1=0.235(市独自deep軽減)・独自境界125/200/300〜3000万。
+    levels: [
+      { level: "1",  annual: 17520,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 81840,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "11", annual: 156240, ctx: { isSelfTaxable: true, totalIncome: 5500000 } },
+      { level: "20", annual: 256680, ctx: { isSelfTaxable: true, totalIncome: 40000000 } },
+    ],
+  },
+  {
+    slug: "funabashi", name: "船橋市", source: "city.funabashi.lg.jp",
+    // 21段(県内最多)・★第1=0.22・独自境界91/125/200万〜3000万。
+    levels: [
+      { level: "1",  annual: 17424,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87120,  ctx: { isSelfTaxable: true, totalIncome: 800000 } },
+      { level: "7",  annual: 91080,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "21", annual: 277200, ctx: { isSelfTaxable: true, totalIncome: 40000000 } },
+    ],
+  },
+  {
+    slug: "kisarazu", name: "木更津市", source: "city.kisarazu(政令39条)",
+    // 14段・公式基準79900(課税×1.0)・本人非課税>82.65=69500をbase採用。
+    levels: [
+      { level: "1",  annual: 19000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79900,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "14", annual: 166800, ctx: { isSelfTaxable: true, totalIncome: 10000000 } },
+    ],
+  },
+  {
+    slug: "noda", name: "野田市", source: "city.noda(政令39条)",
+    // 20段・本人非課税>82.65=65900をbase採用・独自境界720/800/900〜2000万。
+    levels: [
+      { level: "1",  annual: 18800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 65900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 79100,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "20", annual: 204200, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "nagareyama", name: "流山市", source: "city.nagareyama.chiba.jp",
+    // 19段・★第1=0.22(市独自deep軽減)・独自境界125/160/200万〜2000万。
+    levels: [
+      { level: "1",  annual: 15800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 82600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "19", annual: 229700, ctx: { isSelfTaxable: true, totalIncome: 25000000 } },
+    ],
+  },
+  {
+    slug: "katori", name: "香取市", source: "city.katori.lg.jp",
+    // 13段・★第4=0.85/第6=1.12/第7=1.25/第8=1.40の独自低乗率。
+    levels: [
+      { level: "1",  annual: 18800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 66000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 73900,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "8",  annual: 92400,  ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 158400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "narashino", name: "習志野市", source: "city.narashino.lg.jp",
+    // 18段・★独自境界310/410/510〜2510万。
+    levels: [
+      { level: "1",  annual: 21010,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 73710,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 110570, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "18", annual: 210070, ctx: { isSelfTaxable: true, totalIncome: 30000000 } },
+    ],
+  },
   // ── 東京都(2026-06-25 横展開。54独立保険者・レバーなし。多段階/独自境界/deep軽減の代表をロック) ──
   {
     slug: "chiyoda", name: "千代田区", source: "city.chiyoda.lg.jp",
