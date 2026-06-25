@@ -2671,6 +2671,47 @@ const CASES = [
       { level: "13", annual: 209500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 高知単独26(2026-06-24・嶺北/幡多広域は審査のみ＝各市町村単独・代表非標準を転記) ──
+  {
+    slug: "kochi", name: "高知市", source: "city.kochi.kochi.jp(14段独自境界)",
+    // 14段・基準71230・独自境界(125/200/300/400/500/600/700/800万)・独自乗率。
+    levels: [
+      { level: "1",  annual: 20300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71230,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 82620,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 89030,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "14", annual: 185190, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "aki", name: "安芸市", source: "city.aki.kochi.jp 条例(第7-9乗率独自1.4/1.6/1.8)",
+    levels: [
+      { level: "1",  annual: 21660,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75980,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 106380, ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 182360, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kami-kochi", name: "香美市", source: "city.kami.lg.jp(第2=0.45/第3=0.75独自)",
+    levels: [
+      { level: "1",  annual: 19700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 31100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 69000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 107000, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 165600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nakatosamachi", name: "中土佐町(軽減後修正)", source: "g-reiki 条例第2項=公費軽減後",
+    // ★第1-3は条例第2項の公費軽減後(22800/38800/54900)。第1項軽減前(36400)を採らない検証。
+    levels: [
+      { level: "1",  annual: 22800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 80100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 96100,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 192300, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
