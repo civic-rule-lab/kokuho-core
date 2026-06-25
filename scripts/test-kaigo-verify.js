@@ -55,6 +55,89 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 栃木県(2026-06-25 横展開。25独立保険者・レバーなし。多段階/政令39条/独自乗率の代表をロック) ──
+  {
+    slug: "utsunomiya", name: "宇都宮市", source: "city.utsunomiya.lg.jp",
+    // 13段(中核市)・独自境界320-500/720-1000万。
+    levels: [
+      { level: "1",  annual: 19600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 116900, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "12", annual: 158200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "13", annual: 165100, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "tochigi", name: "栃木市", source: "city.tochigi.lg.jp",
+    // 16段(県内最多)・第2=0.4・独自境界900/1000/1200万。
+    levels: [
+      { level: "1",  annual: 20270,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71124,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "16", annual: 195591, ctx: { isSelfTaxable: true, totalIncome: 13000000 } },
+    ],
+  },
+  {
+    slug: "ashikaga", name: "足利市", source: "city.ashikaga.tochigi.jp",
+    // 15段・★第6段階に80万境界を独自追加(第6<80/第7=80-120)。
+    levels: [
+      { level: "1",  annual: 20000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 78900,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 84900,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 189500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "sano", name: "佐野市", source: "city.sano.lg.jp",
+    // 13段・★独自乗率第6=1.25/7=1.35/8=1.65・独自境界370万。
+    levels: [
+      { level: "1",  annual: 21300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 74800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 93500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 134600, ctx: { isSelfTaxable: true, totalIncome: 3500000 } },
+      { level: "13", annual: 194500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "oyama", name: "小山市", source: "city.oyama.tochigi.jp",
+    // 15段・★第1=0.28(市独自軽減)・独自境界430/540/650/760/870万。
+    levels: [
+      { level: "1",  annual: 18300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 65500,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "9",  annual: 121100, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "15", annual: 183400, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "nasushiobara", name: "那須塩原市", source: "city.nasushiobara.tochigi.jp",
+    // 14段・★独自乗率第6=1.1/7=1.2/8=1.3・独自境界800万。
+    levels: [
+      { level: "1",  annual: 19400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 64800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 71200,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 145800, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "shimotsuke", name: "下野市", source: "city.shimotsuke(政令39条)",
+    // 14段・官報基準83500(課税×1.0)・本人非課税>82.65=69600をbase採用。
+    levels: [
+      { level: "1",  annual: 20200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "14", annual: 149600, ctx: { isSelfTaxable: true, totalIncome: 9000000 } },
+    ],
+  },
+  {
+    slug: "mibu", name: "壬生町", source: "town.mibu.tochigi.jp",
+    // 15段・第6境界125万・独自第14/15。
+    levels: [
+      { level: "1",  annual: 20500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 72000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86400,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "15", annual: 208800, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
   // ── 茨城県(2026-06-25 横展開。44独立保険者・レバーなし。多段階/独自境界/独自乗率の代表をロック) ──
   {
     slug: "mito", name: "水戸市", source: "city.mito.lg.jp",
