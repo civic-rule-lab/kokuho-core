@@ -3328,12 +3328,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3342,11 +3344,13 @@
       "cityName": "銚子市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3355,11 +3359,13 @@
       "cityName": "市川市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3369,12 +3375,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3396,11 +3404,13 @@
       "cityName": "木更津市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3409,11 +3419,13 @@
       "cityName": "松戸市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3422,11 +3434,13 @@
       "cityName": "野田市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3435,11 +3449,13 @@
       "cityName": "茂原市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3448,11 +3464,13 @@
       "cityName": "成田市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3461,11 +3479,13 @@
       "cityName": "佐倉市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3474,11 +3494,13 @@
       "cityName": "東金市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3487,11 +3509,13 @@
       "cityName": "旭市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3500,11 +3524,13 @@
       "cityName": "習志野市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3513,11 +3539,13 @@
       "cityName": "柏市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3526,11 +3554,13 @@
       "cityName": "勝浦市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3539,11 +3569,13 @@
       "cityName": "市原市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3552,11 +3584,13 @@
       "cityName": "流山市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3565,11 +3599,13 @@
       "cityName": "八千代市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3578,11 +3614,13 @@
       "cityName": "我孫子市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3591,11 +3629,13 @@
       "cityName": "鴨川市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3604,11 +3644,13 @@
       "cityName": "鎌ケ谷市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3617,11 +3659,13 @@
       "cityName": "君津市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3630,11 +3674,13 @@
       "cityName": "富津市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3643,11 +3689,13 @@
       "cityName": "浦安市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3656,11 +3704,13 @@
       "cityName": "四街道市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3695,11 +3745,13 @@
       "cityName": "印西市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3708,11 +3760,13 @@
       "cityName": "白井市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3721,11 +3775,13 @@
       "cityName": "富里市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3734,11 +3790,13 @@
       "cityName": "南房総市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3747,11 +3805,13 @@
       "cityName": "匝瑳市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3760,11 +3820,13 @@
       "cityName": "香取市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3773,11 +3835,13 @@
       "cityName": "山武市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3786,11 +3850,13 @@
       "cityName": "いすみ市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3799,11 +3865,13 @@
       "cityName": "大網白里市",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3812,11 +3880,13 @@
       "cityName": "酒々井町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3825,11 +3895,13 @@
       "cityName": "栄町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3838,11 +3910,13 @@
       "cityName": "神崎町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3851,11 +3925,13 @@
       "cityName": "多古町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3864,11 +3940,13 @@
       "cityName": "東庄町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3877,11 +3955,13 @@
       "cityName": "九十九里町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3890,11 +3970,13 @@
       "cityName": "芝山町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3916,11 +3998,13 @@
       "cityName": "一宮町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3929,11 +4013,13 @@
       "cityName": "睦沢町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3942,11 +4028,13 @@
       "cityName": "長生村",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3955,11 +4043,13 @@
       "cityName": "白子町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3968,11 +4058,13 @@
       "cityName": "長柄町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3981,11 +4073,13 @@
       "cityName": "長南町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3994,11 +4088,13 @@
       "cityName": "大多喜町",
       "prefecture": "千葉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
