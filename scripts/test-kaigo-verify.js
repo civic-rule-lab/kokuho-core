@@ -2763,6 +2763,54 @@ const CASES = [
       { level: "13", annual: 204400, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 岩手県(2026-06-24・一関/二戸/盛岡北部/久慈の4組合レバー・代表非標準を転記) ──
+  {
+    slug: "kitakami", name: "北上市", source: "city.kitakami.iwate.jp(14段独自境界)",
+    levels: [
+      { level: "1",  annual: 20400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 29100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 72600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 108900, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "14", annual: 196000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "hanamaki", name: "花巻市", source: "city.hanamaki.iwate.jp(第1=0.25/第2=0.40)",
+    levels: [
+      { level: "1",  annual: 17300,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 27600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 69000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 165600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nishiwaga", name: "西和賀町(県内最高97200)", source: "town.nishiwaga.lg.jp(上位乗率独自)",
+    levels: [
+      { level: "1",  annual: 27800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 97200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 116700, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 204200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "ichinoseki", name: "一関地区広域(一関+平泉)", source: "city.ichinoseki.iwate.jp(第2=0.390)",
+    levels: [
+      { level: "1",  annual: 21100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 28800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 73900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 88600,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 177300, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "kuji", name: "久慈広域連合(久慈+普代/野田/洋野)", source: "kuji-kouiki.jp",
+    levels: [
+      { level: "1",  annual: 22320,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78480,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 94080,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 188280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
