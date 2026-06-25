@@ -19140,10 +19140,12 @@
       "cityName": "青森市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19153,10 +19155,12 @@
       "cityName": "弘前市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19166,10 +19170,12 @@
       "cityName": "八戸市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19179,10 +19185,12 @@
       "cityName": "黒石市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19192,10 +19200,12 @@
       "cityName": "五所川原市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19205,10 +19215,12 @@
       "cityName": "十和田市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19218,10 +19230,12 @@
       "cityName": "三沢市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19231,10 +19245,12 @@
       "cityName": "むつ市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19244,10 +19260,12 @@
       "cityName": "つがる市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19257,10 +19275,12 @@
       "cityName": "平川市",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19270,10 +19290,12 @@
       "cityName": "平内町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19283,10 +19305,12 @@
       "cityName": "今別町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19296,10 +19320,12 @@
       "cityName": "蓬田村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19309,10 +19335,12 @@
       "cityName": "外ヶ浜町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19322,10 +19350,12 @@
       "cityName": "鰺ヶ沢町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19335,10 +19365,12 @@
       "cityName": "深浦町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19348,10 +19380,12 @@
       "cityName": "西目屋村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19361,10 +19395,12 @@
       "cityName": "藤崎町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19374,10 +19410,12 @@
       "cityName": "大鰐町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19387,10 +19425,12 @@
       "cityName": "田舎館村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19400,10 +19440,12 @@
       "cityName": "板柳町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19413,10 +19455,12 @@
       "cityName": "鶴田町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19426,10 +19470,12 @@
       "cityName": "中泊町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19439,10 +19485,12 @@
       "cityName": "野辺地町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19452,10 +19500,12 @@
       "cityName": "七戸町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19465,10 +19515,12 @@
       "cityName": "六戸町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19478,10 +19530,12 @@
       "cityName": "横浜町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19491,10 +19545,12 @@
       "cityName": "東北町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19504,10 +19560,12 @@
       "cityName": "六ヶ所村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19517,10 +19575,12 @@
       "cityName": "おいらせ町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19530,10 +19590,12 @@
       "cityName": "大間町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19543,10 +19605,12 @@
       "cityName": "東通村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19556,10 +19620,12 @@
       "cityName": "風間浦村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19569,10 +19635,12 @@
       "cityName": "佐井村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19582,10 +19650,12 @@
       "cityName": "三戸町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19595,10 +19665,12 @@
       "cityName": "五戸町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19608,10 +19680,12 @@
       "cityName": "田子町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19621,10 +19695,12 @@
       "cityName": "南部町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19634,10 +19710,12 @@
       "cityName": "階上町",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
@@ -19647,10 +19725,12 @@
       "cityName": "新郷村",
       "prefecture": "青森県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "aomori"
     },
