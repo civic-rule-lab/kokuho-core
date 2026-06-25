@@ -2640,6 +2640,37 @@ const CASES = [
       { level: "13", annual: 133200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
+  // ── 愛媛県(2026-06-24・全独立保険者・レバーなし・代表非標準を転記) ──
+  {
+    slug: "matsuyama", name: "松山市", source: "city.matsuyama.ehime.jp(上位独自境界)",
+    // 13段・基準79800・第2=0.45/第3=0.68・上位境界420-620/620-820/820-1020/1020万。
+    levels: [
+      { level: "1",  annual: 22740,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 95760,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "10", annual: 151620, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+      { level: "13", annual: 199500, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "masaki", name: "松前町", source: "town.masaki.ehime.jp(第2=0.45/第4=0.83/第7=1.25独自)",
+    levels: [
+      { level: "1",  annual: 19150,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 30240,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 67200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "7",  annual: 84000,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 161280, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "toon", name: "東温市", source: "city.toon.ehime.jp(県内最高級87300)",
+    levels: [
+      { level: "1",  annual: 24900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 87300,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 104800, ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 209500, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
 ];
 
 console.log("== A. 実値突合（公式段階別額 × サンプル所得） ==");
