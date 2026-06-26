@@ -55,6 +55,104 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 愛知県(2026-06-26 横展開。54市町村/44保険者。★レバー2=知多北部広域/東三河広域。名古屋18段/高浜20段/deep軽減/独自境界の代表をロック) ──
+  {
+    slug: "nagoya", name: "名古屋市", source: "kaigo-wel.city.nagoya.jp",
+    // 公式18段(政令市)・生保統合で内部17段・独自境界80/125/200/290万…。
+    levels: [
+      { level: "1",  annual: 20851,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 33362,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 83403,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 87574,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 91744,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "9",  annual: 125105, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "17", annual: 258550, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "okazaki", name: "岡崎市", source: "city.okazaki.lg.jp",
+    // 16段・第1=0.25/第2=0.45/第4=0.80独自軽減。
+    levels: [
+      { level: "1",  annual: 17100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 69760,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "16", annual: 194940, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "takahama", name: "高浜市", source: "city.takahama.lg.jp",
+    // 20段・★極細分独自境界120/125/130/210/290/320/350万…。
+    levels: [
+      { level: "1",  annual: 17610,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71880,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84099,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 87693,  ctx: { isSelfTaxable: true, totalIncome: 1230000 } },
+      { level: "8",  annual: 91287,  ctx: { isSelfTaxable: true, totalIncome: 1280000 } },
+      { level: "20", annual: 194076, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "kariya", name: "刈谷市", source: "city.kariya.lg.jp",
+    // 17段・★第1=0.185 deep軽減・上位境界3000/4500万。
+    levels: [
+      { level: "1",  annual: 13080,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 283200, ctx: { isSelfTaxable: true, totalIncome: 50000000 } },
+    ],
+  },
+  {
+    slug: "tsushima", name: "津島市", source: "city.tsushima.lg.jp",
+    // 17段・★第6=合計所得80万未満始まり・独自細分境界。
+    levels: [
+      { level: "1",  annual: 19840,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 80040,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "7",  annual: 83520,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "17", annual: 180960, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "miyoshi", name: "みよし市", source: "city.aichi-miyoshi.lg.jp",
+    // 13段・★第1=0.175 deep独自軽減。
+    levels: [
+      { level: "1",  annual: 10284,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 58800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 141120, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "toyota", name: "豊田市", source: "city.toyota.aichi.jp",
+    // 13段・★独自境界125/200/300/400/500/700/1000万。
+    levels: [
+      { level: "1",  annual: 18444,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 63600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 69960,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 79500,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 162180, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "tokai", name: "東海市(知多北部広域)", source: "chitahokubu.or.jp",
+    // ★知多北部広域連合(東海/大府/知多/東浦統一)15段・本人負担=軽減後21400。
+    levels: [
+      { level: "1",  annual: 21400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 36500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 75300,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 180900, ctx: { isSelfTaxable: true, totalIncome: 7600000 } },
+      { level: "15", annual: 196000, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
+  {
+    slug: "toyohashi", name: "豊橋市(東三河広域)", source: "east-mikawa.jp",
+    // ★東三河広域連合(豊橋/豊川/蒲郡/新城/田原/設楽/東栄/豊根統一)15段・第4=0.85。
+    levels: [
+      { level: "1",  annual: 16860,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 59160,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 118320, ctx: { isSelfTaxable: true, totalIncome: 7600000 } },
+      { level: "15", annual: 141984, ctx: { isSelfTaxable: true, totalIncome: 12000000 } },
+    ],
+  },
   // ── 福島県(2026-06-26 横展開。59市町村/59保険者・全独立・東北最大。いわき独自境界/会津若松独自軽減/中島独自乗率/原発避難/inferred9の代表をロック) ──
   {
     slug: "iwaki", name: "いわき市", source: "city.iwaki.lg.jp",
