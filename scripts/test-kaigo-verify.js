@@ -55,6 +55,99 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 福島県(2026-06-26 横展開。59市町村/59保険者・全独立・東北最大。いわき独自境界/会津若松独自軽減/中島独自乗率/原発避難/inferred9の代表をロック) ──
+  {
+    slug: "iwaki", name: "いわき市", source: "city.iwaki.lg.jp",
+    // 13段・★独自境界125/200/300/500/700/1000/1500万。
+    levels: [
+      { level: "1",  annual: 21600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 85500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 94500,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "9",  annual: 132400, ctx: { isSelfTaxable: true, totalIncome: 4000000 } },
+      { level: "13", annual: 189100, ctx: { isSelfTaxable: true, totalIncome: 16000000 } },
+    ],
+  },
+  {
+    slug: "aizuwakamatsu", name: "会津若松市", source: "city.aizuwakamatsu.fukushima.jp",
+    // 13段・★第2=0.335/第3=0.635/第4=0.85独自軽減。
+    levels: [
+      { level: "1",  annual: 22500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 26500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "3",  annual: 50200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 190000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "fukushimashi", name: "福島市", source: "city.fukushima.fukushima.jp",
+    // 13段・★第6=1.15/第7=1.275独自・第4=0.875。
+    levels: [
+      { level: "1",  annual: 22200,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 78000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 89700,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 99500,  ctx: { isSelfTaxable: true, totalIncome: 1500000 } },
+      { level: "13", annual: 187200, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "sukagawa", name: "須賀川市", source: "city.sukagawa.fukushima.jp",
+    // 13段・★高所得低乗率第10-13=1.8/1.9/2.0/2.1。
+    levels: [
+      { level: "1",  annual: 22130,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 77640,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "10", annual: 139760, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "13", annual: 163050, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nakajima", name: "中島村", source: "vill-nakajima.jp",
+    // 13段(県内最安)・★独自乗率第10-13=1.8/1.9/2.0/2.1。
+    levels: [
+      { level: "1",  annual: 16800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 59100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "10", annual: 106300, ctx: { isSelfTaxable: true, totalIncome: 4500000 } },
+      { level: "13", annual: 124100, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "koriyama", name: "郡山市", source: "city.koriyama.lg.jp",
+    // 13段・第4=0.85。
+    levels: [
+      { level: "1",  annual: 21550,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 75600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 113400, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 181440, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "futaba", name: "双葉町(原発避難)", source: "town.futaba条例(令38条)",
+    // 13段・条例方式・基準91600。
+    levels: [
+      { level: "1",  annual: 26100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 91600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 137400, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 219800, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "mishimacho", name: "三島町(inferred)", source: "二次kokuho-keisan・県内最高",
+    // 13段(inferred)・基準92400。
+    levels: [
+      { level: "1",  annual: 26400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 92400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 222000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "hinoemata", name: "檜枝岐村(inferred)", source: "旧表・国標準推計",
+    // 13段(inferred・県内最安級62400)。
+    levels: [
+      { level: "1",  annual: 17784,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 62400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 149760, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 山形県(2026-06-26 横展開。35市町村/35保険者・全独立。最上広域は介護非運営。酒田独自軽減/長井・白鷹独自境界/inferred1の代表をロック) ──
   {
     slug: "yamagatacity", name: "山形市", source: "city.yamagata-yamagata.lg.jp",
