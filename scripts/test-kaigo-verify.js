@@ -55,6 +55,89 @@ function ctxFromCriteria(c = {}) {
 // monthly は各市の公式公表値。annual はその ×12。
 // 出典は data の source.url（retrievedAt 時点）。標準9段階。
 const CASES = [
+  // ── 山形県(2026-06-26 横展開。35市町村/35保険者・全独立。最上広域は介護非運営。酒田独自軽減/長井・白鷹独自境界/inferred1の代表をロック) ──
+  {
+    slug: "yamagatacity", name: "山形市", source: "city.yamagata-yamagata.lg.jp",
+    // 13段・第4=0.85。
+    levels: [
+      { level: "1",  annual: 19800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "8",  annual: 104400, ctx: { isSelfTaxable: true, totalIncome: 2500000 } },
+      { level: "13", annual: 167000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "sakata", name: "酒田市", source: "city.sakata.lg.jp",
+    // 13段・★第1=0.335/第2=0.435/第4=0.95独自軽減。
+    levels: [
+      { level: "1",  annual: 25248,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "2",  annual: 32784,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "5",  annual: 75360,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 180864, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "nagai", name: "長井市", source: "city.nagai.yamagata.jp",
+    // 13段・★独自乗率・独自境界120-125/125-210/320-400/400-620万。
+    levels: [
+      { level: "1",  annual: 20400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 71900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 86300,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 87700,  ctx: { isSelfTaxable: true, totalIncome: 1230000 } },
+      { level: "8",  annual: 99900,  ctx: { isSelfTaxable: true, totalIncome: 1800000 } },
+      { level: "11", annual: 133000, ctx: { isSelfTaxable: true, totalIncome: 5000000 } },
+      { level: "13", annual: 136600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shirataka", name: "白鷹町", source: "town.shirataka.lg.jp",
+    // 14段・★第6-8を120/160/210で3分割(1.20/1.25/1.30)。
+    levels: [
+      { level: "1",  annual: 20007,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 84240,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "7",  annual: 87750,  ctx: { isSelfTaxable: true, totalIncome: 1400000 } },
+      { level: "8",  annual: 91260,  ctx: { isSelfTaxable: true, totalIncome: 1800000 } },
+      { level: "14", annual: 168480, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "ogunicho", name: "小国町", source: "town.oguni.yamagata.jp",
+    // 13段・第4=0.83独自・基準70600(条例値)。山形の小国(熊本と別)。
+    levels: [
+      { level: "1",  annual: 20100,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "4",  annual: 58600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 70600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 169600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "oe", name: "大江町", source: "g-reiki town.oe.yamagata",
+    // 13段(県内最安基準54000)。
+    levels: [
+      { level: "1",  annual: 15396,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 54000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 129600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "tozawa", name: "戸沢村", source: "g-reiki vill.tozawa条例第2条",
+    // 13段(★県内最高基準90000)。
+    levels: [
+      { level: "1",  annual: 25600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 90000,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 216000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
+  {
+    slug: "shonai", name: "庄内町(inferred)", source: "段階表画像PNG・国標準推計",
+    // 13段(inferred・基準79200)。
+    levels: [
+      { level: "1",  annual: 22572,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "5",  annual: 79200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "13", annual: 190080, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+    ],
+  },
   // ── 宮城県(2026-06-26 横展開。35市町村/35保険者・全独立。仙台政令市16段/多賀城deep軽減/富谷14段/inferred2の代表をロック) ──
   {
     slug: "sendai", name: "仙台市", source: "city.sendai.jp",
