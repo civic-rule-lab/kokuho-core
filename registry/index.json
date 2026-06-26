@@ -6204,11 +6204,13 @@
       "prefectureSlug": "aichi",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6218,10 +6220,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6231,10 +6235,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6244,10 +6250,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6257,10 +6265,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6270,10 +6280,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6283,10 +6295,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6296,10 +6310,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6309,10 +6325,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6322,10 +6340,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6335,10 +6355,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6348,10 +6370,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6361,10 +6385,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6374,10 +6400,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6387,10 +6415,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6400,10 +6430,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6413,10 +6445,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6426,10 +6460,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6439,10 +6475,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6452,10 +6490,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6465,10 +6505,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6478,10 +6520,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6491,10 +6535,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6504,10 +6550,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6517,10 +6565,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6530,10 +6580,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6543,10 +6595,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6556,10 +6610,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6569,10 +6625,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6582,10 +6640,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6595,10 +6655,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6608,10 +6670,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6621,10 +6685,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6634,10 +6700,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6647,10 +6715,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6660,10 +6730,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6673,10 +6745,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6686,10 +6760,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6699,10 +6775,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6712,10 +6790,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6725,10 +6805,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6738,10 +6820,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6751,10 +6835,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6764,10 +6850,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6777,10 +6865,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6790,10 +6880,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6803,10 +6895,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6816,10 +6910,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6829,10 +6925,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6842,10 +6940,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6855,10 +6955,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6868,10 +6970,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6881,10 +6985,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -6894,10 +7000,12 @@
       "prefecture": "愛知県",
       "prefectureSlug": "aichi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
