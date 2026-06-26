@@ -2505,12 +2505,14 @@
       "prefecture": "埼玉県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2519,11 +2521,13 @@
       "cityName": "川越市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2532,11 +2536,13 @@
       "cityName": "熊谷市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2546,12 +2552,14 @@
       "prefecture": "埼玉県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2560,11 +2568,13 @@
       "cityName": "行田市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2573,11 +2583,13 @@
       "cityName": "秩父市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2586,11 +2598,13 @@
       "cityName": "所沢市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2599,11 +2613,13 @@
       "cityName": "飯能市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2612,11 +2628,13 @@
       "cityName": "加須市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2625,11 +2643,13 @@
       "cityName": "本庄市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2638,11 +2658,13 @@
       "cityName": "東松山市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2651,11 +2673,13 @@
       "cityName": "春日部市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2664,11 +2688,13 @@
       "cityName": "狭山市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2677,11 +2703,13 @@
       "cityName": "羽生市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2690,11 +2718,13 @@
       "cityName": "鴻巣市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2703,11 +2733,13 @@
       "cityName": "深谷市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2716,11 +2748,13 @@
       "cityName": "上尾市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2729,11 +2763,13 @@
       "cityName": "草加市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2742,11 +2778,13 @@
       "cityName": "越谷市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2755,11 +2793,13 @@
       "cityName": "蕨市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2768,11 +2808,13 @@
       "cityName": "戸田市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2781,11 +2823,13 @@
       "cityName": "入間市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2794,11 +2838,13 @@
       "cityName": "朝霞市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2807,11 +2853,13 @@
       "cityName": "志木市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2820,11 +2868,13 @@
       "cityName": "和光市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2833,11 +2883,13 @@
       "cityName": "新座市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2846,11 +2898,13 @@
       "cityName": "桶川市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2859,11 +2913,13 @@
       "cityName": "久喜市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2872,11 +2928,13 @@
       "cityName": "北本市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2885,11 +2943,13 @@
       "cityName": "八潮市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2898,11 +2958,13 @@
       "cityName": "富士見市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2911,11 +2973,13 @@
       "cityName": "三郷市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2924,11 +2988,13 @@
       "cityName": "蓮田市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2937,11 +3003,13 @@
       "cityName": "坂戸市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2950,11 +3018,13 @@
       "cityName": "幸手市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2963,11 +3033,13 @@
       "cityName": "鶴ヶ島市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2976,11 +3048,13 @@
       "cityName": "日高市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -2989,11 +3063,13 @@
       "cityName": "吉川市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3002,11 +3078,13 @@
       "cityName": "ふじみ野市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3015,11 +3093,13 @@
       "cityName": "白岡市",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3028,11 +3108,13 @@
       "cityName": "伊奈町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3041,11 +3123,13 @@
       "cityName": "三芳町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3054,11 +3138,13 @@
       "cityName": "毛呂山町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3067,11 +3153,13 @@
       "cityName": "越生町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3080,11 +3168,13 @@
       "cityName": "滑川町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3093,11 +3183,13 @@
       "cityName": "嵐山町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3106,11 +3198,13 @@
       "cityName": "小川町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3119,11 +3213,13 @@
       "cityName": "川島町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3132,11 +3228,13 @@
       "cityName": "吉見町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3145,11 +3243,13 @@
       "cityName": "鳩山町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3158,11 +3258,13 @@
       "cityName": "ときがわ町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3171,11 +3273,13 @@
       "cityName": "横瀬町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3184,11 +3288,13 @@
       "cityName": "皆野町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3197,11 +3303,13 @@
       "cityName": "長瀞町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3210,11 +3318,13 @@
       "cityName": "小鹿野町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3223,11 +3333,13 @@
       "cityName": "東秩父村",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3236,11 +3348,13 @@
       "cityName": "美里町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3249,11 +3363,13 @@
       "cityName": "神川町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3262,11 +3378,13 @@
       "cityName": "上里町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3275,11 +3393,13 @@
       "cityName": "寄居町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3288,11 +3408,13 @@
       "cityName": "宮代町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3301,11 +3423,13 @@
       "cityName": "杉戸町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -3314,11 +3438,13 @@
       "cityName": "松伏町",
       "prefecture": "埼玉県",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "prefectureSlug": "saitama",
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18438,11 +18564,13 @@
       "prefectureSlug": "miyagi",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18452,10 +18580,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18465,10 +18595,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18478,10 +18610,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18491,10 +18625,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18504,10 +18640,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18517,10 +18655,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18530,10 +18670,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18543,10 +18685,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18556,10 +18700,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18569,10 +18715,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18582,10 +18730,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18595,10 +18745,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18608,10 +18760,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18621,10 +18775,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18634,10 +18790,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18647,10 +18805,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18660,10 +18820,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18673,10 +18835,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18686,10 +18850,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18699,10 +18865,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18712,10 +18880,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18725,10 +18895,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18738,10 +18910,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18751,10 +18925,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18764,10 +18940,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18777,10 +18955,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18790,10 +18970,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18803,10 +18985,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18816,10 +19000,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18829,10 +19015,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18842,10 +19030,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18855,10 +19045,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18868,10 +19060,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -18881,10 +19075,12 @@
       "prefecture": "宮城県",
       "prefectureSlug": "miyagi",
       "systems": [
-        "kokuho"
+        "kokuho",
+        "kaigo"
       ],
       "publishYear": {
-        "kokuho": 2026
+        "kokuho": 2026,
+        "kaigo": 2026
       }
     },
     {
