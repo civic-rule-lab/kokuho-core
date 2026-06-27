@@ -7,12 +7,14 @@
       "prefecture": "神奈川県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -22,12 +24,14 @@
       "prefecture": "神奈川県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -37,12 +41,14 @@
       "prefecture": "神奈川県",
       "systems": [
         "kokuho",
-        "jumin"
+        "jumin",
+        "kaigo"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
         "kokuho": 2026,
-        "jumin": 2026
+        "jumin": 2026,
+        "kaigo": 2026
       }
     },
     {
