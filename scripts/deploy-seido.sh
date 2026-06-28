@@ -132,6 +132,9 @@ if [ "$DRY_RUN" = false ]; then
   # サイトマップ（seido-keisan 専用。旧 kokuho 用 sitemap.xml とは別物）
   cp "$CORE_DIR/seido-sitemap.xml"        "$PUBLIC_DIR/sitemap.xml"
 
+  # robots.txt（seido-keisan 自身の sitemap.xml を告知。旧 kokuho を指す core の robots.txt とは別）
+  cp "$CORE_DIR/seido-robots.txt"         "$PUBLIC_DIR/robots.txt"
+
   echo "✅ 同期完了"
 else
   echo "（dry-run: 同期スキップ）"
@@ -187,6 +190,8 @@ if [ "$PUSH" = true ]; then
     "/tokyo/shinjuku/kouki/|200"
     "/tokyo/shinjuku/kouki/income.html|200"
     "/tokyo/shinjuku/kaigo/|200"
+    "/robots.txt|200"
+    "/sitemap.xml|200"
   )
   END=$((SECONDS+300)); FAIL=0
   for check in "${SMOKE_CHECKS[@]}"; do
