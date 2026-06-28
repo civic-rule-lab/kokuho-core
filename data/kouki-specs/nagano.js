@@ -6,9 +6,9 @@
  *   https://www.mhlw.go.jp/content/12403500/001689077.pdf
  *   ※全47広域連合の確定料率を厚労省が取りまとめた一次資料。
  *
- * 関所（所得割の独自軽減 / 不均一賦課）: 所得割独自軽減なし・県内単一料率
+ * 関所（所得割の独自軽減 / 不均一賦課）: 所得割独自軽減なし・県内均一（公式広域連合ページで裏取り済）
  *   出典: https://www.koukikourei-nagano.jp/docs/408.html
- *   確認度(confidence): 0.80（2026-06-28 調査）
+ *   確認度(confidence): 0.9（2026-06-28 公式裏取り：軽減は全国一律7.2割/5割/2割＋被扶養者2年5割のみ・独自軽減なし）
  *
  * 全国一律のパラメータ（賦課限度額85万/2.1万・均等割軽減しきい値31万/57万・
  * 医療7割軽減=7.2割・基礎控除43万）は generate-kouki-from-spec.js 側の
@@ -21,7 +21,7 @@ export const STATUS = "verified";
 
 export const SOURCE = {
   rates:  { url: "https://www.mhlw.go.jp/content/12403500/001689077.pdf", title: "厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について", retrievedAt: "2026-06-28" },
-  kansho: { url: "https://www.koukikourei-nagano.jp/docs/408.html", note: "所得割独自軽減なし・県内単一料率", confidence: 0.80, retrievedAt: "2026-06-28" },
+  kansho: { url: "https://www.koukikourei-nagano.jp/docs/301.html", note: "所得割独自軽減なし・県内均一(公式広域連合ページで裏取り＝軽減は全国一律7.2割/5割/2割＋被扶養者2年5割のみ)", confidence: 0.9, retrievedAt: "2026-06-28" },
 };
 
 // 県ごとに変わる料率（医療分・子ども分）と、広域連合独自の所得割軽減。
