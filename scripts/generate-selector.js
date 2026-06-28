@@ -97,6 +97,28 @@ function buildSystemEntry(slug, system, prefSlug, official = false) {
       },
     };
   }
+  if (system === "kouki") {
+    return {
+      name: "後期高齢者医療",
+      pages: {
+        simple: {
+          name: "かんたん計算",
+          url: `https://seido-keisan.jp/${prefSlug}/${slug}/kouki/`,
+        },
+      },
+    };
+  }
+  if (system === "kaigo") {
+    return {
+      name: "介護保険（第1号）",
+      pages: {
+        simple: {
+          name: "かんたん計算",
+          url: `https://seido-keisan.jp/${prefSlug}/${slug}/kaigo/`,
+        },
+      },
+    };
+  }
   return { name: system, pages: {} };
 }
 
