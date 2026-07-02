@@ -73,13 +73,8 @@ function calculateKokuho(input, data) {
   const supportHousehold = data.household?.support || 0;
   const careHousehold    = care > 0 ? (data.household?.care || 0) : 0;
 
-  const preschoolReductionMedical = Math.round(
-    preschool * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
-  );
-  const preschoolReductionSupport = Math.round(
-    preschool * data.perCapita.support * (data.preschoolReduction?.supportPerCapitaRate || 0)
-  );
-  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
+  // 未就学児軽減は reductionRate 確定後に計算する（法定軽減後の額に5割軽減を適用するため）。
+  // 定義は「軽減判定」ブロックの直後へ移動。
 
   const B = Math.max(salaryPensionCount, 1);
   const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
@@ -113,6 +108,18 @@ function calculateKokuho(input, data) {
     reductionLabel = '2割軽減';
     reductionRate  = data.reduction?.ratios?.twoTenths || 0;
   }
+
+  // 未就学児軽減（均等割の医療分・支援分）
+  // 制度: 法定軽減（7/5/2割）適用世帯では「軽減後の均等割額」の5割を軽減する。
+  // 未就学児分の per-capita に (1 - reductionRate) を乗じた残額へ軽減率を適用。
+  // reductionRate=0 のときは従来式と一致（後方互換）。
+  const preschoolReductionMedical = Math.round(
+    preschool * data.perCapita.medical * (1 - reductionRate) * (data.preschoolReduction?.medicalPerCapitaRate || 0)
+  );
+  const preschoolReductionSupport = Math.round(
+    preschool * data.perCapita.support * (1 - reductionRate) * (data.preschoolReduction?.supportPerCapitaRate || 0)
+  );
+  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
 
   const childcareIncome        = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
   const childcarePerCapita     = family * childcarePerCapitaUnit;
