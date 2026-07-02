@@ -131,7 +131,15 @@ function calculateKokuho(input, data) {
   medicalTotal   = Math.min(Math.max(medicalTotal,   0), data.caps.medical);
   supportTotal   = Math.min(Math.max(supportTotal,   0), data.caps.support);
   careTotal      = Math.min(Math.max(careTotal,      0), data.caps.care);
-  childcareTotal = Math.min(Math.max(childcareTotal, 0), data.caps.childcare || 30000);
+  // 支援金分の賦課限度額。自治体データ（data.caps.childcare）が正。
+  // 未定義なら国基準 30,000円（国民健康保険法施行令 29条の7 5項10号・R8年度）で
+  // 代用するが、静かに落とさず警告する。`||` は cap=0 も潰すため `??` を使う。
+  let childcareCap = data.caps.childcare;
+  if (childcareCap === undefined || childcareCap === null) {
+    childcareCap = 30000;
+    if (childcareTotal > 0) console.warn(`[kokuho-api] caps.childcare がデータ未定義のため国基準 30000 円で代用（データ整備が必要）`);
+  }
+  childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCap);
 
   const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
   const monthly        = Math.round(total / 12);

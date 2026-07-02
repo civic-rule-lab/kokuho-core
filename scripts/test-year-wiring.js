@@ -81,14 +81,18 @@ function loadEngine(pageSnippet) {
     }
   }
 
-  // ケース2: 宣言が無いページではフォールバック年度を使うこと（既定動作の文書化）
+  // ケース2: 宣言が無いページは fail loud（暗黙の年度フォールバックをしない）
+  // 旧仕様は `|| 2025` で kokuho-2025.json に静かにフォールバックしていたが、
+  // 宣言漏れのまま旧年度で計算する事故（PR #185 と同型）を許すため廃止。
+  // 期待動作: PUBLISH_YEAR 未宣言 → loadKokuhoData が throw → JSON を一切取得しない。
   {
     const fetched = loadEngine(null);
     await new Promise((r) => setTimeout(r, 20));
-    if (fetched.some((u) => u.includes("kokuho-2025.json"))) {
-      console.log("✅ 宣言なし → kokuho-2025.json にフォールバック（既定動作）");
+    const kokuhoFetches = fetched.filter((u) => u.includes("kokuho-"));
+    if (kokuhoFetches.length === 0) {
+      console.log("✅ 宣言なし → JSON を取得せずエラー（暗黙フォールバック廃止を確認）");
     } else {
-      console.error(`❌ フォールバック動作が想定外です。実際: ${fetched.join(", ") || "(なし)"}`);
+      console.error(`❌ 宣言なしで JSON が取得されています（暗黙フォールバックが復活？）: ${kokuhoFetches.join(", ")}`);
       failed++;
     }
   }

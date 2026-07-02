@@ -43,3 +43,8 @@ cf.json
 
 # 作業用スクラッチ（県突合の元XLSX等・git管理外の参照データ。deploy の untracked ガードに引っかかるため無視。rsync 対象外なので本番には流れない）
 tmp/
+_dupbackup_20260702/
+AGENTS.md.bak-*
+CLAUDE.md.bak-*
+重複ファイル整理手順.md
+.DS_Store
