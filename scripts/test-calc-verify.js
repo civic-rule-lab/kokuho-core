@@ -564,13 +564,18 @@ const TEST_SUITES = [
         expected: { total: 123647, reductionLabel: "軽減なし" },
         source: "手計算",
       },
-      // ── 未就学児×7割軽減の二重適用（独立加算型） ──────────────
+      // ── 未就学児×7割軽減：法定軽減「後」の額に5割（＝合計8.5割軽減） ──
+      // 制度: 7割軽減世帯の未就学児は「軽減後の残り3割」にさらに5割軽減がかかり、
+      //       合計 8.5割軽減となる（厚労省ルール。葛飾区・世田谷区等の公式が明記）。
+      //   旧実装は満額の5割を法定軽減と単純加算（独立加算型）しており、7割世帯で
+      //   per-capita×1.2 の過大控除になっていた（＝旧期待値 14,919 はそのバグ値）。
+      //   修正: kokuho.js の preschoolReduction に (1 - reductionRate) を乗算。
       {
-        label: "preschool_7ten_double_reduction: 2人世帯・未就学1人・7割軽減",
-        note:  "preschoolReduction(=15,832)と medicalReduction(=50,833)は独立加算型。軽減後の額にさらに5割ではない。total=14,919",
+        label: "preschool_7ten: 2人世帯・未就学1人・7割軽減（軽減後の額に5割＝合計8.5割）",
+        note:  "income0/2人/7割。未就学児分=per-capita×(1-0.7)×0.5: 医療round(22432×0.3×0.5)=3,365 / 支援round(9231×0.3×0.5)=1,385。医療=72,619-3,365-50,833=18,421、支援=29,883-1,385-20,918=7,580",
         input: { income: 0, family: 2, preschool: 1, care: 0, salaryPensionCount: 1 },
-        expected: { total: 14919, reductionLabel: "7割軽減" },
-        source: "手計算（preschoolReduction=15,832 = 元の均等割に対して50%）",
+        expected: { medical: 18421, support: 7580, total: 26001, reductionLabel: "7割軽減" },
+        source: "手計算＋厚労省8.5割ルール。旧14,919は加算型バグの固定値",
       },
       // ── salaryPensionAdd による閾値延長 ─────────────────────────
       {
@@ -643,9 +648,9 @@ const TEST_SUITES = [
       // ③ preschool > family
       {
         label: "preschool=3 > family=2 → preschool=2 と同値",
-        note:  "修正前: preschool=3 で過剰減額。修正後: clamp して family=2 と同じ結果になる",
+        note:  "clamp回帰: preschool=3 は family=2 に clamp。未就学児軽減は法定軽減(5割)後の額に5割＝per-capita×(1-0.5)×0.5。医療49,735+支援20,574=70,309（旧54,478は加算型バグ値）",
         input: { income: 800_000, family: 2, preschool: 3, care: 0, salaryPensionCount: 1 },
-        expected: { total: 54478 },
+        expected: { total: 70309 },
         source: "バグ修正回帰",
         _sameAs: { income: 800_000, family: 2, preschool: 2, care: 0, salaryPensionCount: 1 },
       },
