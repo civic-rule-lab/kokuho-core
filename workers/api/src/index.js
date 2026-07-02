@@ -14,6 +14,11 @@
  * }
  */
 
+// 計算ロジックは正本 js/core/kokuho.js を単一ソースとして共有する（独自複製による乖離を根絶）。
+// wrangler/esbuild が相対 import をバンドルする。core の calculateKokuho は document/window を
+// 参照しない純粋関数なので Worker 実行環境で安全（esbuild バンドル・E2E一致を検証済み）。
+import { calculateKokuho } from '../../../js/core/kokuho.js';
+
 // アクセスを拒否するパスパターン
 const DENY_PATHS = /(\.(env|git|htaccess|htpasswd|config|bak|sql|log|pem|key|secret)|\/wp-|\/admin|\/\.)/i;
 
@@ -36,6 +41,7 @@ const INPUT_LIMITS = {
   income:             { min: 0,   max: 99_999_999 },
   family:             { min: 1,   max: 20 },
   preschool:          { min: 0,   max: 20 },
+  under18:            { min: 0,   max: 20 },
   care:               { min: 0,   max: 20 },
   salaryPensionCount: { min: 1,   max: 20 },
   fixedAssetTax:      { min: 0,   max: 99_999_999 },
@@ -45,121 +51,10 @@ const MAX_REQUEST_SIZE = 1024; // 1KB
 
 const DATA_BASE_URL = 'https://kokuho-keisan.jp/data/municipalities';
 
-// ─── 計算ロジック（engine.js と同一） ────────────────────────────
-
-function calculateKokuho(input, data) {
-  const { income, family, preschool, care, salaryPensionCount, fixedAssetTax } = input;
-
-  const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
-  const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
-  const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
-
-  // 子ども・子育て支援金分（R8新設・0なら無効）
-  const childcareRate            = data.childcare?.rate      || 0;
-  const childcarePerCapitaUnit   = data.childcare?.perCapita || 0;
-  const childcareHouseholdUnit   = data.childcare?.household || 0;
-
-  const baseIncome = Math.max(income - data.basicDeduction, 0);
-
-  const medicalIncome = Math.round(baseIncome * data.rate.medical);
-  const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = care > 0 ? Math.round(baseIncome * data.rate.care) : 0;
-
-  const medicalPerCapita = family * data.perCapita.medical;
-  const supportPerCapita = family * data.perCapita.support;
-  const carePerCapita    = care  * data.perCapita.care;
-
-  const medicalHousehold = data.household?.medical || 0;
-  const supportHousehold = data.household?.support || 0;
-  const careHousehold    = care > 0 ? (data.household?.care || 0) : 0;
-
-  // 未就学児軽減は reductionRate 確定後に計算する（法定軽減後の額に5割軽減を適用するため）。
-  // 定義は「軽減判定」ブロックの直後へ移動。
-
-  const B = Math.max(salaryPensionCount, 1);
-  const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
-  const extraForIncomeEarners = salaryPensionAdd * (B - 1);
-
-  const sevenTenthsLimit =
-    (data.reduction?.standards?.sevenTenths?.base || 0) +
-    ((data.reduction?.standards?.sevenTenths?.perPersonAdd || 0) * family) +
-    extraForIncomeEarners;
-
-  const fiveTenthsLimit =
-    (data.reduction?.standards?.fiveTenths?.base || 0) +
-    ((data.reduction?.standards?.fiveTenths?.perPersonAdd || 0) * family) +
-    extraForIncomeEarners;
-
-  const twoTenthsLimit =
-    (data.reduction?.standards?.twoTenths?.base || 0) +
-    ((data.reduction?.standards?.twoTenths?.perPersonAdd || 0) * family) +
-    extraForIncomeEarners;
-
-  let reductionLabel = '軽減なし';
-  let reductionRate  = 0;
-
-  if (income <= sevenTenthsLimit) {
-    reductionLabel = '7割軽減';
-    reductionRate  = data.reduction?.ratios?.sevenTenths || 0;
-  } else if (income <= fiveTenthsLimit) {
-    reductionLabel = '5割軽減';
-    reductionRate  = data.reduction?.ratios?.fiveTenths || 0;
-  } else if (income <= twoTenthsLimit) {
-    reductionLabel = '2割軽減';
-    reductionRate  = data.reduction?.ratios?.twoTenths || 0;
-  }
-
-  // 未就学児軽減（均等割の医療分・支援分）
-  // 制度: 法定軽減（7/5/2割）適用世帯では「軽減後の均等割額」の5割を軽減する。
-  // 未就学児分の per-capita に (1 - reductionRate) を乗じた残額へ軽減率を適用。
-  // reductionRate=0 のときは従来式と一致（後方互換）。
-  const preschoolReductionMedical = Math.round(
-    preschool * data.perCapita.medical * (1 - reductionRate) * (data.preschoolReduction?.medicalPerCapitaRate || 0)
-  );
-  const preschoolReductionSupport = Math.round(
-    preschool * data.perCapita.support * (1 - reductionRate) * (data.preschoolReduction?.supportPerCapitaRate || 0)
-  );
-  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
-
-  const childcareIncome        = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
-  const childcarePerCapita     = family * childcarePerCapitaUnit;
-  const childcareHousehold     = childcareRate > 0 ? childcareHouseholdUnit : 0;
-
-  const medicalReduction   = Math.round((medicalPerCapita  + medicalHousehold)  * reductionRate);
-  const supportReduction   = Math.round((supportPerCapita  + supportHousehold)  * reductionRate);
-  const careReduction      = Math.round((carePerCapita     + careHousehold)     * reductionRate);
-  const childcareReduction = Math.round((childcarePerCapita + childcareHousehold) * reductionRate);
-
-  let medicalTotal   = medicalIncome   + medicalPerCapita   + medicalHousehold   + assetLevyMedical - preschoolReductionMedical - medicalReduction;
-  let supportTotal   = supportIncome   + supportPerCapita   + supportHousehold   + assetLevySupport - preschoolReductionSupport - supportReduction;
-  let careTotal      = careIncome      + carePerCapita      + careHousehold      + assetLevyCare    - careReduction;
-  let childcareTotal = childcareIncome + childcarePerCapita + childcareHousehold                    - childcareReduction;
-
-  medicalTotal   = Math.min(Math.max(medicalTotal,   0), data.caps.medical);
-  supportTotal   = Math.min(Math.max(supportTotal,   0), data.caps.support);
-  careTotal      = Math.min(Math.max(careTotal,      0), data.caps.care);
-  // 支援金分の賦課限度額。自治体データ（data.caps.childcare）が正。
-  // 未定義なら国基準 30,000円（国民健康保険法施行令 29条の7 5項10号・R8年度）で
-  // 代用するが、静かに落とさず警告する。`||` は cap=0 も潰すため `??` を使う。
-  let childcareCap = data.caps.childcare;
-  if (childcareCap === undefined || childcareCap === null) {
-    childcareCap = 30000;
-    if (childcareTotal > 0) console.warn(`[kokuho-api] caps.childcare がデータ未定義のため国基準 30000 円で代用（データ整備が必要）`);
-  }
-  childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCap);
-
-  const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
-  const monthly        = Math.round(total / 12);
-  const totalReduction = medicalReduction + supportReduction + careReduction + childcareReduction;
-  const assetLevyTotal = assetLevyMedical + assetLevySupport + assetLevyCare;
-
-  return {
-    medicalTotal, supportTotal, careTotal, childcareTotal,
-    total, monthly,
-    preschoolReduction, totalReduction,
-    reductionLabel, assetLevyTotal,
-  };
-}
+// ─── 計算ロジック ────────────────────────────────────────────────
+// calculateKokuho は js/core/kokuho.js（正本）から import 済み。
+// 以前ここにあった独自複製は core と乖離していた（childcareLevy 無視・schoolReduction/
+// perCapitaAdult/擬制世帯主/clamp 欠落）ため 2026-07-02 に削除し、core 共有へ統合。
 
 // ─── ハンドラー ───────────────────────────────────────────────────
 
@@ -243,6 +138,7 @@ export default {
         income:             Number(body.income)             || 0,
         family:             Number(body.family)             || 1,
         preschool:          Number(body.preschool)          || 0,
+        under18:            Number(body.under18)            || 0,
         care:               Number(body.care)               || 0,
         salaryPensionCount: Number(body.salaryPensionCount) || 1,
         fixedAssetTax:      Number(body.fixedAssetTax)      || 0,
@@ -258,9 +154,33 @@ export default {
         }
       }
 
-      const inputs = rawInputs;
+      // 擬制世帯主: 世帯主所得を軽減判定に加算する場合に指定（任意）。
+      // 未指定なら core が income にフォールバック（後方互換）。
+      let reductionJudgmentIncome;
+      if (body.reductionJudgmentIncome != null) {
+        reductionJudgmentIncome = Number(body.reductionJudgmentIncome);
+        if (Number.isNaN(reductionJudgmentIncome) ||
+            reductionJudgmentIncome < 0 || reductionJudgmentIncome > 99_999_999) {
+          return Response.json(
+            { error: 'reductionJudgmentIncome の値が範囲外です（0〜99,999,999）' },
+            { status: 400, headers: CORS_HEADERS }
+          );
+        }
+      }
 
-      const result = calculateKokuho(inputs, muniData);
+      const inputs = { ...rawInputs, reductionJudgmentIncome };
+
+      // 正本 core の計算。自治体データ不備（例: perCapitaAdult があるのに
+      // perCapitaAdultScope 未設定）で throw し得るため捕捉して 400 を返す。
+      let result;
+      try {
+        result = calculateKokuho(inputs, muniData);
+      } catch (e) {
+        return Response.json(
+          { error: '計算に失敗しました（自治体データの不備の可能性）', detail: String(e?.message ?? e) },
+          { status: 400, headers: CORS_HEADERS }
+        );
+      }
 
       return Response.json(
         {
