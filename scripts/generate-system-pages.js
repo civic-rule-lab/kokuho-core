@@ -224,7 +224,9 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
       continue;
     }
     if (DRY) { prefGenerated++; continue; }
-    const rep = { ...items[0].data, cityName: prefName, citySlug: prefSlug };
+    // cityCode は代表自治体のコードを残さず、都道府県コード（上2桁+000）に置換
+    const prefCode = String(items[0].data.cityCode || "").slice(0, 2) + "000";
+    const rep = { ...items[0].data, cityName: prefName, citySlug: prefSlug, cityCode: prefCode };
     const dir = path.join(ROOT, prefSlug, SYSTEM);
     mkdirSync(dir, { recursive: true });
     writeFileSync(path.join(dir, "index.html"), renderPref(prefName, prefSlug, rep, { isIncome: false, tmpl: template }), "utf-8");
