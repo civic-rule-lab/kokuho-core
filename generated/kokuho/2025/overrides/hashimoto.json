@@ -4,19 +4,19 @@
   "signature": "3h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0768,
-      "support": 0.0307,
-      "care": 0.0256
+      "medical": 0.092,
+      "support": 0.032,
+      "care": 0.027
     },
     "perCapita": {
-      "medical": 27686,
-      "support": 10770,
-      "care": 11197
+      "medical": 32100,
+      "support": 10300,
+      "care": 10200
     },
     "household": {
-      "medical": 19192,
-      "support": 7466,
-      "care": 5682
+      "medical": 22200,
+      "support": 7100,
+      "care": 5300
     }
   }
 }

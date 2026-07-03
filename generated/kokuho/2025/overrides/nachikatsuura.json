@@ -1,22 +1,27 @@
 {
   "citySlug": "nachikatsuura",
   "cityName": "那智勝浦町",
-  "signature": "3h|nat|R7std|pre",
+  "signature": "4h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0723,
-      "support": 0.0309,
-      "care": 0.0256
+      "medical": 0.081,
+      "support": 0.029,
+      "care": 0.023
     },
     "perCapita": {
-      "medical": 26076,
-      "support": 10823,
-      "care": 11194
+      "medical": 29000,
+      "support": 8500,
+      "care": 7500
     },
     "household": {
-      "medical": 18077,
-      "support": 7503,
-      "care": 5680
+      "medical": 26800,
+      "support": 10300,
+      "care": 9900
+    },
+    "assetLevy": {
+      "medical": 0.05,
+      "support": 0.01,
+      "care": 0.02
     }
   }
 }

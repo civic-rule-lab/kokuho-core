@@ -4,9 +4,9 @@
   "signature": "3h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0597,
+      "medical": 0.059699999999999996,
       "support": 0.0216,
-      "care": 0.0211
+      "care": 0.021099999999999997
     },
     "perCapita": {
       "medical": 27100,

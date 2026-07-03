@@ -9,6 +9,7 @@
       "care": 0.021
     },
     "perCapita": {
+      "medical": 21000,
       "support": 6500,
       "care": 8500
     },

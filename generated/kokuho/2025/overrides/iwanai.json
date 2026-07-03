@@ -5,7 +5,7 @@
   "override": {
     "rate": {
       "medical": 0.091,
-      "support": 0.026000000000000002,
+      "support": 0.026,
       "care": 0.019
     },
     "perCapita": {

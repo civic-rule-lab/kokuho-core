@@ -6,7 +6,7 @@
     "rate": {
       "medical": 0.062,
       "support": 0.025,
-      "care": 0.022
+      "care": 0.022000000000000002
     },
     "perCapita": {
       "medical": 23000,

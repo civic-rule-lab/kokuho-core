@@ -1,22 +1,26 @@
 {
   "citySlug": "inamicho",
   "cityName": "印南町",
-  "signature": "3h|nat|R7std|pre",
+  "signature": "4h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0795,
-      "support": 0.0308,
-      "care": 0.0254
+      "medical": 0.08,
+      "support": 0.025
     },
     "perCapita": {
-      "medical": 28665,
-      "support": 10790,
-      "care": 11122
+      "medical": 26500,
+      "support": 10500,
+      "care": 11800
     },
     "household": {
-      "medical": 19871,
-      "support": 7480,
-      "care": 5644
+      "medical": 23000,
+      "support": 9500,
+      "care": 8000
+    },
+    "assetLevy": {
+      "medical": 0.1,
+      "support": 0.04,
+      "care": 0.02
     }
   }
 }

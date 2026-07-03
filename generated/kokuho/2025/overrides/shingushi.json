@@ -1,22 +1,27 @@
 {
   "citySlug": "shingushi",
   "cityName": "新宮市",
-  "signature": "3h|nat|R7std|pre",
+  "signature": "4h|nat|R7std|pre",
   "override": {
     "rate": {
-      "medical": 0.0682,
-      "support": 0.0309,
-      "care": 0.0258
+      "medical": 0.0718,
+      "support": 0.0276,
+      "care": 0.0238
     },
     "perCapita": {
-      "medical": 24596,
-      "support": 10825,
-      "care": 11322
+      "medical": 28540,
+      "support": 9780,
+      "care": 9350
     },
     "household": {
-      "medical": 17050,
-      "support": 7504,
-      "care": 5745
+      "medical": 20160,
+      "support": 6880,
+      "care": 5000
+    },
+    "assetLevy": {
+      "medical": 0.1,
+      "support": 0.01,
+      "care": 0.0085
     }
   }
 }
