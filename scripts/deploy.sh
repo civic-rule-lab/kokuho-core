@@ -216,9 +216,22 @@ fi
 if [ "$PUSH" = true ]; then
   git push
   echo "✅ kokuho-keisan push 完了"
+
+  # kokuho-core（正本）は保護ブランチ（PR必須・2 status checks）のため deploy.sh では push しない。
+  # ソース変更・生成HTMLは ブランチ→PR→merge で反映すること。
+  # 旧実装は `cd CORE_DIR; git push` を直実行しており、保護ブランチで GH013 拒否 → set -e により
+  # 以降の wrangler deploy 段に到達せず「keisan だけ反映・Worker は旧コードのまま」の事故があった
+  # (2026-07-03)。ここでは push せず未反映変更を警告するだけにし、Worker デプロイは必ず走らせる。
   cd "$CORE_DIR"
-  git push
-  echo "✅ kokuho-core push 完了"
+  CORE_DIRTY=$(git status --porcelain 2>/dev/null | grep -vc '^?? ' || true)
+  CORE_UNPUSHED=$(git log --oneline origin/main..HEAD 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$CORE_DIRTY" -gt 0 ] || [ "$CORE_UNPUSHED" -gt 0 ]; then
+    echo "⚠️  kokuho-core は保護ブランチのため deploy.sh では push しません（PRで反映してください）:"
+    [ "$CORE_DIRTY"    -gt 0 ] && echo "   ・未コミットの変更 $CORE_DIRTY 件（生成HTMLの ?v= 等はブランチ→PRで反映）"
+    [ "$CORE_UNPUSHED" -gt 0 ] && echo "   ・未pushのローカルコミット $CORE_UNPUSHED 件（ブランチ→PRで反映）"
+  else
+    echo "✅ kokuho-core は origin/main と一致（push不要）"
+  fi
 
   # ── 6. Cloudflare Worker デプロイ ──────────────────────────────
   # NOTE: 旧実装 `npx wrangler deploy | tail -5` は set -e でも tail の
