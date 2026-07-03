@@ -47,6 +47,16 @@ const CONFIG = {
     introIncome: (city, fy, d) =>
       `${city}の${fy}の後期高齢者医療保険料を、世帯の被保険者ごとに詳しく計算できます。複数人の収入を入れると、世帯の所得を合算した軽減判定（7.2割・5割・2割）まで反映します。`,
     eligible: (m, d) => !!d,                       // 後期は全自治体（県均一）
+    // 後期は広域連合（都道府県）単位で料率均一のため、canonical を県版ページに集約する
+    canonicalScope: "pref",                        // /{pref}/kouki/ へ集約
+    prefMeta: (pref, fy, d) =>
+      `${pref}の${fy}後期高齢者医療保険料を無料で計算。広域連合の均等割${fmtYen(d.perCapita.medical)}・所得割${fmtRate(d.rate.medical)}（県内全市区町村共通）。年金や給与の収入から年間保険料の目安がわかります。`,
+    prefIntro: (pref, fy, d) =>
+      `${pref}の${fy}の後期高齢者医療保険料を、公的年金や給与の収入から概算できます。保険料率は${pref}後期高齢者医療広域連合が決定し、県内の全市区町村で共通です。医療分の均等割（加入者全員の定額）は${fmtYen(d.perCapita.medical)}、所得割（所得に応じた率）は${fmtRate(d.rate.medical)}です。`,
+    prefMetaIncome: (pref, fy, d) =>
+      `${pref}の${fy}後期高齢者医療保険料を世帯の被保険者ごとに詳しく計算。料率は県内全市区町村共通。複数の被保険者・被扶養者軽減・世帯合算の軽減判定に対応した精密シミュレーション。`,
+    prefIntroIncome: (pref, fy, d) =>
+      `${pref}の${fy}の後期高齢者医療保険料を、世帯の被保険者ごとに詳しく計算できます。保険料率は県内の全市区町村で共通です。複数人の収入を入れると、世帯の所得を合算した軽減判定（7.2割・5割・2割）まで反映します。`,
   },
   kaigo: {
     template: "kaigo-simple.html",
@@ -106,7 +116,10 @@ function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
   const fy = fmtFY(YEAR);
   const meta = (isIncome && cfg.metaIncome ? cfg.metaIncome : cfg.meta)(m.cityName, m.prefecture, fy, data);
   const intro = (isIncome && cfg.introIncome ? cfg.introIncome : cfg.intro)(m.cityName, fy, data);
-  const canonical = `${BASE_URL}/${prefSlug}/${m.citySlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
+  // canonicalScope: "pref" の制度（後期）は県版ページ /{pref}/{system}/ に canonical を集約
+  const canonical = cfg.canonicalScope === "pref"
+    ? `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`
+    : `${BASE_URL}/${prefSlug}/${m.citySlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
   let out = tmpl
     .replaceAll("__CITY_SLUG__",         m.citySlug)
     .replaceAll("__CITY_NAME__",         m.cityName)
@@ -153,3 +166,74 @@ console.log(`\n✅ ${SYSTEM}: ${generated}自治体のページを${DRY ? "生�
 console.log(`   出力先: {prefSlug}/{citySlug}/${SYSTEM}/index.html`);
 if (skippedNoData) console.log(`   スキップ（データ未整備/未検証）: ${skippedNoData}`);
 if (skippedNoPref) console.log(`   スキップ（prefSlug未定義）: ${skippedNoPref}`);
+
+// ── 県版ページ生成（canonicalScope: "pref" の制度のみ。/{pref}/{system}/） ──
+// 後期は広域連合単位で料率均一。県内全自治体のデータ一致をアサートし、
+// 代表データで県版計算ページを生成する（自治体別ページの canonical 集約先）。
+if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
+  function buildPrefJsonLd(prefName, prefSlug, desc, fy) {
+    const pageUrl = `${BASE_URL}/${prefSlug}/${SYSTEM}/`;
+    const breadcrumb = { "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": cfg.portalName, "item": BASE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": prefName, "item": pageUrl },
+    ]};
+    const app = { "@type": "WebApplication", "name": cfg.appName(prefName, fy), "description": desc,
+      "url": pageUrl, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+      "inLanguage": "ja", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" } };
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
+  }
+  function renderPref(prefName, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
+    const fy = fmtFY(YEAR);
+    const meta = (isIncome ? cfg.prefMetaIncome : cfg.prefMeta)(prefName, fy, data);
+    const intro = (isIncome ? cfg.prefIntroIncome : cfg.prefIntro)(prefName, fy, data);
+    const canonical = `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
+    return tmpl
+      .replaceAll("__CITY_SLUG__",         prefSlug)
+      .replaceAll("__CITY_NAME__",         prefName)
+      .replaceAll("__META_DESC__",         meta)
+      .replaceAll("__CANONICAL_URL__",     canonical)
+      .replaceAll("__JSON_LD__",           buildPrefJsonLd(prefName, prefSlug, meta, fy))
+      .replaceAll("__INTRO_TEXT__",        intro)
+      .replaceAll("__FISCAL_YEAR_LABEL__", fy)
+      .replaceAll("__PUBLISH_YEAR__",      String(YEAR))
+      .replaceAll("__PORTAL_LINK__",       "/")
+      .replaceAll("__PLAN_PERIOD__",       data.planPeriod || "")
+      .replaceAll("__CSS_V__",             CSS_V)
+      .replaceAll("__JS_V__",              JS_V)
+      .replaceAll(cfg.dataPlaceholder,     JSON.stringify(data));
+  }
+  // 均一性チェック対象キー（meta/出典/自治体名は除外して料率実体のみ比較）
+  const UNIFORM_KEYS = ["rate", "perCapita", "caps", "reduction", "incomeReduction", "basicDeduction"];
+  const uniformKey = d => JSON.stringify(UNIFORM_KEYS.map(k => d[k] ?? null));
+
+  const byPref = new Map();
+  for (const m of targets) {
+    if (!m.prefectureSlug) continue;
+    const d = loadData(m.citySlug);
+    if (!cfg.eligible(m, d)) continue;
+    if (!byPref.has(m.prefectureSlug)) byPref.set(m.prefectureSlug, { prefName: m.prefecture, items: [] });
+    byPref.get(m.prefectureSlug).items.push({ slug: m.citySlug, data: d });
+  }
+
+  let prefGenerated = 0, prefFailed = 0;
+  for (const [prefSlug, { prefName, items }] of byPref) {
+    const keys = new Set(items.map(x => uniformKey(x.data)));
+    if (keys.size !== 1) {
+      console.error(`❌ ${prefName}(${prefSlug}): 県内で${SYSTEM}データが不均一（${keys.size}パターン）。県版ページ生成をスキップ`);
+      prefFailed++;
+      continue;
+    }
+    if (DRY) { prefGenerated++; continue; }
+    const rep = { ...items[0].data, cityName: prefName, citySlug: prefSlug };
+    const dir = path.join(ROOT, prefSlug, SYSTEM);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(path.join(dir, "index.html"), renderPref(prefName, prefSlug, rep, { isIncome: false, tmpl: template }), "utf-8");
+    if (incomeTemplate) writeFileSync(path.join(dir, "income.html"), renderPref(prefName, prefSlug, rep, { isIncome: true, tmpl: incomeTemplate }), "utf-8");
+    prefGenerated++;
+  }
+  console.log(`\n✅ ${SYSTEM} 県版: ${prefGenerated}都道府県を${DRY ? "生成予定（dry-run）" : "生成"}（出力先: {prefSlug}/${SYSTEM}/）`);
+  if (prefFailed) {
+    console.error(`❌ 県内不均一で失敗: ${prefFailed}県。データを確認してください。`);
+    process.exit(1);
+  }
+}

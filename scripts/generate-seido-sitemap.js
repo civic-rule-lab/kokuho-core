@@ -34,6 +34,7 @@ const urls = [
 ];
 
 let n = { jumin: 0, kakeibo: 0, kouki: 0, kaigo: 0 };
+const koukiPrefs = new Set();
 
 for (const m of registry.municipalities) {
   const prefSlug = m.prefectureSlug;
@@ -54,12 +55,18 @@ for (const m of registry.municipalities) {
     n.kaigo++;
     n.kakeibo++;
   }
-  // 後期高齢者医療：index / income の2ページ。
+  // 後期高齢者医療：自治体別ページは県版 /{pref}/kouki/ に canonical 集約済みのため
+  // sitemap には県版のみを載せる（canonical 先でない URL は sitemap に含めない）。
   if (sys.includes('kouki')) {
-    urls.push({ loc: `${base}/kouki/income.html`, priority: '0.7', changefreq: 'yearly' });
-    urls.push({ loc: `${base}/kouki/`,            priority: '0.6', changefreq: 'yearly' });
-    n.kouki++;
+    koukiPrefs.add(prefSlug);
   }
+}
+
+// 後期高齢者医療 県版：/{pref}/kouki/ ＋ income.html（47都道府県 × 2）
+for (const prefSlug of [...koukiPrefs].sort()) {
+  urls.push({ loc: `${BASE_URL}/${prefSlug}/kouki/`,            priority: '0.8', changefreq: 'yearly' });
+  urls.push({ loc: `${BASE_URL}/${prefSlug}/kouki/income.html`, priority: '0.7', changefreq: 'yearly' });
+  n.kouki++;
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

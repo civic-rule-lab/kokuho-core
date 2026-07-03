@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-03T12:50:50.355Z",
+  "generatedAt": "2026-07-02T23:33:00.933Z",
   "fiscalYear": 2025,
-  "totalMunicipalities": 1730,
+  "totalMunicipalities": 1733,
   "groups": {
     "3h|nat|R7std|pre": {
-      "count": 1287,
+      "count": 1282,
       "exactCount": 0,
       "description": {
         "signature": "3h|nat|R7std|pre",
@@ -2146,6 +2146,12 @@
           "hasOverride": true
         },
         {
+          "slug": "kamikawa-hokkaido",
+          "name": "上川町",
+          "pref": "北海道",
+          "hasOverride": true
+        },
+        {
           "slug": "kamifurano",
           "name": "上富良野町",
           "pref": "北海道",
@@ -2178,6 +2184,12 @@
         {
           "slug": "bifuka",
           "name": "美深町",
+          "pref": "北海道",
+          "hasOverride": true
+        },
+        {
+          "slug": "nakagawa-hokkaido",
+          "name": "中川町",
           "pref": "北海道",
           "hasOverride": true
         },
@@ -5080,18 +5092,6 @@
           "hasOverride": true
         },
         {
-          "slug": "tanabe",
-          "name": "田辺市",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "shingushi",
-          "name": "新宮市",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
           "slug": "kinokawa",
           "name": "紀の川市",
           "pref": "和歌山県",
@@ -5100,12 +5100,6 @@
         {
           "slug": "iwade",
           "name": "岩出市",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "kimino",
-          "name": "紀美野町",
           "pref": "和歌山県",
           "hasOverride": true
         },
@@ -5134,12 +5128,6 @@
           "hasOverride": true
         },
         {
-          "slug": "hirogawa",
-          "name": "広川町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
           "slug": "aridagawa",
           "name": "有田川町",
           "pref": "和歌山県",
@@ -5158,12 +5146,6 @@
           "hasOverride": true
         },
         {
-          "slug": "yura",
-          "name": "由良町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
           "slug": "hidakagawa",
           "name": "日高川町",
           "pref": "和歌山県",
@@ -5172,18 +5154,6 @@
         {
           "slug": "minabe",
           "name": "みなべ町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "inamicho",
-          "name": "印南町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "shirahama",
-          "name": "白浜町",
           "pref": "和歌山県",
           "hasOverride": true
         },
@@ -5200,18 +5170,6 @@
           "hasOverride": true
         },
         {
-          "slug": "nachikatsuura",
-          "name": "那智勝浦町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "taiji",
-          "name": "太地町",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
           "slug": "kozagawa",
           "name": "古座川町",
           "pref": "和歌山県",
@@ -5220,12 +5178,6 @@
         {
           "slug": "kitayama",
           "name": "北山村",
-          "pref": "和歌山県",
-          "hasOverride": true
-        },
-        {
-          "slug": "kushimoto",
-          "name": "串本町",
           "pref": "和歌山県",
           "hasOverride": true
         },
@@ -6556,6 +6508,24 @@
           "hasOverride": true
         },
         {
+          "slug": "eiheiji",
+          "name": "永平寺町",
+          "pref": "福井県",
+          "hasOverride": true
+        },
+        {
+          "slug": "ooi",
+          "name": "おおい町",
+          "pref": "福井県",
+          "hasOverride": true
+        },
+        {
+          "slug": "wakasa",
+          "name": "若狭町",
+          "pref": "福井県",
+          "hasOverride": true
+        },
+        {
           "slug": "akita",
           "name": "秋田市",
           "pref": "秋田県",
@@ -7740,7 +7710,7 @@
       ]
     },
     "4h|nat|R7std|pre": {
-      "count": 130,
+      "count": 136,
       "exactCount": 0,
       "description": {
         "signature": "4h|nat|R7std|pre",
@@ -7932,12 +7902,6 @@
           "hasOverride": true
         },
         {
-          "slug": "kamikawa-hokkaido",
-          "name": "上川町",
-          "pref": "北海道",
-          "hasOverride": true
-        },
-        {
           "slug": "minamifurano",
           "name": "南富良野町",
           "pref": "北海道",
@@ -7952,12 +7916,6 @@
         {
           "slug": "otoineppu",
           "name": "音威子府村",
-          "pref": "北海道",
-          "hasOverride": true
-        },
-        {
-          "slug": "nakagawa-hokkaido",
-          "name": "中川町",
           "pref": "北海道",
           "hasOverride": true
         },
@@ -8364,6 +8322,54 @@
           "hasOverride": true
         },
         {
+          "slug": "tanabe",
+          "name": "田辺市",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shingushi",
+          "name": "新宮市",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kimino",
+          "name": "紀美野町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "yura",
+          "name": "由良町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "inamicho",
+          "name": "印南町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "nachikatsuura",
+          "name": "那智勝浦町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "taiji",
+          "name": "太地町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
+          "slug": "kushimoto",
+          "name": "串本町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        },
+        {
           "slug": "imabari",
           "name": "今治市",
           "pref": "愛媛県",
@@ -8534,7 +8540,7 @@
       ]
     },
     "3h|650-240-170|R7std|pre": {
-      "count": 130,
+      "count": 131,
       "exactCount": 43,
       "description": {
         "signature": "3h|650-240-170|R7std|pre",
@@ -8807,6 +8813,12 @@
           "slug": "kasugai",
           "name": "春日井市",
           "pref": "愛知県",
+          "hasOverride": true
+        },
+        {
+          "slug": "hidaka-hokkaido",
+          "name": "日高町",
+          "pref": "北海道",
           "hasOverride": true
         },
         {
@@ -9846,7 +9858,7 @@
       ]
     },
     "2h|650-240-170|R7std|pre": {
-      "count": 79,
+      "count": 78,
       "exactCount": 0,
       "description": {
         "signature": "2h|650-240-170|R7std|pre",
@@ -10059,12 +10071,6 @@
           "slug": "matsubushi",
           "name": "松伏町",
           "pref": "埼玉県",
-          "hasOverride": true
-        },
-        {
-          "slug": "hidaka-hokkaido",
-          "name": "日高町",
-          "pref": "北海道",
           "hasOverride": true
         },
         {
@@ -10334,7 +10340,7 @@
       ]
     },
     "4h[m]|nat|R7std|pre": {
-      "count": 5,
+      "count": 6,
       "exactCount": 0,
       "description": {
         "signature": "4h[m]|nat|R7std|pre",
@@ -10373,6 +10379,12 @@
           "slug": "kamikawa",
           "name": "神川町",
           "pref": "埼玉県",
+          "hasOverride": true
+        },
+        {
+          "slug": "shirahama",
+          "name": "白浜町",
+          "pref": "和歌山県",
           "hasOverride": true
         }
       ]
@@ -10421,6 +10433,32 @@
         }
       ]
     },
+    "4h[ms]|nat|R7std|pre": {
+      "count": 2,
+      "exactCount": 1,
+      "description": {
+        "signature": "4h[ms]|nat|R7std|pre",
+        "calcType": "4方式（所得割+資産割+均等割+平等割）",
+        "assetSections": "資産割対象区分: 医療+支援のみ",
+        "caps": "全国標準上限（660/260/170万）",
+        "reduction": "R7全国標準（7-5-2）",
+        "special": "未就学児軽減"
+      },
+      "municipalities": [
+        {
+          "slug": "nakano",
+          "name": "中野市",
+          "pref": "長野県",
+          "hasOverride": false
+        },
+        {
+          "slug": "hirogawa",
+          "name": "広川町",
+          "pref": "和歌山県",
+          "hasOverride": true
+        }
+      ]
+    },
     "3h|670-260-170|R7std|pre": {
       "count": 2,
       "exactCount": 1,
@@ -10444,26 +10482,6 @@
           "name": "小城市",
           "pref": "佐賀県",
           "hasOverride": true
-        }
-      ]
-    },
-    "4h[ms]|nat|R7std|pre": {
-      "count": 1,
-      "exactCount": 1,
-      "description": {
-        "signature": "4h[ms]|nat|R7std|pre",
-        "calcType": "4方式（所得割+資産割+均等割+平等割）",
-        "assetSections": "資産割対象区分: 医療+支援のみ",
-        "caps": "全国標準上限（660/260/170万）",
-        "reduction": "R7全国標準（7-5-2）",
-        "special": "未就学児軽減"
-      },
-      "municipalities": [
-        {
-          "slug": "nakano",
-          "name": "中野市",
-          "pref": "長野県",
-          "hasOverride": false
         }
       ]
     },

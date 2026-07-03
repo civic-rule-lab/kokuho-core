@@ -7,12 +7,12 @@
  *   小松市:    https://www.city.komatsu.lg.jp/soshiki/1036/kokuminkenkouhoken/kokuhozei/2301.html
  *   輪島市:    https://www.city.wajima.ishikawa.jp/docs/2026030200027/
  *   珠洲市:    https://www.city.suzu.lg.jp/soshiki/4/1282.html
- *   加賀市:    （kokuho-keisan.com参照）
+ *   加賀市:    R8.3議会 議案第23号 新旧対照表「現行」欄でR7値を確認 https://www.city.kaga.ishikawa.jp/material/files/group/19/giannichirann.pdf（旧: kokuho-keisan.com参照 → 2026-07-03 公式で再検証済・一致）
  *   羽咋市:    https://www.city.hakui.lg.jp/soshiki/shiminfukushibu/shimin/5/2/2402.html
  *   かほく市:  https://www.city.kahoku.lg.jp/003/352/356/d010256.html
  *   白山市:    https://www.city.hakusan.lg.jp/kurashi/kenpo/1006695/1006697/1001490.html
- *   能美市:    （第三者サイト参照）
- *   野々市市:  （第三者サイト参照）
+ *   能美市:    https://www.city.nomi.lg.jp/docs/700.html のR7/R8比較表でR7値を確認（旧: 第三者サイト参照 → 2026-07-03 公式で再検証済・一致）
+ *   野々市市:  https://www.city.nonoichi.lg.jp/soshiki/16/930.html（R7表はWayback 2025-08-25版で確認。旧: 第三者サイト参照 → 2026-07-03 公式で再検証済・一致）
  *   川北町:    https://www.town.kawakita.ishikawa.jp/gyosei1/jumin/entry-266.html
  *   津幡町:    石川県R6資料参照
  *   内灘町:    https://www.town.uchinada.lg.jp/soshiki/hokennenkin/1407.html
