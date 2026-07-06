@@ -15,10 +15,18 @@
 set -e
 
 # ─── (1) credential / SUNNET / 個人 identity の混入禁止 ──────────
-PATTERN='cap\.chino\.06|yuccosan0619|MacBook-Pro\.local|wrangler-account\.json|hscloud\.sunnet'
-if git diff --cached --unified=0 | grep -E '^\+[^+]' | grep -qE "$PATTERN"; then
-  echo "❌ pre-commit: 個人 identity / 漏洩済み identifier / SUNNET URL が含まれています"
-  echo "   除外パターン: $PATTERN"
+# ⚠️ 公開リポにつき、具体識別子(個人メール/ユーザー名/内部ホスト等)は**この tracked ファイルに書かない**。
+#    正本 GOVERNANCE.md §C-4。具体値は VCS外 denylist(.git/hooks/denylist.txt)から読む。
+#    検知ルールを定義するインフラ(フック自身・CI)は走査対象から除外し自己誤爆を防ぐ。
+SCAN=(-- . ':(exclude)scripts/git-hooks' ':(exclude).github')
+GEN='@(gmail|yahoo|icloud|outlook|hotmail)\.com|/Users/[A-Za-z]|wrangler-account\.json|BEGIN (RSA|OPENSSH|PRIVATE)'
+if git diff --cached --unified=0 "${SCAN[@]}" | grep -E '^\+[^+]' | grep -qE "$GEN"; then
+  echo "❌ pre-commit: 個人メール / 絶対パス(/Users/…) / 秘密ファイルの混入疑い"
+  exit 1
+fi
+DL="$(git rev-parse --git-dir)/hooks/denylist.txt"
+if [ -f "$DL" ] && git diff --cached --unified=0 "${SCAN[@]}" | grep -E '^\+[^+]' | grep -qiFf "$DL"; then
+  echo "❌ pre-commit: denylist の識別子(漏洩済みidentifier/内部URL)が混入しています"
   exit 1
 fi
 
