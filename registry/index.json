@@ -948,12 +948,14 @@
       "prefecture": "長野県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -963,12 +965,14 @@
       "prefecture": "長野県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1403,12 +1407,14 @@
       "prefecture": "長野県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1622,12 +1628,14 @@
       "prefecture": "長野県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -1773,12 +1781,14 @@
       "prefecture": "長野県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "nagano",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4358,12 +4368,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4373,12 +4385,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4660,12 +4674,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4794,12 +4810,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -4809,12 +4827,14 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -15476,11 +15496,13 @@
       "prefectureSlug": "shizuoka",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -20000,11 +20022,13 @@
       "prefectureSlug": "nara",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -20134,11 +20158,13 @@
       "prefectureSlug": "nara",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -20319,11 +20345,13 @@
       "prefectureSlug": "nara",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -25167,11 +25195,13 @@
       "prefecture": "石川県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       },
       "prefectureSlug": "ishikawa"
     },
@@ -27580,11 +27610,13 @@
       "prefectureSlug": "yamanashi",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -28870,11 +28902,13 @@
       "prefectureSlug": "kochi",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
@@ -28885,11 +28919,13 @@
       "prefectureSlug": "kochi",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "kaigo": 2026
       }
     },
     {
