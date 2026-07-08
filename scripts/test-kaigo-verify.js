@@ -238,10 +238,10 @@ const CASES = [
     ],
   },
   {
-    slug: "hinoemata", name: "檜枝岐村(inferred)", source: "旧表・国標準推計",
-    // 13段(inferred・県内最安級62400)。
+    slug: "hinoemata", name: "檜枝岐村", source: "介護保険条例第15条(条例Webアーカイブ・2026-07-08確定)",
+    // 13段。基準62,400(月5,200)。第1-3軽減後は月10円切捨×12(17,760等)。
     levels: [
-      { level: "1",  annual: 17784,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "1",  annual: 17760,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "5",  annual: 62400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
       { level: "13", annual: 149760, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
@@ -2923,12 +2923,12 @@ const CASES = [
     ],
   },
   {
-    slug: "reihoku", name: "苓北町(推計)", source: "第9期計画ページ本文で基準69600確認・段階表非公表→国標準13段で推計",
-    // 13段(推計)。基準69,600(月5800)。公式サイトは旧8期表のみ→国標準乗率floor100。
+    slug: "reihoku", name: "苓北町", source: "第9期計画p.91 所得段階別保険料(2026-07-07 公式確定)",
+    // 13段。基準69,600(月5800据置)。計画p.91の年額(月額×12)。上位境界410/500/590/680万(国標準と異なる)。
     levels: [
       { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
-      { level: "6",  annual: 83500,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
-      { level: "13", annual: 167000, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
+      { level: "6",  annual: 83520,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
+      { level: "13", annual: 167040, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
   },
   // ─── 佐賀県(第9期・3広域連合＋独立4) ───
