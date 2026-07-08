@@ -33,7 +33,8 @@ const sorted = [...registry.municipalities].sort((a, b) =>
 for (const m of sorted) {
   // jumin 公開 or kaigo 公開（介護のみ＝家計簿ページのみ）の自治体をインデックスに載せる
   const published = (m.systems && (m.systems.includes('jumin') || m.systems.includes('kaigo')))
-    || (m.publishYear && (m.publishYear.jumin || m.publishYear.kaigo));
+    || (m.systems && m.systems.includes('hoiku'))
+    || (m.publishYear && (m.publishYear.jumin || m.publishYear.kaigo || m.publishYear.hoiku));
   if (!published) continue;
   const prefName = m.prefecture;
   if (!index[prefName]) index[prefName] = { slug: m.prefectureSlug, cities: [] };

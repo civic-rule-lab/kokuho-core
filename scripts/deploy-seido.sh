@@ -68,12 +68,26 @@ if echo "$KOUKI_VALIDATE" | grep -qE "❌|errors=[1-9]"; then
   fi
 fi
 echo "✅ 後期バリデーション通過"
+
+# ── 0b. 保育料バリデーション(hoiku) ─────────────────────────────
+echo "▶ validate-hoiku-data.cjs"
+HOIKU_VALIDATE=$(node "$CORE_DIR/scripts/validate-hoiku-data.cjs" 2>&1)
+echo "$HOIKU_VALIDATE" | tail -4
+if echo "$HOIKU_VALIDATE" | grep -qE "❌|NG|失敗"; then
+  if [ "$DRY_RUN" = true ]; then echo "⚠️  保育料バリデーションエラー（dry-run続行）"; else
+    echo "❌ 保育料バリデーションエラー。デプロイを中断します。"; exit 1; fi
+fi
+node "$CORE_DIR/scripts/test-hoiku-verify.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 公式表照合 失敗"; exit 1; fi; }
+JUMIN_PATH="$CORE_DIR/js/core/jumin.js" node "$CORE_DIR/scripts/test-hoiku-wiring.cjs" >/dev/null 2>&1 || true
+echo "✅ 保育料バリデーション通過"
 echo ""
 
 # ── 1. 生成（registry の systems に "jumin" を含む自治体のみ） ──────
 if [ "$SYNC_ONLY" = false ]; then
   echo "▶ generate-jumin-pages.js"
   node "$CORE_DIR/scripts/generate-jumin-pages.js"
+  echo "▶ generate-hoiku-pages.js"
+  node "$CORE_DIR/scripts/generate-hoiku-pages.js"
   echo "▶ generate-seido-index.js"
   node "$CORE_DIR/scripts/generate-seido-index.js"
   echo "▶ generate-seido-sitemap.js"
@@ -95,7 +109,7 @@ fi
 # kakeibo / jumin / kouki / kaigo いずれかの公開ページを持つ {pref}/{slug} を検出。
 # 制度ごとに「存在する自治体だけ」同期する（kouki は kakeibo 非公開の自治体も含むため
 # kakeibo だけを基準にすると一部の後期ページが取りこぼされる）。
-SLUG_DIRS=$(find "$CORE_DIR" \( -path '*/kakeibo/index.html' -o -path '*/jumin/index.html' -o -path '*/kouki/index.html' -o -path '*/kaigo/index.html' \) | sed -E "s#/(kakeibo|jumin|kouki|kaigo)/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
+SLUG_DIRS=$(find "$CORE_DIR" \( -path '*/kakeibo/index.html' -o -path '*/jumin/index.html' -o -path '*/kouki/index.html' -o -path '*/kaigo/index.html' -o -path '*/hoiku/index.html' \) | sed -E "s#/(kakeibo|jumin|kouki|kaigo|hoiku)/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
 
 if [ "$DRY_RUN" = false ]; then
   if [ ! -d "$PUBLIC_DIR" ]; then
@@ -104,7 +118,7 @@ if [ "$DRY_RUN" = false ]; then
   fi
   echo "▶ 住民税・家計簿・後期・介護ページを同期中..."
   for d in $SLUG_DIRS; do
-    for sys in kakeibo jumin kouki kaigo; do
+    for sys in kakeibo jumin kouki kaigo hoiku; do
       if [ -d "$CORE_DIR/$d/$sys" ]; then
         mkdir -p "$PUBLIC_DIR/$d/$sys"
         rsync -a --delete "$CORE_DIR/$d/$sys/" "$PUBLIC_DIR/$d/$sys/"
@@ -124,6 +138,7 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/kokuho.js"        "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kaigo.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kouki.js"         "$PUBLIC_DIR/js/core/"
+  cp "$CORE_DIR/js/core/hoiku.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/css/common.css"           "$PUBLIC_DIR/css/"
 
   # アンブレラ・ランディング → 公開リポの index.html
@@ -146,8 +161,9 @@ CORE_JUMIN=$(find "$CORE_DIR" -path '*/jumin/index.html' | wc -l | tr -d ' ')
 CORE_KAKEIBO=$(find "$CORE_DIR" -path '*/kakeibo/index.html' | wc -l | tr -d ' ')
 CORE_KOUKI=$(find "$CORE_DIR" -path '*/kouki/index.html' | wc -l | tr -d ' ')
 CORE_KAIGO=$(find "$CORE_DIR" -path '*/kaigo/index.html' | wc -l | tr -d ' ')
+CORE_HOIKU=$(find "$CORE_DIR" -path '*/hoiku/index.html' | wc -l | tr -d ' ')
 echo ""
-echo "▶ 件数: 家計簿 $CORE_KAKEIBO / 住民税 $CORE_JUMIN / 後期 $CORE_KOUKI / 介護 $CORE_KAIGO 自治体分"
+echo "▶ 件数: 家計簿 $CORE_KAKEIBO / 住民税 $CORE_JUMIN / 後期 $CORE_KOUKI / 介護 $CORE_KAIGO / 保育料 $CORE_HOIKU 自治体分"
 
 if [ "$DRY_RUN" = true ]; then
   echo ""
@@ -190,6 +206,7 @@ if [ "$PUSH" = true ]; then
     "/tokyo/shinjuku/kouki/|200"
     "/tokyo/shinjuku/kouki/income.html|200"
     "/tokyo/shinjuku/kaigo/|200"
+    "/kanagawa/yokohama/hoiku/|200"
     "/robots.txt|200"
     "/sitemap.xml|200"
   )

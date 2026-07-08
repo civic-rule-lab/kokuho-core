@@ -119,6 +119,12 @@ function buildSystemEntry(slug, system, prefSlug, official = false) {
       },
     };
   }
+  if (system === "hoiku") {
+    return { name: "保育料", pages: { simple: {
+      name: "かんたん計算",
+      url: `https://seido-keisan.jp/${prefSlug}/${slug}/hoiku/`,
+    } } };
+  }
   return { name: system, pages: {} };
 }
 

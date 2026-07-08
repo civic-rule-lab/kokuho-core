@@ -33,7 +33,7 @@ const urls = [
   { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'monthly' },
 ];
 
-let n = { jumin: 0, kakeibo: 0, kouki: 0, kaigo: 0 };
+let n = { jumin: 0, kakeibo: 0, kouki: 0, kaigo: 0, hoiku: 0 };
 const koukiPrefs = new Set();
 
 for (const m of registry.municipalities) {
@@ -54,6 +54,10 @@ for (const m of registry.municipalities) {
     urls.push({ loc: `${base}/kakeibo/`, priority: '0.7', changefreq: 'yearly' });
     n.kaigo++;
     n.kakeibo++;
+  }
+  if (sys.includes('hoiku')) {
+    urls.push({ loc: `${base}/hoiku/`, priority: '0.7', changefreq: 'yearly' });
+    n.hoiku++;
   }
   // 後期高齢者医療：自治体別ページは県版 /{pref}/kouki/ に canonical 集約済みのため
   // sitemap には県版のみを載せる（canonical 先でない URL は sitemap に含めない）。
@@ -82,4 +86,4 @@ ${urls.map(u => `  <url>
 
 writeFileSync(path.join(ROOT, 'seido-sitemap.xml'), xml, 'utf-8');
 console.log(`✅ seido-sitemap.xml 生成完了 (${urls.length} URL)`);
-console.log(`   jumin ${n.jumin} / kaigo ${n.kaigo} / kakeibo ${n.kakeibo} / kouki ${n.kouki} 自治体`);
+console.log(`   jumin ${n.jumin} / kaigo ${n.kaigo} / kakeibo ${n.kakeibo} / kouki ${n.kouki} / hoiku ${n.hoiku} 自治体`);
