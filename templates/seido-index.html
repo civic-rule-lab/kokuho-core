@@ -63,11 +63,12 @@
 
   <label for="system">制度</label>
   <select id="system">
-    <option value="kakeibo" selected>まとめて試算（家計簿シミュレーター）</option>
-    <option value="jumin">住民税</option>
-    <option value="kokuho">国民健康保険</option>
-    <option value="hoiku">保育料</option>
-    <option value="kaigo" disabled>介護保険（準備中）</option>
+    <option value="kakeibo" data-label="まとめて試算（家計簿シミュレーター）" selected>まとめて試算（家計簿シミュレーター）</option>
+    <option value="jumin" data-label="住民税">住民税</option>
+    <option value="kokuho" data-label="国民健康保険">国民健康保険</option>
+    <option value="hoiku" data-label="保育料">保育料</option>
+    <option value="kaigo" data-label="介護保険">介護保険</option>
+    <option value="shaho" data-label="社会保険（会社員）">社会保険（会社員）</option>
   </select>
 
   <button id="go" disabled onclick="goCity()">家計簿シミュレーターを開く</button>
@@ -75,7 +76,7 @@
   <div class="systems">
     <span><i class="dot"></i>住民税</span>
     <span><i class="dot"></i>国民健康保険</span>
-    <span><i class="dot soon"></i>介護保険</span>
+    <span><i class="dot"></i>介護保険</span>
   </div>
 
   <div class="status">現在 <b>試験公開中</b>（対象自治体は順次拡大します）。<br>計算結果は概算です。正確な額は各自治体の通知でご確認ください。</div>
@@ -97,33 +98,74 @@ var CITY_INDEX = __CITY_INDEX__;
   "use strict";
   var prefSel=document.getElementById("pref"), citySel=document.getElementById("city"), go=document.getElementById("go"), sysSel=document.getElementById("system");
   // 制度ごとの遷移先とボタン文言。国保は全国版（kokuho-keisan.jp）へ。
+  // shaho（社会保険）は県単位。県別ページ(/{pref}/)は現在「準備中・順次公開」のため、
+  // 当面は shaho-keisan.jp トップに固定する（リンク切れ回避）。
+  // 47県ページ公開後に url を function(p,c){return "https://shaho-keisan.jp/"+p+"/";} へ差し替える。
   var SYSTEMS={
     kakeibo:{label:"家計簿シミュレーターを開く", url:function(p,c){return "/"+p+"/"+c+"/kakeibo/";}},
     jumin:  {label:"住民税の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/jumin/";}},
     kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}},
-    hoiku:  {label:"保育料の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/hoiku/";}}
+    hoiku:  {label:"保育料の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/hoiku/";}},
+    kaigo:  {label:"介護保険の計算を開く",       url:function(p,c){return "/"+p+"/"+c+"/kaigo/";}},
+    shaho:  {label:"社会保険（会社員）の計算を開く", prefOnly:true, url:function(p,c){return "https://shaho-keisan.jp/";}}
   };
   var prefNames=Object.keys(CITY_INDEX);
   prefNames.forEach(function(pn){
     var o=document.createElement("option"); o.value=pn; o.textContent=pn; prefSel.appendChild(o);
   });
+  // shaho は県単位（prefOnly）＝都道府県の選択だけでボタンを有効化。他制度は市区町村まで必須。
+  function updateGo(){
+    var s=SYSTEMS[sysSel.value];
+    var ok=(s&&s.prefOnly)?!!prefSel.value:(!!prefSel.value&&!!citySel.value);
+    go.disabled=!ok;
+  }
+  // 選択中の自治体で「実際にページがある制度」だけを選択可能にする（未公開制度=404への遷移を防ぐ）。
+  // shaho は県単位・外部サイトのため常に選択可。市区町村未選択時は全制度を仮有効（遷移はボタン/goCity側でガード）。
+  function currentCitySys(){
+    var pn=prefSel.value, cs=citySel.value;
+    if(!pn||!cs) return null;
+    var list=(CITY_INDEX[pn]&&CITY_INDEX[pn].cities)||[];
+    for(var i=0;i<list.length;i++){ if(list[i].slug===cs) return list[i].sys||null; }
+    return null;
+  }
+  function updateSystemAvail(){
+    var sys=currentCitySys();
+    for(var i=0;i<sysSel.options.length;i++){
+      var opt=sysSel.options[i], v=opt.value, ok;
+      if(v==="shaho"){ ok=true; }
+      else if(!sys){ ok=true; }
+      else { ok=!!sys[v]; }
+      opt.disabled=!ok;
+      opt.textContent=opt.getAttribute("data-label")+((sys&&!ok)?"（この自治体は準備中）":"");
+    }
+    // 選択中の制度が無効になったら最初の有効な制度へ退避（無効な既定に落とさない）
+    if(sysSel.selectedOptions[0] && sysSel.selectedOptions[0].disabled){
+      for(var j=0;j<sysSel.options.length;j++){ if(!sysSel.options[j].disabled){ sysSel.value=sysSel.options[j].value; break; } }
+      var s=SYSTEMS[sysSel.value]; if(s) go.textContent=s.label;
+    }
+  }
   prefSel.addEventListener("change", function(){
-    citySel.innerHTML=""; go.disabled=true;
+    citySel.innerHTML="";
     var pn=prefSel.value;
-    if(!pn){citySel.disabled=true; citySel.innerHTML='<option value="">先に都道府県を選択</option>'; return;}
+    if(!pn){citySel.disabled=true; citySel.innerHTML='<option value="">先に都道府県を選択</option>'; updateSystemAvail(); updateGo(); return;}
     citySel.disabled=false;
     var ph=document.createElement("option"); ph.value=""; ph.textContent="市区町村を選択"; citySel.appendChild(ph);
     CITY_INDEX[pn].cities.forEach(function(c){
       var o=document.createElement("option"); o.value=c.slug; o.textContent=c.name; citySel.appendChild(o);
     });
+    updateSystemAvail(); updateGo();
   });
-  citySel.addEventListener("change", function(){ go.disabled=!citySel.value; });
+  citySel.addEventListener("change", function(){ updateSystemAvail(); updateGo(); });
   sysSel.addEventListener("change", function(){
     var s=SYSTEMS[sysSel.value]; if(s) go.textContent=s.label;
+    updateGo();
   });
   window.goCity=function(){
-    var pn=prefSel.value, cs=citySel.value, sys=sysSel.value; if(!pn||!cs)return;
+    var pn=prefSel.value, cs=citySel.value, sys=sysSel.value;
     var s=SYSTEMS[sys]||SYSTEMS.kakeibo;
+    if(!pn) return;
+    if(!s.prefOnly && !cs) return;
+    if(!s.prefOnly){ var cSys=currentCitySys(); if(cSys && !cSys[sys]) return; } // 未公開制度=404へは遷移しない
     var prefSlug=CITY_INDEX[pn].slug;
     if(typeof gtag==="function")gtag("event","select_city",{prefecture:prefSlug,city:cs,system:sys});
     location.href=s.url(prefSlug,cs);

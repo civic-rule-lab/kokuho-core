@@ -30,15 +30,25 @@ const index = {};
 const sorted = [...registry.municipalities].sort((a, b) =>
   String(a.cityCode).localeCompare(String(b.cityCode))
 );
+// 制度ごとの公開判定（generate-jumin-pages.js の isJuminPublished / isKaigoPublished と同一定義）
+const has = (m, sys) => !!((m.systems && m.systems.includes(sys)) || (m.publishYear && m.publishYear[sys]));
 for (const m of sorted) {
-  // jumin 公開 or kaigo 公開（介護のみ＝家計簿ページのみ）の自治体をインデックスに載せる
-  const published = (m.systems && (m.systems.includes('jumin') || m.systems.includes('kaigo')))
-    || (m.systems && m.systems.includes('hoiku'))
-    || (m.publishYear && (m.publishYear.jumin || m.publishYear.kaigo || m.publishYear.hoiku));
+  // 自治体ごとに「実際にページが生成される制度」をフラグ化し、フロントで未公開制度を選べないようにする（404防止）。
+  const flags = {
+    kokuho: has(m, 'kokuho'),
+    jumin:  has(m, 'jumin'),
+    hoiku:  has(m, 'hoiku'),
+    kaigo:  has(m, 'kaigo'),
+  };
+  flags.kakeibo = flags.jumin || flags.kaigo; // 家計簿(統合)は jumin か kaigo が公開なら生成される
+  // インデックス掲載条件は従来どおり（jumin/kaigo/hoiku のいずれか公開）
+  const published = flags.jumin || flags.kaigo || flags.hoiku;
   if (!published) continue;
   const prefName = m.prefecture;
   if (!index[prefName]) index[prefName] = { slug: m.prefectureSlug, cities: [] };
-  index[prefName].cities.push({ slug: m.citySlug, name: m.cityName });
+  const sys = {};
+  for (const k of Object.keys(flags)) if (flags[k]) sys[k] = 1; // true のみ格納で payload を圧縮
+  index[prefName].cities.push({ slug: m.citySlug, name: m.cityName, sys });
 }
 
 const cityCount = Object.values(index).reduce((n, p) => n + p.cities.length, 0);
