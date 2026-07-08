@@ -15,9 +15,10 @@
 
 'use strict';
 
-// ブラウザ/Node 両対応ガード(jumin.js と同方式)。
-// module 未定義のブラウザ/VM ロードで module.exports・require.main を評価させない。
-const _isNode = typeof module !== 'undefined' && !!module.exports;
+// ブラウザ/Node 両対応。top-level 変数を作らない(kokuho.js/kaigo.js と同方式)。
+// jumin.js が top-level `const _isNode` を持つため、同名 const を宣言すると
+// 同一ページに両方 <script> 読み込み時に "already declared" で衝突する(2026-07-08 修正)。
+// → module 判定は使用箇所でインライン。ブラウザは typeof module==='undefined' で短絡し require.main を評価しない。
 
 // ---- 定数 ---------------------------------------------------------------
 const NATIONAL_CAP = 104000; // 国基準3号・標準時間の最上限(月額)。全自治体これ以下のはず[指示書§0]
@@ -324,13 +325,13 @@ function validateBrackets(muni) {
   return errs;
 }
 
-if (_isNode) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = { calcHoiku, resolveIndex, lookupBracket, pickFiscalYear, validateBrackets, timeKeysOf, NATIONAL_CAP, INPUT_BASES };
 }
 
 // ---- 自己テスト(node直接実行時のみ) --------------------------------------
-// _isNode の短絡評価で、ブラウザでは require.main を参照しない。
-if (_isNode && require.main === module) {
+// 左の typeof module==='undefined' で短絡し、ブラウザでは require.main を参照しない。
+if (typeof module !== 'undefined' && module.exports && require.main === module) {
   runSelfTest();
 }
 

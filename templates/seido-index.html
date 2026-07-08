@@ -66,6 +66,7 @@
     <option value="kakeibo" selected>まとめて試算（家計簿シミュレーター）</option>
     <option value="jumin">住民税</option>
     <option value="kokuho">国民健康保険</option>
+    <option value="hoiku">保育料</option>
     <option value="kaigo" disabled>介護保険（準備中）</option>
   </select>
 
@@ -99,7 +100,8 @@ var CITY_INDEX = __CITY_INDEX__;
   var SYSTEMS={
     kakeibo:{label:"家計簿シミュレーターを開く", url:function(p,c){return "/"+p+"/"+c+"/kakeibo/";}},
     jumin:  {label:"住民税の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/jumin/";}},
-    kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}}
+    kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}},
+    hoiku:  {label:"保育料の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/hoiku/";}}
   };
   var prefNames=Object.keys(CITY_INDEX);
   prefNames.forEach(function(pn){
