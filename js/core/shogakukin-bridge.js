@@ -44,9 +44,12 @@ function supporterFromIncome(juminData, in_) {
   const dependentDeduction = Number.isFinite(i.dependentDeduction) ? i.dependentDeduction : (330_000 * generalDependents);
   const specialDependentSalaries = Array.isArray(i.specialDependentSalaries) ? i.specialDependentSalaries : [];
   // 非課税判定に使う扶養等の人数（同一生計配偶者＋一般扶養＋特定扶養の子）。
+  const _sdDepCount = specialDependentSalaries.filter(
+    s => Number.isFinite(s) && s > 0 && _income.calcSalaryIncome(s, i.fiscalYear) <= 580000
+  ).length;
   const baseDependents = Number.isFinite(i.dependents)
     ? i.dependents
-    : (i.hasSpouseDeduction ? 1 : 0) + generalDependents;
+    : (i.hasSpouseDeduction ? 1 : 0) + generalDependents + _sdDepCount;
 
   const j = _jumin.calculateJumin(juminData || null, {
     salary: i.salary || 0, pension: i.pension || 0, age: i.age,
