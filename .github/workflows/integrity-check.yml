@@ -48,3 +48,9 @@ jobs:
 
       - name: Run test-year-wiring.js (ページ⇔engine.js の年度配線回帰)
         run: node scripts/test-year-wiring.js
+
+      - name: Run test-shogakukin.cjs (奨学金コア 区分・減免・給付・多子世帯回帰)
+        run: node scripts/test-shogakukin.cjs
+
+      - name: Run test-bridge.cjs (奨学金bridge 年収→住民税→区分 結線回帰)
+        run: node scripts/test-bridge.cjs
