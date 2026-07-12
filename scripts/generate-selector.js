@@ -154,7 +154,8 @@ function updateSystems() {
   const sysSel       = document.getElementById("system");
   const available    = registry[prefecture]?.municipalities[municipality]?.systems || {};
   for (const opt of sysSel.options) {
-    if (opt.value === "kaigo") continue; // 介護は全体準備中（常にdisabled）
+    // 社保(shaho)は別サイト shaho-keisan.jp・registry非登録＝常に選択可（goPageで外部遷移）
+    if (opt.value === "shaho") { opt.disabled = false; opt.textContent = opt.dataset.label; continue; }
     const ok = !!available[opt.value];
     opt.disabled = !ok;
     opt.textContent = opt.dataset.label + (ok ? "" : "（この自治体は準備中）");
@@ -169,6 +170,10 @@ function goPage() {
   const prefecture   = document.getElementById("prefecture").value;
   const municipality = document.getElementById("municipality").value;
   const system       = document.getElementById("system").value;
+
+  // 社保(shaho)は別サイト shaho-keisan.jp。県別ページ準備中＝当面トップへ。
+  // 47県公開後に https://shaho-keisan.jp/(prefSlug)/ 形式へ差し替える。
+  if (system === "shaho") { window.location.href = "https://shaho-keisan.jp/"; return; }
 
   const url =
     registry[prefecture]
@@ -247,7 +252,8 @@ ${muniOptions}
 <option value="kokuho" data-label="国民健康保険">国民健康保険</option>
 <option value="jumin" data-label="住民税">住民税</option>
 <option value="kakeibo" data-label="まとめて試算（家計簿シミュレーター）">まとめて試算（家計簿シミュレーター）</option>
-<option value="kaigo" data-label="介護保険" disabled>介護保険（準備中）</option>
+<option value="kaigo" data-label="介護保険">介護保険</option>
+<option value="shaho" data-label="社会保険（会社員）">社会保険（会社員）</option>
 </select>
 
 <button type="button" onclick="goPage()">
