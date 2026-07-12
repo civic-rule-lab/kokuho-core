@@ -22,11 +22,14 @@ function _shotokuNonTaxableLimit(dependents) {
 
 // ─── 人的控除差の簡易合成 ───────────────────────────────────────────
 //   基礎5万＋配偶者控除5万＋一般扶養5万/人。特定扶養(大学生等)分は jumin 側で自動加算されるので入れない。
+//   ひとり親控除の差額は 母5万/父1万[確認済 姫路市・諏訪市 人的控除差早見表 2026-07-12]。
 function estimateHumanDeductionDiff(opts) {
   const o = opts || {};
   let diff = 50_000; // 基礎控除差
   if (o.hasSpouseDeduction) diff += 50_000;
   diff += 50_000 * Math.max(0, (o.generalDependents | 0));
+  if (o.singleParent === 'mother') diff += 50_000;
+  else if (o.singleParent === 'father') diff += 10_000;
   return diff;
 }
 
@@ -39,14 +42,20 @@ function estimateHumanDeductionDiff(opts) {
 function supporterFromIncome(juminData, in_) {
   const i = in_ || {};
   const generalDependents = Math.max(0, (i.generalDependents | 0));
+  // ひとり親控除（令和3年度〜）: 住民税30万円[確認済 姫路市]。'mother'|'father' で人的控除差も分岐（5万/1万）。
+  const singleParent = (i.singleParent === 'mother' || i.singleParent === 'father') ? i.singleParent : null;
+  const singleParentDeduction = singleParent ? 300_000 : 0;
   const hdd = Number.isFinite(i.humanDeductionDiff) ? i.humanDeductionDiff : estimateHumanDeductionDiff(i);
   const spouseDeduction = Number.isFinite(i.spouseDeduction) ? i.spouseDeduction : (i.hasSpouseDeduction ? 330_000 : 0);
   const dependentDeduction = Number.isFinite(i.dependentDeduction) ? i.dependentDeduction : (330_000 * generalDependents);
   const specialDependentSalaries = Array.isArray(i.specialDependentSalaries) ? i.specialDependentSalaries : [];
+  // 特定扶養に該当する子（所得58万円以下=給与123万円以下）は税法上の扶養親族＝非課税判定の人数に算入する。
+  //   [80052df相当] dependents未指定のAPI直叩き経路で算入漏れ→第Ⅰ→第Ⅱ誤判定になり得たのを是正（UI経路は dependents 明示渡しで不変）。
+  let _sdDepCount = 0;
+  for (const s of specialDependentSalaries) {
+    if (Number.isFinite(s) && s > 0 && _income.calcSalaryIncome(s, i.fiscalYear) <= 580_000) _sdDepCount++;
+  }
   // 非課税判定に使う扶養等の人数（同一生計配偶者＋一般扶養＋特定扶養の子）。
-  const _sdDepCount = specialDependentSalaries.filter(
-    s => Number.isFinite(s) && s > 0 && _income.calcSalaryIncome(s, i.fiscalYear) <= 580000
-  ).length;
   const baseDependents = Number.isFinite(i.dependents)
     ? i.dependents
     : (i.hasSpouseDeduction ? 1 : 0) + generalDependents + _sdDepCount;
@@ -54,7 +63,7 @@ function supporterFromIncome(juminData, in_) {
   const j = _jumin.calculateJumin(juminData || null, {
     salary: i.salary || 0, pension: i.pension || 0, age: i.age,
     otherIncome: i.otherIncome || 0, socialInsurance: i.socialInsurance || 0,
-    spouseDeduction, dependentDeduction,
+    spouseDeduction, dependentDeduction, singleParentDeduction,
     dependents: baseDependents,
     specialDependentSalaries,           // 19〜22歳の子等（特定扶養/特定親族特別控除・非課税人数へ自動加算）[M4]
     humanDeductionDiff: hdd, fiscalYear: i.fiscalYear,
@@ -64,7 +73,10 @@ function supporterFromIncome(juminData, in_) {
   //   非課税限度の扶養人数は baseDependents（同一生計配偶者＋一般扶養＋特定扶養の子）で近似。
   //   ※特定親族特別控除の対象者(給与188万以下・所得58万超)は税法上の扶養に含まれず限度に非加算だが、
   //     その帯は課税されることがほとんどで判定への影響は小さい[未確認・近似]。
-  const shotokuwariTaxable = j.taxableIncome > 0 && j.totalIncome > _shotokuNonTaxableLimit(baseDependents);
+  //   ひとり親・寡婦等は前年合計所得135万円以下で均等割・所得割とも非課税[確認済 大阪市 地方税法295条相当 2026-07-12]。
+  const singleParentNonTax = !!singleParent && j.totalIncome <= 1_350_000;
+  const shotokuwariTaxable = !singleParentNonTax &&
+    (j.taxableIncome > 0 && j.totalIncome > _shotokuNonTaxableLimit(baseDependents));
 
   // 特定扶養(19〜22歳・所得58万以下)の人的控除差18万を、奨学金の調整控除にも反映する。
   //   （jumin 内部の effHumanDiff と同一ロジック。ここで合成しないと調整控除が過小→基準額が高め→区分が厳しめに振れる。）

@@ -87,9 +87,10 @@
     },
 
     "tashiSetai": {
-      "_desc": "令和7年度(2025)〜。扶養する子3人以上の多子世帯は所得制限なしで授業料等減免を満額。給付型は支援区分に応じる。資産5,000万円以上3億円未満は減免のみ・給付は0円[確認済 JASSO r7tashikakudai]。",
+      "_desc": "令和7年度(2025)〜。扶養する子3人以上の多子世帯は所得制限なしで授業料等減免を満額（第Ⅳ区分超過でも「多子世帯」区分として減免対象・給付0円）。給付型は支援区分に応じる。資産5,000万円以上3億円未満は減免のみ・給付は0円[確認済 JASSO r7tashikakudai・在学採用家計基準]。",
       "minChildren": 3,
-      "tuitionFreeRegardlessOfIncome": true
+      "tuitionFreeRegardlessOfIncome": true,
+      "overLabel": "多子世帯（授業料等減免は満額・給付奨学金は支給なし）"
     },
 
     "assetCriteria": {
