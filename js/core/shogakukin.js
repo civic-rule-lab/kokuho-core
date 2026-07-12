@@ -142,15 +142,19 @@ function calcShogakukin(spec, inputs) {
   if (inFourthRange && !isTashi && !isRiko) kubun = null;
 
   const kubunCode = kubun ? kubun.kubun : null;
+  // 第Ⅳ区分超過×多子＝独立の「多子世帯」区分（減免満額・給付0）[確認済 JASSO r7tashikakudai/在学採用家計基準の収入基準表]
+  //   「収入が第4区分を超える方…についても、多子世帯に属している場合は『多子世帯』の支援区分となり、
+  //    授業料等減免の対象となりますが、給付奨学金は支給されません。」
+  const tashiOver = isTashi && !kubun;
   const assetOk = _assetOk(g, isTashi, inputs.assets);
 
   // ── 給付月額 ──
-  let grantMonthly = _grantMonthly(g, student, kubunCode);
+  let grantMonthly = _grantMonthly(g, student, kubunCode); // tashiOver は kubunCode=null → 0円
   const grantIsAnnual = student.level === '通信';
   let category = 'normal';
   // 第Ⅳ×理工農(非多子): 給付0円 [B1]
   if (inFourthRange && isRiko && !isTashi) { grantMonthly = 0; category = 'riko'; }
-  else if (isTashi && kubunCode) category = 'tashi';
+  else if (isTashi && (kubunCode || tashiOver)) category = 'tashi';
   else if (!kubunCode) category = 'out';
   // 資産で給付ゲート（多子×5,000万〜3億は給付0）[B3]
   if (assetOk && assetOk.grant === false) grantMonthly = 0;
@@ -159,7 +163,7 @@ function calcShogakukin(spec, inputs) {
   let reductionCap = { tuition: 0, admission: 0 };
   let reductionEstimated = false;
   let reductionAdmissionUnverified = false; // 理工農の入学金扱いが未確認のとき true
-  if (kubunCode) {
+  if (kubunCode || tashiOver) {
     if (isTashi) {
       // 多子世帯: 所得制限なしで満額（第Ⅳ含む）
       reductionCap = _reductionByFraction(_reductionTable(g, student), 1, 1);
@@ -179,7 +183,7 @@ function calcShogakukin(spec, inputs) {
 
   return {
     kijungaku,
-    kubun: kubun ? kubun.label : g.outOfRangeLabel,
+    kubun: kubun ? kubun.label : (tashiOver ? (g.tashiSetai.overLabel || '多子世帯') : g.outOfRangeLabel),
     kubunCode,
     ratioLabel: kubun ? kubun.ratioLabel : null,
     isTashiSetai: isTashi,

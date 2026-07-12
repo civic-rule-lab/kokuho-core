@@ -123,5 +123,26 @@ check('資産未申告→null', calcShogakukin(spec, { supporters: [{ taxableInc
 r = calcShogakukin(spec, { supporters: [{ taxableIncome: 0 }], student: stu(), childrenCount: 1 });
 check('返り値 loan/ratioLabel 両方', ('loan' in r) && ('ratioLabel' in r), true);
 
+// 17) [是正] Ⅳ超過×多子=「多子世帯」区分: 減免満額・給付0[確認済 JASSO r7tashikakudai/在学採用家計基準]
+//     「収入が第4区分を超える方…についても、多子世帯に属している場合は『多子世帯』の支援区分となり、
+//      授業料等減免の対象となりますが、給付奨学金は支給されません。」
+r = calcShogakukin(spec, { supporters: [{ taxableIncome: 3000000 }], student: stu(), childrenCount: 3 });
+check('多子世帯区分(Ⅳ超過) kubunCode null', r.kubunCode, null);
+check('多子世帯区分(Ⅳ超過) category tashi', r.category, 'tashi');
+check('多子世帯区分(Ⅳ超過) 給付0', r.grantMonthly, 0);
+check('多子世帯区分(Ⅳ超過) 減免満額', r.reductionCap, { tuition: 700000, admission: 260000 });
+check('多子世帯区分(Ⅳ超過) ラベル', /^多子世帯/.test(r.kubun), true);
+// 境界: 154,500ちょうど×多子 → Ⅳ超過だが多子世帯区分で減免満額
+const bd = calcShogakukin(spec, { supporters: [{ taxableIncome: 2600000 }], student: stu(), childrenCount: 3 });
+check('境界154,500×多子 減免満額', bd.kijungaku === 154500 && bd.reductionCap.tuition === 700000, true);
+// 非多子は従来どおり対象外のまま（回帰確認）
+const nb = calcShogakukin(spec, { supporters: [{ taxableIncome: 3000000 }], student: stu(), childrenCount: 1 });
+check('Ⅳ超過×非多子 減免0のまま', nb.reductionCap, { tuition: 0, admission: 0 });
+// 資産ゲート×Ⅳ超過多子: 1億→減免満額維持 / 3.5億→減免も0
+const a1 = calcShogakukin(spec, { supporters: [{ taxableIncome: 3000000 }], student: stu(), childrenCount: 3, assets: 100000000 });
+check('多子世帯区分×資産1億 減免満額維持', a1.reductionCap, { tuition: 700000, admission: 260000 });
+const a3 = calcShogakukin(spec, { supporters: [{ taxableIncome: 3000000 }], student: stu(), childrenCount: 3, assets: 350000000 });
+check('多子世帯区分×資産3.5億 減免も0', a3.reductionCap, { tuition: 0, admission: 0 });
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);
