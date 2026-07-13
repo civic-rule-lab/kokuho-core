@@ -7,7 +7,17 @@
   "source": {
     "url": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08/index.html",
     "verifiedAt": "2026-07-03",
-    "note": "公式ページの都道府県単位保険料率表から転記。全国平均9.9%（R7比▲0.1）"
+    "note": "公式ページの都道府県単位保険料率表から転記。全国平均9.9%（R7比▲0.1）",
+    "crossCheck": {
+      "verifiedAt": "2026-07-07",
+      "method": "R8料額表PDF（月額欄の健保料率）と再突合",
+      "samples": [
+        { "pref": "osaka", "data": 0.1013, "pdf": 0.1013, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_27osaka.pdf" },
+        { "pref": "okinawa", "data": 0.0944, "pdf": 0.0944, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_47okinawa.pdf" },
+        { "pref": "saga", "data": 0.1055, "pdf": 0.1055, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_41saga.pdf" }
+      ],
+      "result": "3県とも一致（差別化キー県の裏取り済）"
+    }
   },
   "careRate": {
     "rate": 0.0162,
@@ -20,10 +30,43 @@
     "rate": 0.0023,
     "validFrom": "2026-04",
     "validTo": "2027-03",
-    "note": "子ども・子育て支援金。全国一律。健保料率と適用開始が1ヶ月ずれる（4月分＝5月納付分から）点に注意"
+    "note": "子ども・子育て支援金。全国一律。健保料率と適用開始が1ヶ月ずれる（4月分＝5月納付分から）点に注意",
+    "futureSchedule": {
+      "status": "rate_unpublished",
+      "verifiedAt": "2026-07-07",
+      "note": "[未確認・推測] R9(2027)・R10(2028)の支援金『率(%)』は一次ソースで未公表。段階導入のため増額見込みだが率は使用不可。R9率はR8同様2月頃(健保料率と同時期)に公表される想定。公表まで対象月に合う率が無ければ暗黙フォールバックせずthrowする設計を維持。",
+      "reference": {
+        "totalYen": [
+          { "fy": "R8", "approx": 600000000000 },
+          { "fy": "R9", "approx": 800000000000 },
+          { "fy": "R10", "approx": 1000000000000 }
+        ],
+        "kyoukaiPerCapitaMonthlyYen": [
+          { "fy": "R8", "value": 250 },
+          { "fy": "R9", "value": 350 },
+          { "fy": "R10", "value": 450 }
+        ],
+        "sourceNote": "[確認済] 総額目安と加入者一人当たり月額見込み。こども家庭庁資料。率換算ではない参考値",
+        "sources": [
+          "https://www.mhlw.go.jp/content/12401000/001670257.pdf",
+          "https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/ba94b64b-731f-4f48-97ba-b54a76b0aeb6/7fb56c33/20240329_councils_shienkin-daijinkonwakai_04.pdf"
+        ]
+      }
+    }
   },
   "validFrom": "2026-03",
   "validTo": "2027-02",
+  "niniKeizoku": {
+    "capStandardMonthly": 320000,
+    "capGrade": 23,
+    "basisAvgYen": 318100,
+    "basisDate": "2025-09-30",
+    "validFrom": "2026-04",
+    "status": "verified",
+    "verifiedAt": "2026-07-08",
+    "source": "https://www.kyoukaikenpo.or.jp/g1/r7-12/7121001/",
+    "note": "任意継続の標準報酬月額 = min(資格喪失時の標準報酬月額, 前年9/30時点の全被保険者平均標準報酬月額の該当等級)。R8は平均318,100円→第23級=320,000円。任意継続は4月分から適用（健保本体の3月分と1ヶ月ずれ）。全額自己負担（折半なし）。/hikaku/（任意継続 vs 国保）用の予約フィールド"
+  },
   "notes": [
     "「○月分」＝対象月ベース。納付は翌月（3月分＝4月納付分）",
     "任意継続被保険者・日雇特例被保険者は4月分からの適用",
