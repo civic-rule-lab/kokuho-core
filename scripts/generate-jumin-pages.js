@@ -247,6 +247,9 @@ const JS_V  = fileHash(
   path.join(ROOT, 'js', 'core', 'jumin.js'),
   path.join(ROOT, 'js', 'core', 'kokuho.js'),
   path.join(ROOT, 'js', 'core', 'kaigo.js'),
+  path.join(ROOT, 'js', 'core', 'hoiku.js'),   // 家計簿(kakeibo)が読込むが従来ハッシュ対象外だった
+  path.join(ROOT, 'js', 'core', 'shaho.js'),   // 家計簿の社会保険（会社員）結線
+  path.join(ROOT, 'js', 'core', 'shotoku.js'), // 家計簿の所得税結線
 );
 
 // ─── ヘルパー ───
@@ -412,6 +415,7 @@ for (const m of targets) {
   const kakeiboHtml = fill(tmplKakeibo, {
     '__CITY_NAME__': cityName,
     '__CITY_SLUG__': citySlug,
+    '__PREF_SLUG__': prefSlug,   // 家計簿の社会保険（会社員）で協会けんぽ県別料率の解決に使う
     '__FISCAL_YEAR_LABEL__': fy,
     '__META_DESC__': kakeiboDesc,
     '__CANONICAL_URL__': kakeiboUrl,

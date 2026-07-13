@@ -131,6 +131,12 @@ if [ "$DRY_RUN" = false ]; then
   mkdir -p "$PUBLIC_DIR/data/municipalities"
   rsync -a --delete "$CORE_DIR/data/municipalities/" "$PUBLIC_DIR/data/municipalities/"
 
+  # 全国共通データ（家計簿の社会保険＝data/shaho、所得税＝data/national）。自治体別ではないので別建てで同期。
+  echo "▶ data/shaho/ ・ data/national/ を同期中..."
+  mkdir -p "$PUBLIC_DIR/data/shaho" "$PUBLIC_DIR/data/national"
+  rsync -a --delete "$CORE_DIR/data/shaho/"    "$PUBLIC_DIR/data/shaho/"
+  rsync -a --delete "$CORE_DIR/data/national/" "$PUBLIC_DIR/data/national/"
+
   # 計算エンジン（住民税＋家計簿が使う全制度＋共通）
   mkdir -p "$PUBLIC_DIR/js/core/shared" "$PUBLIC_DIR/css"
   cp "$CORE_DIR/js/core/shared/income.js" "$PUBLIC_DIR/js/core/shared/"
@@ -139,6 +145,8 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/kaigo.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kouki.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/hoiku.js"         "$PUBLIC_DIR/js/core/"
+  cp "$CORE_DIR/js/core/shaho.js"         "$PUBLIC_DIR/js/core/"   # 家計簿の社会保険（会社員）＝vendored（正本 shaho-keisan）
+  cp "$CORE_DIR/js/core/shotoku.js"       "$PUBLIC_DIR/js/core/"   # 家計簿の所得税＝vendored（正本 shotoku-keisan）
   cp "$CORE_DIR/css/common.css"           "$PUBLIC_DIR/css/"
 
   # アンブレラ・ランディング → 公開リポの index.html
