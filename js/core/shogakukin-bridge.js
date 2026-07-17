@@ -11,6 +11,7 @@ const _isNode = typeof module !== 'undefined' && !!module.exports;
 
 const _jumin = _isNode ? require('./jumin.js') : { calculateJumin: (typeof window !== 'undefined' ? window.calculateJumin : null) };
 const _shogakukin = _isNode ? require('./shogakukin.js') : (typeof window !== 'undefined' ? window.Shogakukin : null);
+const _loan = _isNode ? require('./shogakukin-loan.js') : (typeof window !== 'undefined' ? window.ShogakukinLoan : null);
 const _income = _isNode ? require('./shared/income.js') : { calcSalaryIncome: (typeof calcSalaryIncome !== 'undefined' ? calcSalaryIncome : (s => 0)) };
 
 // ─── 所得割の非課税限度額（標準・1級地）。jumin._shotokuNonTaxableLimit と同一の公開ルール ──
@@ -116,5 +117,34 @@ function calcFromIncome(spec, juminData, inputs) {
   });
 }
 
-if (_isNode) module.exports = { supporterFromIncome, calcFromIncome, estimateHumanDeductionDiff };
-else if (typeof window !== 'undefined') window.ShogakukinBridge = { supporterFromIncome, calcFromIncome, estimateHumanDeductionDiff };
+// 年収ベースの貸与型判定: 給付判定＋貸与判定をまとめて返す。給付コア/貸与コアは無改変。
+//   inputs は calcFromIncome と同形＋ { singleParent?, applicationType?, withGrant? }。
+//   withGrant=false のとき併給調整をしない（給付を受けない前提）。
+function calcLoanFromIncome(spec, juminData, inputs) {
+  const supporters = (inputs.supportersIncome || []).map(s => supporterFromIncome(juminData, s));
+  const grantResult = _shogakukin.calcShogakukin(spec, {
+    supporters,
+    student: inputs.student,
+    childrenCount: inputs.childrenCount,
+    assets: inputs.assets,
+    rikoNoPrivate: inputs.rikoNoPrivate,
+    householdSize: inputs.householdSize,
+  });
+  const useGrant = inputs.withGrant === false ? null : grantResult;
+  // singleParent は生計維持者1人目の申告を代表として使う（UIは世帯単位で1回入力）。
+  const sp = (inputs.singleParent === 'mother' || inputs.singleParent === 'father')
+    ? inputs.singleParent
+    : ((inputs.supportersIncome || [])[0] || {}).singleParent || null;
+  const loan = _loan.calcLoanEligibility(spec, {
+    supporters,
+    student: inputs.student,
+    childrenCount: inputs.childrenCount,
+    singleParent: sp,
+    applicationType: inputs.applicationType || 'zaigaku',
+    grantResult: useGrant,
+  });
+  return { grant: grantResult, loan };
+}
+
+if (_isNode) module.exports = { supporterFromIncome, calcFromIncome, calcLoanFromIncome, estimateHumanDeductionDiff };
+else if (typeof window !== 'undefined') window.ShogakukinBridge = { supporterFromIncome, calcFromIncome, calcLoanFromIncome, estimateHumanDeductionDiff };
