@@ -36,6 +36,7 @@ module.exports = {
   income: () => load('shared/income.js'),
   jumin: () => load('jumin.js'),
   shogakukin: () => load('shogakukin.js'),
+  shogakukinLoan: () => load('shogakukin-loan.js'),
   bridge: () => load('shogakukin-bridge.js'),
   spec: () => JSON.parse(fs.readFileSync(path.join(CORE, 'shogakukin-2026.json'), 'utf8')),
 };

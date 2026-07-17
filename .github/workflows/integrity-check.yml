@@ -54,3 +54,9 @@ jobs:
 
       - name: Run test-bridge.cjs (奨学金bridge 年収→住民税→区分 結線回帰)
         run: node scripts/test-bridge.cjs
+
+      - name: Run verify-loan-primary.cjs (貸与型 一次資料実額 全数照合)
+        run: node scripts/verify-loan-primary.cjs
+
+      - name: Run verify-loan-oracle.cjs (貸与型 独立オラクル+JASSO公式返還例照合)
+        run: node scripts/verify-loan-oracle.cjs
