@@ -265,12 +265,67 @@ function simulateType2(spec, total, annualRate, opts) {
   };
 }
 
+
+// ─── 機関保証の保証料（目安）──────────────────────────────────────────
+//   出典: 2026年度採用者用「保証料月額(目安)」PDF5本[確認済 2026-04-01決定・一次資料/保証料2026/]。
+//   表は (貸与月数, 貸与月額)→保証料月額。第二種は貸与利率2.423%(増額分2.623%)前提の目安。
+//   高専は1〜3年+4・5年の継続貸与合算総額前提の専用表（g13=36か月分/g45=24か月分・月数固定）。
+//   表にない月額（併給調整後の端額など）は最寄り月額の料率から概算し monthlyApprox を立てる。
+function _hoshoryoNearestKey(obj, want) {
+  let best = null;
+  const keys = Object.keys(obj).filter(k => !k.startsWith('_')).map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+  for (const v of keys) if (best === null || Math.abs(v - want) < Math.abs(best - want)) best = v; // 同距離は小さい側を維持
+  return best;
+}
+/**
+ * @param opts { kind:'type1'|'type2', level?, kosenGrade?|kosenLower?, monthly, months? }
+ * @returns {fee, monthsUsed, exact, monthlyApprox?, monthsApprox} | null
+ */
+function lookupHoshoryo(spec, opts) {
+  const o = opts || {}, H = spec.loan && spec.loan.hoshoryo;
+  if (!H || !H.type1) return null;
+  const monthly = Math.floor(o.monthly || 0);
+  if (monthly <= 0) return null;
+  let map, monthsUsed;
+  if (o.kind === 'type2') {
+    monthsUsed = _hoshoryoNearestKey(H.type2, o.months || 48);
+    map = H.type2[String(monthsUsed)];
+  } else if ((o.level || '') === '高等専門学校' || (o.level || '') === '高専1-3年') {
+    const K = H.type1['高等専門学校'];
+    if (!K) return null;
+    const lower = o.level === '高専1-3年' || o.kosenGrade === '1-3' || o.kosenLower === true;
+    map = lower ? K.g13 : K.g45;
+    monthsUsed = lower ? 36 : 24;                    // 高専表は月数固定（継続貸与合算前提）
+  } else {
+    const g = H.type1[o.level] || H.type1['大学'];
+    monthsUsed = _hoshoryoNearestKey(g, o.months || 48);
+    map = g[String(monthsUsed)];
+  }
+  if (!map || monthsUsed === null) return null;
+  const monthsApprox = Number.isFinite(o.months) && o.months !== monthsUsed;
+  const hit = map[String(monthly)];
+  if (hit !== undefined) return { fee: hit, monthsUsed, exact: !monthsApprox, monthsApprox };
+  const m0 = _hoshoryoNearestKey(map, monthly);
+  if (m0 === null) return null;
+  const fee = Math.round(monthly * map[String(m0)] / m0);
+  return { fee, monthsUsed, exact: false, monthlyApprox: true, monthsApprox };
+}
+// 入学時(留学時)特別増額の保証料（振込時1回払い・単独表）。該当額なしは null。
+function hoshoryoNyugakuZougaku(spec, amount) {
+  const H = spec.loan && spec.loan.hoshoryo;
+  if (!H || !H.nyugakuZougakuFee) return null;
+  const f = H.nyugakuZougakuFee[String(Math.floor(amount || 0))];
+  return f === undefined ? null : f;
+}
+
 if (_isNodeL) module.exports = {
   calcLoanEligibility, calcLoanKijungaku,
   simulateTeigaku, simulateHeiyoHenkan, simulateShotokuRendo, simulateType2,
+  lookupHoshoryo, hoshoryoNyugakuZougaku,
   _kisogaku,
 };
 else if (typeof window !== 'undefined') window.ShogakukinLoan = {
   calcLoanEligibility, calcLoanKijungaku,
   simulateTeigaku, simulateHeiyoHenkan, simulateShotokuRendo, simulateType2,
+  lookupHoshoryo, hoshoryoNyugakuZougaku,
 };
