@@ -267,5 +267,43 @@ teigakuOOS.forEach(([total, m, n], idx) => {
   ok('高専1-3 月額表(国公立自宅: 10000/21000)', JSON.stringify(o13) === JSON.stringify([10000, 21000]));
 }
 
+
+// ── 機関保証の保証料 lookup（結線・近似の検証・2026-07-18）─────────────────
+//   率近似の外部検証: 公式併用表（2026_1_daigaku.pdf p4）の「第Ⅲ区分 19,200円×48か月→480円」を
+//   最寄り月額(20,000)の料率から round(19200×500/20000)=480 で完全再現[確認済]。
+{
+  const lh = (o) => LOAN.lookupHoshoryo(SPEC, o);
+  // 表の実額ヒット
+  const a = lh({ kind: 'type1', level: '大学', monthly: 50000, months: 48 });
+  ok('保証料 大学48/50000=1786・exact', a && a.fee === 1786 && a.exact === true && a.monthsUsed === 48);
+  const b = lh({ kind: 'type2', monthly: 100000, months: 48 });
+  ok('保証料 二種48/100000=5732・exact', b && b.fee === 5732 && b.exact === true);
+  const b2 = lh({ kind: 'type2', monthly: 50000 });
+  ok('保証料 二種 months省略→48既定', b2 && b2.fee === 2218 && b2.monthsUsed === 48);
+  // 併給調整後の端額 → 率近似（公式併用表の実額と一致）
+  const c = lh({ kind: 'type1', level: '大学', monthly: 19200, months: 48 });
+  ok('保証料 近似 19200→480（公式併用表一致）', c && c.fee === 480 && c.monthlyApprox === true && c.exact === false);
+  // 月数が表にない → 最寄り月数（60→48。同距離タイは小さい側）
+  const d = lh({ kind: 'type1', level: '大学', monthly: 20000, months: 60 });
+  ok('保証料 月数近似 60→48使用', d && d.fee === 500 && d.monthsUsed === 48 && d.monthsApprox === true);
+  // 高専（専用表・月数固定）
+  const e = lh({ kind: 'type1', level: '高等専門学校', monthly: 51000, months: 24 });
+  ok('保証料 高専4-5/51000=2092', e && e.fee === 2092 && e.monthsUsed === 24 && e.exact === true);
+  const f = lh({ kind: 'type1', level: '高等専門学校', kosenGrade: '1-3', monthly: 21000, months: 36 });
+  ok('保証料 高専1-3/21000=608', f && f.fee === 608 && f.monthsUsed === 36);
+  const f2 = lh({ kind: 'type1', level: '高等専門学校', monthly: 20000, months: 48 });
+  ok('保証料 高専 月数48指定→24固定でmonthsApprox', f2 && f2.fee === 579 && f2.monthsUsed === 24 && f2.monthsApprox === true);
+  // 短大・専門
+  const g = lh({ kind: 'type1', level: '短期大学', monthly: 53000, months: 24 });
+  ok('保証料 短大24/53000=1608', g && g.fee === 1608 && g.exact === true);
+  const h = lh({ kind: 'type1', level: '専門学校', monthly: 60000, months: 36 });
+  ok('保証料 専門36/60000=2050', h && h.fee === 2050 && h.exact === true);
+  // 入学時増額・ガード
+  ok('保証料 増額300000=6975', LOAN.hoshoryoNyugakuZougaku(SPEC, 300000) === 6975);
+  ok('保証料 増額250000=null', LOAN.hoshoryoNyugakuZougaku(SPEC, 250000) === null);
+  ok('保証料 monthly0→null', lh({ kind: 'type2', monthly: 0 }) === null);
+  ok('保証料 hoshoryoなしspec→null', LOAN.lookupHoshoryo({ loan: {} }, { kind: 'type2', monthly: 50000 }) === null);
+}
+
 console.log(`==== 貸与 オラクル照合: ${pass} pass / ${fail} fail ====`);
 process.exit(fail ? 1 : 0);
