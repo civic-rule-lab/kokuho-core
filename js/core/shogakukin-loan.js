@@ -150,7 +150,7 @@ function _wrapCell(cell) {
 function calcLoanEligibility(spec, inputs) {
   const L = spec.loan;
   const student = inputs.student || {};
-  const key = 'univ_college_senmon'; // 閾値は大学等共通（高専1-3年は[未確認]→大学等で近似）
+  const key = 'univ_college_senmon'; // 閾値は全学種共通（高専1〜3年含む）[確認済 2026-07-17 高専在学者用案内p.12: 併用164,600/一種189,400/二種381,500・家計基準に学年区分なし]
   const th = L.thresholds[key];
   const kijun = calcLoanKijungaku(spec, inputs);
 

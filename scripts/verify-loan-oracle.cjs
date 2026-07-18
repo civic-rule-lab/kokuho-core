@@ -250,5 +250,22 @@ teigakuOOS.forEach(([total, m, n], idx) => {
   ok('第二種 利率cap3%適用', rc.rate === 0.03);
 }
 
+
+// ── 高専1〜3年の閾値（2026-07-17 [確認済]化: 大学等と同一・学年区分なし）────────
+//   出典: 2026年度在学者用貸与奨学金案内（高等専門学校）p.12（併用164,600/一種189,400/二種381,500）
+//   ＋JASSO在学採用HP（「大学等には…高等専門学校…を含みます」・一律189,400）。
+{
+  const k13 = { level: '高等専門学校', schoolType: '国公立', attendance: '自宅', kosenGrade: '1-3' };
+  ok('高専1-3 一種 189,400ちょうど→可', elig(189400, k13).type1.eligible === true);
+  ok('高専1-3 一種 189,500→不可', elig(189500, k13).type1.eligible === false);
+  ok('高専1-3 併用 164,600ちょうど→最高月額可', elig(164600, k13).type1.maxMonthlyAllowed === true);
+  ok('高専1-3 併用 164,700→最高月額不可', elig(164700, k13).type1.maxMonthlyAllowed === false);
+  // 閾値オブジェクトが大学と完全一致（同一表を引いていることの結線確認）
+  ok('高専1-3 閾値=大学と同一', JSON.stringify(elig(100000, k13).thresholds) === JSON.stringify(elig(100000, { level: '大学' }).thresholds));
+  // 一種可のとき高専1-3の月額表（10,000/21,000系）が引けている
+  const o13 = elig(164600, k13).type1.monthlyOptions;
+  ok('高専1-3 月額表(国公立自宅: 10000/21000)', JSON.stringify(o13) === JSON.stringify([10000, 21000]));
+}
+
 console.log(`==== 貸与 オラクル照合: ${pass} pass / ${fail} fail ====`);
 process.exit(fail ? 1 : 0);
