@@ -254,17 +254,36 @@ teigakuOOS.forEach(([total, m, n], idx) => {
 // ── 高専1〜3年の閾値（2026-07-17 [確認済]化: 大学等と同一・学年区分なし）────────
 //   出典: 2026年度在学者用貸与奨学金案内（高等専門学校）p.12（併用164,600/一種189,400/二種381,500）
 //   ＋JASSO在学採用HP（「大学等には…高等専門学校…を含みます」・一律189,400）。
+//   2026-07-20 冊子目視（p6/p8/p12）で仕様確定・UI入口実装:
+//   ・1〜3年生に「最高月額」の区分自体がない（p6表の月額の種類欄が斜線・2018ikou注記も「本科4,5年生及び専攻科においては」）
+//     ＝家計制限なし。第一種基準(189,400)を満たせば21,000等を選択可。
+//   ・第二種・併用・入学時特別増額は本科4年生から（p6種類表・p8(3)）。
 {
   const k13 = { level: '高等専門学校', schoolType: '国公立', attendance: '自宅', kosenGrade: '1-3' };
   ok('高専1-3 一種 189,400ちょうど→可', elig(189400, k13).type1.eligible === true);
   ok('高専1-3 一種 189,500→不可', elig(189500, k13).type1.eligible === false);
   ok('高専1-3 併用 164,600ちょうど→最高月額可', elig(164600, k13).type1.maxMonthlyAllowed === true);
-  ok('高専1-3 併用 164,700→最高月額不可', elig(164700, k13).type1.maxMonthlyAllowed === false);
+  ok('高専1-3 164,700でも最高月額可（1〜3年は家計制限なし[確認済 p6目視]）', elig(164700, k13).type1.maxMonthlyAllowed === true);
+  ok('高専1-3 189,400直下でも月額表全額(10000/21000)', JSON.stringify(elig(189400, k13).type1.monthlyOptions) === JSON.stringify([10000, 21000]));
   // 閾値オブジェクトが大学と完全一致（同一表を引いていることの結線確認）
   ok('高専1-3 閾値=大学と同一', JSON.stringify(elig(100000, k13).thresholds) === JSON.stringify(elig(100000, { level: '大学' }).thresholds));
   // 一種可のとき高専1-3の月額表（10,000/21,000系）が引けている
   const o13 = elig(164600, k13).type1.monthlyOptions;
   ok('高専1-3 月額表(国公立自宅: 10000/21000)', JSON.stringify(o13) === JSON.stringify([10000, 21000]));
+  // 制度上の対象外（基準額の多寡と無関係）
+  const e0 = elig(0, k13);
+  ok('高専1-3 第二種は基準額0でも対象外', e0.type2.eligible === false && e0.type2.unavailable === 'kosen13');
+  ok('高専1-3 併用も対象外', e0.heiyo.eligible === false && e0.heiyo.unavailable === 'kosen13');
+  ok('高専1-3 入学時特別増額は対象外(needsKokoも出さない)', e0.nyugakuZougaku.unavailable === 'kosen13' && e0.nyugakuZougaku.direct === false && e0.nyugakuZougaku.needsKoko === false);
+  ok('高専1-3 notesにkosen13', e0.notes.includes('kosen13'));
+  // 4年進級後（4・5年月額×24か月）の選択肢: 進級後の最高月額45,000は通常ルール＝併用基準以下のみ
+  const a45 = elig(164600, k13).type1.monthlyOptions45;
+  ok('高専1-3 進級後選択肢(併用基準内: 45,000含む)', JSON.stringify(a45) === JSON.stringify([20000, 30000, 45000]));
+  const b45 = elig(170000, k13).type1.monthlyOptions45;
+  ok('高専1-3 進級後選択肢(併用基準超: 最高月額なし)', JSON.stringify(b45) === JSON.stringify([20000, 30000]));
+  // 給付は制度対象外＝grantResultが渡っても併給調整しない
+  const withGrant = elig(100000, k13, { grantResult: { kubunCode: 3, kubun: '第Ⅲ区分' } });
+  ok('高専1-3 併給調整なし(heikyuCap=null)', withGrant.type1.heikyuCap === null && !withGrant.notes.includes('grant_heikyu'));
 }
 
 
