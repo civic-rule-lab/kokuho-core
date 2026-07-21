@@ -113,5 +113,33 @@ r = calcFromIncome(spec, null, {
 });
 check('[M3] 本人合算しても第Ⅰ', r.kubunCode, '1');
 
+// ── ひとり親控除（住民税30万・人的控除差 母5万/父1万・合計所得135万以下非課税）金額照合 ──
+//   [確認済 2026-07-12 姫路市/諏訪市/大阪市]。draft verify-kijun の期待値と一致（income経路で再現）。
+//   従来 kokuho-core は結線のみで金額未検証だった穴を埋める（README §7 フォローアップ）。
+// (1) supporter 内訳: ひとり親控除30万が課税標準を下げ、人的控除差が母10万/父6万（無し5万）に分岐。
+const opMother250 = supporterFromIncome(null, { salary: 2500000, socialInsurance: 375000, singleParent: 'mother' });
+const opFather250 = supporterFromIncome(null, { salary: 2500000, socialInsurance: 375000, singleParent: 'father' });
+const opNone250   = supporterFromIncome(null, { salary: 2500000, socialInsurance: 375000 });
+check('ひとり親 母 課税標準(30万控除後)', opMother250.taxableIncome, 565000);
+check('ひとり親 父 課税標準(30万控除後)', opFather250.taxableIncome, 565000);
+check('ひとり親なし 課税標準', opNone250.taxableIncome, 865000);   // 差300,000 = ひとり親控除30万
+check('ひとり親 母 人的控除差(基礎5+母5万)', opMother250.humanDeductionDiff, 100000);
+check('ひとり親 父 人的控除差(基礎5+父1万)', opFather250.humanDeductionDiff, 60000);
+check('ひとり親なし 人的控除差(基礎5のみ)', opNone250.humanDeductionDiff, 50000);
+// (2) 合計所得135万以下は所得割非課税（母 給与200万→合計所得132万）→ 基準額0・第Ⅰ
+const stuP = { schoolType: '私立', attendance: '自宅外', level: '大学' };
+const mkOP = (salary, si, sp) => calcFromIncome(spec, null, {
+  supportersIncome: [Object.assign({ salary, socialInsurance: si }, sp ? { singleParent: sp } : {})],
+  student: stuP, childrenCount: 1, singleParent: sp || undefined,
+});
+let rm = mkOP(2000000, 300000, 'mother');
+check('ひとり親 母200万→合計所得135万以下→所得割非課税→基準額0', rm.kijungaku, 0);
+check('ひとり親 母200万→第Ⅰ', rm.kubunCode, '1');
+check('ひとり親なし 母200万→課税(第Ⅲ・基準33,900)', mkOP(2000000, 300000, null).kijungaku, 33900);
+// (3) 課税域（給与250万・合計所得167万>135万）: 母5万/父1万の差が基準額に出る（1,200円=4万×3%）
+check('ひとり親 母250万→基準額30,900(第Ⅲ)', mkOP(2500000, 375000, 'mother').kijungaku, 30900);
+check('ひとり親 父250万→基準額32,100(第Ⅲ・母より高い)', mkOP(2500000, 375000, 'father').kijungaku, 32100);
+check('ひとり親なし 250万→基準額50,400', mkOP(2500000, 375000, null).kijungaku, 50400);
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);
