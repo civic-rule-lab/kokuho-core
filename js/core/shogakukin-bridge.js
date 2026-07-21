@@ -122,7 +122,10 @@ function calcFromIncome(spec, juminData, inputs) {
 //   withGrant=false のとき併給調整をしない（給付を受けない前提）。
 function calcLoanFromIncome(spec, juminData, inputs) {
   const supporters = (inputs.supportersIncome || []).map(s => supporterFromIncome(juminData, s));
-  const grantResult = _shogakukin.calcShogakukin(spec, {
+  // 高専本科1〜3年は給付型（修学支援新制度）の対象外＝給付は計算しない[確認済 2026-07-20 本科4年生から・国立高専機構/JASSO FAQ]
+  const st = inputs.student || {};
+  const isK13 = st.level === '高専1-3年' || (st.level === '高等専門学校' && (st.kosenGrade === '1-3' || st.kosenLower === true));
+  const grantResult = isK13 ? null : _shogakukin.calcShogakukin(spec, {
     supporters,
     student: inputs.student,
     childrenCount: inputs.childrenCount,
@@ -130,7 +133,7 @@ function calcLoanFromIncome(spec, juminData, inputs) {
     rikoNoPrivate: inputs.rikoNoPrivate,
     householdSize: inputs.householdSize,
   });
-  const useGrant = inputs.withGrant === false ? null : grantResult;
+  const useGrant = (inputs.withGrant === false || isK13) ? null : grantResult;
   // singleParent は生計維持者1人目の申告を代表として使う（UIは世帯単位で1回入力）。
   const sp = (inputs.singleParent === 'mother' || inputs.singleParent === 'father')
     ? inputs.singleParent

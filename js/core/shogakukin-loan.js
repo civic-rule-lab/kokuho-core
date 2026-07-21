@@ -147,25 +147,42 @@ function _wrapCell(cell) {
  *   grantResult?  // calcShogakukin の戻り値（併給調整用）。null=給付を受けない
  * }
  */
+// 高専本科1〜3年か（給付/第二種/併用/入学時特別増額の対象外・第一種のみ）[確認済 2026-07-20 高専冊子p6/p8目視]
+function _isKosen13(student) {
+  const s = student || {};
+  return s.level === '高専1-3年' || (s.level === '高等専門学校' && (s.kosenGrade === '1-3' || s.kosenLower === true));
+}
+
 function calcLoanEligibility(spec, inputs) {
   const L = spec.loan;
   const student = inputs.student || {};
   const key = 'univ_college_senmon'; // 閾値は全学種共通（高専1〜3年含む）[確認済 2026-07-17 高専在学者用案内p.12: 併用164,600/一種189,400/二種381,500・家計基準に学年区分なし]
   const th = L.thresholds[key];
   const kijun = calcLoanKijungaku(spec, inputs);
+  const k13 = _isKosen13(student);
+  const k13cfg = L.thresholds.kosen13 || {};
 
-  const type2Elig = kijun <= th.type2;
+  const type2Elig = !k13 && kijun <= th.type2;                  // 第二種は高専4年生から[確認済]
   const type1Elig = kijun <= th.type1;
-  const heiyoElig = kijun <= th.heiyo;
-  const maxAllowed = heiyoElig;                                 // 最高月額は併用基準以下で可[L3]
+  const heiyoElig = !k13 && kijun <= th.heiyo;                  // 併用は第二種がない1〜3年では成立しない
+  // 最高月額: 通常は併用基準(164,600)以下で可[L3]。高専1〜3年は「月額の種類」区分自体がなく家計制限なし
+  // [確認済 2026-07-20 高専冊子p6表(1〜3年生行は斜線)・2018ikou注記「本科4,5年生及び専攻科においては」]
+  const maxAllowed = k13 ? (k13cfg.maxMonthlyUnrestricted !== false) : heiyoElig;
 
   const t2 = _type2Options(spec, student);
   const grantResult = inputs.grantResult || null;
-  const heikyu = grantResult ? _heikyuCell(spec, student, grantResult) : null;
+  const heikyu = (grantResult && !k13) ? _heikyuCell(spec, student, grantResult) : null; // 1〜3年は給付自体が対象外＝併給調整なし
 
   const notes = [];
   if (kijun === 0) notes.push('kijun0_gakuryoku'); // 学力基準の特例対象（基準額0円）
-  if (grantResult && (grantResult.kubunCode || grantResult.isTashiSetai)) notes.push('grant_heikyu');
+  if (!k13 && grantResult && (grantResult.kubunCode || grantResult.isTashiSetai)) notes.push('grant_heikyu');
+  if (k13) notes.push('kosen13'); // 高専1〜3年: 第一種のみ・給付/第二種/併用/入学時特別増額なし
+
+  // 高専1〜3年: 4年進級後（4・5年月額×24か月）の選択肢も返す（申込時に両方選ぶ制度[確認済 p6注]）。
+  //   進級後の最高月額(45,000等)は通常ルール＝併用基準以下でのみ可。
+  const opts45 = k13
+    ? _type1Options(spec, Object.assign({}, student, { level: '高等専門学校', kosenGrade: '4-5', kosenLower: false }), kijun <= th.heiyo)
+    : null;
 
   return {
     loanKijungaku: kijun,
@@ -174,15 +191,19 @@ function calcLoanEligibility(spec, inputs) {
       eligible: type1Elig,
       maxMonthlyAllowed: maxAllowed,
       monthlyOptions: type1Elig ? _type1Options(spec, student, maxAllowed) : [],
+      monthlyOptions45: (k13 && type1Elig) ? opts45 : undefined, // 高専1〜3年のみ: 4年進級後の選択肢
       heikyuCap: heikyu,                                        // 給付併用時の上限（null=調整なし）
     },
     type2: {
       eligible: type2Elig,
+      unavailable: k13 ? 'kosen13' : undefined,                 // 制度上の対象外（基準額とは無関係）
       monthlyOptions: type2Elig ? t2.monthly : [],
       zougakuOptions: type2Elig ? t2.zougaku : [],
     },
-    heiyo: { eligible: heiyoElig },
-    nyugakuZougaku: {
+    heiyo: { eligible: heiyoElig, unavailable: k13 ? 'kosen13' : undefined },
+    nyugakuZougaku: k13 ? {
+      amounts: [], direct: false, needsKoko: false, unavailable: 'kosen13', // 4・5年次編入学時及び専攻科入学時のみ[確認済 p6/p8]
+    } : {
       amounts: L.nyugakuZougaku.amounts.slice(),
       direct: kijun <= L.nyugakuZougaku.directKijunLe,          // 基準額75,000以下は公庫手続き不要
       needsKoko: kijun > L.nyugakuZougaku.directKijunLe,
