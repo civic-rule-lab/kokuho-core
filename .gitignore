@@ -18,6 +18,8 @@ node_modules/
 dashboard/*.log
 # 監視Worker手動再点検トークン（絶対にコミットしない）
 dashboard/.monitor-token
+# 週次整頓チェックの結果（ローカル環境の状態・コミットしない）
+dashboard/tidy-report.json
 
 # 内部用 AI プロジェクトメモ（絶対に commit しない）
 CLAUDE.md
