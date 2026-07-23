@@ -81,7 +81,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.city.machida.tokyo.jp/kurashi/hoken/kokuho/hokenzei/hokenzeiritsu/kokuhozeinozeiritutou.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -98,6 +100,6 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "町田市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=105円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。"
+    "notes": "町田市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=105円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。 / 2026-07-23検証バッチ: 公式税率ページに年度表記なし(限度額65万/22万など旧基準値の可能性大)。R8明記ページ未発見のためverified昇格見送り。"
   }
 }

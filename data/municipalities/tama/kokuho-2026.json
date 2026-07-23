@@ -81,7 +81,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.city.tama.lg.jp/kurashi/kokuho/hokenzei/1002017.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -98,6 +100,6 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "多摩市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=42円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。"
+    "notes": "多摩市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=42円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。 / 2026-07-23検証バッチ: 公式で確認できた最新はR6年度表記の税率のみ。R8税率未掲載のためverified昇格見送り。"
   }
 }
