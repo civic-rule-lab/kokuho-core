@@ -780,9 +780,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14205",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chigasaki",
@@ -791,9 +791,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14207",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "atsugi",
@@ -802,9 +802,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14212",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "toyama",
@@ -813,9 +813,9 @@
    "prefSlug": "toyama",
    "cityCode": "16201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kofu",
@@ -846,9 +846,9 @@
    "prefSlug": "aichi",
    "cityCode": "23201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "okazaki",
@@ -857,9 +857,9 @@
    "prefSlug": "aichi",
    "cityCode": "23202",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ichinomiya",
@@ -868,9 +868,9 @@
    "prefSlug": "aichi",
    "cityCode": "23203",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "toyota",
@@ -879,9 +879,9 @@
    "prefSlug": "aichi",
    "cityCode": "23211",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "tsu",
@@ -890,9 +890,9 @@
    "prefSlug": "mie",
    "cityCode": "24201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yokkaichi",
@@ -901,9 +901,9 @@
    "prefSlug": "mie",
    "cityCode": "24202",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "otsu",
@@ -912,9 +912,9 @@
    "prefSlug": "shiga",
    "cityCode": "25201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yao",
@@ -923,9 +923,9 @@
    "prefSlug": "osaka",
    "cityCode": "27212",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "neyagawa",
@@ -934,9 +934,9 @@
    "prefSlug": "osaka",
    "cityCode": "27215",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "amagasaki",
@@ -945,9 +945,9 @@
    "prefSlug": "hyogo",
    "cityCode": "28202",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "akashi",
@@ -956,9 +956,9 @@
    "prefSlug": "hyogo",
    "cityCode": "28203",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kakogawa",
@@ -967,9 +967,9 @@
    "prefSlug": "hyogo",
    "cityCode": "28210",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "takarazuka",
@@ -978,9 +978,9 @@
    "prefSlug": "hyogo",
    "cityCode": "28214",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "nara",
@@ -989,9 +989,9 @@
    "prefSlug": "nara",
    "cityCode": "29201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "tottori",
@@ -1000,9 +1000,9 @@
    "prefSlug": "tottori",
    "cityCode": "31201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "matsue",
@@ -1011,9 +1011,9 @@
    "prefSlug": "shimane",
    "cityCode": "32201",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kurashiki",
@@ -1022,9 +1022,9 @@
    "prefSlug": "okayama",
    "cityCode": "33202",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kure",
@@ -3585,9 +3585,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14218",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "nagaoka",
@@ -12385,9 +12385,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14362",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "matsuda",
@@ -12407,9 +12407,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14364",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kaisei",
@@ -17716,8 +17716,8 @@
  ],
  "syncedAt": "2026-07-24",
  "summary": {
-  "done": 45,
-  "pending": 1565,
+  "done": 69,
+  "pending": 1541,
   "missing": 0
  }
 }
