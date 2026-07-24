@@ -736,9 +736,9 @@
    "prefSlug": "chiba",
    "cityCode": "12221",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "machida",
@@ -747,9 +747,9 @@
    "prefSlug": "tokyo",
    "cityCode": "13209",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "tama",
@@ -758,9 +758,9 @@
    "prefSlug": "tokyo",
    "cityCode": "13224",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yokosuka",
@@ -17714,10 +17714,10 @@
    "queueStatus": "pending"
   }
  ],
- "syncedAt": "2026-07-23",
+ "syncedAt": "2026-07-24",
  "summary": {
-  "done": 42,
-  "pending": 1568,
+  "done": 45,
+  "pending": 1565,
   "missing": 0
  }
 }
