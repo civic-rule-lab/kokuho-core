@@ -13,6 +13,9 @@
 //      humanDeductionDiff から標準3%の調整控除を自前合成する経路では掛けない。
 //   M3 supporter に本人(isStudent)を含めて合算可・収入内訳/householdSizeを正式フィールド化。
 'use strict';
+// IIFE 化: ブラウザで他エンジン（jumin.js 等）と top-level const（_isNode 等）が字句衝突するため
+// 全体を関数スコープに包む（Phase2 の vendored shaho.js と同方式・家計簿結線 2026-07-25）。Node 側は無影響。
+(function () {
 const _isNode = typeof module !== 'undefined' && !!module.exports;
 const _adjBase = _isNode ? require('./jumin.js')._adjustmentCreditBase : _adjustmentCreditBase; // 一本化: jumin の実装を使用
 
@@ -201,3 +204,4 @@ function calcShogakukin(spec, inputs) {
 
 if (_isNode) module.exports = { calcShogakukin };
 else if (typeof window !== 'undefined') window.Shogakukin = { calcShogakukin };
+})();
