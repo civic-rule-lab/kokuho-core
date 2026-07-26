@@ -7,6 +7,9 @@
 //   M4 扶養控除・特定扶養(大学生等)を jumin へ結線（dependentDeduction/dependents/specialDependentSalaries）。
 //   M3 本人(isStudent)も supporter として合算可。収入内訳・householdSize を保持。
 'use strict';
+// IIFE 化: ブラウザで jumin.js 等と top-level const（_isNode・_income 等）が字句衝突するため
+// 全体を関数スコープに包む（Phase2 の vendored shaho.js と同方式・家計簿結線 2026-07-25）。Node 側は無影響。
+(function () {
 const _isNode = typeof module !== 'undefined' && !!module.exports;
 
 const _jumin = _isNode ? require('./jumin.js') : { calculateJumin: (typeof window !== 'undefined' ? window.calculateJumin : null) };
@@ -151,3 +154,4 @@ function calcLoanFromIncome(spec, juminData, inputs) {
 
 if (_isNode) module.exports = { supporterFromIncome, calcFromIncome, calcLoanFromIncome, estimateHumanDeductionDiff };
 else if (typeof window !== 'undefined') window.ShogakukinBridge = { supporterFromIncome, calcFromIncome, calcLoanFromIncome, estimateHumanDeductionDiff };
+})();

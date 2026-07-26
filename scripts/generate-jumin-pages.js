@@ -250,6 +250,8 @@ const JS_V  = fileHash(
   path.join(ROOT, 'js', 'core', 'hoiku.js'),   // 家計簿(kakeibo)が読込むが従来ハッシュ対象外だった
   path.join(ROOT, 'js', 'core', 'shaho.js'),   // 家計簿の社会保険（会社員）結線
   path.join(ROOT, 'js', 'core', 'shotoku.js'), // 家計簿の所得税結線
+  path.join(ROOT, 'js', 'core', 'shogakukin.js'),        // 家計簿の奨学金結線（給付＋減免）
+  path.join(ROOT, 'js', 'core', 'shogakukin-bridge.js'), // 同上（年収→jumin→supporter ブリッジ）
 );
 
 // ─── ヘルパー ───
