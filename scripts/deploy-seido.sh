@@ -79,6 +79,7 @@ if echo "$HOIKU_VALIDATE" | grep -qE "❌|NG|失敗"; then
 fi
 node "$CORE_DIR/scripts/test-hoiku-verify.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 公式表照合 失敗"; exit 1; fi; }
 JUMIN_PATH="$CORE_DIR/js/core/jumin.js" node "$CORE_DIR/scripts/test-hoiku-wiring.cjs" >/dev/null 2>&1 || true
+node "$CORE_DIR/scripts/test-hoiku-selftest.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 自己テスト 失敗"; exit 1; fi; }
 echo "✅ 保育料バリデーション通過"
 echo ""
 
