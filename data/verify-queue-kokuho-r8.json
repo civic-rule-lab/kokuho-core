@@ -76,9 +76,9 @@
    "prefSlug": "wakayama",
    "cityCode": "30362",
    "tier": 1,
-   "dataStatus": "needs_update",
-   "r8Stage": "extracted_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "mihamawakayama",
@@ -12374,9 +12374,9 @@
    "prefSlug": "kanagawa",
    "cityCode": "14361",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "oi",
@@ -17716,8 +17716,8 @@
  ],
  "syncedAt": "2026-07-28",
  "summary": {
-  "done": 70,
-  "pending": 1540,
+  "done": 72,
+  "pending": 1538,
   "missing": 0
  }
 }
