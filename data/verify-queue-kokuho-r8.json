@@ -16730,9 +16730,9 @@
    "prefSlug": "nagasaki",
    "cityCode": "42391",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "shinkamigoto",
@@ -17714,10 +17714,10 @@
    "queueStatus": "pending"
   }
  ],
- "syncedAt": "2026-07-24",
+ "syncedAt": "2026-07-28",
  "summary": {
-  "done": 69,
-  "pending": 1541,
+  "done": 70,
+  "pending": 1540,
   "missing": 0
  }
 }
