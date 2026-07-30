@@ -87,9 +87,9 @@
    "prefSlug": "wakayama",
    "cityCode": "30381",
    "tier": 1,
-   "dataStatus": "needs_update",
-   "r8Stage": "source_found_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "hidakacho",
@@ -120,9 +120,9 @@
    "prefSlug": "wakayama",
    "cityCode": "30392",
    "tier": 1,
-   "dataStatus": "needs_update",
-   "r8Stage": "source_found_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kamitonda",
@@ -17714,10 +17714,10 @@
    "queueStatus": "pending"
   }
  ],
- "syncedAt": "2026-07-28",
+ "syncedAt": "2026-07-30",
  "summary": {
-  "done": 72,
-  "pending": 1538,
+  "done": 74,
+  "pending": 1536,
   "missing": 0
  }
 }
