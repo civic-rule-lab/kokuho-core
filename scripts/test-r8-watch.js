@@ -73,5 +73,18 @@ t("厚労省を除外", isMunicipalUrl("https://www.mhlw.go.jp/content/12303500/
 t("PDFを除外", isMunicipalUrl("https://www.town.yuasa.wakayama.jp/uploaded/attachment/10238.pdf") === false);
 t("市サイトHTMLは採用", isMunicipalUrl("https://www.city.dazaifu.lg.jp/site/navi/3397.html") === true);
 t("lg.jpでない市町村サイトも採用", isMunicipalUrl("https://www.fuji-oyama.jp/page/1594.html") === true);
+
+// ⑧ レポート用サニタイズ（2026-07-31: 大牟田市のベンダーURLがdenylistに一致した実害）
+console.log("⑧ 外部識別子の除去");
+const omuta = `<html><body><table>
+<tr><td>所得割</td><td>均等割</td></tr>
+<tr><td>試算システムURL ( https://example-vendor.co.jp/kokuho_omuta_R8/ ) 連絡先 foo.bar@example.com</td><td>8.0％</td></tr>
+</table></body></html>`;
+const tb8 = extractRateTables(omuta).flat().join(" ");
+t("URLを落とす", !/https?:\/\//.test(tb8), tb8);
+t("URL省略の印が入る", tb8.includes("[URL省略]"), tb8);
+t("メールを落とす", !/@example\.com/.test(tb8), tb8);
+t("料率は残る", tb8.includes("8.0"), tb8);
+
 console.log(`\n最終結果: PASS ${pass} / FAIL ${fail}`);
 process.exit(fail ? 1 : 0);
