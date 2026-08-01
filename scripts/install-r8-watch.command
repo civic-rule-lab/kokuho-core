@@ -5,6 +5,9 @@
 # - change-detector (02:01) と時間をずらしてある
 # - 当初 03:30 にしていたが、Mac の電源が落ちていると launchd は取りこぼす
 #   （スリープなら復帰時に走るが、電源オフの分は走らない）ため 09:30 に変更 (2026-08-01)
+# - インタプリタは /bin/bash 固定: launchd 起動の /bin/zsh は Desktop 配下を
+#   読めず "can't open input file" で失敗する（TCC）。bash 起動のエージェント
+#   (dashboard/weekly-tidy) は動作実績あり (2026-08-01 切り分け)
 # - 実行直後に一度走らせて当日レポートを確認する
 set -e
 
@@ -27,7 +30,7 @@ cat > "$PLIST" <<PLISTEOF
   <string>$LABEL</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/zsh</string>
+    <string>/bin/bash</string>
     <string>$CORE_DIR/scripts/run-r8-watch.sh</string>
   </array>
   <key>StartCalendarInterval</key>
@@ -50,6 +53,6 @@ launchctl load "$PLIST"
 
 echo "✅ launchd 登録完了: $LABEL（毎日 09:30）"
 echo "▶ 初回チェックを実行します…"
-/bin/zsh "$CORE_DIR/scripts/run-r8-watch.sh" || true
+/bin/bash "$CORE_DIR/scripts/run-r8-watch.sh" || true
 echo "✅ 完了。レポートは docs/change-reports/r8-watch-$(date +%Y-%m-%d).md を参照。"
 echo "   （このウィンドウは閉じて構いません）"

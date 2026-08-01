@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # run-change-detector.sh
 #
 # launchd LaunchAgent (com.user.kokuho-change-detector) から起動される
