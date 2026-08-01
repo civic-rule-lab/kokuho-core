@@ -1,8 +1,10 @@
 #!/bin/bash
 # Civic Rule Lab — R8公表検知 (r8-watch) 日次化インストーラ（ダブルクリックで実行）
-# - launchd エージェントを登録し、毎日 03:30（Mac ローカル時刻 = JST）に
+# - launchd エージェントを登録し、毎日 09:30（Mac ローカル時刻 = JST）に
 #   scripts/run-r8-watch.sh を実行する
 # - change-detector (02:01) と時間をずらしてある
+# - 当初 03:30 にしていたが、Mac の電源が落ちていると launchd は取りこぼす
+#   （スリープなら復帰時に走るが、電源オフの分は走らない）ため 09:30 に変更 (2026-08-01)
 # - 実行直後に一度走らせて当日レポートを確認する
 set -e
 
@@ -10,7 +12,7 @@ CORE_DIR="$HOME/Desktop/kokuho-core"
 LABEL="com.civicrulelab.r8-watch"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 
-echo "▶ r8-watch 日次実行（毎日 03:30）をセットアップします"
+echo "▶ r8-watch 日次実行（毎日 09:30）をセットアップします"
 
 chmod +x "$CORE_DIR/scripts/run-r8-watch.sh" 2>/dev/null || true
 
@@ -30,7 +32,7 @@ cat > "$PLIST" <<PLISTEOF
   </array>
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>3</integer>
+    <key>Hour</key><integer>9</integer>
     <key>Minute</key><integer>30</integer>
   </dict>
   <key>RunAtLoad</key>
@@ -46,7 +48,7 @@ PLISTEOF
 launchctl unload "$PLIST" 2>/dev/null || true
 launchctl load "$PLIST"
 
-echo "✅ launchd 登録完了: $LABEL（毎日 03:30）"
+echo "✅ launchd 登録完了: $LABEL（毎日 09:30）"
 echo "▶ 初回チェックを実行します…"
 /bin/zsh "$CORE_DIR/scripts/run-r8-watch.sh" || true
 echo "✅ 完了。レポートは docs/change-reports/r8-watch-$(date +%Y-%m-%d).md を参照。"
