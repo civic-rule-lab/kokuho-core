@@ -54,3 +54,4 @@ CLAUDE.md.bak-*
 .DS_Store
 dashboard/index.html
 docs/change-reports/r8-watch-*.md
+docs/change-reports/r8-crosscheck-*.md
