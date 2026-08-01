@@ -2760,9 +2760,9 @@
    "prefSlug": "saitama",
    "cityCode": "11206",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chichibu",
@@ -2771,9 +2771,9 @@
    "prefSlug": "saitama",
    "cityCode": "11207",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "hanno",
@@ -2782,9 +2782,9 @@
    "prefSlug": "saitama",
    "cityCode": "11209",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kazo",
@@ -2793,9 +2793,9 @@
    "prefSlug": "saitama",
    "cityCode": "11210",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "honjo",
@@ -2804,9 +2804,9 @@
    "prefSlug": "saitama",
    "cityCode": "11211",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "higashimatsuyama",
@@ -2815,9 +2815,9 @@
    "prefSlug": "saitama",
    "cityCode": "11212",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "sayama",
@@ -2826,9 +2826,9 @@
    "prefSlug": "saitama",
    "cityCode": "11215",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "hanyu",
@@ -2837,9 +2837,9 @@
    "prefSlug": "saitama",
    "cityCode": "11216",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "konosu",
@@ -2848,9 +2848,9 @@
    "prefSlug": "saitama",
    "cityCode": "11217",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "fukaya",
@@ -2859,9 +2859,9 @@
    "prefSlug": "saitama",
    "cityCode": "11218",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "warabi",
@@ -2870,9 +2870,9 @@
    "prefSlug": "saitama",
    "cityCode": "11223",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "toda",
@@ -2881,9 +2881,9 @@
    "prefSlug": "saitama",
    "cityCode": "11224",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "iruma",
@@ -2892,9 +2892,9 @@
    "prefSlug": "saitama",
    "cityCode": "11225",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "asaka",
@@ -2925,9 +2925,9 @@
    "prefSlug": "saitama",
    "cityCode": "11230",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "okegawa",
@@ -2936,9 +2936,9 @@
    "prefSlug": "saitama",
    "cityCode": "11231",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kuki",
@@ -2947,9 +2947,9 @@
    "prefSlug": "saitama",
    "cityCode": "11232",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kitamoto",
@@ -2958,9 +2958,9 @@
    "prefSlug": "saitama",
    "cityCode": "11233",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yashio",
@@ -2980,9 +2980,9 @@
    "prefSlug": "saitama",
    "cityCode": "11235",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "misato",
@@ -2991,9 +2991,9 @@
    "prefSlug": "saitama",
    "cityCode": "11237",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "hasuda",
@@ -3002,9 +3002,9 @@
    "prefSlug": "saitama",
    "cityCode": "11238",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "sakado",
@@ -3013,9 +3013,9 @@
    "prefSlug": "saitama",
    "cityCode": "11239",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "satte",
@@ -3046,9 +3046,9 @@
    "prefSlug": "saitama",
    "cityCode": "11242",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yoshikawa",
@@ -3057,9 +3057,9 @@
    "prefSlug": "saitama",
    "cityCode": "11243",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "fujimino",
@@ -3068,9 +3068,9 @@
    "prefSlug": "saitama",
    "cityCode": "11245",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "shiraoka",
@@ -3079,9 +3079,9 @@
    "prefSlug": "saitama",
    "cityCode": "11246",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "choshi",
@@ -11857,9 +11857,9 @@
    "prefSlug": "saitama",
    "cityCode": "11326",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ogose",
@@ -11868,9 +11868,9 @@
    "prefSlug": "saitama",
    "cityCode": "11327",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "namegawa",
@@ -11879,9 +11879,9 @@
    "prefSlug": "saitama",
    "cityCode": "11341",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ranzan",
@@ -11890,9 +11890,9 @@
    "prefSlug": "saitama",
    "cityCode": "11342",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ogawacho",
@@ -11912,9 +11912,9 @@
    "prefSlug": "saitama",
    "cityCode": "11346",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yoshimi",
@@ -11934,9 +11934,9 @@
    "prefSlug": "saitama",
    "cityCode": "11348",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "tokigawa",
@@ -11978,9 +11978,9 @@
    "prefSlug": "saitama",
    "cityCode": "11363",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ogano",
@@ -12022,9 +12022,9 @@
    "prefSlug": "saitama",
    "cityCode": "11383",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kamisato",
@@ -12044,9 +12044,9 @@
    "prefSlug": "saitama",
    "cityCode": "11408",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "miyashiro",
@@ -12066,9 +12066,9 @@
    "prefSlug": "saitama",
    "cityCode": "11464",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "matsubushi",
@@ -12077,9 +12077,9 @@
    "prefSlug": "saitama",
    "cityCode": "11465",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "shisui",
@@ -17714,10 +17714,10 @@
    "queueStatus": "pending"
   }
  ],
- "syncedAt": "2026-07-30",
+ "syncedAt": "2026-08-01",
  "summary": {
-  "done": 74,
-  "pending": 1536,
+  "done": 110,
+  "pending": 1500,
   "missing": 0
  }
 }
