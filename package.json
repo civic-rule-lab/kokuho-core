@@ -7,7 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:calc": "node scripts/test-calc-verify.js",
+    "test:sanity": "node scripts/test-sanity-all.js",
+    "test:kouki": "node scripts/test-kouki.cjs",
+    "test:year": "node scripts/test-year-wiring.js",
+    "test:units": "node scripts/verify-units.cjs",
+    "test:integrity": "node scripts/test-integrity.js",
+    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units",
+    "test:ci": "npm run test && npm run test:integrity"
   },
   "repository": {
     "type": "git",
