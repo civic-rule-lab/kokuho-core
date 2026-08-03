@@ -55,3 +55,19 @@ CLAUDE.md.bak-*
 dashboard/index.html
 docs/change-reports/r8-watch-*.md
 docs/change-reports/r8-crosscheck-*.md
+
+# 内部向け作業規範・AI指示書（公開しない・2026-08-03）
+AGENTS.md
+docs/CLAUDE-template.md
+
+# 内部文書・方法論・監視仕様（公開しない・2026-08-03 露出事案対応。正本: kokuho-internal/docs/from-kokuho-core/）
+POLICIES.md
+docs/r8-discovery-manual.md
+docs/r8-source-survey-2026-05-15.md
+docs/r8-osaka-5cities-rates-2026-05-15.md
+docs/next-session-*.md
+docs/change-reports/
+docs/canonical/PROVENANCE.md
+workers/monitor/README.md
+workers/monitor/src/index.js
+scripts/chiba-retrofit-preflight.js
