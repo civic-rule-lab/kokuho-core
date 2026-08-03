@@ -217,6 +217,8 @@ if [ "$PUSH" = true ]; then
     "/osaka/osaka/kakeibo/|200"
     "/tokyo/shinjuku/kouki/|200"
     "/tokyo/shinjuku/kouki/income.html|200"
+    "/tokyo/kouki/|200"
+    "/tokyo/kouki/income.html|200"
     "/tokyo/shinjuku/kaigo/|200"
     "/kanagawa/yokohama/hoiku/|200"
     "/robots.txt|200"

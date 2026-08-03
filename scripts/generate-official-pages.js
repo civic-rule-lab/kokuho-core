@@ -683,6 +683,11 @@ for (const m of runTargets) {
     continue;
   }
 
+  if (!(m.systems || []).includes("kokuho")) {
+    skipped.push(`${m.cityName} (${m.citySlug}): 国保対象外のためスキップ`);
+    continue;
+  }
+
   const publishYear = m.publishYear?.kokuho ?? 2025;
   const data = loadCityDataCached(m.citySlug, publishYear);
   const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data, publishYear, regEntry: m, municipalities: registry.municipalities };

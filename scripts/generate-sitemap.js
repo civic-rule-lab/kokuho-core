@@ -57,6 +57,7 @@ for (const slug of ALL_PREF_SLUGS) {
 for (const m of registry.municipalities) {
   const prefSlug = m.prefectureSlug ?? PREF_SLUG[m.prefecture];
   if (!prefSlug) continue;
+  if (!(m.systems || []).includes("kokuho")) continue;
   const base = `${BASE_URL}/${prefSlug}/${m.citySlug}/`;
   urls.push({ loc: `${base}income.html`,  priority: "0.8", changefreq: "yearly" });
   urls.push({ loc: base,                  priority: "0.5", changefreq: "yearly" });
