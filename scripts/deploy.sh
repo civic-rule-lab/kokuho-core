@@ -264,7 +264,9 @@ if [ "$PUSH" = true ]; then
     "/kanagawa/yokohama/|200"
     "/tokyo/ota/income.html|200"
     "/hokkaido/tomari/|200"
-    "/hokkaido/tomari-kunashir/|200"
+    # 国後島の泊村(01695)は国保対象外のため #403 でページを撤去した。
+    # 撤去の事実そのものを守るため 404 を期待値にする（200 に戻ったら再生成の事故）。
+    "/hokkaido/tomari-kunashir/|404"
   )
   SMOKE_FAIL=0
   END=$((SECONDS+300))
