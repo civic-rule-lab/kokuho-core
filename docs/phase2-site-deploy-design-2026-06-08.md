@@ -7,7 +7,7 @@
 
 ---
 
-## 0. このセッションで確定した方針
+## 0. 確定した方針
 
 | 論点 | 決定 | 根拠 |
 |------|------|------|
@@ -111,9 +111,8 @@ seido-keisan.jp  → Cloudflare（DNS/proxy 前段）→ GitHub Pages（origin�
 
 5. **untracked混入ガード（横浜事案対策）はそのまま流用**
 
-### 3-4. 分担（確立済みSOP）
-- **Cowork**: データ/spec/検証/設計/handoff
-- **Code**: 生成＋commit＋PR＋deploy.sh 実行（`git push` だけでは本番反映されない）
+### 3-4. デプロイ手順
+- 生成 → commit → PR → deploy.sh 実行（`git push` だけでは本番反映されない）
 
 ---
 
@@ -206,4 +205,4 @@ seido-keisan.jp  → Cloudflare（DNS/proxy 前段）→ GitHub Pages（origin�
 
 ---
 
-*Civic Rule Lab / Cowork mode — 2026-06-08*
+*Civic Rule Lab — 2026-06-08*

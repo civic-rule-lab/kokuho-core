@@ -71,3 +71,8 @@ docs/canonical/PROVENANCE.md
 workers/monitor/README.md
 workers/monitor/src/index.js
 scripts/chiba-retrofit-preflight.js
+
+scripts/weekly-tidy.js
+PR_kosen13_20260720.sh
+PR_test_bridge_hitorioya_20260721.sh
+commit_dashboard_cleanup_20260721.sh
