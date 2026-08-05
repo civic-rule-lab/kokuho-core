@@ -1099,9 +1099,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40203",
    "tier": 3,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "saga",
@@ -7006,9 +7006,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40202",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "nogata",
@@ -7017,9 +7017,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40204",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "iizuka",
@@ -7028,9 +7028,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40205",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "tagawa",
@@ -7039,9 +7039,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40206",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yanagawa",
@@ -7050,9 +7050,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40207",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yame",
@@ -7061,9 +7061,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40210",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chikugo",
@@ -7083,9 +7083,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40212",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "yukuhashi",
@@ -7094,9 +7094,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40213",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "buzen",
@@ -7105,9 +7105,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40214",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "nakama",
@@ -7116,9 +7116,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40215",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ogori",
@@ -7127,9 +7127,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40216",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chikushino",
@@ -7138,9 +7138,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40217",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kasuga",
@@ -7149,9 +7149,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40218",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "onojo",
@@ -7160,9 +7160,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40219",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "munakata",
@@ -7182,9 +7182,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40221",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "koga",
@@ -7204,9 +7204,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40224",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ukiha",
@@ -7215,9 +7215,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40225",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "miyawaka",
@@ -7237,9 +7237,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40227",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "asakura",
@@ -7259,9 +7259,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40229",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "itoshima",
@@ -7270,9 +7270,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40230",
    "tier": 4,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "nakagawashi",
@@ -16213,9 +16213,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40341",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "sasaguri",
@@ -16224,9 +16224,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40342",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "shime",
@@ -16235,9 +16235,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40343",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "sue",
@@ -16246,9 +16246,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40344",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "shingu",
@@ -16257,9 +16257,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40345",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "hisayama",
@@ -16279,9 +16279,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40349",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "ashiya",
@@ -16290,9 +16290,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40381",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "mizumaki",
@@ -16301,9 +16301,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40382",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "okagaki",
@@ -16312,9 +16312,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40383",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "onga",
@@ -16334,9 +16334,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40401",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kurate",
@@ -16356,9 +16356,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40421",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chikuzen",
@@ -16411,9 +16411,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40544",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "kawara",
@@ -16422,9 +16422,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40601",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "soeda",
@@ -16433,9 +16433,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40602",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "itoda",
@@ -16455,9 +16455,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40605",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "oto",
@@ -16521,9 +16521,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40642",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "koge",
@@ -16532,9 +16532,9 @@
    "prefSlug": "fukuoka",
    "cityCode": "40646",
    "tier": 5,
-   "dataStatus": "provisional",
-   "r8Stage": "standard_r8",
-   "queueStatus": "pending"
+   "dataStatus": "verified",
+   "r8Stage": "verified_r8",
+   "queueStatus": "done"
   },
   {
    "slug": "chikujo",
@@ -17714,10 +17714,10 @@
    "queueStatus": "pending"
   }
  ],
- "syncedAt": "2026-08-01",
+ "syncedAt": "2026-08-05",
  "summary": {
-  "done": 110,
-  "pending": 1500,
+  "done": 148,
+  "pending": 1462,
   "missing": 0
  }
 }
