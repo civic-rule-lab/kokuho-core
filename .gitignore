@@ -76,3 +76,18 @@ scripts/weekly-tidy.js
 PR_kosen13_20260720.sh
 PR_test_bridge_hitorioya_20260721.sh
 commit_dashboard_cleanup_20260721.sh
+
+# --- internal ops (removed from history 2026-08-11; kept locally, never commit) ---
+scripts/change-detector.js
+scripts/r8-watch.js
+scripts/run-r8-watch.sh
+scripts/dashboard.js
+scripts/install-dashboard.command
+scripts/open-dashboard.sh
+scripts/refresh-dashboard.sh
+scripts/lib/observations.js
+data/url-hashes/
+dashboard/
+.omc/
+.codex/
+.session/
