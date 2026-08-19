@@ -29,6 +29,10 @@ import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
+// 出力先だけを差し替えられるようにする（既定 = リポジトリ直下 ＝ 従来どおり）。
+// 例: GEN_OUT_DIR=/tmp/preview node scripts/generate-official-pages.js adachi
+// サンプル数枚を目視したいだけのときに作業ツリーを 1,700 ファイル dirty にしないため。
+const OUT_ROOT  = process.env.GEN_OUT_DIR ? path.resolve(process.env.GEN_OUT_DIR) : ROOT;
 const TMPL_DIR  = path.join(ROOT, "templates");
 const REGISTRY  = path.join(ROOT, "registry", "index.json");
 const BASE_URL  = "https://kokuho-keisan.jp";
@@ -607,6 +611,127 @@ function buildRateTable(cityName, data, publishYear) {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// 来歴（L0）— この数値の根拠を静的HTMLで出す
+//
+// なぜ静的か: AIクローラー・検索クローラーは JS を実行しない。JS で描画した
+// 出典は「読まれない出典」であり、来歴を出したことにならない（公開レイヤー設計 §1）。
+//
+// 出さない条件を明示的に持つ: 空の出典リンク／未検証を確認済みに見せる表記は、
+// 出典が無いことより信頼を損なう（規範4のサイト版）。
+// ─────────────────────────────────────────────────────────────────
+
+// 出典として外部に見せてよいホスト（自治体・公的機関のみ）。
+// ベンダー・民間サービスのURLは出さない（例規集ホスティング www1.g-reiki.net 等）。
+const PROVENANCE_HOST_PATTERNS = [
+  /\.lg\.jp$/,                                                   // 標準の自治体ドメイン
+  /\.go\.jp$/,                                                   // 国
+  /(^|\.)pref\.[a-z0-9-]+\.jp$/,                                 // www.pref.aichi.jp 等（旧型）
+  /(^|\.)(city|town|vill|village)\.[a-z0-9-]+\.[a-z0-9-]+\.jp$/, // www.city.abiko.chiba.jp 等（旧型）
+  /(^|\.)(city|town|vill|village)\.[a-z0-9-]+\.jp$/,             // www.city.nagoya.jp 等（政令市の旧型）
+];
+
+// 上のパターンには当たらないが、公的機関であることを個別に確認した独自ドメイン。
+// ★追加はオーナー判断で行うこと。民間・ベンダードメインを入れない。
+const PROVENANCE_HOST_EXTRA = new Set([
+  "www.tokyo23city-kuchokai.jp", // 特別区長会（23区統一保険料率の公表主体）
+  "www.nishi.or.jp",             // 西宮市
+  "hyugacity.jp",                // 日向市
+  "www.city-kirishima.jp",       // 霧島市
+  "www.sazacho-nagasaki.jp",     // 佐々町
+  "www.shinhidaka-hokkaido.jp",  // 新ひだか町
+  "www.joho.tagawa.fukuoka.jp",  // 田川市
+  "www.town-kawasaki.com",       // 川崎町（福岡県）— 2026-08-07 オーナーが実画面で公式と確認
+]);
+
+// 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
+const provenanceRejectedHosts = new Map();
+
+function isPublicSourceUrl(u) {
+  if (!u || typeof u !== "string") return false;
+  let host;
+  try {
+    const parsed = new URL(u);
+    if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return false;
+    host = parsed.hostname.toLowerCase();
+  } catch { return false; }
+  if (PROVENANCE_HOST_EXTRA.has(host)) return true;
+  if (PROVENANCE_HOST_PATTERNS.some((re) => re.test(host))) return true;
+  provenanceRejectedHosts.set(host, (provenanceRejectedHosts.get(host) ?? 0) + 1);
+  return false;
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+// publishedAt / verifiedAt は "2026-04-01" / "2026-03" / "2026" が実在する。
+// 想定外の形式は日付として描画しない（勝手に補完しない）。
+function fmtSourceDate(s) {
+  if (!s || typeof s !== "string") return null;
+  let m;
+  if ((m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s))) return `${m[1]}年${Number(m[2])}月${Number(m[3])}日`;
+  if ((m = /^(\d{4})-(\d{2})$/.exec(s)))          return `${m[1]}年${Number(m[2])}月`;
+  if ((m = /^(\d{4})$/.exec(s)))                  return `${m[1]}年`;
+  return null;
+}
+
+function buildProvenance(data, cityName, prefecture, publishYear) {
+  if (!data) return "";
+
+  const src = data.meta?.source ?? {};
+  const lc  = data.meta?.lifecycle ?? {};
+  const isStandard = lc.r8Stage === "standard_r8" || src.type === "prefecture_standard";
+
+  // source.url を主、無ければ lifecycle.sourceUrls の先頭の「公的な」URL を補助に使う。
+  // （秦野市のように status=verified でも source.url が空のデータが実在する）
+  const candidates = [src.url, ...(Array.isArray(lc.sourceUrls) ? lc.sourceUrls : [])];
+  const url = candidates.find((u) => isPublicSourceUrl(u)) ?? null;
+  const title = typeof src.title === "string" ? src.title.trim() : "";
+
+  // 出典が一つも示せないなら節ごと出さない（空リンクは出典が無いことより悪い）
+  if (!url) return "";
+
+  const publishedAt = fmtSourceDate(src.publishedAt);
+  const linkText = escapeHtml(title || "公式ページ");
+  const pStyle = "margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;";
+  const lines = [];
+
+  lines.push(
+    `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
+    (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
+  );
+
+  // 確認状態は data の実態どおりに書き分ける。verified でないものを確認済みに見せない。
+  const verifiedAt = fmtSourceDate(lc.verifiedAt);
+  if (isStandard) {
+    lines.push(
+      `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
+      `この料率は${escapeHtml(prefecture)}が公表した標準保険料率（参考値）です。` +
+      `${escapeHtml(cityName)}が告示する確定料率は Civic Rule Lab が確認作業中です。</p>`
+    );
+  } else if (data.meta?.status === "verified" && verifiedAt) {
+    lines.push(
+      `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
+      `最終確認: ${verifiedAt} — Civic Rule Lab が上記の一次資料と照合しました。</p>`
+    );
+  } else {
+    lines.push(
+      `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
+      `${escapeHtml(buildFiscalYearLabel(publishYear))}の確定料率は Civic Rule Lab が確認作業中です。` +
+      `上記の出典で最新の内容をご確認ください。</p>`
+    );
+  }
+
+  return `
+  <section class="provenance" style="margin-top:12px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="font-size:13px;font-weight:700;color:#374151;margin:0 0 8px;">この数値の根拠</h2>
+    ${lines.join("\n    ")}
+  </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
 // render
 // ─────────────────────────────────────────────────────────────────
 
@@ -615,7 +740,8 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
   const faq            = isIncome ? { html: "", entity: null } : buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalities);
   const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear, faq.entity ? [faq.entity] : []);
-  const rateTable      = buildRateTable(cityName, data, publishYear);
+  const rateTable      = buildRateTable(cityName, data, publishYear)
+                       + buildProvenance(data, cityName, prefecture, publishYear);
   const calcExamples   = isIncome ? "" : (
     buildCalcExamples(cityName, data, publishYear) +
     buildRateChangeSection(cityName, citySlug, data, publishYear) +
@@ -692,7 +818,7 @@ for (const m of runTargets) {
   const data = loadCityDataCached(m.citySlug, publishYear);
   const ctx  = { citySlug: m.citySlug, cityName: m.cityName, prefecture: m.prefecture, prefSlug, data, publishYear, regEntry: m, municipalities: registry.municipalities };
 
-  const dir = path.join(ROOT, prefSlug, m.citySlug);
+  const dir = path.join(OUT_ROOT, prefSlug, m.citySlug);
   mkdirSync(dir, { recursive: true });
 
   writeFileSync(path.join(dir, "index.html"),  render(tmplSimple, { ...ctx, isIncome: false }), "utf-8");
@@ -707,10 +833,19 @@ const tmplHash = fileHash(
   path.join(TMPL_DIR, "kokuho-income.html"),
   path.join(TMPL_DIR, "prefecture-page.html")
 );
-writeFileSync(path.join(ROOT, ".build-stamp"), tmplHash, "utf-8");
+writeFileSync(path.join(OUT_ROOT, ".build-stamp"), tmplHash, "utf-8");
 
 console.log(`\n✅ ${generated}自治体の正式版ページを生成しました`);
-console.log(`   出力先: {都道府県スラグ}/{自治体スラグ}/index.html & income.html`);
+console.log(`   出力先: ${OUT_ROOT}/{都道府県スラグ}/{自治体スラグ}/index.html & income.html`);
+
+// 出典として描画しなかったホスト（自治体・公的機関と判定できなかったもの）を明示する。
+// 黙って落とすと「出典が無い自治体」と「出典を弾いた自治体」が区別できなくなる。
+if (provenanceRejectedHosts.size > 0) {
+  console.warn(`\n⚠️  出典リンクを描画しなかったホスト（要判断: 公的なら PROVENANCE_HOST_EXTRA に追加）:`);
+  for (const [h, n] of [...provenanceRejectedHosts.entries()].sort((a, b) => b[1] - a[1])) {
+    console.warn(`   ${h} (${n}件)`);
+  }
+}
 
 if (skipped.length > 0) {
   console.warn(`\n⚠️  スキップ:`);
