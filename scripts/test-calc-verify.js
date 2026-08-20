@@ -665,6 +665,60 @@ const TEST_SUITES = [
       },
     ],
   },
+  // ============================================================
+  // 昭島市: 自治体独自の学齢児軽減(schoolReduction) × 法定軽減
+  //   制度: 法定軽減(7/5/2割)が適用される世帯では「軽減後の均等割額」に独自率を掛ける。
+  //     未就学児軽減と同じ考え方（厚労省の8.5割ルール）。乗算なので順序不問。
+  //   旧実装は (1 - reductionRate) を掛けておらず、軽減率+独自率が100%を超えて
+  //     他の被保険者分まで食いつぶし、7割軽減世帯で医療分・支援分が0円に張り付いていた。
+  //   修正: kokuho.js の schoolReduction に (1 - reductionRate) を乗算（2026-08-19）。
+  // ============================================================
+  {
+    slug: "akishima",
+    year: 2026,   // ★ suite.year の既定は 2025。R8データで検証するので明示必須
+    label: "昭島市（独自の学齢児軽減 × 法定軽減の重ね掛け）",
+    cases: [
+      {
+        label: "school_7ten: 親1+学齢児2・7割軽減（軽減後の額に独自5割＝合計8.5割）",
+        note:  "学齢児軽減=round(2×28,000×0.3×0.5)=8,400 / round(2×12,000×0.3×0.5)=3,600。" +
+               "医療=84,000×0.3-8,400=16,800、支援=36,000×0.3-3,600=7,200。" +
+               "パッチ前は軽減前額の5割(40,000)を引き、医療・支援とも0円に張り付いていた",
+        input: { income: 400_000, family: 3, preschool: 0, under18: 2, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 16800, support: 7200, total: 29100, reductionLabel: "7割軽減" },
+        source: "手計算＋昭島市の独自減免（未就学児を除く18歳未満の医療・支援均等割を5割減額）",
+      },
+      {
+        label: "school_5ten: 親1+学齢児2・5割軽減",
+        note:  "学齢児軽減=round(2×28,000×0.5×0.5)=14,000 / round(2×12,000×0.5×0.5)=6,000（計20,000）",
+        input: { income: 1_000_000, family: 3, preschool: 0, under18: 2, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 61630, support: 24825, total: 106355, reductionLabel: "5割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "school_2ten: 親1+学齢児2・2割軽減",
+        note:  "学齢児軽減=round(2×28,000×0.8×0.5)=22,400 / round(2×12,000×0.8×0.5)=9,600（計32,000）",
+        input: { income: 1_600_000, family: 3, preschool: 0, under18: 2, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 113830, support: 45525, total: 196355, reductionLabel: "2割軽減" },
+        source: "手計算",
+      },
+      {
+        label: "school_none: 親1+学齢児2・軽減なし（★パッチ前後で同値＝非回帰の確認）",
+        note:  "reductionRate=0 なので (1-0)=1。学齢児軽減=40,000 のままでパッチ前と一致する",
+        input: { income: 4_000_000, family: 3, preschool: 0, under18: 2, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 266630, support: 104325, total: 459355, reductionLabel: "軽減なし" },
+        source: "手計算",
+      },
+      {
+        label: "school_preschool_mix: 親1+未就学児1+学齢児1・7割軽減（対象の切り分け・パッチ前は15,100円）",
+        note:  "schoolSafe = under18(2) - preschool(1) = 1。未就学児は preschoolReduction 側、" +
+               "学齢児は schoolReduction 側で、どちらも同率0.5なので合計は学齢児2人ケースと一致する。" +
+             "パッチ前は医療7,000/支援3,000/計15,100円だった",
+        input: { income: 400_000, family: 3, preschool: 1, under18: 2, care: 1, salaryPensionCount: 1 },
+        expected: { medical: 16800, support: 7200, total: 29100, reductionLabel: "7割軽減" },
+        source: "手計算",
+      },
+    ],
+  },
 ];
 
 // ─── テスト実行 ────────────────────────────────────────────────
