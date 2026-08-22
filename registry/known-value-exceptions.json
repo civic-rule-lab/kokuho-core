@@ -1,0 +1,83 @@
+{
+  "note": "validate-kokuho-data.js の範囲チェック・必須フィールドチェックで ERROR となる値のうち、既知のものを WARN へ降格するリスト。値そのものは書き換えない。記録した value と現在値が一致する場合のみ降格し、値が動けば再び ERROR になる。照合が済んだエントリは削除する。",
+  "updatedAt": "2026-08-22",
+  "exceptions": [
+    {
+      "citySlug": "tonaki",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.1898,
+      "reason": "一次資料と全行照合のうえ値を確認済（2026-08-20）"
+    },
+    {
+      "citySlug": "tonaki",
+      "year": 2026,
+      "field": "rate.support",
+      "value": 0.0671,
+      "reason": "一次資料と全行照合のうえ値を確認済（2026-08-20）"
+    },
+    {
+      "citySlug": "tarama",
+      "year": 2026,
+      "field": "rate.care",
+      "value": 0.0483,
+      "reason": "一次資料と全行照合のうえ値を確認済（2026-08-20）"
+    },
+    {
+      "citySlug": "kasagi",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.0084,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "kawauchi",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.0147,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "katsurao",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.0105,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "yamada",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.0197,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "tanohata",
+      "year": 2026,
+      "field": "rate.medical",
+      "value": 0.0126,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "zama",
+      "year": 2026,
+      "field": "household.medical",
+      "value": null,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "zama",
+      "year": 2026,
+      "field": "household.support",
+      "value": null,
+      "reason": "一次資料との照合が未了"
+    },
+    {
+      "citySlug": "zama",
+      "year": 2026,
+      "field": "household.care",
+      "value": null,
+      "reason": "一次資料との照合が未了"
+    }
+  ]
+}

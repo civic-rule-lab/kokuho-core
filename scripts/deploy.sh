@@ -1,6 +1,6 @@
 #!/bin/bash
 # deploy.sh
-# kokuho-core (private) で生成したファイルを kokuho-keisan (public) へ反映する
+# kokuho-core (public) で生成したファイルを kokuho-keisan (public) へ反映する
 #
 # 使い方:
 #   bash scripts/deploy.sh               # バリデーション → 生成 → 同期 → コミット
@@ -37,7 +37,9 @@ echo ""
 # ── 0. バリデーション ────────────────────────────────────────────
 if true; then
   echo "▶ validate-kokuho-data.js"
-  VALIDATE_OUTPUT=$(node "$CORE_DIR/scripts/validate-kokuho-data.js" 2>&1)
+  # validator は ERROR 時に exit 1 を返すため、set -e で即死しないよう || true を付ける。
+  # 判定は下の出力 grep で行う。
+  VALIDATE_OUTPUT=$(node "$CORE_DIR/scripts/validate-kokuho-data.js" 2>&1) || true
   echo "$VALIDATE_OUTPUT" | tail -5
   if echo "$VALIDATE_OUTPUT" | grep -q "❌ ERROR: [^0]"; then
     echo ""
