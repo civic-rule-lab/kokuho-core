@@ -8,7 +8,9 @@
  *   [感覚] 所得割・均等割が都道府県内の中央値から大きく外れていないか
  *   [R8 lifecycle] meta.lifecycle.* の型/enum 認識（cross-field rule は test-integrity 側）
  *   [schoolReduction] schoolReduction.* の型認識（昭島市等の独自減免）
- *   [R8 reduction] kokuho-2026.json の reduction.standards が R8 国基準 (310000/570000) か照合（issue #6）
+ *   [R8 全体] kokuho-2026.json にも同じ構造・数値範囲チェックを適用（軽減基準・上限は年度で切替）
+ *   [逆転] 医療分 < 支援分 の逆転を WARN で可視化（範囲チェックでは検出できない取り違え）
+ *   [既知例外] registry/known-value-exceptions.json に登録済みの値は WARN へ降格
  *
  * 実行: node scripts/validate-kokuho-data.js
  */
@@ -24,6 +26,48 @@ const REGISTRY_PATH = path.join(ROOT, "registry", "index.json");
 
 const registry = JSON.parse(readFileSync(REGISTRY_PATH, "utf-8"));
 
+// ─── 既知例外リスト（ERROR → WARN 降格）───────────────────────
+// 値は書き換えず、既知の値だけを降格する allowlist。
+// 記録した値と現在値が一致する場合のみ降格する（値が動いたら再び ERROR）。
+const EXCEPTIONS_PATH = path.join(ROOT, "registry", "known-value-exceptions.json");
+const exceptionMap = new Map();
+const exceptionUsed = new Set();
+if (existsSync(EXCEPTIONS_PATH)) {
+  try {
+    const ex = JSON.parse(readFileSync(EXCEPTIONS_PATH, "utf-8"));
+    for (const e of ex.exceptions || []) {
+      exceptionMap.set(`${e.citySlug}|${e.year}|${e.field}`, e);
+    }
+  } catch (e) {
+    console.log(`  ⚠️  known-value-exceptions.json の読込に失敗: ${e.message}`);
+  }
+}
+
+// 医療分 < 支援分 の逆転を全国集計するためのバッファ
+const crossFieldHits = [];
+
+function getPath(obj, key) {
+  return key.split(".").reduce((o, k) => o?.[k], obj);
+}
+
+// issues のうち、既知例外に一致するものを WARN へ降格する
+function applyExceptions(slug, year, data, issues) {
+  return issues.map((i) => {
+    if (!i.field) return i;
+    if (i.level !== "ERROR") return i;
+    const e = exceptionMap.get(`${slug}|${year}|${i.field}`);
+    if (!e) return i;
+    const actual = getPath(data, i.field);
+    const matches =
+      e.value === null || e.value === undefined
+        ? actual === undefined || actual === null
+        : actual === e.value;
+    if (!matches) return i;
+    exceptionUsed.add(`${slug}|${year}|${i.field}`);
+    return { level: "WARN", field: i.field, msg: `[既知例外] ${i.msg} — ${e.reason}` };
+  });
+}
+
 let errors = 0;
 let warnings = 0;
 const results = [];
@@ -37,7 +81,7 @@ for (const m of registry.municipalities) {
 }
 
 // ─── バリデーション関数 ────────────────────────────────────────
-function check(slug, data, pref) {
+function check(slug, data, pref, year = 2025) {
   const issues = [];
 
   // 必須フィールド
@@ -58,7 +102,7 @@ function check(slug, data, pref) {
   for (const key of required) {
     const val = key.split(".").reduce((o, k) => o?.[k], data);
     if (val === undefined || val === null) {
-      issues.push({ level: "ERROR", msg: `必須フィールド不足: ${key}` });
+      issues.push({ level: "ERROR", field: key, msg: `必須フィールド不足: ${key}` });
     }
   }
 
@@ -71,21 +115,36 @@ function check(slug, data, pref) {
   // 所得割率（%換算で確認）
   if (r.medical !== undefined) {
     if (r.medical < 0.02 || r.medical > 0.15)
-      issues.push({ level: "ERROR", msg: `medical所得割 異常値: ${(r.medical*100).toFixed(2)}%` });
+      issues.push({ level: "ERROR", field: "rate.medical", msg: `medical所得割 異常値: ${(r.medical*100).toFixed(2)}%` });
     else if (r.medical < 0.04 || r.medical > 0.12)
-      issues.push({ level: "WARN",  msg: `medical所得割 要確認: ${(r.medical*100).toFixed(2)}%` });
+      issues.push({ level: "WARN",  field: "rate.medical", msg: `medical所得割 要確認: ${(r.medical*100).toFixed(2)}%` });
   }
   if (r.support !== undefined) {
     if (r.support < 0.005 || r.support > 0.06)
-      issues.push({ level: "ERROR", msg: `support所得割 異常値: ${(r.support*100).toFixed(2)}%` });
+      issues.push({ level: "ERROR", field: "rate.support", msg: `support所得割 異常値: ${(r.support*100).toFixed(2)}%` });
     else if (r.support < 0.01 || r.support > 0.04)
-      issues.push({ level: "WARN",  msg: `support所得割 要確認: ${(r.support*100).toFixed(2)}%` });
+      issues.push({ level: "WARN",  field: "rate.support", msg: `support所得割 要確認: ${(r.support*100).toFixed(2)}%` });
   }
   if (r.care !== undefined && r.care > 0) {
     if (r.care < 0.002 || r.care > 0.04)
-      issues.push({ level: "ERROR", msg: `care所得割 異常値: ${(r.care*100).toFixed(2)}%` });
+      issues.push({ level: "ERROR", field: "rate.care", msg: `care所得割 異常値: ${(r.care*100).toFixed(2)}%` });
     else if (r.care < 0.005)
-      issues.push({ level: "WARN",  msg: `care所得割 低値・要確認: ${(r.care*100).toFixed(2)}%` });
+      issues.push({ level: "WARN",  field: "rate.care", msg: `care所得割 低値・要確認: ${(r.care*100).toFixed(2)}%` });
+  }
+
+  // ─── 医療分 < 支援分 の逆転 ──────────────────────────────────
+  // 医療給付費分は後期高齢者支援金分より大きいのが通例で、逆転は全国の
+  // 1%未満しか存在しない。値が範囲内に収まっていても取り違えていれば
+  // 範囲チェックでは検出できないため、別の軸として持つ。
+  for (const [group, label] of [["rate", "所得割"], ["perCapita", "均等割"], ["household", "平等割"]]) {
+    const g = data[group] || {};
+    if (typeof g.medical !== "number" || typeof g.support !== "number") continue;
+    if (g.support <= 0) continue;
+    if (g.medical < g.support) {
+      const fmt = (v) => (group === "rate" ? `${(v * 100).toFixed(2)}%` : `${v.toLocaleString()}円`);
+      issues.push({ level: "WARN", field: `${group}.medical`, msg: `医療分 < 支援分（${label}）: 医療 ${fmt(g.medical)} < 支援 ${fmt(g.support)}` });
+      crossFieldHits.push(`${year} ${pref} ${data.cityName || slug}(${slug}) ${label}: 医療 ${fmt(g.medical)} < 支援 ${fmt(g.support)}`);
+    }
   }
 
   // 均等割（perCapita）
@@ -101,8 +160,12 @@ function check(slug, data, pref) {
     issues.push({ level: "WARN", msg: `medical平等割 大きい: ${h.medical.toLocaleString()}円` });
 
   // 上限額
-  if (c.medical !== undefined && (c.medical < 580000 || c.medical > 660000))
-    issues.push({ level: "WARN", msg: `medical上限 要確認: ${c.medical.toLocaleString()}円` });
+  // 賦課限度額（医療給付費分）の許容域は年度で異なる。
+  // R7 = 58万〜66万 / R8 = 66万〜68万（R8データの実分布: 670,000が1,508件・660,000が223件）
+  const CAP_MED_MIN = year >= 2026 ? 660000 : 580000;
+  const CAP_MED_MAX = year >= 2026 ? 680000 : 660000;
+  if (c.medical !== undefined && (c.medical < CAP_MED_MIN || c.medical > CAP_MED_MAX))
+    issues.push({ level: "WARN", field: "caps.medical", msg: `medical上限 要確認: ${c.medical.toLocaleString()}円（許容 ${CAP_MED_MIN.toLocaleString()}〜${CAP_MED_MAX.toLocaleString()}）` });
   if (c.support !== undefined && (c.support < 190000 || c.support > 260000))
     issues.push({ level: "WARN", msg: `support上限 要確認: ${c.support.toLocaleString()}円` });
   if (c.care !== undefined && c.care !== 170000)
@@ -117,12 +180,15 @@ function check(slug, data, pref) {
     issues.push({ level: "ERROR", msg: `citySlug 不一致: JSON="${data.citySlug}" vs dir="${slug}"` });
 
   // 軽減基準（R7標準値との照合）
+  // 軽減判定の国基準は年度で異なる（R7: 305,000/560,000 → R8: 310,000/570,000）
   const std = data.reduction?.standards;
+  const FIVE_BASE = year >= 2026 ? 310000 : 305000;
+  const TWO_BASE  = year >= 2026 ? 570000 : 560000;
   if (std) {
-    if (std.fiveTenths?.perPersonAdd !== 305000)
-      issues.push({ level: "WARN", msg: `5割軽減perPersonAdd 非標準: ${std.fiveTenths?.perPersonAdd?.toLocaleString()}` });
-    if (std.twoTenths?.perPersonAdd !== 560000)
-      issues.push({ level: "WARN", msg: `2割軽減perPersonAdd 非標準: ${std.twoTenths?.perPersonAdd?.toLocaleString()}` });
+    if (std.fiveTenths?.perPersonAdd !== FIVE_BASE)
+      issues.push({ level: "WARN", msg: `5割軽減perPersonAdd 非標準: ${std.fiveTenths?.perPersonAdd?.toLocaleString()}（期待 ${FIVE_BASE.toLocaleString()}）` });
+    if (std.twoTenths?.perPersonAdd !== TWO_BASE)
+      issues.push({ level: "WARN", msg: `2割軽減perPersonAdd 非標準: ${std.twoTenths?.perPersonAdd?.toLocaleString()}（期待 ${TWO_BASE.toLocaleString()}）` });
   }
   if (data.reduction?.salaryPensionAdd !== 100000)
     issues.push({ level: "WARN", msg: `salaryPensionAdd 非標準: ${data.reduction?.salaryPensionAdd?.toLocaleString()}` });
@@ -170,11 +236,18 @@ function check(slug, data, pref) {
     if (typeof lifecycle !== "object" || Array.isArray(lifecycle) || lifecycle === null) {
       issues.push({ level: "ERROR", msg: `meta.lifecycle は object 必須: ${typeof lifecycle}` });
     } else {
-      const R8_STAGE_ENUM = ["template_r7", "source_found_r8", "extracted_r8", "tested_r8", "verified_r8"];
+      // "standard_r8" = 県標準保険料率をそのまま採用した段階。
+      // generate-official-pages.js / change-detector.js / r8-watch.js /
+      // test-integrity.js が参照する正規値。
+      const R8_STAGE_ENUM = ["template_r7", "source_found_r8", "extracted_r8", "standard_r8", "tested_r8", "verified_r8"];
       const SOURCE_STATUS_ENUM = [
         "official_rate_page", "official_rate_pdf", "ordinance_after_revision", "official_final_notice",
         "council_bill", "proposal_pdf", "draft_revision", "budget_material", "press_release",
         "no_r8_source", "secondary_source", "unclear_source",
+        // 県標準保険料率の採用形態（apply-*-standard-r8.py / generate-*-kokuho.js 由来）
+        "prefecture_standard_municipal_list", "prefecture_standard_p3",
+        "prefecture_standard_municipal_method", "prefecture_standard_municipal_basis",
+        "prefecture_standard_unified", "previous_year_carryover",
       ];
 
       if (lifecycle.r8Stage !== undefined && !R8_STAGE_ENUM.includes(lifecycle.r8Stage)) {
@@ -214,7 +287,7 @@ function check(slug, data, pref) {
 
 // ─── メイン処理 ────────────────────────────────────────────────
 console.log("\n" + "=".repeat(70));
-console.log("kokuho-2025.json バリデーション");
+console.log("kokuho-2025.json / kokuho-2026.json バリデーション");
 console.log("=".repeat(70));
 
 for (const [pref, municipalities] of Object.entries(byPref)) {
@@ -246,12 +319,36 @@ for (const [pref, municipalities] of Object.entries(byPref)) {
       continue;
     }
 
-    const issues = check(slug, data, pref);
+    const issues = applyExceptions(slug, 2025, data, check(slug, data, pref, 2025));
     if (issues.length > 0) {
       prefErrors.push({ slug, name: m.cityName, issues });
       for (const i of issues) {
         if (i.level === "ERROR") errors++;
         else warnings++;
+      }
+    }
+
+    // ─── R8 (kokuho-2026.json) にも同じ検査を適用 ───────────────
+    // ファイル不在の自治体は skip（R8 データ未作成）。
+    const r8Path = path.join(DATA_DIR, slug, "kokuho-2026.json");
+    if (existsSync(r8Path)) {
+      let r8data = null;
+      try {
+        r8data = JSON.parse(readFileSync(r8Path, "utf-8"));
+      } catch (e) {
+        prefErrors.push({ slug, name: `${m.cityName} [R8]`, issues: [{ level: "ERROR", msg: `JSON parse error: ${e.message}` }] });
+        errors++;
+      }
+      if (r8data) {
+        const r8issues = applyExceptions(slug, 2026, r8data, check(slug, r8data, pref, 2026))
+          .map((i) => ({ level: i.level, field: i.field, msg: `[R8] ${i.msg}` }));
+        if (r8issues.length > 0) {
+          prefErrors.push({ slug, name: `${m.cityName} [R8]`, issues: r8issues });
+          for (const i of r8issues) {
+            if (i.level === "ERROR") errors++;
+            else warnings++;
+          }
+        }
       }
     }
   }
@@ -348,40 +445,22 @@ if (unregistered.length > 0) {
   }
 }
 
-// ─── R8 軽減基準の個別チェック（kokuho-2026.json 対象、issue #6 完結用） ──
-// validator の主要 check() は kokuho-2025.json (R7) を対象とするため、
-// R8 baseline 移行後は kokuho-2026.json の reduction.standards も
-// R8 国基準 (5割: 310000, 2割: 570000) であることを別途確認する。
-// 既存 R7 baseline check は影響を受けない（surgical addition）。
-const R8_FIVE_BASELINE = 310000;
-const R8_TWO_BASELINE  = 570000;
-const r8ReductionIssues = [];
+// ─── (旧) R8 軽減基準の個別チェックは check(..., 2026) に統合済み ────────
 
-for (const m of registry.municipalities) {
-  if (!Array.isArray(m.systems) || !m.systems.includes("kokuho")) continue;
-  const r8path = path.join(DATA_DIR, m.citySlug, "kokuho-2026.json");
-  if (!existsSync(r8path)) continue;
-  let r8data;
-  try { r8data = JSON.parse(readFileSync(r8path, "utf-8")); }
-  catch { continue; }
-  const std = r8data.reduction?.standards;
-  if (!std) continue;
-  const five = std.fiveTenths?.perPersonAdd;
-  const two  = std.twoTenths?.perPersonAdd;
-  if (five !== R8_FIVE_BASELINE) {
-    r8ReductionIssues.push(`${m.citySlug}: 5割perPersonAdd = ${five?.toLocaleString()} (期待 ${R8_FIVE_BASELINE.toLocaleString()})`);
-    warnings++;
-  }
-  if (two !== R8_TWO_BASELINE) {
-    r8ReductionIssues.push(`${m.citySlug}: 2割perPersonAdd = ${two?.toLocaleString()} (期待 ${R8_TWO_BASELINE.toLocaleString()})`);
-    warnings++;
-  }
+// ─── 医療分 < 支援分 の逆転 全国集計 ──────────────────────────
+// ここに載る自治体は一次資料との照合対象。
+if (crossFieldHits.length > 0) {
+  console.log("\n【医療分 < 支援分 の逆転】");
+  crossFieldHits.forEach((h) => console.log(`  ⚠️  ${h}`));
+  console.log(`  → 計 ${crossFieldHits.length} 件。一次資料と照合すること。`);
 }
 
-if (r8ReductionIssues.length > 0) {
-  console.log("\n【R8 軽減基準 非標準（kokuho-2026.json）】");
-  r8ReductionIssues.slice(0, 20).forEach(s => console.log(`  ⚠️  ${s}`));
-  if (r8ReductionIssues.length > 20) console.log(`     ... +${r8ReductionIssues.length - 20} 件省略`);
+// ─── 使われなかった既知例外（解消済みの可能性・削除候補）─────────
+const staleExceptions = [...exceptionMap.keys()].filter((k) => !exceptionUsed.has(k));
+if (staleExceptions.length > 0) {
+  console.log("\n【既知例外リストの棚卸し（もう一致しない＝解消済みの可能性）】");
+  staleExceptions.forEach((k) => console.log(`  ⚠️  ${k} → registry/known-value-exceptions.json から削除を検討`));
+  warnings += staleExceptions.length;
 }
 
 // ─── 集計 ──────────────────────────────────────────────────────
@@ -393,4 +472,11 @@ if (errors === 0 && warnings === 0) {
   if (errors > 0)   console.log(`❌ ERROR: ${errors}件`);
   if (warnings > 0) console.log(`⚠️  WARN:  ${warnings}件`);
 }
+if (exceptionUsed.size > 0) {
+  console.log(`（既知例外リストにより ${exceptionUsed.size} 件を WARN へ降格: registry/known-value-exceptions.json）`);
+}
 console.log("=".repeat(70) + "\n");
+
+// 終了コード: ERROR があれば 1 を返す（CI のゲートに使うため）。
+// deploy.sh 側は出力 grep で判定しているため `|| true` で従来動作を保つ。
+process.exit(errors > 0 ? 1 : 0);
