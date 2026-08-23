@@ -85,6 +85,8 @@ scripts/dashboard.js
 scripts/install-dashboard.command
 scripts/open-dashboard.sh
 scripts/refresh-dashboard.sh
+scripts/pref-source-watch.js
+scripts/test-pref-source-watch.js
 scripts/lib/observations.js
 data/url-hashes/
 dashboard/
