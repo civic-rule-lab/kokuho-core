@@ -79,7 +79,10 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html"
+      ]
     },
     "source": {
       "type": "official",
