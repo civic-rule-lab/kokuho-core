@@ -643,6 +643,18 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.shinhidaka-hokkaido.jp",  // 新ひだか町
   "www.joho.tagawa.fukuoka.jp",  // 田川市
   "www.town-kawasaki.com",       // 川崎町（福岡県）— 2026-08-07 オーナーが実画面で公式と確認
+  // 2026-08-27 追加: R8昇格147件の出典ホストを許可リストへ機械照合したところ、
+  // 下記9ホストが未登録で、昇格すると来歴節が丸ごと消えることが判明した（日向市の回帰と同型）。
+  // いずれもトップページを実取得し、著作権表示・所在地から当該団体の公式サイトであることを確認済み。
+  "taisetsu-kouiki.jp",          // 大雪地区広域連合（東川町・美瑛町・東神楽町の国保の保険者）
+  "www.kesennuma.miyagi.jp",     // 気仙沼市
+  "www.kuriharacity.jp",         // 栗原市
+  "www.tomiya-city.miyagi.jp",   // 富谷市
+  "www.akitakata.jp",            // 安芸高田市
+  "www.jinsekigun.jp",           // 神石高原町
+  "www.akiota.jp",               // 安芸太田町
+  "www.akamura.net",             // 赤村（福岡県）
+  "www.fuji-oyama.jp",           // 小山町（静岡県）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
@@ -657,6 +669,10 @@ function isPublicSourceUrl(u) {
     host = parsed.hostname.toLowerCase();
   } catch { return false; }
   if (PROVENANCE_HOST_EXTRA.has(host)) return true;
+  // 罠18(2026-08-26 日向市): 出典URLが www 有/無で変わると EXTRA の登録形と食い違い、
+  // 許可されるべきホストが弾かれて来歴節が丸ごと消える。どちらの形で登録されていても通す。
+  if (host.startsWith("www.") && PROVENANCE_HOST_EXTRA.has(host.slice(4))) return true;
+  if (!host.startsWith("www.") && PROVENANCE_HOST_EXTRA.has("www." + host)) return true;
   if (PROVENANCE_HOST_PATTERNS.some((re) => re.test(host))) return true;
   provenanceRejectedHosts.set(host, (provenanceRejectedHosts.get(host) ?? 0) + 1);
   return false;
