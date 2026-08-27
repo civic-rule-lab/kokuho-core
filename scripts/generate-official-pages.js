@@ -636,6 +636,8 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.tokyo23city-kuchokai.jp", // 特別区長会（23区統一保険料率の公表主体）
   "www.nishi.or.jp",             // 西宮市
   "hyugacity.jp",                // 日向市
+  "www.hyugacity.jp",            // 日向市（www 付き）。2026-08-25 PR#422 で出典URLを www 付きへ是正した際、
+                                 // 許可ホストが旧ホスト名だけだったため出典が弾かれ、来歴節が丸ごと消えた（2026-08-26 実測・回帰）
   "www.city-kirishima.jp",       // 霧島市
   "www.sazacho-nagasaki.jp",     // 佐々町
   "www.shinhidaka-hokkaido.jp",  // 新ひだか町
