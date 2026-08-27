@@ -443,6 +443,19 @@ function buildTrustBadge(data, publishYear) {
     return "";
   }
 
+  // 2026-08-27: status を publishYear より先に見る。
+  // これが無いと、standard_r8 でありさえしなければ status=provisional でも
+  // 「✓ 公式データ確認済み」が出てしまい、同じページの buildProvenance が書く
+  // 「確定料率は Civic Rule Lab が確認作業中です」と正面から矛盾する。
+  // 実測(2026-08-27): 山形県の最上地区広域連合4町村(金山/真室川/鮭川/戸沢)は
+  // 令和7年度の料率を令和8年度の暫定値として採用している(meta.notes 明記・
+  // confidence 0.55・source.title も「令和7年度」)のに ✓ が出ていた。
+  // 「参考値」(=県の標準保険料率=理論値)と語を分けるため「暫定値」を使う。
+  if (data.meta?.status !== "verified") {
+    return `
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ ${fmtFY(publishYear)}暫定値 / 一次資料と照合中</span></p>`;
+  }
+
   if (publishYear >= currentFY) {
     return `
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(publishYear)}公式データ確認済み</span></p>`;
