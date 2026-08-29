@@ -91,3 +91,8 @@ dashboard/
 .omc/
 .codex/
 .session/
+
+# --- removed 2026-08-29 (rollback device + unused wrappers) ---
+scripts/install-r8-watch.command
+scripts/run-change-detector.sh
+scripts/test-r8-watch.js
