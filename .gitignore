@@ -96,3 +96,7 @@ dashboard/
 scripts/install-r8-watch.command
 scripts/run-change-detector.sh
 scripts/test-r8-watch.js
+
+# --- removed 2026-08-30 (retired weekly tidy check) ---
+scripts/install-weekly-tidy.command
+scripts/run-weekly-tidy.sh
