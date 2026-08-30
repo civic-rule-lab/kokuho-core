@@ -451,6 +451,23 @@ function buildTrustBadge(data, publishYear) {
   // 令和7年度の料率を令和8年度の暫定値として採用している(meta.notes 明記・
   // confidence 0.55・source.title も「令和7年度」)のに ✓ が出ていた。
   // 「参考値」(=県の標準保険料率=理論値)と語を分けるため「暫定値」を使う。
+  // 2026-08-30: 条例本文で全項目を照合したが、政令準拠で自治体裁量のない値
+  // （軽減判定所得など）だけが例規集に未収録で条文確認できない、という状態が実在する。
+  // 実測: 久山町・安芸太田町の条例がいずれも軽減判定 305,000/560,000 のまま
+  //       （令和8年度の政令は 310,000/570,000。3月31日付専決処分の反映待ち）。
+  // これを「暫定値」と呼ぶのは誤り（値は推定ではなく条例の実額）だが、
+  // 「✓ 公式データ確認済み」に含めるのも誤り（全項目を一次資料で照合できていない）。
+  // よって status は provisional のまま据え置き、専用の中間バッジを出す。
+  // ★このバッジを使ってよいのは次を満たす場合だけ:
+  //   (1) 料率・均等割・平等割・限度額・軽減規定の全項目を一次資料で照合済み
+  //       （根拠は条例／広報PDF／県の公表資料のいずれでもよい。ただし出典として表示できること）
+  //   (2) 未確認箇所が政令準拠で自治体裁量のない値に限られる
+  //   (3) 改正の存在自体が別資料（議会会議録等）で裏付けられている
+  if (data.meta?.lifecycle?.primarySourceVerified === true && data.meta?.status !== "verified") {
+    return `
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--ordinance">◐ ${fmtFY(publishYear)} 一次資料確認済み / 一部照合中</span></p>`;
+  }
+
   if (data.meta?.status !== "verified") {
     return `
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ ${fmtFY(publishYear)}暫定値 / 一次資料と照合中</span></p>`;
@@ -746,6 +763,21 @@ function buildProvenance(data, cityName, prefecture, publishYear) {
     lines.push(
       `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
       `最終確認: ${verifiedAt} — Civic Rule Lab が上記の一次資料と照合しました。</p>`
+    );
+  } else if (lc.primarySourceVerified === true) {
+    // ◐ バッジと対になる説明。バッジは短く誤読されないことを優先し、
+    // 「何を何で確認し、何が残っているか」はこちらに書く（主語を補える文脈があるため）。
+    // 根拠の種類（条例／広報PDF／県の公表資料）は自治体ごとに異なるので、
+    // 生成側は種類を書かず、具体は reflectionPendingNote に持たせる。
+    const psAt = fmtSourceDate(lc.primarySourceVerifiedAt);
+    lines.push(
+      `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
+      (psAt ? `最終確認: ${psAt} — ` : "") +
+      `Civic Rule Lab が上記の一次資料と照合しました。` +
+      (typeof lc.reflectionPendingNote === "string" && lc.reflectionPendingNote.trim()
+        ? escapeHtml(lc.reflectionPendingNote.trim())
+        : "") +
+      `</p>`
     );
   } else {
     lines.push(
