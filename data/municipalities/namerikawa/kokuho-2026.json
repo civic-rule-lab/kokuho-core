@@ -67,7 +67,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www1.g-reiki.net/city.namerikawa/reiki_honbun/i007RG00000276.html"
+        "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -76,12 +76,14 @@
       "ordinanceUrls": [
        "https://www1.g-reiki.net/city.namerikawa/reiki_honbun/i007RG00000276.html"
       ],
-      "watchUrls": []
+      "watchUrls": [
+       "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html"
+      ]
     },
     "source": {
       "type": "official",
-      "title": "滑川市国民健康保険税条例（最終改正 令和8年条例第15号）",
-      "url": "https://www1.g-reiki.net/city.namerikawa/reiki_honbun/i007RG00000276.html",
+      "title": "滑川市 国民健康保険税について",
+      "url": "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html",
       "publishedAt": "2026"
     },
     "audit": {
