@@ -685,6 +685,12 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.akiota.jp",               // 安芸太田町
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
+  // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
+  // （www.town.hodatsushimizu.lg.jp / hodatsushimizu.lg.jp / www.town.hodatsushimizu.ishikawa.jp
+  // はいずれも接続不可・実測）、追加しないと同町の来歴節が丸ごと消える（日向市の回帰と同型）。
+  // 石川県の施設案内（pref.ishikawa.lg.jp/shisetsu/09/0760.html）が本ドメインを町役場の
+  // 公式サイトとして案内しており、サイト側の自己同定と電話番号 0767-29-3111 も一致する。
+  "www.hodatsushimizu.jp",       // 宝達志水町（石川県）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
