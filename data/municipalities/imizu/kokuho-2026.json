@@ -67,7 +67,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www1.g-reiki.net/imizu/reiki_honbun/r311RG00000184.html"
+        "https://www.city.imizu.toyama.jp/guide/svGuideDtl.aspx?servno=3515"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -76,12 +76,14 @@
       "ordinanceUrls": [
        "https://www1.g-reiki.net/imizu/reiki_honbun/r311RG00000184.html"
       ],
-      "watchUrls": []
+      "watchUrls": [
+       "https://www.city.imizu.toyama.jp/guide/svGuideDtl.aspx?servno=3515"
+      ]
     },
     "source": {
       "type": "official",
-      "title": "射水市国民健康保険税条例（最終改正 令和8年6月29日条例第14号）",
-      "url": "https://www1.g-reiki.net/imizu/reiki_honbun/r311RG00000184.html",
+      "title": "射水市 国民健康保険税について",
+      "url": "https://www.city.imizu.toyama.jp/guide/svGuideDtl.aspx?servno=3515",
       "publishedAt": "2026"
     },
     "audit": {
