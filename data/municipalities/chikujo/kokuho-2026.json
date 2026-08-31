@@ -67,7 +67,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://en3-jg.d1-law.com/chikujo/d1w_reiki/H418901010069/H418901010069_j.html"
+        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/293234.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -82,8 +82,8 @@
     },
     "source": {
       "type": "official",
-      "title": "築上町国民健康保険税条例（最終改正 令和8年3月31日条例第11号）",
-      "url": "https://en3-jg.d1-law.com/chikujo/d1w_reiki/H418901010069/H418901010069_j.html",
+      "title": "福岡県 令和8年度 各市町村の実際の国民健康保険料(税)率（293234.pdf・※2）",
+      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/293234.pdf",
       "publishedAt": "2026"
     },
     "audit": {
