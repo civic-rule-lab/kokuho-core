@@ -45,6 +45,12 @@
       "expect": "宝達志水町",
       "confirmedAt": "2026-09-01",
       "basis": "石川県の施設案内 pref.ishikawa.lg.jp/shisetsu/09/0760.html が町役場の公式サイトとして案内。電話 0767-29-3111 が一致"
+    },
+    "www.shichigahama.com": {
+      "owner": "七ヶ浜町（宮城県）",
+      "expect": "七ヶ浜町",
+      "confirmedAt": "2026-09-01",
+      "basis": "トップページに町役場の住所（宮城県宮城郡七ヶ浜町東宮浜字丑谷辺5番地の1）・代表電話 022-357-2111・Copyright (C) Town of Shichigahama が一致。town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）"
     }
   }
 }
