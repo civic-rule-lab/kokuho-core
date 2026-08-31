@@ -67,7 +67,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www1.g-reiki.net/tateyama/reiki_honbun/i015RG00000127.html"
+        "https://www.town.tateyama.toyama.jp/soshikikarasagasu/zeimuka/juminzeigakari/1/3/825.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -76,12 +76,14 @@
       "ordinanceUrls": [
        "https://www1.g-reiki.net/tateyama/reiki_honbun/i015RG00000127.html"
       ],
-      "watchUrls": []
+      "watchUrls": [
+       "https://www.town.tateyama.toyama.jp/soshikikarasagasu/zeimuka/juminzeigakari/1/3/825.html"
+      ]
     },
     "source": {
       "type": "official",
-      "title": "立山町国民健康保険税条例（最終改正 令和8年条例第19号）",
-      "url": "https://www1.g-reiki.net/tateyama/reiki_honbun/i015RG00000127.html",
+      "title": "立山町 国民健康保険税について",
+      "url": "https://www.town.tateyama.toyama.jp/soshikikarasagasu/zeimuka/juminzeigakari/1/3/825.html",
       "publishedAt": "2026"
     },
     "audit": {
