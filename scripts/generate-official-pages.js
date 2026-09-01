@@ -702,6 +702,12 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // トップページに市役所の住所（北海道留萌市幸町1丁目11番地）・法人番号 2000020012122・
   // Copyright (C) RUMOI CITY があり、乗っ取りを示す語句は検出されなかった。
   "www.e-rumoi.jp",              // 留萌市（北海道）
+  // 2026-09-01 追加（オーナー承認の基準による）: 紋別市（北海道）は独自ドメインが唯一の公式サイトで、
+  // www.city.monbetsu.hokkaido.jp / www.city.monbetsu.lg.jp / www.city.mombetsu.lg.jp /
+  // city.mombetsu.hokkaido.jp はいずれも名前解決しない（実測）。
+  // トップページに市役所の住所（北海道紋別市幸町2丁目1番18号）・電話 0158-24-2111・
+  // (C) 2023 MOMBETSU CITY があり、乗っ取りを示す語句は検出されなかった。
+  "mombetsu.jp",                 // 紋別市（北海道）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
