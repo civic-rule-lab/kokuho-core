@@ -46,6 +46,12 @@
       "confirmedAt": "2026-09-01",
       "basis": "石川県の施設案内 pref.ishikawa.lg.jp/shisetsu/09/0760.html が町役場の公式サイトとして案内。電話 0767-29-3111 が一致"
     },
+    "www.e-rumoi.jp": {
+      "owner": "留萌市（北海道）",
+      "expect": "留萌市",
+      "confirmedAt": "2026-09-01",
+      "basis": "トップページに市役所の住所（北海道留萌市幸町1丁目11番地）・法人番号 2000020012122・Copyright (C) RUMOI CITY が一致。www.city.rumoi.hokkaido.jp / .lg.jp / city.rumoi.hokkaido.jp はいずれも名前解決しない（2026-09-01 実測）"
+    },
     "www.shichigahama.com": {
       "owner": "七ヶ浜町（宮城県）",
       "expect": "七ヶ浜町",
