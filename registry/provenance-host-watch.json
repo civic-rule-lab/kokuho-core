@@ -95,61 +95,61 @@
       "owner": "宝達志水町（石川県）",
       "expect": "宝達志水町",
       "confirmedAt": "2026-09-01",
-      "basis": "石川県の施設案内 pref.ishikawa.lg.jp/shisetsu/09/0760.html が町役場の公式サイトとして案内。電話 0767-29-3111 が一致"
+      "basis": "石川県の施設案内 pref.ishikawa.lg.jp/shisetsu/09/0760.html が町役場の公式サイトとして案内しており、代表電話も一致"
     },
     "mombetsu.jp": {
       "owner": "紋別市（北海道）",
       "expect": "紋別市",
       "confirmedAt": "2026-09-01",
-      "basis": "トップページに市役所の住所（北海道紋別市幸町2丁目1番18号）・電話 0158-24-2111・(C) 2023 MOMBETSU CITY が一致。www.city.monbetsu.hokkaido.jp / .lg.jp 各形はいずれも名前解決しない（2026-09-01 実測）"
+      "basis": "トップページの市役所の所在地・代表電話・(C) 2023 MOMBETSU CITY が一致。www.city.monbetsu.hokkaido.jp / .lg.jp 各形はいずれも名前解決しない（2026-09-01 実測）"
     },
     "www.e-rumoi.jp": {
       "owner": "留萌市（北海道）",
       "expect": "留萌市",
       "confirmedAt": "2026-09-01",
-      "basis": "トップページに市役所の住所（北海道留萌市幸町1丁目11番地）・法人番号 2000020012122・Copyright (C) RUMOI CITY が一致。www.city.rumoi.hokkaido.jp / .lg.jp / city.rumoi.hokkaido.jp はいずれも名前解決しない（2026-09-01 実測）"
+      "basis": "トップページの市役所の所在地・法人番号・著作権表示を市の登録情報と照合し一致を確認。www.city.rumoi.hokkaido.jp / .lg.jp / city.rumoi.hokkaido.jp はいずれも名前解決しない（2026-09-01 実測）"
     },
     "www.shichigahama.com": {
       "owner": "七ヶ浜町（宮城県）",
       "expect": "七ヶ浜町",
       "confirmedAt": "2026-09-01",
-      "basis": "トップページに町役場の住所（宮城県宮城郡七ヶ浜町東宮浜字丑谷辺5番地の1）・代表電話 022-357-2111・Copyright (C) Town of Shichigahama が一致。town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・Copyright (C) Town of Shichigahama が一致。town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）"
     },
     "www.nakashibetsu.jp": {
       "owner": "中標津町（北海道）",
       "expect": "中標津町",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに町役場の住所（北海道標津郡中標津町丸山2丁目22番地）・TEL 0153-73-3111・(C) 2015 Town of Nakashibetsu, Hokkaido が一致。www.town.nakashibetsu.hokkaido.jp / www.town.nakashibetsu.lg.jp / town.nakashibetsu.hokkaido.jp / nakashibetsu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・著作権表示を照合し一致を確認。www.town.nakashibetsu.hokkaido.jp / www.town.nakashibetsu.lg.jp / town.nakashibetsu.hokkaido.jp / nakashibetsu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     },
     "www.niikappu.jp": {
       "owner": "新冠町（北海道）",
       "expect": "新冠町",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに町役場の住所（北海道新冠郡新冠町字北星町3番地の2）・電話 0146-47-2111・(C) Niikappu Town が一致。www.town.niikappu.hokkaido.jp / www.town.niikappu.lg.jp / town.niikappu.hokkaido.jp / niikappu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・(C) Niikappu Town が一致。www.town.niikappu.hokkaido.jp / www.town.niikappu.lg.jp / town.niikappu.hokkaido.jp / niikappu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     },
     "www.sarabetsu.jp": {
       "owner": "更別村（北海道）",
       "expect": "更別村",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに村役場の住所（北海道河西郡更別村字更別南1線93番地）・TEL 0155-52-2111・法人番号 7000020016390（cityCode 01639 と対応）・(C) 2017 SARABETSU VILLAGE, HOKKAIDO が一致。www.vill.sarabetsu.hokkaido.jp / www.vill.sarabetsu.lg.jp / vill.sarabetsu.hokkaido.jp / sarabetsu.lg.jp / www.village.sarabetsu.hokkaido.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの村役場の所在地・代表電話・法人番号（cityCode と対応することを確認）・著作権表示を照合し一致を確認。www.vill.sarabetsu.hokkaido.jp / www.vill.sarabetsu.lg.jp / vill.sarabetsu.hokkaido.jp / sarabetsu.lg.jp / www.village.sarabetsu.hokkaido.jp はいずれも名前解決しない（2026-09-02 実測）"
     },
     "www.toyokoro.jp": {
       "owner": "豊頃町（北海道）",
       "expect": "豊頃町",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに町役場の住所（北海道中川郡豊頃町茂岩本町125番地）・電話 015-574-2211・法人番号 1000020016454（cityCode 01645 と対応）・Copyright (C) Toyokoro Town が一致。www.town.toyokoro.hokkaido.jp / www.town.toyokoro.lg.jp / town.toyokoro.hokkaido.jp / toyokoro.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・法人番号（cityCode と対応することを確認）・著作権表示を照合し一致を確認。www.town.toyokoro.hokkaido.jp / www.town.toyokoro.lg.jp / town.toyokoro.hokkaido.jp / toyokoro.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     },
     "www.rausu-town.jp": {
       "owner": "羅臼町（北海道）",
       "expect": "羅臼町",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに町役場の住所（北海道目梨郡羅臼町栄町100番地83）・代表電話 0153-87-2111・(C) Rausu-Town が一致。www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp / www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・(C) Rausu-Town が一致。www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp / www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）"
     },
     "www.esashi.jp": {
       "owner": "枝幸町（北海道）※江差町ではない",
       "expect": "枝幸町",
       "confirmedAt": "2026-09-02",
-      "basis": "トップページに町役場の住所（枝幸郡枝幸町本町916番地）・代表電話 0163-62-1234・(C) ESASHI TOWN が一致し、「江差」の語は0件。両町とも読みが「えさし」のため、slug からホストを推定した探索器が江差町（esashi / 01361）に誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+      "basis": "トップページの町役場の所在地・代表電話・(C) ESASHI TOWN が一致し、「江差」の語は0件。両町とも読みが「えさし」のため、slug からホストを推定した探索器が江差町（esashi / 01361）に誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     }
   }
 }
