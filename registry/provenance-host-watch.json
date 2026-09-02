@@ -144,6 +144,12 @@
       "expect": "羅臼町",
       "confirmedAt": "2026-09-02",
       "basis": "トップページに町役場の住所（北海道目梨郡羅臼町栄町100番地83）・代表電話 0153-87-2111・(C) Rausu-Town が一致。www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp / www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.esashi.jp": {
+      "owner": "枝幸町（北海道）※江差町ではない",
+      "expect": "枝幸町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページに町役場の住所（枝幸郡枝幸町本町916番地）・代表電話 0163-62-1234・(C) ESASHI TOWN が一致し、「江差」の語は0件。両町とも読みが「えさし」のため、slug からホストを推定した探索器が江差町（esashi / 01361）に誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     }
   }
 }
