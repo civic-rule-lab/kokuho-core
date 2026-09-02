@@ -14,8 +14,14 @@
     "実物を見て expect を直すか、本当に異常なら止血する。"
   ],
   "hosts": {
-    "www.tokyo23city-kuchokai.jp": { "owner": "特別区長会", "expect": "特別区長会" },
-    "www.nishi.or.jp": { "owner": "西宮市", "expect": "西宮市" },
+    "www.tokyo23city-kuchokai.jp": {
+      "owner": "特別区長会",
+      "expect": "特別区長会"
+    },
+    "www.nishi.or.jp": {
+      "owner": "西宮市",
+      "expect": "西宮市"
+    },
     "hyugacity.jp": {
       "owner": "日向市",
       "expect": "日向市",
@@ -25,21 +31,66 @@
         "reason": "apex は A レコードを持たず稼働していない（www.hyugacity.jp のみ Cloudflare 経由で稼働）。ドメイン自体は日向市が保持しており乗っ取りではない。出典URLに apex 形式を使わないこと。許可リストに両形（www有無）が載っているのは 2026-08-26 の回帰対策"
       }
     },
-    "www.hyugacity.jp": { "owner": "日向市", "expect": "日向市" },
-    "www.city-kirishima.jp": { "owner": "霧島市", "expect": "霧島市" },
-    "www.sazacho-nagasaki.jp": { "owner": "佐々町（長崎県）", "expect": "佐々町" },
-    "www.shinhidaka-hokkaido.jp": { "owner": "新ひだか町（北海道）", "expect": "新ひだか町" },
-    "www.joho.tagawa.fukuoka.jp": { "owner": "田川市（福岡県）", "expect": "田川市" },
-    "www.town-kawasaki.com": { "owner": "川崎町（福岡県）", "expect": "川崎町" },
-    "taisetsu-kouiki.jp": { "owner": "大雪地区広域連合", "expect": "大雪地区広域連合" },
-    "www.kesennuma.miyagi.jp": { "owner": "気仙沼市", "expect": "気仙沼市" },
-    "www.kuriharacity.jp": { "owner": "栗原市（宮城県）", "expect": "栗原市" },
-    "www.tomiya-city.miyagi.jp": { "owner": "富谷市（宮城県）", "expect": "富谷市" },
-    "www.akitakata.jp": { "owner": "安芸高田市（広島県）", "expect": "安芸高田市" },
-    "www.jinsekigun.jp": { "owner": "神石高原町（広島県）", "expect": "神石高原町" },
-    "www.akiota.jp": { "owner": "安芸太田町（広島県）", "expect": "安芸太田町" },
-    "www.akamura.net": { "owner": "赤村（福岡県）", "expect": "赤村" },
-    "www.fuji-oyama.jp": { "owner": "小山町（静岡県）", "expect": "小山町" },
+    "www.hyugacity.jp": {
+      "owner": "日向市",
+      "expect": "日向市"
+    },
+    "www.city-kirishima.jp": {
+      "owner": "霧島市",
+      "expect": "霧島市"
+    },
+    "www.sazacho-nagasaki.jp": {
+      "owner": "佐々町（長崎県）",
+      "expect": "佐々町"
+    },
+    "www.shinhidaka-hokkaido.jp": {
+      "owner": "新ひだか町（北海道）",
+      "expect": "新ひだか町"
+    },
+    "www.joho.tagawa.fukuoka.jp": {
+      "owner": "田川市（福岡県）",
+      "expect": "田川市"
+    },
+    "www.town-kawasaki.com": {
+      "owner": "川崎町（福岡県）",
+      "expect": "川崎町"
+    },
+    "taisetsu-kouiki.jp": {
+      "owner": "大雪地区広域連合",
+      "expect": "大雪地区広域連合"
+    },
+    "www.kesennuma.miyagi.jp": {
+      "owner": "気仙沼市",
+      "expect": "気仙沼市"
+    },
+    "www.kuriharacity.jp": {
+      "owner": "栗原市（宮城県）",
+      "expect": "栗原市"
+    },
+    "www.tomiya-city.miyagi.jp": {
+      "owner": "富谷市（宮城県）",
+      "expect": "富谷市"
+    },
+    "www.akitakata.jp": {
+      "owner": "安芸高田市（広島県）",
+      "expect": "安芸高田市"
+    },
+    "www.jinsekigun.jp": {
+      "owner": "神石高原町（広島県）",
+      "expect": "神石高原町"
+    },
+    "www.akiota.jp": {
+      "owner": "安芸太田町（広島県）",
+      "expect": "安芸太田町"
+    },
+    "www.akamura.net": {
+      "owner": "赤村（福岡県）",
+      "expect": "赤村"
+    },
+    "www.fuji-oyama.jp": {
+      "owner": "小山町（静岡県）",
+      "expect": "小山町"
+    },
     "www.hodatsushimizu.jp": {
       "owner": "宝達志水町（石川県）",
       "expect": "宝達志水町",
@@ -63,6 +114,30 @@
       "expect": "七ヶ浜町",
       "confirmedAt": "2026-09-01",
       "basis": "トップページに町役場の住所（宮城県宮城郡七ヶ浜町東宮浜字丑谷辺5番地の1）・代表電話 022-357-2111・Copyright (C) Town of Shichigahama が一致。town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）"
+    },
+    "www.nakashibetsu.jp": {
+      "owner": "中標津町（北海道）",
+      "expect": "中標津町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページに町役場の住所（北海道標津郡中標津町丸山2丁目22番地）・TEL 0153-73-3111・(C) 2015 Town of Nakashibetsu, Hokkaido が一致。www.town.nakashibetsu.hokkaido.jp / www.town.nakashibetsu.lg.jp / town.nakashibetsu.hokkaido.jp / nakashibetsu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.niikappu.jp": {
+      "owner": "新冠町（北海道）",
+      "expect": "新冠町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページに町役場の住所（北海道新冠郡新冠町字北星町3番地の2）・電話 0146-47-2111・(C) Niikappu Town が一致。www.town.niikappu.hokkaido.jp / www.town.niikappu.lg.jp / town.niikappu.hokkaido.jp / niikappu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.sarabetsu.jp": {
+      "owner": "更別村（北海道）",
+      "expect": "更別村",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページに村役場の住所（北海道河西郡更別村字更別南1線93番地）・TEL 0155-52-2111・法人番号 7000020016390（cityCode 01639 と対応）・(C) 2017 SARABETSU VILLAGE, HOKKAIDO が一致。www.vill.sarabetsu.hokkaido.jp / www.vill.sarabetsu.lg.jp / vill.sarabetsu.hokkaido.jp / sarabetsu.lg.jp / www.village.sarabetsu.hokkaido.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.toyokoro.jp": {
+      "owner": "豊頃町（北海道）",
+      "expect": "豊頃町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページに町役場の住所（北海道中川郡豊頃町茂岩本町125番地）・電話 015-574-2211・法人番号 1000020016454（cityCode 01645 と対応）・Copyright (C) Toyokoro Town が一致。www.town.toyokoro.hokkaido.jp / www.town.toyokoro.lg.jp / town.toyokoro.hokkaido.jp / toyokoro.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
     }
   }
 }
