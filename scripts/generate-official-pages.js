@@ -685,6 +685,56 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.akiota.jp",               // 安芸太田町
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
+  // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
+  // （www.town.hodatsushimizu.lg.jp / hodatsushimizu.lg.jp / www.town.hodatsushimizu.ishikawa.jp
+  // はいずれも接続不可・実測）、追加しないと同町の来歴節が丸ごと消える（日向市の回帰と同型）。
+  // 石川県の施設案内（pref.ishikawa.lg.jp/shisetsu/09/0760.html）が本ドメインを町役場の
+  // 公式サイトとして案内しており、サイト側の自己同定と代表電話も一致する。
+  "www.hodatsushimizu.jp",       // 宝達志水町（石川県）
+  // 2026-09-01 追加（オーナー承認）: 七ヶ浜町（宮城県）は独自ドメインが唯一の公式サイトで、
+  // town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（実測）。追加しないと
+  // 同町の来歴節が丸ごと消える（日向市の回帰と同型）。トップページの町役場の所在地・
+  // 代表電話・著作権表示を照合して一致を確認し、乗っ取りを示す語句は検出されなかった。
+  "www.shichigahama.com",        // 七ヶ浜町（宮城県）
+  // 2026-09-01 追加（オーナー承認・基準つき）: 留萌市（北海道）は独自ドメインが唯一の公式サイトで、
+  // www.city.rumoi.hokkaido.jp / www.city.rumoi.lg.jp / city.rumoi.hokkaido.jp はいずれも名前解決しない（実測）。
+  // トップページの市役所の所在地・法人番号・著作権表示を照合して一致を確認し、
+  // 乗っ取りを示す語句は検出されなかった。
+  "www.e-rumoi.jp",              // 留萌市（北海道）
+  // 2026-09-01 追加（オーナー承認の基準による）: 紋別市（北海道）は独自ドメインが唯一の公式サイトで、
+  // www.city.monbetsu.hokkaido.jp / www.city.monbetsu.lg.jp / www.city.mombetsu.lg.jp /
+  // city.mombetsu.hokkaido.jp はいずれも名前解決しない（実測）。
+  // トップページの市役所の所在地・代表電話・著作権表示を照合して一致を確認し、
+  // 乗っ取りを示す語句は検出されなかった。
+  "mombetsu.jp",                 // 紋別市（北海道）
+  // 2026-09-02 追加（オーナー承認の基準による）: 北海道のR8昇格作業で判明した4町村。
+  // いずれも独自ドメインが唯一の公式サイトで、.lg.jp / town|vill.{slug}.hokkaido.jp の各形は
+  // 名前解決しない（2026-09-02 実測）。追加しないと該当自治体の来歴節が丸ごと消える
+  // （日向市 PR#422 の回帰と同型）。トップページの自己同定はいずれも一致し、
+  // 乗っ取りを示す語句は検出されなかった。
+  // 中標津町: 所在地・代表電話・著作権表示が一致
+  "www.nakashibetsu.jp",         // 中標津町（北海道）
+  // 新冠町: 所在地・代表電話・著作権表示が一致
+  "www.niikappu.jp",             // 新冠町（北海道）
+  // 更別村: 所在地・代表電話・法人番号（cityCode と対応）・著作権表示が一致
+  "www.sarabetsu.jp",            // 更別村（北海道）
+  // 豊頃町: 所在地・代表電話・法人番号（cityCode と対応）・著作権表示が一致
+  "www.toyokoro.jp",             // 豊頃町（北海道）
+  // 2026-09-02 追加（オーナー承認の基準による）: 羅臼町（北海道）も独自ドメインが唯一の公式サイトで、
+  // www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp /
+  // www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）。
+  // トップページの町役場の所在地・代表電話・著作権表示を照合して一致を確認し、
+  // 乗っ取りを示す語句は検出されなかった。
+  "www.rausu-town.jp",           // 羅臼町（北海道）
+  // 2026-09-02 追加（オーナー承認の基準による）: 枝幸町（北海道）。
+  // ★このドメインは江差町ではなく枝幸町のものである。両町とも読みが「えさし」で、
+  // slug からホストを推定した探索器が江差町（citySlug: esashi / cityCode 01361）に
+  // 誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。
+  // トップページの町役場の所在地・代表電話・著作権表示が一致し、
+  // 「江差」の語は0件（2026-09-02 実測）。
+  // www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp /
+  // esashi.lg.jp はいずれも名前解決しない。
+  "www.esashi.jp",               // 枝幸町（北海道）※江差町ではない
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。

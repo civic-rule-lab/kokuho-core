@@ -13,6 +13,7 @@
     "test:year": "node scripts/test-year-wiring.js",
     "test:units": "node scripts/verify-units.cjs",
     "test:integrity": "node scripts/test-integrity.js",
+  "watch:provenance": "node scripts/verify-provenance-hosts.js",
     "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units",
     "test:ci": "npm run test && npm run test:integrity"
   },

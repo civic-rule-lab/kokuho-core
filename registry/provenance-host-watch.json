@@ -1,0 +1,155 @@
+{
+  "_note": [
+    "scripts/generate-official-pages.js の PROVENANCE_HOST_EXTRA に載っている独自ドメインの、",
+    "『まだその団体のものであり続けているか』を定期確認するための期待値。",
+    "許可リストの正本はあくまで generate-official-pages.js 側であり、このファイルはそれを複製しない。",
+    "scripts/verify-provenance-hosts.js が両者を突合し、片方にしか無いホストを ERROR にする。",
+    "",
+    "なぜ要るか: .lg.jp は自治体しか取得できないので無条件に信頼できるが、独自ドメインはそうではない。",
+    "自治体がドメインを手放すと第三者が取得でき、公開ページの『出典』リンクがそこを指し続ける。",
+    "2026-06 の civic-exchange.com と 2026-07-28 の civicrulelab.jp が同じ型で乗っ取られている。",
+    "",
+    "expect: そのトップページに出るはずの、団体を一意に示す文字列。",
+    "初回実行では expect が実際の表記と食い違って FAIL するホストが出る。それは棚卸しであって異常ではない。",
+    "実物を見て expect を直すか、本当に異常なら止血する。"
+  ],
+  "hosts": {
+    "www.tokyo23city-kuchokai.jp": {
+      "owner": "特別区長会",
+      "expect": "特別区長会"
+    },
+    "www.nishi.or.jp": {
+      "owner": "西宮市",
+      "expect": "西宮市"
+    },
+    "hyugacity.jp": {
+      "owner": "日向市",
+      "expect": "日向市",
+      "known": {
+        "state": "unreachable",
+        "since": "2026-09-01",
+        "reason": "apex は A レコードを持たず稼働していない（www.hyugacity.jp のみ Cloudflare 経由で稼働）。ドメイン自体は日向市が保持しており乗っ取りではない。出典URLに apex 形式を使わないこと。許可リストに両形（www有無）が載っているのは 2026-08-26 の回帰対策"
+      }
+    },
+    "www.hyugacity.jp": {
+      "owner": "日向市",
+      "expect": "日向市"
+    },
+    "www.city-kirishima.jp": {
+      "owner": "霧島市",
+      "expect": "霧島市"
+    },
+    "www.sazacho-nagasaki.jp": {
+      "owner": "佐々町（長崎県）",
+      "expect": "佐々町"
+    },
+    "www.shinhidaka-hokkaido.jp": {
+      "owner": "新ひだか町（北海道）",
+      "expect": "新ひだか町"
+    },
+    "www.joho.tagawa.fukuoka.jp": {
+      "owner": "田川市（福岡県）",
+      "expect": "田川市"
+    },
+    "www.town-kawasaki.com": {
+      "owner": "川崎町（福岡県）",
+      "expect": "川崎町"
+    },
+    "taisetsu-kouiki.jp": {
+      "owner": "大雪地区広域連合",
+      "expect": "大雪地区広域連合"
+    },
+    "www.kesennuma.miyagi.jp": {
+      "owner": "気仙沼市",
+      "expect": "気仙沼市"
+    },
+    "www.kuriharacity.jp": {
+      "owner": "栗原市（宮城県）",
+      "expect": "栗原市"
+    },
+    "www.tomiya-city.miyagi.jp": {
+      "owner": "富谷市（宮城県）",
+      "expect": "富谷市"
+    },
+    "www.akitakata.jp": {
+      "owner": "安芸高田市（広島県）",
+      "expect": "安芸高田市"
+    },
+    "www.jinsekigun.jp": {
+      "owner": "神石高原町（広島県）",
+      "expect": "神石高原町"
+    },
+    "www.akiota.jp": {
+      "owner": "安芸太田町（広島県）",
+      "expect": "安芸太田町"
+    },
+    "www.akamura.net": {
+      "owner": "赤村（福岡県）",
+      "expect": "赤村"
+    },
+    "www.fuji-oyama.jp": {
+      "owner": "小山町（静岡県）",
+      "expect": "小山町"
+    },
+    "www.hodatsushimizu.jp": {
+      "owner": "宝達志水町（石川県）",
+      "expect": "宝達志水町",
+      "confirmedAt": "2026-09-01",
+      "basis": "石川県の施設案内 pref.ishikawa.lg.jp/shisetsu/09/0760.html が町役場の公式サイトとして案内しており、代表電話も一致"
+    },
+    "mombetsu.jp": {
+      "owner": "紋別市（北海道）",
+      "expect": "紋別市",
+      "confirmedAt": "2026-09-01",
+      "basis": "トップページの市役所の所在地・代表電話・(C) 2023 MOMBETSU CITY が一致。www.city.monbetsu.hokkaido.jp / .lg.jp 各形はいずれも名前解決しない（2026-09-01 実測）"
+    },
+    "www.e-rumoi.jp": {
+      "owner": "留萌市（北海道）",
+      "expect": "留萌市",
+      "confirmedAt": "2026-09-01",
+      "basis": "トップページの市役所の所在地・法人番号・著作権表示を市の登録情報と照合し一致を確認。www.city.rumoi.hokkaido.jp / .lg.jp / city.rumoi.hokkaido.jp はいずれも名前解決しない（2026-09-01 実測）"
+    },
+    "www.shichigahama.com": {
+      "owner": "七ヶ浜町（宮城県）",
+      "expect": "七ヶ浜町",
+      "confirmedAt": "2026-09-01",
+      "basis": "トップページの町役場の所在地・代表電話・Copyright (C) Town of Shichigahama が一致。town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）"
+    },
+    "www.nakashibetsu.jp": {
+      "owner": "中標津町（北海道）",
+      "expect": "中標津町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの町役場の所在地・代表電話・著作権表示を照合し一致を確認。www.town.nakashibetsu.hokkaido.jp / www.town.nakashibetsu.lg.jp / town.nakashibetsu.hokkaido.jp / nakashibetsu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.niikappu.jp": {
+      "owner": "新冠町（北海道）",
+      "expect": "新冠町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの町役場の所在地・代表電話・(C) Niikappu Town が一致。www.town.niikappu.hokkaido.jp / www.town.niikappu.lg.jp / town.niikappu.hokkaido.jp / niikappu.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.sarabetsu.jp": {
+      "owner": "更別村（北海道）",
+      "expect": "更別村",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの村役場の所在地・代表電話・法人番号（cityCode と対応することを確認）・著作権表示を照合し一致を確認。www.vill.sarabetsu.hokkaido.jp / www.vill.sarabetsu.lg.jp / vill.sarabetsu.hokkaido.jp / sarabetsu.lg.jp / www.village.sarabetsu.hokkaido.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.toyokoro.jp": {
+      "owner": "豊頃町（北海道）",
+      "expect": "豊頃町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの町役場の所在地・代表電話・法人番号（cityCode と対応することを確認）・著作権表示を照合し一致を確認。www.town.toyokoro.hokkaido.jp / www.town.toyokoro.lg.jp / town.toyokoro.hokkaido.jp / toyokoro.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.rausu-town.jp": {
+      "owner": "羅臼町（北海道）",
+      "expect": "羅臼町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの町役場の所在地・代表電話・(C) Rausu-Town が一致。www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp / www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.esashi.jp": {
+      "owner": "枝幸町（北海道）※江差町ではない",
+      "expect": "枝幸町",
+      "confirmedAt": "2026-09-02",
+      "basis": "トップページの町役場の所在地・代表電話・(C) ESASHI TOWN が一致し、「江差」の語は0件。両町とも読みが「えさし」のため、slug からホストを推定した探索器が江差町（esashi / 01361）に誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    }
+  }
+}
