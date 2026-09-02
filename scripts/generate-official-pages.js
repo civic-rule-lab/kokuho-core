@@ -725,6 +725,12 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // 豊頃町: 〒089-5392 北海道中川郡豊頃町茂岩本町125番地 電話 015-574-2211 /
   //         法人番号 1000020016454（cityCode 01645 と対応）/ Copyright (C) Toyokoro Town
   "www.toyokoro.jp",             // 豊頃町（北海道）
+  // 2026-09-02 追加（オーナー承認の基準による）: 羅臼町（北海道）も独自ドメインが唯一の公式サイトで、
+  // www.town.rausu.hokkaido.jp / www.town.rausu.lg.jp / town.rausu.hokkaido.jp / rausu.lg.jp /
+  // www.rausu.jp / rausu.jp はいずれも名前解決しない（2026-09-02 実測）。
+  // トップページに「羅臼町役場 〒086-1892 北海道目梨郡羅臼町栄町100番地83 代表電話 0153-87-2111」と
+  // (C) Rausu-Town があり、乗っ取りを示す語句は検出されなかった。
+  "www.rausu-town.jp",           // 羅臼町（北海道）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
