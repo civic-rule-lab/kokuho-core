@@ -1,26 +1,34 @@
 #!/bin/bash
-# deploy-seido.sh  ★草案（infra 整備後に有効）
-# kokuho-core で生成した「住民税・家計簿・後期高齢者医療・介護」ページを
-# 新アンブレラ seido-keisan（public）へ反映する。
+# deploy-seido.sh
+# kokuho-core で生成した「住民税・家計簿・後期高齢者医療・介護・保育料」ページを
+# アンブレラ seido-keisan（public・~/Desktop/seido-keisan に clone 済み）へ反映する。
 # （2026-06-28 後期/介護の個別ページ同期に対応：sync ループ・kouki.js・検証・smoke を追加）
+# （2026-08-26 から本番運用中。「住民税デプロイ: YYYY-MM-DD」のコミットを seido-keisan に積む）
 #
-# 前提（未整備＝この script を実行する前に必要）:
-#   1. seido-keisan.jp ドメイン取得 + Cloudflare DNS/proxy + GitHub Pages(origin) 設定
-#   2. 公開リポ seido-keisan 作成（~/Desktop/seido-keisan に clone）
-#   3. アンブレラのトップページ(/) と /{pref}/{slug}/ ルート（家計簿の「国保だけ詳しく」リンク先）
-#      ※当面は kakeibo の __LINK_KOKUHO__ を kokuho-keisan.jp 側へ向ける運用も可
+# 前提:
+#   1. seido-keisan.jp ドメイン + Cloudflare DNS/proxy + GitHub Pages(origin) 設定済み
+#   2. 公開リポ seido-keisan を ~/Desktop/seido-keisan に clone 済み（無ければ同期段で中断する）
 #
 # 使い方:
-#   bash scripts/deploy-seido.sh --dry-run   # 生成＋件数確認のみ（同期しない）
+#   bash scripts/deploy-seido.sh --dry-run   # 検証＋生成＋件数確認のみ（seido-keisan への同期・コミットはしない）
 #   bash scripts/deploy-seido.sh             # 検証→生成→同期→コミット
-#   bash scripts/deploy-seido.sh --push      # 上記 + git push（GitHub Pages auto-deploy）
+#   bash scripts/deploy-seido.sh --push      # 上記 + seido-keisan を git push（GitHub Pages auto-deploy）
 #
-# 国保 deploy.sh（kokuho-keisan 向け）とは独立。住民税のみを扱う。
+# ★ --dry-run でも「生成」は実行され、kokuho-core の作業ツリー（kakeibo/jumin/hoiku の index.html、
+#   seido-index.html、seido-sitemap.xml）を書き換える。同期をスキップするだけで、生成物は残る。
+#   生成物が main と異なる場合はブランチ→PR で版管理に載せる（main には直接コミットしない）。
+#
+# ★ kokuho-core 側は本 script では push しない（保護ブランチ・PR 必須）。旧実装は
+#   `cd "$CORE_DIR"; git push` を直実行しており、main 上で --push すると non-fast-forward /
+#   GH013 で拒否されるか、ブランチ上なら upstream 次第でレビュー無しに push されていた
+#   （2026-09-05 実測）。deploy.sh と同じく警告のみに変更した。
+#
+# 国保 deploy.sh（kokuho-keisan 向け）とは独立。
 
 set -e
 
 CORE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-PUBLIC_DIR="$HOME/Desktop/seido-keisan"      # ★ 未作成。infra 整備後に clone
+PUBLIC_DIR="$HOME/Desktop/seido-keisan"      # seido-keisan（public）の clone
 BASE_URL="https://seido-keisan.jp"
 PUSH=false
 SYNC_ONLY=false
@@ -204,7 +212,19 @@ if [ "$PUSH" = true ]; then
   git pull --no-rebase --no-edit origin main || true
   git push
   echo "✅ seido-keisan push 完了"
-  cd "$CORE_DIR"; git push; echo "✅ kokuho-core push 完了"
+
+  # kokuho-core は保護ブランチ（PR 必須）のため、本 script では push しない。
+  # 生成物の差分・未 push コミットがあれば知らせるだけにする（deploy.sh と同じ扱い）。
+  cd "$CORE_DIR"
+  CORE_DIRTY=$(git status --porcelain 2>/dev/null | grep -vc '^?? ' || true)
+  CORE_UNPUSHED=$(git log --oneline origin/main..HEAD 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$CORE_DIRTY" -gt 0 ] || [ "$CORE_UNPUSHED" -gt 0 ]; then
+    echo "⚠️  kokuho-core は保護ブランチのため deploy-seido.sh では push しません（ブランチ→PRで反映してください）:"
+    [ "$CORE_DIRTY"    -gt 0 ] && echo "   ・未コミットの変更 $CORE_DIRTY 件（生成HTMLの ?v= 等はブランチ→PRで反映）"
+    [ "$CORE_UNPUSHED" -gt 0 ] && echo "   ・未pushのローカルコミット $CORE_UNPUSHED 件（ブランチ→PRで反映）"
+  else
+    echo "✅ kokuho-core は origin/main と一致（push不要）"
+  fi
 
   # ── 7. 本番 smoke test（試験公開6市） ──
   echo ""
