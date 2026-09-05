@@ -52,3 +52,15 @@ if command -v node >/dev/null 2>&1; then
 else
   echo "⚠️  pre-commit: node 不在のため cityCode 一次資料チェックをスキップ"
 fi
+
+# ─── (4) 数値表記の保全（civic-site-common-rules 中核ルール2） ───────
+# staged の data/**/*.json と registry/index.json を HEAD と比べ、
+# 値は同じなのに表記だけ変わった数値（0.0700→0.07 等）があれば commit 拒否。
+# 意図した表記変更は ALLOW_NUMFMT=1 で通す（理由を commit message に書く）。
+if command -v node >/dev/null 2>&1; then
+  if ! node scripts/check-numeric-text.cjs; then
+    exit 1
+  fi
+else
+  echo "⚠️  pre-commit: node 不在のため数値表記チェックをスキップ"
+fi

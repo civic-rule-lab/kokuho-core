@@ -40,6 +40,24 @@ jobs:
       - name: Run validate-kokuho-data.js
         run: node scripts/validate-kokuho-data.js
 
+      - name: Run check-numeric-text.cjs (料率 JSON の数値表記が値そのままに書き換わっていないか)
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            git fetch --no-tags --depth=1 origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF"
+            node scripts/check-numeric-text.cjs --base "origin/$BASE_REF"
+          elif [ -n "$BEFORE_SHA" ] && ! echo "$BEFORE_SHA" | grep -q '^0*$'; then
+            if git fetch --no-tags --depth=1 origin "$BEFORE_SHA"; then
+              node scripts/check-numeric-text.cjs --base "$BEFORE_SHA"
+            else
+              echo "比較元 $BEFORE_SHA を取得できないためスキップ（PR 側で検査済み）"
+            fi
+          else
+            echo "比較元が無いためスキップ"
+          fi
+
       - name: Run test-sanity-all.js (全 1700+ 自治体 × 8 パターン 計算回帰検出)
         run: node scripts/test-sanity-all.js
 
