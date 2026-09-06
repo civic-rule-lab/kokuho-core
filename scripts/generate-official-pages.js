@@ -686,6 +686,9 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // 2026-09-05 追加: 湯沢市（秋田県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
   //   トップページで 法人番号1000020052078・〒012-8501 秋田県湯沢市佐竹町1番1号・copyright Yuzawa City を確認。
   "www.city-yuzawa.jp",          // 湯沢市
+  // 2026-09-06 追加: 中津市（大分県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
+  //   トップページで 法人番号2000020442038・〒871-8501・copyright Nakatsu City を確認。
+  "www.city-nakatsu.jp",         // 中津市
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
