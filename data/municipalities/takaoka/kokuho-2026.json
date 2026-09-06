@@ -60,7 +60,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.365Z",
-      "updatedAt": "2026-09-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +71,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-09-05",
+      "verifiedAt": "2026-09-06",
       "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.takaoka.toyama.jp/soshiki/hokennenkinka/2/3/2/3/2639.html"
@@ -85,7 +85,7 @@
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-09-05",
+      "verifiedAt": "2026-09-06",
       "method": "official-site"
     },
     "quality": {
