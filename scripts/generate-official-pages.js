@@ -780,6 +780,32 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.memuro.net",              // 芽室町（北海道）〒082-8651・0155-62-2611・copyright memuro hokkaido.Japan
   "www.urahoro.jp",              // 浦幌町（北海道）十勝郡浦幌町字桜町15番地6・015-576-2111
   "engaru.jp",                   // 遠軽町（北海道）紋別郡遠軽町1条通北3丁目1番地1・copyright ENGARU TOWN
+  // 2026-09-07 追加（オーナーが4サイトのトップページを目視して承認・GOVERNANCE §E-2）:
+  //   長崎県のR8昇格作業で判明した4自治体。いずれも独自ドメインが唯一の公式サイトで、
+  //   追加しないと該当自治体の来歴節が丸ごと消える（日向市 PR#422 の回帰と同型）。
+  //   4件とも長崎県公式サイトの「県内市町」ページ（www.pref.nagasaki.jp/pages/page-31.html）が
+  //   当該ドメインへ直リンクしていることを実測で確認した。
+  "www.city-matsuura.jp",        // 松浦市（長崎県）法人番号3000020422088（市政情報ページ）・
+                                 //   〒859-4598 松浦市志佐町里免365・0956-72-1111・© Matsuura City・
+                                 //   選管/教委/監査/議会/農業委員会の事務局ページを自ドメインに掲載
+  "webtown.nagayo.jp",           // 長与町（長崎県）法人番号5000020423076・〒851-2185 西彼杵郡長与町嬉里郷659-1・
+                                 //   095-883-1111・Copyright Nagayo town・例規集を自ドメインで掲載
+                                 //   （webtown.nagayo.jp/reiki/・内容現在 令和8年5月7日）・
+                                 //   長与町選挙管理委員会規程／公職選挙法令執行規程等の選管例規を収録
+  "www.kawatana.jp",             // 川棚町（長崎県）法人番号の掲載は無い。〒859-3692 東彼杵郡川棚町中組郷1518-1・
+                                 //   0956-82-3131・© 2021 Kawatana Town・議会/監査/農業委員会/情報公開/入札を自ドメインに掲載。
+                                 //   ★メールは town.kawatana.lg.jp でwebドメインと異なる（例規集も外部 g-reiki.net）
+  // ★新上五島町は .net であり、他の追加ドメイン（すべて .jp）と性質が異なる。
+  //   さらに town.shinkamigoto.lg.jp は lg.jp 側に生きた委任（NS k101ml01.town.shinkamigoto.lg.jp /
+  //   glue 153.150.2.10）が残ったまま当該NSが応答せず SERVFAIL＝dangling delegation の状態にある
+  //   （2026-09-07 実測）。町の実サイトは下記 .net のみ。
+  //   ★注意: town.shinkamigoto.lg.jp は EXTRA に入れていないが、PROVENANCE_HOST_PATTERNS の
+  //   /^(city|town|vill|village)\.[^.]+\.lg\.jp$/ 系の形に一致するため**自動で許可される**。
+  //   許可リストは名前の形しか見ておらず到達性を保証しない。lg.jp 側が第三者に再委任された場合、
+  //   出典URLに lg.jp 形を書けば公開ページから第三者コンテンツへリンクすることになる。
+  //   防ぎ方はコード側ではなくデータ側＝この町の sourceUrls には .net だけを書くこと。
+  "official.shinkamigoto.net",   // 新上五島町（長崎県）〒857-4495・0959-53-1111・© 2026 Shinkamigoto Town・
+                                 //   教委/議会/監査/例規/広報/入札/情報公開へのリンクを自ドメインに掲載
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
