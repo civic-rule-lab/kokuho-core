@@ -692,12 +692,6 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // 2026-09-06 追加: 豊後大野市（大分県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
   //   トップページで 法人番号4000020442127・〒879-7198 大分県豊後大野市三重町市場1200番地 を確認。
   "www.bungo-ohno.jp",           // 豊後大野市
-  // 2026-09-06 追加: 鳥取県の独自ドメイン3件。いずれも lg.jp 型でなく PROVENANCE_HOST_PATTERNS に当たらない。
-  //   トップページで確認した根拠: 北栄町＝〒689-2292 鳥取県東伯郡北栄町由良宿423-1（役場所在地）／
-  //   大山町＝「大山町役場」表記・〒689-3211／湯梨浜町＝copyright Yurihama Town。法人番号はトップページに無かった。
-  "www.e-hokuei.net",            // 北栄町（鳥取県）
-  "www.daisen.jp",               // 大山町（鳥取県）
-  "www.yurihama.jp",             // 湯梨浜町（鳥取県）
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
