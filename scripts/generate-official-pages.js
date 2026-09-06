@@ -698,6 +698,8 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.e-hokuei.net",            // 北栄町（鳥取県）
   "www.daisen.jp",               // 大山町（鳥取県）
   "www.yurihama.jp",             // 湯梨浜町（鳥取県）
+  // 2026-09-06 追加: 江府町（鳥取県）の公式ドメイン。トップページに「江府町役場」表記。法人番号はトップページに無かった。
+  "www.town-kofu.jp",            // 江府町（鳥取県）
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
