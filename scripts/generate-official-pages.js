@@ -689,6 +689,9 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // 2026-09-06 追加: 中津市（大分県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
   //   トップページで 法人番号2000020442038・〒871-8501・copyright Nakatsu City を確認。
   "www.city-nakatsu.jp",         // 中津市
+  // 2026-09-06 追加: 豊後大野市（大分県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
+  //   トップページで 法人番号4000020442127・〒879-7198 大分県豊後大野市三重町市場1200番地 を確認。
+  "www.bungo-ohno.jp",           // 豊後大野市
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
