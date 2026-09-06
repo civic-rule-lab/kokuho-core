@@ -757,6 +757,29 @@ const PROVENANCE_HOST_EXTRA = new Set([
   // www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp /
   // esashi.lg.jp はいずれも名前解決しない。
   "www.esashi.jp",               // 枝幸町（北海道）※江差町ではない
+  // 2026-09-07 追加: 北海道の市町村が使う独自ドメイン16件。
+  //   北海道は町村の公式サイトが lg.jp / town.*.hokkaido.jp 型でない例が多く、未登録のままだと
+  //   出典が弾かれて来歴節が丸ごと消える（日向市・湯沢市と同型）。オーナーの判断基準に従い、
+  //   「法人番号が全国地方公共団体コードと一致する」か「役場の所在地・電話番号が一致する」ことを
+  //   実測で確認したものだけを登録した。確認内容は各行の後ろに記す。
+  //   法人番号は「検査数字1桁 + 000020 + 全国地方公共団体コード6桁」なので registry の cityCode と機械照合できる。
+  //   ★上の枝幸町/江差町と同じ「読みが同じ別自治体」の取り違えを避けるため、住所は必ず郡名まで確認した。
+  "www.shibetsutown.jp",         // 標津町（北海道）法人番号9000020016934 → 016934 = cityCode 01693
+  "www.akkeshi-town.jp",         // 厚岸町（北海道）法人番号5000020016624 → 016624 = cityCode 01662
+  "www.shintoku-town.jp",        // 新得町（北海道）法人番号8000020016357 → 016357 = cityCode 01635
+  "www.samani.jp",               // 様似町（北海道）法人番号3000020016080 → 016080 = cityCode 01608
+  "www.kamishihoro.jp",          // 上士幌町（北海道）法人番号9000020016331 → 016331 = cityCode 01633
+  "www.town-kyogoku.jp",         // 京極町（北海道）法人番号3000020013994 → 013994 = cityCode 01399
+  "www.townhamanaka.jp",         // 浜中町（北海道）〒088-1592 厚岸郡浜中町湯沸445番地・0153-62-2111・copyright HAMANAKA Town Office
+  "www.hokkaido-esashi.jp",      // 江差町（北海道）〒043-8560 檜山郡江差町字中歌町193-1・0139-52-1020（枝幸町ではない）
+  "www.maoi-net.jp",             // 長沼町（北海道）〒069-1392 夕張郡長沼町中央北1丁目1番1号・0123-88-2111・copyright Naganuma Town
+  "www.shihoro.jp",              // 士幌町（北海道）〒080-1292 河東郡士幌町字士幌225番地・01564-5-2211
+  "www.akaigawa.com",            // 赤井川村（北海道）〒046-0592 余市郡赤井川村字赤井川74番地2・0135-34-6211・copyright Akaigawa Village
+  "rishiri-town.jp",             // 利尻町（北海道）〒097-0401 利尻郡利尻町沓形字緑町14番地1・0163-84-2345
+  "www.teshiotown.hokkaido.jp",  // 天塩町（北海道）〒098-3398 天塩郡天塩町新栄通8丁目1466-113・01632-2-1001
+  "www.memuro.net",              // 芽室町（北海道）〒082-8651・0155-62-2611・copyright memuro hokkaido.Japan
+  "www.urahoro.jp",              // 浦幌町（北海道）十勝郡浦幌町字桜町15番地6・015-576-2111
+  "engaru.jp",                   // 遠軽町（北海道）紋別郡遠軽町1条通北3丁目1番地1・copyright ENGARU TOWN
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
