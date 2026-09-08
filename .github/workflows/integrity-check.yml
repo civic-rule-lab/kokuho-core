@@ -16,6 +16,70 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
+  # ─────────────────────────────────────────────────────────────
+  # GOVERNANCE §D-3 が求める2件。ローカルの pre-commit は --no-verify で
+  # 迂回でき、クラウド実行環境にはそもそもフックが無い（TASKS X132）。
+  # サーバ側で再実行して穴を塞ぐ。
+  #
+  # ★署名監査は「このPR/pushで追加されたコミット」だけを見る。
+  #   全履歴を対象にすると 2026-09-04〜05 の20コミット
+  #   （クラウドセッションが Claude <noreply@anthropic.com> 名義で直接
+  #   コミットしたもの＝X132 の実物）で必ず失敗し、CI が永久に赤になる。
+  #   過去分は履歴として残し、今後の混入を止めることを目的とする。
+  # ─────────────────────────────────────────────────────────────
+  guard:
+    name: 署名監査 × 秘密混入検査
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 署名監査でコミット範囲を辿るため
+
+      - name: 署名監査（author/committer が許可リストか）
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          # 許可する識別子:
+          #   license@civicrulelab.jp        オーナーのコミット
+          #   *@users.noreply.github.com     GitHub の noreply 形式
+          #   noreply@github.com             gh pr merge --squash の committer
+          ALLOW='license@civicrulelab\.jp|@users\.noreply\.github\.com|^noreply@github\.com$'
+          ZERO='0000000000000000000000000000000000000000'
+          if [ -z "${BASE:-}" ] || [ "${BASE}" = "${ZERO}" ]; then
+            RANGE="-1 ${HEAD_SHA}"
+          else
+            RANGE="${BASE}..${HEAD_SHA}"
+          fi
+          echo "検査範囲: ${RANGE}"
+          COMMITS=$(git log --format='%h' ${RANGE} | wc -l | tr -d ' ')
+          echo "対象コミット数: ${COMMITS}"
+          BAD=$(git log --format='%ae%n%ce' ${RANGE} | sort -u | grep -viE "${ALLOW}" || true)
+          if [ -n "${BAD}" ]; then
+            echo "::error::許可リスト外の author/committer が含まれています"
+            echo "${BAD}"
+            echo ""
+            echo "該当コミット:"
+            git log --format='  %h %an <%ae> / committer %cn <%ce> | %s' ${RANGE} \
+              | grep -viE "${ALLOW}" || true
+            exit 1
+          fi
+          echo "✓ 署名は全て許可リスト内"
+
+      - name: 秘密/個人情報の混入検査（追跡ファイル全体）
+        run: |
+          set -euo pipefail
+          PAT='@(gmail|yahoo|icloud|outlook|hotmail)\.com|/Users/[A-Za-z]|BEGIN (RSA|OPENSSH|PRIVATE) KEY'
+          if git grep -nE "${PAT}" -- . ':!.github' ':!scripts/git-hooks' ; then
+            echo "::error::個人メール／絶対パス／秘密鍵の混入疑い"
+            exit 1
+          fi
+          echo "✓ 混入なし"
+
   test-integrity:
     name: registry × 一次資料 × data × HTML 横断検証 (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
