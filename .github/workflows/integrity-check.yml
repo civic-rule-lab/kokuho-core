@@ -73,7 +73,7 @@ jobs:
       - name: 秘密/個人情報の混入検査（追跡ファイル全体）
         run: |
           set -euo pipefail
-          PAT='@(gmail|yahoo|icloud|outlook|hotmail)\.com|/Users/[A-Za-z]|BEGIN (RSA|OPENSSH|PRIVATE) KEY'
+          PAT='@(gmail|yahoo|icloud|outlook|hotmail)\.com|/Users/[A-Za-z]|BEGIN ([A-Z0-9]+ )*PRIVATE KEY'
           if git grep -nE "${PAT}" -- . ':!.github' ':!scripts/git-hooks' ; then
             echo "::error::個人メール／絶対パス／秘密鍵の混入疑い"
             exit 1
