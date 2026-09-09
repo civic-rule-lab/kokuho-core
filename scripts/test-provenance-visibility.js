@@ -1,0 +1,128 @@
+#!/usr/bin/env node
+/**
+ * test-provenance-visibility.js — 「確認済みと表示しているのに根拠を示していない」ページを検出する
+ *
+ * なぜ要るか:
+ *   2026-09-09 に、深川市・松野町・津和野町の3ページが本番で
+ *   「✓ 令和8年度 公式データ確認済み」と表示しながら、出典を1件も出していないことが判明した。
+ *   読者は確認したという主張だけを受け取り、確かめる手段を持たない状態が数日続いていた。
+ *
+ *   原因は、バッジ（buildTrustBadge）が meta.status だけを見て ✓ を出す一方、
+ *   根拠節（buildProvenance）は許可ホストの出典URLが無いと節ごと落ちる、という
+ *   ずれだった。両者は今は pickPublicSourceUrl() を共有しているが、片方だけ触れば
+ *   同じずれが再発する。
+ *
+ *   そして気づけなかった理由は、これを見る仕掛けが無かったこと。生成器は警告を出すが、
+ *   その生成器は CI で走らない。手元で生成した人が警告を見落とせば、それで終わる。
+ *   （規範14: 記録は対処ではない。発火する仕掛けにする）
+ *
+ * 設計:
+ *   - データやロジックではなく「生成された HTML そのもの」を見る。判定側を誰かが壊しても
+ *     出力に現れるため検出できる。許可リストや判定関数を複製しないので、片方が古くなる事故が
+ *     起きない（verify-provenance-hosts.js と同じ思想）。
+ *   - 判定は文字列の有無だけ。LLM も推論も使わないので幻覚が起きない。
+ *
+ * 検査:
+ *   E-1 「公式データ確認済み」バッジがあるのに根拠節が無い          → ERROR
+ *   E-2 「一次資料照合中」バッジ（◔）なのに根拠節がある            → ERROR（◔ の定義と矛盾）
+ *   I-1 ◔ の件数と対象自治体を出力（経過観察用・増減を CI ログで追う）
+ *
+ * 使い方: node scripts/test-provenance-visibility.js [--quiet]
+ * 終了コード: 0=OK / 1=ERROR あり
+ */
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import path from "node:path";
+
+const ROOT = process.cwd();
+const QUIET = process.argv.includes("--quiet");
+
+const BADGE_VERIFIED = "公式データ確認済み";
+const BADGE_QUARTER  = "一次資料照合中";
+const PROVENANCE     = 'class="provenance"';
+
+// {pref}/{slug}/*.html を集める。深さ2固定なので再帰しない（生成物の構造がそうなっている）。
+function collectPages() {
+  const out = [];
+  for (const pref of readdirSync(ROOT)) {
+    if (pref.startsWith(".") || pref.startsWith("_")) continue;
+    const prefPath = path.join(ROOT, pref);
+    let st;
+    try { st = statSync(prefPath); } catch { continue; }
+    if (!st.isDirectory()) continue;
+    for (const slug of readdirSync(prefPath)) {
+      const dir = path.join(prefPath, slug);
+      try { if (!statSync(dir).isDirectory()) continue; } catch { continue; }
+      for (const f of ["index.html", "income.html"]) {
+        const p = path.join(dir, f);
+        try { statSync(p); } catch { continue; }
+        out.push(path.relative(ROOT, p));
+      }
+    }
+  }
+  return out.sort();
+}
+
+const pages = collectPages();
+const verifiedNoProv = [];
+const quarterWithProv = [];
+const quarter = new Set();
+let verifiedCount = 0;
+
+for (const rel of pages) {
+  const html = readFileSync(path.join(ROOT, rel), "utf-8");
+  const hasProv = html.includes(PROVENANCE);
+  // ◔ のラベルは「一次資料照合中」。「一次資料確認済み / 一部照合中」(◐) と
+  // 部分一致しないよう、◐ のラベルを先に除いてから判定する。
+  const isQuarter = html.replace(/一次資料確認済み \/ 一部照合中/g, "").includes(BADGE_QUARTER);
+  const isVerified = html.includes(BADGE_VERIFIED);
+
+  if (isVerified) verifiedCount++;
+  if (isVerified && !hasProv) verifiedNoProv.push(rel);
+  if (isQuarter) {
+    quarter.add(path.dirname(rel));
+    if (hasProv) quarterWithProv.push(rel);
+  }
+}
+
+const line = (s) => { if (!QUIET) console.log(s); };
+
+line("");
+line("═".repeat(70));
+line("  出典表示の整合性チェック");
+line("═".repeat(70));
+line(`  対象ページ: ${pages.length}`);
+line(`  「${BADGE_VERIFIED}」を表示: ${verifiedCount}`);
+line(`  「${BADGE_QUARTER}」を表示: ${quarter.size} 自治体`);
+for (const d of [...quarter].sort()) line(`      ${d}`);
+line("");
+
+let failed = 0;
+
+if (verifiedNoProv.length === 0) {
+  line(`  ✅ E-1: 「${BADGE_VERIFIED}」と表示しているページは全て根拠節を持つ`);
+} else {
+  failed++;
+  console.error(`  ❌ E-1: 「${BADGE_VERIFIED}」と表示しているのに根拠節が無い ${verifiedNoProv.length} 件`);
+  for (const p of verifiedNoProv.slice(0, 20)) console.error(`      ${p}`);
+  if (verifiedNoProv.length > 20) console.error(`      … 他 ${verifiedNoProv.length - 20} 件`);
+  console.error(`      確認したと主張しながら根拠を示していない状態です。`);
+  console.error(`      出典URLが許可ホスト外なら、バッジは ◔「${BADGE_QUARTER}」になるはずです。`);
+}
+
+if (quarterWithProv.length === 0) {
+  line(`  ✅ E-2: 「${BADGE_QUARTER}」のページは根拠節を持たない（定義どおり）`);
+} else {
+  failed++;
+  console.error(`  ❌ E-2: 「${BADGE_QUARTER}」なのに根拠節がある ${quarterWithProv.length} 件`);
+  for (const p of quarterWithProv) console.error(`      ${p}`);
+  console.error(`      根拠節を出せるなら ✓ か ◐ が正しい表示です。`);
+}
+
+line("");
+if (failed === 0) {
+  line("  🎉 整合性チェック合格");
+  line("");
+  process.exit(0);
+}
+console.error(`\n  ${failed} 件の不整合があります\n`);
+process.exit(1);

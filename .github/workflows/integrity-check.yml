@@ -104,6 +104,9 @@ jobs:
       - name: Run validate-kokuho-data.js
         run: node scripts/validate-kokuho-data.js
 
+      - name: Run test-provenance-visibility.js (確認済みと表示しながら根拠を出していないページの検出)
+        run: node scripts/test-provenance-visibility.js
+
       - name: Run check-numeric-text.cjs (料率 JSON の数値表記が値そのままに書き換わっていないか)
         env:
           BASE_REF: ${{ github.base_ref }}
