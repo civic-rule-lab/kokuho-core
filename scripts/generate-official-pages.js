@@ -426,6 +426,16 @@ function fmtFY(fy) {
   return `令和${fy - 2018}年度（${fy}年度）`;
 }
 
+// 表示できる（＝許可ホストの）出典URLを1本選ぶ。無ければ null。
+// buildTrustBadge と buildProvenance が同じ判定を使うために切り出した。
+// 分けておかないと「バッジは ✓ なのに根拠節が出ない」ずれが起きる（2026-09-09 実測: 深川市・松野町・津和野町）。
+function pickPublicSourceUrl(data) {
+  const src = data?.meta?.source ?? {};
+  const lc = data?.meta?.lifecycle ?? {};
+  const candidates = [src.url, ...(Array.isArray(lc.sourceUrls) ? lc.sourceUrls : [])];
+  return candidates.find((u) => isPublicSourceUrl(u)) ?? null;
+}
+
 // 結果直下の免責＋確認済みバッジ（コンパクト版）
 function buildTrustBadge(data, publishYear) {
   const currentFY = getFiscalYear();
@@ -471,6 +481,19 @@ function buildTrustBadge(data, publishYear) {
   if (data.meta?.status !== "verified") {
     return `
   <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ ${fmtFY(publishYear)}暫定値 / 一次資料と照合中</span></p>`;
+  }
+
+  // ◔ 一次資料照合中: 値は一次資料（条例等）で照合済みだが、その一次資料が
+  // ベンダー提供の例規集にしか無く、許可ホストでないため出典URLを掲載できない状態。
+  // 例規集をベンダーに委託するのは自治体自身の公式な選択であり、小規模自治体ほど
+  // 料率ページを持たない。ここを「未昇格」に留めると、その型の自治体が構造的に
+  // 取り残される。よって r8Stage=verified_r8 は据え置き、表示だけを実態に合わせる。
+  // 判定はデータのフラグでなく「表示できる出典があるか」から導出する。データ側に
+  // 別フラグを持たせると、出典URLを差し替えたときに更新漏れでずれるため。
+  // （2026-09-09 オーナー判断・対象は深川市・松野町・津和野町の3件）
+  if (publishYear >= currentFY && !pickPublicSourceUrl(data)) {
+    return `
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--ordinance"><span style="display:inline-block;transform:scaleX(-1);">◔</span> ${fmtFY(publishYear)} 一次資料照合中</span></p>`;
   }
 
   if (publishYear >= currentFY) {
@@ -855,8 +878,7 @@ function buildProvenance(data, cityName, prefecture, publishYear) {
 
   // source.url を主、無ければ lifecycle.sourceUrls の先頭の「公的な」URL を補助に使う。
   // （秦野市のように status=verified でも source.url が空のデータが実在する）
-  const candidates = [src.url, ...(Array.isArray(lc.sourceUrls) ? lc.sourceUrls : [])];
-  const url = candidates.find((u) => isPublicSourceUrl(u)) ?? null;
+  const url = pickPublicSourceUrl(data);
   const title = typeof src.title === "string" ? src.title.trim() : "";
 
   // 出典が一つも示せないなら節ごと出さない（空リンクは出典が無いことより悪い）
