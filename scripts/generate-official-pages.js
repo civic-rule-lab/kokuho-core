@@ -480,7 +480,7 @@ function buildTrustBadge(data, publishYear) {
 
   if (data.meta?.status !== "verified") {
     return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ ${fmtFY(publishYear)}暫定値 / 一次資料と照合中</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--inferred">ⓘ ${fmtFY(publishYear)} 暫定値 / 一次資料と照合中</span></p>`;
   }
 
   // ◔ 一次資料照合中: 値は一次資料（条例等）で照合済みだが、その一次資料が
@@ -498,11 +498,11 @@ function buildTrustBadge(data, publishYear) {
 
   if (publishYear >= currentFY) {
     return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(publishYear)}公式データ確認済み</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--verified">✓ ${fmtFY(publishYear)} 公式データ確認済み</span></p>`;
   }
 
   return `
-  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(publishYear)}データ使用中 / 令和8年度は順次更新中</span></p>`;
+  <p class="result-note">${disclaimer}<span class="result-note__badge result-note__badge--old">⚠ ${fmtFY(publishYear)} データ使用中 / 令和8年度は順次更新中</span></p>`;
 }
 
 // 県標準保険料率（参考値 = standard_r8）採用ページにのみ表示する青枠の注意書き。
