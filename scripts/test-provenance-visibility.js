@@ -25,7 +25,21 @@
  * 検査:
  *   E-1 「公式データ確認済み」バッジがあるのに根拠節が無い          → ERROR
  *   E-2 「一次資料照合中」バッジ（◔）なのに根拠節がある            → ERROR（◔ の定義と矛盾）
+ *   E-3 県ページが ✓（全件確認済み）なのに未確認の自治体がある      → ERROR
+ *   E-4 県ページが「参考値」カードなのに確認済みの自治体がある      → ERROR
+ *   E-5 県ページが表示している実数がデータと合っていない（再生成漏れ）→ ERROR
+ *   E-6 県ページのリンク先の自治体ページが存在しない（404になる）   → ERROR
+ *   E-7 トップが無条件に「令和8年度の公式値」と書いている           → ERROR
  *   I-1 ◔ の件数と対象自治体を出力（経過観察用・増減を CI ログで追う）
+ *   I-2 県ページ47本の3状態の内訳を出力
+ *
+ * 2026-09-10 追記（E-3〜E-6）:
+ *   市区町村ページだけを見ていたため、その上の2階層を見落としていた。実測で、
+ *   県ページ47本すべてが無条件に「令和8年度（2026年度）公式データ確認済み」を
+ *   出しており、うち40県は事実と一致していなかった（沖縄・山梨・高知は確認済みが
+ *   0件のまま ✓ を出していた）。トップも publishYear を数えて「令和8年度の公式値を
+ *   使用しています」と書いていた。県ページは deploy の生成4本に含まれず、
+ *   2026-05-13 から4か月ドリフトしていた。
  *
  * 使い方: node scripts/test-provenance-visibility.js [--quiet]
  * 終了コード: 0=OK / 1=ERROR あり
@@ -116,6 +130,134 @@ if (quarterWithProv.length === 0) {
   console.error(`  ❌ E-2: 「${BADGE_QUARTER}」なのに根拠節がある ${quarterWithProv.length} 件`);
   for (const p of quarterWithProv) console.error(`      ${p}`);
   console.error(`      根拠節を出せるなら ✓ か ◐ が正しい表示です。`);
+}
+
+// ─── E-3〜E-6: 県ページとトップ ───────────────────────────────────
+// 県ページは県内の集合なので、状態はデータから導出しないと検証できない。
+// ここで読むのは lifecycle という一次の事実であり、判定ロジックの複製ではない。
+const PREF_BADGE_FULL     = '<span class="pref-page-badge">';
+const PREF_BADGE_PARTIAL  = 'pref-page-badge pref-page-badge--partial';
+const PREF_NOTE_STANDARD  = '<div class="pref-standard-note">';
+const TOP_UNCONDITIONAL   = "料率は令和8年度の公式値を使用しています";
+
+function loadRegistry() {
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, "registry", "index.json"), "utf-8"));
+  } catch { return null; }
+}
+
+const registry = loadRegistry();
+const prefFullNotAll = [];
+const prefNoteButVerified = [];
+const prefDeadLinks = [];
+const prefCountStale = [];
+let prefFull = 0, prefPartial = 0, prefNone = 0, prefChecked = 0;
+let topUnconditional = false;
+let statsTotal = 0, statsVerified = 0;
+
+if (registry) {
+  const byPref = {};
+  for (const m of registry.municipalities) {
+    if (!m.systems?.includes("kokuho")) continue;
+    const ps = m.prefectureSlug;
+    if (!ps) continue;
+    (byPref[ps] = byPref[ps] || []).push(m);
+  }
+  for (const [ps, munis] of Object.entries(byPref)) {
+    const prefIndex = path.join(ROOT, ps, "index.html");
+    let html;
+    try { html = readFileSync(prefIndex, "utf-8"); } catch { continue; }
+    if (!html.includes("pref-jumin-box")) continue; // 県ページのテンプレ由来でなければ対象外
+    prefChecked++;
+
+    let verified = 0, total = 0;
+    for (const m of munis) {
+      const f = path.join(ROOT, "data", "municipalities", m.citySlug, "kokuho-2026.json");
+      let j;
+      try { j = JSON.parse(readFileSync(f, "utf-8")); } catch { continue; }
+      total++;
+      if (j?.meta?.lifecycle?.r8Stage === "verified_r8") verified++;
+    }
+    statsTotal += total; statsVerified += verified;
+
+    const isNote    = html.includes(PREF_NOTE_STANDARD);
+    const isPartial = html.includes(PREF_BADGE_PARTIAL);
+    const isFull    = !isNote && !isPartial && html.includes(PREF_BADGE_FULL);
+    if (isNote) prefNone++; else if (isPartial) prefPartial++; else if (isFull) prefFull++;
+
+    if (isFull && verified !== total) prefFullNotAll.push(`${ps} (${verified}/${total})`);
+    if (isNote && verified > 0)       prefNoteButVerified.push(`${ps} (${verified}/${total})`);
+
+    // 表示している実数が古くないか。これが無いと、昇格しても県ページを再生成し忘れた
+    // ときに「18/19自治体」のような古い数字が残り続ける（E-3/E-4 は一部表示のままなので
+    // 鳴らない）。県ページが2026-05-13から4か月ドリフトしていた原因がこれ。
+    if (isPartial) {
+      const shown = html.match(/(\d+)\/(\d+)自治体が公式データ確認済み/);
+      if (!shown) {
+        prefCountStale.push(`${ps} (数字を読み取れない)`);
+      } else if (Number(shown[1]) !== verified || Number(shown[2]) !== total) {
+        prefCountStale.push(`${ps} 表示 ${shown[1]}/${shown[2]} → 実データ ${verified}/${total}`);
+      }
+    }
+
+    // リンク先の実体があるか（県ページから 404 へ飛ばさない）
+    for (const mm of html.matchAll(new RegExp(`href="/${ps}/([a-z0-9-]+)/"`, "g"))) {
+      const target = path.join(ROOT, ps, mm[1], "index.html");
+      try { statSync(target); } catch { prefDeadLinks.push(`${ps}/${mm[1]}`); }
+    }
+  }
+
+  try {
+    const top = readFileSync(path.join(ROOT, "index.html"), "utf-8");
+    topUnconditional = top.includes(TOP_UNCONDITIONAL) && statsVerified !== statsTotal;
+  } catch { /* トップが無ければ検査しない */ }
+}
+
+line("");
+line(`  県ページ: ${prefChecked} 本 — 全件確認済み ${prefFull} / 一部 ${prefPartial} / 参考値のみ ${prefNone}`);
+line("");
+
+if (prefFullNotAll.length === 0) {
+  line("  ✅ E-3: ✓ を出している県ページは県内全件が確認済み");
+} else {
+  failed++;
+  console.error(`  ❌ E-3: ✓ を出しているのに未確認の自治体がある県 ${prefFullNotAll.length} 件`);
+  for (const x of prefFullNotAll) console.error(`      ${x}`);
+  console.error("      県内に未確認が残るなら、実数を出すバッジになるはずです。");
+}
+
+if (prefNoteButVerified.length === 0) {
+  line("  ✅ E-4: 「参考値」カードの県は確認済みが0件");
+} else {
+  failed++;
+  console.error(`  ❌ E-4: 「参考値」カードなのに確認済みがある県 ${prefNoteButVerified.length} 件`);
+  for (const x of prefNoteButVerified) console.error(`      ${x}`);
+}
+
+if (prefCountStale.length === 0) {
+  line("  ✅ E-5: 県ページが表示している実数はデータと一致");
+} else {
+  failed++;
+  console.error(`  ❌ E-5: 県ページの数字が古い ${prefCountStale.length} 件`);
+  for (const x of prefCountStale) console.error(`      ${x}`);
+  console.error("      node scripts/generate-prefecture-pages.js を実行してください。");
+}
+
+if (prefDeadLinks.length === 0) {
+  line("  ✅ E-6: 県ページのリンク先は全て実体がある");
+} else {
+  failed++;
+  console.error(`  ❌ E-6: リンク先の自治体ページが無い ${prefDeadLinks.length} 件（本番で 404 になります）`);
+  for (const x of prefDeadLinks.slice(0, 20)) console.error(`      ${x}`);
+  console.error("      generate-prefecture-pages.js の kokuho フィルタを確認してください。");
+}
+
+if (!topUnconditional) {
+  line("  ✅ E-7: トップの注記は検証状態と矛盾しない");
+} else {
+  failed++;
+  console.error("  ❌ E-7: トップが「令和8年度の公式値を使用しています」と書いているが、");
+  console.error(`      実際の確認済みは ${statsVerified}/${statsTotal} 自治体です。`);
 }
 
 line("");

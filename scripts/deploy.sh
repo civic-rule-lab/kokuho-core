@@ -68,6 +68,13 @@ if [ "$SYNC_ONLY" = false ] && [ "$DRY_RUN" = false ]; then
 
   echo "▶ generate-articles.js"
   node "$CORE_DIR/scripts/generate-articles.js"
+
+  # 2026-09-10 追加。県ページはこれまで deploy の生成に含まれておらず、
+  # 2026-05-13 の生成から4か月ドリフトしていた（自治体数が古く、国保対象外の
+  # 泊村へのリンクが本番 404 を返し、47県すべてが無条件に「公式データ確認済み」を
+  # 表示していた）。データが動けば県内の確認済み件数も動くので、ここで一緒に作る。
+  echo "▶ generate-prefecture-pages.js"
+  node "$CORE_DIR/scripts/generate-prefecture-pages.js"
 fi
 
 # ── 1.5 テンプレートスタンプ検証 ─────────────────────────────────

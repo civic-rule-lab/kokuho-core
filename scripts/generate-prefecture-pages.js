@@ -8,7 +8,7 @@
  *   node scripts/generate-prefecture-pages.js kanagawa （1県のみ）
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -43,14 +43,72 @@ async function getDesignatedCities(prefSlug) {
   }
 }
 
+// ─── 県内の検証状況（データから導出）─────────────────────────────
+// 判定はフラグを持たせず data の lifecycle から毎回導出する。別フラグを置くと
+// 昇格させたときに更新漏れでずれるため（市区町村ページの buildTrustBadge と同じ方針）。
+const PUBLISH_FY   = 2026;
+const PUBLISH_LABEL = "令和8年度（2026年度）";
+
+function countVerified(municipalities) {
+  let verified = 0, total = 0;
+  for (const m of municipalities) {
+    const f = path.join(ROOT, "data", "municipalities", m.citySlug, `kokuho-${PUBLISH_FY}.json`);
+    if (!existsSync(f)) continue;
+    total++;
+    let j;
+    try { j = JSON.parse(readFileSync(f, "utf-8")); } catch { continue; }
+    if (j?.meta?.lifecycle?.r8Stage === "verified_r8") verified++;
+  }
+  return { verified, total };
+}
+
+// ─── 確認済みバッジ ───────────────────────────────────────────────
+// 県ページは県内の市区町村の集合なので、状態は必ず「混在」しうる。
+// 無条件に ✓ を出すと事実に反する（2026-09-10 実測: 47県中40県が該当し、
+// うち沖縄・山梨・高知は verified が0件のまま ✓ を出していた）。
+function buildTrustBadge(prefName, { verified, total }) {
+  if (!total) return "";
+
+  // 全件が公式データ確認済み。市区町村ページの ✓ と同じ文言・同じ色。
+  if (verified === total) {
+    return `  <span class="pref-page-badge">
+    <span style="color:#16a34a;font-weight:700;">✓</span>${PUBLISH_LABEL} 公式データ確認済み
+  </span>`;
+  }
+
+  // 1件も確認済みが無い県。市区町村ページが standard_r8 でバッジを出さず
+  // 青枠カードで「参考値」と説明するのと同じ扱いに揃える。
+  if (verified === 0) {
+    return `  <div class="pref-standard-note">
+    <p class="pref-standard-note__title">【ご注意】${PUBLISH_LABEL}の料率について</p>
+    <p class="pref-standard-note__body">${prefName}内の市区町村ページで表示している${PUBLISH_LABEL}の保険料率は、現時点ではすべて${prefName}が公表した<strong>標準保険料率（参考値）</strong>です。各市区町村が実際に決定・告示する保険料率とは異なる場合があります。標準保険料率は、各市区町村の法定外繰入等を行わない前提で県が算定した理論上の値です。確定した料率は各市区町村の公式案内をご確認ください。</p>
+  </div>`;
+  }
+
+  // 一部のみ確認済み。記号は付けない（✓ / ◐ / ◔ は市区町村ページで
+  // それぞれ別の意味に割り当て済みで、県ページに流用すると意味が薄れる）。
+  return `  <span class="pref-page-badge pref-page-badge--partial">
+    ${PUBLISH_LABEL} ${verified}/${total}自治体が公式データ確認済み
+  </span>`;
+}
+
 // ─── SEO ─────────────────────────────────────────────────────────
-function buildMetaDesc(prefName, info, muniCount) {
+// 末尾の検証状況の一文。バッジと同じ判定から作る（片方だけ古くなるのを防ぐ）。
+function buildStatusSentence({ verified, total }) {
+  if (!total)              return `${PUBLISH_LABEL}に対応。`;
+  if (verified === total)  return `${PUBLISH_LABEL}公式データ確認済み。`;
+  if (verified === 0)      return `${PUBLISH_LABEL}は県が公表した標準保険料率（参考値）を表示しています。`;
+  return `${PUBLISH_LABEL}は${total}自治体中${verified}自治体で公式データを確認済みです。`;
+}
+
+function buildMetaDesc(prefName, info, muniCount, counts) {
   const countStr = `県内${muniCount}市区町村`;
+  const status   = buildStatusSentence(counts);
   if (info?.surcharge) {
     const amt = info.surcharge.perCapita ?? 0;
-    return `${prefName}の国民健康保険料を${countStr}別に計算。${prefName}では「${info.taxName}」として均等割に${amt.toLocaleString('ja-JP')}円が上乗せされています。令和8年度（2026年度）公式データ確認済み。`;
+    return `${prefName}の国民健康保険料を${countStr}別に計算。${prefName}では「${info.taxName}」として均等割に${amt.toLocaleString('ja-JP')}円が上乗せされています。${status}`;
   }
-  return `${prefName}の国民健康保険料を${countStr}別に計算。令和8年度（2026年度）公式データ確認済み。${prefName}では住民税の超過課税はありません。`;
+  return `${prefName}の国民健康保険料を${countStr}別に計算。${status}${prefName}では住民税の超過課税はありません。`;
 }
 
 function buildJsonLd(prefName, prefSlug, desc) {
@@ -203,6 +261,10 @@ const prefMap = {};
 for (const m of registry.municipalities) {
   const slug = m.prefectureSlug;
   if (!slug) continue;
+  // 国保対象でない自治体を県ページに並べない。並べるとページ実体が無いため
+  // 本番で 404 になる（2026-09-10 実測: 北海道の泊村 tomari-kunashir が該当。
+  // 県ページからのリンクが HTTP 404 を返していた）。
+  if (!m.systems?.includes("kokuho")) continue;
   if (!prefMap[slug]) prefMap[slug] = { name: m.prefecture, municipalities: [] };
   prefMap[slug].municipalities.push(m);
 }
@@ -238,7 +300,8 @@ for (const prefSlug of targetSlugs) {
     ${prefName}の市区町村ページは順次追加予定です。
   </div>`;
 
-  const metaDesc = buildMetaDesc(prefName, info, municipalities.length);
+  const counts   = countVerified(municipalities);
+  const metaDesc = buildMetaDesc(prefName, info, municipalities.length, counts);
   const html = template
     .replaceAll("__PREF_NAME__",         prefName)
     .replaceAll("__PREF_SLUG__",         prefSlug)
@@ -248,6 +311,7 @@ for (const prefSlug of targetSlugs) {
     .replaceAll("__JUMIN_SECTION__",     buildJuminSection(info))
     .replaceAll("__MUNICIPALITY_LIST__", muniSection)
     .replaceAll("__FAQ_SECTION__",       buildFaq(prefName, info, designatedNames))
+    .replaceAll("__TRUST_BADGE__",       buildTrustBadge(prefName, counts))
     .replaceAll("__CSS_V__",             CSS_V);
 
   mkdirSync(path.join(ROOT, prefSlug), { recursive: true });
