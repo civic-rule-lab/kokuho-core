@@ -8,7 +8,7 @@
  * 実行: node scripts/generate-selector.js
  */
 
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -190,6 +190,27 @@ function goPage() {
 `;
 writeFileSync(OUT_ROOT, jsOfficial, "utf-8");
 
+// ─── 国保の検証状況（data の lifecycle から導出）───────────────────
+// トップの注記に使う。フラグを持たせず毎回データから数える。
+const kokuhoStats = (() => {
+  const out = { total: 0, verified: 0, standard: 0, other: 0, y2025: 0 };
+  for (const m of registry.municipalities) {
+    if (!m.systems?.includes("kokuho")) continue; // 北方領土の泊村など kokuho 非対象を除外
+    out.total++;
+    const y = m.publishYear?.kokuho ?? 2025;
+    if (y !== 2026) { out.y2025++; continue; }
+    const f = path.join(ROOT, "data", "municipalities", m.citySlug, "kokuho-2026.json");
+    if (!existsSync(f)) { out.other++; continue; }
+    let j;
+    try { j = JSON.parse(readFileSync(f, "utf-8")); } catch { out.other++; continue; }
+    const stage = j?.meta?.lifecycle?.r8Stage;
+    if (stage === "verified_r8")      out.verified++;
+    else if (stage === "standard_r8") out.standard++;
+    else                              out.other++;
+  }
+  return out;
+})();
+
 // 正式版 index.html 更新
 updateIndexHtml(prefGroupsOfficial);
 
@@ -260,17 +281,20 @@ ${muniOptions}
 </button>
 
 <div class="note">
-  ※全国${registry.municipalities.length}自治体の国民健康保険に対応しています。<br>
+  ※全国${kokuhoStats.total}自治体の国民健康保険に対応しています。<br>
   ※${(() => {
-    const counts = { 2025: 0, 2026: 0 };
-    for (const m of registry.municipalities) {
-      if (!m.systems?.includes("kokuho")) continue; // 北方領土の泊村など kokuho 非対象を除外
-      const y = m.publishYear?.kokuho ?? 2025;
-      counts[y] = (counts[y] || 0) + 1;
-    }
-    if (counts[2025] === 0) return "料率は令和8年度の公式値を使用しています。";
-    if (counts[2026] === 0) return "料率は令和7年度の公式値を使用しています。令和8年度データは順次更新中です。";
-    return `令和8年度公式データ確定済み: ${counts[2026]}自治体 / 令和7年度継続中: ${counts[2025]}自治体（順次更新）`;
+    // publishYear は「どの年度のファイルを配信するか」であって検証状態ではない。
+    // これを根拠に「令和8年度の公式値を使用しています」と書いていたため、実際には
+    // 県標準保険料率（法定外繰入ゼロ前提の理論値）を出している自治体まで
+    // 公式値と称していた（2026-09-10 実測: standard_r8 が 895 件）。
+    // 検証状態は data の lifecycle から導出する。
+    const { total, verified, standard, other, y2025 } = kokuhoStats;
+    if (y2025 > 0) return `令和8年度データ: ${total - y2025}自治体 / 令和7年度継続中: ${y2025}自治体（順次更新）`;
+    if (verified === total) return "料率は令和8年度の公式値を使用しています。";
+    const parts = [`公式データ確認済み ${verified}自治体`];
+    if (standard) parts.push(`県の標準保険料率（参考値）${standard}自治体`);
+    if (other)    parts.push(`一次資料と照合中 ${other}自治体`);
+    return `令和8年度の内訳（全${total}自治体）: ${parts.join(" / ")}`;
   })()}<br>
   ※実際の保険料は各自治体の通知でご確認ください。
 </div>
