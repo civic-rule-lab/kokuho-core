@@ -54,6 +54,18 @@ function runKokuho(data, input) {
   };
 }
 
+// ─── 区分ごとの端数切捨て ──────────────────────────────────────
+// 地方税法第20条の4の2第3項により、国民健康保険「税」の確定金額は100円未満を切り捨てる。
+// 実務では区分（医療分・支援金分・介護分・子ども分）ごとに切り捨てる自治体が多い
+// （2026-09-10 実測: 新宮市・久留米市・白山市で確認。反例なし）。
+// 保険「料」方式の自治体は法の直接適用が無く、円単位のところがある（新宿区）。
+// エンジン本体は現時点で切り捨てを行っていないため、公表値と突き合わせるテストでのみ再現する。
+function applyComponentFloor(r, unit) {
+  const f = (v) => Math.floor(v / unit) * unit;
+  const medical = f(r.medical), support = f(r.support), care = f(r.care), childcare = f(r.childcare);
+  return { ...r, medical, support, care, childcare, total: medical + support + care + childcare };
+}
+
 // ─── テストケース定義 ──────────────────────────────────────────
 //
 // source: 出典（公式サイト・PDF等）
@@ -83,6 +95,62 @@ const TEST_SUITES = [
         input: { income: 3400000, family: 4, preschool: 1, care: 1, salaryPensionCount: 1 },
         expected: { medical: 394537, support: 138693, care: 83425, total: 616655, reductionLabel: "軽減なし" },
         source: "新宿区公式サイト 計算例",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 新宿区（東京都）令和8年度 ★保険「料」方式・端数切捨てなしの型
+  // 出典: https://www.city.shinjuku.lg.jp/hoken/hoken01_002029.html
+  //       「保険料の計算例について」最終更新 2026年5月18日
+  //
+  // ※ 上の令和7年度スイートとは別に置く。令和8年度から子ども・子育て支援金分が
+  //    加わり、区の計算例も4区分になったため。
+  // ※ 保険「料」方式のため地方税法第20条の4の2（100円未満切捨て）の直接適用が無い。
+  //    区の計算例は年間保険料を 190,859円 と円単位で示しており、100円単位に
+  //    丸めていない（丸めれば190,800）。期割も 19,139 + 19,080×9 = 190,859。
+  //    エンジンの現挙動（切捨てなし）が正しい型として固定する。
+  // ============================================================
+  {
+    slug: "shinjuku",
+    label: "新宿区（令和8年度・保険料方式）",
+    year: 2026,
+    cases: [
+      {
+        label: "【公式例ケース1】単身20歳・給与所得160万円（介護なし）",
+        note:  "給与収入240万円 → 給与所得160万円。子ども分の均等割は18歳以上が対象で 1,873円×1人",
+        input: { income: 1600000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
+        expected: { medical: 135467, support: 50360, care: 0, childcare: 5032, total: 190859, reductionLabel: "軽減なし" },
+        source: "新宿区 保険料の計算例について（2026-05-18）",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 新宮市（和歌山県）令和8年度 ★保険「税」方式・区分ごと100円未満切捨ての型
+  // 出典: https://www.city.shingu.lg.jp/Info/611
+  //
+  // ※ 市の計算例は4区分それぞれに「（百円未満切捨て）」を明記している。
+  //    A医療304,800 / B支援107,000 / C介護83,800 / D子ども10,800 → 合計年税額506,400。
+  //    切捨前の和は506,586で、合計だけ切り捨てると506,500となり公表値と一致しない。
+  //    ＝この自治体が「区分ごと」に切り捨てていることが算術的に確定する。
+  // ※ 資産割のある4方式。医療分のみ資産割5.00%（固定資産税額5万円が対象）。
+  // ※ 子ども分の均等割 1,191円×2人 は18歳以上の夫婦2人ぶん。子10歳は対象外。
+  // ※ componentFloor: 100 はテスト側で切捨てを再現するための指定。
+  //    エンジンに切捨てを実装したら外しても通るはず（TASKS X148-1）。
+  // ============================================================
+  {
+    slug: "shingushi",
+    label: "新宮市（令和8年度・保険税方式・区分ごと切捨て）",
+    year: 2026,
+    cases: [
+      {
+        label: "【公式計算例】3人家族・所得300万円（夫41歳・妻38歳・子10歳／固定資産税5万円）",
+        note:  "基礎総所得 3,000,000 - 430,000 = 2,570,000。介護は夫のみ。資産割は医療分のみ",
+        input: { income: 3000000, family: 3, preschool: 0, under18: 1, care: 1, salaryPensionCount: 1, fixedAssetTax: 50000 },
+        componentFloor: 100,
+        expected: { medical: 304800, support: 107000, care: 83800, childcare: 10800, total: 506400, reductionLabel: "軽減なし" },
+        source: "新宮市 国民健康保険税 計算例",
       },
     ],
   },
@@ -752,7 +820,11 @@ for (const suite of suites) {
     // _overrideData があれば一部フィールドを上書き（バグ回帰テスト等）
     const data = tc._overrideData ? { ...baseData, ...tc._overrideData } : baseData;
 
-    const result = runKokuho(data, tc.input);
+    const raw    = runKokuho(data, tc.input);
+    // componentFloor: 自治体が「区分ごとに N 円未満切捨て」を公表している場合に使う。
+    // 現在のエンジンは切り捨てを行わないため、ここで再現して公表値と突き合わせる。
+    // エンジンに切捨てを実装したら（TASKS X148-1）、この行を消しても通るはず。
+    const result = tc.componentFloor ? applyComponentFloor(raw, tc.componentFloor) : raw;
     const exp    = tc.expected;
     const tol    = tc.tolerance ?? 1;
     const issues = [];
@@ -788,3 +860,10 @@ console.log(`\n${"─".repeat(64)}`);
 console.log(`結果: PASS ${totalPassed} / FAIL ${totalFailed}`);
 if (totalFailed === 0) console.log("✅ 全テスト通過");
 console.log();
+
+// 2026-09-10 追加。これが無いと FAIL があっても終了コード0で返り、CI が緑のまま通っていた。
+// npm test は `&&` で連結しているため、後続のテストも素通りする。
+// 実測: 期待値を壊して PASS 2 / FAIL 1 になっても終了コードは 0 だった。
+// 他の検証スクリプト（test-sanity-all.js / test-kouki.cjs / verify-units.cjs）は
+// いずれも失敗時に非0を返しており、本ファイルだけが抜けていた。
+if (totalFailed > 0) process.exit(1);
