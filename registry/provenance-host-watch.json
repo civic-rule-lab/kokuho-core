@@ -150,6 +150,168 @@
       "expect": "枝幸町",
       "confirmedAt": "2026-09-02",
       "basis": "トップページの町役場の所在地・代表電話・(C) ESASHI TOWN が一致し、「江差」の語は0件。両町とも読みが「えさし」のため、slug からホストを推定した探索器が江差町（esashi / 01361）に誤って割り当てる事故を起こした。本ホストの所有者は枝幸町（esashi-hokkaido / 01514）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない（2026-09-02 実測）"
+    },
+    "www.city-yuzawa.jp": {
+      "owner": "湯沢市（秋田県）",
+      "expect": "湯沢市",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 1000020052078 が cityCode 05207 と対応する（000020＋団体コード052078）。〒012-8501 秋田県湯沢市佐竹町1番1号・代表 0183-73-2111・copyright Yuzawa City も一致。www.city.yuzawa.akita.jp / www.city.yuzawa.lg.jp / city.yuzawa.akita.jp / yuzawa.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.higashikagawa.jp": {
+      "owner": "東かがわ市（香川県）",
+      "expect": "東かがわ市",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 8000020372072 が cityCode 37207 と対応する。〒769-2792・代表電話 0879-26-1214・Copyright (c) Higashikagawa City も一致。www.city.higashikagawa.kagawa.jp / www.city.higashikagawa.lg.jp / higashikagawa.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.city-yanai.jp": {
+      "owner": "柳井市（山口県）",
+      "expect": "柳井市",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 4000020352128 が cityCode 35212 と対応する。〒742-8714 山口県柳井市南町一丁目10番2号・Tel 0820-22-2111（代表）・Copyright Yanai City も一致。www.city.yanai.yamaguchi.jp / www.city.yanai.lg.jp / city.yanai.yamaguchi.jp / yanai.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.kouratown.jp": {
+      "owner": "甲良町（滋賀県）",
+      "expect": "甲良町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒522-0244 滋賀県犬上郡甲良町在士353-1・電話 0749-38-3311・Copyright (c) 2014 Koura Town を照合。滋賀県公式「甲良町の紹介」（https://www.pref.shiga.lg.jp/iju/introduction/107990.html）が甲良町ホームページとして本ホストを直リンクしている（2026-09-10 実測）。www.town.kora.shiga.jp / www.town.kora.lg.jp / town.kora.shiga.jp / kora.lg.jp はいずれも名前解決しない"
+    },
+    "www.townkamiita.jp": {
+      "owner": "上板町（徳島県）",
+      "expect": "上板町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 8000020364053 が cityCode 36405 と対応する。〒771-1392・TEL 088-694-3111・copyright Kamiita-Town も一致。www.town.kamiita.tokushima.jp / www.town.kamiita.lg.jp / town.kamiita.tokushima.jp / kamiita.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.city-nakatsu.jp": {
+      "owner": "中津市（大分県）",
+      "expect": "中津市",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 2000020442038 が cityCode 44203 と対応する。〒871-8501 大分県中津市豊田町14番地3・電話 0979-22-1111・Copyright (c) Nakatsu City も一致。★www.city.nakatsu.lg.jp は A レコード 153.120.150.212 を返すが tcp/80・tcp/443 とも応答しない（dangling delegation 型。2026-09-10 実測）。出典URLに lg.jp 形を書かないこと"
+    },
+    "www.bungo-ohno.jp": {
+      "owner": "豊後大野市（大分県）",
+      "expect": "豊後大野市",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 4000020442127 が cityCode 44212 と対応する。〒879-7198 大分県豊後大野市三重町市場1200番地・電話番号 0974-22-1001・Copyright (c) 2019 Bungo Ono City も一致。www.city.bungo-ohno.oita.jp / www.city.bungoono.oita.jp / www.city.bungo-ohno.lg.jp / bungo-ohno.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.shibetsutown.jp": {
+      "owner": "標津町（北海道）",
+      "expect": "標津町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 9000020016934 が cityCode 01693 と対応する。〒086-1632 北海道標津郡標津町北2条西1丁目1番3号・電話 0153-82-2131（代表）も一致。北海道公式「道内179市町村ホームページ（50音順）」CSV が標津町（根室振興局）として本ホストを掲載（2026-09-10 実測）。★士別市（01220）も読みが「しべつ」でローマ字が同じ。取り違え注意。www.town.shibetsu.hokkaido.jp / www.town.shibetsu.lg.jp / town.shibetsu.hokkaido.jp / shibetsu.lg.jp はいずれも名前解決しない"
+    },
+    "www.akkeshi-town.jp": {
+      "owner": "厚岸町（北海道）",
+      "expect": "厚岸町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 5000020016624 が cityCode 01662 と対応する。〒088-1192・電話番号 0153-52-3131・(C) 2016 Town of Akkeshi, Hokkaido も一致。北海道公式の道内179市町村CSV が厚岸町（釧路総合振興局）として本ホストを掲載。★town.akkeshi.hokkaido.jp は A レコード 60.32.155.50 を返すが tcp/80・tcp/443 とも応答しない（2026-09-10 実測）"
+    },
+    "www.shintoku-town.jp": {
+      "owner": "新得町（北海道）",
+      "expect": "新得町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 8000020016357 が cityCode 01635 と対応する。〒081-8501 北海道上川郡新得町3条南4丁目26番地・電話番号 0156-64-5111（代表・総務課）・Copyright Shintoku Town も一致。北海道公式の道内179市町村CSV が新得町（十勝総合振興局）として本ホストを掲載。www.town.shintoku.hokkaido.jp / www.town.shintoku.lg.jp / town.shintoku.hokkaido.jp / shintoku.lg.jp はいずれも名前解決しない（2026-09-10 実測）"
+    },
+    "www.samani.jp": {
+      "owner": "様似町（北海道）",
+      "expect": "様似町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 3000020016080 が cityCode 01608 と対応する。〒058-8501 北海道様似郡様似町大通1丁目21番地・TEL 0146-36-2111（代表）・copyright HOKKAIDO SAMANI TOWN も一致。北海道公式の道内179市町村CSV が様似町（日高振興局）として本ホストを http:// で掲載。★https では接続できず http のみ応答する（2026-09-10 実測）。verify-provenance-hosts.js は https→http の順に試すので検査は通る。www.town.samani.hokkaido.jp / www.town.samani.lg.jp / town.samani.hokkaido.jp / samani.lg.jp はいずれも名前解決しない"
+    },
+    "www.kamishihoro.jp": {
+      "owner": "上士幌町（北海道）",
+      "expect": "上士幌町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページが「法人番号： 9000020016331」と明記しており cityCode 01633 と対応する。〒080-1492 北海道河東郡上士幌町字上士幌東3線238番地・代表TEL 01564-2-2111 も一致。北海道公式の道内179市町村CSV が上士幌町（十勝総合振興局）として本ホストを掲載。★town.kamishihoro.hokkaido.jp は A レコード 210.148.105.69 を返すが tcp/80・tcp/443 とも応答しない（2026-09-10 実測）。★士幌町（01632・www.shihoro.jp）と紛らわしい"
+    },
+    "www.town-kyogoku.jp": {
+      "owner": "京極町（北海道）",
+      "expect": "京極町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 3000020013994 が cityCode 01399 と対応する。〒044-0101 北海道虻田郡京極町字京極527番地・Tel.0136-42-2111 も一致。北海道公式の道内179市町村CSV が京極町（後志総合振興局）として本ホストを http:// で掲載（2026-09-10 実測）。www.town.kyogoku.hokkaido.jp / www.town.kyogoku.lg.jp / town.kyogoku.hokkaido.jp / kyogoku.lg.jp はいずれも名前解決しない"
+    },
+    "www.townhamanaka.jp": {
+      "owner": "浜中町（北海道）",
+      "expect": "浜中町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒088-1592 北海道厚岸郡浜中町湯沸445番地・電話番号 0153-62-2111（代表）・Copyright (c) 2016 HAMANAKA Town Office を照合。北海道公式の道内179市町村CSV が浜中町（釧路総合振興局）として本ホストを掲載（2026-09-10 実測）。www.town.hamanaka.hokkaido.jp / www.town.hamanaka.lg.jp / town.hamanaka.hokkaido.jp / hamanaka.lg.jp はいずれも名前解決しない"
+    },
+    "www.hokkaido-esashi.jp": {
+      "owner": "江差町（北海道）",
+      "expect": "江差町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示の掲載は無い。〒043-8560 北海道檜山郡江差町字中歌町193-1・TEL:0139-52-1020（代表）を照合。北海道公式の道内179市町村CSV が江差町（檜山振興局）として本ホストを掲載（2026-09-10 実測）。★既登録の www.esashi.jp は枝幸町（esashi-hokkaido / 01514）であって本町ではない。両町とも読みが「えさし」で、2026-09-02 に slug からホストを推定した探索器が実際に取り違えている。本ホストの所有者は江差町（esashi / 01361）。www.town.esashi.hokkaido.jp / www.town.esashi.lg.jp / town.esashi.hokkaido.jp / esashi.lg.jp はいずれも名前解決しない"
+    },
+    "www.maoi-net.jp": {
+      "owner": "長沼町（北海道）",
+      "expect": "長沼町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒069-1392 北海道夕張郡長沼町中央北1丁目1番1号・代表電話 0123-88-2111・Copyright (c) Naganuma Town を照合。★ホスト名に自治体名を含まない（「まおいネット」）ため、北海道公式の道内179市町村CSV が長沼町（空知総合振興局）として本ホストを掲載していること（2026-09-10 実測）を主たる根拠とする。www.town.naganuma.hokkaido.jp / www.town.naganuma.lg.jp / town.naganuma.hokkaido.jp / naganuma.lg.jp はいずれも名前解決しない"
+    },
+    "www.shihoro.jp": {
+      "owner": "士幌町（北海道）",
+      "expect": "士幌町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒080-1292 北海道河東郡士幌町字士幌225番地・TEL:01564-5-2211・(C) Town of Shihoro を照合。北海道公式の道内179市町村CSV が士幌町（十勝総合振興局）として本ホストを掲載（2026-09-10 実測）。★上士幌町（01633・www.kamishihoro.jp）と紛らわしい。www.town.shihoro.hokkaido.jp / www.town.shihoro.lg.jp / town.shihoro.hokkaido.jp / shihoro.lg.jp はいずれも名前解決しない"
+    },
+    "www.akaigawa.com": {
+      "owner": "赤井川村（北海道）",
+      "expect": "赤井川村",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒046-0592 北海道余市郡赤井川村字赤井川74番地2・TEL0135-34-6211・Copyright (c) Akaigawa Village を照合。北海道公式の道内179市町村CSV が赤井川村（後志総合振興局）として本ホストを掲載（2026-09-10 実測）。★.com であり、追加ドメインの大半（.jp）と性質が異なる。★www.vill.akaigawa.lg.jp は A レコード 219.109.143.126 を返すが tcp/80・tcp/443 とも応答しない（dangling delegation 型）。www.akaigawa.jp は 404 を返す。出典URLに lg.jp 形を書かないこと"
+    },
+    "rishiri-town.jp": {
+      "owner": "利尻町（北海道）",
+      "expect": "利尻町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示の掲載は無い。〒097-0401 北海道利尻郡利尻町沓形字緑町14番地1・電話 0163-84-2345 を照合。★北海道公式の道内179市町村CSV は利尻町の欄に旧URL http://www.town.rishiri.hokkaido.jp/ を載せているが、その旧URLは https://rishiri-town.jp/ へ転送される（meta refresh で /rishiri/1.htm を経由し、最終URLが rishiri-town.jp。2026-09-10 実測）。自治体系ドメインからの転送であることが所有の根拠。www.town.rishiri.lg.jp / town.rishiri.hokkaido.jp / rishiri.lg.jp は名前解決しない。★道CSVが旧URLのままなので、CSV との単純一致では確認できない"
+    },
+    "www.teshiotown.hokkaido.jp": {
+      "owner": "天塩町（北海道）",
+      "expect": "天塩町",
+      "confirmedAt": "2026-09-10",
+      "basis": "hokkaido.jp 配下の自治体系サブドメインだが、PROVENANCE_HOST_PATTERNS の (city|town|vill|village).X.Y.jp 形は先頭が town. であることを求めるため当たらず、EXTRA 登録が要る。法人番号・著作権表示の掲載は無い。〒098-3398 北海道天塩郡天塩町新栄通8丁目1466-113・電話:01632-2-1001 を照合。北海道公式の道内179市町村CSV が天塩町（留萌振興局）として本ホストを掲載（2026-09-10 実測）。www.town.teshio.hokkaido.jp / www.town.teshio.lg.jp / town.teshio.hokkaido.jp / teshio.lg.jp はいずれも名前解決しない"
+    },
+    "www.memuro.net": {
+      "owner": "芽室町（北海道）",
+      "expect": "芽室町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒082-8651・TEL:0155-62-2611・Copyright(C)2020 memuro hokkaido.Japan を照合。北海道公式の道内179市町村CSV が芽室町（十勝総合振興局）として本ホストを掲載（2026-09-10 実測）。★.net であり、追加ドメインの大半（.jp）と性質が異なる。www.town.memuro.hokkaido.jp / www.town.memuro.lg.jp / town.memuro.hokkaido.jp / memuro.lg.jp / www.memuro.jp はいずれも名前解決しない"
+    },
+    "www.urahoro.jp": {
+      "owner": "浦幌町（北海道）",
+      "expect": "浦幌町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示の掲載は無く、トップページに〒表記も無い。電話番号 015-576-2111 を照合。★このため、北海道公式の道内179市町村CSV が浦幌町（十勝総合振興局）として本ホストを掲載していること（2026-09-10 実測）を主たる根拠とする。www.town.urahoro.hokkaido.jp / www.town.urahoro.lg.jp / town.urahoro.hokkaido.jp / urahoro.lg.jp はいずれも名前解決しない"
+    },
+    "engaru.jp": {
+      "owner": "遠軽町（北海道）",
+      "expect": "遠軽町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号の掲載は無い。〒099-0492 北海道紋別郡遠軽町1条通北3丁目1番地1・電話 0158-42-4811（代表）・Copyright (C) ENGARU TOWN を照合。北海道公式の道内179市町村CSV が遠軽町（オホーツク総合振興局）として https://engaru.jp/ を掲載（2026-09-10 実測）。www 付きの www.engaru.jp も同じ町サイトを配信する（Imperva 経由）。www.town.engaru.hokkaido.jp / www.town.engaru.lg.jp / town.engaru.hokkaido.jp / engaru.lg.jp はいずれも名前解決しない"
+    },
+    "www.city-matsuura.jp": {
+      "owner": "松浦市（長崎県）",
+      "expect": "松浦市",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示の掲載は無い。〒859-4598 長崎県松浦市志佐町里免365・電話:0956-72-1111 を照合。長崎県公式「県内市町」（https://www.pref.nagasaki.jp/pages/page-31.html）が松浦市として本ホストを直リンクしている（2026-09-10 実測）。★www.city.matsuura.lg.jp は本ホストの Akamai プロパティ www.city-matsuura.jp.edgekey.net への CNAME であり、市が両方の名前を管理していることの裏づけになる。ただし lg.jp 形は https で TLS alert、http で 400 Invalid URL を返すので出典URLには使わない"
+    },
+    "webtown.nagayo.jp": {
+      "owner": "長与町（長崎県）",
+      "expect": "長与町",
+      "confirmedAt": "2026-09-10",
+      "basis": "トップページの法人番号 5000020423076 が cityCode 42307 と対応する。〒851-2185・電話番号 095-883-1111・Copyright 2020 Nagayo town も一致。長崎県公式「県内市町」（https://www.pref.nagasaki.jp/pages/page-31.html）が長与町として本ホストを直リンクしている（2026-09-10 実測）。www.town.nagayo.nagasaki.jp / www.town.nagayo.lg.jp / town.nagayo.nagasaki.jp / nagayo.lg.jp / www.nagayo.jp はいずれも名前解決しない"
+    },
+    "www.kawatana.jp": {
+      "owner": "川棚町（長崎県）",
+      "expect": "川棚町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示の掲載は無い。〒859-3692 長崎県東彼杵郡川棚町中組郷1518-1・電話：0956-82-3131（代表）を照合。長崎県公式「県内市町」（https://www.pref.nagasaki.jp/pages/page-31.html）が川棚町として本ホストを直リンクしている（2026-09-10 実測）。★町のメールドメインは town.kawatana.lg.jp で web ドメインと異なり、例規集も外部（g-reiki.net）にある。www.town.kawatana.nagasaki.jp / www.town.kawatana.lg.jp / town.kawatana.lg.jp / kawatana.lg.jp はいずれも名前解決しない"
+    },
+    "official.shinkamigoto.net": {
+      "owner": "新上五島町（長崎県）",
+      "expect": "新上五島町",
+      "confirmedAt": "2026-09-10",
+      "basis": "法人番号・著作権表示のトップ掲載は無い。〒857-4495 長崎県南松浦郡新上五島町青方郷1585-1・電話：0959-53-1111 を照合。長崎県公式「県内市町」（https://www.pref.nagasaki.jp/pages/page-31.html）が新上五島町として本ホストを直リンクしている。★さらに自治体系の www.town.shinkamigoto.nagasaki.jp が「新上五島町公式サイトは移転しました。新URL http://official.shinkamigoto.net/」という移転案内を配信しており、そのページに Copyright(C) town of Shinkamigoto と町の情報化推進室の連絡先（TEL 0959-53-1111）が載っている（2026-09-10 実測）。移転元の自治体系ドメイン自身による名指しなので、所有の直接証拠になる。★town.shinkamigoto.lg.jp の dangling delegation については generate-official-pages.js のコメントを参照"
     }
   }
 }
