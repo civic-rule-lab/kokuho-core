@@ -312,6 +312,36 @@
       "expect": "新上五島町",
       "confirmedAt": "2026-09-10",
       "basis": "法人番号・著作権表示のトップ掲載は無い。〒857-4495 長崎県南松浦郡新上五島町青方郷1585-1・電話：0959-53-1111 を照合。長崎県公式「県内市町」（https://www.pref.nagasaki.jp/pages/page-31.html）が新上五島町として本ホストを直リンクしている。★さらに自治体系の www.town.shinkamigoto.nagasaki.jp が「新上五島町公式サイトは移転しました。新URL http://official.shinkamigoto.net/」という移転案内を配信しており、そのページに Copyright(C) town of Shinkamigoto と町の情報化推進室の連絡先（TEL 0959-53-1111）が載っている（2026-09-10 実測）。移転元の自治体系ドメイン自身による名指しなので、所有の直接証拠になる。★town.shinkamigoto.lg.jp の dangling delegation については generate-official-pages.js のコメントを参照"
+    },
+    "www.minamiaiki.jp": {
+      "owner": "南相木村（長野県）",
+      "expect": "南相木村",
+      "confirmedAt": "2026-09-12",
+      "basis": "法人番号・著作権表示の掲載は無い。〒384-1211 長野県南佐久郡南相木村・TEL 0267-78-2121（村役場代表）を照合。村の公文書「国民健康保険税について（20260617更新）」PDF を本ホストで配信しており、同PDFは村の令和8年度国保税率表を載せている。★vill.minamiaiki.nagano.jp / www.vill.minamiaiki.nagano.jp は A レコード 1.33.177.191 を返すが http で 403 Forbidden を返し村サイトを配信していない（https は接続不可）。minamiaiki.lg.jp / www.vill.minamiaiki.lg.jp は名前解決しない（2026-09-12 実測）。出典URLに自治体系の形を使わないこと。★オーナーが公式サイトであることを確認済み（2026-09-11）"
+    },
+    "www.nebamura.jp": {
+      "owner": "根羽村（長野県）",
+      "expect": "根羽村",
+      "confirmedAt": "2026-09-12",
+      "basis": "法人番号の掲載は無い。〒395-0701 長野県下伊那郡根羽村2131番地1・電話 0265-49-2111・Copyright (C) NEBA Village を照合。村の広報誌「広報ねば 第233号」（2026年4月）を本ホストで配信しており、その誌面に「根羽村役場住民課 電話 0265-49-2111」とトップページと同じ代表電話が載っている。vill.neba.nagano.jp / www.vill.neba.nagano.jp / neba.lg.jp / www.vill.neba.lg.jp はいずれも名前解決しない（2026-09-12 実測）"
+    },
+    "www.vill-shimojo.jp": {
+      "owner": "下條村（長野県）",
+      "expect": "下條村",
+      "confirmedAt": "2026-09-12",
+      "basis": "法人番号の掲載は無い。〒399-2101 長野県下伊那郡下條村睦沢8801-1・電話 0260-27-2311・Copyright c 2017 SHIMOJO VILLAGE を照合。村の広報誌「広報志もじょう 第241号」（2026年7月）を本ホストで配信しており、その4ページに「令和8年度の下條村国民健康保険税については表のとおりです」の税率表がある。vill.shimojo.nagano.jp / www.vill.shimojo.nagano.jp / shimojo.lg.jp / www.vill.shimojo.lg.jp はいずれも名前解決しない（2026-09-12 実測）"
+    },
+    "www.vill-tenryu.jp": {
+      "owner": "天龍村（長野県）",
+      "expect": "天龍村",
+      "confirmedAt": "2026-09-12",
+      "basis": "法人番号の掲載は無い。〒399-1201 長野県下伊那郡天龍村・電話 0260-32-2001 / 0260-32-3111・Copyright (C)2002-2026 Village of Tenryu を照合。村の広報誌「広報天龍 第229号」（2026年8月）を本ホストで配信しており、その11ページに「国民健康保険税の税率が変わります」「村では、6月議会での議決を受け下記のとおり税率が決定しました」と令和8年度の税率表がある。vill.tenryu.nagano.jp / www.vill.tenryu.nagano.jp / tenryu.lg.jp / www.vill.tenryu.lg.jp はいずれも名前解決しない（2026-09-12 実測）"
+    },
+    "www.ikedamachi.net": {
+      "owner": "池田町（長野県）",
+      "expect": "池田町",
+      "confirmedAt": "2026-09-13",
+      "basis": "トップページの法人番号 9000020204811 が cityCode 20481 と対応する（000020＋団体コード204811）。〒399-8696 長野県北安曇郡池田町・電話 0261-62-3131 も一致。町の「国民健康保険税について」（ID:42・更新日2026年6月25日）に令和8年度の税率表があり、町例規集（https://en3-jg.d1-law.com/ikeda-town/d1w_reiki/reiki.html・内容現在 令和8年7月1日）へのリンクも自ドメインのトップから張っている。www.town.ikeda.nagano.jp / www.town.ikeda.lg.jp / ikeda-nagano.jp はいずれも名前解決しない（2026-09-13 実測）。★同名の池田町が北海道・岐阜県・福井県・大阪府にあり、全国自治体例規集リンク集は本町の欄に北海道池田町の例規集を載せている。取り違え注意"
     }
   }
 }
