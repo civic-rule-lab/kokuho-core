@@ -372,6 +372,60 @@
       "expect": "平谷村",
       "confirmedAt": "2026-09-13",
       "basis": "法人番号の掲載は無い。トップページで 〒395-0601 長野県下伊那郡平谷村354番地・TEL 0265-48-2211・「Copyright© 平谷村役場 All Rights Reserved.」を照合。title は「平谷村役場（公式ホームページ）」。村の広報誌を本ホストで配信しており、令和8年度の村国保税率が載る。www.vill.hiraya.nagano.jp / hiraya.lg.jp はいずれも名前解決しない（2026-09-13 実測）"
+    },
+    "www.ubuyama-v.jp": {
+      "owner": "産山村（熊本県阿蘇郡）",
+      "expect": "産山村",
+      "confirmedAt": "2026-09-15",
+      "basis": "熊本県「リンク集（省庁、市町村）」（pref.kumamoto.jp/soshiki/1/51179.html）から本ホストへリンク。トップページで 〒869-2703 熊本県阿蘇郡産山村山鹿488番地3・「Copyright (c) 2021 Ubuyama Village」・title「ホーム／産山村」を照合。法人番号の掲載は無い。www.vill.ubuyama.kumamoto.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.kumamura.com": {
+      "owner": "球磨村（熊本県球磨郡）",
+      "expect": "球磨村",
+      "confirmedAt": "2026-09-15",
+      "basis": "法人番号 4000020435139 が cityCode 43513 と対応（広報記事ページのフッター）。〒869-6401 熊本県球磨郡球磨村大字渡丙1730番地・0966-32-1111。熊本県「リンク集（省庁、市町村）」から本ホストへリンク。村の広報誌「広報くまむら」を本ホストで配信（2026年7月号に令和8年度の国保税率表）。www.vill.kuma.kumamoto.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "reihoku-kumamoto.jp": {
+      "owner": "苓北町（熊本県天草郡）",
+      "expect": "苓北町",
+      "confirmedAt": "2026-09-15",
+      "basis": "熊本県「リンク集（省庁、市町村）」から本ホストへリンク。トップページで 〒863-2503 熊本県天草郡苓北町志岐660番地・「Copyright (c) Reihoku Town」を照合。法人番号の掲載は無い。町の令和8年度国保税率表PDFを本ホストで配信。www.town.reihoku.kumamoto.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.town-ono.jp": {
+      "owner": "大野町（岐阜県揖斐郡）",
+      "expect": "大野町",
+      "confirmedAt": "2026-09-15",
+      "basis": "岐阜県「岐阜県の市町村一覧」（pref.gifu.lg.jp/page/6058.html）から本ホストへリンク。トップページで 〒501-0592 岐阜県揖斐郡大野町大字大野80番地・「Copyright (C) Ono Town」・本文「大野町役場」を照合。法人番号の掲載は無い。www.town.ono.gifu.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.kawabe-gifu.jp": {
+      "owner": "川辺町（岐阜県加茂郡）",
+      "expect": "川辺町",
+      "confirmedAt": "2026-09-15",
+      "basis": "岐阜県「岐阜県の市町村一覧」から本ホストへリンク。トップページで 〒509-0393 岐阜県加茂郡川辺町中川辺1518-4・「Copyright © KAWABE TOWN」・本文「川辺町役場」を照合。法人番号の掲載は無い。www.town.kawabe.gifu.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.hichiso.jp": {
+      "owner": "七宗町（岐阜県加茂郡）",
+      "expect": "七宗町",
+      "confirmedAt": "2026-09-15",
+      "basis": "岐阜県「岐阜県の市町村一覧」から本ホストへリンク。トップページで 〒509-0492 岐阜県加茂郡七宗町上麻生2442番地3・「Copyright © 七宗町公式ウエブサイト」・本文「七宗町役場」を照合。法人番号の掲載は無い。www.town.hichiso.gifu.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.chatan.jp": {
+      "owner": "北谷町（沖縄県中頭郡）",
+      "expect": "北谷町",
+      "confirmedAt": "2026-09-15",
+      "basis": "沖縄県「リンク集」（pref.okinawa.jp/about/1018107.html）から本ホストへリンク。トップページで 〒904-0192 沖縄県中頭郡北谷町桑江一丁目1番1号・098-936-1234・「Copyright © Chatan Town」・本文「北谷町役場」を照合。法人番号の掲載は無い。www.town.chatan.okinawa.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.iejima.org": {
+      "owner": "伊江村（沖縄県国頭郡）",
+      "expect": "伊江村",
+      "confirmedAt": "2026-09-15",
+      "basis": "沖縄県「リンク集」から本ホスト（/ieson/）へリンク。トップページで 〒905-0592 沖縄県国頭郡伊江村字東江前38番地・「Copyright© Ie Village」・本文「伊江村役場」・title「伊江村公式ホームページ」を照合。法人番号の掲載は無い。www.vill.ie.okinawa.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.nakijin.jp": {
+      "owner": "今帰仁村（沖縄県国頭郡）",
+      "expect": "今帰仁村",
+      "confirmedAt": "2026-09-15",
+      "basis": "沖縄県「リンク集」から本ホストへリンク。トップページで 〒905-0492 沖縄県国頭郡今帰仁村字仲宗根219番地・0980-56-2101・「Copyright © Okinawa Nakijin Village」・本文「今帰仁村役場」を照合。法人番号の掲載は無い。www.vill.nakijin.okinawa.jp は名前解決しない（2026-09-15 実測）"
     }
   }
 }
