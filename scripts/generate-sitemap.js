@@ -32,6 +32,26 @@ const PREF_SLUG = {
 
 const registry = JSON.parse(readFileSync(path.join(ROOT, "registry", "index.json"), "utf-8"));
 const today    = new Date().toISOString().slice(0, 10);
+const OUT      = path.join(ROOT, "sitemap.xml");
+
+// 既存 sitemap の lastmod を URL 単位で引き継ぐ。
+// 全 URL に当日日付を入れると、内容が1文字も変わらなくても走らせた日ごとに全行が差し替わり、
+// 追跡ファイルが毎回未コミットで残る（_governance/TASKS.md X166-4）。
+// lastmod は本来「そのページが最後に変わった日」なので、URL が新しく増えたときだけ今日を入れる。
+function previousLastmod(file) {
+  const map = new Map();
+  try {
+    const prev = readFileSync(file, 'utf-8');
+    const re = /<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
+    let m;
+    while ((m = re.exec(prev)) !== null) map.set(m[1], m[2]);
+  } catch {
+    // 初回生成（ファイルが無い）なら全件が今日になる
+  }
+  return map;
+}
+
+const prevLastmod = previousLastmod(OUT);
 
 const ALL_PREF_SLUGS = [
   'hokkaido','aomori','iwate','miyagi','akita','yamagata','fukushima',
@@ -67,12 +87,12 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${prevLastmod.get(u.loc) || today}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`).join("\n")}
 </urlset>
 `;
 
-writeFileSync(path.join(ROOT, "sitemap.xml"), xml, "utf-8");
+writeFileSync(OUT, xml, "utf-8");
 console.log(`✅ sitemap.xml 生成完了 (${urls.length} URL)`);
