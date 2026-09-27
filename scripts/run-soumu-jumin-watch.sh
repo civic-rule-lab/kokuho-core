@@ -13,7 +13,8 @@
 #   総務省の更新は年1〜2回。週1回で足りる。
 #   r8-watch (毎日 09:30) / change-detector (毎日 02:01) / provenance-host-watch とは時間帯をずらすこと。
 #
-# 終了コード: 0=変化なし / 1=要対応 / 2=判定不能（取得失敗など） / 3以上=起動失敗
+# 終了コード: 0=変化なし / 1=要対応 / 2=判定不能（取得失敗など） / 3・4=起動失敗
+#            5=監視スクリプトが無い / 6=監視スクリプトの異常終了
 #
 # 備考:
 #   - レポート docs/change-reports/soumu-jumin-watch-YYYY-MM-DD.md は gitignore 済み
@@ -54,17 +55,32 @@ if ! command -v node >/dev/null 2>&1; then
     exit 4
 fi
 
-node scripts/watch-soumu-jumin-rates.js
-EXIT_CODE=$?
+# 同日の古いレポートで判定しないよう、先に消す（生成物・gitignore 済み）
+REPORT="docs/change-reports/soumu-jumin-watch-${TODAY}.md"
+rm -f "$REPORT"
+
+if [[ ! -f scripts/watch-soumu-jumin-rates.js ]]; then
+    echo "ERROR: scripts/watch-soumu-jumin-rates.js が無い（checkout 中のブランチに未取り込み）" >&2
+    EXIT_CODE=5
+else
+    node scripts/watch-soumu-jumin-rates.js
+    EXIT_CODE=$?
+fi
 
 END_TS="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 echo "[$END_TS] soumu-jumin-watch 終了 (exit=$EXIT_CODE)"
 
-REPORT="docs/change-reports/soumu-jumin-watch-${TODAY}.md"
 if [[ -f "$REPORT" ]]; then
     echo "✅ レポート生成: $REPORT"
 else
     echo "⚠ レポート未生成: $REPORT (exit=$EXIT_CODE のため失敗の可能性)"
+fi
+
+# node の異常終了（構文エラー・例外）も exit=1 になる。レポートに「要対応」が無ければ異常終了として扱い、
+# 「更新あり」の誤通知を出さない
+if [[ $EXIT_CODE -eq 1 ]] && ! grep -q '結果: \*\*要対応\*\*' "$REPORT" 2>/dev/null; then
+    echo "ERROR: exit=1 だがレポートに要対応の判定が無い。スクリプトの異常終了とみなす" >&2
+    EXIT_CODE=6
 fi
 
 # 変化なし以外は通知して気づけるようにする（ログを見に行かないと分からない、を避ける）
