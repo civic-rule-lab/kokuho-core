@@ -5,7 +5,7 @@
 | ファイル | 出所 | 目的 |
 |---|---|---|
 | `soumu-jichitai-codes.json` | 総務省『都道府県コード及び市区町村コード』 | cityCode の正準ソース |
-| `soumu-jumin-city-rates-r7.json` | 総務省『地方税に関する参考計数資料（令和8年度）』表13（令和7年4月1日現在） | 個人市町村民税が標準税率と異なる団体（超過・未満）。住民税データ市町村分の裏付け。`scripts/list-open-questions.js` が参照 |
+| `soumu-jumin-city-rates-r7.json` | 総務省『地方税に関する参考計数資料（令和8年度）』表13（令和7年4月1日現在） | 個人市町村民税が標準税率と異なる団体（超過・未満）。住民税データ市町村分の裏付け。`scripts/list-open-questions.js` が参照。新版の公表・差し替えは `scripts/watch-soumu-jumin-rates.js` が検知する |
 
 ## ⭐ 重要：一次資料準拠ルール（POLICIES §10）
 
