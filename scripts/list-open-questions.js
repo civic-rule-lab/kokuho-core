@@ -23,6 +23,10 @@
  *       載っているのにファイルが無ければ未確定に数える。
  *   notes 内の「未確認」等の記述は status と別に拾う（確定済みの制度にも残っていることがある）。
  *
+ * 住民税の市町村分は data/reference/soumu-jumin-city-rates-r7.json（総務省・令和7年4月1日現在の
+ * 標準税率と異なる団体の一覧）と突き合わせる。一覧に無い市町村は基準日時点で標準税率なので、
+ * 残る確認事項は「基準日より後の税率変更の有無」になる。データ側の値が一覧と食い違えば不整合として出す。
+ *
  * 読むだけで、何も書き換えない。
  */
 
@@ -34,6 +38,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data", "municipalities");
 const REGISTRY_PATH = path.join(ROOT, "registry", "index.json");
+const CITY_RATES_PATH = path.join(ROOT, "data", "reference", "soumu-jumin-city-rates-r7.json");
 
 const YEAR = 2026;
 const SYSTEMS = ["kokuho", "kaigo", "kouki", "jumin", "hoiku"];
@@ -54,6 +59,29 @@ const slugs = args.filter((a) => !a.startsWith("--"));
 
 const registry = JSON.parse(readFileSync(REGISTRY_PATH, "utf-8")).municipalities;
 const bySlug = new Map(registry.map((m) => [m.citySlug, m]));
+
+// 住民税 市町村分の標準値（js/core/jumin.js の JUMIN_DEFAULTS と同じ）。指定都市の所得割は 8%。
+const CITY_STANDARD = { cityRate: [0.06, 0.08], cityPerCapita: [3000] };
+const cityRates = JSON.parse(readFileSync(CITY_RATES_PATH, "utf-8"));
+const cityExceptions = new Map();
+for (const e of cityRates.exceptions) {
+  if (!cityExceptions.has(e.citySlug)) cityExceptions.set(e.citySlug, {});
+  cityExceptions.get(e.citySlug)[e.field] = e.value;
+}
+
+/** 住民税データの市町村分を総務省一覧と突き合わせ、食い違いを返す。ファイルが無ければ d = {}。 */
+function checkCityRates(slug, d) {
+  const exc = cityExceptions.get(slug) || {};
+  const out = [];
+  for (const [field, allowed] of Object.entries(CITY_STANDARD)) {
+    const actual = field in d ? d[field] : allowed[0];
+    const expected = field in exc ? [exc[field]] : allowed;
+    if (!expected.includes(actual)) {
+      out.push(`jumin: ${field}=${actual} だが総務省一覧（${cityRates.asOf} 現在）では ${expected.join(" または ")}`);
+    }
+  }
+  return out;
+}
 
 function readJson(slug, system) {
   const p = path.join(DATA_DIR, slug, `${system}-${YEAR}.json`);
@@ -117,8 +145,8 @@ function describe(system, d) {
       };
     case "jumin":
       return {
-        ask: "市町村民税の超過課税（所得割・均等割）の有無と額",
-        basis: "県分は spec で確認済み。市町村分 cityRate / cityPerCapita は未収録",
+        ask: `${cityRates.asOf} より後に市町村民税の税率（所得割・均等割）を変えたか（超過課税・減税）`,
+        basis: `県分は spec で確認済み。市町村分は総務省一覧で ${cityRates.asOf} 現在の値と一致（令和${YEAR - 2018}年度は未確認）`,
         current: Object.fromEntries(
           ["prefRate", "prefPerCapita", "cityRate", "cityPerCapita"].filter((k) => k in d).map((k) => [k, d[k]])
         ),
@@ -141,6 +169,7 @@ function inspect(slug) {
 
   for (const system of SYSTEMS) {
     const f = readJson(slug, system);
+    if (system === "jumin") warnings.push(...checkCityRates(slug, f ? f.data : {}));
     if (!f) {
       if (system === "jumin") {
         rows.push({
@@ -215,7 +244,7 @@ function printReport(r) {
   }
   if (r.warnings.length) {
     L.push("");
-    L.push("## 台帳の不整合");
+    L.push("## 不整合（registry・総務省一覧との食い違い）");
     for (const w of r.warnings) L.push(`  ${w}`);
   }
   L.push("");
@@ -250,7 +279,7 @@ if (summary) {
     all: count(all.map((r) => r.openSystems.length)),
     excludingJuminNoFile: count(all.map((r) =>
       r.rows.filter((x) => x.state === "open" && !(x.system === "jumin" && x.path === null)).length)),
-    registryWarnings: all.flatMap((r) => r.warnings.map((w) => `${r.citySlug}: ${w}`)),
+    warnings: all.flatMap((r) => r.warnings.map((w) => `${r.citySlug}: ${w}`)),
   };
   if (asJson) {
     console.log(JSON.stringify(out, null, 2));
@@ -262,9 +291,10 @@ if (summary) {
     console.log("");
     console.log(`未確定を抱える自治体: ${out.all.withOpen}（2制度以上 ${out.all.twoOrMore}）  内訳 ${JSON.stringify(out.all.histogram)}`);
     console.log(`  住民税ファイルなしを除くと: ${out.excludingJuminNoFile.withOpen}（2制度以上 ${out.excludingJuminNoFile.twoOrMore}）  内訳 ${JSON.stringify(out.excludingJuminNoFile.histogram)}`);
-    if (out.registryWarnings.length) {
-      console.log("\n台帳の不整合:");
-      for (const w of out.registryWarnings) console.log(`  ${w}`);
+    console.log(`\n住民税 市町村分の参照: ${path.relative(ROOT, CITY_RATES_PATH)}（${cityRates.asOf} 現在・例外 ${cityExceptions.size} 団体）`);
+    if (out.warnings.length) {
+      console.log("\n不整合（registry・総務省一覧との食い違い）:");
+      for (const w of out.warnings) console.log(`  ${w}`);
     }
   }
   process.exit(0);

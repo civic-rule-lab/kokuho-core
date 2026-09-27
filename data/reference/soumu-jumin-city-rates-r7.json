@@ -1,0 +1,72 @@
+{
+  "description": "個人市町村民税（所得割・均等割）の税率が標準と異なる団体の一覧（総務省）。ここに無い市町村は、基準日時点で標準税率（所得割 6%・指定都市 8%／均等割 3,000円）。住民税データの市町村分の裏付けに使う。県分（道府県民税）は data/jumin-specs/ が扱う。",
+  "asOf": "2025-04-01",
+  "fiscalYear": 2025,
+  "totalEntities": 1741,
+  "totalEntitiesNote": "1,718市町村＋東京都特別区23（特別区は1区1団体で計上）",
+  "sources": [
+    {
+      "title": "地方税に関する参考計数資料（令和8年度） 13 市町村民税及び固定資産税の税率等別市町村数調（令和7年度）",
+      "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/pdf/ichiran06_r08/ichiran06_r08_13.pdf",
+      "retrievedAt": "2026-09-27",
+      "sha256": "d4aa6c127ea0761a1e23b065e922ef0a2812b8b666dcd0bbb7a3e25257aae94f",
+      "note": "「市町村税の税率等に関する調」（令和7年4月1日現在）による。超過税率・標準税率未満の採用団体を注記で列挙。本ファイルの正"
+    },
+    {
+      "title": "超過課税の状況（ア 超過課税実施団体数 令和7年4月1日現在）",
+      "url": "https://www.soumu.go.jp/main_content/001073098.pdf",
+      "pageUrl": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/149767_25.html",
+      "retrievedAt": "2026-09-27",
+      "sha256": "8b614717ad5a977956099c6cf20e8b44058b1713f467079460639ac0d1b2c85a",
+      "note": "突合用。超過課税のみ掲載（標準税率未満は載らない）。市町村民税 個人均等割 横浜市・神戸市、所得割 豊岡市で上記と一致"
+    }
+  ],
+  "exceptions": [
+    {
+      "cityCode": "23100",
+      "citySlug": "nagoya",
+      "cityName": "名古屋市",
+      "field": "cityRate",
+      "value": 0.077,
+      "direction": "below",
+      "sourceText": "名古屋市7.7％（平成24年度から5.7％としていたが、平成30年度から県費負担教職員制度の見直しに伴う税源移譲分2.0％上乗せ）"
+    },
+    {
+      "cityCode": "23100",
+      "citySlug": "nagoya",
+      "cityName": "名古屋市",
+      "field": "cityPerCapita",
+      "value": 2800,
+      "direction": "below",
+      "sourceText": "名古屋市2,800円（平成24年度から）"
+    },
+    {
+      "cityCode": "28209",
+      "citySlug": "toyookashi",
+      "cityName": "豊岡市",
+      "field": "cityRate",
+      "value": 0.061,
+      "direction": "above",
+      "sourceText": "豊岡市6.1％（平成21年度から）"
+    },
+    {
+      "cityCode": "14100",
+      "citySlug": "yokohama",
+      "cityName": "横浜市",
+      "field": "cityPerCapita",
+      "value": 3900,
+      "direction": "above",
+      "sourceText": "横浜市3,900円（平成21年度から）"
+    },
+    {
+      "cityCode": "28100",
+      "citySlug": "kobe",
+      "cityName": "神戸市",
+      "field": "cityPerCapita",
+      "value": 3400,
+      "direction": "above",
+      "sourceText": "神戸市3,400円（令和元年度から）"
+    }
+  ],
+  "limits": "基準日は令和7年4月1日。令和8年度（2026年度）の税率は本資料では確認できない。令和8年4月1日現在の版が公表されたら差し替え、住民税データの status 昇格を判断する。"
+}
