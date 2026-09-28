@@ -16751,10 +16751,12 @@
       "prefectureSlug": "gifu",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
+        "kaigo": 2026,
         "kouki": 2026
       }
     },
@@ -18655,10 +18657,12 @@
       "prefectureSlug": "mie",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "publishYear": {
         "kokuho": 2026,
+        "kaigo": 2026,
         "kouki": 2026
       }
     },
