@@ -134,6 +134,9 @@ jobs:
       - name: Run test-year-wiring.js (ページ⇔engine.js の年度配線回帰)
         run: node scripts/test-year-wiring.js
 
+      - name: Run test-jumin.cjs (住民税コア js/core/jumin.js 計算回帰)
+        run: node scripts/test-jumin.cjs
+
       - name: Run test-shogakukin.cjs (奨学金コア 区分・減免・給付・多子世帯回帰)
         run: node scripts/test-shogakukin.cjs
 

@@ -12,10 +12,11 @@
     "test:kouki": "node scripts/test-kouki.cjs",
     "test:year": "node scripts/test-year-wiring.js",
     "test:units": "node scripts/verify-units.cjs",
+    "test:jumin": "node scripts/test-jumin.cjs",
     "test:integrity": "node scripts/test-integrity.js",
     "test:provenance": "node scripts/test-provenance-visibility.js",
   "watch:provenance": "node scripts/verify-provenance-hosts.js",
-    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units",
+    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin",
     "test:ci": "npm run test && npm run test:integrity && npm run test:provenance"
   },
   "repository": {
