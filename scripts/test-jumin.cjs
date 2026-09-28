@@ -1,6 +1,6 @@
 /**
  * js/core/jumin.js ユニットテスト
- * 実行: node scripts/test-jumin.js
+ * 実行: node scripts/test-jumin.cjs
  */
 'use strict';
 
