@@ -97,6 +97,12 @@ if [ "$SYNC_ONLY" = false ]; then
   node "$CORE_DIR/scripts/generate-jumin-pages.js"
   echo "▶ generate-hoiku-pages.js"
   node "$CORE_DIR/scripts/generate-hoiku-pages.js"
+  # 後期・介護の個別ページ（2026-09-28 追加）。以前は同期のみで生成せず、データを直しても
+  # 手で generate-system-pages.js を実行しない限りページに届かなかった。
+  echo "▶ generate-system-pages.js kouki"
+  node "$CORE_DIR/scripts/generate-system-pages.js" kouki
+  echo "▶ generate-system-pages.js kaigo"
+  node "$CORE_DIR/scripts/generate-system-pages.js" kaigo
   echo "▶ generate-seido-index.js"
   node "$CORE_DIR/scripts/generate-seido-index.js"
   echo "▶ generate-seido-sitemap.js"
