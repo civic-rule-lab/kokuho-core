@@ -415,7 +415,8 @@ if (duplicates.length > 0) {
 }
 
 // ─── JSON存在・HTML存在の照合 ───────────────────────────────────
-const jsonDirs = new Set(readdirSync(DATA_DIR));
+// .DS_Store 等のドットファイルは自治体ディレクトリではないので除外
+const jsonDirs = new Set(readdirSync(DATA_DIR).filter(name => !name.startsWith(".")));
 // systems が空（または kokuho 未含）の entry は kokuho データ不要として除外
 const registrySlugs = new Set(
   registry.municipalities
