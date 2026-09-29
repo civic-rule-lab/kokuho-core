@@ -114,10 +114,18 @@ function calcModelTotal(data, model = COMPARE_MODEL) {
 function sumRate(data)      { const r = data?.rate ?? {};      return (r.medical || 0) + (r.support || 0) + (r.care || 0); }
 function sumPerCapita(data) { const p = data?.perCapita ?? {}; return (p.medical || 0) + (p.support || 0) + (p.care || 0); }
 
-// R7→R8 の料率変化セクション。publishYear=2026 のページで、2025 データがある場合のみ生成。
+// 前年比較に使う R7 データ。meta.status が verified のものに限る。
+// unverified の R7 には県標準保険料率（理論値）が入っているものがあり、
+// 熊本県は 45 件すべてが県の令和7年度実税率一覧と一致しなかった（2026-09-29）。
+function loadVerifiedPrevYear(citySlug) {
+  const prev = loadCityDataCached(citySlug, 2025);
+  return prev?.meta?.status === "verified" ? prev : null;
+}
+
+// R7→R8 の料率変化セクション。publishYear=2026 のページで、verified の 2025 データがある場合のみ生成。
 function buildRateChangeSection(cityName, citySlug, data, publishYear) {
   if (publishYear !== 2026 || !data) return "";
-  const prev = loadCityDataCached(citySlug, 2025);
+  const prev = loadVerifiedPrevYear(citySlug);
   if (!prev) return "";
 
   const isStandard = data.meta?.lifecycle?.r8Stage === "standard_r8" || data.meta?.source?.type === "prefecture_standard";
@@ -248,9 +256,9 @@ function buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalitie
     a: `${cityName}の${fy}の国民健康保険料は前年の所得と世帯人数で決まります。目安として、単身・年収300万円なら年間約${fmtYen(exSingle)}（月約${fmtYen(Math.round(exSingle / 12))}）、夫婦＋子ども2人・年収600万円なら年間約${fmtYen(exFamily)}です。このページの計算機で、ご自身の所得・世帯人数に応じた金額を無料で試算できます。`,
   });
 
-  // Q2: 前年から上がった？（publishYear=2026 かつ R7データがある場合のみ）
+  // Q2: 前年から上がった？（publishYear=2026 かつ verified の R7データがある場合のみ）
   if (publishYear === 2026) {
-    const prev = loadCityDataCached(citySlug, 2025);
+    const prev = loadVerifiedPrevYear(citySlug);
     if (prev) {
       const r7 = calcModelTotal(prev), r8 = calcModelTotal(data);
       const diff = r8 - r7;
