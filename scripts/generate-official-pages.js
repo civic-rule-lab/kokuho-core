@@ -743,6 +743,10 @@ const PROVENANCE_HOST_EXTRA = new Set([
   //   Copyright Iinan town を確認。iinan.jp の NS は島根県（ns1/ns2.pref.shimane.jp）に委任、RILG の同町例規集リンクも同ドメイン。
   //   乗っ取りを示す語句は検出されなかった。
   "www.iinan.jp",                // 飯南町（島根県）
+  // 2026-10-01 追加（オーナー承認）: 赤井川村（北海道）の公式ドメイン。ウェブは akaigawa.com のみ（職員メールは vill.akaigawa.lg.jp）。
+  //   トップページで 〒046-0592 北海道余市郡赤井川村字赤井川74番地2・Copyright (c) Akaigawa Village を確認、
+  //   whois の登録者名は Akaigawa village office。法人番号の掲載は無い。乗っ取りを示す語句は検出されなかった。
+  "www.akaigawa.com",            // 赤井川村（北海道）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
   // （www.town.hodatsushimizu.lg.jp / hodatsushimizu.lg.jp / www.town.hodatsushimizu.ishikawa.jp
   // はいずれも接続不可・実測）、追加しないと同町の来歴節が丸ごと消える（日向市の回帰と同型）。
