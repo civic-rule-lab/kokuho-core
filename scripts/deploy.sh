@@ -34,6 +34,11 @@ echo "public: $PUBLIC_DIR"
 echo "push:   $PUSH / sync-only: $SYNC_ONLY / dry-run: $DRY_RUN / force: $FORCE_DEPLOY"
 echo ""
 
+# ── -1. merge 済みの main からだけ deploy する（判定は scripts/lib/require-main.sh・deploy-seido.sh と共有） ──
+source "$CORE_DIR/scripts/lib/require-main.sh"
+require_main_for_deploy || exit 1
+echo ""
+
 # ── 0. バリデーション ────────────────────────────────────────────
 if true; then
   echo "▶ validate-kokuho-data.js"
