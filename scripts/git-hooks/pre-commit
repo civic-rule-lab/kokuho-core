@@ -36,9 +36,15 @@ done
 # ─── (1) credential / SUNNET / 個人 identity の混入禁止 ──────────
 # ⚠️ 公開リポにつき、具体識別子(個人メール/ユーザー名/内部ホスト等)は**この tracked ファイルに書かない**。
 #    正本 GOVERNANCE.md §C-4。具体値は VCS外 denylist(.git/hooks/denylist.txt)から読む。
-#    検知ルールを定義するインフラ(フック自身・CI)は走査対象から除外し自己誤爆を防ぐ。
-SCAN=(-- . ':(exclude)scripts/git-hooks' ':(exclude).github')
-GEN='@(gmail|yahoo|icloud|outlook|hotmail)\.com|/Users/[A-Za-z]|wrangler-account\.json|BEGIN (RSA|OPENSSH|PRIVATE)'
+#    検知ルールを定義するインフラ(フック自身・CI)と、機密ファイル名を並べるのが役目の .gitignore は
+#    走査対象から除外し自己誤爆を防ぐ（CI の秘密混入検査も同じ除外）。
+#    パターンは同じディレクトリの secret-patterns.ere だけに書く（CI も同じファイルを読む）。
+SCAN=(-- . ':(exclude)scripts/git-hooks' ':(exclude).github' ':(exclude).gitignore')
+PAT_FILE="$(dirname "$0")/secret-patterns.ere"
+if [ ! -f "$PAT_FILE" ]; then
+  echo "❌ pre-commit: 秘密パターンのファイルが見つかりません（$PAT_FILE）。fail-closed"; exit 1
+fi
+GEN="$(grep -vE '^[[:space:]]*(#|$)' "$PAT_FILE" | paste -sd'|' -)"
 if git diff --cached --unified=0 "${SCAN[@]}" | grep -E '^\+[^+]' | grep -qE "$GEN"; then
   echo "❌ pre-commit: 個人メール / 絶対パス(/Users/…) / 秘密ファイルの混入疑い"
   exit 1
