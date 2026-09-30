@@ -84,6 +84,35 @@ jobs:
           fi
           echo "✓ 混入なし"
 
+      - name: denylist の混入検査（追跡ファイル全体）
+        # 具体識別子（漏洩済みの識別子・内部 URL 等）は公開リポに書けないため、Actions secret DENYLIST
+        # （1行1つ・ローカルの .git/hooks/denylist.txt と同じ中身）から読む。正本 §C-4・§D-3。
+        # 値はログに出さない（該当したファイル名だけを出す）。未登録なら fail-closed。
+        env:
+          DENYLIST: ${{ secrets.DENYLIST }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DENYLIST:-}" ]; then
+            echo "::error::Actions secret DENYLIST が未登録です（fail-closed）"
+            exit 1
+          fi
+          F="$(mktemp)"
+          printf '%s\n' "${DENYLIST}" | grep -v '^[[:space:]]*$' > "${F}" || true
+          N="$(wc -l < "${F}" | tr -d ' ')"
+          echo "denylist: ${N} 件"
+          if [ "${N}" = "0" ]; then
+            echo "::error::DENYLIST が空です（fail-closed）"
+            exit 1
+          fi
+          HITS="$(git grep -liFf "${F}" -- . ':!.github' ':!scripts/git-hooks' ':!.gitignore' || true)"
+          rm -f "${F}"
+          if [ -n "${HITS}" ]; then
+            echo "::error::denylist の識別子を含むファイルがあります（値は表示しない）"
+            echo "${HITS}"
+            exit 1
+          fi
+          echo "✓ denylist 該当なし"
+
   test-integrity:
     name: registry × 一次資料 × data × HTML 横断検証 (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
