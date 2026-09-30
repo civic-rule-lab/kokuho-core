@@ -1,0 +1,15 @@
+#!/bin/bash
+# kokuho-core pre-push — 内部文書ガード
+# このファイルが唯一の正本（core.hooksPath で直接使う）。ガード本体の場所は VCS 外の git 設定 civic.guard から読む。
+GUARD="$(git config --get civic.guard || true)"
+if [ -z "$GUARD" ] || [ ! -x "$GUARD" ]; then
+  echo "❌ pre-push: 内部文書ガードが見つかりません（git config civic.guard='${GUARD}'）。fail-closed"
+  echo "   bash scripts/install-hooks.sh を実行してください"
+  exit 1
+fi
+Z="0000000000000000000000000000000000000000"
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$Z" ] && continue
+  bash "$GUARD" --push "$local_sha" "$remote_sha" || exit 1
+done
+exit 0
