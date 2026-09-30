@@ -113,6 +113,36 @@ jobs:
           fi
           echo "✓ denylist 該当なし"
 
+      - name: 内部文書ガード（PR で変わった部分のパスと中身）
+        # 手元の pre-commit／pre-push と同じガード本体・ルールを使う（写しを作らない）。
+        # どちらも公開できないため Actions secret REPO_GUARD_SH（本体）と REPO_GUARD_RULES（ルール表）から
+        # 一時的な場所に展開して実行する。ルールの中身はログに出ない（出るのはルール番号と PR で加わった行）。
+        # 未登録なら fail-closed。CI には ALLOW_INTERNAL（意図的な通過）を用意しない。
+        env:
+          REPO_GUARD_SH: ${{ secrets.REPO_GUARD_SH }}
+          REPO_GUARD_RULES: ${{ secrets.REPO_GUARD_RULES }}
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_GUARD_SH:-}" ] || [ -z "${REPO_GUARD_RULES:-}" ]; then
+            echo "::error::Actions secret REPO_GUARD_SH / REPO_GUARD_RULES が未登録です（fail-closed）"
+            exit 1
+          fi
+          G="$(mktemp -d)"
+          mkdir -p "${G}/tools" "${G}/security"
+          printf '%s\n' "${REPO_GUARD_SH}" > "${G}/tools/repo-guard.sh"
+          printf '%s\n' "${REPO_GUARD_RULES}" > "${G}/security/hook-rules.tsv"
+          # 手元の正本とずれていないかを見比べるための指紋（改行を除いた sha256 の先頭12桁）。
+          # 手元では: tr -d '\n' < ファイル | shasum -a 256 | cut -c1-12
+          echo "guard: $(tr -d '\n' < "${G}/tools/repo-guard.sh" | sha256sum | cut -c1-12) / rules: $(tr -d '\n' < "${G}/security/hook-rules.tsv" | sha256sum | cut -c1-12)"
+          grep -q -- '--range)' "${G}/tools/repo-guard.sh" || { echo "::error::ガード本体が --range に対応していません"; exit 1; }
+          ZERO='0000000000000000000000000000000000000000'
+          if [ -z "${BASE:-}" ] || [ "${BASE}" = "${ZERO}" ]; then BASE="$(git rev-parse "${HEAD_SHA}~1")"; fi
+          echo "検査範囲: ${BASE}..${HEAD_SHA}"
+          GUARD_GOV="${G}" GUARD_REPO=kokuho-core bash "${G}/tools/repo-guard.sh" --range "${BASE}" "${HEAD_SHA}"
+          echo "✓ 内部文書ガード 該当なし"
+
   test-integrity:
     name: registry × 一次資料 × data × HTML 横断検証 (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
