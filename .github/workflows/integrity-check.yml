@@ -44,11 +44,11 @@ jobs:
           HEAD_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
         run: |
           set -euo pipefail
-          # 許可する識別子:
-          #   license@civicrulelab.jp        オーナーのコミット
-          #   *@users.noreply.github.com     GitHub の noreply 形式
-          #   noreply@github.com             gh pr merge --squash の committer
-          ALLOW='license@civicrulelab\.jp|@users\.noreply\.github\.com|^noreply@github\.com$'
+          # 許可する識別子は scripts/git-hooks/allowed-identities.ere だけに書く
+          # （ローカルの pre-commit も同じファイルを読む。写しを作るとずれる）
+          test -s scripts/git-hooks/allowed-identities.ere
+          ALLOW="$(grep -vE '^[[:space:]]*(#|$)' scripts/git-hooks/allowed-identities.ere | paste -sd'|' -)"
+          echo "許可リスト: ${ALLOW}"
           ZERO='0000000000000000000000000000000000000000'
           if [ -z "${BASE:-}" ] || [ "${BASE}" = "${ZERO}" ]; then
             RANGE="-1 ${HEAD_SHA}"
