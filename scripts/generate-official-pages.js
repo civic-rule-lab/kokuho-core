@@ -738,6 +738,11 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.bungo-ohno.jp",           // 豊後大野市
   "www.akamura.net",             // 赤村（福岡県）
   "www.fuji-oyama.jp",           // 小山町（静岡県）
+  // 2026-10-01 追加（オーナー承認）: 飯南町（島根県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
+  //   トップページで 法人番号6000020323861（団体コード32386＝registry の cityCode と一致）・〒690-3513 島根県飯石郡飯南町下赤名・
+  //   Copyright Iinan town を確認。iinan.jp の NS は島根県（ns1/ns2.pref.shimane.jp）に委任、RILG の同町例規集リンクも同ドメイン。
+  //   乗っ取りを示す語句は検出されなかった。
+  "www.iinan.jp",                // 飯南町（島根県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
   // （www.town.hodatsushimizu.lg.jp / hodatsushimizu.lg.jp / www.town.hodatsushimizu.ishikawa.jp
   // はいずれも接続不可・実測）、追加しないと同町の来歴節が丸ごと消える（日向市の回帰と同型）。
