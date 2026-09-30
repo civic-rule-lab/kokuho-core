@@ -7,6 +7,7 @@
 # clone ごとに1回: bash scripts/install-hooks.sh（設定と動作確認まで行う）
 #
 # 内容:
+#   (0) 署名（author / committer のメールが許可リストか）
 #   (1) credential / SUNNET / 個人 identity の混入禁止
 #   (2) slug 衝突拒否（POLICIES §9）
 #   (3) cityCode 一次資料準拠
@@ -14,6 +15,23 @@
 #   (5) 内部文書ガード（ガード本体の場所は VCS 外の git 設定 civic.guard から読む）
 # ─────────────────────────────────────────────────────────────────
 set -e
+
+# ─── (0) 署名（author / committer が許可リストか） ─────────────────
+# 許可リストは同じディレクトリの allowed-identities.ere だけに書く（CI の署名監査も同じファイルを読む）。
+# git var は環境変数（GIT_AUTHOR_EMAIL 等）と git config の両方を反映した、このコミットで実際に使われる値を返す。
+ALLOW_FILE="$(dirname "$0")/allowed-identities.ere"
+if [ ! -f "$ALLOW_FILE" ]; then
+  echo "❌ pre-commit: 署名の許可リストが見つかりません（$ALLOW_FILE）。fail-closed"; exit 1
+fi
+ALLOW="$(grep -vE '^[[:space:]]*(#|$)' "$ALLOW_FILE" | paste -sd'|' -)"
+for WHO in AUTHOR COMMITTER; do
+  EMAIL="$(git var "GIT_${WHO}_IDENT" 2>/dev/null | sed -E 's/.*<([^>]*)>.*/\1/' || true)"
+  if [ -z "$EMAIL" ] || ! printf '%s\n' "$EMAIL" | grep -qiE "$ALLOW"; then
+    echo "❌ pre-commit: ${WHO} のメール「${EMAIL}」が許可リスト外です（scripts/git-hooks/allowed-identities.ere）"
+    echo "   このリポでは git config user.email を許可リストのアドレスにしてください"
+    exit 1
+  fi
+done
 
 # ─── (1) credential / SUNNET / 個人 identity の混入禁止 ──────────
 # ⚠️ 公開リポにつき、具体識別子(個人メール/ユーザー名/内部ホスト等)は**この tracked ファイルに書かない**。

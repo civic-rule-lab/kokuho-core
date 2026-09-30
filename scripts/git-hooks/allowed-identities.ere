@@ -1,0 +1,8 @@
+# コミットの author / committer として許可するメールアドレス（拡張正規表現・1行1つ・大文字小文字は区別しない）
+# 読む側: scripts/git-hooks/pre-commit（ローカル）と .github/workflows/integrity-check.yml の署名監査（CI）。
+# 許可リストはこのファイルだけに書く（写しを作るとずれる）。
+license@civicrulelab\.jp
+# GitHub の noreply 形式
+@users\.noreply\.github\.com
+# gh pr merge --squash の committer
+^noreply@github\.com$
