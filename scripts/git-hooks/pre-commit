@@ -2,15 +2,16 @@
 # ─────────────────────────────────────────────────────────────────
 # kokuho-core pre-commit hook
 #
-# このファイルは tracked リポ内に置かれた**マスタ版**。
-# .git/hooks/ は VCS 管理外なので、初回セットアップ時に
-#   cp scripts/git-hooks/pre-commit .git/hooks/pre-commit
-#   chmod +x .git/hooks/pre-commit
-# でインストールが必要。
+# このファイルが**唯一の正本**。git は core.hooksPath でこのディレクトリを直接使う
+# （.git/hooks/ へのコピーはしない。コピーは正本とずれて古いまま残るため）。
+# clone ごとに1回: bash scripts/install-hooks.sh（設定と動作確認まで行う）
 #
 # 内容:
 #   (1) credential / SUNNET / 個人 identity の混入禁止
 #   (2) slug 衝突拒否（POLICIES §9）
+#   (3) cityCode 一次資料準拠
+#   (4) 数値表記の保全
+#   (5) 内部文書ガード（ガード本体の場所は VCS 外の git 設定 civic.guard から読む）
 # ─────────────────────────────────────────────────────────────────
 set -e
 
@@ -24,7 +25,9 @@ if git diff --cached --unified=0 "${SCAN[@]}" | grep -E '^\+[^+]' | grep -qE "$G
   echo "❌ pre-commit: 個人メール / 絶対パス(/Users/…) / 秘密ファイルの混入疑い"
   exit 1
 fi
-DL="$(git rev-parse --git-dir)/hooks/denylist.txt"
+# worktree では --git-dir が .git/worktrees/<名前> を返し denylist が見つからず黙って飛ばされていた。
+# worktree 間で共有される --git-common-dir を使う。
+DL="$(git rev-parse --git-common-dir)/hooks/denylist.txt"
 if [ -f "$DL" ] && git diff --cached --unified=0 "${SCAN[@]}" | grep -E '^\+[^+]' | grep -qiFf "$DL"; then
   echo "❌ pre-commit: denylist の識別子(漏洩済みidentifier/内部URL)が混入しています"
   exit 1
@@ -63,4 +66,16 @@ if command -v node >/dev/null 2>&1; then
   fi
 else
   echo "⚠️  pre-commit: node 不在のため数値表記チェックをスキップ"
+fi
+
+# ─── (5) 内部文書ガード ─────────────────────────────────────────
+# ガード本体の場所は公開リポに書かず、VCS 外の git 設定から読む（install-hooks.sh が設定する）。
+# 未設定・不在なら fail-closed。
+GUARD="$(git config --get civic.guard || true)"
+if [ -n "$GUARD" ] && [ -x "$GUARD" ]; then
+  bash "$GUARD" --staged || exit 1
+else
+  echo "❌ pre-commit: 内部文書ガードが見つかりません（git config civic.guard='${GUARD}'）。fail-closed"
+  echo "   bash scripts/install-hooks.sh を実行してください"
+  exit 1
 fi
