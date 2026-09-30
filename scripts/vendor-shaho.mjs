@@ -83,7 +83,7 @@ function stripSelfTest(code) {
   return { code: lines.join('\n'), stripped };
 }
 
-// 配信物に自己テストが残っていないことを機械で確認する（SEC-STOP: 未検証を「大丈夫」と言わない）。
+// 配信物に自己テストが残っていないことを機械で確認する（未検証を「大丈夫」と言わない）。
 // 正本の書式が変わって除去が空振りしたとき、黙って配らずここで落とす。
 function assertNoSelfTest(out, destFile) {
   if (/require\.main === module/.test(out)) {
@@ -114,7 +114,7 @@ function vendorEngine(srcFile, destFile, srcLabel) {
 function vendorData(srcFile, destFile) {
   if (!existsSync(srcFile)) return false;
   const raw = readFileSync(srcFile, 'utf8');
-  JSON.parse(raw); // 破損検知（壊れたJSONを黙って配らない＝SEC-STOP）
+  JSON.parse(raw); // 破損検知（壊れたJSONを黙って配らない）
   mkdirSync(path.dirname(destFile), { recursive: true });
   writeFileSync(destFile, raw, 'utf8');
   console.log(`  ✓ data    ${path.relative(CORE, destFile)}  ← ${srcFile}`);
