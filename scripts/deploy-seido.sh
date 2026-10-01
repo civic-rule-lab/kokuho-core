@@ -129,7 +129,35 @@ fi
 # kakeibo / jumin / kouki / kaigo いずれかの公開ページを持つ {pref}/{slug} を検出。
 # 制度ごとに「存在する自治体だけ」同期する（kouki は kakeibo 非公開の自治体も含むため
 # kakeibo だけを基準にすると一部の後期ページが取りこぼされる）。
-SLUG_DIRS=$(find "$CORE_DIR" \( -path '*/kakeibo/index.html' -o -path '*/jumin/index.html' -o -path '*/kouki/index.html' -o -path '*/kaigo/index.html' -o -path '*/hoiku/index.html' \) | sed -E "s#/(kakeibo|jumin|kouki|kaigo|hoiku)/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
+# ★ ドットで始まるディレクトリ（.claude/worktrees＝Claude Code の別セッションの作業ツリー、.git 等）と
+#   node_modules には降りない。降りると別の作業ツリーにある kokuho-core の写しのページまで拾い、
+#   公開リポ seido-keisan に .claude/worktrees/… として同期される（2026-09-15 に実際に混入し、
+#   2026-10-01 まで https://seido-keisan.jp/.claude/worktrees/… で配信されていた。X169-57）。
+find_pages() {  # $1 = '*/kakeibo/index.html' 等のパターン（複数可）
+  local expr=() first=1
+  for p in "$@"; do
+    if [ $first = 1 ]; then expr+=(-path "$p"); first=0; else expr+=(-o -path "$p"); fi
+  done
+  find "$CORE_DIR" \( -path "$CORE_DIR/.*" -o -name node_modules \) -prune -o \( "${expr[@]}" \) -print
+}
+SLUG_DIRS=$(find_pages '*/kakeibo/index.html' '*/jumin/index.html' '*/kouki/index.html' '*/kaigo/index.html' '*/hoiku/index.html' | sed -E "s#/(kakeibo|jumin|kouki|kaigo|hoiku)/index.html##" | sed "s#$CORE_DIR/##" | sort -u)
+
+# 同期の前に止める: ①ドットで始まる経路が混じっていないか ②件数が自治体数＋47都道府県を超えていないか。
+#   09-15 の混入時は件数が倍（家計簿 1730→3460 等）になっていたが、表示するだけで止めなかった。
+if echo "$SLUG_DIRS" | grep -qE '(^|/)\.'; then
+  echo "❌ 同期対象にドットで始まる経路が含まれています（別の作業ツリーの混入の疑い）。デプロイを中断します。"
+  echo "$SLUG_DIRS" | grep -E '(^|/)\.' | head -5 | sed 's/^/   /'
+  exit 1
+fi
+REG_TOTAL=$(node -e 'console.log(require(process.argv[1]).municipalities.length)' "$CORE_DIR/registry/index.json")
+PAGE_LIMIT=$((REG_TOTAL + 47))
+for sys in kakeibo jumin kouki kaigo hoiku; do
+  n=$(find_pages "*/$sys/index.html" | wc -l | tr -d ' ')
+  if [ "$n" -gt "$PAGE_LIMIT" ]; then
+    echo "❌ $sys のページが $n 件あり、上限（registry ${REG_TOTAL} 自治体＋47都道府県＝${PAGE_LIMIT}）を超えています。別の作業ツリーの混入の疑い。デプロイを中断します。"
+    exit 1
+  fi
+done
 
 if [ "$DRY_RUN" = false ]; then
   if [ ! -d "$PUBLIC_DIR" ]; then
@@ -188,11 +216,11 @@ else
 fi
 
 # ── 4. 件数検証 ──────────────────────────────────────────────────
-CORE_JUMIN=$(find "$CORE_DIR" -path '*/jumin/index.html' | wc -l | tr -d ' ')
-CORE_KAKEIBO=$(find "$CORE_DIR" -path '*/kakeibo/index.html' | wc -l | tr -d ' ')
-CORE_KOUKI=$(find "$CORE_DIR" -path '*/kouki/index.html' | wc -l | tr -d ' ')
-CORE_KAIGO=$(find "$CORE_DIR" -path '*/kaigo/index.html' | wc -l | tr -d ' ')
-CORE_HOIKU=$(find "$CORE_DIR" -path '*/hoiku/index.html' | wc -l | tr -d ' ')
+CORE_JUMIN=$(find_pages '*/jumin/index.html' | wc -l | tr -d ' ')
+CORE_KAKEIBO=$(find_pages '*/kakeibo/index.html' | wc -l | tr -d ' ')
+CORE_KOUKI=$(find_pages '*/kouki/index.html' | wc -l | tr -d ' ')
+CORE_KAIGO=$(find_pages '*/kaigo/index.html' | wc -l | tr -d ' ')
+CORE_HOIKU=$(find_pages '*/hoiku/index.html' | wc -l | tr -d ' ')
 echo ""
 echo "▶ 件数: 家計簿 $CORE_KAKEIBO / 住民税 $CORE_JUMIN / 後期 $CORE_KOUKI / 介護 $CORE_KAIGO / 保育料 $CORE_HOIKU 自治体分"
 
@@ -205,6 +233,14 @@ fi
 # ── 5. コミット ──────────────────────────────────────────────────
 cd "$PUBLIC_DIR"
 git add .
+# コミット直前の最終確認: ドットで始まる経路（.gitignore・.nojekyll・.github/ 以外）が増えていたら止める（X169-57）
+DOT_STAGED=$(git diff --cached --name-only --diff-filter=AM | grep -E '(^|/)\.' | grep -vE '^(\.gitignore|\.nojekyll|\.github/)' || true)
+if [ -n "$DOT_STAGED" ]; then
+  echo "❌ 公開リポにドットで始まる経路が追加されようとしています（別の作業ツリーの混入の疑い）。コミットを中止します。"
+  echo "$DOT_STAGED" | head -5 | sed 's/^/   /'
+  git reset -q
+  exit 1
+fi
 if [ -z "$(git diff --cached)" ]; then
   echo "変更なし。コミットをスキップ。"
 else
