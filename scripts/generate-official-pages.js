@@ -751,6 +751,18 @@ const PROVENANCE_HOST_EXTRA = new Set([
   //   トップページで 〒519-2404 三重県多気郡大台町佐原750番地・代表電話・Copyright (c) 2021 Odai Town を確認、
   //   whois 登録者 odai chou office。法人番号の掲載は無い。乗っ取りを示す語句なし。
   "www.odaitown.jp",             // 大台町（三重県）
+  // 2026-10-02 追加（オーナー承認）: 富岡町（福島県）の公式ドメイン。
+  //   トップページで 〒979-1192 福島県双葉郡富岡町大字本岡字王塚622番地の1・© Tomioka Town・法人番号1000020075434
+  //   （団体コード 07543＝registry の cityCode と一致）を確認。JPRS の登録者は Information Network Fukushima co.,Ltd.（町ではない）。乗っ取りを示す語句なし。
+  "www.tomioka-town.jp",         // 富岡町（福島県）
+  // 2026-10-02 追加（オーナー承認）: 葛尾村（福島県）の公式ドメイン。
+  //   トップページで 〒979-1602 福島県双葉郡葛尾村大字落合字落合16・© Katsurao village・法人番号8000020075485
+  //   （団体コード 07548＝registry の cityCode と一致）を確認。乗っ取りを示す語句なし。
+  "www.katsurao.org",            // 葛尾村（福島県）
+  // 2026-10-02 追加（オーナー承認）: 新地町（福島県）の公式ドメイン。
+  //   トップページで 〒979-2792 福島県相馬郡新地町谷地小屋字樋掛田30・Copyright © 2022 Town Shinchi Fukushima Japan を確認、
+  //   JPRS の登録者 Shinchi-Town。法人番号の掲載は無い。乗っ取りを示す語句なし。
+  "www.shinchi-town.jp",         // 新地町（福島県）
   // 2026-09-01 追加: 石川県のR8昇格作業で判明。宝達志水町は .lg.jp を持たず
   // （www.town.hodatsushimizu.lg.jp / hodatsushimizu.lg.jp / www.town.hodatsushimizu.ishikawa.jp
   // はいずれも接続不可・実測）、追加しないと同町の来歴節が丸ごと消える（日向市の回帰と同型）。
