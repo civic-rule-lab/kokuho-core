@@ -5,7 +5,7 @@
 'use strict';
 
 const path = require('path');
-const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction } =
+const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, fuyoIncomeLimitJumin } =
   require(path.join(__dirname, '../js/core/jumin.js'));
 
 let passed = 0;
@@ -231,6 +231,42 @@ console.log('\n== 事業所得のみ（個人事業主） ==');
   eq('totalIncome = 2,320,000',   r.totalIncome,   2_320_000);
   eq('taxableIncome = 1,890,000', r.taxableIncome, 1_890_000);
   eq('incomeLevy = 186,500',      r.incomeLevy,    186_500);
+}
+
+// ─────────────────────────────────────────────────────────────
+// 扶養の所得要件 令和8年度58万円 → 令和9年度以後62万円（令和8年度税制改正）
+//   出典: 地方税法等の一部を改正する法律要綱 第1の1(1) https://www.soumu.go.jp/main_content/001060865.pdf
+//   給与→所得: 令和8年度は最低保障65万、令和9年度は74万（shared/income.js）
+//     給与134万 → R8 69万 / R9 60万、給与136.1万 → R9 62.1万
+// ─────────────────────────────────────────────────────────────
+console.log('\n== 扶養の所得要件（R8 58万 / R9 62万） ==');
+
+{
+  eq('fuyoIncomeLimitJumin(未指定) = 580,000', fuyoIncomeLimitJumin(undefined), 580_000);
+  eq('fuyoIncomeLimitJumin(2026) = 580,000',   fuyoIncomeLimitJumin(2026),      580_000);
+  eq('fuyoIncomeLimitJumin(2027) = 620,000',   fuyoIncomeLimitJumin(2027),      620_000);
+
+  eq('特定親族 所得60万・年度未指定 = 450,000（従来どおり）', calcTokuteiShinzokuDeduction(600_000), 450_000);
+  eq('特定親族 所得60万・R9 = 0（扶養の領域）',               calcTokuteiShinzokuDeduction(600_000, 2027), 0);
+  eq('特定親族 所得62万・R9 = 0（境界は扶養）',               calcTokuteiShinzokuDeduction(620_000, 2027), 0);
+  eq('特定親族 所得62.1万・R9 = 450,000',                     calcTokuteiShinzokuDeduction(621_000, 2027), 450_000);
+}
+
+{
+  // 親 給与500万、19〜22歳の子 給与134万
+  const r8 = calculateJumin(null, { salary: 5_000_000, specialDependentSalaries: [1_340_000], fiscalYear: 2026 });
+  eq('R8 子の所得69万 → 特定親族 45万',      r8.specialDependentDeduction, 450_000);
+  eq('R8 人的控除差 = 5万（特定親族は対象外）', r8.humanDeductionDiff,       50_000);
+  eq('R8 扶養等の人数 = 0',                  r8.dependentsCount,           0);
+
+  const r9 = calculateJumin(null, { salary: 5_000_000, specialDependentSalaries: [1_340_000], fiscalYear: 2027 });
+  eq('R9 子の所得60万 → 特定扶養 45万',      r9.specialDependentDeduction, 450_000);
+  eq('R9 人的控除差 = 5万＋18万',            r9.humanDeductionDiff,        230_000);
+  eq('R9 扶養等の人数 = 1',                  r9.dependentsCount,           1);
+
+  const r9b = calculateJumin(null, { salary: 5_000_000, specialDependentSalaries: [1_361_000], fiscalYear: 2027 });
+  eq('R9 子の所得62.1万 → 特定親族 45万',    r9b.specialDependentDeduction, 450_000);
+  eq('R9 子の所得62.1万 → 人的控除差 5万',   r9b.humanDeductionDiff,        50_000);
 }
 
 // ─────────────────────────────────────────────────────────────
