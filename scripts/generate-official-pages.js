@@ -43,22 +43,35 @@ const { calculateKokuho } = _require("../js/core/kokuho.js");
 const { calcSalaryIncome, calcPensionIncome } = _require("../js/core/shared/income.js");
 
 // 世帯モデル別の計算例（市ごとに数字が変わる固有コンテンツ＝SEO索引対策）。
-// かんたん計算と同じ入力前提（所得＋世帯人数のみ・care/preschool等は0）で一致させる。
+// 収入は世帯主1人。ラベルの年齢どおりに介護分（40〜64歳）と18歳未満の人数を入れる。
+// 旧実装は全モデルを care/under18=0 で計算しており、「40代」と書いたモデルに介護分が入っていなかった
+// （2026-10-04 修正・X170-12 C。大田区の夫婦2人で 465,300円→576,959円）。
+// かんたん計算には介護分・18歳未満の入力欄が無いので、計算例の数字とは一致しない（説明文に明記）。
 const CALC_EXAMPLE_MODELS = [
-  { label: "単身（年収300万円）",          salary: 3_000_000, pension: 0,         age: 40, family: 1 },
-  { label: "夫婦2人（年収500万円）",       salary: 5_000_000, pension: 0,         age: 40, family: 2 },
-  { label: "夫婦＋子ども2人（年収600万円）", salary: 6_000_000, pension: 0,         age: 40, family: 4 },
-  { label: "年金暮らしの夫婦（年金250万円・65歳）", salary: 0,   pension: 2_500_000, age: 65, family: 2 },
+  { label: "単身（40代・年収300万円）",                      salary: 3_000_000, pension: 0,         age: 40, family: 1, care: 1, under18: 0 },
+  { label: "夫婦2人（40代・年収500万円）",                   salary: 5_000_000, pension: 0,         age: 40, family: 2, care: 2, under18: 0 },
+  { label: "夫婦（40代）＋子ども2人（小中学生）・年収600万円", salary: 6_000_000, pension: 0,         age: 40, family: 4, care: 2, under18: 2 },
+  { label: "年金暮らしの夫婦（年金250万円・65歳）",          salary: 0,         pension: 2_500_000, age: 65, family: 2, care: 0, under18: 0 },
 ];
+const [MODEL_SINGLE, MODEL_COUPLE, MODEL_FAMILY] = CALC_EXAMPLE_MODELS;
+
+// モデル世帯 → calculateKokuho の入力。計算例・FAQ・前年比較・近隣比較はすべてここを通す。
+function modelInputs(m) {
+  return {
+    income:             calcSalaryIncome(m.salary || 0) + calcPensionIncome(m.pension || 0, m.age),
+    family:             m.family,
+    preschool:          0,
+    under18:            m.under18 || 0,
+    care:               m.care || 0,
+    salaryPensionCount: 1,
+    fixedAssetTax:      0,
+  };
+}
 
 function buildCalcExamples(cityName, data, publishYear) {
   if (!data) return "";
   const rows = CALC_EXAMPLE_MODELS.map(m => {
-    const income = calcSalaryIncome(m.salary) + calcPensionIncome(m.pension, m.age);
-    const r = calculateKokuho(
-      { income, family: m.family, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 },
-      data
-    );
+    const r = calculateKokuho(modelInputs(m), data);
     return { label: m.label, total: r.total, monthly: r.monthly };
   });
 
@@ -75,7 +88,7 @@ function buildCalcExamples(cityName, data, publishYear) {
   return `
   <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
     <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${cityName}の国民健康保険料の計算例（${buildFiscalYearLabel(publishYear)}）</h2>
-    <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（前年所得・世帯人数のみの概算）。</p>
+    <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（収入は世帯主1人・40〜64歳の方は介護分を含む概算）。かんたん計算は介護分と18歳未満の人数を入力しないため、この表の金額とは一致しません。</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr><th style="${thStyle}">世帯モデル</th><th style="${thStyle}">年間保険料（概算）</th><th style="${thStyle}">月額目安</th></tr></thead>
@@ -99,16 +112,11 @@ function loadCityDataCached(citySlug, publishYear) {
   return _cityDataCache.get(key);
 }
 
-// 比較用の代表モデル（既存の計算例と同じ前提）
-const COMPARE_MODEL = { label: "夫婦2人（年収500万円・40代）", salary: 5_000_000, age: 40, family: 2 };
+// 比較用の代表モデル（計算例の「夫婦2人」と同じ前提・介護分を含む）
+const COMPARE_MODEL = MODEL_COUPLE;
 
 function calcModelTotal(data, model = COMPARE_MODEL) {
-  const income = calcSalaryIncome(model.salary);
-  const r = calculateKokuho(
-    { income, family: model.family, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 },
-    data
-  );
-  return r.total;
+  return calculateKokuho(modelInputs(model), data).total;
 }
 
 function sumRate(data)      { const r = data?.rate ?? {};      return (r.medical || 0) + (r.support || 0) + (r.care || 0); }
@@ -249,11 +257,11 @@ function buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalitie
   const qa = [];
 
   // Q1: いくら？（計算例の数字を引用）
-  const exSingle = calcModelTotal(data, { salary: 3_000_000, age: 40, family: 1 });
-  const exFamily = calcModelTotal(data, { salary: 6_000_000, age: 40, family: 4 });
+  const exSingle = calcModelTotal(data, MODEL_SINGLE);
+  const exFamily = calcModelTotal(data, MODEL_FAMILY);
   qa.push({
     q: `${cityName}の国民健康保険料はいくらですか？`,
-    a: `${cityName}の${fy}の国民健康保険料は前年の所得と世帯人数で決まります。目安として、単身・年収300万円なら年間約${fmtYen(exSingle)}（月約${fmtYen(Math.round(exSingle / 12))}）、夫婦＋子ども2人・年収600万円なら年間約${fmtYen(exFamily)}です。このページの計算機で、ご自身の所得・世帯人数に応じた金額を無料で試算できます。`,
+    a: `${cityName}の${fy}の国民健康保険料は前年の所得と世帯人数で決まります。目安として、40代の単身・年収300万円なら年間約${fmtYen(exSingle)}（月約${fmtYen(Math.round(exSingle / 12))}）、40代の夫婦＋小中学生の子ども2人・年収600万円なら年間約${fmtYen(exFamily)}です（介護分を含む）。このページの計算機で、ご自身の所得・世帯人数に応じた金額を無料で試算できます。`,
   });
 
   // Q2: 前年から上がった？（publishYear=2026 かつ verified の R7データがある場合のみ）
