@@ -211,3 +211,18 @@ jobs:
 
       - name: Run verify-loan-oracle.cjs (貸与型 独立オラクル+JASSO公式返還例照合)
         run: node scripts/verify-loan-oracle.cjs
+
+      # 2026-10-04 追加（TASKS X170-12）: 国保の所得入力（加入者ごとの基礎控除・介護分の対象者）と
+      # 家計簿の介護分の回帰を CI でも検出する。DOM テストは jsdom（package.json の dependencies）が要るため、
+      # この段の直前で lockfile どおりに入れる（手元実測 約4秒・50パッケージ）。
+      - name: Run test-household.js (世帯計算 household.js → 国保 members の結線)
+        run: node scripts/test-household.js
+
+      - name: Install dependencies (jsdom for DOM tests)
+        run: npm ci --no-audit --no-fund
+
+      - name: Run test-income-dom.cjs (所得ベース計算ページ「1人ずつ入力」の結線・jsdom)
+        run: node scripts/test-income-dom.cjs
+
+      - name: Run test-kakeibo-dom.cjs (家計簿ページの結線・国保の介護分・jsdom)
+        run: node scripts/test-kakeibo-dom.cjs
