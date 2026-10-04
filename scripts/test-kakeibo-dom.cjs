@@ -156,6 +156,15 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const k45 = find(r5.heads, '国民健康保険'), k30 = find(r6.heads, '国民健康保険');
     A('自営45歳: 国保に介護分が入る（care=1 の直算と一致）', !!k45 && num(k45[1]) === calculateKokuho({ ...base, care: 1 }, kd).total);
     A('自営30歳: 国保に介護分は入らない（care=0 の直算と一致）', !!k30 && num(k30[1]) === calculateKokuho({ ...base, care: 0 }, kd).total);
+    // 国保カードの内訳（2026-10-04 追加・TASKS X173-5）: 子ども・子育て支援金分の行があり、
+    // 医療・支援・介護・子どもの4行の和が見出しの総額と一致する（旧実装は子ども分の行が無く、全自治体でずれていた）。
+    // 法定軽減の行は各分から差し引き済みの額の再掲なので和に含めない（軽減なしの所得で検証）。
+    const kokuhoCard = r5.sys.split("ci-grp'").find(s => s.includes('国民健康保険'));
+    const rowVal = label => { const m = kokuhoCard && kokuhoCard.match(new RegExp('>' + label + '</div><div[^>]*>(-?[\\d,]+) 円')); return m ? num(m[1]) : null; };
+    const rows45 = ['医療分', '支援分', '介護分', '子ども・子育て支援金分'].map(rowVal);
+    const exp45 = calculateKokuho({ ...base, care: 1 }, kd);
+    A('自営45歳: 国保の内訳に子ども・子育て支援金分の行がある（直算と一致）', rows45[3] !== null && rows45[3] === exp45.childcareTotal && exp45.childcareTotal > 0);
+    A('自営45歳: 国保の内訳4行の和が総額と一致', rows45.every(v => v !== null) && rows45.reduce((a, b) => a + b, 0) === num(k45[1]));
   }
   A('賞与ありは合計が大きい', num(r2.grand) > num(r1.grand));
   A('賞与ありは住民税も所得税も増える（給与＋賞与で課税）',
