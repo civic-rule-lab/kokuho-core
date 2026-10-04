@@ -38,6 +38,9 @@ html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/s
 
 // 保育料経路の統合検証用に、実在自治体の hoiku データを testcity として配信する（標準 inputBasis の自治体を選ぶ）
 const HOIKU_FIXTURE = path.join(ROOT, 'data/municipalities/yokohama/hoiku-2026.json');
+// 国保の結線検証用（2026-10-04 追加・TASKS X170-12）。介護分の有無を本人の年齢で検査するため、
+// 実在自治体の kokuho データを testcity として配信する（介護分の率がある自治体）。
+const KOKUHO_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kokuho-2026.json');
 
 function mkFetch() {
   return (url) => {
@@ -46,6 +49,7 @@ function mkFetch() {
     else if (url.startsWith('/data/national/')) p = path.join(ROOT, 'data/national', url.split('/').pop());
     else if (url === '/js/core/shogakukin-2026.json') p = path.join(ROOT, 'js/core/shogakukin-2026.json');
     else if (url === '/data/municipalities/testcity/hoiku-2026.json' && fs.existsSync(HOIKU_FIXTURE)) p = HOIKU_FIXTURE;
+    else if (url === '/data/municipalities/testcity/kokuho-2026.json' && fs.existsSync(KOKUHO_FIXTURE)) p = KOKUHO_FIXTURE;
     // その他の municipalities は 404（jumin は標準値で計算される）
     if (p && fs.existsSync(p)) { const j = JSON.parse(fs.readFileSync(p, 'utf8')); return Promise.resolve({ ok: true, json: () => Promise.resolve(j) }); }
     return Promise.resolve({ ok: false, status: 404, json: () => Promise.reject(new Error('404')) });
@@ -124,6 +128,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   const r2 = await run({ salary: 6000000, age: 40, employment: 'kaishain', bonus: 1000000 });
   const r3 = await run({ salary: 6000000, age: 40, employment: 'jiei' });
   const r4 = await run({ salary: 0, pension: 2500000, age: 67, employment: 'kaishain' });
+  // 国保の介護分（2026-10-04 追加）: 自営・本人45歳は介護分あり、本人30歳はなし
+  const r5 = await run({ salary: 6000000, age: 45, employment: 'jiei' });
+  const r6 = await run({ salary: 6000000, age: 30, employment: 'jiei' });
 
   // 保育料 opt-in（賞与なし／あり）— エンジン直算との等値検証
   const optIn = w.document.getElementById('hoikuOptIn');
@@ -140,6 +147,16 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   A('会社員: 所得税カードが実額表示', !!tax1 && /円\/年/.test(tax1[1]));
   A('会社員: 国保カードは出ない', !/国民健康保険/.test(r1.sys));
   A('自営: 国保枠が出て社保カードは出ない', /国民健康保険/.test(r3.sys) && !find(r3.heads, '社会保険（会社員）'));
+  {
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const income = calcSalaryIncome(6000000);
+    const base = { income, family: 1, preschool: 0, under18: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+    const k45 = find(r5.heads, '国民健康保険'), k30 = find(r6.heads, '国民健康保険');
+    A('自営45歳: 国保に介護分が入る（care=1 の直算と一致）', !!k45 && num(k45[1]) === calculateKokuho({ ...base, care: 1 }, kd).total);
+    A('自営30歳: 国保に介護分は入らない（care=0 の直算と一致）', !!k30 && num(k30[1]) === calculateKokuho({ ...base, care: 0 }, kd).total);
+  }
   A('賞与ありは合計が大きい', num(r2.grand) > num(r1.grand));
   A('賞与ありは住民税も所得税も増える（給与＋賞与で課税）',
     num(find(r2.heads, '住民税')[1]) > num(find(r1.heads, '住民税')[1]) &&
