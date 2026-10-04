@@ -41,6 +41,7 @@ function runKokuho(data, input) {
     salaryPensionCount:      input.salaryPensionCount      ?? 1,
     fixedAssetTax:           input.fixedAssetTax           ?? 0,
     reductionJudgmentIncome: input.reductionJudgmentIncome,  // undefined のまま渡す（フォールバックはエンジン側）
+    members:                 input.members,                  // 加入者ごとの所得（任意・X170-12）。未指定なら従来の income 1本で計算
   }, data);
   return {
     medical:          r.medicalTotal,
@@ -151,6 +152,42 @@ const TEST_SUITES = [
         componentFloor: 100,
         expected: { medical: 304800, support: 107000, care: 83800, childcare: 10800, total: 506400, reductionLabel: "軽減なし" },
         source: "新宮市 国民健康保険税 計算例",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 市原市（千葉県）令和8年度 ★複数所得者・介護対象が一部だけの世帯（members 入力）
+  // 出典: https://www.city.ichihara.chiba.jp/article?articleId=6243bb5116ccd70f95c4bf7e
+  //       「国民健康保険料について」（2026/04/01）の「保険料の計算参考例」
+  //
+  // ※ 所得のある加入者が4人いて、基礎控除43万円は1人ずつ引く（所得割算定基礎額の合計 3,070,000円）。
+  //    世帯の所得を1本で渡す旧入力では 4,710,000 − 430,000 = 4,280,000円 になり再現できない（X170-12 の A）。
+  // ※ 介護分の所得割は介護対象の健太さん（42歳）の基礎額 2,330,000円 だけに掛ける（同 B）。
+  // ※ 市は区分ごとに100円未満を切り捨てて示している（componentFloor: 100）。
+  // ※ 子ども分の均等割は18歳以上4人（保さん12歳は全額減免）×1,700円＋18歳以上均等割100円×4人。
+  // ============================================================
+  {
+    slug: "ichihara",
+    label: "市原市（令和8年度・複数所得者・介護対象1人）",
+    year: 2026,
+    cases: [
+      {
+        label: "【公式計算例】5人世帯（70歳・68歳・42歳・38歳・12歳）",
+        note:  "所得 国男90万・民子70万・健太276万・康子35万・保0。介護は健太のみ",
+        input: {
+          family: 5, preschool: 0, under18: 1, care: 1, salaryPensionCount: 4,
+          members: [
+            { income:   900000, careTarget: false },  // 国男 70歳・公的年金
+            { income:   700000, careTarget: false },  // 民子 68歳・公的年金
+            { income: 2760000, careTarget: true  },   // 健太 42歳・給与
+            { income:   350000, careTarget: false },  // 康子 38歳・給与
+            { income:        0, careTarget: false },  // 保 12歳
+          ],
+        },
+        componentFloor: 100,
+        expected: { medical: 376000, support: 154500, care: 77000, childcare: 17000, total: 624500, reductionLabel: "軽減なし" },
+        source: "市原市 国民健康保険料について 保険料の計算参考例（2026-04-01）",
       },
     ],
   },
@@ -878,7 +915,10 @@ for (const suite of suites) {
     if (ok) totalPassed++; else totalFailed++;
 
     const icon   = ok ? "✅" : "❌";
-    const inputs = `所得${(tc.input.income/10000).toFixed(0)}万 / ${tc.input.family}人 / 介護${tc.input.care ?? 0} / 未就学${tc.input.preschool ?? 0}`;
+    const incomeShown = tc.input.members
+      ? `${tc.input.members.map(m => (m.income/10000).toFixed(0)).join("+")}万（加入者ごと）`
+      : `${(tc.input.income/10000).toFixed(0)}万`;
+    const inputs = `所得${incomeShown} /${tc.input.family}人 / 介護${tc.input.care ?? 0} / 未就学${tc.input.preschool ?? 0}`;
     const childcareStr = result.childcare > 0 ? ` + 子育て${result.childcare.toLocaleString()}` : "";
     console.log(`${icon} ${tc.label}`);
     if (tc.note) console.log(`   補足: ${tc.note}`);
