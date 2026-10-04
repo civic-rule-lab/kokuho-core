@@ -426,6 +426,42 @@
       "expect": "今帰仁村",
       "confirmedAt": "2026-09-15",
       "basis": "沖縄県「リンク集」から本ホストへリンク。トップページで 〒905-0492 沖縄県国頭郡今帰仁村字仲宗根219番地・0980-56-2101・「Copyright © Okinawa Nakijin Village」・本文「今帰仁村役場」を照合。法人番号の掲載は無い。www.vill.nakijin.okinawa.jp は名前解決しない（2026-09-15 実測）"
+    },
+    "www.iinan.jp": {
+      "owner": "飯南町（島根県）",
+      "expect": "飯南町",
+      "confirmedAt": "2026-10-01",
+      "basis": "トップページで 法人番号6000020323861（団体コード32386＝registry の cityCode と一致）・〒690-3513 島根県飯石郡飯南町下赤名・Copyright Iinan town を照合。iinan.jp の NS は島根県（ns1/ns2.pref.shimane.jp）に委任、RILG の同町例規集リンクも同ドメイン。許可リストへの追加はオーナー承認（2026-10-01・#644）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
+    },
+    "www.town-takachiho.jp": {
+      "owner": "高千穂町（宮崎県）",
+      "expect": "高千穂町",
+      "confirmedAt": "2026-10-02",
+      "basis": "トップページで 〒882-1192 宮崎県西臼杵郡高千穂町大字三田井13 を照合、whois 登録者 Takachiho Town Office、NS は miyazakisc.miyazaki.jp（宮崎県の公共ネットワーク系）、RILG の同町例規集リンクも同ドメイン。許可リストへの追加はオーナー承認（2026-10-02）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
+    },
+    "www.odaitown.jp": {
+      "owner": "大台町（三重県）",
+      "expect": "大台町",
+      "confirmedAt": "2026-10-02",
+      "basis": "トップページで 〒519-2404 三重県多気郡大台町佐原750番地・代表電話・Copyright (c) 2021 Odai Town を照合、whois 登録者 odai chou office。法人番号の掲載は無い。許可リストへの追加はオーナー承認（2026-10-02）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
+    },
+    "www.tomioka-town.jp": {
+      "owner": "富岡町（福島県）",
+      "expect": "富岡町",
+      "confirmedAt": "2026-10-02",
+      "basis": "トップページで 〒979-1192 福島県双葉郡富岡町大字本岡字王塚622番地の1・© Tomioka Town・法人番号1000020075434（団体コード 07543＝registry の cityCode と一致）を照合。★JPRS の登録者は Information Network Fukushima co.,Ltd.（町ではない）。許可リストへの追加はオーナー承認（2026-10-02・#658）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
+    },
+    "www.katsurao.org": {
+      "owner": "葛尾村（福島県）",
+      "expect": "葛尾村",
+      "confirmedAt": "2026-10-02",
+      "basis": "トップページで 〒979-1602 福島県双葉郡葛尾村大字落合字落合16・© Katsurao village・法人番号8000020075485（団体コード 07548＝registry の cityCode と一致）を照合。★.org であり、追加ドメインの大半（.jp）と性質が異なる。許可リストへの追加はオーナー承認（2026-10-02・#658）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
+    },
+    "www.shinchi-town.jp": {
+      "owner": "新地町（福島県）",
+      "expect": "新地町",
+      "confirmedAt": "2026-10-02",
+      "basis": "トップページで 〒979-2792 福島県相馬郡新地町谷地小屋字樋掛田30・Copyright © 2022 Town Shinchi Fukushima Japan を照合、JPRS の登録者 Shinchi-Town。法人番号の掲載は無い。許可リストへの追加はオーナー承認（2026-10-02・#658）。本ファイルへの記載は 2026-10-04（追加時に漏れていた）"
     }
   }
 }
