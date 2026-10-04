@@ -10,8 +10,12 @@
  *   "preschool": 0,
  *   "care": 1,
  *   "salaryPensionCount": 1,
- *   "fixedAssetTax": 0
+ *   "fixedAssetTax": 0,
+ *   "members": [{ "income": 2000000, "careTarget": true }, { "income": 1000000, "careTarget": false }]
  * }
+ * members は任意（2026-10-04 追加）。加入者ごとの所得（基礎控除前）と 40〜64歳かどうか。
+ * 指定すると基礎控除を1人ずつ引き、介護分の所得割を careTarget の人だけに掛ける（income は使わない）。
+ * 未指定なら従来どおり income 1本で計算する。
  */
 
 // 計算ロジックは正本 js/core/kokuho.js を単一ソースとして共有する（独自複製による乖離を根絶）。
@@ -168,7 +172,30 @@ export default {
         }
       }
 
-      const inputs = { ...rawInputs, reductionJudgmentIncome };
+      // 加入者ごとの所得（任意）。配列で最大10人、各 income は 0〜99,999,999、careTarget は真偽値。
+      let members;
+      if (body.members != null) {
+        if (!Array.isArray(body.members) || body.members.length > 10) {
+          return Response.json(
+            { error: 'members は最大10件の配列で指定してください' },
+            { status: 400, headers: CORS_HEADERS }
+          );
+        }
+        members = [];
+        for (const m of body.members) {
+          const inc = Number(m?.income);
+          if (!m || typeof m !== 'object' || Number.isNaN(inc) || inc < 0 || inc > 99_999_999 ||
+              (m.careTarget != null && typeof m.careTarget !== 'boolean')) {
+            return Response.json(
+              { error: 'members の各要素は { income: 0〜99,999,999, careTarget: true/false } で指定してください' },
+              { status: 400, headers: CORS_HEADERS }
+            );
+          }
+          members.push({ income: inc, careTarget: m.careTarget === true });
+        }
+      }
+
+      const inputs = { ...rawInputs, reductionJudgmentIncome, members };
 
       // 正本 core の計算。自治体データ不備（例: perCapitaAdult があるのに
       // perCapitaAdultScope 未設定）で throw し得るため捕捉して 400 を返す。

@@ -2,19 +2,21 @@
  * js/core/household.js 統合テスト
  * 実行: node scripts/test-household.js
  */
-'use strict';
+// 2026-10-04: package.json "type":"module" 環境で require が使えず、起動時に ReferenceError で
+// 止まっていた（CI 外のため気づかれていなかった）。test-kaigo-wiring.js と同じく
+// createRequire + scripts/lib/core-loader.cjs で js/core を読む形に直した。
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { createRequire } from "module";
 
-const path = require('path');
-const fs   = require('fs');
-
-const { calculateHousehold, deriveKokuhoInputs } =
-  require(path.join(__dirname, '../js/core/household.js'));
-const { calculateKokuho } =
-  require(path.join(__dirname, '../js/core/kokuho.js'));
-const { calculateJumin } =
-  require(path.join(__dirname, '../js/core/jumin.js'));
-const { calculateKaigo } =
-  require(path.join(__dirname, '../js/core/kaigo.js'));
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const { load } = require("./lib/core-loader.cjs");
+const { calculateHousehold, deriveKokuhoInputs } = load("household.js");
+const { calculateKokuho } = load("kokuho.js");
+const { calculateJumin }  = load("jumin.js");
+const { calculateKaigo }  = load("kaigo.js");
 
 const saitamaKokuho = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../data/municipalities/saitama/kokuho-2025.json'), 'utf-8')
@@ -76,6 +78,33 @@ console.log('\n== deriveKokuhoInputs ==');
   const inputs = deriveKokuhoInputs(members);
   eq('擬制世帯主: income = 0',                        inputs.income,                  0);
   eq('擬制世帯主: reductionJudgmentIncome = 4,360,000', inputs.reductionJudgmentIncome, 4_360_000);
+}
+
+// 共働き（2026-10-04・TASKS X170-12）: 基礎控除は1人ずつ引く。
+// 各 給与250万円（所得 1,670,000円）・45歳と38歳 → 所得割の基礎額は 1,240,000 × 2 = 2,480,000円。
+// 介護分は45歳の1人の基礎額 1,240,000円 だけに掛かる。
+{
+  const members = [
+    { id: 'h', role: 'head',   age: 45, salary: 2_500_000, isKokuhoInsured: true, isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 38, salary: 2_500_000, isKokuhoInsured: true, isOnSocialInsurance: false },
+  ];
+  const inputs = deriveKokuhoInputs(members);
+  eq('共働き: members が2人分',              inputs.members.length, 2);
+  eq('共働き: 1人目の所得 = 1,670,000',      inputs.members[0].income, 1_670_000);
+  eq('共働き: careTarget は45歳だけ',        inputs.members.map(m => m.careTarget).join(','), 'true,false');
+  eq('共働き: 軽減判定は所得の合計',        inputs.reductionJudgmentIncome, 3_340_000);
+
+  const d = saitamaKokuho;
+  const r = calculateKokuho(inputs, d);
+  const base = 2 * (1_670_000 - d.basicDeduction);
+  eq('共働き: 医療分＝基礎額 2,480,000 で旧経路に渡した結果と同じ',
+     r.medicalTotal,
+     calculateKokuho({ ...inputs, members: undefined, income: base + d.basicDeduction }, d).medicalTotal);
+  eq('共働き: 介護分は45歳1人の基礎額 1,240,000 だけ',
+     r.careTotal,
+     calculateKokuho({ ...inputs, members: undefined, income: 1_670_000 }, d).careTotal);
+  ok('共働き: 合算1本で渡すより保険料が低い（基礎控除が2回）',
+     r.total < calculateKokuho({ ...inputs, members: undefined }, d).total);
 }
 
 // ═══════════════════════════════════════════════════════════

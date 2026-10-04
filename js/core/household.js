@@ -50,6 +50,8 @@ function _hasSalaryOrPension(m) {
 /**
  * household の members 配列から calculateKokuho の inputs を導出する。
  * 擬制世帯主がいる場合は世帯主の所得を reductionJudgmentIncome に加算する。
+ * 所得割は加入者ごとに基礎控除を引くため、kokuho の members（所得・40〜64歳か）も渡す
+ * （2026-10-04・TASKS X170-12。旧実装は所得を合計して1本で渡し、基礎控除が世帯で1回になっていた）。
  */
 function deriveKokuhoInputs(members, fixedAssetTax = 0) {
   const insured = members.filter(m => m.isKokuhoInsured);
@@ -60,6 +62,10 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
 
   return {
     income,
+    members: insured.map(m => ({
+      income:     _memberIncome(m),
+      careTarget: (m.age || 0) >= 40 && (m.age || 0) < 65,
+    })),
     reductionJudgmentIncome: income + headExtra,
     family:             insured.length,
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
