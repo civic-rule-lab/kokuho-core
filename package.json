@@ -15,10 +15,11 @@
     "test:jumin": "node scripts/test-jumin.cjs",
     "test:household": "node scripts/test-household.js",
     "test:income-dom": "node scripts/test-income-dom.cjs",
+    "test:furusato": "node scripts/test-furusato.cjs",
     "test:integrity": "node scripts/test-integrity.js",
     "test:provenance": "node scripts/test-provenance-visibility.js",
   "watch:provenance": "node scripts/verify-provenance-hosts.js",
-    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:household && npm run test:income-dom",
+    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:household && npm run test:income-dom && npm run test:furusato",
     "test:ci": "npm run test && npm run test:integrity && npm run test:provenance"
   },
   "repository": {
