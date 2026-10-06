@@ -9,7 +9,7 @@
 ## 0. 必要なアカウント・ツール（着手前に確認）
 
 - ドメインレジストラのアカウント（`.jp` を扱えるもの。例: お名前.com / Cloudflare Registrar 等）
-- Cloudflare アカウント（国保と同じ運用。DNS/proxy 前段に使う）
+- Cloudflare アカウント（DNS に使う。本体の Pages 宛ては proxy OFF。§3 参照）
 - GitHub アカウント（civic-rule-lab org。公開リポ作成権限）
 - ローカルに `git` / `node` / `rsync`（kokuho-core が動く環境ならOK）
 
@@ -55,17 +55,21 @@
 
 ---
 
-## 3. Cloudflare + GitHub Pages 設定（国保と同じ構成）
+## 3. Cloudflare + GitHub Pages 設定（Cloudflare は DNS のみ）
 
-配信実態は **GitHub Pages（origin）＋ Cloudflare（DNS/proxy 前段）**。Cloudflare Pages ではない。
+配信実態は **GitHub Pages（origin）＋ Cloudflare（DNS）**。Cloudflare Pages ではない。
 
 1. **GitHub Pages を有効化**: `seido-keisan` リポの Settings → Pages →
    - Source: `Deploy from a branch`、Branch: `main` / `(root)`。
    - Custom domain: `seido-keisan.jp` を入力。
 2. **Cloudflare に seido-keisan.jp を追加**:
    - サイト追加 → ネームサーバをレジストラ側で Cloudflare に向ける。
-   - DNS レコード: `seido-keisan.jp` と `www` を GitHub Pages 宛て（`username.github.io` の CNAME、または GitHub Pages の A レコード4本）に設定。proxy（オレンジ雲）ON。
+   - **先に GitHub の Verified domains に登録する**（組織設定の Pages → Add a domain → 表示された TXT を Cloudflare に追加 → Verify）。A / CNAME はその後に設定する。
+   - DNS レコード: `seido-keisan.jp` と `www` を GitHub Pages 宛て（`username.github.io` の CNAME、または GitHub Pages の A レコード4本）に設定。**proxy は OFF（DNS only・灰色の雲）**。
 3. **HTTPS**: GitHub Pages の "Enforce HTTPS" を ON（証明書発行を待つ）。
+
+> ⚠️ **本体の Pages 宛てレコードを proxy ON（オレンジの雲）にしない。** GitHub Pages は DNS が GitHub を向いているときしか証明書を発行・更新できない。proxy ON だと、最初の発行が通っていても約90日後の更新に失敗する。Cloudflare の SSL/TLS 暗号化モードが「Full (strict)」なら、証明書の失効と同時に HTTP 526 で全ページが止まる。
+> やむを得ず proxy ON で運用するサイトは、Cloudflare の SSL/TLS 暗号化モードを手動で「Full」（strict ではない方）に固定する。「Automatic」のままにしない（オリジン証明書が有効な間に strict が選ばれることがある）。
 
 > ⚠️ `_redirects`（Cloudflare Pages 固有）は GitHub Pages では効かない。301 は必ず Cloudflare 側（次節）で行う。
 
