@@ -53,6 +53,64 @@ function furusatoMarginalShotokuRate(kazeiShotoku, taxTable) {
   return taxTable[taxTable.length - 1][1];
 }
 
+// 特例控除の割合から、その区分の所得税率（復興特別所得税を含まない）を逆算する。
+// 割合は「90% − 所得税率×1.021」で作られている（附則第5条の6 の値はすべてこの形）。
+// 区分の基準額（課税総所得 − 人的控除差調整額）は所得税の課税所得に近づけた額なので、
+// 所得税の課税所得が分からない簡単計算で、内訳の所得税分の目安に使う。基準額が負（90%）なら 0。
+function furusatoImpliedShotokuRate(ratio, data) {
+  if (!ratio || ratio.band === 'negative') return 0;
+  const neg = _furusatoRatioUnits(data.specialRatio.negativePercent);
+  const rateTimesSurtax = (neg - ratio.units) / 100000;           // 例 (90000−84895)/100000 = 0.05105
+  return Math.round((rateTimesSurtax / data.shotokuSurtaxMultiplier) * 10000) / 10000; // 0.05
+}
+
+// 所得税の基礎控除（前年分）を、合計所得金額と表から引く。
+// kisoTable は shotoku.js の loadParams(year, db).kisoKojo と同じ形 [[合計所得の上限, 控除額], ...]。
+function furusatoShotokuBasicDeduction(totalIncome, kisoTable) {
+  const ti = Math.max(0, Math.floor(totalIncome || 0));
+  for (const row of kisoTable) {
+    const upTo = row[0] == null ? Infinity : row[0];
+    if (ti <= upTo) return row[1];
+  }
+  return 0;
+}
+
+/**
+ * 人的控除差（地方税法 第37条第1号イの金額）を家族構成から求める（簡単計算用）。
+ * 詳しく計算では calculateJumin の戻り値 humanDeductionDiff を使うこと（そちらは特定扶養の自動判定を含む）。
+ * @param {object} f
+ * @param {number} f.selfTotalIncome      本人の合計所得金額（配偶者の加算の段階に使う）
+ * @param {string} [f.spouse]             'none' | 'general'（控除対象配偶者） | 'elderly'（老人控除対象配偶者）
+ * @param {number} [f.dependentGeneral]   一般の控除対象扶養親族（16〜18歳・23〜69歳）の人数
+ * @param {number} [f.dependentSpecific]  特定扶養親族（19〜22歳）の人数
+ * @param {number} [f.dependentElderly]   老人扶養親族（70歳以上・同居老親を除く）の人数
+ * @param {number} [f.dependentCohabitingParent] 同居老親等の人数
+ * @param {string} [f.selfDisability]     'none' | 'general' | 'special'
+ * @param {string} [f.singleParent]       'none' | 'mother' | 'father' | 'widow'（寡婦）
+ * @param {boolean} [f.workingStudent]    勤労学生
+ */
+function furusatoHumanDeductionDiff(f, data) {
+  const t = data.humanDiffTable;
+  const n = (v) => Math.max(0, Math.floor(v || 0));
+  let diff = t.base;
+  if (f.spouse === 'general' || f.spouse === 'elderly') {
+    const self = n(f.selfTotalIncome);
+    const row = t.spouse.find((r) => r.selfIncomeUpTo == null || self <= r.selfIncomeUpTo);
+    diff += f.spouse === 'elderly' ? row.elderly : row.general;
+  }
+  diff += n(f.dependentGeneral) * t.dependentGeneral;
+  diff += n(f.dependentSpecific) * t.dependentSpecific;
+  diff += n(f.dependentElderly) * t.dependentElderly;
+  diff += n(f.dependentCohabitingParent) * t.dependentCohabitingParent;
+  if (f.selfDisability === 'general') diff += t.selfDisabled;
+  if (f.selfDisability === 'special') diff += t.selfSpecialDisabled;
+  if (f.singleParent === 'mother') diff += t.singleParentMother;
+  if (f.singleParent === 'father') diff += t.singleParentFather;
+  if (f.singleParent === 'widow') diff += t.widow;
+  if (f.workingStudent) diff += t.workingStudent;
+  return diff;
+}
+
 /**
  * 控除上限額（全額控除になる寄附額の上限）を求める。
  * @param {object} input
@@ -124,5 +182,8 @@ function calcFurusatoBreakdown(donation, ctx, data) {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { calcFurusatoLimit, calcFurusatoBreakdown, furusatoSpecialRatio, furusatoMarginalShotokuRate };
+  module.exports = {
+    calcFurusatoLimit, calcFurusatoBreakdown, furusatoSpecialRatio, furusatoMarginalShotokuRate,
+    furusatoImpliedShotokuRate, furusatoShotokuBasicDeduction, furusatoHumanDeductionDiff,
+  };
 }

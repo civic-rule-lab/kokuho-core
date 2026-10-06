@@ -252,6 +252,7 @@ const JS_V  = fileHash(
   path.join(ROOT, 'js', 'core', 'shotoku.js'), // 家計簿の所得税結線
   path.join(ROOT, 'js', 'core', 'shogakukin.js'),        // 家計簿の奨学金結線（給付＋減免）
   path.join(ROOT, 'js', 'core', 'shogakukin-bridge.js'), // 同上（年収→jumin→supporter ブリッジ）
+  path.join(ROOT, 'js', 'core', 'furusato.js'),          // 家計簿のふるさと納税の上限（目安）
 );
 
 // ─── ヘルパー ───
