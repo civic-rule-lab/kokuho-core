@@ -38,6 +38,10 @@ check('第Ⅳレンジ非多子 kijungaku', r.kijungaku, 70500);
 check('第Ⅳレンジ非多子 対象外', r.kubunCode, null);
 check('第Ⅳレンジ非多子 給付0', r.grantMonthly, 0);
 check('第Ⅳレンジ非多子 減免0', r.reductionCap, { tuition: 0, admission: 0 });
+// 表示の区分名（2026-10-08・TASKS X173-12）: 基準額 70,500 円なのに「154,500円以上」と出ていた。
+// 51,300 円以上・第Ⅳ区分の要件なし＝対象外、を正しく言う文言であること。
+check('第Ⅳレンジ非多子 区分名に「154,500円以上」と書かない', /154,500円以上/.test(r.kubun), false);
+check('第Ⅳレンジ非多子 区分名', r.kubun, '対象外（支給額算定基準額が51,300円以上で、第Ⅳ区分〈154,500円未満の多子世帯・私立理工農系〉にも当たらない）');
 
 // 5) 多子(子3人) → 減免満額・給付は第Ⅳ実額(私立大学自宅外19,000)
 r = calcShogakukin(spec, { supporters: [{ taxableIncome: 1200000 }], student: stu(), childrenCount: 3 });
