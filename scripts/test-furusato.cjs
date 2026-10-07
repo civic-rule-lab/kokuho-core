@@ -188,5 +188,37 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
   eq('簡単計算: 内訳用の所得税率（A の課税所得180万＝5%と一致）', furusatoImpliedShotokuRate(r.ratio, data), 0.05);
 }
 
+// ── 12. 令和8年度分（2025年中の寄附）＝住民税「詳しく計算」の経路（TASKS X173-14） ──────────
+// data/national/furusato-2026.json。前年分の所得税の基礎控除は令和7年分（国税庁 No.1199）。
+// 給与470万・単身・社保 676,800（14.4%）・fiscalYear 2026:
+//   給与所得 470万−(470万×20%+44万)=332万。課税総所得 332万−676,800−43万=2,213,200→2,213,000。
+//   所得割 221,300−2,500=218,800。令和7年分の基礎控除（合計所得332万＝132万超336万以下）88万 → +40万。
+//   人的控除差調整額 5万+40万=45万。基準額 2,213,000−450,000=1,763,000 → 84.895%（旧実装は課税総所得で引き 79.79%）。
+//   寄附3万円: 対象 28,000。基本分 2,800、特例分 floor(28,000×0.84895)=23,770（上限 floor(218,800×20%)=43,760 以内）→ 住民税控除 26,570。
+//   （旧実装: 2,800 + floor(28,000×0.7979)=22,341 → 25,141）
+{
+  const data26 = require(path.join(ROOT, 'data/national/furusato-2026.json'));
+  const j = calculateJumin(null, { salary: 4700000, age: 40, socialInsurance: 676800 });
+  eq('R8 470万: 住民税 合計所得', j.totalIncome, 3320000);
+  eq('R8 470万: 住民税 課税総所得', j.taxableIncome, 2213000);
+  eq('R8 470万: 住民税 所得割', j.incomeLevy, 218800);
+  const kiso = furusatoShotokuBasicDeduction(j.totalIncome, data26.shotokuBasicDeductionTable.rows);
+  eq('R8 470万: 令和7年分の所得税の基礎控除', kiso, 880000);
+  const r = calcFurusatoLimit({ incomeLevy: j.incomeLevy, taxableIncome: j.taxableIncome, humanDeductionDiff: j.humanDeductionDiff, shotokuBasicDeduction: kiso }, data26);
+  eq('R8 470万: 人的控除差調整額', r.humanAdjustment, 450000);
+  eq('R8 470万: 割合の基準額', r.base, 1763000);
+  eq('R8 470万: 特例控除の割合（旧実装は 79.79）', r.ratio.percent, 84.895);
+  const b = calcFurusatoBreakdown(30000, { incomeLevy: j.incomeLevy, ratio: r.ratio, shotokuMarginalRate: 0, totalIncome: j.totalIncome }, data26);
+  eq('R8 470万・寄附3万: 住民税 基本分', b.juminBasic, 2800);
+  eq('R8 470万・寄附3万: 住民税 特例分', b.juminSpecial, 23770);
+  eq('R8 470万・寄附3万: 住民税控除の合計（旧実装は 25,141）', b.juminBasic + b.juminSpecial, 26570);
+  // 令和7年分の基礎控除の表の境目（No.1199）
+  const t7 = data26.shotokuBasicDeductionTable.rows;
+  eq('令和7年分 基礎控除: 合計所得 1,320,000 → 950,000', furusatoShotokuBasicDeduction(1320000, t7), 950000);
+  eq('令和7年分 基礎控除: 合計所得 3,360,001 → 680,000', furusatoShotokuBasicDeduction(3360001, t7), 680000);
+  eq('令和7年分 基礎控除: 合計所得 4,890,001 → 630,000', furusatoShotokuBasicDeduction(4890001, t7), 630000);
+  eq('令和7年分 基礎控除: 合計所得 6,550,001 → 580,000', furusatoShotokuBasicDeduction(6550001, t7), 580000);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
