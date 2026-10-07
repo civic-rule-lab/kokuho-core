@@ -136,6 +136,9 @@
 <script>const JUMIN_DATA = __JUMIN_DATA__; const CITY_SLUG = "__CITY_SLUG__"; const PUBLISH_YEAR = __PUBLISH_YEAR__;</script>
 <script src="/js/core/shared/income.js?v=__JS_V__"></script>
 <script src="/js/core/jumin.js?v=__JS_V__"></script>
+<!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
+<script>const FURUSATO_DATA = __FURUSATO_DATA__;</script>
+<script src="/js/core/furusato.js?v=__JS_V__"></script>
 <script>
 (function () {
   "use strict";
@@ -159,12 +162,6 @@
   }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
-
-  // 所得税の限界税率（課税所得ベース・ふるさと納税の特例分計算用）
-  function marginalRate(t){
-    if(t<=1950000)return 0.05; if(t<=3300000)return 0.10; if(t<=6950000)return 0.20;
-    if(t<=9000000)return 0.23; if(t<=18000000)return 0.33; if(t<=40000000)return 0.40; return 0.45;
-  }
 
   window.calcJuminFull = function(){
     var result=document.getElementById("result");
@@ -207,14 +204,18 @@
       // 1) ふるさと納税前の所得割を算出
       var r0=calculateJumin(JUMIN_DATA, common);
 
-      // 2) ふるさと納税の寄附金税額控除（住民税分）を概算
+      // 2) ふるさと納税の寄附金税額控除（住民税分＝基本分＋特例分）を概算（js/core/furusato.js）
+      //   特例控除の割合は「課税総所得金額 − 人的控除差調整額」の区分で決まる（地方税法 第37条の2第11項第1号）。
+      //   人的控除差調整額 ＝ 調整控除に使う人的控除差（r0.humanDeductionDiff）＋ max(0, 令和7年分の所得税の基礎控除 − 48万円)。
+      //   旧実装は区分を課税総所得金額で引いており、境目付近で1段上の区分（低い割合）になっていた（TASKS X173-14）。
       var furusato=num("furusato")||0, furusatoCredit=0;
       if(furusato>2000 && r0.incomeLevy>0){
-        var excess=furusato-2000;
-        var basic=Math.floor(excess*0.10);
-        var special=Math.floor(excess*(0.90-marginalRate(r0.taxableIncome)*1.021));
-        var specialCap=Math.floor(r0.incomeLevy*0.20);
-        furusatoCredit=basic+Math.min(Math.max(special,0),specialCap);
+        var fzKiso=furusatoShotokuBasicDeduction(r0.totalIncome, FURUSATO_DATA.shotokuBasicDeductionTable.rows);
+        var fzLim=calcFurusatoLimit({incomeLevy:r0.incomeLevy, taxableIncome:r0.taxableIncome, humanDeductionDiff:r0.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, FURUSATO_DATA);
+        if(fzLim.ratio){
+          var fzB=calcFurusatoBreakdown(furusato, {incomeLevy:r0.incomeLevy, ratio:fzLim.ratio, shotokuMarginalRate:0, totalIncome:r0.totalIncome}, FURUSATO_DATA);
+          furusatoCredit=fzB.juminBasic+fzB.juminSpecial;
+        }
       }
 
       // 3) 税額控除を反映して再計算

@@ -321,6 +321,11 @@ function fill(template, map) {
 // ─── テンプレート読込 ───
 const tmplSimple = readFileSync(path.join(TMPL_DIR, 'jumin-simple.html'), 'utf-8');
 const tmplIncome = readFileSync(path.join(TMPL_DIR, 'jumin-income.html'), 'utf-8');
+// 詳しく計算のふるさと納税控除（令和8年度分＝2025年中の寄附）の制度値。JSON の文字列をそのまま埋め込む
+// （parse → stringify を通さない）。fill() は String.replaceAll なので、$ を含まないことを確かめる。
+const furusatoDataLiteral = readFileSync(path.join(ROOT, 'data', 'national', 'furusato-2026.json'), 'utf-8').trim();
+JSON.parse(furusatoDataLiteral);
+if (/\$|<\/script/i.test(furusatoDataLiteral)) throw new Error('furusato-2026.json に $ または </script が含まれている');
 const tmplKakeibo = readFileSync(path.join(TMPL_DIR, 'city-integrated.html'), 'utf-8');
 
 // ─── 対象自治体の決定 ───
@@ -401,6 +406,7 @@ for (const m of targets) {
       '__CANONICAL_URL__': incomeUrl,
       '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, incomeDesc, incomeUrl, fy, '住民税計算ツール（詳しく）'),
       '__JUMIN_DATA__': juminDataLiteral,
+      '__FURUSATO_DATA__': furusatoDataLiteral,
       '__PUBLISH_YEAR__': String(year),
       '__CSS_V__': CSS_V,
       '__JS_V__': JS_V,
