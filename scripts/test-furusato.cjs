@@ -14,6 +14,7 @@ const ROOT = path.join(__dirname, '..');
 const data = require(path.join(ROOT, 'data/national/furusato-2027.json'));
 const {
   calcFurusatoLimit, calcFurusatoBreakdown, furusatoSpecialRatio, furusatoMarginalShotokuRate,
+  furusatoImpliedShotokuRate, furusatoShotokuBasicDeduction, furusatoHumanDeductionDiff,
 } = require(path.join(ROOT, 'js/core/furusato.js'));
 const { calculateJumin } = require(path.join(ROOT, 'js/core/jumin.js'));
 const Shotoku = require(path.join(ROOT, 'js/core/shotoku.js'));
@@ -143,6 +144,48 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
   const r3 = calcFurusatoLimit({ incomeLevy: 38000, taxableIncome: 400000, humanDeductionDiff: 50000, shotokuBasicDeduction: 1040000 }, data);
   eq('基準額が負: 割合 90%', r3.ratio.percent, 90);
   eq('基準額が負: 上限額', r3.limit, 10444);
+}
+
+// ── 8. 割合から所得税率の逆算（割合 ＝ 90% − 税率×1.021 の逆） ─────────────
+// 84.895 → (90−84.895)/1.021 = 5.105/1.021 = 5%。以下同様に 10/20/23/33/40/45%。
+{
+  const cases = [[1800000, 0.05], [2000000, 0.1], [4000000, 0.2], [8000000, 0.23], [10000000, 0.33], [20000000, 0.4], [50000000, 0.45], [-1, 0]];
+  for (const [base, rate] of cases) eq(`逆算: 基準額 ${base.toLocaleString()} → 所得税率 ${rate}`, furusatoImpliedShotokuRate(furusatoSpecialRatio(base, data), data), rate);
+}
+
+// ── 9. 所得税の基礎控除（令和8年分）の表引き ───────────────────────────
+// 表（shotokuzei-2026.json）: 489万以下 104万／655万以下 67万／2,350万以下 62万／2,400万以下 48万／2,450万以下 32万／2,500万以下 16万／超 0
+{
+  const kiso = Shotoku.loadParams(2026, shotokuDb).kisoKojo;
+  eq('基礎控除: 合計所得 4,890,000 → 1,040,000', furusatoShotokuBasicDeduction(4890000, kiso), 1040000);
+  eq('基礎控除: 合計所得 4,890,001 → 670,000', furusatoShotokuBasicDeduction(4890001, kiso), 670000);
+  eq('基礎控除: 合計所得 6,550,001 → 620,000', furusatoShotokuBasicDeduction(6550001, kiso), 620000);
+  eq('基礎控除: 合計所得 23,500,001 → 480,000', furusatoShotokuBasicDeduction(23500001, kiso), 480000);
+  eq('基礎控除: 合計所得 25,000,001 → 0', furusatoShotokuBasicDeduction(25000001, kiso), 0);
+}
+
+// ── 10. 人的控除差（第37条第1号イ）を家族構成から ───────────────────────
+// 単身 5万／控除対象配偶者（本人500万）5万+5万=10万／本人920万 5万+4万=9万／老人配偶者・本人960万 5万+3万=8万／
+// 本人1,100万（配偶者控除なし）5万／配偶者＋特定扶養1＋一般扶養1 5万+5万+18万+5万=33万／ひとり親(母) 5万+5万=10万／寡婦 5万+1万=6万
+{
+  eq('人的控除差: 単身', furusatoHumanDeductionDiff({ selfTotalIncome: 3560000 }, data), 50000);
+  eq('人的控除差: 控除対象配偶者・本人500万', furusatoHumanDeductionDiff({ selfTotalIncome: 5000000, spouse: 'general' }, data), 100000);
+  eq('人的控除差: 控除対象配偶者・本人920万', furusatoHumanDeductionDiff({ selfTotalIncome: 9200000, spouse: 'general' }, data), 90000);
+  eq('人的控除差: 老人控除対象配偶者・本人960万', furusatoHumanDeductionDiff({ selfTotalIncome: 9600000, spouse: 'elderly' }, data), 80000);
+  eq('人的控除差: 配偶者・本人1,100万（加算なし）', furusatoHumanDeductionDiff({ selfTotalIncome: 11000000, spouse: 'general' }, data), 50000);
+  eq('人的控除差: 配偶者＋特定扶養1＋一般扶養1', furusatoHumanDeductionDiff({ selfTotalIncome: 5000000, spouse: 'general', dependentSpecific: 1, dependentGeneral: 1 }, data), 330000);
+  eq('人的控除差: ひとり親（母）', furusatoHumanDeductionDiff({ selfTotalIncome: 3000000, singleParent: 'mother' }, data), 100000);
+  eq('人的控除差: 寡婦', furusatoHumanDeductionDiff({ selfTotalIncome: 3000000, singleParent: 'widow' }, data), 60000);
+}
+
+// ── 11. 簡単計算の流れ（決定通知書の数字から）＝ 3. の A と同じ人 ───────────────
+// 所得割 238,500・課税標準 2,410,000・総所得 3,560,000・単身 → 基礎控除 104万 → 上限 58,187（A と一致すること）
+{
+  const kiso = Shotoku.loadParams(2026, shotokuDb).kisoKojo;
+  const hd = furusatoHumanDeductionDiff({ selfTotalIncome: 3560000 }, data);
+  const r = calcFurusatoLimit({ incomeLevy: 238500, taxableIncome: 2410000, humanDeductionDiff: hd, shotokuBasicDeduction: furusatoShotokuBasicDeduction(3560000, kiso) }, data);
+  eq('簡単計算: 単身500万相当の上限額（A と一致）', r.limit, 58187);
+  eq('簡単計算: 内訳用の所得税率（A の課税所得180万＝5%と一致）', furusatoImpliedShotokuRate(r.ratio, data), 0.05);
 }
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);

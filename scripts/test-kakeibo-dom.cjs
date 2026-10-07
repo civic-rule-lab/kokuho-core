@@ -31,6 +31,7 @@ const engineMap = {
   '/js/core/shotoku.js': 'js/core/shotoku.js',
   '/js/core/shogakukin.js': 'js/core/shogakukin.js',
   '/js/core/shogakukin-bridge.js': 'js/core/shogakukin-bridge.js',
+  '/js/core/furusato.js': 'js/core/furusato.js',
 };
 html = html.replace(/<script src="([^"?]+)\?v=x"><\/script>/g, (m, p) =>
   engineMap[p] ? '<script>' + fs.readFileSync(path.join(ROOT, engineMap[p]), 'utf8') + '</script>' : m);
@@ -165,6 +166,15 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const exp45 = calculateKokuho({ ...base, care: 1 }, kd);
     A('自営45歳: 国保の内訳に子ども・子育て支援金分の行がある（直算と一致）', rows45[3] !== null && rows45[3] === exp45.childcareTotal && exp45.childcareTotal > 0);
     A('自営45歳: 国保の内訳4行の和が総額と一致', rows45.every(v => v !== null) && rows45.reduce((a, b) => a + b, 0) === num(k45[1]));
+  }
+  // ふるさと納税の上限（目安）カード（2026-10-06 追加）: 自営・年収600万・40歳・単身（r3）。
+  // 手計算: 社保 864,000（14.4%）／給与所得 436万／令和9年度 課税総所得 3,066,000／所得割 306,600−2,500=304,100／
+  //   人的控除差調整額 5万+(104万−48万)=61万 → 基準額 2,456,000 → 79.79% → 上限 floor(60,820×100000/79790)+2,000=78,225 → 表示 78,000。
+  {
+    const fzHead = find(r3.heads, 'ふるさと納税の上限（目安）');
+    A('自営600万: ふるさと納税の上限カードが出る', !!fzHead);
+    A('自営600万: ふるさと納税の上限 約78,000円（手計算と一致）', !!fzHead && num(fzHead[1]) === 78000);
+    A('自営600万: ふるさと納税の上限は年間負担の合計に入らない', num(r3.grand) === r3.heads.filter(h => h[0] !== 'ふるさと納税の上限（目安）').reduce((a, h) => a + num(h[1]), 0));
   }
   A('賞与ありは合計が大きい', num(r2.grand) > num(r1.grand));
   A('賞与ありは住民税も所得税も増える（給与＋賞与で課税）',

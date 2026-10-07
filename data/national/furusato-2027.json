@@ -41,6 +41,27 @@
   "humanAdjustment": {
     "shotokuBasicDeductionOffset": 480000
   },
+  "humanDiffTable": {
+    "_source": "地方税法 第37条第1号イ（市町村民税は第314条の6第1号イ）の表。e-Gov 2026-10-01 施行版を 2026-10-05 取得。令和8年法律第2号はこの表を改めていない。",
+    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
+    "base": 50000,
+    "selfDisabled": 10000,
+    "selfSpecialDisabled": 100000,
+    "widow": 10000,
+    "singleParentFather": 10000,
+    "singleParentMother": 50000,
+    "workingStudent": 10000,
+    "spouse": [
+      { "selfIncomeUpTo": 9000000, "general": 50000, "elderly": 100000 },
+      { "selfIncomeUpTo": 9500000, "general": 40000, "elderly": 60000 },
+      { "selfIncomeUpTo": 10000000, "general": 20000, "elderly": 30000 },
+      { "selfIncomeUpTo": null, "general": 0, "elderly": 0 }
+    ],
+    "dependentGeneral": 50000,
+    "dependentSpecific": 180000,
+    "dependentElderly": 100000,
+    "dependentCohabitingParent": 130000
+  },
   "specialCapRateOfIncomeLevy": 0.2,
   "juminBasicRate": 0.1,
   "juminBasicCapRateOfTotalIncome": 0.3,

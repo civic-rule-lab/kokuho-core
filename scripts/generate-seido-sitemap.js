@@ -51,6 +51,8 @@ const prevLastmod = previousLastmod(OUT);
 const urls = [
   // アンブレラ・トップ
   { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'monthly' },
+  // ふるさと納税の控除上限額 かんたん計算（全国1ページ・deploy-seido.sh が furusato/index.html へコピー）
+  { loc: `${BASE_URL}/furusato/`, priority: '0.8', changefreq: 'yearly' },
 ];
 
 let n = { jumin: 0, kakeibo: 0, kouki: 0, kaigo: 0, hoiku: 0 };
