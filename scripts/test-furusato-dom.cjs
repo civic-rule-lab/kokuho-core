@@ -7,6 +7,7 @@
  *    （2026-10-07 本番で、確定前に欄を移したため数字が移動先にも入り、最後の欄で二重になった）
  *    ※ IME による文字の挿入そのものは jsdom で再現できない。ここで見るのは「確定の Enter で欄が動かないこと」まで
  * 3. 計算: 単身・所得割 238,500・課税標準 2,410,000・総所得 3,560,000 → 上限 58,187 円（test-furusato.cjs の A と同じ手計算）
+ * 4. 入力の取り違え対策（X173-20）: 計算に使った数字の表示と、所得控除が極端に大きいときの桁の注意
  *
  * 実行: node scripts/generate-seido-furusato.js && node scripts/test-furusato-dom.cjs
  */
@@ -57,6 +58,20 @@ w.calcFurusato();
 const out = d.getElementById('result').textContent.replace(/\s+/g, '');
 A('計算: 上限 58,187 円（手計算と一致）', out.includes('58,187円'));
 A('計算: 人的控除差調整額 610,000 円', out.includes('人的控除差調整額610,000円'));
+
+// 入力の取り違え対策（X173-20）
+A('入力の表示: 計算に使った3つの数字が結果に出る', out.includes('所得割額238,500円・課税標準額2,410,000円・総所得金額3,560,000円'));
+A('通常の入力（所得控除 115万円・総所得の32%）では桁の注意を出さない', !out.includes('桁が合っているか'));
+function calcWith(sw, kz, so) {
+  set('shotokuwari', sw); set('kazeiHyojun', kz); set('soShotoku', so);
+  w.calcFurusato();
+  return d.getElementById('result').textContent.replace(/\s+/g, '');
+}
+A('総所得の桁を1つ多く打った（35,600,000）→ 桁の注意を出す', calcWith('238500', '2410000', '35600000').includes('桁が合っているか'));
+A('課税標準の桁を1つ少なく打った（241,000）→ 桁の注意を出す', calcWith('238500', '241000', '3560000').includes('桁が合っているか'));
+A('注意を出しても計算結果は出す', calcWith('238500', '241000', '3560000').includes('控除上限額の目安'));
+A('総所得が少なく基礎控除だけで8割を超える方（総所得80万・課税標準10万）には出さない', !calcWith('10000', '100000', '800000').includes('桁が合っているか'));
+A('所得控除 200万円以上でも総所得の8割未満（総所得600万・課税標準140万＝77%）なら出さない', !calcWith('140000', '1400000', '6000000').includes('桁が合っているか'));
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
