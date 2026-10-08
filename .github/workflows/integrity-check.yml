@@ -197,6 +197,10 @@ jobs:
       - name: Run test-sanity-all.js (全 1700+ 自治体 × 8 パターン 計算回帰検出)
         run: node scripts/test-sanity-all.js
 
+      # 2026-10-08 追加（TASKS X173-21・オーナー決定）: 引数なしは R7（2025）だけを見る。本番の主年度 R8 も回す。
+      - name: Run test-sanity-all.js --year=2026 (R8 の全自治体 × 8 パターン)
+        run: node scripts/test-sanity-all.js --year=2026
+
       - name: Run test-calc-verify.js (公式計算例との照合)
         run: node scripts/test-calc-verify.js
 
@@ -205,6 +209,10 @@ jobs:
 
       - name: Run test-jumin.cjs (住民税コア js/core/jumin.js 計算回帰)
         run: node scripts/test-jumin.cjs
+
+      # 2026-10-08 追加（TASKS X173-21）: npm test には入っていたが CI に無かった。
+      - name: Run test-furusato.cjs (ふるさと納税 控除上限額コア js/core/furusato.js 計算回帰)
+        run: node scripts/test-furusato.cjs
 
       - name: Run test-shogakukin.cjs (奨学金コア 区分・減免・給付・多子世帯回帰)
         run: node scripts/test-shogakukin.cjs
@@ -232,3 +240,9 @@ jobs:
 
       - name: Run test-kakeibo-dom.cjs (家計簿ページの結線・国保の介護分・jsdom)
         run: node scripts/test-kakeibo-dom.cjs
+
+      # 2026-10-08 追加（TASKS X173-21）: ページはテンプレートから作り直してから検証する（deploy-seido.sh も毎回生成する）。
+      - name: Run test-furusato-dom.cjs (ふるさと納税ページの結線・日本語入力の Enter・jsdom)
+        run: |
+          node scripts/generate-seido-furusato.js
+          node scripts/test-furusato-dom.cjs
