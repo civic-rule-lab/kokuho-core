@@ -166,6 +166,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const exp45 = calculateKokuho({ ...base, care: 1 }, kd);
     A('自営45歳: 国保の内訳に子ども・子育て支援金分の行がある（直算と一致）', rows45[3] !== null && rows45[3] === exp45.childcareTotal && exp45.childcareTotal > 0);
     A('自営45歳: 国保の内訳4行の和が総額と一致', rows45.every(v => v !== null) && rows45.reduce((a, b) => a + b, 0) === num(k45[1]));
+    // 法定軽減の行は「差し引き済み」と書き、「-」を付けない（2026-10-08・TASKS X173-22）
+    A('自営45歳: 国保の法定軽減の行は「上の各分から差し引き済み」と書き、金額に「-」が無い',
+      !!kokuhoCard && /法定軽減（上の各分から差し引き済み）<\/div><div[^>]*>[\d,]+ 円/.test(kokuhoCard));
   }
   // ふるさと納税の上限（目安）カード（2026-10-06 追加）: 自営・年収600万・40歳・単身（r3）。
   // 手計算: 社保 864,000（14.4%）／給与所得 436万／令和9年度 課税総所得 3,066,000／所得割 306,600−2,500=304,100／

@@ -59,8 +59,9 @@ async function runPage(fillFn) {
     const amt = r.querySelector('.amount')?.textContent || '';
     rows[label] = amt;
   });
+  const text = d.getElementById('result').textContent;
   dom.window.close();
-  return { rows, errors };
+  return { rows, errors, text };
 }
 
 const yen = (s) => Number(String(s || '').replace(/[^\d]/g, '')) || 0;
@@ -123,6 +124,25 @@ const set = (d, id, v) => { d.getElementById(id).value = String(v); };
       members: [{ income: 2000000, careTarget: true }, { income: 1500000, careTarget: true }],
     }, DATA);
     eq('介護分 = 介護2人で直算', yen(rows['介護分']), exp.careTotal);
+  }
+
+  // ── 4. 軽減の行は「差し引き済み」の再掲（2026-10-08・TASKS X173-22） ──
+  //   医療分などはエンジンが軽減を差し引いた後の額。軽減の行は再掲なので「-」を付けず、見出しで差し引き済みと示す。
+  //   上の4つの分を足すと年間保険料になる（軽減の行をさらに引くと合わない）ことを、軽減がかかる世帯で確かめる。
+  console.log('\n== 軽減の行は差し引き済みの再掲 ==');
+  {
+    const { rows, errors, text } = await runPage(d => {
+      set(d, 'income', 600000); set(d, 'family', 3); set(d, 'preschool', 1); set(d, 'under18', 1); set(d, 'care', 0); set(d, 'salaryPensionCount', 1);
+    });
+    const exp = calculateKokuho({ income: 600000, family: 3, preschool: 1, under18: 1, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, DATA);
+    eq('JSエラーなし', errors.length, 0);
+    eq('この世帯は法定軽減・未就学児軽減がかかる（前提）', exp.totalReduction > 0 && exp.preschoolReduction > 0, true);
+    eq('医療分＋支援分＋介護分＋子ども分 ＝ 年間保険料（軽減の行は足し引きしない）',
+      yen(rows['医療分']) + yen(rows['支援分']) + yen(rows['介護分']) + yen(rows['子ども・子育て支援金分']), yen(rows['年間保険料（概算）']));
+    eq('法定軽減の行は「差し引き済み」と書き、エンジンの値', yen(rows['法定軽減（差し引き済み）']), exp.totalReduction);
+    eq('未就学児軽減の行は「差し引き済み」と書き、エンジンの値', yen(rows['未就学児軽減（差し引き済み）']), exp.preschoolReduction);
+    eq('軽減の金額に「-」を付けない', /-/.test(rows['法定軽減（差し引き済み）'] + rows['未就学児軽減（差し引き済み）']), false);
+    eq('軽減の行の前に、すでに差し引いてある旨の見出しがある', text.includes('すでに差し引いてあります'), true);
   }
 
   console.log(`\n結果: PASS ${passed} / FAIL ${failed}`);
