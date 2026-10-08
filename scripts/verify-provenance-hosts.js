@@ -26,6 +26,10 @@
  *   node scripts/verify-provenance-hosts.js            全件確認してレポートを書く
  *   node scripts/verify-provenance-hosts.js --host=... 1件だけ試す
  *   node scripts/verify-provenance-hosts.js --quiet    stdout を要約だけにする
+ *   node scripts/verify-provenance-hosts.js --consistency-only
+ *       許可リストと registry/provenance-host-watch.json の突合だけを行い、ネットには出ない（CI 用）。
+ *       2026-10-01〜02 に許可リストへ足した6ホストが watch.json に入らず、本スクリプトが「設定の不一致」で
+ *       全80ホストの確認を中止したまま気づかれなかった（TASKS X173-1・X173-18）。PR の段階で止めるための検査。
  *
  * 終了コード: 0=全件OK / 1=要確認あり / 2=リストの突合不一致など設定上の異常
  *
@@ -55,10 +59,11 @@ const HIJACK_WORDS = [
 ];
 
 function args() {
-  const a = { host: null, quiet: false };
+  const a = { host: null, quiet: false, consistencyOnly: false };
   for (const s of process.argv.slice(2)) {
     if (s.startsWith("--host=")) a.host = s.slice(7).toLowerCase();
     else if (s === "--quiet") a.quiet = true;
+    else if (s === "--consistency-only") a.consistencyOnly = true;
   }
   return a;
 }
@@ -211,6 +216,10 @@ async function main() {
       );
     }
     process.exit(2);
+  }
+  if (a.consistencyOnly) {
+    console.log(`許可リストと registry/provenance-host-watch.json は一致（${extra.length} ホスト）。--consistency-only のためネット確認はしない。`);
+    process.exit(0);
   }
 
   const targets = a.host ? extra.filter((h) => h === a.host) : extra;

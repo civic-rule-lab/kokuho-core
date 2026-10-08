@@ -170,6 +170,12 @@ jobs:
       - name: Run test-provenance-visibility.js (確認済みと表示しながら根拠を出していないページの検出)
         run: node scripts/test-provenance-visibility.js
 
+      # 出典許可ホスト（PROVENANCE_HOST_EXTRA）と乗っ取り監視の期待値（registry/provenance-host-watch.json）の一致。
+      # 片方だけに足すと、月次の乗っ取り確認が「設定の不一致」で全ホスト分止まる（2026-10-01〜04 に実際に発生・TASKS X173-1）。
+      # ネットには出ない（--consistency-only）。
+      - name: Run verify-provenance-hosts.js --consistency-only (許可リストと乗っ取り監視リストの一致)
+        run: node scripts/verify-provenance-hosts.js --consistency-only
+
       - name: Run check-numeric-text.cjs (料率 JSON の数値表記が値そのままに書き換わっていないか)
         env:
           BASE_REF: ${{ github.base_ref }}
