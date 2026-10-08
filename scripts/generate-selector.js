@@ -129,10 +129,15 @@ function buildSystemEntry(slug, system, prefSlug, official = false) {
 }
 
 // js/selector.js 出力
-const jsOfficial = `// このファイルは自動生成されます。
+// 「最終生成」の日付は、中身が前回と同じなら前回の日付を引き継ぎ、変わったときだけ当日にする
+// （2026-10-08・TASKS X173-23）。旧実装は毎回実行日を書き込み、deploy.sh のたびに index.html と
+// js/selector.js が日付だけで変わって未コミットの差分が残り、続く deploy-seido.sh が require-main で止まっていた。
+// index.html の selector.js?v= もこの日付から作るので、中身が変わったときだけ変わる。
+const DATE_PLACEHOLDER = "__SELECTOR_GENERATED_DATE__";
+const jsTemplate = `// このファイルは自動生成されます。
 // 編集: scripts/generate-selector.js を実行してください。
 // 生成元: registry/index.json
-// 最終生成: ${new Date().toISOString().slice(0, 10)}
+// 最終生成: ${DATE_PLACEHOLDER}
 
 const registry = ${JSON.stringify(prefGroupsOfficial, null, 2)};
 
@@ -188,6 +193,17 @@ function goPage() {
   }
 }
 `;
+// 当日（日本時間のローカル日付。toISOString は UTC で日付が1日ずれることがある）
+const _now = new Date();
+const today = `${_now.getFullYear()}-${String(_now.getMonth() + 1).padStart(2, "0")}-${String(_now.getDate()).padStart(2, "0")}`;
+let generatedDate = today;
+if (existsSync(OUT_ROOT)) {
+  const prev = readFileSync(OUT_ROOT, "utf-8");
+  const m = prev.match(/^\/\/ 最終生成: (\d{4}-\d{2}-\d{2})$/m);
+  // 前回の日付を入れたときに前回のファイルと完全に一致する＝中身が変わっていない
+  if (m && prev === jsTemplate.replace(DATE_PLACEHOLDER, () => m[1])) generatedDate = m[1];
+}
+const jsOfficial = jsTemplate.replace(DATE_PLACEHOLDER, () => generatedDate);
 writeFileSync(OUT_ROOT, jsOfficial, "utf-8");
 
 // ─── 国保の検証状況（data の lifecycle から導出）───────────────────
@@ -310,7 +326,7 @@ ${Object.entries(groups).map(([slug, g]) =>
 
 </div>
 
-<script src="/js/selector.js?v=${new Date().toISOString().slice(0, 10).replace(/-/g, '')}"></script>
+<script src="/js/selector.js?v=${generatedDate.replace(/-/g, '')}"></script>
 
 </body>
 </html>
