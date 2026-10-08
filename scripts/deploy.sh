@@ -152,6 +152,11 @@ if [ "$DRY_RUN" = false ]; then
     fi
   done
 
+  # 上の同期で seido-keisan.jp 用のページ（jumin/ kakeibo/ kouki/ kaigo/ hoiku/）の写しも載るが、
+  # その計算エンジンは kokuho-keisan に無く動かないため、同じパスの seido-keisan.jp への転送ページにする
+  # （TASKS X173-19・2026-10-08）。
+  node "$CORE_DIR/scripts/stub-seido-copies.cjs" "$PUBLIC_DIR"
+
   # 自治体JSONデータを rsync で同期
   echo "▶ data/municipalities/ を同期中..."
   mkdir -p "$PUBLIC_DIR/data/municipalities"
