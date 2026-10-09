@@ -20,7 +20,7 @@ export const PREF_SLUG = "fukushima";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.fukushima.lg.jp/sec/01115d/zeimu22.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '福島県公式ページでprefPerCapita=2,000（ふくしま森林づくり県民税+1,000円）確認',
 };
 

@@ -20,7 +20,7 @@ export const PREF_SLUG = "osaka";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.osaka.lg.jp/zaisei/page/0000383147.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '大阪市公式ページで大阪府森林環境税+300円（prefPerCapita=1,300）確認',
 };
 

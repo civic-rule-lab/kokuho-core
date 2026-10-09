@@ -20,7 +20,7 @@ export const PREF_SLUG = "tochigi";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.tochigi.lg.jp/b07/life/zeikin/zeikin/mori.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '栃木県公式ページでとちぎの元気な森づくり県民税+700円（prefPerCapita=1,700）確認',
 };
 

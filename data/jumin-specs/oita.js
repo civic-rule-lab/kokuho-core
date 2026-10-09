@@ -19,8 +19,8 @@ export const PREF_SLUG = "oita";
  * 都道府県レベルの均等割超過額を公式または信頼性の高い二次資料で確認済み。
  */
 export const PREF_SOURCE = {
-  url:         'https://www.pref.oita.jp/soshiki/16210/sinrinkankyouzei.html',
-  retrievedAt: '2026-04-30',
+  url:         'https://www.pref.oita.jp/soshiki/16210/sikumi2013.html',
+  retrievedAt: '2026-10-09',
   notes:       '大分県公式ページで大分県森林環境税+500円（prefPerCapita=1,500）確認',
 };
 

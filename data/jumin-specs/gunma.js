@@ -20,7 +20,7 @@ export const PREF_SLUG = "gunma";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.gunma.jp/page/7190.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '群馬県公式ページでぐんま緑の県民税+700円（prefPerCapita=1,700）確認',
 };
 

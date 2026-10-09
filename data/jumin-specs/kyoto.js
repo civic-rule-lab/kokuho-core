@@ -20,7 +20,7 @@ export const PREF_SLUG = "kyoto";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.kyoto.lg.jp/gyozai/page/0000028299.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '京都市公式ページで豊かな森を育てる府民税+600円（prefPerCapita=1,600）確認',
 };
 

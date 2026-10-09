@@ -20,7 +20,7 @@ export const PREF_SLUG = "okayama";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.okayama.jp/page/360893.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '岡山県公式ページでおかやま森づくり県民税+500円（prefPerCapita=1,500）確認',
 };
 

@@ -20,7 +20,7 @@ export const PREF_SLUG = "wakayama";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.wakayama.lg.jp/prefg/010500/kenzei/moridukuri/moridukuri.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '和歌山県公式ページで和歌山県紀の国森づくり税+500円（prefPerCapita=1,500）確認',
 };
 

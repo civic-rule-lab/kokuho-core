@@ -363,6 +363,34 @@ console.log('\n== 家計簿から住民税ページへのリンク ==');
   ok(`家計簿 ${pages} 件の住民税リンクの有無が住民税ページの有無と一致`, pages > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
 }
 
+// 推定（inferred）の住民税データは県 spec の出典を持つ（TASKS X180-3: 1,190 件で source.url が null だった）
+console.log('\n== 推定データの出典（県 spec の PREF_SOURCE） ==');
+{
+  const fs = require('fs');
+  const ROOT = path.join(__dirname, '..');
+  const prefSource = {};
+  for (const f of fs.readdirSync(path.join(ROOT, 'data/jumin-specs'))) {
+    if (!f.endsWith('.js') || f.startsWith('_')) continue;
+    const s = fs.readFileSync(path.join(ROOT, 'data/jumin-specs', f), 'utf-8');
+    const m = s.match(/export const PREF_SOURCE = \{\s*url:\s*'([^']+)',\s*retrievedAt:\s*'([^']+)'/);
+    if (m) prefSource[f.replace('.js', '')] = { url: m[1], retrievedAt: m[2] };
+  }
+  const DIR = path.join(ROOT, 'data/municipalities');
+  let files = 0, bad = [];
+  for (const slug of fs.readdirSync(DIR)) {
+    const f = path.join(DIR, slug, 'jumin-2026.json');
+    if (!fs.existsSync(f)) continue;
+    const d = JSON.parse(fs.readFileSync(f, 'utf-8'));
+    if (d.status !== 'inferred') continue;
+    files++;
+    const want = prefSource[d.prefSlug];
+    if (!want) bad.push(`${slug}: ${d.prefSlug} の spec に PREF_SOURCE なし`);
+    else if (d.source?.url !== want.url || d.source?.retrievedAt !== want.retrievedAt || d.source?.scope !== 'prefecture')
+      bad.push(`${slug}: source=${JSON.stringify(d.source)}`);
+  }
+  ok(`推定 ${files} 件の source が県 spec の PREF_SOURCE と一致（scope: prefecture）`, files > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
+}
+
 // ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);

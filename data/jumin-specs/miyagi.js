@@ -20,7 +20,7 @@ export const PREF_SLUG = "miyagi";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.sendai.jp/shiminze-kikaku/kurashi/tetsuzuki/zekin/kojin/gaiyo.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '仙台市公式ページでprefPerCapita=2,200（みやぎ環境税+1,200円）確認',
 };
 

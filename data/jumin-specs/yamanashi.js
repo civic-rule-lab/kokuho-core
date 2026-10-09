@@ -20,7 +20,7 @@ export const PREF_SLUG = "yamanashi";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.yamanashi.jp/zeimu/shinrinkankyouzei.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '山梨県公式ページで山梨県森林環境税+500円（prefPerCapita=1,500）確認',
 };
 

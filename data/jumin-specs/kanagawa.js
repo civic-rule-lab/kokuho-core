@@ -28,7 +28,7 @@ export const PREF_SLUG = "kanagawa";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/kojin-shiminzei-kenminzei/kojin-shimin.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '横浜市公式ページで神奈川県水源環境保全税: prefRate=4.025%、prefPerCapita=1,300確認',
 };
 

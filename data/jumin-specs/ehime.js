@@ -20,7 +20,7 @@ export const PREF_SLUG = "ehime";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.ehime.jp/page/1629.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '愛媛県公式ページで森林環境税+700円（prefPerCapita=1,700）確認',
 };
 

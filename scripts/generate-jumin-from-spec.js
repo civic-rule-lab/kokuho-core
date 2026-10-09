@@ -9,6 +9,14 @@
  *
  * 標準値（JUMIN_DEFAULTS）との差分がゼロな自治体はファイルを生成しない。
  *
+ * status が verified の既存ファイルは上書きしない。verified のファイルは人が自治体の
+ * 公式ページで直したもので、spec より新しいことがある（2026-10-10 時点で14件が spec と
+ * 食い違っていた。名古屋市の所得割は正しい 7.7% が spec の 7.2% に戻る）。
+ *
+ * 個別エントリの無い市町村（status は PREF_STATUS 既定の inferred）には、spec の
+ * PREF_SOURCE を source として入れる。scope: "prefecture" は「出典が裏付けるのは県分だけ」
+ * の印で、市町村分は総務省の税率一覧（data/reference/soumu-jumin-city-rates-r7.json）が別に裏付ける。
+ *
  * 実行:
  *   node scripts/generate-jumin-from-spec.js aichi
  *   node scripts/generate-jumin-from-spec.js aichi --year=2026
@@ -92,7 +100,12 @@ function computeDiff(prefDefaults, cityOverride) {
   return diff;
 }
 
-function buildJson(prefSlug, municipality, diff, prefDefs, citySpec, prefStatus = "inferred") {
+function prefSourceOf(prefSource) {
+  if (!prefSource?.url) return { url: null, retrievedAt: null };
+  return { url: prefSource.url, retrievedAt: prefSource.retrievedAt ?? null, scope: "prefecture" };
+}
+
+function buildJson(prefSlug, municipality, diff, prefDefs, citySpec, prefStatus = "inferred", prefSource = null) {
   // 明示指定フィールド = PREF_DEFAULTS + city spec に書かれたフィールド。
   // 標準値と同じであっても「確認済み」の証跡としてJSONに含める。
   const explicit = {};
@@ -116,7 +129,7 @@ function buildJson(prefSlug, municipality, diff, prefDefs, citySpec, prefStatus 
     status:      citySpec?.status ?? prefStatus,
     // 明示指定フィールド（標準値と同じものも確認済み証跡として含める）
     ...explicit,
-    source:      citySpec?.source ?? { url: null, retrievedAt: null },
+    source:      citySpec?.source ?? prefSourceOf(prefSource),
     ...(citySpec?.notes ? { notes: citySpec.notes } : {}),
   };
 }
@@ -134,6 +147,7 @@ async function processSpec(prefSlug) {
   const prefDefs  = spec.PREF_DEFAULTS  || {};
   const citySpecs = spec.MUNICIPALITIES || [];
   const prefStatus = spec.PREF_STATUS   || "inferred";  // 個別エントリのない市町村のデフォルト
+  const prefSource = spec.PREF_SOURCE   || null;
   const hasPrefDiff = Object.keys(prefDefs).length > 0;
 
   // citySlug → citySpec の逆引き
@@ -151,7 +165,7 @@ async function processSpec(prefSlug) {
     return { ok: 0, err: 0 };
   }
 
-  let ok = 0, err = 0, skipped = 0;
+  let ok = 0, err = 0, skipped = 0, keptVerified = 0;
 
   for (const m of targets) {
     try {
@@ -166,7 +180,13 @@ async function processSpec(prefSlug) {
 
       const dir     = path.join(DATA_DIR, m.citySlug);
       const outPath = path.join(dir, `jumin-${YEAR}.json`);
-      const json    = buildJson(prefSlug, m, diff, prefDefs, citySpec, prefStatus);
+
+      if (existsSync(outPath) && JSON.parse(readFileSync(outPath, "utf-8")).status === "verified") {
+        keptVerified++;
+        continue;
+      }
+
+      const json    = buildJson(prefSlug, m, diff, prefDefs, citySpec, prefStatus, prefSource);
 
       const diffStr = Object.entries(diff).map(([k,v]) => `${k}=${v}`).join(", ");
 
@@ -187,6 +207,7 @@ async function processSpec(prefSlug) {
   }
 
   if (skipped > 0) console.log(`  ℹ️  ${skipped}件はPREF_DEFAULTSのみで標準値と一致 → スキップ`);
+  if (keptVerified > 0) console.log(`  ℹ️  ${keptVerified}件は既存ファイルが verified → 上書きしない`);
   return { ok, err };
 }
 

@@ -20,7 +20,7 @@ export const PREF_SLUG = "iwate";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.iwate.jp/kensei/zei/gaiyou/kojin/1073136.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '岩手県公式ページでprefPerCapita=2,000（いわての森林づくり県民税+1,000円）確認',
 };
 

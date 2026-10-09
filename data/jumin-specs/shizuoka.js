@@ -20,7 +20,7 @@ export const PREF_SLUG = "shizuoka";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.hamamatsu.shizuoka.jp/shiminze/zei/siminze/kintou.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '浜松市公式ページで静岡県森林づくり県民税+400円（prefPerCapita=1,400）確認',
 };
 

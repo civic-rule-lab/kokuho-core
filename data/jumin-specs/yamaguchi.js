@@ -20,7 +20,7 @@ export const PREF_SLUG = "yamaguchi";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.yamaguchi.lg.jp/soshiki/5/12482.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '山口県公式ページでやまぐち森林づくり県民税+500円（prefPerCapita=1,500）確認',
 };
 

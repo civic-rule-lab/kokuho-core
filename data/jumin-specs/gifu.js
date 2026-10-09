@@ -20,7 +20,7 @@ export const PREF_SLUG = "gifu";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.gifu.lg.jp/page/8460.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '岐阜県公式ページで清流の国ぎふ森林・環境税+1,000円確認',
 };
 

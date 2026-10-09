@@ -19,8 +19,8 @@ export const PREF_SLUG = "akita";
  * 都道府県レベルの均等割超過額を公式または信頼性の高い二次資料で確認済み。
  */
 export const PREF_SOURCE = {
-  url:         'https://www.pref.akita.lg.jp/pages/archive/3973',
-  retrievedAt: '2026-04-30',
+  url:         'https://www.pref.akita.lg.jp/pages/archive/77619',
+  retrievedAt: '2026-10-09',
   notes:       '秋田県公式ページで水と緑の森づくり税+800円（prefPerCapita=1,800）確認',
 };
 

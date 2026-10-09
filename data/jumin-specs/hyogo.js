@@ -20,7 +20,7 @@ export const PREF_SLUG = "hyogo";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.kobe.lg.jp/a83576/kurashi/tax/shikenminze/keisan/index.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '神戸市公式ページで兵庫県民緑税+800円（prefPerCapita=1,800）確認',
 };
 
