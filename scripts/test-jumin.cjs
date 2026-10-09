@@ -343,6 +343,26 @@ console.log('\n== 生成ページの級地の埋め込み ==');
   ok(`生成ページ ${pages} 件の JUMIN_KYUCHI が参照データと一致`, pages > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
 }
 
+// 家計簿の「住民税を詳しく計算 →」は住民税ページがある自治体だけ（TASKS X180-2: 1,188 ページで 404 だった）
+console.log('\n== 家計簿から住民税ページへのリンク ==');
+{
+  const fs = require('fs');
+  const ROOT = path.join(__dirname, '..');
+  const reg = JSON.parse(fs.readFileSync(path.join(ROOT, 'registry/index.json'), 'utf-8')).municipalities;
+  let pages = 0, bad = [];
+  for (const m of reg) {
+    const dir = path.join(ROOT, m.prefectureSlug || '', m.citySlug);
+    const f = path.join(dir, 'kakeibo/index.html');
+    if (!fs.existsSync(f)) continue;
+    pages++;
+    const mm = fs.readFileSync(f, 'utf-8').match(/const HAS_JUMIN_PAGE = (true|false);/);
+    const has = fs.existsSync(path.join(dir, 'jumin/index.html'));
+    if (!mm) bad.push(`${m.citySlug}: HAS_JUMIN_PAGE なし`);
+    else if ((mm[1] === 'true') !== has) bad.push(`${m.citySlug}: HAS_JUMIN_PAGE=${mm[1]}・住民税ページ${has ? 'あり' : 'なし'}`);
+  }
+  ok(`家計簿 ${pages} 件の住民税リンクの有無が住民税ページの有無と一致`, pages > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
+}
+
 // ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);
