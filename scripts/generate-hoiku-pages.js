@@ -42,6 +42,15 @@ const ROOT      = path.join(__dirname, '..');
 const TMPL_DIR  = path.join(ROOT, 'templates');
 const REGISTRY  = path.join(ROOT, 'registry', 'index.json');
 const DATA_DIR  = path.join(ROOT, 'data', 'municipalities');
+
+// 生活保護の級地（住民税 均等割の非課税限度額に使う）。data/reference/kyuchi.json（別表第9）から 1/2/3 を引く。
+// 無い市町村は生成を止める（黙って1級地にしない）。TASKS X180-4。
+const KYUCHI_REF = JSON.parse(readFileSync(path.join(ROOT, 'data', 'reference', 'kyuchi.json'), 'utf-8')).municipalities;
+function juminKyuchi(citySlug) {
+  const v = KYUCHI_REF[citySlug];
+  if (!/^[123]-[12]$/.test(v || '')) throw new Error(`級地が data/reference/kyuchi.json にありません: ${citySlug}`);
+  return Number(v[0]);
+}
 const BASE_URL  = 'https://seido-keisan.jp';
 const DEFAULT_YEAR = 2026;
 
@@ -198,6 +207,7 @@ for (const m of targets) {
     '__HOIKU_DATA__': hoikuDataLiteral,   // muni JSON（brackets/inputBasis/timeBands/facilityTypes/status/selector 等）を丸ごと埋め込み
     '__KAKEIBO_BLOCK__': kakeiboBlock,     // kakeibo ページがある自治体だけ「まとめて見る」リンクを出す（死にリンク防止）
     '__PUBLISH_YEAR__': String(year),
+    '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
     '__CSS_V__': CSS_V,
     '__JS_V__': JS_V,
   });

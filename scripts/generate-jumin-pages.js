@@ -36,6 +36,15 @@ const ROOT      = path.join(__dirname, '..');
 const TMPL_DIR  = path.join(ROOT, 'templates');
 const REGISTRY  = path.join(ROOT, 'registry', 'index.json');
 const DATA_DIR  = path.join(ROOT, 'data', 'municipalities');
+
+// 生活保護の級地（住民税 均等割の非課税限度額に使う）。data/reference/kyuchi.json（別表第9）から 1/2/3 を引く。
+// 無い市町村は生成を止める（黙って1級地にしない）。TASKS X180-4。
+const KYUCHI_REF = JSON.parse(readFileSync(path.join(ROOT, 'data', 'reference', 'kyuchi.json'), 'utf-8')).municipalities;
+function juminKyuchi(citySlug) {
+  const v = KYUCHI_REF[citySlug];
+  if (!/^[123]-[12]$/.test(v || '')) throw new Error(`級地が data/reference/kyuchi.json にありません: ${citySlug}`);
+  return Number(v[0]);
+}
 const BASE_URL  = 'https://seido-keisan.jp';
 const DEFAULT_YEAR = 2026;
 
@@ -391,6 +400,7 @@ for (const m of targets) {
       '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin) + faq.html,
       '__PORTAL_LINK__': '../kakeibo/',
       '__PUBLISH_YEAR__': String(year),
+      '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
       '__CSS_V__': CSS_V,
       '__JS_V__': JS_V,
     });
@@ -408,6 +418,7 @@ for (const m of targets) {
       '__JUMIN_DATA__': juminDataLiteral,
       '__FURUSATO_DATA__': furusatoDataLiteral,
       '__PUBLISH_YEAR__': String(year),
+      '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
       '__CSS_V__': CSS_V,
       '__JS_V__': JS_V,
     });
@@ -425,6 +436,7 @@ for (const m of targets) {
     '__CITY_NAME__': cityName,
     '__CITY_SLUG__': citySlug,
     '__PREF_SLUG__': prefSlug,   // 家計簿の社会保険（会社員）で協会けんぽ県別料率の解決に使う
+    '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
     '__FISCAL_YEAR_LABEL__': fy,
     '__META_DESC__': kakeiboDesc,
     '__CANONICAL_URL__': kakeiboUrl,
