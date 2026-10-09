@@ -270,6 +270,80 @@ console.log('\n== 扶養の所得要件（R8 58万 / R9 62万） ==');
 }
 
 // ─────────────────────────────────────────────────────────────
+// 均等割の非課税限度額の級地（地方税法施行令 第47条の3・施行規則 1.0/0.9/0.8）TASKS X180-4
+//   期待値は自治体の公式表（社会保険料なし・給与収入のみ）:
+//   柏市（2級地）https://www.city.kashiwa.lg.jp/shiminzei/kojinshiminzei/r8hikazei.html
+//     令和8年度 本人のみ 所得415,000円＝給与1,065,000円 / 令和9・10年度 給与1,155,000円
+//   長野市（2級地）https://www.city.nagano.nagano.jp/n062000/contents/p000362.html
+//     扶養1人 所得919,000円＝給与1,569,000円
+//   鳥栖市（3級地）https://www.city.tosu.lg.jp/uploaded/attachment/39308.pdf
+//     令和8年度 扶養0人 所得380,000円（給与103万円）・1人 828,000円
+// ─────────────────────────────────────────────────────────────
+console.log('\n== 均等割の非課税限度額（級地別） ==');
+
+{
+  const j = (salary, kyuchi, extra = {}) => calculateJumin(null, { salary, kyuchi, ...extra });
+  // 1級地（従来値・後方互換）
+  eq('1級地 R8 給与110万 → 非課税',          j(1_100_000, 1).isTaxable, false);
+  eq('1級地 R8 給与110.1万 → 課税',          j(1_101_000, 1).isTaxable, true);
+  eq('級地未指定は1級地（後方互換）',        calculateJumin(null, { salary: 1_101_000 }).isTaxable, true);
+  eq('級地未指定の限度額 = 450,000',         calculateJumin(null, { salary: 1_000_000 }).kintoNonTaxableLimit, 450_000);
+  // 2級地（柏市・長野市）
+  eq('2級地 限度額（本人のみ） = 415,000',   j(1_000_000, 2).kintoNonTaxableLimit, 415_000);
+  eq('2級地 R8 給与106.5万 → 非課税（柏市）', j(1_065_000, 2).isTaxable, false);
+  eq('2級地 R8 給与106.6万 → 課税',          j(1_066_000, 2).isTaxable, true);
+  eq('2級地 R9 給与115.5万 → 非課税（柏市）', j(1_155_000, 2, { fiscalYear: 2027 }).isTaxable, false);
+  eq('2級地 R9 給与115.6万 → 課税',          j(1_156_000, 2, { fiscalYear: 2027 }).isTaxable, true);
+  eq('2級地 扶養1人 限度額 = 919,000（長野市）', j(1_000_000, 2, { dependents: 1 }).kintoNonTaxableLimit, 919_000);
+  eq('2級地 扶養1人 給与156.9万 → 非課税（長野市）', j(1_569_000, 2, { dependents: 1 }).isTaxable, false);
+  eq('2級地 扶養1人 給与157万 → 課税',       j(1_570_000, 2, { dependents: 1 }).isTaxable, true);
+  // 3級地（鳥栖市）
+  eq('3級地 限度額（本人のみ） = 380,000（鳥栖市）', j(1_000_000, 3).kintoNonTaxableLimit, 380_000);
+  eq('3級地 扶養1人 限度額 = 828,000（鳥栖市）',     j(1_000_000, 3, { dependents: 1 }).kintoNonTaxableLimit, 828_000);
+  eq('3級地 R8 給与103万 → 非課税',          j(1_030_000, 3).isTaxable, false);
+  eq('3級地 R8 給与103.1万 → 課税',          j(1_031_000, 3).isTaxable, true);
+  eq('3級地 課税なら均等割 5,000円',         j(1_031_000, 3).perCapita, 5_000);
+  // data.kyuchi でも渡せる／inputs が優先
+  eq('data.kyuchi=3 を使う',                 calculateJumin({ kyuchi: 3 }, { salary: 1_031_000 }).kyuchi, 3);
+  eq('inputs.kyuchi が data.kyuchi より優先', calculateJumin({ kyuchi: 3 }, { salary: 1_031_000, kyuchi: 2 }).kyuchi, 2);
+  eq('不正な級地は1級地',                    j(1_000_000, 9).kyuchi, 1);
+  // 所得割の非課税は級地によらない（35万円・柏市の表と一致）
+  eq('所得割の非課税は級地によらない（2級地 給与110万 → 所得割0）', j(1_100_000, 2).incomeLevy, 0);
+  // 境目付近の注記フラグ（課税側だけ・本人のみの余裕幅 10,000円）
+  eq('境目付近: 2級地 所得420,000（限度+5,000） → true',  j(1_070_000, 2).kintoBorderline, true);
+  eq('境目付近: 2級地 所得425,000（限度+10,000） → true', j(1_075_000, 2).kintoBorderline, true);
+  eq('境目付近: 2級地 所得426,000 → false',             j(1_076_000, 2).kintoBorderline, false);
+  eq('境目付近: 非課税の人は false',                    j(1_065_000, 2).kintoBorderline, false);
+}
+
+// 生成ページの級地の埋め込み（data/reference/kyuchi.json と一致・置換漏れなし・全呼び出しが kyuchi を渡す）
+console.log('\n== 生成ページの級地の埋め込み ==');
+{
+  const fs = require('fs');
+  const ROOT = path.join(__dirname, '..');
+  const ref = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/reference/kyuchi.json'), 'utf-8')).municipalities;
+  const reg = JSON.parse(fs.readFileSync(path.join(ROOT, 'registry/index.json'), 'utf-8')).municipalities;
+  eq('kyuchi.json は registry の全市町村を持つ', reg.filter(m => !/^[123]-[12]$/.test(ref[m.citySlug] || '')).length, 0);
+  let pages = 0, bad = [];
+  for (const m of reg) {
+    for (const rel of ['kakeibo/index.html', 'jumin/index.html', 'jumin/income.html', 'hoiku/index.html']) {
+      const f = path.join(ROOT, m.prefectureSlug || '', m.citySlug, rel);
+      if (!fs.existsSync(f)) continue;
+      pages++;
+      const html = fs.readFileSync(f, 'utf-8');
+      const mm = html.match(/const JUMIN_KYUCHI = (\d);/);
+      const want = Number(ref[m.citySlug][0]);
+      if (html.includes('__JUMIN_KYUCHI__')) bad.push(`${rel} ${m.citySlug}: 置換漏れ`);
+      else if (!mm) bad.push(`${rel} ${m.citySlug}: JUMIN_KYUCHI なし`);
+      else if (Number(mm[1]) !== want) bad.push(`${rel} ${m.citySlug}: ${mm[1]}（期待 ${want}）`);
+      const calls = html.match(/calculateJumin\([^)]*\)/g) || [];
+      for (const c of calls) if (!/kyuchi|common/.test(c)) bad.push(`${rel} ${m.citySlug}: kyuchi を渡さない呼び出し ${c.slice(0, 60)}`);
+    }
+  }
+  ok(`生成ページ ${pages} 件の JUMIN_KYUCHI が参照データと一致`, pages > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
+}
+
+// ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);
 if (failed === 0) console.log('✅ 全テスト通過');
