@@ -443,6 +443,8 @@ for (const m of targets) {
     '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, kakeiboDesc, kakeiboUrl, fy, '家計簿シミュレーター'),
     // 住民税の単独ページがある自治体だけ「住民税だけ詳しく」リンクを出す（kaigo のみ公開は空）
     '__LINK_JUMIN_BLOCK__': juminLinkBlock,
+    // 結果欄の「住民税を詳しく計算 →」も同じ条件で出す（住民税ページの無い自治体で 404 になっていた・TASKS X180-2）
+    '__HAS_JUMIN_PAGE__': juminHere ? 'true' : 'false',
     // 暫定: seido-keisan に国保ページが無い間は、既存の kokuho-keisan.jp の該当ページを参照。
     // 国保を seido-keisan へ移行したら '../' に戻す（templates の target=_blank も外す）。
     '__LINK_KOKUHO__': `https://kokuho-keisan.jp/${prefSlug}/${citySlug}/`,
