@@ -19,8 +19,8 @@ export const PREF_SLUG = "kochi";
  * 都道府県レベルの均等割超過額を公式または信頼性の高い二次資料で確認済み。
  */
 export const PREF_SOURCE = {
-  url:         'https://www.pref.kochi.lg.jp/doc/ken-kankyouzei/',
-  retrievedAt: '2026-04-30',
+  url:         'https://www.pref.kochi.lg.jp/doc/zei-shikumi/',
+  retrievedAt: '2026-10-09',
   notes:       '高知県公式ページで高知県森林環境税+500円（prefPerCapita=1,500）確認',
 };
 

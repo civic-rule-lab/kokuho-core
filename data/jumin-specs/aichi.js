@@ -23,8 +23,8 @@ export const PREF_SLUG = "aichi";
  * 都道府県レベルの均等割超過額を公式または信頼性の高い二次資料で確認済み。
  */
 export const PREF_SOURCE = {
-  url:         'https://www.pref.aichi.jp/zeimu/shotoku/midori.html',
-  retrievedAt: '2026-04-30',
+  url:         'https://www.pref.aichi.jp/soshiki/zeimu/0000025831.html',
+  retrievedAt: '2026-10-09',
   notes:       '愛知県公式ページであいち森と緑づくり税+500円（prefPerCapita=1,500）確認',
 };
 

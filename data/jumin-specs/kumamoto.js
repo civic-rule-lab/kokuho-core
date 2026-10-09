@@ -20,7 +20,7 @@ export const PREF_SLUG = "kumamoto";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.kumamoto.jp/kiji00312986/index.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '熊本市公式ページで水とみどりの森づくり税+500円（prefPerCapita=1,500）確認',
 };
 

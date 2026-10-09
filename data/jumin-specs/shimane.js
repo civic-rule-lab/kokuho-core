@@ -20,7 +20,7 @@ export const PREF_SLUG = "shimane";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.shimane.lg.jp/life/zei/ken/syurui/mizuto/mizuto.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '島根県公式ページで島根県水と緑の森づくり税+500円（prefPerCapita=1,500）確認',
 };
 

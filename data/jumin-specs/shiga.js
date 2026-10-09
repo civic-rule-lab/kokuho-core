@@ -19,8 +19,8 @@ export const PREF_SLUG = "shiga";
  * 都道府県レベルの均等割超過額を公式または信頼性の高い二次資料で確認済み。
  */
 export const PREF_SOURCE = {
-  url:         'https://www.pref.shiga.lg.jp/ippan/kurashi/zeikin/20003.html',
-  retrievedAt: '2026-04-30',
+  url:         'https://www.pref.shiga.lg.jp/bg00/1780.html',
+  retrievedAt: '2026-10-09',
   notes:       '滋賀県公式ページで琵琶湖森林づくり県民税+800円確認',
 };
 

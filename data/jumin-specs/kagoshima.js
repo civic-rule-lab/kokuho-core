@@ -20,7 +20,7 @@ export const PREF_SLUG = "kagoshima";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.kagoshima.jp/ab07/kurashi-kankyo/zei/shinzei/shinrin/sinrin.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '鹿児島県公式ページでみんなの森づくり県民税+500円（prefPerCapita=1,500）確認',
 };
 

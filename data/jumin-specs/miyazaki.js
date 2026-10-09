@@ -20,7 +20,7 @@ export const PREF_SLUG = "miyazaki";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.miyazaki.lg.jp/miyazaki-morizukuri/kurashi/shizen/20200513095941.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '宮崎県公式ページでみやざき森林環境税+500円（prefPerCapita=1,500）確認',
 };
 

@@ -20,7 +20,7 @@ export const PREF_SLUG = "tottori";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.tottori.lg.jp/309149.htm',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '鳥取県公式ページで鳥取県豊かな森づくり協働税+500円（prefPerCapita=1,500）確認',
 };
 

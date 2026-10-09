@@ -20,7 +20,7 @@ export const PREF_SLUG = "hiroshima";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.hiroshima.lg.jp/site/zei/1172044970276.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '広島県公式ページでひろしまの森づくり県民税+500円（prefPerCapita=1,500）確認',
 };
 

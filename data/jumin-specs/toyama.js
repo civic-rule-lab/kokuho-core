@@ -20,7 +20,7 @@ export const PREF_SLUG = "toyama";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.toyama.jp/1107/kurashi/seikatsu/zeikin/kenzei/m01-00/m01-01.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '富山県公式ページで富山県水と緑の森づくり税+500円（prefPerCapita=1,500）確認',
 };
 

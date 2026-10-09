@@ -20,7 +20,7 @@ export const PREF_SLUG = "fukuoka";
  */
 export const PREF_SOURCE = {
   url:         'https://www.city.kitakyushu.lg.jp/contents/08801107.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '北九州市公式ページで福岡県 森林環境税+500円（prefPerCapita=1,500）確認',
 };
 

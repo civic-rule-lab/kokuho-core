@@ -20,7 +20,7 @@ export const PREF_SLUG = "yamagata";
  */
 export const PREF_SOURCE = {
   url:         'https://www.pref.yamagata.jp/020007/zei_shitsumon/midori/midori.html',
-  retrievedAt: '2026-04-30',
+  retrievedAt: '2026-10-09',
   notes:       '山形県公式ページでやまがた緑環境税+1,000円/年確認',
 };
 
