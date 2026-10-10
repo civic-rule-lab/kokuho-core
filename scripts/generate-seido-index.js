@@ -40,6 +40,7 @@ for (const m of sorted) {
     jumin:  has(m, 'jumin'),
     hoiku:  has(m, 'hoiku'),
     kaigo:  has(m, 'kaigo'),
+    kouki:  has(m, 'kouki'),  // generate-system-pages.js kouki と同じ判定（registry の systems に kouki）
   };
   flags.kakeibo = flags.jumin || flags.kaigo; // 家計簿(統合)は jumin か kaigo が公開なら生成される
   // インデックス掲載条件は従来どおり（jumin/kaigo/hoiku のいずれか公開）

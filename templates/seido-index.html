@@ -82,6 +82,7 @@
     <option value="kokuho" data-label="国民健康保険">国民健康保険</option>
     <option value="hoiku" data-label="保育料">保育料</option>
     <option value="kaigo" data-label="介護保険">介護保険</option>
+    <option value="kouki" data-label="後期高齢者医療">後期高齢者医療</option>
     <option value="shaho" data-label="社会保険（会社員）">社会保険（会社員）</option>
   </select>
 
@@ -186,6 +187,7 @@ var CITY_INDEX = __CITY_INDEX__;
     kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}},
     hoiku:  {label:"保育料の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/hoiku/";}},
     kaigo:  {label:"介護保険の計算を開く",       url:function(p,c){return "/"+p+"/"+c+"/kaigo/";}},
+    kouki:  {label:"後期高齢者医療の計算を開く", url:function(p,c){return "/"+p+"/"+c+"/kouki/";}},
     shaho:  {label:"社会保険（会社員）の計算を開く", prefOnly:true, url:function(p,c){return "https://shaho-keisan.jp/"+p+"/";}}
   };
   var prefNames=Object.keys(CITY_INDEX);
