@@ -1,6 +1,6 @@
 /**
  * js/core/kaigo.js ユニットテスト
- * 実行: node scripts/test-kaigo.js
+ * 実行: node scripts/test-kaigo.cjs
  *
  * 標準9段階の kaigo データをインラインで定義して検証する。
  * 境界値: pensionIncome・totalIncome・課税フラグの組み合わせを全段階で確認。
