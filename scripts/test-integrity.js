@@ -23,6 +23,7 @@
 import { readFileSync, readdirSync, existsSync, statSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { execFileSync } from "child_process";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -496,21 +497,29 @@ if (shouldRun("F")) {
     failLine("F", `F-3: 総務省 snapshot 不在`);
   }
 
-  // F-4: pre-commit hook がインストールされているか（.git/hooks/pre-commit）
-  // ※ .git/hooks/ は VCS 管理外のため CI 環境では存在しないのが正常 → CI では skip
+  // F-4: git が実際に使う pre-commit hook に slug/cityCode 検証が組込まれているか
+  // #621 以降は core.hooksPath=scripts/git-hooks 方式。未設定なら git の既定（.git/hooks。worktree でも
+  // rev-parse --git-path が正しい場所を返す）。旧実装は .git/hooks/pre-commit 固定で、ローカルでは必ず落ちていた（TASKS X173-3）。
+  // ※ hooksPath の設定は clone ごと（VCS 管理外）のため CI 環境では未設定が正常 → CI では skip
   if (process.env.CI === "true") {
-    console.log(`  ⏭️  F-4: pre-commit hook チェックは CI 環境では skip（.git/hooks/ は VCS 管理外）`);
+    console.log(`  ⏭️  F-4: pre-commit hook チェックは CI 環境では skip（hooksPath の設定は VCS 管理外）`);
   } else {
-    const hookPath = path.join(ROOT, ".git", "hooks", "pre-commit");
+    const git = (...args) => {
+      try { return execFileSync("git", args, { cwd: ROOT, encoding: "utf-8" }).trim(); }
+      catch { return ""; }
+    };
+    const hooksDir = git("config", "--get", "core.hooksPath") || git("rev-parse", "--git-path", "hooks");
+    const hookPath = path.resolve(ROOT, hooksDir, "pre-commit");
+    const shown = path.relative(ROOT, hookPath) || hookPath;
     if (existsSync(hookPath)) {
       const hookContent = readFileSync(hookPath, "utf-8");
       if (hookContent.includes("check-slug-precommit") || hookContent.includes("check-citycode-precommit")) {
-        passLine(`F-4: .git/hooks/pre-commit に slug/cityCode 検証が組込み済`);
+        passLine(`F-4: ${shown} に slug/cityCode 検証が組込み済`);
       } else {
-        failLine("F", `F-4: .git/hooks/pre-commit に検証フックが組込まれていない`);
+        failLine("F", `F-4: ${shown} に検証フックが組込まれていない`);
       }
     } else {
-      failLine("F", `F-4: .git/hooks/pre-commit 不在（bash scripts/install-hooks.sh 未実行）`);
+      failLine("F", `F-4: ${shown} 不在（bash scripts/install-hooks.sh 未実行）`);
     }
   }
 }
