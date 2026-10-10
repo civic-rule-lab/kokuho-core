@@ -1,7 +1,7 @@
 /**
  * js/core/shared/income.js ユニットテスト
  *
- * 実行: node scripts/test-income.js
+ * 実行: node scripts/test-income.cjs
  *
  * 給与所得控除: 令和8年度（2026年度）個人住民税ルール
  *   最低保障額 65万円（≤190万円）、162.5万〜180万区間を廃止

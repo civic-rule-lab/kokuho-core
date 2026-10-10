@@ -210,6 +210,14 @@ jobs:
       - name: Run test-jumin.cjs (住民税コア js/core/jumin.js 計算回帰)
         run: node scripts/test-jumin.cjs
 
+      # 2026-10-10 追加（TASKS X173-2）: package.json が "type": "module" になってから .js のままでは
+      # ReferenceError で動かず、2026-05-08 以降一度も実行されていなかった。.cjs に改名して CI に載せる。
+      - name: Run test-income.cjs (給与所得控除・年金所得控除 js/core/shared/income.js 回帰)
+        run: node scripts/test-income.cjs
+
+      - name: Run test-kaigo.cjs (介護保険料コア js/core/kaigo.js 段階判定の境界値)
+        run: node scripts/test-kaigo.cjs
+
       # 2026-10-08 追加（TASKS X173-21）: npm test には入っていたが CI に無かった。
       - name: Run test-furusato.cjs (ふるさと納税 控除上限額コア js/core/furusato.js 計算回帰)
         run: node scripts/test-furusato.cjs
