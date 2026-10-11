@@ -28,6 +28,7 @@ const engineMap = {
   '/js/core/jumin.js': 'js/core/jumin.js',
   '/js/core/kokuho.js': 'js/core/kokuho.js',
   '/js/core/kaigo.js': 'js/core/kaigo.js',
+  '/js/core/kouki.js': 'js/core/kouki.js',
   '/js/core/hoiku.js': 'js/core/hoiku.js',
   '/js/core/shaho.js': 'js/core/shaho.js',
   '/js/core/shotoku.js': 'js/core/shotoku.js',
@@ -44,6 +45,9 @@ const HOIKU_FIXTURE = path.join(ROOT, 'data/municipalities/yokohama/hoiku-2026.j
 // 国保の結線検証用（2026-10-04 追加・TASKS X170-12）。介護分の有無を本人の年齢で検査するため、
 // 実在自治体の kokuho データを testcity として配信する（介護分の率がある自治体）。
 const KOKUHO_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kokuho-2026.json');
+// 社会保険料控除の一本化（2026-10-11・FN11）の検証用: 介護1号（verified）と後期高齢のデータも同じ自治体から配信する。
+const KAIGO_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kaigo-2026.json');
+const KOUKI_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kouki-2026.json');
 
 function mkFetch() {
   return (url) => {
@@ -53,6 +57,8 @@ function mkFetch() {
     else if (url === '/js/core/shogakukin-2026.json') p = path.join(ROOT, 'js/core/shogakukin-2026.json');
     else if (url === '/data/municipalities/testcity/hoiku-2026.json' && fs.existsSync(HOIKU_FIXTURE)) p = HOIKU_FIXTURE;
     else if (url === '/data/municipalities/testcity/kokuho-2026.json' && fs.existsSync(KOKUHO_FIXTURE)) p = KOKUHO_FIXTURE;
+    else if (url === '/data/municipalities/testcity/kaigo-2026.json' && fs.existsSync(KAIGO_FIXTURE)) p = KAIGO_FIXTURE;
+    else if (url === '/data/municipalities/testcity/kouki-2026.json' && fs.existsSync(KOUKI_FIXTURE)) p = KOUKI_FIXTURE;
     // その他の municipalities は 404（jumin は標準値で計算される）
     if (p && fs.existsSync(p)) { const j = JSON.parse(fs.readFileSync(p, 'utf8')); return Promise.resolve({ ok: true, json: () => Promise.resolve(j) }); }
     return Promise.resolve({ ok: false, status: 404, json: () => Promise.reject(new Error('404')) });
@@ -134,6 +140,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   // 国保の介護分（2026-10-04 追加）: 自営・本人45歳は介護分あり、本人30歳はなし
   const r5 = await run({ salary: 6000000, age: 45, employment: 'jiei' });
   const r6 = await run({ salary: 6000000, age: 30, employment: 'jiei' });
+  // 社会保険料控除の一本化（2026-10-11）: 年金のみ・自営67歳（国保＋介護1号）、年金のみ・自営77歳（後期高齢＋介護1号）
+  const r7 = await run({ salary: 0, pension: 2500000, age: 67, employment: 'jiei' });
+  const r8 = await run({ salary: 0, pension: 2500000, age: 77, employment: 'jiei' });
 
   // 保育料 opt-in（賞与なし／あり）— エンジン直算との等値検証
   const optIn = w.document.getElementById('hoikuOptIn');
@@ -172,14 +181,67 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A('自営45歳: 国保の法定軽減の行は「上の各分から差し引き済み」と書き、金額に「-」が無い',
       !!kokuhoCard && /法定軽減（上の各分から差し引き済み）<\/div><div[^>]*>[\d,]+ 円/.test(kokuhoCard));
   }
-  // ふるさと納税の上限（目安）カード（2026-10-06 追加）: 自営・年収600万・40歳・単身（r3）。
-  // 手計算: 社保 864,000（14.4%）／給与所得 436万／令和9年度 課税総所得 3,066,000／所得割 306,600−2,500=304,100／
-  //   人的控除差調整額 5万+(104万−48万)=61万 → 基準額 2,456,000 → 79.79% → 上限 floor(60,820×100000/79790)+2,000=78,225 → 表示 78,000。
+  // ── 社会保険料控除の一本化（2026-10-11・プロジェクト「ふるさと納税」18 §0-1 / FN11）──
+  //   自営・年金の社会保険料控除は、同じページで計算した国保・後期高齢・介護1号（＋国民年金データがあれば定額）の実額。
+  //   旧実装は給与×14.4%（年金のみは0）。住民税カード・保育料・ふるさと納税の上限は同じ控除から出る。
   {
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calcSalaryIncome, calcPensionIncome } = require('../js/core/shared/income.js');
+    const { calculateKaigo } = require('../js/core/kaigo.js');
+    const { calculateKouki } = require('../js/core/kouki.js');
+    const F = require('../js/core/furusato.js');
+    const Shotoku = require('../js/core/shotoku.js');
+    const fzData = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/furusato-2027.json'), 'utf8'));
+    const kiso26 = Shotoku.loadParams(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8'))).kisoKojo;
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kgd = JSON.parse(fs.readFileSync(KAIGO_FIXTURE, 'utf8'));
+    const kkd = JSON.parse(fs.readFileSync(KOUKI_FIXTURE, 'utf8'));
+    const nenkinPath = path.join(ROOT, 'data/national/kokumin-nenkin-2026.json');
+    const nenkinAnnual = fs.existsSync(nenkinPath) ? (JSON.parse(fs.readFileSync(nenkinPath, 'utf8')).monthly || 0) * 12 : 0;
+    const siLine = (sys) => { const m = sys.match(/社会保険料控除（住民税・所得税に共通）: ([\d,]+) 円（([^）]*)）/); return m ? { total: num(m[1]), parts: m[2] } : null; };
+
+    // (a) 自営・給与600万・40歳: 控除 = 国保（介護分あり）＋国民年金（データがあれば）
+    const inc600 = calcSalaryIncome(6000000);
+    const kok600 = calculateKokuho({ income: inc600, family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 }, kd).total;
+    const si600 = kok600 + nenkinAnnual;
+    const sl3 = siLine(r3.sys);
+    A('自営600万: 社会保険料控除の行が出て、国保の実額（＋国民年金）に一致', !!sl3 && sl3.total === si600 && /国民健康保険/.test(sl3.parts));
+    const j600 = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si600 });
+    A('自営600万: 住民税カードが国保実額を控除した直算と一致', num(find(r3.heads, '住民税')[1]) === j600.total);
+    // ふるさと納税の上限: 令和9年度分で組み立て直す。手計算（2026-10-11・国民年金 17,920円×12=215,040 あり）:
+    //   社保 601,018（市原市 国保・介護分あり）+215,040=816,058／給与所得 436万／課税総所得 4,360,000−816,058−430,000=3,113,942→3,113,000／
+    //   所得割 311,300−2,500=308,800／調整額 5万+(104万−48万)=61万 → 基準額 2,503,000 → 79.79% → 上限 floor(61,760×100000/79790)+2,000=79,403 → 表示 79,000。
+    //   （国民年金データが無い場合: 社保 601,018／課税 3,328,000／所得割 330,300／基準 2,718,000 → 84,792 → 84,000）
+    const j27 = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si600, fiscalYear: 2027, taxCredits: 0 });
+    const fz = F.calcFurusatoLimit({ incomeLevy: j27.incomeLevy, taxableIncome: j27.taxableIncome, humanDeductionDiff: j27.humanDeductionDiff, shotokuBasicDeduction: F.furusatoShotokuBasicDeduction(j27.totalIncome, kiso26) }, fzData);
     const fzHead = find(r3.heads, 'ふるさと納税の上限（目安）');
     A('自営600万: ふるさと納税の上限カードが出る', !!fzHead);
-    A('自営600万: ふるさと納税の上限 約78,000円（手計算と一致）', !!fzHead && num(fzHead[1]) === 78000);
+    A(`自営600万: ふるさと納税の上限が国保実額ベースの直算と一致（${Math.floor(fz.limit / 1000) * 1000}円＝手計算 ${nenkinAnnual ? '79,000' : '84,000'}円）`,
+      !!fzHead && num(fzHead[1]) === Math.floor(fz.limit / 1000) * 1000 && num(fzHead[1]) === (nenkinAnnual ? 79000 : 84000));
     A('自営600万: ふるさと納税の上限は年間負担の合計に入らない', num(r3.grand) === r3.heads.filter(h => h[0] !== 'ふるさと納税の上限（目安）').reduce((a, h) => a + num(h[1]), 0));
+
+    // (b) 年金のみ250万・67歳・自営: 控除 = 国保（介護分なし）＋介護1号。国民年金は60歳以上なので入らない
+    const pInc = calcPensionIncome(2500000, 67);
+    const kok67 = calculateKokuho({ income: pInc, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, kd).total;
+    const jPre = calculateJumin(null, { salary: 0, pension: 2500000, otherIncome: 0, age: 67, socialInsurance: kok67 });
+    const kg67 = calculateKaigo(kgd, { pensionIncome: 2500000, totalIncome: pInc, sumIncome: 2500000, isSelfTaxable: !!jPre.isTaxable, isHouseholdAllNonTaxable: !jPre.isTaxable });
+    const si67 = kok67 + kg67.annual;
+    const sl7 = siLine(r7.sys);
+    A('年金250万・67歳: 社会保険料控除 = 国保＋介護1号（直算と一致・旧実装は0）', !!sl7 && sl7.total === si67 && /国民健康保険/.test(sl7.parts) && /介護保険/.test(sl7.parts) && !/国民年金/.test(sl7.parts));
+    const j67 = calculateJumin(null, { salary: 0, pension: 2500000, otherIncome: 0, age: 67, socialInsurance: si67 });
+    A('年金250万・67歳: 住民税カードが国保＋介護を控除した直算と一致', num(find(r7.heads, '住民税')[1]) === j67.total);
+    A('年金250万・67歳: 介護保険（第1号）カードが社会保険料控除と同じ額', !!find(r7.heads, '介護保険（第1号）') && num(find(r7.heads, '介護保険（第1号）')[1]) === kg67.annual);
+    A('年金250万・67歳: 住民税は控除0の旧実装より少ない', j67.total < calculateJumin(null, { salary: 0, pension: 2500000, otherIncome: 0, age: 67, socialInsurance: 0 }).total);
+
+    // (c) 年金のみ250万・77歳・自営: 控除 = 後期高齢＋介護1号。国保カードは出ない
+    const pInc77 = calcPensionIncome(2500000, 77);
+    const kk77 = calculateKouki({ totalIncome: pInc77 }, kkd).total;
+    const jPre77 = calculateJumin(null, { salary: 0, pension: 2500000, otherIncome: 0, age: 77, socialInsurance: kk77 });
+    const kg77 = calculateKaigo(kgd, { pensionIncome: 2500000, totalIncome: pInc77, sumIncome: 2500000, isSelfTaxable: !!jPre77.isTaxable, isHouseholdAllNonTaxable: !jPre77.isTaxable });
+    const sl8 = siLine(r8.sys);
+    A('年金250万・77歳: 後期高齢者医療カードが実額で出る（直算と一致）', !!find(r8.heads, '後期高齢者医療') && num(find(r8.heads, '後期高齢者医療')[1]) === kk77);
+    A('年金250万・77歳: 社会保険料控除 = 後期高齢＋介護1号（直算と一致）', !!sl8 && sl8.total === kk77 + kg77.annual && /後期高齢者医療/.test(sl8.parts));
+    A('年金250万・77歳: 国保カードは出ない', !/国民健康保険/.test(r8.sys));
   }
   A('賞与ありは合計が大きい', num(r2.grand) > num(r1.grand));
   A('賞与ありは住民税も所得税も増える（給与＋賞与で課税）',
