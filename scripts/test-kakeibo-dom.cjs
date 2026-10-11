@@ -124,6 +124,13 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     setVal('family', '1');
     if (w.document.getElementById('employment')) w.document.getElementById('employment').value = opts.employment || 'kaishain';
     setVal('bonus', opts.bonus != null ? String(opts.bonus) : '');
+    // 扶養・配偶者（2026-10-11 X183）: 指定が無ければ「なし」に戻す
+    const fam = opts.family || {};
+    if (w.document.getElementById('famSpouse')) w.document.getElementById('famSpouse').value = fam.spouse || 'none';
+    setVal('famDepGeneral', fam.general ? String(fam.general) : '');
+    setVal('famDepSpecific', fam.specific ? String(fam.specific) : '');
+    setVal('famDepElderly', fam.elderly ? String(fam.elderly) : '');
+    setVal('famDepParent', fam.parent ? String(fam.parent) : '');
     await w.calcAll();
     const sys = w.document.getElementById('systems').innerHTML;
     const grand = w.document.getElementById('grandAmt').textContent;
@@ -303,6 +310,50 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     (e3.reductionCap.tuition > 0 ? redOf(s3.sys) === e3.reductionCap.tuition : true));
   A(`奨学金(共働き900万・子2) 区分一致（${sgShortOf(e4)}）`, sg4 && sg4[1] === sgShortOf(e4));
   A('奨学金は合計に加算しない（支援カード）', num(s1.grand) === num(r1.grand));
+
+  // ── 扶養・配偶者の入力（2026-10-11 X183）: 住民税・所得税・ふるさと納税の上限に同じ家族構成が効く ──
+  {
+    const F = require('../js/core/furusato.js');
+    const Shotoku = require('../js/core/shotoku.js');
+    const fzData = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/furusato-2027.json'), 'utf8'));
+    const shotokuDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8'));
+    const eng = Shotoku.createEngineFromDB(2026, shotokuDb);
+    const kiso26 = Shotoku.loadParams(2026, shotokuDb).kisoKojo;
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const nenkinPath = path.join(ROOT, 'data/national/kokumin-nenkin-2026.json');
+    const nenkinAnnual = fs.existsSync(nenkinPath) ? (JSON.parse(fs.readFileSync(nenkinPath, 'utf8')).monthly || 0) * 12 : 0;
+    const fam = { spouse: 'general', general: 1, specific: 1 };
+    // 住民税の控除: 配偶者33万＋一般扶養33万＋特定扶養45万＝111万。人的控除差: 5万＋5万＋5万＋18万＝33万（第37条第1号イ）
+    const famJ = { spouseDeduction: 330000, dependentDeduction: 1110000 - 330000, dependents: 3, humanDeductionDiff: 330000 };
+    A('人的控除差: 配偶者＋一般扶養1＋特定扶養1 ＝ 33万（furusato.js の表引き）', F.furusatoHumanDeductionDiff({ selfTotalIncome: 3560000, spouse: 'general', dependentGeneral: 1, dependentSpecific: 1 }, fzData) === 330000);
+
+    // (a) 会社員 500万・40歳・配偶者＋子2（一般1・特定1）
+    const f1 = await run({ salary: 5000000, age: 40, employment: 'kaishain', family: fam });
+    const si1 = expectShahoAnnual(5000000, 0, 40);
+    const j1 = calculateJumin(null, Object.assign({ salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si1 }, famJ));
+    A('会社員500万・家族あり: 住民税カードが控除込みの直算と一致', num(find(f1.heads, '住民税')[1]) === j1.total);
+    const j0 = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si1 });
+    A('会社員500万・家族あり: 住民税は家族なしより少ない', j1.total < j0.total);
+    const st1 = eng.calcShotokuzei({ salary: 5000000, socialInsurance: si1, spouse: { income: 0, age70plus: false }, dependents: { general: 1, specific: 1, elderly: 0, elderlyCoRes: 0 } });
+    A('会社員500万・家族あり: 所得税カードが配偶者・扶養控除込みの直算と一致', num(find(f1.heads, '所得税')[1]) === Math.round(st1.annualTax));
+    const j27 = calculateJumin(null, Object.assign({ salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si1, fiscalYear: 2027, taxCredits: 0 }, famJ));
+    const fz1 = F.calcFurusatoLimit({ incomeLevy: j27.incomeLevy, taxableIncome: j27.taxableIncome, humanDeductionDiff: j27.humanDeductionDiff, shotokuBasicDeduction: F.furusatoShotokuBasicDeduction(j27.totalIncome, kiso26) }, fzData);
+    const fzHead1 = find(f1.heads, 'ふるさと納税の上限（目安）');
+    A('会社員500万・家族あり: ふるさと納税の上限が家族込みの直算と一致', !!fzHead1 && num(fzHead1[1]) === Math.floor(fz1.limit / 1000) * 1000);
+    A('会社員500万・家族あり: 控除内訳の行に配偶者・扶養控除 1,110,000 円と人的控除差 330,000 円が出る', /配偶者・扶養控除（住民税）: 1,110,000 円（人的控除差 330,000 円）/.test(f1.sys));
+
+    // (b) 自営 500万・40歳・同じ家族: 社会保険料控除は国保（家族入力は国保の世帯人数とは別）＋国民年金
+    const f2 = await run({ salary: 5000000, age: 40, employment: 'jiei', family: fam });
+    const kok = calculateKokuho({ income: calcSalaryIncome(5000000), family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 }, kd).total;
+    const j2 = calculateJumin(null, Object.assign({ salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: kok + nenkinAnnual }, famJ));
+    A('自営500万・家族あり: 住民税カードが国保実額＋家族控除の直算と一致', num(find(f2.heads, '住民税')[1]) === j2.total);
+
+    // (c) 家族入力を戻すと従来どおり（r3 と同じ値）
+    const f3 = await run({ salary: 6000000, age: 40, employment: 'jiei' });
+    A('家族入力なしに戻すと自営600万の住民税は従来値', num(find(f3.heads, '住民税')[1]) === num(find(r3.heads, '住民税')[1]));
+  }
 
   A('JSランタイムエラーなし', errs.length === 0);
   if (errs.length) console.log('  JSエラー:', errs);
