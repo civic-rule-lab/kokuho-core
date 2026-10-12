@@ -218,6 +218,13 @@ jobs:
       - name: Run test-kaigo.cjs (介護保険料コア js/core/kaigo.js 段階判定の境界値)
         run: node scripts/test-kaigo.cjs
 
+      # 2026-10-13 追加: npm test には入っていたが CI に無かった 2 本（#712 の test-jumin-income-dom と同じ理由）。手元実測 計 約1秒。
+      - name: Run test-kouki.cjs (後期高齢者医療コア js/core/kouki.js 公式オラクル突合)
+        run: node scripts/test-kouki.cjs
+
+      - name: Run verify-units.cjs (給与所得控除・年金等控除など純粋関数の独立検算)
+        run: node scripts/verify-units.cjs
+
       # 2026-10-08 追加（TASKS X173-21）: npm test には入っていたが CI に無かった。
       - name: Run test-furusato.cjs (ふるさと納税 控除上限額コア js/core/furusato.js 計算回帰)
         run: node scripts/test-furusato.cjs
