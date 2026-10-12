@@ -131,6 +131,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     setVal('famDepSpecific', fam.specific ? String(fam.specific) : '');
     setVal('famDepElderly', fam.elderly ? String(fam.elderly) : '');
     setVal('famDepParent', fam.parent ? String(fam.parent) : '');
+    // 配偶者の給与年収・働き方（2026-10-12 X184）: 指定が無ければ空欄・会社員に戻す
+    setVal('famSpouseSalary', fam.spouseSalary ? String(fam.spouseSalary) : '');
+    if (w.document.getElementById('famSpouseWork')) w.document.getElementById('famSpouseWork').value = fam.spouseWork || 'kaishain';
     await w.calcAll();
     const sys = w.document.getElementById('systems').innerHTML;
     const grand = w.document.getElementById('grandAmt').textContent;
@@ -353,6 +356,76 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     // (c) 家族入力を戻すと従来どおり（r3 と同じ値）
     const f3 = await run({ salary: 6000000, age: 40, employment: 'jiei' });
     A('家族入力なしに戻すと自営600万の住民税は従来値', num(find(f3.heads, '住民税')[1]) === num(find(r3.heads, '住民税')[1]));
+  }
+
+  // ── 配偶者の収入入力（2026-10-12 X184）: 配偶者控除／配偶者特別控除を所得から自動判定し、住民税・所得税・保育料・奨学金に効く ──
+  //   期待値（住民税の控除額）は地方税法 第34条第1項第10号・第10号の2 を手で当てたもの（検証メモ X184）。
+  //   給与→所得（令和8年度分）: 190万以下は 給与−65万。190万超360万以下は 給与×0.7−8万（切捨て）。
+  {
+    const Shotoku = require('../js/core/shotoku.js');
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const shotokuDb = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8'));
+    const eng = Shotoku.createEngineFromDB(2026, shotokuDb);
+    const si5 = expectShahoAnnual(5000000, 0, 40);
+    const spLine = (sys) => { const m = sys.match(/配偶者の給与年収 ([\d,]+) 円（合計所得 ([\d,]+) 円）＝([^<\d]+?)(?: ([\d,]+) 円)?<\/div>/); return m ? { salary: num(m[1]), income: num(m[2]), kind: m[3].trim(), ded: m[4] ? num(m[4]) : 0 } : null; };
+    // [配偶者の給与年収, 期待する合計所得, 期待する住民税の控除額, 区分の表示]
+    const cases = [
+      [1_230_000,   580_000, 330_000, '配偶者控除'],       // 58万以下＝配偶者控除
+      [1_230_001,   580_001, 330_000, '配偶者特別控除'],   // 58万超＝特別控除 (1)
+      [1_650_000, 1_000_000, 330_000, '配偶者特別控除'],   // (1) の上限
+      [1_650_001, 1_000_001, 310_000, '配偶者特別控除'],   // (2) 38万−7万
+      [1_700_000, 1_050_000, 310_000, '配偶者特別控除'],
+      [1_700_001, 1_050_001, 260_000, '配偶者特別控除'],
+      [1_971_429, 1_300_000,  60_000, '配偶者特別控除'],   // (2) の上限（給与×0.7−8万）
+      [1_971_430, 1_300_001,  30_000, '配偶者特別控除'],   // (3)
+      [2_014_288, 1_330_001,       0, '配偶者控除なし'],   // 133万超＝対象外
+    ];
+    for (const [spSal, spInc, ded, kindLabel] of cases) {
+      A(`配偶者給与 ${spSal.toLocaleString()}: 住民税の給与所得が ${spInc.toLocaleString()}`, calcSalaryIncome(spSal) === spInc);
+      const f = await run({ salary: 5000000, age: 40, employment: 'kaishain', family: { spouseSalary: spSal } });
+      const jExp = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si5,
+        spouseDeduction: ded, dependentDeduction: 0, dependents: (kindLabel === '配偶者控除' ? 1 : 0), humanDeductionDiff: (kindLabel === '配偶者控除' ? 100000 : 50000) });
+      A(`配偶者給与 ${spSal.toLocaleString()}（所得 ${spInc.toLocaleString()}）: 住民税カードが控除 ${ded.toLocaleString()} 円の直算と一致`, num(find(f.heads, '住民税')[1]) === jExp.total);
+      const sl = spLine(f.sys);
+      A(`配偶者給与 ${spSal.toLocaleString()}: 内訳の行に「${kindLabel}」${ded ? ded.toLocaleString() + ' 円' : ''}`, !!sl && sl.income === spInc && sl.kind === kindLabel && sl.ded === ded);
+      const stExp = eng.calcShotokuzei({ salary: 5000000, socialInsurance: si5, spouse: { income: eng.kyuyoShotoku(spSal), age70plus: false }, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } });
+      A(`配偶者給与 ${spSal.toLocaleString()}: 所得税カードが配偶者（特別）控除込みの直算と一致`, num(find(f.heads, '所得税')[1]) === Math.round(stExp.annualTax));
+    }
+    // 配偶者控除の選択「受ける」のまま収入なし＝従来どおり所得0の控除対象配偶者
+    const g0 = await run({ salary: 5000000, age: 40, employment: 'kaishain', family: { spouse: 'general' } });
+    const g0Exp = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si5, spouseDeduction: 330000, dependentDeduction: 0, dependents: 1, humanDeductionDiff: 100000 });
+    A('配偶者「受ける」・収入なし: 従来どおり配偶者控除 33万', num(find(g0.heads, '住民税')[1]) === g0Exp.total);
+    // 「受けない」のまま配偶者の給与だけ入れても、配偶者ありとして判定する
+    const g1 = await run({ salary: 5000000, age: 40, employment: 'kaishain', family: { spouse: 'none', spouseSalary: 1650001 } });
+    const g1Exp = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si5, spouseDeduction: 310000, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 50000 });
+    A('配偶者「受けない」＋給与 1,650,001: 給与から特別控除 31万と判定', num(find(g1.heads, '住民税')[1]) === g1Exp.total);
+    // 本人の合計所得 900万超: 2/3（1万未満切上げ）。給与 1,200万 → 所得 1,005万 は 1,000万超で対象外。給与 1,100万 → 所得 905万 → 2/3
+    A('給与1,100万の合計所得は 905万（900万超950万以下）', calcSalaryIncome(11000000) === 9050000);
+    const si11 = expectShahoAnnual(11000000, 0, 40);
+    const g2 = await run({ salary: 11000000, age: 40, employment: 'kaishain', family: { spouseSalary: 1650001 } });
+    const g2Exp = calculateJumin(null, { salary: 11000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si11, spouseDeduction: 210000, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 50000 });
+    A('本人 給与1,100万＋配偶者所得 100万1円: 特別控除は 2/3 の 21万（31万×2/3＝20.67万→切上げ）', num(find(g2.heads, '住民税')[1]) === g2Exp.total);
+
+    // 保育料: 保護者2の欄が空なら「扶養・配偶者」の年収を使う（会社員＝shaho 実額）
+    const optIn2 = w.document.getElementById('hoikuOptIn');
+    if (optIn2) optIn2.checked = true;
+    setVal('hoikuSpouse', '');
+    const hA = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 3000000 } });
+    setVal('hoikuSpouse', '3000000');
+    const hB = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
+    setVal('hoikuSpouse', '');
+    if (optIn2) optIn2.checked = false;
+    const hCardA = find(hA.heads, '保育料（認可・0〜2歳）'), hCardB = find(hB.heads, '保育料（認可・0〜2歳）');
+    A('保育料: 家族欄の配偶者給与 300万は、保護者2の欄に 300万を入れたのと同じ月額', !!hCardA && !!hCardB && num(hCardA[1]) === num(hCardB[1]));
+    A('保育料: 配偶者給与 300万を入れると配偶者なしより高いか同じ（指数が増える向き）', !!hCardA && num(hCardA[1]) >= num(hoiku1[1]));
+
+    // 奨学金: 生計維持者2の欄が空なら「扶養・配偶者」の年収を使う
+    if (sgOptIn) sgOptIn.checked = true;
+    setVal('shogakuSpouse', ''); setSel('shogakuChildren', '2'); setSel('shogakuLevel', '大学'); setSel('shogakuSetti', '私立'); setSel('shogakuAttend', '自宅');
+    const sA = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 3000000 } });
+    if (sgOptIn) sgOptIn.checked = false;
+    const sgA = find(sA.heads, sgName);
+    A(`奨学金: 家族欄の配偶者給与 300万で共働き（600万＋300万・子2）と同じ区分（${sgShortOf(e4)}）`, !!sgA && sgA[1] === sgShortOf(e4));
   }
 
   A('JSランタイムエラーなし', errs.length === 0);

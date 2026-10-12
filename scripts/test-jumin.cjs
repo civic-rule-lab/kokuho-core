@@ -5,7 +5,7 @@
 'use strict';
 
 const path = require('path');
-const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, fuyoIncomeLimitJumin } =
+const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, fuyoIncomeLimitJumin, calcSpouseDeductionJumin } =
   require(path.join(__dirname, '../js/core/jumin.js'));
 
 let passed = 0;
@@ -389,6 +389,55 @@ console.log('\n== 推定データの出典（県 spec の PREF_SOURCE） ==');
       bad.push(`${slug}: source=${JSON.stringify(d.source)}`);
   }
   ok(`推定 ${files} 件の source が県 spec の PREF_SOURCE と一致（scope: prefecture）`, files > 0 && bad.length === 0, bad.slice(0, 5).join(' / '));
+}
+
+// ─────────────────────────────────────────────────────────────
+// 配偶者控除・配偶者特別控除（2026-10-12 X184）
+//   期待値は地方税法 第34条第1項第10号の2 の式を手で当てたもの（検証メモ X184・2026-10-12）。
+//   data/national/jumin-haigusha-kojo.json の表と、式（data なし）の両方が同じ値を返すことを確認する。
+console.log('\n■ 配偶者控除・配偶者特別控除（第34条第1項第10号・第10号の2）');
+{
+  const fs = require('fs');
+  const haigu = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/national/jumin-haigusha-kojo.json'), 'utf8'));
+  // [配偶者の合計所得, 本人900万以下, 900万超950万以下(2/3 切上げ), 950万超1,000万以下(1/3 切上げ)]
+  const cases = [
+    [   580_000, 330_000, 220_000, 110_000, 'haigu'  ],   // 控除対象配偶者（令和8年度 58万以下）
+    [   580_001, 330_000, 220_000, 110_000, 'special'],   // 58万超＝特別控除 (1)
+    [   950_000, 330_000, 220_000, 110_000, 'special'],
+    [ 1_000_000, 330_000, 220_000, 110_000, 'special'],   // (1) の上限
+    [ 1_000_001, 310_000, 210_000, 110_000, 'special'],   // (2): 超える部分 7万＝5万×2−3万 → 38万−7万
+    [ 1_050_000, 310_000, 210_000, 110_000, 'special'],   // 超える部分 11万9999 → 7万に切下げ
+    [ 1_050_001, 260_000, 180_000,  90_000, 'special'],   // 超える部分 12万＝5万×3−3万
+    [ 1_100_000, 260_000, 180_000,  90_000, 'special'],
+    [ 1_100_001, 210_000, 140_000,  70_000, 'special'],
+    [ 1_150_001, 160_000, 110_000,  60_000, 'special'],
+    [ 1_200_001, 110_000,  80_000,  40_000, 'special'],
+    [ 1_250_001,  60_000,  40_000,  20_000, 'special'],
+    [ 1_300_000,  60_000,  40_000,  20_000, 'special'],   // (2) の上限
+    [ 1_300_001,  30_000,  20_000,  10_000, 'special'],   // (3)
+    [ 1_330_000,  30_000,  20_000,  10_000, 'special'],   // 特別控除の上限
+    [ 1_330_001,       0,       0,       0, 'none'   ],   // 対象外
+  ];
+  const selfs = [5_000_000, 9_200_000, 9_800_000];
+  for (const [sp, d0, d1, d2, kind] of cases) {
+    const want = [d0, d1, d2];
+    selfs.forEach((self, col) => {
+      const byFormula = calcSpouseDeductionJumin({ selfIncome: self, spouseIncome: sp });
+      const byTable   = calcSpouseDeductionJumin({ selfIncome: self, spouseIncome: sp, data: haigu });
+      eq(`配偶者所得 ${sp.toLocaleString()}・本人 ${self.toLocaleString()}: 式 ${want[col].toLocaleString()}`, byFormula.deduction, want[col]);
+      eq(`配偶者所得 ${sp.toLocaleString()}・本人 ${self.toLocaleString()}: 表引きも同じ`, byTable.deduction, want[col]);
+      eq(`配偶者所得 ${sp.toLocaleString()}・本人 ${self.toLocaleString()}: 区分 ${kind}`, byFormula.kind, kind);
+    });
+  }
+  eq('本人の合計所得 1,000万超は配偶者控除なし', calcSpouseDeductionJumin({ selfIncome: 10_000_001, spouseIncome: 0 }).deduction, 0);
+  eq('老人控除対象配偶者（70歳以上・所得58万以下）は 38万', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 500_000, age70plus: true }).deduction, 380_000);
+  eq('70歳以上でも特別控除の額は変わらない（所得 100万1円 → 31万）', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 1_000_001, age70plus: true }).deduction, 310_000);
+  eq('令和9年度分は所得要件 62万: 所得 60万は配偶者控除（人的控除差あり）', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 600_000, fiscalYear: 2027 }).kind, 'haigu');
+  eq('令和8年度分は所得要件 58万: 所得 60万は特別控除（人的控除差なし）', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 600_000, fiscalYear: 2026 }).humanDiffSpouse, 'none');
+  eq('配偶者控除の人的控除差キー: 一般', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 0 }).humanDiffSpouse, 'general');
+  eq('配偶者控除の人的控除差キー: 老人', calcSpouseDeductionJumin({ selfIncome: 5_000_000, spouseIncome: 0, age70plus: true }).humanDiffSpouse, 'elderly');
+  eq('JSON の fuyoIncomeLimit は jumin.js と一致（2026）', haigu.fuyoIncomeLimit['2026'], fuyoIncomeLimitJumin(2026));
+  eq('JSON の fuyoIncomeLimit は jumin.js と一致（2027）', haigu.fuyoIncomeLimit['2027'], fuyoIncomeLimitJumin(2027));
 }
 
 // ─────────────────────────────────────────────────────────────
