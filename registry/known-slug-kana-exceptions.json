@@ -1,0 +1,396 @@
+{
+  "note": "citySlug が総務省カナの読みから説明できない既知の自治体。check-slug-kana.cjs が参照する。新規の不一致は ERROR になる。ここから1件外すと、その自治体が ERROR になる(是正の進捗管理に使える)。 status: 要是正(Z26) / 是正しない(Z27・意図あり) / 未判断(Z28)。Z26 を1件直したら、この例外から外すこと（外すと ERROR になるので直し忘れが残らない）。",
+  "generatedAt": "2026-10-10",
+  "entries": [
+    {
+      "cityCode": "20385",
+      "cityName": "南箕輪村",
+      "prefecture": "長野県",
+      "citySlug": "minamimino",
+      "cityKana": "ミナミミノワムラ",
+      "expected": "minamiminowa",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.vill.minamiminowa.lg.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "20412",
+      "cityName": "売木村",
+      "prefecture": "長野県",
+      "citySlug": "uruki",
+      "cityKana": "ウルギムラ",
+      "expected": "urugi",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `vill.urugi.nagano.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "12237",
+      "cityName": "山武市",
+      "prefecture": "千葉県",
+      "citySlug": "sammu",
+      "cityKana": "サンムシ",
+      "expected": "sanmu",
+      "reason": "Z27。自治体自身がこの綴りを使用（city.sammu.lg.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "12349",
+      "cityName": "東庄町",
+      "prefecture": "千葉県",
+      "citySlug": "tohnosho",
+      "cityKana": "トウノショウマチ",
+      "expected": "tonosho | tounoshou",
+      "reason": "Z27。自治体自身がこの綴りを使用（ページ上の英語表記 \"Tonosho Town\"（ドメインは tohnosho））。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "27220",
+      "cityName": "箕面市",
+      "prefecture": "大阪府",
+      "citySlug": "minoh",
+      "cityKana": "ミノオシ",
+      "expected": "mino | minoo",
+      "reason": "Z27。自治体自身がこの綴りを使用（city.minoh.lg.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "26407",
+      "cityName": "京丹波町",
+      "prefecture": "京都府",
+      "citySlug": "kyotamba",
+      "cityKana": "キョウタンバチョウ",
+      "expected": "kyotanba | kyoutanba",
+      "reason": "Z27。自治体自身がこの綴りを使用（town.kyotamba.kyoto.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "23563",
+      "cityName": "豊根村",
+      "prefecture": "愛知県",
+      "citySlug": "toyne",
+      "cityKana": "トヨネムラ",
+      "expected": "toyone",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.vill.toyone.aichi.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "01696",
+      "cityName": "泊村",
+      "prefecture": "北海道",
+      "citySlug": "tomari-kunashir",
+      "cityKana": "トマリムラ",
+      "expected": "tomari",
+      "reason": "国後島の泊村。同名衝突回避の識別子付き slug。生成対象外（registry のみに存在）",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "01409",
+      "cityName": "赤井川村",
+      "prefecture": "北海道",
+      "citySlug": "akaiwa",
+      "cityKana": "アカイガワムラ",
+      "expected": "akaigawa",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `vill.akaigawa.hokkaido.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "01432",
+      "cityName": "新十津川町",
+      "prefecture": "北海道",
+      "citySlug": "shintotsu",
+      "cityKana": "シントツカワチョウ",
+      "expected": "shintotsukawa",
+      "reason": "★Z26 是正対象。自治体自身の表記と食い違う（新十津川町 = Shintotsukawa (town.shintotsukawa.lg.jp)）。URL変更＋301 redirect を伴うためオーナー判断",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "01465",
+      "cityName": "剣淵町",
+      "prefecture": "北海道",
+      "citySlug": "kembuchi",
+      "cityKana": "ケンブチチョウ",
+      "expected": "kenbuchi",
+      "reason": "Z27。自治体自身がこの綴りを使用（town.kembuchi.hokkaido.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "01486",
+      "cityName": "遠別町",
+      "prefecture": "北海道",
+      "citySlug": "embetsu",
+      "cityKana": "エンベツチョウ",
+      "expected": "enbetsu",
+      "reason": "Z27。自治体自身がこの綴りを使用（town.embetsu.hokkaido.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "01511",
+      "cityName": "猿払村",
+      "prefecture": "北海道",
+      "citySlug": "sarobetsu",
+      "cityKana": "サルフツムラ",
+      "expected": "sarufutsu",
+      "reason": "★Z26 是正対象。自治体自身の表記と食い違う（猿払村 = Sarufutsu (vill.sarufutsu.hokkaido.jp)）。URL変更＋301 redirect を伴うためオーナー判断",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "01634",
+      "cityName": "鹿追町",
+      "prefecture": "北海道",
+      "citySlug": "shikaoibetsu",
+      "cityKana": "シカオイチョウ",
+      "expected": "shikaoi",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.shikaoi.lg.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "10383",
+      "cityName": "南牧村",
+      "prefecture": "群馬県",
+      "citySlug": "namoku",
+      "cityKana": "ナンモクムラ",
+      "expected": "nanmoku",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `vill.nanmoku.gunma.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "28223",
+      "cityName": "丹波市",
+      "prefecture": "兵庫県",
+      "citySlug": "tamba",
+      "cityKana": "タンバシ",
+      "expected": "tanba",
+      "reason": "Z27。自治体自身がこの綴りを使用（city.tamba.lg.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "28585",
+      "cityName": "香美町",
+      "prefecture": "兵庫県",
+      "citySlug": "mihamacho",
+      "cityKana": "カミチョウ",
+      "expected": "kami",
+      "reason": "★Z26 是正対象。自治体自身の表記と食い違う（香美町 = Kami (town.mikata-kami.lg.jp)）。URL変更＋301 redirect を伴うためオーナー判断",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "22215",
+      "cityName": "御殿場市",
+      "prefecture": "静岡県",
+      "citySlug": "gotemba",
+      "cityKana": "ゴテンバシ",
+      "expected": "gotenba",
+      "reason": "Z27。自治体自身がこの綴りを使用（city.gotemba.lg.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "21401",
+      "cityName": "揖斐川町",
+      "prefecture": "岐阜県",
+      "citySlug": "ibicho",
+      "cityKana": "イビガワチョウ",
+      "expected": "ibigawa",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `town.ibigawa.lg.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "21421",
+      "cityName": "北方町",
+      "prefecture": "岐阜県",
+      "citySlug": "kitakata",
+      "cityKana": "キタガタチョウ",
+      "expected": "kitagata",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.kitagata.gifu.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "21504",
+      "cityName": "七宗町",
+      "prefecture": "岐阜県",
+      "citySlug": "shichiso",
+      "cityKana": "ヒチソウチョウ",
+      "expected": "hichiso | hichisou",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `town.hichiso.gifu.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "07423",
+      "cityName": "柳津町",
+      "prefecture": "福島県",
+      "citySlug": "yanaitsu",
+      "cityKana": "ヤナイヅマチ",
+      "expected": "yanaizu",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.yanaizu.fukushima.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "43348",
+      "cityName": "美里町",
+      "prefecture": "熊本県",
+      "citySlug": "misatokuma",
+      "cityKana": "ミサトマチ",
+      "expected": "misato",
+      "reason": "誤りではない。自治体ドメイン `www.town.kumamoto-misato.lg.jp`。自治体自身も同名回避のため県名を付けている（kumamoto-misato）。slug `misatokuma` も同趣旨で、**誤りではない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "43403",
+      "cityName": "大津町",
+      "prefecture": "熊本県",
+      "citySlug": "otsumachi",
+      "cityKana": "オオヅマチ",
+      "expected": "oozu | ozu",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.ozu.kumamoto.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "29424",
+      "cityName": "上牧町",
+      "prefecture": "奈良県",
+      "citySlug": "kamimaki",
+      "cityKana": "カンマキチョウ",
+      "expected": "kanmaki",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `town.kanmaki.nara.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "46219",
+      "cityName": "いちき串木野市",
+      "prefecture": "鹿児島県",
+      "citySlug": "ichikushikino",
+      "cityKana": "イチキクシキノシ",
+      "expected": "ichikikushikino",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `city.ichikikushikino.lg.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "46223",
+      "cityName": "南九州市",
+      "prefecture": "鹿児島県",
+      "citySlug": "minamikyshu",
+      "cityKana": "ミナミキュウシュウシ",
+      "expected": "minamikyushu | minamikyuushuu",
+      "reason": "[未確認] 自治体ドメインがリポ内に無い。候補 `city.minamikyushu.lg.jp` を実取得して確認する",
+      "status": "未判断"
+    },
+    {
+      "cityCode": "04302",
+      "cityName": "七ヶ宿町",
+      "prefecture": "宮城県",
+      "citySlug": "shichigashuku",
+      "cityKana": "シチカシュクマチ",
+      "expected": "shichikashuku",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `town.shichikashuku.miyagi.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "05215",
+      "cityName": "仙北市",
+      "prefecture": "秋田県",
+      "citySlug": "semboku",
+      "cityKana": "センボクシ",
+      "expected": "senboku",
+      "reason": "Z27。自治体自身がこの綴りを使用（city.semboku.akita.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "06301",
+      "cityName": "山辺町",
+      "prefecture": "山形県",
+      "citySlug": "yamabecho",
+      "cityKana": "ヤマノベマチ",
+      "expected": "yamanobe",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.yamanobe.yamagata.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "06321",
+      "cityName": "河北町",
+      "prefecture": "山形県",
+      "citySlug": "kawakitacho",
+      "cityKana": "カホクチョウ",
+      "expected": "kahoku",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.kahoku.yamagata.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "06361",
+      "cityName": "金山町",
+      "prefecture": "山形県",
+      "citySlug": "kaneyamachi",
+      "cityKana": "カネヤママチ",
+      "expected": "kaneyama",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.kaneyama.yamagata.jp` が slug と食い違う（★複数ホストが混在していたため実取得で要確認）［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "19208",
+      "cityName": "南アルプス市",
+      "prefecture": "山梨県",
+      "citySlug": "minami-alps",
+      "cityKana": "ミナミアルプスシ",
+      "expected": "minamiarupusu",
+      "reason": "誤りではない。自治体ドメイン `www.city.minami-alps.yamanashi.jp`。slug `minami-alps` は自治体自身のドメインと一致。期待値 minamiarupusu は機械的ローマ字化の結果で、**検知器の偽陽性**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "19423",
+      "cityName": "西桂町",
+      "prefecture": "山梨県",
+      "citySlug": "nishikatsu",
+      "cityKana": "ニシカツラチョウ",
+      "expected": "nishikatsura",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.nishikatsura.yamanashi.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "31384",
+      "cityName": "日吉津村",
+      "prefecture": "鳥取県",
+      "citySlug": "hichisomura",
+      "cityKana": "ヒエヅソン",
+      "expected": "hiezu",
+      "reason": "★Z26 是正対象。自治体自身の表記と食い違う（日吉津村 = Hiezu (hiezu.jp)）。URL変更＋301 redirect を伴うためオーナー判断",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "32449",
+      "cityName": "邑南町",
+      "prefecture": "島根県",
+      "citySlug": "ohnan",
+      "cityKana": "オオナンチョウ",
+      "expected": "onan | oonan",
+      "reason": "Z27。自治体自身がこの綴りを使用（town.ohnan.lg.jp）。規程より自治体表記が優先。**是正しない**",
+      "status": "是正しない"
+    },
+    {
+      "cityCode": "39307",
+      "cityName": "芸西村",
+      "prefecture": "高知県",
+      "citySlug": "geisenimura",
+      "cityKana": "ゲイセイムラ",
+      "expected": "geisei",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.vill.geisei.kochi.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "41345",
+      "cityName": "上峰町",
+      "prefecture": "佐賀県",
+      "citySlug": "kamiminememachi",
+      "cityKana": "カミミネチョウ",
+      "expected": "kamimine",
+      "reason": "★Z26 是正対象。自治体自身の表記と食い違う（上峰町 = Kamimine (town.kamimine.lg.jp)）。URL変更＋301 redirect を伴うためオーナー判断",
+      "status": "要是正"
+    },
+    {
+      "cityCode": "41441",
+      "cityName": "太良町",
+      "prefecture": "佐賀県",
+      "citySlug": "tararacho",
+      "cityKana": "タラチョウ",
+      "expected": "tara",
+      "reason": "★Z26候補。リポ内に記録された自治体自身のドメイン `www.town.tara.lg.jp` が slug と食い違う［確認済・リポ内URL。実取得はしていない］",
+      "status": "要是正"
+    }
+  ]
+}

@@ -167,6 +167,13 @@ jobs:
       - name: Run validate-kokuho-data.js
         run: node scripts/validate-kokuho-data.js
 
+      # 2026-10-13 追加（TASKS X181）: citySlug が自治体の読み（総務省コード表の cityKana）から説明できるか。
+      # 香美町=mihamacho / 猿払村=sarobetsu / 日吉津村=hichisomura のように「別の自治体の名前」が slug になっている例が実在する（TASKS Z26）。
+      # 既知の不一致は registry/known-slug-kana-exceptions.json に凍結してあり、リスト外の新規不一致と、
+      # 例外が古くなった場合（slug が変わったのに例外が残っている）を止める。ネットにも git にも触らない（JSON 2本を読むだけ・手元実測 0.2秒）。
+      - name: Run check-slug-kana.cjs (citySlug が自治体の読みから説明できるか)
+        run: node scripts/check-slug-kana.cjs
+
       - name: Run test-provenance-visibility.js (確認済みと表示しながら根拠を出していないページの検出)
         run: node scripts/test-provenance-visibility.js
 

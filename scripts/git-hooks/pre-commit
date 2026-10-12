@@ -92,7 +92,20 @@ else
   echo "⚠️  pre-commit: node 不在のため数値表記チェックをスキップ"
 fi
 
-# ─── (5) 内部文書ガード ─────────────────────────────────────────
+# ─── (5) citySlug が自治体の読みから説明できるか（TASKS X181 / Z26） ───
+# registry/index.json の citySlug を総務省コード表の読みと突き合わせる。
+# 既知の不一致は registry/known-slug-kana-exceptions.json に凍結済み。
+# リスト外の新規不一致があれば commit を止める。citySlug は勝手に変更しない（規範13）。
+# staged ではなく作業ツリーの registry/index.json を見る（0.2秒なので分岐を足さず単純に保つ）。
+if command -v node >/dev/null 2>&1; then
+  if ! node scripts/check-slug-kana.cjs; then
+    exit 1
+  fi
+else
+  echo "⚠️  pre-commit: node 不在のため citySlug 読み突合をスキップ"
+fi
+
+# ─── (6) 内部文書ガード ─────────────────────────────────────────
 # ガード本体の場所は公開リポに書かず、VCS 外の git 設定から読む（install-hooks.sh が設定する）。
 # 未設定・不在なら fail-closed。
 GUARD="$(git config --get civic.guard || true)"
