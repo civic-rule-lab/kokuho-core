@@ -249,6 +249,11 @@ jobs:
       - name: Run test-kakeibo-dom.cjs (家計簿ページの結線・国保の介護分・jsdom)
         run: node scripts/test-kakeibo-dom.cjs
 
+      # 2026-10-12 追加（TASKS X184）: 住民税「詳しく計算」ページの配偶者控除／配偶者特別控除の自動判定（PR #711）。
+      # npm test には入っているが CI は個別呼び出しのため、ここに登録しないと走らない。手元実測 約1秒・29件。
+      - name: Run test-jumin-income-dom.cjs (住民税「詳しく計算」ページの結線・配偶者特別控除・jsdom)
+        run: node scripts/test-jumin-income-dom.cjs
+
       # 2026-10-08 追加（TASKS X173-21）: ページはテンプレートから作り直してから検証する（deploy-seido.sh も毎回生成する）。
       - name: Run test-furusato-dom.cjs (ふるさと納税ページの結線・日本語入力の Enter・jsdom)
         run: |
