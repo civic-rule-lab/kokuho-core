@@ -591,8 +591,11 @@
     var rkgSp=null;
     if(spouseJiei && famSpouseAge>=65 && kaigoData && (kaigoData.status==="verified" || kaigoData.status==="inferred")){
       try{
-        var rjSpPre=calculateJumin(juminData, {salary:famSpouseSalary, pension:famSpousePension, age:famSpouseAge, socialInsurance:(spouseSelfSi||0), kyuchi:JUMIN_KYUCHI});
-        var rjSelfPre=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, age:age, socialInsurance:siParts.reduce(function(s,p){return s+p[1];},0), kyuchi:JUMIN_KYUCHI}, famJumin));
+        // ※ 住民税の呼び出しの引数の中に括弧を置かない（test-jumin.cjs が呼び出しを最初の閉じ括弧まで拾って kyuchi の有無を検査するため）
+        var spSiPre = spouseSelfSi || 0;
+        var selfSiPre = siParts.reduce(function(s,p){return s+p[1];},0);
+        var rjSpPre=calculateJumin(juminData, {kyuchi:JUMIN_KYUCHI, salary:famSpouseSalary, pension:famSpousePension, age:famSpouseAge, socialInsurance:spSiPre});
+        var rjSelfPre=calculateJumin(juminData, Object.assign({kyuchi:JUMIN_KYUCHI, salary:grossSalary, pension:pension, age:age, socialInsurance:selfSiPre}, famJumin));
         rkgSp=calculateKaigo(kaigoData, {
           pensionIncome: famSpousePension,
           totalIncome: spouseIncomeJumin,
