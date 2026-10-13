@@ -460,8 +460,10 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
       const j0 = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: kA0.total + nenkinAnnual, spouseDeduction: 0, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 50000 }).total;
       const st0 = Math.round(eng2.calcShotokuzei({ salary: 5000000, socialInsurance: kA0.total + nenkinAnnual, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
       const st1 = Math.round(eng2.calcShotokuzei({ salary: 5000000, socialInsurance: kA.total + nenkinAnnual, spouse: { income: eng2.kyuyoShotoku(2000000), age70plus: false }, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
-      const expDiff = (kA.total - kA0.total) + nenkinAnnual + (jA.total - j0) + (st1 - st0);
-      A('自営＋自営配偶者: 合計の増分 = 国保の差 ＋ 配偶者の国民年金 ＋ 住民税の差 ＋ 所得税の差', (num(a1.grand) - num(a0.grand)) === expDiff);
+      // 配偶者の所得税（控除は配偶者の国民年金のみ。世帯分の国保は本人側）
+      const stSpA = Math.round(eng2.calcShotokuzei({ salary: 2000000, socialInsurance: nenkinAnnual, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
+      const expDiff = (kA.total - kA0.total) + nenkinAnnual + (jA.total - j0) + (st1 - st0) + stSpA;
+      A('自営＋自営配偶者: 合計の増分 = 国保の差 ＋ 配偶者の国民年金 ＋ 住民税の差 ＋ 所得税の差 ＋ 配偶者の所得税', (num(a1.grand) - num(a0.grand)) === expDiff);
     }
     // (B) 本人 会社員600万・40歳 ＋ 配偶者 自営 給与300万・40歳: 配偶者だけが国保加入者（軽減判定は本人所得を含む）
     const b0 = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
@@ -476,7 +478,12 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const nkSpB = find(b1.heads, '国民年金（配偶者1人分）');
     A('会社員＋自営配偶者: 国民年金（配偶者1人分）カードが出る', nenkinAnnual > 0 ? (!!nkSpB && num(nkSpB[1]) === nenkinAnnual) : !nkSpB);
     // 配偶者所得 202万（133万超）なので配偶者控除なし＝本人の住民税・所得税は配偶者なしと同じ。合計の差は配偶者の国保＋国民年金のみ
-    A('会社員＋自営配偶者: 合計の増分 = 配偶者の国保 ＋ 配偶者の国民年金', num(b1.grand) - num(b0.grand) === kB.total + nenkinAnnual);
+    {
+      const Shotoku4 = require('../js/core/shotoku.js');
+      const eng4 = Shotoku4.createEngineFromDB(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8')));
+      const stSpB = Math.round(eng4.calcShotokuzei({ salary: 3000000, socialInsurance: kB.total + nenkinAnnual, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
+      A('会社員＋自営配偶者: 合計の増分 = 配偶者の国保 ＋ 配偶者の国民年金 ＋ 配偶者の所得税', num(b1.grand) - num(b0.grand) === kB.total + nenkinAnnual + stSpB);
+    }
     // (C) 配偶者が会社員・パート（従来どおり shaho 実額・国保カードなし）
     const c1 = await run({ salary: 5000000, age: 40, employment: 'jiei', family: { spouseSalary: 2000000, spouseWork: 'kaishain', spouseAge: 45 } });
     A('自営＋会社員配偶者: 本人の国保は配偶者なしと同じ（配偶者は社保）', num(find(c1.heads, '国民健康保険')[1]) === kA0.total);
@@ -488,6 +495,43 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     if (optIn3) optIn3.checked = false;
     const hd = find(d1.heads, '保育料（認可・0〜2歳）');
     A('会社員＋自営配偶者: 保育料カードが出る（配偶者の社保控除＝国保＋国民年金で判定）', !!hd && num(hd[1]) > 0);
+  }
+
+  // ── 配偶者 75歳以上は後期高齢者医療／配偶者の所得税カード（2026-10-13） ──
+  {
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calculateKouki } = require('../js/core/kouki.js');
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const Shotoku3 = require('../js/core/shotoku.js');
+    const eng3 = Shotoku3.createEngineFromDB(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8')));
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kkd = JSON.parse(fs.readFileSync(KOUKI_FIXTURE, 'utf8'));
+    const nenkinPath = path.join(ROOT, 'data/national/kokumin-nenkin-2026.json');
+    const nenkinAnnual = fs.existsSync(nenkinPath) ? (JSON.parse(fs.readFileSync(nenkinPath, 'utf8')).monthly || 0) * 12 : 0;
+    // (E) 本人 自営500万・50歳 ＋ 配偶者 自営 給与200万・78歳: 配偶者は後期（国保に合算しない・国民年金なし）
+    const e1 = await run({ salary: 5000000, age: 50, employment: 'jiei', family: { spouseSalary: 2000000, spouseWork: 'jiei', spouseAge: 78 } });
+    const spInc = calcSalaryIncome(2000000);
+    const kSelf = calculateKokuho({ income: calcSalaryIncome(5000000), family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 }, kd).total;
+    const kkSp = calculateKouki({ totalIncome: spInc }, kkd).total;
+    A('自営＋配偶者78歳: 本人の国保は配偶者を含まない1人分（見出しも「国民健康保険」）', !!find(e1.heads, '国民健康保険') && num(find(e1.heads, '国民健康保険')[1]) === kSelf);
+    A('自営＋配偶者78歳: 「後期高齢者医療（配偶者）」カードが後期エンジン直算と一致', !!find(e1.heads, '後期高齢者医療（配偶者）') && num(find(e1.heads, '後期高齢者医療（配偶者）')[1]) === kkSp);
+    A('自営＋配偶者78歳: 国民年金（配偶者）・国保（配偶者）カードは出ない', !find(e1.heads, '国民年金（配偶者1人分）') && !find(e1.heads, '国民健康保険（配偶者）'));
+    // (F) 会社員600万 ＋ 配偶者 会社員300万・40歳: 所得税（配偶者）= 配偶者の給与と shaho 実額
+    const f1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 3000000, spouseWork: 'kaishain', spouseAge: 40 } });
+    const siSp = expectShahoAnnual(3000000, 0, 40);
+    const stSpK = Math.round(eng3.calcShotokuzei({ salary: 3000000, socialInsurance: siSp, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
+    A('会社員＋会社員配偶者300万: 「所得税（配偶者）」カードが shaho 実額控除の直算と一致', !!find(f1.heads, '所得税（配偶者）') && num(find(f1.heads, '所得税（配偶者）')[1]) === stSpK);
+    // (G) 会社員600万 ＋ 配偶者 自営300万・40歳: 所得税（配偶者）= 配偶者単独の国保＋国民年金を控除
+    const g1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 3000000, spouseWork: 'jiei', spouseAge: 40 } });
+    const spInc3 = calcSalaryIncome(3000000);
+    const kB = calculateKokuho({ income: spInc3, members: [{ income: spInc3, careTarget: true }], family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0, reductionJudgmentIncome: spInc3 + calcSalaryIncome(6000000) }, kd).total;
+    const stSpJ = Math.round(eng3.calcShotokuzei({ salary: 3000000, socialInsurance: kB + nenkinAnnual, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }).annualTax);
+    A('会社員＋自営配偶者300万: 「所得税（配偶者）」が国保＋国民年金控除の直算と一致', !!find(g1.heads, '所得税（配偶者）') && num(find(g1.heads, '所得税（配偶者）')[1]) === stSpJ);
+    A('会社員＋自営配偶者300万: 合計の増分 = 配偶者の国保 ＋ 国民年金 ＋ 配偶者の所得税', num(g1.grand) - num((await run({ salary: 6000000, age: 40, employment: 'kaishain' })).grand) === kB + nenkinAnnual + stSpJ);
+    // (H) 配偶者給与 150万（所得税 0）: カードは出るが 0 円
+    const h1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 1500000, spouseWork: 'kaishain', spouseAge: 40 } });
+    A('会社員＋パート配偶者150万: 所得税（配偶者）は 0 円', !!find(h1.heads, '所得税（配偶者）') && num(find(h1.heads, '所得税（配偶者）')[1]) === 0);
+    A('配偶者なしでは所得税（配偶者）カードは出ない', !find(r1.heads, '所得税（配偶者）'));
   }
 
   A('JSランタイムエラーなし', errs.length === 0);
