@@ -553,7 +553,7 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const kgL = calculateKaigo(kgd, { pensionIncome: 1500000, totalIncome: spIncL, sumIncome: 1500000, isSelfTaxable: !!rjSpL.isTaxable, isHouseholdAllNonTaxable: false });
     A('会社員＋年金配偶者70歳: 「介護保険（第1号・配偶者）」が介護エンジン直算と一致（本人課税のため世帯非課税ではない）', !!find(l1.heads, '介護保険（第1号・配偶者）') && num(find(l1.heads, '介護保険（第1号・配偶者）')[1]) === kgL.annual && kgL.annual > 0);
     A('会社員＋年金配偶者70歳: 国民年金（配偶者）カードは出ない（60歳以上）', !find(l1.heads, '国民年金（配偶者1人分）'));
-    A('会社員＋年金配偶者70歳: 所得税（配偶者）は「未対応」の表示（仮）', /所得税（配偶者）[\s\S]{0,200}年金収入がある場合の所得税は未対応/.test(l1.sys));
+    A('会社員＋年金配偶者70歳: 所得税（配偶者）のカードは出ない（年金がある配偶者は計算しない・注記に明記）', !find(l1.heads, '所得税（配偶者）') && !/所得税（配偶者）/.test(l1.sys));
     const si6 = expectShahoAnnual(6000000, 0, 40);
     const jL = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si6, spouseDeduction: 330000, dependentDeduction: 0, dependents: 1, humanDeductionDiff: 100000 });
     A('会社員＋年金配偶者70歳（所得40万≦58万）: 本人の住民税は配偶者控除33万の直算と一致', num(find(l1.heads, '住民税')[1]) === jL.total);
