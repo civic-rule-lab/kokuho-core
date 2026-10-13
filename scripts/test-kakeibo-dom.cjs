@@ -135,6 +135,7 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     setVal('famSpouseSalary', fam.spouseSalary ? String(fam.spouseSalary) : '');
     if (w.document.getElementById('famSpouseWork')) w.document.getElementById('famSpouseWork').value = fam.spouseWork || 'kaishain';
     setVal('famSpouseAge', fam.spouseAge ? String(fam.spouseAge) : '');
+    setVal('famSpousePension', fam.spousePension ? String(fam.spousePension) : '');
     await w.calcAll();
     const sys = w.document.getElementById('systems').innerHTML;
     const grand = w.document.getElementById('grandAmt').textContent;
@@ -532,6 +533,46 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const h1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spouseSalary: 1500000, spouseWork: 'kaishain', spouseAge: 40 } });
     A('会社員＋パート配偶者150万: 所得税（配偶者）は 0 円', !!find(h1.heads, '所得税（配偶者）') && num(find(h1.heads, '所得税（配偶者）')[1]) === 0);
     A('配偶者なしでは所得税（配偶者）カードは出ない', !find(r1.heads, '所得税（配偶者）'));
+  }
+
+  // ── 配偶者の年金収入・介護保険第1号（配偶者・65歳以上）（2026-10-13） ──
+  {
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calculateKaigo } = require('../js/core/kaigo.js');
+    const { calcSalaryIncome, calcPensionIncome } = require('../js/core/shared/income.js');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kgd = JSON.parse(fs.readFileSync(KAIGO_FIXTURE, 'utf8'));
+    // (L) 本人 会社員600万・40歳 ＋ 配偶者 年金150万・70歳（給与なし＝社保なし側）: 配偶者単独の国保（年金所得）・介護1号（配偶者）・配偶者控除33万
+    const l0 = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
+    const l1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', family: { spousePension: 1500000, spouseAge: 70 } });
+    const spIncL = calcPensionIncome(1500000, 70);
+    const kL = calculateKokuho({ income: spIncL, members: [{ income: spIncL, careTarget: false }], family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0, reductionJudgmentIncome: spIncL + calcSalaryIncome(6000000) }, kd);
+    A('会社員＋年金配偶者70歳: 配偶者の年金所得は 40万（150万−110万）', spIncL === 400000);
+    A('会社員＋年金配偶者70歳: 「国民健康保険（配偶者）」が年金所得ベースの直算と一致（介護分なし）', !!find(l1.heads, '国民健康保険（配偶者）') && num(find(l1.heads, '国民健康保険（配偶者）')[1]) === kL.total && kL.careTotal === 0);
+    const rjSpL = calculateJumin(null, { salary: 0, pension: 1500000, age: 70, socialInsurance: kL.total });
+    const kgL = calculateKaigo(kgd, { pensionIncome: 1500000, totalIncome: spIncL, sumIncome: 1500000, isSelfTaxable: !!rjSpL.isTaxable, isHouseholdAllNonTaxable: false });
+    A('会社員＋年金配偶者70歳: 「介護保険（第1号・配偶者）」が介護エンジン直算と一致（本人課税のため世帯非課税ではない）', !!find(l1.heads, '介護保険（第1号・配偶者）') && num(find(l1.heads, '介護保険（第1号・配偶者）')[1]) === kgL.annual && kgL.annual > 0);
+    A('会社員＋年金配偶者70歳: 国民年金（配偶者）カードは出ない（60歳以上）', !find(l1.heads, '国民年金（配偶者1人分）'));
+    A('会社員＋年金配偶者70歳: 所得税（配偶者）は「未対応」の表示（仮）', /所得税（配偶者）[\s\S]{0,200}年金収入がある場合の所得税は未対応/.test(l1.sys));
+    const si6 = expectShahoAnnual(6000000, 0, 40);
+    const jL = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: si6, spouseDeduction: 330000, dependentDeduction: 0, dependents: 1, humanDeductionDiff: 100000 });
+    A('会社員＋年金配偶者70歳（所得40万≦58万）: 本人の住民税は配偶者控除33万の直算と一致', num(find(l1.heads, '住民税')[1]) === jL.total);
+    A('会社員＋年金配偶者70歳: 合計の増分 = 配偶者の国保 ＋ 介護1号（配偶者） ＋ 本人の住民税・所得税の減少分', (num(l1.grand) - num(l0.grand)) === kL.total + kgL.annual + (num(find(l1.heads, '住民税')[1]) - num(find(l0.heads, '住民税')[1])) + (num(find(l1.heads, '所得税')[1]) - num(find(l0.heads, '所得税')[1])));
+    // (K) 本人 年金250万・67歳・自営 ＋ 配偶者 年金180万・66歳: 同じ世帯の国保（年金所得2人・介護分なし）＋介護1号が2人分
+    const k1 = await run({ salary: 0, pension: 2500000, age: 67, employment: 'jiei', family: { spousePension: 1800000, spouseAge: 66 } });
+    const selfInc = calcPensionIncome(2500000, 67), spIncK = calcPensionIncome(1800000, 66);
+    const kK = calculateKokuho({ income: selfInc + spIncK, members: [{ income: selfInc, careTarget: false }, { income: spIncK, careTarget: false }], family: 2, preschool: 0, under18: 0, care: 0, salaryPensionCount: 2, fixedAssetTax: 0 }, kd);
+    A('年金夫婦（67歳・66歳）: 国保カードが「配偶者の所得を含む世帯分」で members 直算と一致', !!find(k1.heads, '国民健康保険（配偶者の所得を含む世帯分）') && num(find(k1.heads, '国民健康保険（配偶者の所得を含む世帯分）')[1]) === kK.total);
+    A('年金夫婦: 介護保険（第1号）が本人と配偶者の2枚出る', !!find(k1.heads, '介護保険（第1号）') && !!find(k1.heads, '介護保険（第1号・配偶者）'));
+    // 配偶者（所得70万＝58万超）は特別控除33万（人的控除差なし）。配偶者の介護1号は配偶者自身の課税状況（社保控除0＝世帯分は本人側）で段階判定
+    const rjSpK = calculateJumin(null, { salary: 0, pension: 1800000, age: 66, socialInsurance: 0 });
+    const kgSelfPre = calculateJumin(null, { salary: 0, pension: 2500000, age: 67, socialInsurance: kK.total, spouseDeduction: 330000, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 50000 });
+    const kgSelf = calculateKaigo(kgd, { pensionIncome: 2500000, totalIncome: selfInc, sumIncome: 2500000, isSelfTaxable: !!kgSelfPre.isTaxable, isHouseholdAllNonTaxable: !kgSelfPre.isTaxable });
+    const rjSelfK = calculateJumin(null, { salary: 0, pension: 2500000, age: 67, socialInsurance: kK.total + kgSelf.annual, spouseDeduction: 330000, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 50000 });
+    const kgK = calculateKaigo(kgd, { pensionIncome: 1800000, totalIncome: spIncK, sumIncome: 1800000, isSelfTaxable: !!rjSpK.isTaxable, isHouseholdAllNonTaxable: (!rjSpK.isTaxable && !rjSelfK.isTaxable) });
+    A('年金夫婦: 介護保険（第1号・配偶者）が直算と一致', num(find(k1.heads, '介護保険（第1号・配偶者）')[1]) === kgK.annual);
+    A('年金夫婦: 本人の住民税は 世帯分の国保＋本人の介護1号 を控除・配偶者特別控除33万 の直算と一致', num(find(k1.heads, '住民税')[1]) === rjSelfK.total);
+    A('年金夫婦: 内訳の行に配偶者の年金収入と合計所得が出る', /配偶者の年金収入 1,800,000 円（合計所得 700,000 円）＝配偶者特別控除 330,000 円/.test(k1.sys));
   }
 
   A('JSランタイムエラーなし', errs.length === 0);
