@@ -26,8 +26,10 @@ const html = `<!doctype html><html><body>
   <div id="hiddenBox" style="display:none"><input id="c" data-step="3" type="text"></div>
   <select id="d" data-step="4"><option>x</option></select>
   <input id="chk" data-step="5" type="checkbox">
+  <details id="det"><summary>s</summary><input id="dd" data-step="5b" type="text"></details>
   <input id="e" data-step="6" type="text" data-step-end>
   <input id="z" data-step="7" type="text">
+  <input id="z2" data-step="8" type="text">
   <script>${UI}</script>
 </body></html>`;
 const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true });
@@ -51,9 +53,16 @@ function enter(id, extra) {
   A('2b → 4（非表示の 3 を飛ばす）', enter('b2') === 'd');
   d.getElementById('hiddenBox').style.display = '';
   A('2b → 3（表示されれば止まる）', enter('b2') === 'c');
-  A('4（select）→ 6（チェックボックス 5 は飛ばす）', enter('d') === 'e');
+  A('4（select）→ 6（チェックボックス 5 と、閉じた details の中の 5b は飛ばす）', enter('d') === 'e');
+  d.getElementById('det').open = true;
+  A('details を開けば 5b に止まる', enter('d') === 'dd');
+  d.getElementById('det').open = false;
+  // focus できない欄（例: 表示判定をすり抜けた隠し欄）は飛ばして次の候補へ
+  const z = d.getElementById('z'); const origFocus = z.focus; z.focus = function(){};
+  A('focus できない 7 を飛ばして 8 へ', enter('e') === 'e' && (d.getElementById('e').removeAttribute('data-step-end'), enter('e')) === 'z2');
+  z.focus = origFocus; d.getElementById('e').setAttribute('data-step-end','');
   A('終了マークの欄: 次（7）があっても動かない', enter('e') === 'e');
-  A('次が無い欄: 動かない', enter('z') === 'z');
+  A('次が無い欄: 動かない', enter('z2') === 'z2');
   // IME
   A('IME 確定（isComposing）: 動かない', enter('a', { isComposing: true }) === 'a');
   A('IME 確定（keyCode 229・Safari 型）: 動かない', enter('a', { keyCode: 229 }) === 'a');

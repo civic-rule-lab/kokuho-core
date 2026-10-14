@@ -83,22 +83,30 @@
   }
   function isVisible(el) {
     if (el.disabled) return false;
+    // 閉じた <details> の中は Chrome では display:none でなく content-visibility で隠れるため、
+    // offsetParent が null にならず「表示中」と誤判定して focus に失敗する（2026-10-14 国保 所得ベースで発生）
+    if (el.closest && el.closest('details:not([open])')) return false;
+    if (typeof el.checkVisibility === 'function') {
+      return el.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true });
+    }
     if (el.offsetParent === null) return false;   // display:none の中（祖先を含む）
     return true;
   }
-  function nextStep(from) {
-    const all = Array.prototype.slice.call(document.querySelectorAll('input[data-step], select[data-step]'))
-      .filter(isStepTarget);
+  // 現在の欄より後ろにある表示中の欄を、段・横枠の順に並べて返す
+  function candidatesAfter(from) {
     const cur = stepKey(from);
-    let best = null, bestKey = Infinity;
-    for (const el of all) {
-      if (el === from) continue;
-      const k = stepKey(el);
-      if (k <= cur || k >= bestKey) continue;
-      if (!isVisible(el)) continue;
-      best = el; bestKey = k;
+    return Array.prototype.slice.call(document.querySelectorAll('input[data-step], select[data-step]'))
+      .filter(el => el !== from && isStepTarget(el) && stepKey(el) > cur && isVisible(el))
+      .sort((a, b) => stepKey(a) - stepKey(b));
+  }
+  // 次の欄へ focus を移す。focus できない欄（隠れていた等）は飛ばして次の候補へ
+  function focusNext(from) {
+    const list = candidatesAfter(from);
+    for (const el of list) {
+      el.focus();
+      if (document.activeElement === el) return el;
     }
-    return best;
+    return null;
   }
 
   let lastCompositionEnd = 0;
@@ -114,8 +122,7 @@
       if (Date.now() - lastCompositionEnd < 100) return;          // 確定直後の Enter（Safari の取りこぼし対策）
       e.preventDefault();
       if (t.hasAttribute('data-step-end')) return;                // 終了マーク: 何もしない
-      const next = nextStep(t);
-      if (next) next.focus();                                     // focus 移動で元の欄が blur → カンマ付与（§1）
+      focusNext(t);                                               // focus 移動で元の欄が blur → カンマ付与（§1）
     });
   }
 
