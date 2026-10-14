@@ -45,7 +45,8 @@
     function commit() {
       const raw = toHalfWidth(el.value).replace(/[^\d]/g, "");
       if (!raw) { el.value = ""; return; }
-      el.value = withCommas ? Number(raw).toLocaleString("ja-JP") : raw;
+      // 先頭の 0 は落とす（00 → 0、007 → 7）。2026-10-14 住民税の人数欄で「00」「000」が残った
+      el.value = withCommas ? Number(raw).toLocaleString("ja-JP") : raw.replace(/^0+(?=\d)/, "");
     }
 
     el.addEventListener('compositionstart', () => { isComposing = true; });

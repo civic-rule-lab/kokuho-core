@@ -81,6 +81,12 @@ function enter(id, extra) {
   A('blur: 金額欄はカンマ付与', el.value === '3,560,000');
   el = set('b1', '１２'); el.dispatchEvent(new w.Event('blur'));
   A('blur: 人数欄はカンマ無し', el.value === '12');
+  el = set('b1', '00'); el.dispatchEvent(new w.Event('blur'));
+  A('blur: 人数欄の 00 は 0 になる', el.value === '0');
+  el = set('b1', '007'); el.dispatchEvent(new w.Event('blur'));
+  A('blur: 人数欄の 007 は 7 になる', el.value === '7');
+  el = set('a', '0003000'); el.dispatchEvent(new w.Event('blur'));
+  A('blur: 金額欄の 0003000 は 3,000 になる', el.value === '3,000');
   const kd = new w.KeyboardEvent('keydown', { key: '-', cancelable: true }); d.getElementById('a').dispatchEvent(kd);
   A('金額欄で - は入力不可', kd.defaultPrevented);
 
