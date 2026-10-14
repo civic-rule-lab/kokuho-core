@@ -22,6 +22,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+const uiInputSrc = fs.readFileSync(path.join(ROOT, "js/core/shared/ui-input.js"), "utf8"); // engine.js が前提にする共通入力 UI
 const engineSrc = fs.readFileSync(path.join(ROOT, "js/engine.js"), "utf8");
 
 // ─── 生成済みページから実際の宣言を抽出（generator 側の配線も同時に検証） ───
@@ -60,6 +61,7 @@ function loadEngine(pageSnippet) {
   sandbox.window = sandbox; // window.location 等。const 宣言は window に付かない（ブラウザと同じ）
   vm.createContext(sandbox);
   if (pageSnippet) vm.runInContext(pageSnippet, sandbox, { filename: "page-inline.js" });
+  vm.runInContext(uiInputSrc, sandbox, { filename: "ui-input.js" });
   vm.runInContext(engineSrc, sandbox, { filename: "engine.js" });
   return fetched;
 }

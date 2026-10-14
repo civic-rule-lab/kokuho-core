@@ -35,7 +35,7 @@ const CONFIG = {
     template: "kouki-simple.html",
     incomeTemplate: "kouki-income.html",           // 詳しく計算版（世帯対応）
     dataPlaceholder: "__KOUKI_DATA__",
-    engineFiles: ["js/core/shared/income.js", "js/core/kouki.js"],
+    engineFiles: ["js/core/shared/ui-input.js", "js/core/shared/income.js", "js/core/kouki.js"],
     portalName: "制度計算ポータル",
     appName: (city, fy) => `${city} 後期高齢者医療保険料計算ツール（${fy}）`,
     meta: (city, pref, fy, d) =>
@@ -61,7 +61,7 @@ const CONFIG = {
   kaigo: {
     template: "kaigo-simple.html",
     dataPlaceholder: "__KAIGO_DATA__",
-    engineFiles: ["js/core/shared/income.js", "js/core/kaigo.js"],
+    engineFiles: ["js/core/shared/ui-input.js", "js/core/shared/income.js", "js/core/kaigo.js"],
     portalName: "制度計算ポータル",
     appName: (city, fy) => `${city} 介護保険料（第1号）計算ツール（${fy}）`,
     meta: (city, pref, fy, d) =>

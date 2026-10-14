@@ -18,6 +18,8 @@ const { JSDOM } = require('jsdom');
 
 const ROOT = path.join(__dirname, '..');
 let html = fs.readFileSync(path.join(ROOT, 'seido-furusato.html'), 'utf8');
+html = html.replace(/<script src="\/js\/core\/shared\/ui-input\.js\?v=[0-9a-f]+"><\/script>/,
+  () => '<script>' + fs.readFileSync(path.join(ROOT, 'js/core/shared/ui-input.js'), 'utf8') + '</script>');
 html = html.replace(/<script src="\/js\/core\/furusato\.js\?v=[0-9a-f]+"><\/script>/,
   () => '<script>' + fs.readFileSync(path.join(ROOT, 'js/core/furusato.js'), 'utf8') + '</script>');
 html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/script>/g, '');
@@ -50,7 +52,8 @@ A('通常の Enter: 総所得金額 → 配偶者控除へ移動（カードを�
 A('IME 変換確定の Enter（isComposing）: 所得割の欄から動かない', enter('shotokuwari', { isComposing: true }) === 'shotokuwari');
 A('IME 変換確定の Enter（keyCode 229・Safari 型）: 課税標準額の欄から動かない', enter('kazeiHyojun', { keyCode: 229 }) === 'kazeiHyojun');
 A('IME 変換確定の Enter（isComposing）: 総所得金額の欄から動かない', enter('soShotoku', { isComposing: true }) === 'soShotoku');
-A('最後の欄の通常の Enter: 次へは移動しない', enter('sanrinTaishoku') !== 'sanrinTaishoku' && d.activeElement.id !== 'shotokuwari');
+A('最後の欄（data-step-end）の通常の Enter: 移動しない', enter('selfDisability') === 'selfDisability');
+A('チェックボックスは Enter 移動の対象外', enter('sanrinTaishoku') === 'sanrinTaishoku');
 
 set('shotokuwari', '238500'); set('kazeiHyojun', '2410000'); set('soShotoku', '3560000');
 A('入力欄はカンマ付きに整形される（3,560,000）', d.getElementById('soShotoku').value === '3,560,000');

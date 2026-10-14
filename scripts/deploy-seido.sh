@@ -190,6 +190,7 @@ if [ "$DRY_RUN" = false ]; then
   # 計算エンジン（住民税＋家計簿が使う全制度＋共通）
   mkdir -p "$PUBLIC_DIR/js/core/shared" "$PUBLIC_DIR/css"
   cp "$CORE_DIR/js/core/shared/income.js" "$PUBLIC_DIR/js/core/shared/"
+  cp "$CORE_DIR/js/core/shared/ui-input.js" "$PUBLIC_DIR/js/core/shared/"   # 入力 UI 共通（数値欄・Enter 移動）
   cp "$CORE_DIR/js/core/jumin.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kokuho.js"        "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kaigo.js"         "$PUBLIC_DIR/js/core/"
