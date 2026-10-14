@@ -24,6 +24,7 @@ const fillMap = {
 for (const [k, v] of Object.entries(fillMap)) html = html.split(k).join(v);
 
 const engineMap = {
+  '/js/core/shared/ui-input.js': 'js/core/shared/ui-input.js',
   '/js/core/shared/income.js': 'js/core/shared/income.js',
   '/js/core/jumin.js': 'js/core/jumin.js',
   '/js/core/kokuho.js': 'js/core/kokuho.js',

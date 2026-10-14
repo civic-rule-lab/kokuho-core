@@ -70,6 +70,7 @@ function fileHash(...filePaths) {
 const CSS_V = fileHash(path.join(ROOT, 'css', 'common.css'));
 // ★保育料は income.js + jumin.js + hoiku.js の3本を同梱するので、JS_V に3本とも含める（Fable5 §2）。
 const JS_V  = fileHash(
+  path.join(ROOT, 'js', 'core', 'shared', 'ui-input.js'),
   path.join(ROOT, 'js', 'core', 'shared', 'income.js'),
   path.join(ROOT, 'js', 'core', 'jumin.js'),
   path.join(ROOT, 'js', 'core', 'hoiku.js'),

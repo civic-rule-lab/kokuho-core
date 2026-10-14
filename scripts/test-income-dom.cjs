@@ -27,7 +27,7 @@ function buildHtml() {
     '__RATE_TABLE__': '', '__STANDARD_NOTE__': '', '__TRUST_BADGE__': '',
   };
   for (const [k, v] of Object.entries(fill)) html = html.split(k).join(v);
-  const inline = { '/js/core/kokuho.js': 'js/core/kokuho.js', '/js/engine.js': 'js/engine.js' };
+  const inline = { '/js/core/shared/ui-input.js': 'js/core/shared/ui-input.js', '/js/core/kokuho.js': 'js/core/kokuho.js', '/js/engine.js': 'js/engine.js' };
   html = html.replace(/<script src="([^"?]+)\?v=x"><\/script>/g, (m, p) =>
     inline[p] ? '<script>' + fs.readFileSync(path.join(ROOT, inline[p]), 'utf8') + '</script>' : m);
   html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/script>/g, '');

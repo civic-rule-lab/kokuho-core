@@ -21,7 +21,7 @@ function buildHtml() {
     '__JSON_LD__': '{}', '__JS_V__': 'x', '__JUMIN_DATA__': 'null', '__JUMIN_KYUCHI__': '1', '__META_DESC__': '', '__PUBLISH_YEAR__': '2026',
   };
   for (const [k, v] of Object.entries(fill)) html = html.split(k).join(v);
-  const inline = { '/js/core/shared/income.js': 'js/core/shared/income.js', '/js/core/jumin.js': 'js/core/jumin.js', '/js/core/furusato.js': 'js/core/furusato.js' };
+  const inline = { '/js/core/shared/ui-input.js': 'js/core/shared/ui-input.js', '/js/core/shared/income.js': 'js/core/shared/income.js', '/js/core/jumin.js': 'js/core/jumin.js', '/js/core/furusato.js': 'js/core/furusato.js' };
   html = html.replace(/<script src="([^"?]+)\?v=x"><\/script>/g, (m, p) =>
     inline[p] ? '<script>' + fs.readFileSync(path.join(ROOT, inline[p]), 'utf8') + '</script>' : m);
   html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/script>/g, '');

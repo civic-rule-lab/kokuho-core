@@ -347,6 +347,7 @@ function fileHash(...filePaths) {
 }
 const CSS_V = fileHash(path.join(ROOT, "css", "common.css"));
 const JS_V  = fileHash(
+  path.join(ROOT, "js", "core", "shared", "ui-input.js"),
   path.join(ROOT, "js", "core", "kokuho.js"),
   path.join(ROOT, "js", "engine.js")
 );

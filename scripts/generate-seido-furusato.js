@@ -29,7 +29,7 @@ function fileHash(...filePaths) {
 }
 
 const CSS_V = fileHash(path.join(ROOT, 'css', 'common.css'));
-const JS_V = fileHash(path.join(ROOT, 'js', 'core', 'furusato.js'));
+const JS_V = fileHash(path.join(ROOT, 'js', 'core', 'shared', 'ui-input.js'), path.join(ROOT, 'js', 'core', 'furusato.js'));
 
 // 制度値は JSON の文字列をそのまま埋め込む（parse → stringify を通さない＝数値表記を保つ）。
 // JSON.parse で妥当性だけ確かめる。
