@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="産休・育休の年は、育児休業給付金・出産手当金が非課税で、社会保険料が免除されるため、ふるさと納税の上限額が通常の年と大きく変わります。月給・支給月数・免除月数から今年の上限額と通常の年との差を計算します。">
+<link rel="canonical" href="https://seido-keisan.jp/furusato/ikukyu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="育休・産休の年のふるさと納税 上限額">
+<meta property="og:description" content="給付金は非課税・社会保険料は免除。今年の上限額と通常の年との差を計算します。">
+<meta property="og:url" content="https://seido-keisan.jp/furusato/ikukyu/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=__CSS_V__">
+<title>育休・産休の年のふるさと納税 上限額｜給付金は非課税・社会保険料は免除で、上限はいくら下がる？【2026年中の寄附】</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
+  .check input{width:auto;margin-top:3px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .big{font-size:24px;color:#1d4ed8;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;}
+  .jt-table th,.jt-table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;}
+  .jt-table th{background:#f3f6fb;color:#374151;font-weight:600;}
+  .jt-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
+  h2{font-size:16px;margin:28px 0 6px;color:#111827;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .cmp .box{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#f8fafc;}
+  .cmp .box.now{background:#fff7ed;border-color:#fdba74;}
+  .cmp .ttl{font-size:12px;color:#6b7280;font-weight:600;}
+  .cmp .amt{font-size:22px;font-weight:800;color:#1d4ed8;margin:4px 0;}
+  .cmp .box.now .amt{color:#9a3412;}
+  .cmp .sub{font-size:11px;color:#6b7280;line-height:1.6;}
+  @media (max-width:520px){ .cmp{grid-template-columns:1fr;} }
+  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">育休・産休の年の</span><span class="h1-seg">ふるさと納税 上限額</span><span class="h1-year">【2026年中の寄附・通常の年との差】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">産休・育休の年は、<b>育児休業給付金・出産手当金が非課税</b>で収入に数えられず、<b>社会保険料が免除</b>されて控除も減るため、ふるさと納税の上限額は「去年の感覚」より大きく下がります。月給と、今年給与が出る月数・免除される月数を入れると、今年の上限額と通常の年との差を出します。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① 給与</div>
+    <div class="row2">
+      <div>
+        <label for="pref">勤務先の都道府県</label>
+        <select id="pref" data-step="1a"></select>
+      </div>
+      <div>
+        <label for="age">年齢</label>
+        <input id="age" data-step="1b" type="text" inputmode="numeric" placeholder="例：32">
+      </div>
+    </div>
+    <div class="hint">協会けんぽの都道府県別料率で社会保険料を計算します（組合健保の方は料率が異なります）。</div>
+    <label for="monthly">育休前の月給（額面・円）</label>
+    <input id="monthly" data-step="2" type="text" inputmode="numeric" placeholder="例：300,000">
+    <label for="bonus">今年支給される賞与の合計（額面・円・任意）</label>
+    <input id="bonus" data-step="3" type="text" inputmode="numeric" placeholder="例：600,000">
+    <label class="check"><input id="bonusExempt" type="checkbox"> その賞与は、1か月を超える育休の最中に支給される（保険料が免除される）</label>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② 今年の休業</div>
+    <div class="row2">
+      <div>
+        <label for="paidMonths">今年、給与が支給される月数</label>
+        <input id="paidMonths" data-step="4a" type="text" inputmode="numeric" placeholder="例：4">
+      </div>
+      <div>
+        <label for="exemptMonths">社会保険料が免除される月数</label>
+        <input id="exemptMonths" data-step="4b" type="text" inputmode="numeric" placeholder="例：8">
+      </div>
+    </div>
+    <div class="hint">免除は、休業を始めた月から終わった日の翌日の属する月の前月まで（同じ月なら14日以上）。給付金の月は給与ゼロ・保険料免除として数えます。</div>
+    <label for="salaryOverride">今年の給与収入の合計（源泉徴収票の「支払金額」の見込み・円・任意）</label>
+    <div class="hint">入れると「月給 × 支給月数 ＋ 賞与」の代わりにこの額を使います。</div>
+    <input id="salaryOverride" data-step="5" type="text" inputmode="numeric" placeholder="空欄なら自動">
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
+    <label for="spouse">配偶者控除（あなたが受けるもの）</label>
+    <select id="spouse" data-step="6">
+      <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
+      <option value="general">受ける（配偶者が70歳未満）</option>
+      <option value="elderly">受ける（配偶者が70歳以上）</option>
+    </select>
+    <div class="row3">
+      <div>
+        <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
+        <input id="depGeneral" data-step="7a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depSpecific">扶養（19〜22歳）</label>
+        <input id="depSpecific" data-step="7b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
+        <input id="depElderly" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depParent">同居の親など（70歳以上）</label>
+        <input id="depParent" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません（今年生まれた子も同じ）。</div>
+    <label for="selfStatus">ご本人</label>
+    <select id="selfStatus" data-step="9" data-step-end>
+      <option value="none" selected>あてはまるものはない</option>
+      <option value="mother">ひとり親（母）</option>
+      <option value="father">ひとり親（父）</option>
+      <option value="widow">寡婦</option>
+    </select>
+  </div>
+
+  <button onclick="calcIkukyu()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>住民税は標準税率・1級地の目安、社会保険料は協会けんぽの料率です。給与が少ない年は住民税がかからず、上限額がゼロになることもあります。
+  </div>
+
+  <h2>この年に起きること</h2>
+  <div id="rules"></div>
+
+  <h2>控除の受け方・関連</h2>
+  <div class="note" style="margin-top:4px;font-size:13px;color:#374151;">
+    ・会社員で確定申告をしない方は、寄附先が5団体以内なら<a href="/furusato/onestop/" style="color:#1d4ed8;font-weight:600;">ワンストップ特例か確定申告か、3問で判定 →</a><br>
+    ・あなたの今年の所得が少ないと、配偶者の側で配偶者控除・配偶者特別控除を受けられることがあります。その場合は配偶者の上限額が上がります（<a href="/furusato/" style="color:#1d4ed8;font-weight:600;">配偶者の上限額を計算 →</a>）。<br>
+    ・復職した翌年は収入が戻るので、上限額も戻ります。住民税は前年の所得で決まるため、復職年の翌年6月から住民税が上がります。
+  </div>
+
+  <div class="note">
+    ※2026年中の寄附（所得税は令和8年分・住民税は令和9年度分）の制度で計算します。<br>
+    ※出典：雇用保険法 第12条・第61条の6第5項（育児休業等給付への準用）、健康保険法 第62条・第159条・第159条の3、厚生年金保険法 第81条の2・第81条の2の2（いずれも e-Gov 法令検索）、地方税法 第37条の2（寄附金税額控除）、全国健康保険協会 令和8年度 都道府県別保険料率。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 制度値（data/national/furusato-ikukyu-2026.json・furusato-2027.json・所得税の基礎控除の表・協会けんぽの都道府県）。生成時に埋め込む -->
+<script>const IKUKYU_DATA = __IKUKYU_DATA__; const FURUSATO_DATA = __FURUSATO_DATA__; const SHOTOKU_KISO_2026 = __SHOTOKU_KISO__; const PREFS = __PREFS__;</script>
+<script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
+<script src="/js/core/shared/income.js?v=__JS_V__"></script>
+<script src="/js/core/jumin.js?v=__JS_V__"></script>
+<script src="/js/core/shaho.js?v=__JS_V__"></script>
+<script src="/js/core/furusato.js?v=__JS_V__"></script>
+<script>
+(function(){
+  "use strict";
+  var SHAHO_MONTH = "2026-07";   // 令和8年度の料率の対象月（健保・介護・支援金・厚年・雇用すべて適用）
+  var JUMIN_FY = 2027;           // 2026年中の寄附 ＝ 住民税 令和9年度分
+  function $(id){ return document.getElementById(id); }
+  function num(id){ var v = toHalfWidth(($(id)||{}).value || "").replace(/[^0-9]/g, ""); return v === "" ? 0 : Number(v); }
+  function val(id){ return ($(id)||{}).value || ""; }
+  function chk(id){ return !!($(id) && $(id).checked); }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function row(label, value, cls){ return "<div class='result-row'><div class='result-label'>"+label+"</div><div class='amount"+(cls?" "+cls:"")+"'>"+value+"</div></div>"; }
+
+  PREFS.forEach(function(p){ var o = document.createElement("option"); o.value = p.slug; o.textContent = p.name; if(p.slug === "tokyo") o.selected = true; $("pref").appendChild(o); });
+  var D = IKUKYU_DATA;
+  $("rules").innerHTML =
+    '<div class="jt-card"><div class="jt-card-title">非課税の給付（収入に数えない）</div>' + D.nonTaxable.map(function(x){ return "<p>・" + esc(x.text) + "<br><span style=\"color:#6b7280;font-size:12px;\">" + esc(x.basis) + "</span></p>"; }).join("") + "</div>" +
+    '<div class="jt-card"><div class="jt-card-title">社会保険料の免除（控除が減る）</div><p>' + esc(D.premiumExemption.text) + "</p><p>・期間: " + esc(D.premiumExemption.months) + "</p><p>・賞与: " + esc(D.premiumExemption.bonus) + "</p><p>・" + esc(D.premiumExemption.note) + '</p><p style="color:#6b7280;font-size:12px;">' + esc(D.premiumExemption.basis) + "</p></div>";
+
+  // ── 社会保険のデータ（同じサイトの /data/shaho/）──
+  var _shaho = null;
+  async function loadShaho(){
+    if(_shaho) return _shaho;
+    var names = ["kenpo-2026", "kosei-nenkin", "koyo-2026", "standard-monthly"];
+    var rs = await Promise.all(names.map(function(n){ return fetch("/data/shaho/" + n + ".json", { cache: "no-store" }).then(function(r){ if(!r.ok) throw new Error(n + " HTTP " + r.status); return r.json(); }); }));
+    _shaho = { kenpo: rs[0], kosei: rs[1], koyo: rs[2], standard: rs[3] };
+    return _shaho;
+  }
+
+  // ── 計算（純粋関数。テストから呼ぶ）──
+  //   今年: 給与 ＝ 月給×支給月数＋賞与（上書き可）、社保 ＝ 月々の保険料×免除されない月数 ＋ 雇用保険×支給月数 ＋ 賞与の保険料
+  //   通常の年: 給与 ＝ 月給×12＋賞与、社保 ＝ 月々の保険料×12 ＋ 雇用保険×12 ＋ 賞与の保険料
+  function computeIkukyu(input, shahoData){
+    var paid = Math.max(0, Math.min(12, input.paidMonths)), exempt = Math.max(0, Math.min(12, input.exemptMonths));
+    var sin = { monthlySalary: input.monthly, targetMonth: SHAHO_MONTH, prefSlug: input.prefSlug, age: input.age, koyoCategory: "ippan" };
+    if(input.bonus > 0){ sin.bonus = input.bonus; sin.bonusYearToDate = 0; }
+    var r = window.Shaho.calculateShaho(sin, shahoData);
+    var mPrem = r.health.employee + r.care.employee + r.shienkin.employee + r.koseiNenkin.employee;   // 標準報酬月額にかかる分（免除の対象）
+    var mKoyo = r.koyo.applies ? r.koyo.employee : 0;                                                   // 給与にかかる分（給与がある月だけ）
+    var bPrem = 0, bKoyo = 0;
+    if(r.bonus){ bPrem = r.bonus.health.employee + r.bonus.care.employee + r.bonus.shienkin.employee + r.bonus.koseiNenkin.employee; bKoyo = (r.bonus.koyo && r.bonus.koyo.applies) ? r.bonus.koyo.employee : 0; }
+    function scenario(salary, premMonths, koyoMonths, bonusExempt){
+      var si = Math.round(mPrem * premMonths + mKoyo * koyoMonths + (bonusExempt ? 0 : bPrem) + bKoyo);
+      var hd = furusatoHumanDeductionDiff({ selfTotalIncome: calcSalaryIncome(salary, JUMIN_FY), spouse: input.spouse,
+        dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
+        selfDisability: "none", singleParent: input.selfStatus, workingStudent: false }, FURUSATO_DATA);
+      var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);
+      var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;
+      var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
+      var rj = calculateJumin(null, { salary: salary, pension: 0, age: input.age, socialInsurance: si, spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents,
+        humanDeductionDiff: hd, fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: 1 });
+      var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
+      var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);
+      return { salary: salary, socialInsurance: si, jumin: rj, limit: fz };
+    }
+    var salaryNow = input.salaryOverride > 0 ? input.salaryOverride : input.monthly * paid + input.bonus;
+    var now = scenario(salaryNow, 12 - exempt, paid, input.bonusExempt);
+    var normal = scenario(input.monthly * 12 + input.bonus, 12, 12, false);
+    return { now: now, normal: normal, monthlyPremium: Math.round(mPrem + mKoyo), paidMonths: paid, exemptMonths: exempt };
+  }
+  window.computeIkukyu = computeIkukyu;
+
+  function limitText(sc){ return (sc.limit.supported && sc.limit.limit > 0) ? ("約 " + (Math.floor(sc.limit.limit / 1000) * 1000).toLocaleString("ja-JP") + " 円") : "—（所得割なし）"; }
+  window.calcIkukyu = async function(){
+    var out = $("result");
+    var monthly = num("monthly"), age = num("age");
+    if(!monthly){ out.innerHTML = "<span class='result-placeholder'>①の月給を入れてください</span>"; return; }
+    if(!age){ out.innerHTML = "<span class='result-placeholder'>①の年齢を入れてください</span>"; return; }
+    var paid = num("paidMonths"), exempt = num("exemptMonths");
+    if(paid > 12 || exempt > 12){ out.innerHTML = "<span class='result-placeholder'>月数は 0〜12 で入れてください</span>"; return; }
+    out.innerHTML = "<span class='result-placeholder'>料率を読み込んで計算中…</span>";
+    var data;
+    try{ data = await loadShaho(); }catch(e){ out.innerHTML = "<div class='warn'>社会保険の料率データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    var input = { prefSlug: val("pref"), age: age, monthly: monthly, bonus: num("bonus"), bonusExempt: chk("bonusExempt"), paidMonths: paid, exemptMonths: exempt, salaryOverride: num("salaryOverride"),
+      spouse: val("spouse"), depGeneral: num("depGeneral"), depSpecific: num("depSpecific"), depElderly: num("depElderly"), depParent: num("depParent"), selfStatus: val("selfStatus") };
+    var r;
+    try{ r = computeIkukyu(input, data); }catch(e){ out.innerHTML = "<div class='result-label'>計算エラー</div><div>" + esc(e.message) + "</div>"; return; }
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "furusato-ikukyu" }); }
+    var diff = (r.normal.limit.limit || 0) - (r.now.limit.limit || 0);
+    var h = "<div class='cmp'>" +
+      "<div class='box now'><div class='ttl'>今年（育休・産休の年）</div><div class='amt'>" + limitText(r.now) + "</div><div class='sub'>給与収入 " + yen(r.now.salary) + "<br>社会保険料控除 " + yen(r.now.socialInsurance) + "<br>住民税 所得割 " + yen(r.now.jumin.incomeLevy) + "</div></div>" +
+      "<div class='box'><div class='ttl'>通常の年（参考）</div><div class='amt'>" + limitText(r.normal) + "</div><div class='sub'>給与収入 " + yen(r.normal.salary) + "<br>社会保険料控除 " + yen(r.normal.socialInsurance) + "<br>住民税 所得割 " + yen(r.normal.jumin.incomeLevy) + "</div></div>" +
+      "</div>";
+    if(diff > 0) h += "<div class='warn' style='margin-top:12px;'><strong>通常の年より 約 " + yen(Math.floor(diff / 1000) * 1000) + " 少ない見込みです。</strong>去年の上限額のつもりで寄附すると、超えた分は自己負担になります。</div>";
+    h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>今年の計算の内訳</div>" +
+      row("給与が支給される月数", r.paidMonths + " か月") +
+      row("社会保険料が免除される月数", r.exemptMonths + " か月") +
+      row("月々の社会保険料（本人負担・目安）", yen(r.monthlyPremium)) +
+      row("今年の社会保険料控除", yen(r.now.socialInsurance)) +
+      row("課税総所得金額（令和9年度分）", yen(r.now.jumin.taxableIncome)) +
+      row("所得割額（調整控除後）", yen(r.now.jumin.incomeLevy));
+    if(r.now.limit.supported && r.now.limit.limit > 0){
+      h += row("控除上限額の目安", limitText(r.now), "big") + "<div class='hint' style='margin:0 0 8px;'>計算上の値は " + yen(r.now.limit.limit) + "。千円未満を切り捨てて表示しています。特例控除の割合 " + r.now.limit.ratio.percent + "%。</div>";
+    } else {
+      h += "<div class='warn' style='margin-top:10px;'>今年は住民税の所得割がかからない見込みのため、自己負担2,000円で済む枠はほぼありません。寄附をしても控除はほとんど受けられません。</div>";
+    }
+    h += "<div class='hint' style='margin-top:8px;'>育児休業給付金・出産手当金は非課税なので、この計算には入れていません。</div>";
+    out.innerHTML = h;
+  };
+
+  function init(){
+    ["monthly","bonus","salaryOverride"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["age","paidMonths","exemptMonths","depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id); });
+  }
+  if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>
