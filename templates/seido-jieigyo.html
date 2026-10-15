@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="自営業・フリーランス・退職後など国民健康保険に入っている方のふるさと納税の上限額を、お住まいの自治体の国保料と国民年金を自動計算し、社会保険料控除に入れたうえで算出します。全国の市区町村に対応。">
+<link rel="canonical" href="https://seido-keisan.jp/furusato/jieigyo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="自営業・国保加入者のふるさと納税 上限額｜国保料を自動計算">
+<meta property="og:description" content="自治体を選んで事業所得を入れるだけ。国保料・国民年金を自動で控除に入れて上限額を出します。">
+<meta property="og:url" content="https://seido-keisan.jp/furusato/jieigyo/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=__CSS_V__">
+<title>自営業・国保加入者のふるさと納税 上限額｜国保料を自動計算して控除まで一気通貫【2026年中の寄附】</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
+  .check input{width:auto;margin-top:3px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .big{font-size:24px;color:#1d4ed8;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;}
+  .jt-table th,.jt-table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;}
+  .jt-table th{background:#f3f6fb;color:#374151;font-weight:600;}
+  .jt-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
+  h2{font-size:16px;margin:28px 0 6px;color:#111827;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
+  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">自営業・国保加入者の</span><span class="h1-seg">ふるさと納税 上限額</span><span class="h1-year">【2026年中の寄附・国保料を自動計算】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">国民健康保険に入っている方（自営業・フリーランス・退職後など）は、国保料と国民年金が<b>社会保険料控除</b>になるため、同じ所得の会社員とは上限額が違います。お住まいの自治体を選んで事業所得を入れると、<b>国保料をその自治体の料率で自動計算</b>し、控除に入れたうえで上限額を出します（<b>__CITY_COUNT__</b> 自治体に対応）。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① お住まいの自治体</div>
+    <div class="row2">
+      <div>
+        <label for="pref">都道府県</label>
+        <select id="pref" data-step="1a"><option value="">選択してください</option></select>
+      </div>
+      <div>
+        <label for="city">市区町村</label>
+        <select id="city" data-step="1b" disabled><option value="">先に都道府県を選択</option></select>
+      </div>
+    </div>
+    <div class="hint">国保料は市区町村ごとに違います（令和8年度の料率で計算）。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② 所得と世帯</div>
+    <label for="business">事業所得（2026年の見込み・円）</label>
+    <div class="hint">売上から必要経費と青色申告特別控除を引いた後の金額。給与や年金がある方は家計簿シミュレーターをお使いください。</div>
+    <input id="business" data-step="2" type="text" inputmode="numeric" placeholder="例：3,000,000">
+    <div class="row2">
+      <div>
+        <label for="age">年齢</label>
+        <input id="age" data-step="3a" type="text" inputmode="numeric" placeholder="例：45">
+      </div>
+      <div>
+        <label for="family">国保に入る人数（本人を含む）</label>
+        <input id="family" data-step="3b" type="text" inputmode="numeric" value="1">
+      </div>
+    </div>
+    <div class="hint">40〜64歳は国保の介護分、20〜59歳は国民年金（第1号）を自動で加えます。</div>
+    <label class="check"><input id="nenkinExempt" type="checkbox"> 国民年金の免除・猶予を受けている（保険料を払っていない）</label>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
+    <label for="spouse">配偶者控除</label>
+    <select id="spouse" data-step="4">
+      <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
+      <option value="general">受ける（配偶者が70歳未満）</option>
+      <option value="elderly">受ける（配偶者が70歳以上）</option>
+    </select>
+    <div class="row3">
+      <div>
+        <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
+        <input id="depGeneral" data-step="5a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depSpecific">扶養（19〜22歳）</label>
+        <input id="depSpecific" data-step="5b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
+        <input id="depElderly" data-step="6a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depParent">同居の親など（70歳以上）</label>
+        <input id="depParent" data-step="6b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません。</div>
+    <label for="selfStatus">ご本人</label>
+    <select id="selfStatus" data-step="7">
+      <option value="none" selected>あてはまるものはない</option>
+      <option value="mother">ひとり親（母）</option>
+      <option value="father">ひとり親（父）</option>
+      <option value="widow">寡婦</option>
+    </select>
+    <label for="selfDisability">ご本人の障害者控除</label>
+    <select id="selfDisability" data-step="8" data-step-end>
+      <option value="none" selected>受けない</option>
+      <option value="general">障害者</option>
+      <option value="special">特別障害者</option>
+    </select>
+  </div>
+
+  <button onclick="calcJieigyo()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>2026年も同じ所得が続く前提で、国保料は令和8年度の料率、住民税は令和9年度分（2026年の所得）で計算しています。固定資産税のある方（資産割のある自治体）、未就学児がいる方、世帯に他の所得者がいる方は、国保料が変わります。
+  </div>
+
+  <h2>控除の受け方</h2>
+  <div class="note" style="margin-top:4px;font-size:13px;color:#374151;">
+    ・自営業の方は確定申告をするので、<b>ワンストップ特例は使えません</b>。確定申告書の寄附金控除にすべての寄附を記載します。<br>
+    ・<a href="/furusato/onestop/" style="color:#1d4ed8;font-weight:600;">ワンストップ特例か確定申告か、3問で判定する →</a><br>
+    ・住民税の決定通知書が手元にある方は、<a href="/furusato/" style="color:#1d4ed8;font-weight:600;">通知書の数字から上限額を計算する →</a> の方が正確です。
+  </div>
+
+  <div class="note">
+    ※2026年中の寄附（所得税は令和8年分・住民税は令和9年度分）の制度で計算します。<br>
+    ※国保料は「前年所得」で決まるため、本来は2025年の所得で計算されます。ここでは入力した事業所得が2025年・2026年とも同じ前提です。<br>
+    ※国民年金は定額（令和8年度 月額をデータから読み込み）。付加保険料・前納割引は入れていません。<br>
+    ※退職所得・山林所得（分離課税）がある方、配偶者や扶養親族に障害者控除がある方、青色事業専従者がいる方は、この計算では正確に出せません。<br>
+    ※出典：地方税法 第37条の2・第314条の7（寄附金税額控除）・第34条（所得控除）、地方税法等の一部を改正する法律（令和8年法律第2号）、国民健康保険法・各自治体の国保条例（料率はお住まいの自治体の公表値）、日本年金機構「国民年金保険料」。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 制度値と自治体一覧。生成時に埋め込む -->
+<script>const CITY_INDEX = __CITY_INDEX__; const FURUSATO_DATA = __FURUSATO_DATA__; const NENKIN_DATA = __NENKIN_DATA__; const SHOTOKU_KISO_2026 = __SHOTOKU_KISO__;</script>
+<script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
+<script src="/js/core/shared/income.js?v=__JS_V__"></script>
+<script src="/js/core/jumin.js?v=__JS_V__"></script>
+<script src="/js/core/kokuho.js?v=__JS_V__"></script>
+<script src="/js/core/furusato.js?v=__JS_V__"></script>
+<script>
+(function(){
+  "use strict";
+  var KOKUHO_YEAR = 2026;   // 国保・住民税データの年度（令和8年度）。翌年度は制度値と同時に見直す
+  var JUMIN_FY = 2027;      // 2026年中の寄附 ＝ 住民税 令和9年度分
+  function $(id){ return document.getElementById(id); }
+  function num(id){ var v = toHalfWidth(($(id)||{}).value || "").replace(/[^0-9]/g, ""); return v === "" ? 0 : Number(v); }
+  function val(id){ return ($(id)||{}).value || ""; }
+  function chk(id){ return !!($(id) && $(id).checked); }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function row(label, value, cls){ return "<div class='result-row'><div class='result-label'>"+label+"</div><div class='amount"+(cls?" "+cls:"")+"'>"+value+"</div></div>"; }
+
+  // ── 自治体プルダウン（都道府県 → 市区町村。CITY_INDEX は JIS コード順） ──
+  var prefSel = $("pref"), citySel = $("city");
+  Object.keys(CITY_INDEX).forEach(function(pn){ var o = document.createElement("option"); o.value = pn; o.textContent = pn; prefSel.appendChild(o); });
+  prefSel.addEventListener("change", function(){
+    var pn = prefSel.value; citySel.innerHTML = "";
+    if(!pn){ citySel.disabled = true; citySel.innerHTML = "<option value=''>先に都道府県を選択</option>"; return; }
+    citySel.disabled = false;
+    var o0 = document.createElement("option"); o0.value = ""; o0.textContent = "選択してください"; citySel.appendChild(o0);
+    CITY_INDEX[pn].cities.forEach(function(c){ var o = document.createElement("option"); o.value = c.slug; o.textContent = c.name; citySel.appendChild(o); });
+  });
+  function currentCity(){
+    var pn = prefSel.value, slug = citySel.value; if(!pn || !slug) return null;
+    var c = CITY_INDEX[pn].cities.filter(function(x){ return x.slug === slug; })[0];
+    return c ? { pref: pn, prefSlug: CITY_INDEX[pn].slug, slug: slug, name: c.name, kyuchi: c.k, hasJumin: !!c.j, hasKakeibo: !!c.kb } : null;
+  }
+
+  // ── 自治体データ（国保・住民税）。同じサイトの /data/municipalities/ から取得。無ければ null ──
+  var _cache = {};
+  function loadMunicipal(slug, sys){
+    var key = slug + "/" + sys;
+    if(_cache[key]) return _cache[key];
+    _cache[key] = fetch("/data/municipalities/" + slug + "/" + sys + "-" + KOKUHO_YEAR + ".json", { cache: "no-store" })
+      .then(function(r){ if(!r.ok) throw new Error(sys + " HTTP " + r.status); return r.json(); })
+      .catch(function(e){ delete _cache[key]; throw e; });
+    return _cache[key];
+  }
+
+  // ── 計算（家計簿シミュレーターの自営の経路と同じ順: 国保 → 国民年金 → 社会保険料控除 → 住民税（令和9年度分） → 上限額） ──
+  function computeJieigyo(input, kokuhoData, juminData){
+    var careN = (input.age >= 40 && input.age < 65) ? 1 : 0;
+    var rk = calculateKokuho({ income: input.business, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
+    var nenkin = (input.age >= 20 && input.age < 60 && !input.nenkinExempt && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
+    var si = rk.total + nenkin;
+    var hd = furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: input.spouse,
+      dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
+      selfDisability: input.selfDisability, singleParent: input.selfStatus, workingStudent: false }, FURUSATO_DATA);
+    var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);   // 地方税法 第34条第1項第10号
+    var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;   // 第11号
+    var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
+    var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si,
+      spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents, humanDeductionDiff: hd,
+      fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: input.kyuchi });
+    var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
+    var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);
+    return { kokuho: rk, nenkin: nenkin, socialInsurance: si, jumin: rj, humanDiff: hd, kiso: kiso, limit: fz, careN: careN };
+  }
+  window.computeJieigyo = computeJieigyo;
+
+  window.calcJieigyo = async function(){
+    var out = $("result");
+    var city = currentCity();
+    if(!city){ out.innerHTML = "<span class='result-placeholder'>①で都道府県と市区町村を選んでください</span>"; return; }
+    var business = num("business"), age = num("age");
+    if(!business){ out.innerHTML = "<span class='result-placeholder'>②の事業所得を入れてください</span>"; return; }
+    if(!age){ out.innerHTML = "<span class='result-placeholder'>②の年齢を入れてください</span>"; return; }
+    if(age >= 75){ out.innerHTML = "<div class='warn'>75歳以上の方は国保ではなく後期高齢者医療の対象です。家計簿シミュレーターで計算してください。</div>"; return; }
+    out.innerHTML = "<span class='result-placeholder'>" + esc(city.name) + "の国保データを読み込んで計算中…</span>";
+    var kokuhoData, juminData = null;
+    try{ kokuhoData = await loadMunicipal(city.slug, "kokuho"); }
+    catch(e){ out.innerHTML = "<div class='warn'>" + esc(city.name) + "の国保データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    if(city.hasJumin){ try{ juminData = await loadMunicipal(city.slug, "jumin"); }catch(e){ juminData = null; } }
+    var input = { business: business, age: age, family: num("family") || 1, nenkinExempt: chk("nenkinExempt"), kyuchi: city.kyuchi,
+      spouse: val("spouse"), depGeneral: num("depGeneral"), depSpecific: num("depSpecific"), depElderly: num("depElderly"), depParent: num("depParent"),
+      selfStatus: val("selfStatus"), selfDisability: val("selfDisability") };
+    var r;
+    try{ r = computeJieigyo(input, kokuhoData, juminData); }
+    catch(e){ out.innerHTML = "<div class='result-label'>計算エラー</div><div>" + esc(e.message) + "</div>"; return; }
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "furusato-jieigyo", city: city.slug }); }
+
+    var h = "<div class='result-title' style='font-size:15px;margin-top:4px;'>社会保険料控除に入る保険料（" + esc(city.name) + "・年額）</div>" +
+      row("国民健康保険（" + (r.careN ? "医療・支援・介護分" : "医療・支援分") + "）", yen(r.kokuho.total)) +
+      (r.kokuho.reductionLabel && r.kokuho.reductionLabel !== "軽減なし" ? "<div class='ci-sub'>国保の軽減判定: " + esc(r.kokuho.reductionLabel) + "</div>" : "") +
+      row("国民年金（第1号・本人1人分）", r.nenkin ? yen(r.nenkin) : "対象外") +
+      row("社会保険料控除の合計", yen(r.socialInsurance), "big") +
+      "<div class='result-title' style='font-size:15px;margin-top:16px;'>住民税（令和9年度分・目安）</div>" +
+      row("課税総所得金額", yen(r.jumin.taxableIncome)) +
+      row("所得割額（調整控除後）", yen(r.jumin.incomeLevy));
+    if(!r.limit.supported || r.limit.limit <= 0){
+      h += "<div class='warn' style='margin-top:14px;'>所得割がかからない所得のため、住民税からの特例控除がありません。ふるさと納税をしても、自己負担2,000円で済む枠はほぼありません。</div>";
+    } else {
+      var shown = Math.floor(r.limit.limit / 1000) * 1000;
+      var rate = furusatoImpliedShotokuRate(r.limit.ratio, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit.limit, { incomeLevy: r.jumin.incomeLevy, ratio: r.limit.ratio, shotokuMarginalRate: rate, totalIncome: r.jumin.totalIncome }, FURUSATO_DATA);
+      h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>ふるさと納税（2026年中の寄附）</div>" +
+        row("控除上限額の目安", "約 " + shown.toLocaleString("ja-JP") + " 円", "big") +
+        "<div class='hint' style='margin:0 0 12px;'>計算上の値は " + yen(r.limit.limit) + "。端数の扱いで実際とずれるため、千円未満を切り捨てて表示しています。</div>" +
+        row("特例控除の割合", r.limit.ratio.percent + "%") +
+        row("人的控除差調整額", yen(r.limit.humanAdjustment)) +
+        "<div class='result-title' style='font-size:15px;margin-top:16px;'>上限額を寄附したときの控除の内訳（目安）</div>" +
+        row("所得税（2026年分・確定申告で還付）", yen(b.shotoku)) +
+        row("住民税 基本分（2027年度）", yen(b.juminBasic)) +
+        row("住民税 特例分（2027年度）", yen(b.juminSpecial)) +
+        row("自己負担", yen(b.selfBurden)) +
+        "<div class='hint' style='margin-top:6px;'>ふるさと納税をしても国保料は下がりません（国保の所得割は寄附金控除の前の所得で決まります）。</div>";
+    }
+    h += "<div class='links' style='margin-top:14px;'>" +
+      "<a href='https://kokuho-keisan.jp/" + esc(city.prefSlug) + "/" + esc(city.slug) + "/income.html'>" + esc(city.name) + "の国保料を詳しく →</a>" +
+      (city.hasKakeibo ? "<a href='/" + esc(city.prefSlug) + "/" + esc(city.slug) + "/kakeibo/'>税金・保険料をまとめて見る（家計簿）→</a>" : "") +
+      "</div>";
+    out.innerHTML = h;
+  };
+
+  function init(){
+    ["business"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["age","family","depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id); });
+  }
+  if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>
