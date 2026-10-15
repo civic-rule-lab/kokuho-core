@@ -6,8 +6,9 @@
  *    上限額 ＝ floor(所得割 × 20% ÷ 特例控除の割合) ＋ 2,000円（地方税法 第37条の2第11項）
  * 3. 年齢による分岐: 45歳＝介護分あり・国民年金あり／62歳＝介護分あり・国民年金なし／66歳＝両方なし／75歳＝後期の案内
  * 4. 家族入力（配偶者・扶養）で人的控除差が変わり上限が下がる
- * 5. Enter の順: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数 → 配偶者 → 扶養×4 → 本人 → 障害者控除（終了）
+ * 5. Enter の順: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 医療費 → 年齢 → 人数 → 配偶者 → 扶養×4 → 本人 → 障害者控除（終了）
  * 6. 青色申告特別控除（事業所得から引く・事業所得が限度）と iDeCo・共済の掛金（所得控除。国保は不変・所得割が下がる）、住宅ローン控除の注意書き
+ * 7. 医療費控除: 支払額 − min(所得×5%, 10万)・上限 200万（地方税法 第314条の2 第1項第2号）。5%以下なら 0
  * 実行: node scripts/test-jieigyo-dom.cjs
  */
 'use strict';
@@ -56,11 +57,12 @@ function enter(id) { const el = d.getElementById(id); el.focus(); el.dispatchEve
 function ref(input) {
   const careN = (input.age >= 40 && input.age < 65) ? 1 : 0;
   const kyosai = input.kyosai || 0;
+  const medical = input.medical || 0;
   const rk = calculateKokuho({ income: input.business, family: input.family, preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
   const nk = (input.age >= 20 && input.age < 60) ? nenkin.monthly * 12 : 0;
   const si = rk.total + nk;
   const hd = F.furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: input.spouse || 'none', dependentGeneral: input.depG || 0, dependentSpecific: 0, dependentElderly: 0, dependentCohabitingParent: 0, selfDisability: 'none', singleParent: 'none', workingStudent: false }, fz);
-  const rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si + kyosai,
+  const rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si + kyosai, medicalDeduction: medical,
     spouseDeduction: input.spouse === 'general' ? 330000 : 0, dependentDeduction: (input.depG || 0) * 330000, dependents: (input.spouse === 'general' ? 1 : 0) + (input.depG || 0),
     humanDeductionDiff: hd, fiscalYear: 2027, taxCredits: 0, kyuchi: Number(KYUCHI[SLUG][0]) });
   const ks = F.furusatoShotokuBasicDeduction(rj.totalIncome, kiso);
@@ -74,7 +76,7 @@ function ref(input) {
   sel('pref', PREF);
   A('東京都を選ぶと市区町村が入る（新宿区あり）', [...d.getElementById('city').options].some(o => o.value === SLUG));
   sel('city', SLUG);
-  A('Enter: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数', enter('pref') === 'city' && enter('city') === 'business' && enter('business') === 'aoiro' && enter('aoiro') === 'kyosai' && enter('kyosai') === 'age' && enter('age') === 'family');
+  A('Enter: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数', enter('pref') === 'city' && enter('city') === 'business' && enter('business') === 'aoiro' && enter('aoiro') === 'kyosai' && enter('kyosai') === 'medical' && enter('medical') === 'age' && enter('age') === 'family');
   A('青色申告特別控除の選択肢がデータから入る（0・10万・55万・65万）', [...d.getElementById('aoiro').options].map(o => o.value).join(',') === '0,100000,550000,650000' && d.getElementById('aoiro').value === '0');
   A('Enter: 人数 → 配偶者 → 扶養 → … → 障害者控除（終了）', enter('family') === 'spouse' && enter('spouse') === 'depGeneral' && enter('depParent') === 'selfStatus' && enter('selfStatus') === 'selfDisability' && enter('selfDisability') === 'selfDisability');
 
@@ -126,6 +128,20 @@ function ref(input) {
   A(`掛金50万: 国保 ${grab('国民健康保険')} は不変、控除 ${grab('小規模企業共済等掛金控除')} ＝ 500,000`, grab('国民健康保険') === r1.rk.total && grab('小規模企業共済等掛金控除') === 500000);
   A(`掛金50万: 所得割 ${grab('所得割額')} がエンジン ${r6.rj.incomeLevy} と一致し、無しより ${r1.rj.incomeLevy - r6.rj.incomeLevy} 円低い。上限も下がる`, grab('所得割額') === r6.rj.incomeLevy && r6.rj.incomeLevy < r1.rj.incomeLevy && r6.lim.limit < r1.lim.limit && grab('控除上限額の目安') === Math.floor(r6.lim.limit / 1000) * 1000);
   set('kyosai', '');
+  // 医療費 30万（所得 300万 → 5% = 15万 > 10万 なので控除 20万）: 国保不変、所得割がエンジン（医療費控除 20万）と一致
+  set('medical', '300000'); await w.calcJieigyo(); await wait(50);
+  const r7 = ref({ business: 3000000, age: 45, family: 1, medical: 200000 });
+  A(`医療費30万: 控除 ${grab('医療費控除')} ＝ 200,000、国保不変、所得割 ${grab('所得割額')} がエンジン ${r7.rj.incomeLevy} と一致し無しより 20,000 円低い`, grab('医療費控除') === 200000 && grab('国民健康保険') === r1.rk.total && grab('所得割額') === r7.rj.incomeLevy && r1.rj.incomeLevy - r7.rj.incomeLevy === 20000 && grab('控除上限額の目安') === Math.floor(r7.lim.limit / 1000) * 1000);
+  // 医療費 8万: 10万以下なので控除 0（所得割は無しと同じ）
+  set('medical', '80000'); await w.calcJieigyo(); await wait(50);
+  A('医療費8万: 控除 0 円の表示、所得割は無しと同じ', /医療費控除/.test(res()) && /0 円（5%以下）/.test(res()) && grab('所得割額') === r1.rj.incomeLevy);
+  // 医療費 300万: 上限 200万
+  set('medical', '3000000'); await w.calcJieigyo(); await wait(50);
+  A('医療費300万: 控除は上限 200万', grab('医療費控除') === 2000000);
+  // 事業所得 100万 → 5% = 5万 が閾値（10万より低い）
+  set('business', '1000000'); set('medical', '100000'); await w.calcJieigyo(); await wait(50);
+  A('所得100万・医療費10万: 閾値は 5%＝5万 → 控除 5万', grab('医療費控除') === 50000);
+  set('business', '3000000'); set('medical', '');
   // 住宅ローン控除
   A('住宅ローン未チェック: 注意書きなし', !/住宅ローン控除がある方へ/.test(res()));
   d.getElementById('housingLoan').checked = true; await w.calcJieigyo(); await wait(50);
