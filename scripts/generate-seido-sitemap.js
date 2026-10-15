@@ -56,6 +56,7 @@ const urls = [
   { loc: `${BASE_URL}/furusato/onestop/`, priority: '0.7', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/jieigyo/`, priority: '0.8', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/ikukyu/`, priority: '0.7', changefreq: 'yearly' },
+  { loc: `${BASE_URL}/furusato/haito/`, priority: '0.7', changefreq: 'yearly' },
 ];
 
 let n = { jumin: 0, kakeibo: 0, kouki: 0, kaigo: 0, hoiku: 0 };
