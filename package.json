@@ -23,13 +23,14 @@
     "test:onestop": "node scripts/test-onestop.cjs",
     "test:onestop-dom": "node scripts/test-onestop-dom.cjs",
     "test:jieigyo-dom": "node scripts/test-jieigyo-dom.cjs",
+    "test:kakeibo-dom": "node scripts/test-kakeibo-dom.cjs",
     "test:ikukyu-dom": "node scripts/test-ikukyu-dom.cjs",
     "test:ui-input": "node scripts/test-ui-input-dom.cjs",
     "test:integrity": "node scripts/test-integrity.js",
     "check:slug-kana": "node scripts/check-slug-kana.cjs",
     "test:provenance": "node scripts/test-provenance-visibility.js",
   "watch:provenance": "node scripts/verify-provenance-hosts.js",
-    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:income && npm run test:kaigo && npm run test:household && npm run test:income-dom && npm run test:jumin-income-dom && npm run test:furusato && npm run test:furusato-dom && npm run test:ui-input && npm run test:onestop && npm run test:onestop-dom && npm run test:jieigyo-dom && npm run test:ikukyu-dom",
+    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:income && npm run test:kaigo && npm run test:household && npm run test:income-dom && npm run test:jumin-income-dom && npm run test:furusato && npm run test:furusato-dom && npm run test:ui-input && npm run test:onestop && npm run test:onestop-dom && npm run test:jieigyo-dom && npm run test:ikukyu-dom && npm run test:kakeibo-dom",
     "test:ci": "npm run test && npm run test:integrity && npm run test:provenance"
   },
   "repository": {

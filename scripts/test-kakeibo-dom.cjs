@@ -121,6 +121,7 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   async function run(opts) {
     setVal('salary', String(opts.salary || ''));
     setVal('pension', String(opts.pension || ''));
+    setVal('sideIncome', opts.sideIncome ? String(opts.sideIncome) : '');
     setVal('age', String(opts.age || ''));
     setVal('family', '1');
     if (w.document.getElementById('employment')) w.document.getElementById('employment').value = opts.employment || 'kaishain';
@@ -574,6 +575,50 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A('年金夫婦: 介護保険（第1号・配偶者）が直算と一致', num(find(k1.heads, '介護保険（第1号・配偶者）')[1]) === kgK.annual);
     A('年金夫婦: 本人の住民税は 世帯分の国保＋本人の介護1号 を控除・配偶者特別控除33万 の直算と一致', num(find(k1.heads, '住民税')[1]) === rjSelfK.total);
     A('年金夫婦: 内訳の行に配偶者の年金収入と合計所得が出る', /配偶者の年金収入 1,800,000 円（合計所得 700,000 円）＝配偶者特別控除 330,000 円/.test(k1.sys));
+  }
+
+  // ── 副業などの所得（2026-10-15・構想 第2フェーズ）: 給与所得に加えて住民税・所得税・ふるさと納税の上限・保育料指数に効く。会社員の社保は不変 ──
+  {
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const Shotoku = require('../js/core/shotoku.js');
+    const F = require('../js/core/furusato.js');
+    const P26 = Shotoku.loadParams(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8')));
+    const fzData = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/furusato-2027.json'), 'utf8'));
+    const s0 = await run({ salary: 5000000, age: 40, employment: 'kaishain' });
+    const s1 = await run({ salary: 5000000, age: 40, employment: 'kaishain', sideIncome: 500000 });
+    const siS = expectShahoAnnual(5000000, 0, 40);
+    const jS0 = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: siS });
+    const jS1 = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 500000, age: 40, socialInsurance: siS });
+    A('会社員＋副業50万: 社会保険（会社員）は副業なしと同額', num(find(s1.heads, '社会保険（会社員）')[1]) === num(find(s0.heads, '社会保険（会社員）')[1]));
+    A(`会社員＋副業50万: 住民税 ${num(find(s1.heads, '住民税')[1])} が otherIncome=50万 の直算 ${jS1.total} と一致し、副業なし ${jS0.total} より増える`, num(find(s1.heads, '住民税')[1]) === jS1.total && jS1.total > jS0.total && num(find(s0.heads, '住民税')[1]) === jS0.total);
+    const stS1 = Shotoku.calcShotokuzei({ salary: 5000000, otherIncome: 500000, socialInsurance: siS, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }, P26);
+    const stS0 = Shotoku.calcShotokuzei({ salary: 5000000, otherIncome: 0, socialInsurance: siS, spouse: null, dependents: { general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 } }, P26);
+    A(`会社員＋副業50万: 所得税 ${num(find(s1.heads, '所得税')[1])} が otherIncome 込みの直算 ${stS1.annualTax} と一致（課税所得は副業なしより 50万 増）`, num(find(s1.heads, '所得税')[1]) === stS1.annualTax && stS1.kazeiShotoku - stS0.kazeiShotoku === 500000);
+    const j27S1 = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 500000, age: 40, socialInsurance: siS, fiscalYear: 2027, taxCredits: 0 });
+    const fzS1 = F.calcFurusatoLimit({ incomeLevy: j27S1.incomeLevy, taxableIncome: j27S1.taxableIncome, humanDeductionDiff: j27S1.humanDeductionDiff, shotokuBasicDeduction: F.furusatoShotokuBasicDeduction(j27S1.totalIncome, P26.kisoKojo) }, fzData);
+    const fzShown = (r) => { const m = r.sys.match(/ふるさと納税の上限（目安）<span[^>]*>約 ([\d,]+) 円/); return m ? num(m[1]) : null; };
+    A(`会社員＋副業50万: ふるさと納税の上限 ${fzShown(s1)} が直算 ${Math.floor(fzS1.limit / 1000) * 1000} と一致し、副業なし ${fzShown(s0)} より大きい`, fzShown(s1) === Math.floor(fzS1.limit / 1000) * 1000 && fzShown(s1) > fzShown(s0));
+    A('会社員＋副業50万: 内訳の行に副業の所得が出る', /副業などの所得 500,000 円 を給与所得に加えて計算/.test(s1.sys));
+    // 自営＋副業（事業所得が2本ある形）: 国保の所得にも入る
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const kd2 = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const s2 = await run({ salary: 5000000, age: 45, employment: 'jiei', sideIncome: 500000 });
+    const kS2 = calculateKokuho({ income: calcSalaryIncome(5000000) + 500000, family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 }, kd2);
+    A(`自営45歳＋副業50万: 国保 ${num(find(s2.heads, '国民健康保険')[1])} が所得に副業を加えた直算 ${kS2.total} と一致`, num(find(s2.heads, '国民健康保険')[1]) === kS2.total);
+    // 副業のみ（給与0・年金0）でも計算できる
+    const s3 = await run({ salary: 0, age: 40, employment: 'jiei', sideIncome: 3000000 });
+    A('副業（事業）のみ 300万・自営: 住民税・国保・所得税カードが出る', !!find(s3.heads, '住民税') && !!find(s3.heads, '国民健康保険') && !!find(s3.heads, '所得税'));
+    // 保育料（opt-in）: 本人の副業所得が指数に入る
+    const optIn2 = w.document.getElementById('hoikuOptIn');
+    if (optIn2) optIn2.checked = true;
+    const hS0 = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
+    const hS1 = await run({ salary: 6000000, age: 40, employment: 'kaishain', sideIncome: 1000000 });
+    if (optIn2) optIn2.checked = false;
+    const M2 = JSON.parse(fs.readFileSync(HOIKU_FIXTURE, 'utf8'));
+    const fH = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 1000000, age: 40, socialInsurance: expectShahoAnnual(6000000, 0, 40) });
+    const expH1 = calcHoiku({ age: 'age1_2', hitorioya: false, month: (M2.fiscalSwitch || 9), father: { shotokuwari: fH.hoikuShotokuwari }, mother: { shotokuwari: 0 }, isSeireiNotice: false, hikazei: false, childOrder: 1 }, M2).monthly || 0;
+    const hc0 = find(hS0.heads, '保育料（認可・月額換算）') || hS0.heads.find(h => h[0].startsWith('保育料')), hc1 = find(hS1.heads, '保育料（認可・月額換算）') || hS1.heads.find(h => h[0].startsWith('保育料'));
+    A(`保育料: 副業100万を本人の所得割に入れた直算（月額 ${expH1.toLocaleString()}円）と一致し、副業なし以上`, !!hc1 && num(hc1[1]) === expH1 * 12 && !!hc0 && num(hc1[1]) >= num(hc0[1]));
   }
 
   A('JSランタイムエラーなし', errs.length === 0);
