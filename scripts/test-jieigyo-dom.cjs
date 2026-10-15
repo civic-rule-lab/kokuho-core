@@ -6,7 +6,8 @@
  *    上限額 ＝ floor(所得割 × 20% ÷ 特例控除の割合) ＋ 2,000円（地方税法 第37条の2第11項）
  * 3. 年齢による分岐: 45歳＝介護分あり・国民年金あり／62歳＝介護分あり・国民年金なし／66歳＝両方なし／75歳＝後期の案内
  * 4. 家族入力（配偶者・扶養）で人的控除差が変わり上限が下がる
- * 5. Enter の順: 都道府県 → 市区町村 → 事業所得 → 年齢 → 人数 → 配偶者 → 扶養×4 → 本人 → 障害者控除（終了）
+ * 5. Enter の順: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数 → 配偶者 → 扶養×4 → 本人 → 障害者控除（終了）
+ * 6. 青色申告特別控除（事業所得から引く・事業所得が限度）と iDeCo・共済の掛金（所得控除。国保は不変・所得割が下がる）、住宅ローン控除の注意書き
  * 実行: node scripts/test-jieigyo-dom.cjs
  */
 'use strict';
@@ -54,11 +55,12 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
 function enter(id) { const el = d.getElementById(id); el.focus(); el.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })); return d.activeElement.id; }
 function ref(input) {
   const careN = (input.age >= 40 && input.age < 65) ? 1 : 0;
+  const kyosai = input.kyosai || 0;
   const rk = calculateKokuho({ income: input.business, family: input.family, preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
   const nk = (input.age >= 20 && input.age < 60) ? nenkin.monthly * 12 : 0;
   const si = rk.total + nk;
   const hd = F.furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: input.spouse || 'none', dependentGeneral: input.depG || 0, dependentSpecific: 0, dependentElderly: 0, dependentCohabitingParent: 0, selfDisability: 'none', singleParent: 'none', workingStudent: false }, fz);
-  const rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si,
+  const rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si + kyosai,
     spouseDeduction: input.spouse === 'general' ? 330000 : 0, dependentDeduction: (input.depG || 0) * 330000, dependents: (input.spouse === 'general' ? 1 : 0) + (input.depG || 0),
     humanDeductionDiff: hd, fiscalYear: 2027, taxCredits: 0, kyuchi: Number(KYUCHI[SLUG][0]) });
   const ks = F.furusatoShotokuBasicDeduction(rj.totalIncome, kiso);
@@ -72,7 +74,8 @@ function ref(input) {
   sel('pref', PREF);
   A('東京都を選ぶと市区町村が入る（新宿区あり）', [...d.getElementById('city').options].some(o => o.value === SLUG));
   sel('city', SLUG);
-  A('Enter: 都道府県 → 市区町村 → 事業所得 → 年齢 → 人数', enter('pref') === 'city' && enter('city') === 'business' && enter('business') === 'age' && enter('age') === 'family');
+  A('Enter: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数', enter('pref') === 'city' && enter('city') === 'business' && enter('business') === 'aoiro' && enter('aoiro') === 'kyosai' && enter('kyosai') === 'age' && enter('age') === 'family');
+  A('青色申告特別控除の選択肢がデータから入る（0・10万・55万・65万）', [...d.getElementById('aoiro').options].map(o => o.value).join(',') === '0,100000,550000,650000' && d.getElementById('aoiro').value === '0');
   A('Enter: 人数 → 配偶者 → 扶養 → … → 障害者控除（終了）', enter('family') === 'spouse' && enter('spouse') === 'depGeneral' && enter('depParent') === 'selfStatus' && enter('selfStatus') === 'selfDisability' && enter('selfDisability') === 'selfDisability');
 
   // 基本: 事業所得 300万・45歳・1人
@@ -108,6 +111,26 @@ function ref(input) {
   const r4 = ref({ business: 3000000, age: 45, family: 1, spouse: 'general', depG: 1 });
   A(`配偶者＋扶養1: 上限 ${grab('控除上限額の目安')} がエンジン ${r4.lim.limit} と整合し、単身より小さい`, grab('控除上限額の目安') === Math.floor(r4.lim.limit / 1000) * 1000 && r4.lim.limit < r1.lim.limit);
   sel('spouse', 'none'); set('depGeneral', '');
+  // 青色 65万: 事業所得 300万 → 235万 で国保・住民税とも計算（エンジン直接呼び出しは 235万 を渡す）
+  sel('aoiro', '650000'); await w.calcJieigyo(); await wait(50);
+  const r5 = ref({ business: 2350000, age: 45, family: 1 });
+  A(`青色65万: 事業所得 ${grab('事業所得（青色申告特別控除')} ＝ 2,350,000、国保 ${grab('国民健康保険')} がエンジン(235万) ${r5.rk.total} と一致し、控除なしより安い`, grab('事業所得（青色申告特別控除') === 2350000 && grab('国民健康保険') === r5.rk.total && r5.rk.total < r1.rk.total);
+  A(`青色65万: 所得割 ${grab('所得割額')} がエンジン(235万) ${r5.rj.incomeLevy} と一致、上限 ${grab('控除上限額の目安')} が整合`, grab('所得割額') === r5.rj.incomeLevy && grab('控除上限額の目安') === Math.floor(r5.lim.limit / 1000) * 1000);
+  // 青色 65万 ＞ 事業所得 30万: 引けるのは 30万 まで（所得 0 → 所得割なし）
+  set('business', '300000'); await w.calcJieigyo(); await wait(50);
+  A('青色65万・事業所得30万: 控除は事業所得が限度（所得 0 円・所得割なし）', grab('事業所得（青色申告特別控除') === 0 && /所得割がかからない/.test(res()));
+  set('business', '3000000'); sel('aoiro', '0');
+  // 掛金 50万: 国保は不変、所得割と上限が下がる
+  set('kyosai', '500000'); await w.calcJieigyo(); await wait(50);
+  const r6 = ref({ business: 3000000, age: 45, family: 1, kyosai: 500000 });
+  A(`掛金50万: 国保 ${grab('国民健康保険')} は不変、控除 ${grab('小規模企業共済等掛金控除')} ＝ 500,000`, grab('国民健康保険') === r1.rk.total && grab('小規模企業共済等掛金控除') === 500000);
+  A(`掛金50万: 所得割 ${grab('所得割額')} がエンジン ${r6.rj.incomeLevy} と一致し、無しより ${r1.rj.incomeLevy - r6.rj.incomeLevy} 円低い。上限も下がる`, grab('所得割額') === r6.rj.incomeLevy && r6.rj.incomeLevy < r1.rj.incomeLevy && r6.lim.limit < r1.lim.limit && grab('控除上限額の目安') === Math.floor(r6.lim.limit / 1000) * 1000);
+  set('kyosai', '');
+  // 住宅ローン控除
+  A('住宅ローン未チェック: 注意書きなし', !/住宅ローン控除がある方へ/.test(res()));
+  d.getElementById('housingLoan').checked = true; await w.calcJieigyo(); await wait(50);
+  A('住宅ローンにチェック: 注意書きが出る・上限額は変わらない', /住宅ローン控除がある方へ/.test(res()) && grab('控除上限額の目安') === Math.floor(r1.lim.limit / 1000) * 1000);
+  d.getElementById('housingLoan').checked = false;
   // 75歳
   set('age', '75'); await w.calcJieigyo(); await wait(50);
   A('75歳: 後期高齢者医療の案内', /後期高齢者医療/.test(res()));
