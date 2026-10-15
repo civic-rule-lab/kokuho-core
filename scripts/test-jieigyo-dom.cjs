@@ -8,6 +8,7 @@
  * 4. 家族入力（配偶者・扶養）で人的控除差が変わり上限が下がる
  * 5. Enter の順: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 医療費 → 年齢 → 人数 → 配偶者 → 扶養×4 → 本人 → 障害者控除（終了）
  * 6. 青色申告特別控除（事業所得から引く・事業所得が限度）と iDeCo・共済の掛金（所得控除。国保は不変・所得割が下がる）、住宅ローン控除の注意書き
+ * 8. 配偶者の給与収入 → 配偶者控除／配偶者特別控除の自動判定（jumin.js の表引き）、配偶者が国保なら所得を世帯の国保料に合算（members）、配偶者の国民年金
  * 7. 医療費控除: 支払額 − min(所得×5%, 10万)・上限 200万（地方税法 第314条の2 第1項第2号）。5%以下なら 0
  * 実行: node scripts/test-jieigyo-dom.cjs
  */
@@ -16,7 +17,9 @@ const fs = require('fs'), path = require('path');
 const { JSDOM } = require('jsdom');
 const ROOT = path.join(__dirname, '..');
 const { calculateKokuho } = require(path.join(ROOT, 'js/core/kokuho.js'));
-const { calculateJumin } = require(path.join(ROOT, 'js/core/jumin.js'));
+const { calculateJumin, calcSpouseDeductionJumin } = require(path.join(ROOT, 'js/core/jumin.js'));
+const { calcSalaryIncome } = require(path.join(ROOT, 'js/core/shared/income.js'));
+const haigu = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/jumin-haigusha-kojo.json'), 'utf8'));
 const F = require(path.join(ROOT, 'js/core/furusato.js'));
 const Shotoku = require(path.join(ROOT, 'js/core/shotoku.js'));
 const fz = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/furusato-2027.json'), 'utf8'));
@@ -58,16 +61,24 @@ function ref(input) {
   const careN = (input.age >= 40 && input.age < 65) ? 1 : 0;
   const kyosai = input.kyosai || 0;
   const medical = input.medical || 0;
-  const rk = calculateKokuho({ income: input.business, family: input.family, preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
+  const hasSpouse = !!input.spouse && input.spouse !== 'none';
+  const spIncome = hasSpouse && input.spouseSalary > 0 ? calcSalaryIncome(input.spouseSalary, 2027) : 0;
+  const sd = hasSpouse ? calcSpouseDeductionJumin({ selfIncome: input.business, spouseIncome: spIncome, age70plus: input.spouse === 'elderly', fiscalYear: 2027, data: haigu }) : { kind: 'none', deduction: 0, humanDiffSpouse: 'none' };
+  const spK = hasSpouse && input.spouseKokuho !== 'shaho';
+  const spCare = (spK && input.spouseAge >= 40 && input.spouseAge < 65) ? 1 : 0;
+  const rk = spK
+    ? calculateKokuho({ income: input.business + spIncome, members: [{ income: input.business, careTarget: careN === 1 }, { income: spIncome, careTarget: spCare === 1 }], family: Math.max(2, input.family), preschool: 0, under18: 0, care: careN + spCare, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData)
+    : calculateKokuho({ income: input.business, family: input.family, preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
   const nk = (input.age >= 20 && input.age < 60) ? nenkin.monthly * 12 : 0;
-  const si = rk.total + nk;
-  const hd = F.furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: input.spouse || 'none', dependentGeneral: input.depG || 0, dependentSpecific: 0, dependentElderly: 0, dependentCohabitingParent: 0, selfDisability: 'none', singleParent: 'none', workingStudent: false }, fz);
+  const spNk = (spK && input.spouseNenkin !== false && input.spouseAge >= 20 && input.spouseAge < 60) ? nenkin.monthly * 12 : 0;
+  const si = rk.total + nk + spNk;
+  const hd = F.furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: sd.humanDiffSpouse, dependentGeneral: input.depG || 0, dependentSpecific: 0, dependentElderly: 0, dependentCohabitingParent: 0, selfDisability: 'none', singleParent: 'none', workingStudent: false }, fz);
   const rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si + kyosai, medicalDeduction: medical,
-    spouseDeduction: input.spouse === 'general' ? 330000 : 0, dependentDeduction: (input.depG || 0) * 330000, dependents: (input.spouse === 'general' ? 1 : 0) + (input.depG || 0),
+    spouseDeduction: sd.deduction, dependentDeduction: (input.depG || 0) * 330000, dependents: (sd.kind === 'haigu' ? 1 : 0) + (input.depG || 0),
     humanDeductionDiff: hd, fiscalYear: 2027, taxCredits: 0, kyuchi: Number(KYUCHI[SLUG][0]) });
   const ks = F.furusatoShotokuBasicDeduction(rj.totalIncome, kiso);
   const lim = F.calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: ks }, fz);
-  return { rk, nk, si, rj, lim };
+  return { rk, nk, si, rj, lim, sd, spIncome, spNk };
 }
 
 (async () => {
@@ -78,7 +89,11 @@ function ref(input) {
   sel('city', SLUG);
   A('Enter: 都道府県 → 市区町村 → 事業所得 → 青色 → 掛金 → 年齢 → 人数', enter('pref') === 'city' && enter('city') === 'business' && enter('business') === 'aoiro' && enter('aoiro') === 'kyosai' && enter('kyosai') === 'medical' && enter('medical') === 'age' && enter('age') === 'family');
   A('青色申告特別控除の選択肢がデータから入る（0・10万・55万・65万）', [...d.getElementById('aoiro').options].map(o => o.value).join(',') === '0,100000,550000,650000' && d.getElementById('aoiro').value === '0');
-  A('Enter: 人数 → 配偶者 → 扶養 → … → 障害者控除（終了）', enter('family') === 'spouse' && enter('spouse') === 'depGeneral' && enter('depParent') === 'selfStatus' && enter('selfStatus') === 'selfDisability' && enter('selfDisability') === 'selfDisability');
+  A('Enter: 人数 → 配偶者 → （配偶者なしなら配偶者欄を飛ばして）扶養 → … → 障害者控除（終了）', enter('family') === 'spouse' && enter('spouse') === 'depGeneral' && enter('depParent') === 'selfStatus' && enter('selfStatus') === 'selfDisability' && enter('selfDisability') === 'selfDisability');
+  sel('spouse', 'general');
+  A('配偶者「いる」で配偶者欄が出て、Enter: 配偶者 → 年収 → 年齢 → 健康保険 → 扶養', d.getElementById('spouseBox').style.display === '' && enter('spouse') === 'spouseSalary' && enter('spouseSalary') === 'spouseAge' && enter('spouseAge') === 'spouseKokuho' && enter('spouseKokuho') === 'depGeneral');
+  sel('spouse', 'none');
+  A('配偶者「いない」に戻すと配偶者欄が隠れる', d.getElementById('spouseBox').style.display === 'none');
 
   // 基本: 事業所得 300万・45歳・1人
   set('business', '３，０００，０００'); set('age', '45'); set('family', '1');
@@ -108,11 +123,35 @@ function ref(input) {
   set('age', '45'); d.getElementById('nenkinExempt').checked = true; await w.calcJieigyo(); await wait(50);
   A('免除にチェック: 国民年金は対象外、控除は国保のみ', cell('国民年金') === '対象外' && grab('社会保険料控除の合計') === r1.rk.total);
   d.getElementById('nenkinExempt').checked = false;
-  // 家族: 配偶者＋扶養1 → 上限が下がる
-  sel('spouse', 'general'); set('depGeneral', '1'); await w.calcJieigyo(); await wait(50);
-  const r4 = ref({ business: 3000000, age: 45, family: 1, spouse: 'general', depG: 1 });
-  A(`配偶者＋扶養1: 上限 ${grab('控除上限額の目安')} がエンジン ${r4.lim.limit} と整合し、単身より小さい`, grab('控除上限額の目安') === Math.floor(r4.lim.limit / 1000) * 1000 && r4.lim.limit < r1.lim.limit);
-  sel('spouse', 'none'); set('depGeneral', '');
+  // 家族: 配偶者（収入なし・勤め先の健保）＋扶養1 → 配偶者控除 33万・上限が下がる
+  sel('spouse', 'general'); sel('spouseKokuho', 'shaho'); set('depGeneral', '1'); await w.calcJieigyo(); await wait(50);
+  const r4 = ref({ business: 3000000, age: 45, family: 1, spouse: 'general', spouseKokuho: 'shaho', depG: 1 });
+  A(`配偶者（収入なし・健保）＋扶養1: 配偶者控除 ${grab('配偶者控除')} ＝ 330,000、国保は単身と同じ、上限 ${grab('控除上限額の目安')} がエンジン ${r4.lim.limit} と整合し単身より小さい`, grab('配偶者控除') === 330000 && grab('国民健康保険') === r1.rk.total && grab('控除上限額の目安') === Math.floor(r4.lim.limit / 1000) * 1000 && r4.lim.limit < r1.lim.limit);
+  set('depGeneral', '');
+  // 配偶者 給与 100万（所得 26万 ≤ 62万 → 配偶者控除）・健保
+  set('spouseSalary', '1000000'); set('spouseAge', '45'); await w.calcJieigyo(); await wait(50);
+  const r4b = ref({ business: 3000000, age: 45, family: 1, spouse: 'general', spouseSalary: 1000000, spouseAge: 45, spouseKokuho: 'shaho' });
+  A(`配偶者 給与100万（所得 ${r4b.spIncome}）: 配偶者控除 33万のまま、所得割 ${grab('所得割額')} がエンジン ${r4b.rj.incomeLevy} と一致`, r4b.sd.kind === 'haigu' && grab('配偶者控除') === 330000 && grab('所得割額') === r4b.rj.incomeLevy);
+  // 配偶者 給与 150万（所得 76万 → 配偶者特別控除 33万・人的控除差なし・非課税判定の人数に入らない）
+  set('spouseSalary', '1500000'); await w.calcJieigyo(); await wait(50);
+  const r4c = ref({ business: 3000000, age: 45, family: 1, spouse: 'general', spouseSalary: 1500000, spouseAge: 45, spouseKokuho: 'shaho' });
+  A(`配偶者 給与150万（所得 ${r4c.spIncome}）: 配偶者特別控除 ${grab('配偶者特別控除')} ＝ エンジン ${r4c.sd.deduction}、所得割 ${grab('所得割額')} ＝ ${r4c.rj.incomeLevy}、上限が給与100万より大きい（人的控除差 5万が消える）`, r4c.sd.kind === 'special' && grab('配偶者特別控除') === r4c.sd.deduction && grab('所得割額') === r4c.rj.incomeLevy && grab('控除上限額の目安') === Math.floor(r4c.lim.limit / 1000) * 1000 && r4c.lim.limit >= r4b.lim.limit);
+  // 配偶者 給与 250万（所得 176万 > 133万 → 控除なし）
+  set('spouseSalary', '2500000'); await w.calcJieigyo(); await wait(50);
+  A('配偶者 給与250万: 配偶者控除・特別控除なしの表示', /配偶者控除・配偶者特別控除はありません/.test(res()) && cell('配偶者控除') === null && cell('配偶者特別控除') === null);
+  // 配偶者 給与 150万・45歳・国保 → 国保は世帯分（高くなる・介護 2人分）、配偶者の国民年金も控除に入る
+  set('spouseSalary', '1500000'); sel('spouseKokuho', 'kokuho'); set('family', '2'); await w.calcJieigyo(); await wait(50);
+  const r4d = ref({ business: 3000000, age: 45, family: 2, spouse: 'general', spouseSalary: 1500000, spouseAge: 45, spouseKokuho: 'kokuho' });
+  A(`配偶者が国保（給与150万・45歳・2人）: 国保 ${grab('国民健康保険')} ＝ エンジン members ${r4d.rk.total}、単身より高い、表示が世帯分`, grab('国民健康保険') === r4d.rk.total && r4d.rk.total > r1.rk.total && /配偶者の所得を含む世帯分/.test(res()));
+  A(`配偶者の国民年金 ${grab('国民年金（配偶者分')} ＝ ${nenkin.monthly * 12}、社会保険料控除 ＝ 国保＋本人年金＋配偶者年金`, grab('国民年金（配偶者分') === nenkin.monthly * 12 && grab('社会保険料控除の合計') === r4d.rk.total + nenkin.monthly * 12 * 2 && grab('所得割額') === r4d.rj.incomeLevy);
+  d.getElementById('spouseNenkin').checked = false; await w.calcJieigyo(); await wait(50);
+  A('配偶者の国民年金のチェックを外すと配偶者分が消える', cell('国民年金（配偶者分') === null && grab('社会保険料控除の合計') === r4d.rk.total + nenkin.monthly * 12);
+  d.getElementById('spouseNenkin').checked = true;
+  // 配偶者 66歳・国保・収入なし: 介護分は本人のみ、配偶者の国民年金なし
+  set('spouseSalary', ''); set('spouseAge', '66'); await w.calcJieigyo(); await wait(50);
+  const r4e = ref({ business: 3000000, age: 45, family: 2, spouse: 'general', spouseSalary: 0, spouseAge: 66, spouseKokuho: 'kokuho' });
+  A(`配偶者66歳・国保・収入なし: 国保 ${grab('国民健康保険')} ＝ エンジン ${r4e.rk.total}、配偶者の国民年金なし`, grab('国民健康保険') === r4e.rk.total && cell('国民年金（配偶者分') === null);
+  sel('spouse', 'none'); set('spouseSalary', ''); set('spouseAge', ''); set('family', '1');
   // 青色 65万: 事業所得 300万 → 235万 で国保・住民税とも計算（エンジン直接呼び出しは 235万 を渡す）
   sel('aoiro', '650000'); await w.calcJieigyo(); await wait(50);
   const r5 = ref({ business: 2350000, age: 45, family: 1 });

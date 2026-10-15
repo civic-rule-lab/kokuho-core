@@ -8,6 +8,7 @@
  *       data/national/shotokuzei-2026.json（令和8年分の所得税の基礎控除の表）
  *       data/national/kokumin-nenkin-2026.json（国民年金保険料・定額）
  *       data/national/furusato-jieigyo-2026.json（青色申告特別控除の選択肢・医療費控除の制度値）
+ *       data/national/jumin-haigusha-kojo.json（配偶者控除・配偶者特別控除の表）
  * 出力: seido-jieigyo.html（kokuho-core 直下。deploy-seido.sh が seido-keisan の furusato/jieigyo/index.html へコピーする）
  * 自治体ごとの国保データ・住民税データはページが /data/municipalities/{slug}/ から fetch する（seido-keisan に同期済み）。
  *
@@ -44,7 +45,9 @@ const nenkinText = readFileSync(path.join(ROOT, 'data', 'national', 'kokumin-nen
 JSON.parse(nenkinText);
 const kojoText = readFileSync(path.join(ROOT, 'data', 'national', 'furusato-jieigyo-2026.json'), 'utf-8').trim();
 JSON.parse(kojoText);
-for (const t of [furusatoText, nenkinText, kojoText]) if (/<\/script/i.test(t)) throw new Error('制度値に </script が含まれている');
+const haiguText = readFileSync(path.join(ROOT, 'data', 'national', 'jumin-haigusha-kojo.json'), 'utf-8').trim();
+JSON.parse(haiguText);
+for (const t of [furusatoText, nenkinText, kojoText, haiguText]) if (/<\/script/i.test(t)) throw new Error('制度値に </script が含まれている');
 
 const Shotoku = require(path.join(ROOT, 'js', 'core', 'shotoku.js'));
 const shotokuDb = JSON.parse(readFileSync(path.join(ROOT, 'data', 'national', 'shotokuzei-2026.json'), 'utf-8'));
@@ -72,6 +75,7 @@ const html = readFileSync(TMPL, 'utf-8')
   .replace('__FURUSATO_DATA__', () => furusatoText)
   .replace('__NENKIN_DATA__', () => nenkinText)
   .replace('__KOJO_DATA__', () => kojoText)
+  .replace('__HAIGU_DATA__', () => haiguText)
   .replace('__SHOTOKU_KISO__', () => JSON.stringify(kiso));
 if (/__[A-Z_]+__/.test(html)) throw new Error('未置換のプレースホルダが残っている: ' + html.match(/__[A-Z_]+__/)[0]);
 writeFileSync(OUT, html, 'utf-8');
