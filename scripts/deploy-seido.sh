@@ -112,6 +112,8 @@ if [ "$SYNC_ONLY" = false ]; then
   node "$CORE_DIR/scripts/generate-seido-index.js"
   echo "▶ generate-seido-furusato.js"
   node "$CORE_DIR/scripts/generate-seido-furusato.js"
+  echo "▶ generate-seido-onestop.js"
+  node "$CORE_DIR/scripts/generate-seido-onestop.js"
   echo "▶ generate-seido-sitemap.js"
   node "$CORE_DIR/scripts/generate-seido-sitemap.js"
 fi
@@ -202,6 +204,7 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/shogakukin-bridge.js" "$PUBLIC_DIR/js/core/"   # 同上（年収→jumin→supporter ブリッジ）
   cp "$CORE_DIR/js/core/shogakukin-2026.json" "$PUBLIC_DIR/js/core/"   # 同上（全国共通スペック。家計簿が fetch する）
   cp "$CORE_DIR/js/core/furusato.js"      "$PUBLIC_DIR/js/core/"   # ふるさと納税の控除上限額（全国ページ・家計簿）
+  cp "$CORE_DIR/js/core/onestop.js"       "$PUBLIC_DIR/js/core/"   # ふるさと納税 ワンストップ特例の判定（全国ページ）
   cp "$CORE_DIR/css/common.css"           "$PUBLIC_DIR/css/"
 
   # アンブレラ・ランディング → 公開リポの index.html
@@ -210,6 +213,8 @@ if [ "$DRY_RUN" = false ]; then
   # ふるさと納税の控除上限額 かんたん計算（全国1ページ）→ 公開リポの furusato/index.html
   mkdir -p "$PUBLIC_DIR/furusato"
   cp "$CORE_DIR/seido-furusato.html"      "$PUBLIC_DIR/furusato/index.html"
+  mkdir -p "$PUBLIC_DIR/furusato/onestop"
+  cp "$CORE_DIR/seido-onestop.html"       "$PUBLIC_DIR/furusato/onestop/index.html"
 
   # サイトマップ（seido-keisan 専用。旧 kokuho 用 sitemap.xml とは別物）
   cp "$CORE_DIR/seido-sitemap.xml"        "$PUBLIC_DIR/sitemap.xml"
