@@ -120,6 +120,8 @@ if [ "$SYNC_ONLY" = false ]; then
   node "$CORE_DIR/scripts/generate-seido-ikukyu.js"
   echo "▶ generate-seido-haito.js"
   node "$CORE_DIR/scripts/generate-seido-haito.js"
+  echo "▶ generate-seido-taishoku.js"
+  node "$CORE_DIR/scripts/generate-seido-taishoku.js"
   echo "▶ generate-seido-sitemap.js"
   node "$CORE_DIR/scripts/generate-seido-sitemap.js"
 fi
@@ -228,6 +230,8 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/seido-ikukyu.html"        "$PUBLIC_DIR/furusato/ikukyu/index.html"
   mkdir -p "$PUBLIC_DIR/furusato/haito"
   cp "$CORE_DIR/seido-haito.html"         "$PUBLIC_DIR/furusato/haito/index.html"
+  mkdir -p "$PUBLIC_DIR/furusato/taishoku"
+  cp "$CORE_DIR/seido-taishoku.html"      "$PUBLIC_DIR/furusato/taishoku/index.html"   # 退職金がある年の解説（静的）
 
   # サイトマップ（seido-keisan 専用。旧 kokuho 用 sitemap.xml とは別物）
   cp "$CORE_DIR/seido-sitemap.xml"        "$PUBLIC_DIR/sitemap.xml"
