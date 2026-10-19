@@ -913,6 +913,10 @@ const PROVENANCE_HOST_EXTRA = new Set([
   "www.chatan.jp",               // 北谷町（沖縄県中頭郡） — 沖縄県「リンク集」（pref.okinawa.jp/about/1018107.html）から本ホストへリンク
   "www.iejima.org",              // 伊江村（沖縄県国頭郡） — 沖縄県「リンク集」から本ホスト（/ieson/）へリンク
   "www.nakijin.jp",              // 今帰仁村（沖縄県国頭郡） — 沖縄県「リンク集」から本ホストへリンク
+  // 2026-10-19 追加（オーナー承認）: 中島村（福島県）の公式ドメイン。lg.jp でないため PROVENANCE_HOST_PATTERNS に当たらない。
+  //   トップページ（title「中島村公式ホームページ」）で 〒961-0192 福島県西白河郡中島村大字滑津字中島西11番地の1（税務課ページの所在地と一致）を確認。
+  //   whois 登録者名「中島村」（Nakajima Village）、NS は gmoregistry.net、www は stech-gisc.jp（CMS ベンダー）への CNAME。乗っ取りを示す語句なし。
+  "www.vill-nakajima.jp",        // 中島村（福島県）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
