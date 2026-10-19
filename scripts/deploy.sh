@@ -107,6 +107,9 @@ fi
 
 # ── 2. 公開リポジトリへ同期 ──────────────────────────────────────
 echo ""
+# 同期の直前に main をもう一度確かめる（2026-10-18 事故の再発防止②。冒頭確認からここまでの生成中に
+# 作業フォルダが変わっていたら止める）
+require_main_recheck "同期直前" || exit 1
 echo "▶ 公開リポジトリへ同期中..."
 
 # 都道府県ディレクトリを動的に検出（income.htmlが生成済みのもの）
@@ -123,6 +126,8 @@ if [ "$DRY_RUN" = false ]; then
     git -C "$CORE_DIR" commit -m "chore: 運用ログ自動コミット ($(date +%Y-%m-%d))" -- $LOG_PATHS
     echo "✅ 運用ログを自動コミットしました（$LOG_CHANGES 件）"
   fi
+  # 上の自動コミットで HEAD が進むので、コミット直前の再確認の基準をここで取り直す（この 1 箇所だけ）
+  REQUIRE_MAIN_HEAD="$(git -C "$CORE_DIR" rev-parse HEAD)"
 fi
 
 # untracked ファイルが working tree に残っていると rsync で本番に流れ込む事故が
@@ -214,6 +219,8 @@ if [ "$DRY_RUN" = true ]; then
 fi
 
 # ── 4. 公開リポジトリにコミット ───────────────────────────────────
+# コミットの直前にも main を確かめる（2026-10-18 事故の再発防止②。同期中に書き換えられた値を出さない）
+require_main_recheck "コミット直前" || exit 1
 cd "$PUBLIC_DIR"
 git add .
 if [ -z "$(git diff --cached)" ]; then
