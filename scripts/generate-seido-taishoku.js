@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { renderPortalBox } from './lib/furusato-portals.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -25,7 +26,8 @@ function fileHash(...filePaths) {
 
 const CSS_V = fileHash(path.join(ROOT, 'css', 'common.css'));
 
-const html = readFileSync(TMPL, 'utf-8').replaceAll('__CSS_V__', CSS_V);
+const html = readFileSync(TMPL, 'utf-8').replaceAll('__CSS_V__', CSS_V)
+  .replace('__PORTALS__', () => renderPortalBox('furusato-taishoku'));
 
 if (/__[A-Z_]+__/.test(html)) throw new Error('未置換のプレースホルダが残っている: ' + html.match(/__[A-Z_]+__/)[0]);
 writeFileSync(OUT, html, 'utf-8');

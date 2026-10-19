@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { renderPortalBox } from './lib/furusato-portals.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
@@ -40,6 +41,7 @@ if (/<\/script/i.test(onestopText)) throw new Error('furusato-onestop-2026.json 
 
 const html = readFileSync(TMPL, 'utf-8')
   .replaceAll('__CSS_V__', CSS_V)
+  .replace('__PORTALS__', () => renderPortalBox('furusato-onestop'))
   .replaceAll('__JS_V__', JS_V)
   .replace('__ONESTOP_DATA__', () => onestopText);
 

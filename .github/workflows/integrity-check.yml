@@ -273,3 +273,15 @@ jobs:
         run: |
           node scripts/generate-seido-furusato.js
           node scripts/test-furusato-dom.cjs
+
+      - name: Run test-furusato-portals.cjs (ふるさと納税 6 ページのポータル枠・about 導線・広告表記の規則・jsdom)
+        run: |
+          node scripts/generate-seido-furusato.js
+          node scripts/generate-seido-onestop.js
+          node scripts/generate-seido-jieigyo.js
+          node scripts/generate-seido-ikukyu.js
+          node scripts/generate-seido-haito.js
+          node scripts/generate-seido-taishoku.js
+          node scripts/generate-seido-about.js
+          node scripts/generate-seido-index.js
+          node scripts/test-furusato-portals.cjs

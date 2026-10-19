@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { renderPortalBox } from './lib/furusato-portals.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
@@ -45,6 +46,7 @@ const kiso = Shotoku.loadParams(2026, shotokuDb).kisoKojo.map(([upTo, amount]) =
 
 const html = readFileSync(TMPL, 'utf-8')
   .replaceAll('__CSS_V__', CSS_V)
+  .replace('__PORTALS__', () => renderPortalBox('furusato-simple'))
   .replaceAll('__JS_V__', JS_V)
   .replace('__FURUSATO_DATA__', () => furusatoText)
   .replace('__SHOTOKU_KISO__', () => JSON.stringify(kiso));
