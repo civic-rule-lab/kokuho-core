@@ -116,6 +116,8 @@
   <div class="result-title">判定結果</div>
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
 
+
+__PORTALS__
   <h2>ワンストップ特例の基本</h2>
   <div class="jt-card">
     <div class="jt-card-title">使える人（地方税法 附則第7条）</div>
@@ -152,6 +154,7 @@
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>
   </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
 
 </div>
 
@@ -186,6 +189,7 @@
   $("invalidList").innerHTML = D.invalidatedWhen.map(function(x){ return "・" + esc(x.text) + "<span style=\"color:#9ca3af\">（" + esc(x.basis) + "）</span>"; }).join("<br>");
 
   function calcOnestop(){
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "furusato-onestop" }); }
     var reasons = {};
     D.needShinkokuReasons.forEach(function(r){ var el = $("r_" + r.key); reasons[r.key] = !!(el && el.checked); });
     var r = judgeOnestop({ shinkoku: $("shinkoku").value, municipalities: num("municipalities"), reasons: reasons, donation: num("donation") }, D);

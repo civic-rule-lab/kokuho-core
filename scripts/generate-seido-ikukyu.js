@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { renderPortalBox } from './lib/furusato-portals.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
@@ -47,6 +48,7 @@ const prefs = JSON.parse(readFileSync(path.join(ROOT, 'data', 'shaho', 'kenpo-20
 
 const html = readFileSync(TMPL, 'utf-8')
   .replaceAll('__CSS_V__', CSS_V)
+  .replace('__PORTALS__', () => renderPortalBox('furusato-ikukyu'))
   .replaceAll('__JS_V__', JS_V)
   .replace('__IKUKYU_DATA__', () => ikukyuText)
   .replace('__FURUSATO_DATA__', () => furusatoText)
