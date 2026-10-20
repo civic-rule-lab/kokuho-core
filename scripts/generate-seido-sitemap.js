@@ -58,7 +58,7 @@ const urls = [
   { loc: `${BASE_URL}/furusato/ikukyu/`, priority: '0.7', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/haito/`, priority: '0.7', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/taishoku/`, priority: '0.6', changefreq: 'yearly' },
-  // 運営者情報・プライバシーポリシー・免責事項（noindex だが sitemap には載せる＝クロール先の明示。deploy-seido.sh が about/index.html へコピー）
+  // 運営者情報・プライバシーポリシー・免責事項（Organization の @id を置くページ。deploy-seido.sh が about/index.html へコピー）
   { loc: `${BASE_URL}/about/`, priority: '0.3', changefreq: 'yearly' },
 ];
 

@@ -5,13 +5,14 @@
  * 出力: seido-about.html（kokuho-core 直下。deploy-seido.sh が seido-keisan の about/index.html へコピーする）
  *
  * 実行: node scripts/generate-seido-about.js
- * 計算は無く、共通 CSS のハッシュを埋めるだけ。2回実行して差分が出ないこと（実行日などの可変値を入れない）。
+ * 計算は無く、共通 CSS のハッシュと運営者の Organization JSON-LD（scripts/lib/organization.cjs）を埋めるだけ。2回実行して差分が出ないこと（実行日などの可変値を入れない）。
  * 改定日はテンプレートの「改定」節に手で書く。
  */
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import organization from './lib/organization.cjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -25,7 +26,11 @@ function fileHash(...filePaths) {
 }
 
 const CSS_V = fileHash(path.join(ROOT, 'css', 'common.css'));
-const html = readFileSync(TMPL, 'utf-8').replaceAll('__CSS_V__', CSS_V);
+// 運営者の Organization 本体（@id をこのページに置く。各サイトの JSON-LD はこの @id を参照する）
+const ORG_JSON_LD = organization.jsonLdScript({ '@context': 'https://schema.org', ...organization.ORGANIZATION });
+const html = readFileSync(TMPL, 'utf-8')
+  .replaceAll('__CSS_V__', CSS_V)
+  .replaceAll('__ORG_JSON_LD__', () => ORG_JSON_LD);
 
 if (/__[A-Z_]+__/.test(html)) throw new Error('未置換のプレースホルダが残っている: ' + html.match(/__[A-Z_]+__/)[0]);
 writeFileSync(OUT, html, 'utf-8');

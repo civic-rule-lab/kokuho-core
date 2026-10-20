@@ -11,6 +11,7 @@
  *   6. 枠の data-calc-type は、そのページの calculate イベントの calc_type と同じ
  *   7. 6 ページ・トップとも、フッターに /about/ への導線がある
  *   8. /about/ ページ: canonical・Google アナリティクスの説明・広告の方針・運営者・お問い合わせ先、sitemap に /about/
+ *   9. 運営者シグナル: /about/ に noindex が無く Organization JSON-LD がある。kokuho トップに description・canonical・publisher 参照・運営者フッター
  *
  * 実行: 6 ページ＋about＋index を生成してから node scripts/test-furusato-portals.cjs
  */
@@ -21,6 +22,7 @@ const ROOT = path.join(__dirname, '..');
 const db = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/furusato-portals-2026.json'), 'utf8'));
 const enabled = db.portals.filter((p) => p.enabled !== false).slice().sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
 const forbidden = db.meta.forbiddenWords;
+const organization = require('./lib/organization.cjs');
 
 let pass = 0, fail = 0;
 const A = (label, cond) => { console.log(`${cond ? '✓' : '✗'} ${label}`); cond ? pass++ : fail++; };
@@ -88,10 +90,36 @@ for (const [file, calcType, hasResult] of PAGES) {
   A('seido-about.html: 成果報酬リンクの有無の記述がデータと一致', anySponsored ? !text.includes('成果報酬型（アフィリエイト）のリンクや広告枠はありません') : text.includes('成果報酬型（アフィリエイト）のリンクや広告枠はありません'));
   A('seido-about.html: 免責（目安・税務相談ではない）', text.includes('目安') && text.includes('税務相談'));
   A('seido-about.html: 未置換プレースホルダなし', !/__[A-Z_]+__/.test(html));
+  // 運営者シグナル（兄弟サイトを同一運営者と伝える）: noindex を外し、Organization の @id をこのページに置く
+  A('seido-about.html: robots noindex が無い（検索対象）', !d.querySelector('meta[name=robots]'));
+  const aboutLd = [...d.querySelectorAll('script[type="application/ld+json"]')].map((s) => JSON.parse(s.textContent));
+  const aboutOrg = aboutLd.find((j) => j['@type'] === 'Organization');
+  A('seido-about.html: Organization JSON-LD（@id・name・alternateName が定数と一致）', !!aboutOrg && aboutOrg['@id'] === organization.ORGANIZATION_ID && aboutOrg.name === organization.ORGANIZATION.name && aboutOrg.alternateName === organization.ORGANIZATION.alternateName && aboutOrg.url === organization.ABOUT_URL);
+  A('seido-about.html: 対象サイトに兄弟サイト 3 つの URL', ['https://kokuho-keisan.jp/', 'https://shaho-keisan.jp/', 'https://shogakukin-keisan.jp/'].every((u) => text.includes(u)));
 }
 {
   const xml = fs.readFileSync(path.join(ROOT, 'seido-sitemap.xml'), 'utf8');
   A('seido-sitemap.xml: /about/ を含む', xml.includes('<loc>https://seido-keisan.jp/about/</loc>'));
+}
+
+// kokuho トップ（index.html・generate-selector.js が出す）: description・canonical・JSON-LD の publisher・運営者フッター
+{
+  const d = load('index.html');
+  A('index.html: meta description があり自治体数が固定文字でない（registry の数と一致）', (() => {
+    const c = (d.querySelector('meta[name=description]') || {}).content || '';
+    const n = JSON.parse(fs.readFileSync(path.join(ROOT, 'registry/index.json'), 'utf8')).municipalities.filter((m) => (m.systems || []).includes('kokuho')).length;
+    return c.includes(`全国${n}自治体`) && c.includes(organization.ORGANIZATION.name);
+  })());
+  A('index.html: canonical が https://kokuho-keisan.jp/', (d.querySelector('link[rel=canonical]') || {}).href === 'https://kokuho-keisan.jp/');
+  const ld = [...d.querySelectorAll('script[type="application/ld+json"]')].flatMap((s) => { const j = JSON.parse(s.textContent); return j['@graph'] || [j]; });
+  const site = ld.find((j) => j['@type'] === 'WebSite');
+  const org = ld.find((j) => j['@type'] === 'Organization');
+  A('index.html: WebSite の publisher が Organization の @id を参照', !!site && site.url === 'https://kokuho-keisan.jp/' && (site.publisher || {})['@id'] === organization.ORGANIZATION_ID);
+  A('index.html: Organization 本体（@id が /about/ と同じ）', !!org && org['@id'] === organization.ORGANIZATION_ID && org.name === organization.ORGANIZATION.name);
+  A('index.html: フッターに運営者行と /about/ への導線', [...d.querySelectorAll('a[href="https://seido-keisan.jp/about/"]')].some((a) => /運営者情報/.test(a.textContent)));
+  const sisters = organization.SISTER_SITES.filter((x) => x.host !== 'kokuho-keisan.jp');
+  A('index.html: 関連サイト行に自サイト以外の兄弟サイト（nofollow なし）', sisters.every((x) => [...d.querySelectorAll(`a[href="${x.url}"]`)].some((a) => a.textContent === x.name && !/nofollow/.test(a.getAttribute('rel') || ''))) && !d.querySelector('a[href="https://kokuho-keisan.jp/"]'));
+  A('index.html: 制度セレクトに奨学金を入れていない', ![...d.querySelectorAll('#system option')].some((o) => /奨学金/.test(o.textContent)));
 }
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
