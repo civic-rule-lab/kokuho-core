@@ -10,6 +10,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
+import organization from "./lib/organization.cjs";
 import { createRequire } from "module";
 import { marked } from "marked";
 import matter from "gray-matter";
@@ -20,7 +21,7 @@ const TMPL_DIR   = path.join(ROOT, "templates");
 const ARTS_DIR   = path.join(ROOT, "articles");
 const BASE_URL   = "https://kokuho-keisan.jp";
 
-const template   = readFileSync(path.join(TMPL_DIR, "article.html"), "utf-8");
+const template   = readFileSync(path.join(TMPL_DIR, "article.html"), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("kokuho-keisan.jp"));
 
 function fileHash(...filePaths) {
   const h = createHash("sha256");
@@ -61,8 +62,8 @@ function buildJsonLd(fm) {
     "datePublished": fm.publishedAt,
     "dateModified": fm.updatedAt,
     "inLanguage": "ja",
-    "author": { "@type": "Organization", "name": "kokuho-keisan.jp", "url": BASE_URL },
-    "publisher": { "@type": "Organization", "name": "kokuho-keisan.jp", "url": BASE_URL },
+    "author": organization.ORGANIZATION_REF,
+    "publisher": organization.ORGANIZATION_REF,
   };
   const breadcrumb = {
     "@type": "BreadcrumbList",
@@ -71,7 +72,7 @@ function buildJsonLd(fm) {
       { "@type": "ListItem", "position": 2, "name": fm.breadcrumbLabel || fm.title, "item": canonical },
     ],
   };
-  return JSON.stringify({ "@context": "https://schema.org", "@graph": [article, breadcrumb] });
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": [article, breadcrumb, organization.ORGANIZATION] });
 }
 
 // articles/ 内の .md ファイルを処理

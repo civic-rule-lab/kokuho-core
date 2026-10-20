@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
+import organization from "./lib/organization.cjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
@@ -95,8 +96,8 @@ function loadData(slug) {
 
 const CSS_V = fileHash("css/common.css");
 const JS_V  = fileHash(...cfg.engineFiles);
-const template = readFileSync(path.join(TMPL_DIR, cfg.template), "utf-8");
-const incomeTemplate = cfg.incomeTemplate ? readFileSync(path.join(TMPL_DIR, cfg.incomeTemplate), "utf-8") : null;
+const template = readFileSync(path.join(TMPL_DIR, cfg.template), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("seido-keisan.jp"));
+const incomeTemplate = cfg.incomeTemplate ? readFileSync(path.join(TMPL_DIR, cfg.incomeTemplate), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("seido-keisan.jp")) : null;
 const registry = JSON.parse(readFileSync(REGISTRY, "utf-8"));
 
 function buildJsonLd(city, pref, prefSlug, citySlug, desc, fy) {
@@ -108,8 +109,9 @@ function buildJsonLd(city, pref, prefSlug, citySlug, desc, fy) {
   ]};
   const app = { "@type": "WebApplication", "name": cfg.appName(city, fy), "description": desc,
     "url": pageUrl, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
-    "inLanguage": "ja", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" } };
-  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
+    "inLanguage": "ja", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "publisher": organization.ORGANIZATION_REF };
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, organization.ORGANIZATION] });
 }
 
 function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
@@ -179,8 +181,9 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
     ]};
     const app = { "@type": "WebApplication", "name": cfg.appName(prefName, fy), "description": desc,
       "url": pageUrl, "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
-      "inLanguage": "ja", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" } };
-    return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app] });
+      "inLanguage": "ja", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "publisher": organization.ORGANIZATION_REF };
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, organization.ORGANIZATION] });
   }
   function renderPref(prefName, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
     const fy = fmtFY(YEAR);

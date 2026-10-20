@@ -25,6 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
+import organization from "./lib/organization.cjs";
 import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -594,8 +595,9 @@ function buildJsonLd(cityName, prefecture, prefSlug, citySlug, desc, isIncome, p
     "operatingSystem": "Web",
     "inLanguage": "ja",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "publisher": organization.ORGANIZATION_REF,
   };
-  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, ...extraEntities] });
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, ...extraEntities, organization.ORGANIZATION] });
 }
 
 function buildIntroText(cityName, prefecture, data, isIncome, publishYear) {
@@ -1070,8 +1072,8 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
 // メイン
 // ─────────────────────────────────────────────────────────────────
 
-const tmplSimple = readFileSync(path.join(TMPL_DIR, "kokuho-simple.html"), "utf-8");
-const tmplIncome = readFileSync(path.join(TMPL_DIR, "kokuho-income.html"), "utf-8");
+const tmplSimple = readFileSync(path.join(TMPL_DIR, "kokuho-simple.html"), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("kokuho-keisan.jp"));
+const tmplIncome = readFileSync(path.join(TMPL_DIR, "kokuho-income.html"), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("kokuho-keisan.jp"));
 
 const registry   = JSON.parse(readFileSync(REGISTRY, "utf-8"));
 const targetSlug = process.argv[2] || null;

@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
+import organization from "./lib/organization.cjs";
 import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -29,7 +30,7 @@ function fileHash(...filePaths) {
 const CSS_V = fileHash(path.join(ROOT, "css", "common.css"));
 
 const registry  = JSON.parse(readFileSync(path.join(ROOT, "registry", "index.json"), "utf-8"));
-const template  = readFileSync(path.join(ROOT, "templates", "prefecture-page.html"), "utf-8");
+const template  = readFileSync(path.join(ROOT, "templates", "prefecture-page.html"), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("kokuho-keisan.jp"));
 
 const targetSlug = process.argv[2] || null;
 
@@ -128,7 +129,9 @@ function buildJsonLd(prefName, prefSlug, desc) {
         "description": desc,
         "url": `${BASE_URL}/${prefSlug}/`,
         "inLanguage": "ja",
+        "publisher": organization.ORGANIZATION_REF,
       },
+      organization.ORGANIZATION,
     ],
   });
 }

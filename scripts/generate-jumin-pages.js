@@ -29,6 +29,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import organization from './lib/organization.cjs';
 import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -317,8 +318,9 @@ function jsonLd(cityName, prefName, prefSlug, citySlug, desc, url, fy, appName, 
     operatingSystem: 'Web',
     inLanguage: 'ja',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+    publisher: organization.ORGANIZATION_REF,
   };
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app, ...extraEntities] });
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app, ...extraEntities, organization.ORGANIZATION] });
 }
 
 // 共通プレースホルダ置換
@@ -329,14 +331,14 @@ function fill(template, map) {
 }
 
 // ─── テンプレート読込 ───
-const tmplSimple = readFileSync(path.join(TMPL_DIR, 'jumin-simple.html'), 'utf-8');
-const tmplIncome = readFileSync(path.join(TMPL_DIR, 'jumin-income.html'), 'utf-8');
+const tmplSimple = readFileSync(path.join(TMPL_DIR, 'jumin-simple.html'), 'utf-8').replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
+const tmplIncome = readFileSync(path.join(TMPL_DIR, 'jumin-income.html'), 'utf-8').replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
 // 詳しく計算のふるさと納税控除（令和8年度分＝2025年中の寄附）の制度値。JSON の文字列をそのまま埋め込む
 // （parse → stringify を通さない）。fill() は String.replaceAll なので、$ を含まないことを確かめる。
 const furusatoDataLiteral = readFileSync(path.join(ROOT, 'data', 'national', 'furusato-2026.json'), 'utf-8').trim();
 JSON.parse(furusatoDataLiteral);
 if (/\$|<\/script/i.test(furusatoDataLiteral)) throw new Error('furusato-2026.json に $ または </script が含まれている');
-const tmplKakeibo = readFileSync(path.join(TMPL_DIR, 'city-integrated.html'), 'utf-8');
+const tmplKakeibo = readFileSync(path.join(TMPL_DIR, 'city-integrated.html'), 'utf-8').replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
 
 // ─── 対象自治体の決定 ───
 const registry   = JSON.parse(readFileSync(REGISTRY, 'utf-8'));

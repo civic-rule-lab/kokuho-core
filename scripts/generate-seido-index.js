@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import organization from './lib/organization.cjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT     = path.join(__dirname, '..');
@@ -55,6 +56,7 @@ const cityCount = Object.values(index).reduce((n, p) => n + p.cities.length, 0);
 
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
+  '@graph': [{
   '@type': 'WebApplication',
   name: '制度計算｜税金・保険料まるごとシミュレーター',
   description: 'お住まいの市区町村を選ぶだけで、住民税・国民健康保険・介護保険の年間負担をまとめて試算できる無料ツール。',
@@ -63,11 +65,14 @@ const jsonLd = JSON.stringify({
   operatingSystem: 'Web',
   inLanguage: 'ja',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+  publisher: organization.ORGANIZATION_REF,
+  }, organization.ORGANIZATION],
 });
 
 const html = readFileSync(TMPL, 'utf-8')
   .replaceAll('__CITY_INDEX__', JSON.stringify(index))
-  .replaceAll('__JSON_LD__', jsonLd);
+  .replaceAll('__JSON_LD__', jsonLd)
+  .replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
 
 writeFileSync(OUT, html, 'utf-8');
 console.log(`\n✅ アンブレラ・ランディングを生成しました: seido-index.html`);

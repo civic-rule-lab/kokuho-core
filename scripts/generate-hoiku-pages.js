@@ -35,6 +35,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import organization from './lib/organization.cjs';
 import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -120,8 +121,9 @@ function jsonLd(cityName, prefName, prefSlug, citySlug, desc, url, fy) {
     operatingSystem: 'Web',
     inLanguage: 'ja',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+    publisher: organization.ORGANIZATION_REF,
   };
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app] });
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [breadcrumb, app, organization.ORGANIZATION] });
 }
 
 // 共通プレースホルダ置換（jumin と同方式）
@@ -132,7 +134,7 @@ function fill(template, map) {
 }
 
 // ─── テンプレート読込 ───
-const tmplSimple = readFileSync(path.join(TMPL_DIR, 'hoiku-simple.html'), 'utf-8');
+const tmplSimple = readFileSync(path.join(TMPL_DIR, 'hoiku-simple.html'), 'utf-8').replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
 
 // ─── 対象自治体の決定 ───
 const registry   = JSON.parse(readFileSync(REGISTRY, 'utf-8'));
