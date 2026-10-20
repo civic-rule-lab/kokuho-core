@@ -3,7 +3,7 @@
  *
  * registry/index.json を読み込み、以下を自動生成する:
  *   - js/selector.js   (絶対URL /{pref}/{slug}/)
- *   - index.html       (正式版ポータル)
+ *   - index.html       (正式版ポータル。meta description・canonical・JSON-LD・運営者フッターもここで出す)
  *
  * 実行: node scripts/generate-selector.js
  */
@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import organization from "./lib/organization.cjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
@@ -248,8 +249,17 @@ function updateIndexHtml(groups) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="sNhNkkuSVSIT42t3RZtxpO-SY-YqjmCel9R4mD2e7C0">
+<meta name="description" content="全国${kokuhoStats.total}自治体の国民健康保険料を自治体別に試算。住民税・介護保険・社会保険・奨学金など制度別の計算ツールを ${organization.ORGANIZATION.name} が運営。">
+<link rel="canonical" href="https://kokuho-keisan.jp/">
 <title>国保計算ツール｜Civic Rule Lab</title>
 <link rel="stylesheet" href="/css/selector.css?v=3">
+${organization.jsonLdScript({
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", "@id": "https://kokuho-keisan.jp/#website", "name": "国保計算", "url": "https://kokuho-keisan.jp/", "inLanguage": "ja", "publisher": organization.ORGANIZATION_REF },
+    organization.ORGANIZATION,
+  ],
+})}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
 <script>
@@ -323,6 +333,8 @@ ${Object.entries(groups).map(([slug, g]) =>
 ).join('\n')}
   </div>
 </div>
+
+${organization.operatorFooterHtml("kokuho-keisan.jp")}
 
 </div>
 
