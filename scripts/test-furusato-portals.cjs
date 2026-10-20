@@ -12,6 +12,7 @@
  *   7. 6 ページ・トップとも、フッターに /about/ への導線がある
  *   8. /about/ ページ: canonical・Google アナリティクスの説明・広告の方針・運営者・お問い合わせ先、sitemap に /about/
  *   9. 運営者シグナル: /about/ に noindex が無く Organization JSON-LD がある。kokuho トップに description・canonical・publisher 参照・運営者フッター
+ *  10. 全テンプレートの生成物（各 1 ページ）: JSON-LD の主ノードが publisher で Organization の @id を参照し、Organization 本体が 1 つ。フッターに運営者行と自サイトを除いた関連サイト行
  *
  * 実行: 6 ページ＋about＋index を生成してから node scripts/test-furusato-portals.cjs
  */
@@ -120,6 +121,55 @@ for (const [file, calcType, hasResult] of PAGES) {
   const sisters = organization.SISTER_SITES.filter((x) => x.host !== 'kokuho-keisan.jp');
   A('index.html: 関連サイト行に自サイト以外の兄弟サイト（nofollow なし）', sisters.every((x) => [...d.querySelectorAll(`a[href="${x.url}"]`)].some((a) => a.textContent === x.name && !/nofollow/.test(a.getAttribute('rel') || ''))) && !d.querySelector('a[href="https://kokuho-keisan.jp/"]'));
   A('index.html: 制度セレクトに奨学金を入れていない', ![...d.querySelectorAll('#system option')].some((o) => /奨学金/.test(o.textContent)));
+}
+
+// 全テンプレートの生成物（テンプレートごとに 1 ページ）: publisher が Organization の @id を参照し、Organization 本体が 1 つ。
+// フッターは運営者行＋関連サイト行（自サイトを除く）。seido-* の全国ページは JSON-LD を持たないのでフッターだけ検査する
+{
+  const SAMPLES = [
+    // [生成物, 元テンプレート, 自サイト host, JSON-LD を持つか]
+    ['aichi/nagoya/index.html',        'kokuho-simple',   'kokuho-keisan.jp', true],
+    ['aichi/nagoya/income.html',       'kokuho-income',   'kokuho-keisan.jp', true],
+    ['aichi/index.html',               'prefecture-page', 'kokuho-keisan.jp', true],
+    ['keigen/index.html',              'article',         'kokuho-keisan.jp', true],
+    ['aichi/nagoya/jumin/index.html',  'jumin-simple',    'seido-keisan.jp',  true],
+    ['aichi/nagoya/jumin/income.html', 'jumin-income',    'seido-keisan.jp',  true],
+    ['aichi/nagoya/kakeibo/index.html','city-integrated', 'seido-keisan.jp',  true],
+    ['aichi/nagoya/kouki/index.html',  'kouki-simple',    'seido-keisan.jp',  true],
+    ['aichi/nagoya/kouki/income.html', 'kouki-income',    'seido-keisan.jp',  true],
+    ['aichi/nagoya/kaigo/index.html',  'kaigo-simple',    'seido-keisan.jp',  true],
+    ['aichi/nagoya/hoiku/index.html',  'hoiku-simple',    'seido-keisan.jp',  true],
+    ['seido-index.html',               'seido-index',     'seido-keisan.jp',  true],
+    ['seido-furusato.html',            'seido-furusato',  'seido-keisan.jp',  false],
+    ['seido-onestop.html',             'seido-onestop',   'seido-keisan.jp',  false],
+    ['seido-jieigyo.html',             'seido-jieigyo',   'seido-keisan.jp',  false],
+    ['seido-ikukyu.html',              'seido-ikukyu',    'seido-keisan.jp',  false],
+    ['seido-haito.html',               'seido-haito',     'seido-keisan.jp',  false],
+    ['seido-taishoku.html',            'seido-taishoku',  'seido-keisan.jp',  false],
+  ];
+  const MAIN_TYPES = new Set(['WebApplication', 'WebPage', 'Article', 'WebSite']);
+  for (const [file, tmpl, selfHost, hasLd] of SAMPLES) {
+    if (!fs.existsSync(path.join(ROOT, file))) { A(`${tmpl}: 生成物 ${file} が存在する`, false); continue; }
+    const raw = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    const d = new JSDOM(raw).window.document;
+    A(`${tmpl}: __OPERATOR_FOOTER__ が未置換で残っていない (${file})`, !raw.includes('__OPERATOR_FOOTER__'));
+    if (hasLd) {
+      const nodes = [...d.querySelectorAll('script[type="application/ld+json"]')].flatMap((s) => { const j = JSON.parse(s.textContent); return j['@graph'] || [j]; });
+      const orgs = nodes.filter((n) => n['@type'] === 'Organization');
+      A(`${tmpl}: Organization 本体が 1 つ（@id・name が定数と一致）`, orgs.length === 1 && orgs[0]['@id'] === organization.ORGANIZATION_ID && orgs[0].name === organization.ORGANIZATION.name);
+      const mains = nodes.filter((n) => MAIN_TYPES.has(n['@type']));
+      A(`${tmpl}: 主ノード（${mains.map((n) => n['@type']).join('/') || 'なし'}）の publisher が Organization の @id を参照`, mains.length >= 1 && mains.every((n) => (n.publisher || {})['@id'] === organization.ORGANIZATION_ID));
+      // 他の Organization 定義（name がドメイン名の旧 author/publisher）が残っていない
+      A(`${tmpl}: @id 無しの Organization（旧 author/publisher）が残っていない`, !JSON.stringify(nodes).includes('"name":"kokuho-keisan.jp"'));
+    }
+    const ps = [...d.querySelectorAll('p')];
+    const opRow = ps.find((p) => p.textContent.includes(`運営：${organization.ORGANIZATION.name}（${organization.ORGANIZATION.alternateName}）`));
+    A(`${tmpl}: フッターに運営者行（/about/ への導線つき）`, !!opRow && !!opRow.querySelector(`a[href="${organization.ABOUT_URL}"]`));
+    const relRow = ps.find((p) => p.textContent.trim().startsWith('関連サイト：'));
+    const hrefs = relRow ? [...relRow.querySelectorAll('a')].map((a) => a.getAttribute('href')).sort() : [];
+    const expected = organization.SISTER_SITES.filter((s) => s.host !== selfHost).map((s) => s.url).sort();
+    A(`${tmpl}: 関連サイト行が自サイト（${selfHost}）を除いた兄弟サイトと一致・nofollow なし`, JSON.stringify(hrefs) === JSON.stringify(expected) && !!relRow && ![...relRow.querySelectorAll('a')].some((a) => /nofollow/.test(a.getAttribute('rel') || '')));
+  }
 }
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);

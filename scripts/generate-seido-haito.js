@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import organization from './lib/organization.cjs';
 import { renderPortalBox } from './lib/furusato-portals.js';
 import { createRequire } from 'module';
 
@@ -84,7 +85,8 @@ const html = readFileSync(TMPL, 'utf-8')
   .replace('__HAIGU_DATA__', () => haiguText)
   .replace('__HAITO_DATA__', () => haitoText)
   .replace('__SHOTOKU_P__', () => JSON.stringify(SHOTOKU_P))
-  .replace('__SHOTOKU_KISO__', () => JSON.stringify(kiso));
+  .replace('__SHOTOKU_KISO__', () => JSON.stringify(kiso))
+  .replaceAll('__OPERATOR_FOOTER__', () => organization.operatorFooterHtml('seido-keisan.jp'));
 if (/__[A-Z_]+__/.test(html)) throw new Error('未置換のプレースホルダが残っている: ' + html.match(/__[A-Z_]+__/)[0]);
 writeFileSync(OUT, html, 'utf-8');
 console.log(`✅ 配当の課税方式 損得判定ページを生成しました: ${path.relative(ROOT, OUT)}（${cityCount}自治体・JS v=${JS_V}）`);
