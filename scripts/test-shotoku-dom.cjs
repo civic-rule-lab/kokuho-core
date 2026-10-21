@@ -4,7 +4,7 @@
  *   2. 境界: 178 万 → 0 円・179 万 → 500 円・219.1 万の段差・489 万／655 万の基礎控除段差
  *   3. Enter の順: 1 → 2 → 3 → 4a → 4b → 5a → 5b → 6 → (7 は配偶者ありのときだけ) → 8a … → 14（終了・何もしない）
  *   4. 給与未入力なら結果を出さない（0 円と区別）
- *   5. 注記: 所得税 0 円で給与 100 万超なら住民税の注意が出る。制度値を fetch できなければ計算しない
+ *   5. 注記: 所得税 0 円で給与 100 万超なら住民税の注意が出る。制度値は埋め込み（SHOTOKU_DB）で、ページは /data/ を fetch しない
  *   6. 説明の表（基礎控除・税率）が制度値から描かれる
  * 実行: node scripts/test-shotoku-dom.cjs
  */
@@ -22,14 +22,9 @@ for (const f of ['shared/ui-input', 'shotoku'])
 if (/<script src="\/js\//.test(html)) throw new Error('差し替えられなかった <script src> が残っている');
 html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/script>/g, '');
 
-function makeDom(fetchOk) {
+function makeDom() {
   return new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://seido-keisan.jp/shotoku/',
-    beforeParse(w) {
-      w.fetch = (url) => {
-        if (!fetchOk || !/\/data\/national\/shotokuzei-2026\.json$/.test(String(url))) return Promise.resolve({ ok: false, status: 404, json: () => ({}) });
-        return Promise.resolve({ ok: true, status: 200, json: () => JSON.parse(dbText) });
-      };
-    } });
+    beforeParse(w) { w.fetch = () => Promise.reject(new Error('このページは fetch しない')); } });
 }
 let pass = 0, fail = 0;
 const A = (label, cond) => { console.log(`${cond ? '✓' : '✗'} ${label}`); cond ? pass++ : fail++; };
@@ -37,7 +32,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
 const num = s => Number(String(s).replace(/[^0-9]/g, ''));
 
 (async () => {
-  const dom = makeDom(true);
+  const dom = makeDom();
   const w = dom.window, d = w.document;
   Object.defineProperty(w.HTMLElement.prototype, 'offsetParent', { get() { for (let n = this; n; n = n.parentElement) if (n.style && n.style.display === 'none') return null; return this.parentNode; } });
   const set = (id, v) => { const e = d.getElementById(id); e.value = v; e.dispatchEvent(new w.Event('input', { bubbles: true })); e.dispatchEvent(new w.Event('blur')); };
@@ -130,13 +125,10 @@ const num = s => Number(String(s).replace(/[^0-9]/g, ''));
   A('年収500万: 住民税の注意は出ない', !/かかる場合があります/.test(res()));
   A('全角入力が半角に直る（５，０００，０００）', (() => { set('salary', '５，０００，０００'); return d.getElementById('salary').value === '5,000,000'; })());
 
-  // fetch 失敗 → 計算しない
-  const dom2 = makeDom(false); const w2 = dom2.window, d2 = w2.document;
-  if (d2.readyState === 'loading') await new Promise(r => d2.addEventListener('DOMContentLoaded', r));
-  await wait(30);
-  const e2 = d2.getElementById('salary'); e2.value = '5000000'; e2.dispatchEvent(new w2.Event('blur'));
-  await w2.calcShotoku(); await wait(10);
-  A('制度値を読めないとき: 0 円を見せず「計算できません」', /計算できません/.test(d2.getElementById('result').textContent) && !d2.querySelector('#result .amount.big'));
+  // 埋め込み（R5）: 制度値がページ内にあり、data/national の JSON と一字一句同じ。/data/ への fetch は無い
+  A('制度値 SHOTOKU_DB が埋め込まれ、年分 2026 を持つ', !!w.eval('typeof SHOTOKU_DB !== "undefined" && SHOTOKU_DB.years && SHOTOKU_DB.years["2026"]'));
+  A('埋め込んだ制度値は data/national/shotokuzei-2026.json と文字列として一致（数値表記を保つ）', html.includes('const SHOTOKU_DB = ' + dbText.trim() + ';'));
+  A('ページは /data/national/ を fetch しない', !/fetch\(\s*["'`]\/data\//.test(html) && !/DB_URL/.test(html));
 
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);
