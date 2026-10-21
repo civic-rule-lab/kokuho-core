@@ -248,13 +248,14 @@ __OPERATOR_FOOTER__
 
 </div>
 
+<!-- 制度値（data/national/shotokuzei-2026.json 令和8年分）。生成時に文字列のまま埋め込む（全国1ページは埋め込み・2026-10-21 R5 決定） -->
+<script>const SHOTOKU_DB = __SHOTOKU_DB__;</script>
 <script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
 <script src="/js/core/shotoku.js?v=__JS_V__"></script>
 <script>
 (function(){
   "use strict";
   var TAX_YEAR = 2026;   // 令和8年分。翌年分は data/national/shotokuzei-2026.json の年分キー追加と同時に見直す
-  var DB_URL = "/data/national/shotokuzei-" + TAX_YEAR + ".json";
   function $(id){ return document.getElementById(id); }
   function num(id){ var el = $(id); if(!el) return 0; var n = Number(toHalfWidth(el.value || "").replace(/[^\d]/g, "")); return isFinite(n) ? n : 0; }
   function has(id){ var el = $(id); return !!(el && toHalfWidth(el.value || "").replace(/[^\d]/g, "") !== ""); }
@@ -265,21 +266,17 @@ __OPERATOR_FOOTER__
   function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
   function row(label, value, cls){ return "<div class='result-row'><div class='result-label'>" + label + "</div><div class='amount" + (cls ? " " + cls : "") + "'>" + value + "</div></div>"; }
 
-  // ── 制度値（JSON）とエンジン。ページを開いたときに読み、表も描く。読めなければ計算しない ──
-  var _db = null, _eng = null, _loadErr = null, _loading = null;
+  // ── 制度値（埋め込み SHOTOKU_DB）とエンジン。ページを開いたときに作り、表も描く。作れなければ計算しない ──
+  var _eng = null;
   function loadEngine(){
     if(_eng) return Promise.resolve(_eng);
-    if(_loading) return _loading;
-    _loading = fetch(DB_URL, { cache: "no-store" })
-      .then(function(r){ if(!r.ok) throw new Error("制度値 HTTP " + r.status); return r.json(); })
-      .then(function(db){
-        if(!window.Shotoku) throw new Error("所得税エンジンを読み込めませんでした");
-        _db = db; _eng = window.Shotoku.createEngineFromDB(TAX_YEAR, db);
-        renderTables();
-        return _eng;
-      })
-      .catch(function(e){ _loadErr = e; _loading = null; throw e; });
-    return _loading;
+    try{
+      if(typeof SHOTOKU_DB === "undefined" || !SHOTOKU_DB || !SHOTOKU_DB.years) throw new Error("制度値が埋め込まれていません");
+      if(!window.Shotoku) throw new Error("所得税エンジンを読み込めませんでした");
+      _eng = window.Shotoku.createEngineFromDB(TAX_YEAR, SHOTOKU_DB);
+      renderTables();
+      return Promise.resolve(_eng);
+    }catch(e){ return Promise.reject(e); }
   }
 
   // ── 説明用の表（制度値から描く。数値をテンプレートに書かない） ──
@@ -359,7 +356,7 @@ __OPERATOR_FOOTER__
     if(!has("salary") && !has("otherIncome")){ out.innerHTML = "<span class='result-placeholder'>①の給与収入を入れてください</span>"; return; }
     var eng;
     try{ eng = await loadEngine(); }
-    catch(e){ out.innerHTML = "<div class='warn'>制度値を読み込めなかったため計算できません（" + esc(e.message) + "）。時間をおいて再読み込みしてください。</div>"; return; }
+    catch(e){ out.innerHTML = "<div class='warn'>制度値を読み込めなかったため計算できません（" + esc(e.message) + "）。ページを再読み込みしてください。</div>"; return; }
     var input = readInput(eng), r;
     try{ r = eng.calcShotokuzei(input); }
     catch(e){ out.innerHTML = "<div class='result-label'>計算エラー</div><div>" + esc(e.message) + "</div>"; return; }
