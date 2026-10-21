@@ -221,6 +221,7 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/furusato.js"      "$PUBLIC_DIR/js/core/"   # ふるさと納税の控除上限額（全国ページ・家計簿）
   cp "$CORE_DIR/js/core/onestop.js"       "$PUBLIC_DIR/js/core/"   # ふるさと納税 ワンストップ特例の判定（全国ページ）
   cp "$CORE_DIR/js/core/haito.js"         "$PUBLIC_DIR/js/core/"   # 配当の課税方式 損得判定（全国ページ）
+  cp "$CORE_DIR/js/core/nenkin.js"        "$PUBLIC_DIR/js/core/"   # 国民年金の保険料・前納・免除判定（全国ページ・2026-10-22 JS 先行 deploy）
   cp "$CORE_DIR/css/common.css"           "$PUBLIC_DIR/css/"
 
   # アンブレラ・ランディング → 公開リポの index.html

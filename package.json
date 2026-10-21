@@ -27,6 +27,7 @@
     "test:haito": "node scripts/test-haito.cjs",
     "test:haito-dom": "node scripts/test-haito-dom.cjs",
     "test:shotoku-dom": "node scripts/test-shotoku-dom.cjs",
+    "test:nenkin": "node scripts/test-nenkin.cjs",
     "test:furusato-portals": "node scripts/test-furusato-portals.cjs",
     "test:ikukyu-dom": "node scripts/test-ikukyu-dom.cjs",
     "test:ui-input": "node scripts/test-ui-input-dom.cjs",
@@ -34,7 +35,7 @@
     "check:slug-kana": "node scripts/check-slug-kana.cjs",
     "test:provenance": "node scripts/test-provenance-visibility.js",
   "watch:provenance": "node scripts/verify-provenance-hosts.js",
-    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:income && npm run test:kaigo && npm run test:household && npm run test:income-dom && npm run test:jumin-income-dom && npm run test:furusato && npm run test:furusato-dom && npm run test:ui-input && npm run test:onestop && npm run test:onestop-dom && npm run test:jieigyo-dom && npm run test:ikukyu-dom && npm run test:kakeibo-dom && npm run test:haito && npm run test:haito-dom && npm run test:shotoku-dom && npm run test:furusato-portals",
+    "test": "npm run test:calc && npm run test:sanity && npm run test:kouki && npm run test:year && npm run test:units && npm run test:jumin && npm run test:income && npm run test:kaigo && npm run test:household && npm run test:income-dom && npm run test:jumin-income-dom && npm run test:furusato && npm run test:furusato-dom && npm run test:ui-input && npm run test:onestop && npm run test:onestop-dom && npm run test:jieigyo-dom && npm run test:ikukyu-dom && npm run test:kakeibo-dom && npm run test:haito && npm run test:haito-dom && npm run test:shotoku-dom && npm run test:nenkin && npm run test:furusato-portals",
     "test:ci": "npm run test && npm run test:integrity && npm run test:provenance"
   },
   "repository": {
