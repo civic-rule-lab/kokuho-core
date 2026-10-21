@@ -110,6 +110,8 @@ if [ "$SYNC_ONLY" = false ]; then
   node "$CORE_DIR/scripts/generate-system-pages.js" kaigo
   echo "▶ generate-seido-index.js"
   node "$CORE_DIR/scripts/generate-seido-index.js"
+  echo "▶ generate-seido-nenkin.js"
+  node "$CORE_DIR/scripts/generate-seido-nenkin.js"
   echo "▶ generate-seido-shotoku.js"
   node "$CORE_DIR/scripts/generate-seido-shotoku.js"
   echo "▶ generate-seido-furusato.js"
@@ -240,6 +242,10 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/seido-haito.html"         "$PUBLIC_DIR/furusato/haito/index.html"
   mkdir -p "$PUBLIC_DIR/furusato/taishoku"
   cp "$CORE_DIR/seido-taishoku.html"      "$PUBLIC_DIR/furusato/taishoku/index.html"   # 退職金がある年の解説（静的）
+
+  # 国民年金の保険料と免除（令和8年度・全国1ページ）→ 公開リポの nenkin/index.html
+  mkdir -p "$PUBLIC_DIR/nenkin"
+  cp "$CORE_DIR/seido-nenkin.html"        "$PUBLIC_DIR/nenkin/index.html"
 
   # 所得税の計算（令和8年分・全国1ページ）→ 公開リポの shotoku/index.html
   mkdir -p "$PUBLIC_DIR/shotoku"

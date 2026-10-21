@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="令和8年度（2026年度）の国民年金保険料（月額17,920円）の年額・前納の割引額と、前年所得による免除・納付猶予・学生納付特例の判定。本人・配偶者・世帯主の所得から全額免除・一部免除の区分と免除後の月額、年金額への反映を計算します。">
+<link rel="canonical" href="https://seido-keisan.jp/nenkin/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="国民年金の保険料と免除の判定（令和8年度）｜前納の割引・免除後の月額を計算">
+<meta property="og:description" content="月額17,920円の年額・前納割引と、前年所得から免除・納付猶予・学生納付特例の区分を判定します。">
+<meta property="og:url" content="https://seido-keisan.jp/nenkin/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<title>国民年金の保険料と免除の判定（令和8年度・2026年度）｜年額・前納の割引・免除後の月額を計算</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://seido-keisan.jp/nenkin/","url":"https://seido-keisan.jp/nenkin/","name":"国民年金の保険料と免除の判定（令和8年度）","description":"国民年金保険料の年額・前納の割引と、前年所得による免除・納付猶予・学生納付特例の区分、免除後の月額と年金額への反映を計算する。","inLanguage":"ja","isPartOf":{"@type":"WebSite","url":"https://seido-keisan.jp/","name":"制度計算"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（所得税ページ seido-shotoku.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 10px;}
+  @media (max-width:420px){ .row3{grid-template-columns:1fr 1fr;} }
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .big{font-size:24px;color:#1d4ed8;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;}
+  .jt-table th,.jt-table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;}
+  .jt-table th{background:#f3f6fb;color:#374151;font-weight:600;}
+  .jt-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
+  h2{font-size:16px;margin:28px 0 6px;color:#111827;}
+  .verdict{font-size:20px;font-weight:800;color:#0f172a;margin:6px 0 4px;}
+  .cta-list{display:grid;grid-template-columns:max-content auto;gap:10px 3em;align-items:center;margin-top:6px;}
+  .cta-item{display:contents;}
+  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:#dbeafe;border:1px solid #93c5fd;color:#1e40af;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
+  .cta-item a:hover{background:#bfdbfe;}
+  .cta-ext{font-size:13px;margin-left:2px;}
+  .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
+  @media (max-width:480px){ .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;} }
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:24px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">国民年金の保険料と免除</span><span class="h1-year">【令和8年度（2026年4月〜2027年3月）】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;text-align:center;">前年の所得を入れると、保険料の年額・前納の割引と、免除・納付猶予の区分が出ます。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;text-align:center;">入力は端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① 納付と本人</div>
+    <label for="method">納付方法</label>
+    <select id="method" data-step="1">
+      <option value="kouza" selected>口座振替</option>
+      <option value="nofusho">納付書・クレジットカード</option>
+    </select>
+    <div class="row2">
+      <div>
+        <label for="age">年齢</label>
+        <input id="age" data-step="2" type="text" inputmode="numeric" placeholder="例：30">
+      </div>
+      <div>
+        <label for="student">学生</label>
+        <select id="student" data-step="3">
+          <option value="no" selected>学生ではない</option>
+          <option value="yes">学生（学生納付特例）</option>
+        </select>
+      </div>
+    </div>
+    <div class="hint">対象は20〜59歳の第1号被保険者（自営・学生・無職など）。会社員は厚生年金です。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② 前年（2025年）の所得</div>
+    <div class="hint" style="margin-top:4px;">令和8年度分（2026年7月〜2027年6月）の免除は 2025年1〜12月の所得で判定します。</div>
+    <label for="selfKind">本人の収入</label>
+    <div class="row2">
+      <div>
+        <select id="selfKind" data-step="4">
+          <option value="salary" selected>給与収入（年額）</option>
+          <option value="income">所得（収入−経費）</option>
+        </select>
+      </div>
+      <div>
+        <input id="selfAmount" data-step="5" type="text" inputmode="numeric" placeholder="例：1,500,000">
+      </div>
+    </div>
+    <div class="hint">給与収入なら源泉徴収票の「支払金額」。無ければ 0。</div>
+    <div class="row3">
+      <div>
+        <label for="selfDeps">扶養親族等の数</label>
+        <input id="selfDeps" data-step="6a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="selfDeps16">うち16〜22歳</label>
+        <input id="selfDeps16" data-step="6b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="selfDeps70">うち70歳以上</label>
+        <input id="selfDeps70" data-step="6c" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint">配偶者（所得48万円以下）と扶養親族（年齢不問）の人数。</div>
+    <div class="row2">
+      <div>
+        <label for="selfDed">社会保険料控除など（前年・円）</label>
+        <input id="selfDed" data-step="7a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="selfStatus">本人の状況</label>
+        <select id="selfStatus" data-step="7b">
+          <option value="none" selected>あてはまるものはない</option>
+          <option value="shogai">障害者</option>
+          <option value="shogaiSpecial">特別障害者</option>
+          <option value="hitorioya">ひとり親</option>
+          <option value="kafu">寡婦</option>
+        </select>
+      </div>
+    </div>
+    <div class="hint">前年に払った社会保険料・iDeCo・医療費控除などの所得控除の合計（一部免除の基準に足します）。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 配偶者・世帯主（免除は家族の所得も見ます）</div>
+    <label for="spouse">配偶者</label>
+    <select id="spouse" data-step="8">
+      <option value="none" selected>いない</option>
+      <option value="yes">いる</option>
+    </select>
+    <div id="spouseBox" style="display:none;">
+      <div class="row2">
+        <div>
+          <select id="spouseKind" data-step="9a">
+            <option value="salary" selected>給与収入（年額）</option>
+            <option value="income">所得</option>
+          </select>
+        </div>
+        <div>
+          <input id="spouseAmount" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="spouseDeps">配偶者の扶養親族等の数</label>
+          <input id="spouseDeps" data-step="9c" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+        <div>
+          <label for="spouseDed">配偶者の社会保険料控除など</label>
+          <input id="spouseDed" data-step="9d" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+    </div>
+    <label for="householder">世帯主</label>
+    <select id="householder" data-step="10">
+      <option value="self" selected>本人（または配偶者）</option>
+      <option value="other">別の人（親など）</option>
+    </select>
+    <div id="hhBox" style="display:none;">
+      <div class="row2">
+        <div>
+          <select id="hhKind" data-step="11a">
+            <option value="salary" selected>給与収入（年額）</option>
+            <option value="income">所得</option>
+          </select>
+        </div>
+        <div>
+          <input id="hhAmount" data-step="11b" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="hhDeps">世帯主の扶養親族等の数</label>
+          <input id="hhDeps" data-step="11c" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+        <div>
+          <label for="hhDed">世帯主の社会保険料控除など</label>
+          <input id="hhDed" data-step="11d" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+      <div class="hint">納付猶予（50歳未満）と学生納付特例は世帯主の所得を見ません。</div>
+    </div>
+    <label for="tsuka">付加保険料（月400円・任意）</label>
+    <select id="tsuka" data-step="12" data-step-end>
+      <option value="no" selected>払わない</option>
+      <option value="yes">払う</option>
+    </select>
+  </div>
+
+  <button onclick="calcNenkin()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>
+    <ul style="margin:6px 0 0;padding-left:1.4em;">
+      <li>免除・猶予は申請して承認されたときに適用されます（自動ではありません）</li>
+      <li>失業・災害などの特例（前年所得を除いて審査）は入れていません</li>
+      <li>産前産後免除・法定免除（生活保護・障害年金）は対象外です。窓口へ</li>
+      <li>扶養親族の年齢区分による控除額の違いは本人分だけ反映します</li>
+    </ul>
+  </div>
+
+  <h2>計算のしかた</h2>
+  <div class="jt-card">
+    <div class="jt-card-title">保険料と免除の判定</div>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      <li>保険料は定額。年額 ＝ 月額 × 12。前納は納付方法ごとの額（割引は毎月納付との差）</li>
+      <li>免除は、本人・配偶者・世帯主それぞれの前年所得が下の基準以下なら成立（全額 → 4分の3 → 半額 → 4分の1 の順）</li>
+      <li>基準に届かなくても、50歳未満なら納付猶予（本人と配偶者だけで判定）、学生なら学生納付特例（本人だけで判定）</li>
+    </ol>
+    <div id="kijunTable"></div>
+  </div>
+
+  <h2>免除・猶予が年金額に与える影響</h2>
+  <div class="jt-card">
+    <div id="hanneiTable"></div>
+    <p>免除・猶予の期間は受給資格期間（10年）に入ります。承認から10年以内なら追納でき、追納すると満額に近づきます（3年度目以降は加算額あり）。</p>
+  </div>
+
+  <h2>あわせて使う</h2>
+  <div class="cta-list">
+    <div class="cta-item"><span class="cta-desc">住民税・国保・手取り計算サイト</span><a href="/">家計簿シミュレーター <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">所得税計算サイト</span><a href="/shotoku/">所得税の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">会社員の厚生年金・健康保険</span><a href="https://shaho-keisan.jp/">社会保険料の計算 <span class="cta-ext">↗</span></a></div>
+  </div>
+
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>保険料は令和8年度（2026年4月〜2027年3月）。2年前納は令和9年度の月額 18,290円を含む</li>
+      <li>免除の判定は令和8年度分（2026年7月〜2027年6月）＝2025年中の所得。給与収入は住民税の給与所得控除（令和8年度分）で所得に換算</li>
+      <li>「社会保険料控除など」には障害者・寡婦・ひとり親控除を本人の状況から自動で足します</li>
+    </ul>
+  </div>
+
+  <h2>出典</h2>
+  <div class="note" style="margin-top:4px;">
+    日本年金機構「国民年金保険料」「国民年金保険料の前納」「国民年金保険料の免除制度・納付猶予制度」「学生納付特例制度」「免除等の申請可能期間と前年所得の関係」、国民年金法・国民年金法施行令
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
+<p style="margin-top:14px;font-size:12px;text-align:center;color:#6b7280;">運営：Civic Rule Lab（Civic Systems）｜ <a href="https://seido-keisan.jp/about/" style="color:#6b7280;">運営者情報・免責</a></p>
+<p style="margin-top:6px;font-size:12px;text-align:center;color:#6b7280;">関連サイト： <a href="https://kokuho-keisan.jp/" style="color:#6b7280;">国保計算</a> ／ <a href="https://shaho-keisan.jp/" style="color:#6b7280;">社会保険の計算</a> ／ <a href="https://shogakukin-keisan.jp/" style="color:#6b7280;">奨学金かんたん計算</a></p>
+
+</div>
+
+<!-- 制度値（data/national/kokumin-nenkin-2026.json）。生成時に文字列のまま埋め込む（全国1ページは埋め込み・R5） -->
+<script>const NENKIN_DB = {
+  "meta": {
+    "scheme": "国民年金保険料（第1号被保険者・定額）",
+    "fiscalYear": 2026,
+    "fiscalYearLabel": "令和8年度（2026年4月分〜2027年3月分）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-11",
+    "source": {
+      "primary": "日本年金機構「国民年金保険料」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html （ページ更新日 2026-04-01、2026-10-11 取得）",
+      "crossCheck": "日本年金機構「国民年金保険料の変遷」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html （令和8年4月〜令和9年3月 17,920円。令和7年度 17,510円・令和6年度 16,980円。ページ更新日 2026-04-01、2026-10-11 取得）",
+      "snapshot": {
+        "capturedAt": "2026-10-10T21:55:35Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-10-12 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "nenkin_hokenryo_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html", "sha256": "e1f86aef2aa89ed0905efd2dca64655dc521f100d0264528df6e7c085e049a6d", "bytes": 31518 },
+          { "file": "nenkin_hensen_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html", "sha256": "ebd2af6086b839b4775d528389c3385400be0d5420f257167a1e95b02eeb3011", "bytes": 41196 }
+        ]
+      }
+    },
+    "notes": [
+      "家計簿（city-integrated.html）で、自営・退職など（国民健康保険）を選んだ20歳以上60歳未満の本人1人分を社会保険料控除に加える（monthly×12）。",
+      "家計簿・ふるさと納税ページは monthly / additionalMonthly だけを読む。prepay / exemption は国民年金ページ（js/core/nenkin.js）用に 2026-10-22 追加。既存キーは不変。",
+      "年度のずれ: 社会保険料控除は暦年に払った額だが、家計簿は「同じ収入が続く前提」で令和8年度の月額×12とする。"
+    ],
+    "sourcePrepay": "日本年金機構「国民年金保険料の前納」 https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html （ページ更新日 2026-09-04、2026-10-22 確認。2年前納は令和8・9年度の毎月納付合計 434,520 円との比較）",
+    "sourceExemption": [
+      "日本年金機構「国民年金保険料の免除制度・納付猶予制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html （ページ更新日 2026-10-16、2026-10-22 確認。全額免除・納付猶予＝(扶養親族等の数+1)×35万円+32万円、4分の3＝88万円+扶養親族等控除額+社会保険料控除額等、半額 128万円、4分の1 168万円。年金額への反映 1/2・5/8・6/8・7/8、納付猶予は反映なし、追納 10 年）",
+      "日本年金機構「学生納付特例制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html （ページ更新日 2026-10-16、2026-10-22 確認。128万円+扶養親族等の数×38万円+社会保険料控除等・本人のみ審査）",
+      "日本年金機構「免除等の申請可能期間と前年所得の関係」 https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html （ページ更新日 2026-08-03。令和8年度分＝令和8年7月〜令和9年6月・審査対象は令和7年中所得）"
+    ],
+    "snapshotNenkinPages": {
+      "capturedAt": "2026-10-22",
+      "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）。実体は sha256 で照合できる",
+      "files": [
+        { "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html", "sha256": "c7aac959ce33f973f536056c6e3e774c333e341a9d498e9ae8df934d3afcc46c", "bytes": 31593 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html", "sha256": "4a45201c53d1b2763e40cca3d39c955c6115c0ab01b20f089012dd392e11745f", "bytes": 49545 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html", "sha256": "a2a9639dea3433e8b488c9ed1024b65c012ac46f7d77d152a4501b5272cb9d12", "bytes": 41754 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html", "sha256": "974194bf20b9d73b24c4c7b3d336c58d4123fe2a885d1d694e366dcaa8c2a0f5", "bytes": 38133 }
+      ]
+    },
+    "inferred": [
+      {
+        "field": "exemption.dependentDeduction / exemption.otherDeduction",
+        "note": "「扶養親族等控除額」「社会保険料控除額等」の内訳額は国民年金法施行令（第6条の9〜第6条の12 [条番号も未確認]）の定めだが、2026-10-22 は e-Gov がメンテナンス中で原文を確認できていない。日本年金機構のページには内訳の記載が無い。値は大阪市の案内（16歳以上23歳未満 63万円・70歳以上の同一生計配偶者または老人扶養親族 48万円）と所得税の控除額からの推測。国民年金ページを公開する前に e-Gov で確定し、本項を削除する。",
+        "confidence": "inferred"
+      }
+    ]
+  },
+  "monthly": 17920,
+  "additionalMonthly": 400,
+  "nextYearMonthly": 18290,
+  "prepay": {
+    "kouza": {
+      "m6": { "amount": 106300, "discount": 1220 },
+      "y1": { "amount": 210530, "discount": 4510 },
+      "y2": { "amount": 417150, "discount": 17370 },
+      "hayawari": { "monthly": 17860, "discount": 60 }
+    },
+    "nofusho": {
+      "m6": { "amount": 106650, "discount": 870 },
+      "y1": { "amount": 211220, "discount": 3820 },
+      "y2": { "amount": 418510, "discount": 16010 }
+    }
+  },
+  "exemption": {
+    "period": "令和8年度分（2026年7月〜2027年6月）・審査対象は2025年中（令和7年中）の所得",
+    "full": { "perPerson": 350000, "base": 320000 },
+    "yuyo": { "perPerson": 350000, "base": 320000, "ageMax": 50 },
+    "partial": { "threeQuarters": 880000, "half": 1280000, "quarter": 1680000 },
+    "student": { "base": 1280000, "perDependent": 380000 },
+    "dependentDeduction": { "spouse": 380000, "general": 380000, "age16to22": 630000, "elderly": 480000, "elderlyCoRes": 580000, "under16": 0 },
+    "otherDeduction": { "shogai": 270000, "shogaiSpecial": 400000, "kafu": 270000, "hitorioya": 350000 },
+    "payFraction": { "full": 0, "threeQuarters": 0.25, "half": 0.5, "quarter": 0.75, "yuyo": 0, "student": 0 },
+    "pensionReflection": { "full": "1/2", "threeQuarters": "5/8", "half": "6/8", "quarter": "7/8", "yuyo": "0", "student": "0" },
+    "tsuinoYears": 10
+  }
+};</script>
+<script src="/js/core/shared/ui-input.js?v=b8f3a59e"></script>
+<script src="/js/core/shared/income.js?v=b8f3a59e"></script>
+<script src="/js/core/nenkin.js?v=b8f3a59e"></script>
+<script>
+(function(){
+  "use strict";
+  var JUMIN_FY = 2026;   // 2025年中の所得 ＝ 令和8年度住民税の給与所得控除（最低保障65万）で換算
+  function $(id){ return document.getElementById(id); }
+  function num(id){ var el = $(id); if(!el) return 0; var n = Number(toHalfWidth(el.value || "").replace(/[^\d]/g, "")); return isFinite(n) ? n : 0; }
+  function has(id){ var el = $(id); return !!(el && toHalfWidth(el.value || "").replace(/[^\d]/g, "") !== ""); }
+  function val(id){ var el = $(id); return el ? el.value : ""; }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function row(label, value, cls){ return "<div class='result-row'><div class='result-label'>" + label + "</div><div class='amount" + (cls ? " " + cls : "") + "'>" + value + "</div></div>"; }
+  var LEVEL_NAME = { full: "全額免除", threeQuarters: "4分の3免除", half: "半額免除", quarter: "4分の1免除", yuyo: "納付猶予", student: "学生納付特例", none: "免除・猶予なし" };
+  var PERSON_NAME = { self: "本人", spouse: "配偶者", householder: "世帯主" };
+
+  function toIncome(kind, amount){ return kind === "salary" ? calcSalaryIncome(amount, JUMIN_FY) : amount; }
+
+  // 説明の表（制度値から描く）
+  function renderTables(){
+    var E = NENKIN_DB.exemption, P = NENKIN_DB.exemption.partial;
+    var k = $("kijunTable");
+    if(k){
+      var man = function(n){ return (n / 10000).toLocaleString("ja-JP") + "万円"; };
+      k.innerHTML = "<table class='jt-table'><tr><th>区分</th><td style='text-align:left;font-weight:600;background:#f3f6fb;'>前年所得の基準（以下なら該当）</td></tr>" +
+        "<tr><th>全額免除・納付猶予</th><td style='text-align:left;'>（扶養親族等の数＋1）× " + man(E.full.perPerson) + " ＋ " + man(E.full.base) + "</td></tr>" +
+        "<tr><th>4分の3免除</th><td style='text-align:left;'>" + man(P.threeQuarters) + " ＋ 扶養親族等控除額 ＋ 社会保険料控除額等</td></tr>" +
+        "<tr><th>半額免除</th><td style='text-align:left;'>" + man(P.half) + " ＋ 同上</td></tr>" +
+        "<tr><th>4分の1免除</th><td style='text-align:left;'>" + man(P.quarter) + " ＋ 同上</td></tr>" +
+        "<tr><th>学生納付特例</th><td style='text-align:left;'>" + man(E.student.base) + " ＋ 扶養親族等の数 × " + man(E.student.perDependent) + " ＋ 社会保険料控除等（本人のみ）</td></tr></table>";
+    }
+    var h = $("hanneiTable");
+    if(h){
+      var R = E.pensionReflection, F = E.payFraction, m = NENKIN_DB.monthly;
+      var tr = function(key, name){ return "<tr><th>" + name + "</th><td>" + yen(Math.round(m * F[key])) + "</td><td>" + (R[key] === "0" ? "反映なし" : R[key]) + "</td></tr>"; };
+      h.innerHTML = "<table class='jt-table'><tr><th>区分</th><td style='text-align:right;font-weight:600;background:#f3f6fb;'>納める月額</td><td style='text-align:right;font-weight:600;background:#f3f6fb;'>老齢基礎年金への反映</td></tr>" +
+        tr("full", "全額免除") + tr("threeQuarters", "4分の3免除") + tr("half", "半額免除") + tr("quarter", "4分の1免除") + tr("yuyo", "納付猶予") + tr("student", "学生納付特例") + "</table>" +
+        "<p style='font-size:11px;color:#6b7280;'>反映は「全額納付した場合の年金額」に対する割合（平成21年4月以降の期間）。</p>";
+    }
+  }
+
+  function person(prefix, isSelf){
+    var kind = val(prefix + "Kind"), amount = num(prefix + "Amount");
+    var deps = num(prefix + "Deps");
+    var d;
+    if(isSelf){
+      var d16 = Math.min(num("selfDeps16"), deps), d70 = Math.min(num("selfDeps70"), Math.max(0, deps - d16));
+      d = { general: Math.max(0, deps - d16 - d70), age16to22: d16, elderly: d70 };
+    } else {
+      d = { general: deps };
+    }
+    var other = { socialInsurance: num(prefix + "Ded") };
+    if(isSelf){
+      var st = val("selfStatus");
+      if(st === "shogai") other.shogai = 1;
+      if(st === "shogaiSpecial") other.shogaiSpecial = 1;
+      if(st === "hitorioya") other.hitorioya = true;
+      if(st === "kafu") other.kafu = true;
+    }
+    return { income: toIncome(kind, amount), dependents: d, other: other, kind: kind, amount: amount };
+  }
+
+  window.calcNenkin = function(){
+    var out = $("result");
+    if(!has("age")){ out.innerHTML = "<span class='result-placeholder'>①の年齢を入れてください</span>"; return; }
+    if(!has("selfAmount")){ out.innerHTML = "<span class='result-placeholder'>②の本人の収入を入れてください（無ければ 0）</span>"; return; }
+    var self = person("self", true);
+    var input = {
+      age: num("age"), isStudent: val("student") === "yes", self: self,
+      spouse: val("spouse") === "yes" ? person("spouse", false) : null,
+      householder: val("householder") === "other" ? person("hh", false) : null
+    };
+    var pr, ex;
+    try{ pr = Nenkin.calcPremium(NENKIN_DB, { tsuka: val("tsuka") === "yes" }); ex = Nenkin.judgeExemption(NENKIN_DB, input); }
+    catch(e){ out.innerHTML = "<div class='result-label'>計算エラー</div><div>" + esc(e.message) + "</div>"; return; }
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "nenkin" }); }
+    var m = val("method"), pp = pr.prepay[m], mname = m === "kouza" ? "口座振替" : "納付書・クレジットカード";
+    var h = row("国民年金保険料（年額・毎月納付）", yen(pr.annual), "big") +
+      row("月額", yen(pr.monthly) + (pr.tsukaMonthly ? "（付加保険料 " + yen(pr.tsukaMonthly) + " 込み）" : ""));
+    h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>前納にしたとき（" + mname + "・付加保険料を除く）</div>" +
+      "<table class='jt-table'><tr><th>前納の種類</th><td style='text-align:right;font-weight:600;background:#f3f6fb;'>納付額</td><td style='text-align:right;font-weight:600;background:#f3f6fb;'>割引</td></tr>" +
+      "<tr><th>6か月前納</th><td>" + yen(pp.m6.amount) + "</td><td>" + yen(pp.m6.discount) + "</td></tr>" +
+      "<tr><th>1年前納</th><td>" + yen(pp.y1.amount) + "</td><td>" + yen(pp.y1.discount) + "</td></tr>" +
+      "<tr><th>2年前納（令和8・9年度）</th><td>" + yen(pp.y2.amount) + "</td><td>" + yen(pp.y2.discount) + "</td></tr>" +
+      (pp.hayawari ? "<tr><th>早割（当月末振替・月額）</th><td>" + yen(pp.hayawari.monthly) + "</td><td>" + yen(pp.hayawari.discount) + "／月</td></tr>" : "") +
+      "</table>";
+    h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>免除・納付猶予の判定（令和8年度分・2025年の所得）</div>";
+    if(!ex.eligible){
+      h += "<div class='warn'>国民年金の第1号被保険者は20〜59歳です。60歳以上の方は任意加入、20歳未満の方は加入前のため、免除の判定は行いません。</div>";
+    } else {
+      h += "<div class='verdict'>" + LEVEL_NAME[ex.level] + "</div>";
+      if(ex.level === "none"){
+        h += "<div class='hint' style='margin:0 0 8px;'>" + (ex.exceeded.length ? ex.exceeded.map(function(k){ return PERSON_NAME[k]; }).join("・") + "の前年所得が基準を超えています。" : "") + "保険料は毎月 " + yen(NENKIN_DB.monthly) + " です。失業などの事情がある方は特例（前年所得を除いて審査）があります。</div>";
+      } else {
+        h += row("承認されたときの月額", yen(ex.monthlyAfter)) +
+          row("老齢基礎年金への反映", ex.pensionReflection === "0" ? "反映なし（受給資格期間には入る）" : ex.pensionReflection + "（全額納付との比較）") +
+          "<div class='hint' style='margin:0 0 8px;'>申請して承認されると適用されます。承認から " + ex.tsuinoYears + " 年以内なら追納できます。</div>";
+      }
+      h += "<details><summary style='cursor:pointer;font-size:14px;font-weight:700;color:#1d4ed8;'>判定に使った所得と基準を見る</summary>";
+      Object.keys(ex.detail).forEach(function(k){
+        var t = ex.detail[k], inc = (k === "self" ? self : (k === "spouse" ? input.spouse : input.householder)).income;
+        h += "<div class='result-title' style='font-size:14px;margin-top:10px;'>" + PERSON_NAME[k] + "：前年所得 " + yen(inc) + "</div>" +
+          row("全額免除・納付猶予の基準", yen(t.full)) + row("4分の3免除の基準", yen(t.threeQuarters)) + row("半額免除の基準", yen(t.half)) + row("4分の1免除の基準", yen(t.quarter)) +
+          (k === "self" && input.isStudent ? row("学生納付特例の基準", yen(t.student)) : "");
+      });
+      h += "</details>";
+    }
+    h += "<div class='hint' style='margin-top:12px;'>この結果は、入力した前提での目安です。実際の承認は年金事務所・市区町村の審査によります。</div>";
+    out.innerHTML = h;
+  };
+
+  function init(){
+    ["selfAmount","selfDed","spouseAmount","spouseDed","hhAmount","hhDed"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["age","selfDeps","selfDeps16","selfDeps70","spouseDeps","hhDeps"].forEach(function(id){ setupNumericInput(id); });
+    function toggle(){ $("spouseBox").style.display = val("spouse") === "yes" ? "" : "none"; $("hhBox").style.display = val("householder") === "other" ? "" : "none"; }
+    $("spouse").addEventListener("change", toggle); $("householder").addEventListener("change", toggle); toggle();
+    try{ renderTables(); }catch(e){}
+  }
+  if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>
