@@ -61,6 +61,9 @@ __JSON_LD__
   .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
   h2{font-size:16px;margin:28px 0 6px;color:#111827;}
   .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
+  .cta-list a{display:flex;justify-content:space-between;align-items:center;margin:8px 0 0;padding:13px 14px;border-radius:12px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;text-decoration:none;font-weight:700;font-size:14px;}
+  .cta-list a:hover{background:#dbeafe;}
+  .cta-arrow{font-size:16px;margin-left:8px;}
   details{margin-top:10px;}
   summary{cursor:pointer;font-size:14px;font-weight:700;color:#1d4ed8;}
 </style>
@@ -228,19 +231,22 @@ __JSON_LD__
     <div id="taxTable"></div>
   </div>
 
-  <h2>住民税・手取りも知りたい方へ</h2>
-  <div class="note" style="margin-top:4px;font-size:13px;color:#374151;">
-    ・住民税は<b>基礎控除43万円</b>のまま据え置きで、所得税が0円でも住民税がかかる年収の帯（おおむね100万〜178万円）があります。住民税はお住まいの自治体で非課税の線が違うため、<a href="/" style="color:#1d4ed8;font-weight:600;">家計簿シミュレーター（自治体を選ぶ）</a>で所得税・住民税・保険料をまとめて計算できます。<br>
-    ・<a href="/furusato/" style="color:#1d4ed8;font-weight:600;">ふるさと納税の控除上限額 →</a>（この計算の税率区分が上限額の目安に使えます）<br>
-    ・会社員の社会保険料（健康保険・厚生年金・雇用保険）の額は <a href="https://shaho-keisan.jp/" style="color:#1d4ed8;font-weight:600;">社会保険の計算 →</a>
+  <h2>あわせて使う</h2>
+  <p class="hint" style="margin:0 0 8px;">所得税が0円でも住民税（基礎控除43万円）はかかることがあります。住民税・保険料・手取りは自治体を選んで計算します。</p>
+  <div class="cta-list">
+    <a href="/">家計簿シミュレーター（住民税・保険料・手取り）<span class="cta-arrow">→</span></a>
+    <a href="/furusato/">ふるさと納税の控除上限額<span class="cta-arrow">→</span></a>
+    <a href="https://shaho-keisan.jp/">社会保険料の計算（会社員）<span class="cta-arrow">→</span></a>
   </div>
 
   <div class="note">
-    ※令和8年分（2026年1月1日〜12月31日の所得）の制度で計算します。令和9年分はひとり親控除が38万円になるほかは同じ値です（復興特別所得税2.1%は令和9年分から防衛特別所得税1%＋復興特別所得税1.1%の合計2.1%で変わりません）。<br>
-    ※配偶者は給与収入のみの前提。配偶者の所得は給与所得控除の表（4,000円刻み）で出します。<br>
-    ※医療費控除の「所得の5%」は、ここでは合計所得金額（給与所得＋その他の所得）で計算します。<br>
-    ※住宅ローン控除が所得税額を超える分は、住民税から引かれることがあります（ここでは所得税だけを計算）。<br>
-    ※出典：国税庁「源泉所得税の改正のあらまし（令和8年4月）」、国税庁「令和8年分 年末調整のしかた」（基礎控除・給与所得控除後の給与等の金額の表・特定親族特別控除）、所得税法 第28条（給与所得）・第73条（医療費控除）・第74条（社会保険料控除）・第75条（小規模企業共済等掛金控除）・第76条（生命保険料控除）・第77条（地震保険料控除）・第79条（障害者控除）・第80条（寡婦控除）・第81条（ひとり親控除）・第82条（勤労学生控除）・第83条・第83条の2（配偶者控除・配偶者特別控除）・第84条（扶養控除）・第84条の2（特定親族特別控除）・第86条（基礎控除）・第89条（税率）、租税特別措置法 第41条（住宅借入金等特別控除）・第41条の16の2（基礎控除の特例）・第29条の4（給与所得控除の特例）、復興財源確保法 第13条（復興特別所得税）。
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>令和8年分（2026年1〜12月の所得）の制度で計算。令和9年分はひとり親控除が38万円になるほかは同じ</li>
+      <li>配偶者・特定親族は給与収入のみの前提</li>
+      <li>医療費控除の「所得の5%」は合計所得金額（給与所得＋その他の所得）で計算</li>
+      <li>住宅ローン控除が所得税を超える分（住民税から引かれる分）は含まない</li>
+      <li>出典: 国税庁「源泉所得税の改正のあらまし（令和8年4月）」「令和8年分 年末調整のしかた」、所得税法（第28条・第73〜84条の2・第86条・第89条）、租税特別措置法（第29条の4・第41条・第41条の16の2）、復興財源確保法 第13条</li>
+    </ul>
   </div>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
