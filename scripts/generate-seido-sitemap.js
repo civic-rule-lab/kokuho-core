@@ -51,6 +51,8 @@ const prevLastmod = previousLastmod(OUT);
 const urls = [
   // アンブレラ・トップ
   { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'monthly' },
+  // 国民年金の保険料と免除（令和8年度・全国1ページ・deploy-seido.sh が nenkin/index.html へコピー）
+  { loc: `${BASE_URL}/nenkin/`, priority: '0.8', changefreq: 'yearly' },
   // 所得税の計算（令和8年分・全国1ページ・deploy-seido.sh が shotoku/index.html へコピー）
   { loc: `${BASE_URL}/shotoku/`, priority: '0.8', changefreq: 'yearly' },
   // ふるさと納税の控除上限額 かんたん計算（全国1ページ・deploy-seido.sh が furusato/index.html へコピー）
