@@ -61,9 +61,12 @@ __JSON_LD__
   .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
   h2{font-size:16px;margin:28px 0 6px;color:#111827;}
   .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
-  .cta-list a{display:flex;justify-content:space-between;align-items:center;margin:8px 0 0;padding:13px 14px;border-radius:12px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;text-decoration:none;font-weight:700;font-size:14px;}
-  .cta-list a:hover{background:#dbeafe;}
-  .cta-arrow{font-size:16px;margin-left:8px;}
+  .cta-item{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:10px 0 0;}
+  .cta-item a{display:inline-block;padding:10px 16px;border-radius:999px;background:#dbeafe;border:1px solid #93c5fd;color:#1e40af;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;}
+  .cta-item a:hover{background:#bfdbfe;}
+  .cta-item a:active{transform:translateY(1px);}
+  .cta-ext{font-size:13px;margin-left:2px;}
+  .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
   details{margin-top:10px;}
   summary{cursor:pointer;font-size:14px;font-weight:700;color:#1d4ed8;}
 </style>
@@ -234,9 +237,9 @@ __JSON_LD__
   <h2>あわせて使う</h2>
   <p class="hint" style="margin:0 0 8px;">所得税が0円でも住民税（基礎控除43万円）はかかることがあります。住民税・保険料・手取りは自治体を選んで計算します。</p>
   <div class="cta-list">
-    <a href="/">家計簿シミュレーター（住民税・保険料・手取り）<span class="cta-arrow">→</span></a>
-    <a href="/furusato/">ふるさと納税の控除上限額<span class="cta-arrow">→</span></a>
-    <a href="https://shaho-keisan.jp/">社会保険料の計算（会社員）<span class="cta-arrow">→</span></a>
+    <div class="cta-item"><span class="cta-desc">住民税・保険料・手取り計算サイト</span><a href="/">家計簿シミュレーター <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">ふるさと納税 上限額計算サイト</span><a href="/furusato/">上限額の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">社会保険料計算サイト（会社員）</span><a href="https://shaho-keisan.jp/">社会保険料の計算 <span class="cta-ext">↗</span></a></div>
   </div>
 
   <div class="note">
