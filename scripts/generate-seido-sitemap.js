@@ -51,6 +51,8 @@ const prevLastmod = previousLastmod(OUT);
 const urls = [
   // アンブレラ・トップ
   { loc: `${BASE_URL}/`, priority: '1.0', changefreq: 'monthly' },
+  // 所得税の計算（令和8年分・全国1ページ・deploy-seido.sh が shotoku/index.html へコピー）
+  { loc: `${BASE_URL}/shotoku/`, priority: '0.8', changefreq: 'yearly' },
   // ふるさと納税の控除上限額 かんたん計算（全国1ページ・deploy-seido.sh が furusato/index.html へコピー）
   { loc: `${BASE_URL}/furusato/`, priority: '0.8', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/onestop/`, priority: '0.7', changefreq: 'yearly' },
