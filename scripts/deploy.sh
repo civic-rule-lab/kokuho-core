@@ -275,8 +275,10 @@ if [ "$PUSH" = true ]; then
     echo ""
     echo "❌ wrangler deploy 失敗 (exit code: $WRANGLER_RC)。デプロイを中断します。"
     if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-      echo "   CLOUDFLARE_API_TOKEN が未設定です。"
-      echo "   export CLOUDFLARE_API_TOKEN=... を設定して再実行してください。"
+      echo "   wrangler のログインが切れている可能性があります（この環境は API トークンではなく OAuth ログインで動かしている）。"
+      echo "   次を実行してブラウザで Authorize し、「Successfully logged in」を確認してから deploy.sh を再実行してください:"
+      echo "     (cd workers/api && npx wrangler login)"
+      echo "   ※ 2026-10-02・2026-10-22 ともこの手順で復旧。token を export する案内は実態と合わないため撤回"
     fi
     exit 1
   fi

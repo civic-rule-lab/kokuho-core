@@ -87,8 +87,8 @@ function buildCalcExamples(cityName, data, publishYear) {
   ).join("\n      ");
 
   return `
-  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${cityName}の国民健康保険料の計算例（${buildFiscalYearLabel(publishYear)}）</h2>
+  <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>${cityName}の国民健康保険料の計算例（${buildFiscalYearLabel(publishYear)}）</h2>
     <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（収入は世帯主1人・40〜64歳の方は介護分を含む概算）。かんたん計算は介護分と18歳未満の人数を入力しないため、この表の金額とは一致しません。</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
@@ -168,8 +168,8 @@ function buildRateChangeSection(cityName, citySlug, data, publishYear) {
     `<td style="${tdStyle}">${b === a ? "→ 据え置き" : (b > a ? "↑ 上昇" : "↓ 低下")}</td></tr>`;
 
   return `
-  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${cityName}の国保料率の推移（令和7年度→令和8年度）</h2>
+  <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>${cityName}の国保料率の推移（令和7年度→令和8年度）</h2>
     <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:0 0 12px;">${rateSentence}${totalSentence}</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
@@ -232,8 +232,8 @@ function buildNeighborCompareSection(self, data, publishYear, municipalities) {
   const prose = `${COMPARE_MODEL.label}のモデル世帯で比較すると、${self.cityName}の年間保険料の目安は約${fmtYen(selfTotal)}で、${position}。国民健康保険料は自治体ごとに料率が異なるため、同じ収入・世帯構成でも金額に差が出ます。`;
 
   return `
-  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 6px;">${self.cityName}と近隣自治体の国保料比較</h2>
+  <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>${self.cityName}と近隣自治体の国保料比較</h2>
     <p style="font-size:12px;color:#4b5563;line-height:1.8;margin:0 0 12px;">${prose}</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
@@ -325,8 +325,8 @@ function buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalitie
     </details>`).join("");
 
   const html = `
-  <section style="margin-top:24px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 12px;">${cityName}の国民健康保険料 よくある質問</h2>
+  <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>${cityName}の国民健康保険料 よくある質問</h2>
     ${items}
   </section>`;
 
@@ -669,8 +669,8 @@ function buildRateTable(cityName, data, publishYear) {
   }).join("\n      ");
 
   return `
-  <section style="margin-top:28px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:14px;font-weight:700;color:#374151;margin:0 0 12px;">${buildFiscalYearLabel(publishYear)} ${cityName}の国民健康保険料率</h2>
+  <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>${buildFiscalYearLabel(publishYear)} ${cityName}の国民健康保険料率</h2>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr>${headerCols}</tr></thead>
@@ -1021,8 +1021,8 @@ function buildProvenance(data, cityName, prefecture, publishYear) {
   }
 
   return `
-  <section class="provenance" style="margin-top:12px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
-    <h2 style="font-size:13px;font-weight:700;color:#374151;margin:0 0 8px;">この数値の根拠</h2>
+  <section class="provenance" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>この数値の根拠</h2>
     ${lines.join("\n    ")}
   </section>`;
 }
