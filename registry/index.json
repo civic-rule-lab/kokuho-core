@@ -4946,14 +4946,16 @@
         "kokuho",
         "jumin",
         "kaigo",
-        "kouki"
+        "kouki",
+        "hoiku"
       ],
       "prefectureSlug": "osaka",
       "publishYear": {
         "kokuho": 2026,
         "jumin": 2026,
         "kaigo": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "hoiku": 2026
       }
     },
     {

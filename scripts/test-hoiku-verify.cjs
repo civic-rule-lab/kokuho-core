@@ -26,6 +26,19 @@ const otaBase = {
   hitorioya: _otaFile.baseTable.hitorioya,
 };
 
+// --- 実自治体: 大阪市(27100) 令和8年度 大阪市保育料金額表(0〜2歳児クラス・R8.4〜8月分) ---
+// ライブは status:"free"(R8.9〜 0〜2歳児クラス全員無償・市独自)。下地=市の金額表(baseTable)をエンジンで検証。
+// 政令市(6/8補正)。第2子以降=全世帯0(R6.9〜)。ひとり親世帯等=第3〜第9階層(<77,101)に代替実額・第2子0。第8を57,700で8A/8B分割(同額)。
+// 出典: https://www.city.osaka.lg.jp/kodomo/page/0000501253.html (2026-10-22 取得)
+const _osakaFile = JSON.parse(fs.readFileSync(
+  path.resolve(__dirname, '../data/municipalities/osaka/hoiku-2026.json'), 'utf8'));
+const osakaBase = {
+  cityCode: _osakaFile.cityCode, citySlug: _osakaFile.citySlug, cityName: _osakaFile.cityName,
+  prefSlug: _osakaFile.prefSlug, fiscalYear: _osakaFile.fiscalYear, system: 'hoiku', schemaVersion: '1.0',
+  status: 'verified', fiscalSwitch: _osakaFile.baseTable.fiscalSwitch, seireiConversion: _osakaFile.baseTable.seireiConversion,
+  brackets: _osakaFile.baseTable.brackets, multiChild: _osakaFile.baseTable.multiChild,
+};
+
 // --- 実自治体: 横浜市(14100) 令和8年度 利用料金表(3号認定・認可保育所) ---
 // 政令市。保育料は税源移譲前6%相当で判定(公式)。第2子=明示実額(child2)、ひとり親=E階層 実額付け替え。
 // これは status:"verified" のライブ課金自治体(神奈川・都無償化の対象外)。data ファイルをそのまま使う。
@@ -145,6 +158,47 @@ const CASES = [
   { name: '大田区:第2子無償', muni: otaBase,
     input: { father: { shotokuwari: 300000 }, mother: { shotokuwari: 0 }, childOrder: 2 }, expected: { monthly: 0 } },
   { name: '大田区:非課税0', muni: otaBase, input: { hikazei: true }, expected: { monthly: 0, level: 2 } },
+
+  // --- 実自治体: 大阪市(下地表 baseTable・公式実額・R8.4〜8月分) ---
+  // 指数=保護者等の市町村民税所得割合算(税額控除前)。政令市は通知書8%なら isSeireiNotice:true で×6/8。
+  { name: '大阪:第3(課税・所得割0)', muni: osakaBase,
+    input: { father: { shotokuwari: 0 }, mother: { shotokuwari: 0 } }, expected: { monthly: 8100, level: 3 } },
+  { name: '大阪:第3 短時間', muni: osakaBase,
+    input: { father: { shotokuwari: 0 }, timeType: 'short' }, expected: { monthly: 8000, level: 3 } },
+  { name: '大阪:第3 ひとり親等=2,000', muni: osakaBase,
+    input: { father: { shotokuwari: 0 }, hitorioya: true }, expected: { monthly: 2000, level: 3 } },
+  { name: '大阪:第4 境界 index45999', muni: osakaBase,
+    input: { father: { shotokuwari: 45999 } }, expected: { monthly: 10100, level: 4 } },
+  { name: '大阪:第5 境界 index46000', muni: osakaBase,
+    input: { father: { shotokuwari: 46000 } }, expected: { monthly: 11800, level: 5 } },
+  { name: '大阪:第5 ひとり親等=5,000', muni: osakaBase,
+    input: { father: { shotokuwari: 46000 }, hitorioya: true }, expected: { monthly: 5000, level: 5 } },
+  { name: '大阪:第8A index57699', muni: osakaBase,
+    input: { father: { shotokuwari: 30000 }, mother: { shotokuwari: 27699 } }, expected: { monthly: 18300, level: 8 } },
+  { name: '大阪:第8B index57700(同額)', muni: osakaBase,
+    input: { father: { shotokuwari: 57700 } }, expected: { monthly: 18300, level: 9 } },
+  { name: '大阪:第9 index77100 ひとり親等=9,000', muni: osakaBase,
+    input: { father: { shotokuwari: 77100 }, hitorioya: true }, expected: { monthly: 9000, level: 10 } },
+  { name: '大阪:第10 index77101 ひとり親等は本則21,500', muni: osakaBase,
+    input: { father: { shotokuwari: 77101 }, hitorioya: true }, expected: { monthly: 21500, level: 11 } },
+  { name: '大阪:第11 短時間 index80000', muni: osakaBase,
+    input: { father: { shotokuwari: 80000 }, timeType: 'short' }, expected: { monthly: 24700, level: 12 } },
+  { name: '大阪:第14 index150000', muni: osakaBase,
+    input: { father: { shotokuwari: 100000 }, mother: { shotokuwari: 50000 } }, expected: { monthly: 39400, level: 15 } },
+  { name: '大阪:第22 境界 index535999', muni: osakaBase,
+    input: { father: { shotokuwari: 535999 } }, expected: { monthly: 65900, level: 23 } },
+  { name: '大阪:第23 最上段 index536000', muni: osakaBase,
+    input: { father: { shotokuwari: 536000 } }, expected: { monthly: 70600, level: 24 } },
+  { name: '大阪:第23 短時間', muni: osakaBase,
+    input: { father: { shotokuwari: 600000 }, timeType: 'short' }, expected: { monthly: 70000, level: 24 } },
+  { name: '大阪:通知書8% 100,000×6/8=75,000→第9', muni: osakaBase,
+    input: { father: { shotokuwari: 100000 }, isSeireiNotice: true }, expected: { monthly: 21500, level: 10 } },
+  { name: '大阪:第2子=0(全世帯)', muni: osakaBase,
+    input: { father: { shotokuwari: 300000 }, childOrder: 2 }, expected: { monthly: 0 } },
+  { name: '大阪:第3子=0', muni: osakaBase,
+    input: { father: { shotokuwari: 300000 }, childOrder: 3 }, expected: { monthly: 0 } },
+  { name: '大阪:非課税0', muni: osakaBase, input: { hikazei: true }, expected: { monthly: 0, level: 2 } },
+  { name: '大阪:生活保護0', muni: osakaBase, input: { seikatsuhogo: true }, expected: { monthly: 0, level: 1 } },
 
   // --- 実自治体: 横浜市(6%基準・第2子実額・ひとり親E階層) ---
   { name: '横浜:C均等割のみ(index0)第1子', muni: yokohama,
