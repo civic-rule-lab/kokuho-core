@@ -175,6 +175,7 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/shared/ui-input.js" "$PUBLIC_DIR/js/core/shared/"   # 入力 UI 共通（数値欄・Enter 移動）
   cp "$CORE_DIR/js/core/kokuho.js"   "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/css/common.css"      "$PUBLIC_DIR/css/"
+  cp "$CORE_DIR/css/selector.css"    "$PUBLIC_DIR/css/"   # ポータル専用 CSS（2026-10-22 まで同期されておらず初回コミットのまま配信されていた）
   cp "$CORE_DIR/css/article.css"     "$PUBLIC_DIR/css/"
   cp "$CORE_DIR/sitemap.xml"         "$PUBLIC_DIR/"
   cp "$CORE_DIR/robots.txt"          "$PUBLIC_DIR/"
