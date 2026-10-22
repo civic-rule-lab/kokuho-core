@@ -241,23 +241,35 @@ color:#6b7280;
   margin-bottom:40px;
 }
 
+/* ポータルの見出し（2026-10-22 X218 段階2・オーナー決定 B2）:
+   ブランド → 標語 → 題（h1）の順。題は制度色 --acc、下に余白と区切り線。 */
 .subtitle{
   font-size:30px;
-  font-weight:600;
-  color:#1e2a38;
-  margin-bottom:14px;
+  font-weight:700;
+  line-height:1.35;
+  color:var(--acc);
+  text-align:center;
+  text-wrap:balance;
+  margin:0 0 44px;
+  padding-bottom:28px;
+  border-bottom:1px solid #e5e7eb;
+}
+@media (max-width:480px){
+  .subtitle{ font-size:26px; }
 }
 
 .brand{
-  font-size:48px;
+  font-size:18px;
   font-weight:700;
+  letter-spacing:.04em;
   color:var(--brand);
-  margin-bottom:6px;
+  margin:0 0 2px;
 }
 .tagline{
-  font-size:16px;
+  font-size:12px;
   font-weight:500;
   color:var(--brand);
+  margin:0 0 24px;
 }
 .prefecture-group{
   display:block;
