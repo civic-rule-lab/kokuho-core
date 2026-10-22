@@ -58,8 +58,8 @@ export function renderPortalBox(calcType) {
       .portal-box .pb-title{font-size:14px;font-weight:700;color:#111827;margin:0 0 6px;}
       .portal-box .pb-lead{font-size:13px;line-height:1.8;color:#374151;margin:0 0 8px;}
       .portal-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#1d4ed8;font-size:14px;font-weight:600;text-decoration:none;}
-      .portal-box li a:hover{background:#eff6ff;border-color:#93c5fd;}
+      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:var(--acc);font-size:14px;font-weight:600;text-decoration:none;}
+      .portal-box li a:hover{background:var(--acc-bg);border-color:var(--acc-line-strong);}
       .portal-box .pb-ext{font-size:11px;margin-left:3px;color:#64748b;}
       .portal-box .pb-note{font-size:12px;line-height:1.8;color:#6b7280;margin:8px 0 0;}
       @media (max-width:420px){.portal-box ul{grid-template-columns:1fr;}}
