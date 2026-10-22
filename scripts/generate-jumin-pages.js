@@ -160,7 +160,7 @@ function buildJuminCompare(self, data, fy, publishedTargets) {
   const tdR = td + 'text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;';
 
   const selfRate = (data.prefRate ?? STD_PREF_RATE) + (data.cityRate ?? STD_CITY_RATE);
-  const selfRow = `<tr style="background:#eef2ff;"><td style="${td}font-weight:700;">${self.cityName}（このページ）</td>` +
+  const selfRow = `<tr style="background:var(--tint);"><td style="${td}font-weight:700;">${self.cityName}（このページ）</td>` +
     `<td style="${tdR}font-weight:700;">${rateLabel(selfRate)}</td><td style="${tdR}font-weight:700;">約 ${selfTax.toLocaleString()}円</td><td style="${tdR}">—</td></tr>`;
   const body = rows.map(r =>
     `<tr><td style="${td}">${r.name}</td><td style="${tdR}">${rateLabel(r.rate)}</td><td style="${tdR}">約 ${r.tax.toLocaleString()}円</td>` +

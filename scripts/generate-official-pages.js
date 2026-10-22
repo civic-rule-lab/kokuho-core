@@ -217,7 +217,7 @@ function buildNeighborCompareSection(self, data, publishYear, municipalities) {
   const tdL     = "padding:6px 10px;font-size:12px;border:1px solid #e5e7eb;";
 
   const selfRow =
-    `<tr style="background:#eef2ff;"><td style="${tdL}font-weight:700;">${self.cityName}（このページ）</td>` +
+    `<tr style="background:var(--tint);"><td style="${tdL}font-weight:700;">${self.cityName}（このページ）</td>` +
     `<td style="${tdStyle}font-weight:700;">約 ${fmtYen(selfTotal)}</td><td style="${tdStyle}">—</td></tr>`;
   const body = rows.map(r =>
     `<tr><td style="${tdL}">${r.name}</td><td style="${tdStyle}">約 ${fmtYen(r.total)}</td>` +
@@ -529,8 +529,8 @@ function buildStandardNote(data, cityName, prefecture) {
   const isStandard = data?.meta?.lifecycle?.r8Stage === "standard_r8" || data?.meta?.source?.type === "prefecture_standard";
   if (!isStandard) return "";
   return `
-  <div class="standard-note" style="margin-top:16px;padding:14px 16px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;">
-    <p style="margin:0 0 6px;font-size:15px;font-weight:700;color:#1d4ed8;">【ご注意】令和8年度の料率について</p>
+  <div class="standard-note" style="margin-top:16px;padding:14px 16px;background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:12px;">
+    <p style="margin:0 0 6px;font-size:15px;font-weight:700;color:var(--acc);">【ご注意】令和8年度の料率について</p>
     <p style="margin:0;font-size:13px;line-height:1.8;color:#374151;">このページの令和8年度の保険料率は、${prefecture}が公表した<strong>標準保険料率（参考値）</strong>です。${cityName}が実際に決定・告示する保険料率とは異なる場合があります。標準保険料率は、各市町村の法定外繰入等を行わない前提で県が算定した理論上の値です。確定した料率は${cityName}の公式案内をご確認ください。</p>
   </div>`;
 }
