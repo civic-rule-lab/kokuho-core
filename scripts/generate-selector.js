@@ -9,11 +9,17 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 import organization from "./lib/organization.cjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// selector.css の ?v= は中身のハッシュ（common.css と同じ方式）。固定値 "?v=3" のままだと
+// Cloudflare が旧 CSS を返し続け、CSS を変えても本番に届かない（2026-10-22 X218 段階2）。
+const SELECTOR_CSS_V = createHash("sha256")
+  .update(readFileSync(path.join(__dirname, "..", "css", "selector.css")))
+  .digest("hex").slice(0, 8);
 const ROOT      = path.join(__dirname, "..");
 const REGISTRY  = path.join(ROOT, "registry", "index.json");
 const OUT_ROOT  = path.join(ROOT, "js", "selector.js");
@@ -252,7 +258,7 @@ function updateIndexHtml(groups) {
 <meta name="description" content="全国${kokuhoStats.total}自治体の国民健康保険料を自治体別に試算。住民税・介護保険・社会保険・奨学金など制度別の計算ツールを ${organization.ORGANIZATION.name} が運営。">
 <link rel="canonical" href="https://kokuho-keisan.jp/">
 <title>国保計算ツール｜Civic Rule Lab</title>
-<link rel="stylesheet" href="/css/selector.css?v=3">
+<link rel="stylesheet" href="/css/selector.css?v=${SELECTOR_CSS_V}">
 ${organization.jsonLdScript({
   "@context": "https://schema.org",
   "@graph": [
