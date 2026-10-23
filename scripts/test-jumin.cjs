@@ -441,6 +441,55 @@ console.log('\n■ 配偶者控除・配偶者特別控除（第34条第1項第1
 }
 
 // ─────────────────────────────────────────────────────────────
+// 障害者・未成年者・寡婦・ひとり親の135万円以下の非課税（地方税法 第24条の5・第295条）
+// ─────────────────────────────────────────────────────────────
+console.log('\n== 障害者・未成年者・寡婦・ひとり親の135万円以下の非課税 ==');
+
+{
+  const zero = (label, r) => {
+    eq(`${label}: 所得割 0`, r.incomeLevy, 0);
+    eq(`${label}: 均等割 0`, r.perCapita, 0);
+    eq(`${label}: isTaxable=false`, r.isTaxable, false);
+    eq(`${label}: specialNonTaxable=true`, r.specialNonTaxable, true);
+    eq(`${label}: 保育料指数 0`, r.hoikuShotokuwari, 0);
+  };
+  const taxed = (label, r) => {
+    ok(`${label}: 所得割 > 0`, r.incomeLevy > 0, `実際=${r.incomeLevy}`);
+    eq(`${label}: 均等割 5,000`, r.perCapita, 5_000);
+    eq(`${label}: specialNonTaxable=false`, r.specialNonTaxable, false);
+  };
+
+  // ひとり親・扶養1・給与185万 → 合計所得120万（扶養1人の非課税限度101万は超えるが135万以下）
+  const sp = calculateJumin(null, { salary: 1_850_000, singleParentDeduction: 300_000, dependents: 1 });
+  eq('ひとり親 給与185万: 合計所得 1,200,000', sp.totalIncome, 1_200_000);
+  zero('ひとり親 給与185万（控除額から判定）', sp);
+
+  // 境目: 合計所得 135万ちょうどは非課税、1円超えると課税
+  zero('ひとり親 所得135万ちょうど', calculateJumin(null, { otherIncome: 1_350_000, singleParentDeduction: 300_000, dependents: 1 }));
+  taxed('ひとり親 所得135万1円', calculateJumin(null, { otherIncome: 1_350_001, singleParentDeduction: 300_000, dependents: 1 }));
+
+  // 寡婦（控除額 26万から判定／フラグだけでも判定）
+  zero('寡婦 所得130万（控除額26万）', calculateJumin(null, { otherIncome: 1_300_000, singleParentDeduction: 260_000 }));
+  zero('寡婦 所得130万（widow フラグのみ）', calculateJumin(null, { otherIncome: 1_300_000, widow: true }));
+  zero('ひとり親 所得130万（singleParent フラグのみ）', calculateJumin(null, { otherIncome: 1_300_000, singleParent: true, dependents: 1 }));
+
+  // 本人の障害者・未成年者はフラグで判定する
+  zero('本人障害者 所得135万', calculateJumin(null, { otherIncome: 1_350_000, disabilityDeduction: 260_000, selfDisabled: true }));
+  taxed('本人障害者 所得135万1円', calculateJumin(null, { otherIncome: 1_350_001, disabilityDeduction: 260_000, selfDisabled: true }));
+  zero('未成年者 給与200万（所得132万）', calculateJumin(null, { salary: 2_000_000, minor: true }));
+
+  // 障害者控除があっても扶養親族の分（selfDisabled なし）なら対象外
+  taxed('扶養親族の障害者控除のみ 所得130万', calculateJumin(null, { otherIncome: 1_300_000, disabilityDeduction: 270_000, dependents: 1 }));
+  // 区分に当たらなければ従来どおり
+  taxed('区分なし 所得130万', calculateJumin(null, { otherIncome: 1_300_000 }));
+
+  // 令和9年度（給与所得控除の最低保障74万）でも135万は同じ。給与209万 → 所得135万
+  const fy27 = calculateJumin(null, { salary: 2_090_000, singleParentDeduction: 300_000, dependents: 1, fiscalYear: 2027 });
+  eq('令和9年度 ひとり親 給与209万: 合計所得 1,350,000', fy27.totalIncome, 1_350_000);
+  zero('令和9年度 ひとり親 給与209万', fy27);
+}
+
+// ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);
 if (failed === 0) console.log('✅ 全テスト通過');

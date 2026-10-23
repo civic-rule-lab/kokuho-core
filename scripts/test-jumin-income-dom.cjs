@@ -42,7 +42,7 @@ function buildHtml() {
     setChk('spouse', o.spouse); setChk('spouse_elderly', o.elderly);
     setVal('spouse_salary', o.spouseSalary ? String(o.spouseSalary) : '');
     ['dep_general', 'dep_specific', 'dep_elderly', 'child_salary', 'life', 'quake', 'medical', 'furusato'].forEach(id => setVal(id, ''));
-    setChk('disabled', false); setChk('singleparent', false); setChk('widow', false);
+    setChk('disabled', o.disabled); setChk('singleparent', o.singleparent); setChk('widow', o.widow);
     w.calcJuminFull();
     const html = w.document.getElementById('result').innerHTML;
     const m = html.match(/住民税 合計（年額）<\/div><div class="amount">([\d,]+) 円/);
@@ -92,6 +92,16 @@ function buildHtml() {
   // (f) 本人 給与1,200万（合計所得1,005万）＋チェック → 配偶者控除なし（旧実装は本人所得を見ずに33万を引いていた）
   const f = run({ salary: 12000000, social: SI, spouse: true });
   A('本人1,200万（合計所得1,000万超）＋チェック: 配偶者控除なしの直算と一致', f.total === direct(12000000, 0, false, 0));
+  // (g) 2026-10-23 追加: 障害者・寡婦・ひとり親で合計所得135万円以下は均等割・所得割とも非課税（地方税法 第24条の5・第295条）
+  //   給与185万 → 合計所得120万（扶養0の非課税限度45万は超える）。給与209万2千 → 所得138万4,400（135万超）
+  const g0 = run({ salary: 1850000, social: 0 });
+  A('給与185万・区分なし: 住民税が掛かる（従来どおり）', g0.total > 0);
+  for (const [id, label] of [['singleparent', 'ひとり親'], ['widow', '寡婦'], ['disabled', '本人障害者']]) {
+    const r = run({ salary: 1850000, social: 0, [id]: true });
+    A(`給与185万・${label}: 住民税合計 0 円`, r.total === 0);
+    const over = run({ salary: 2092000, social: 0, [id]: true });
+    A(`給与209万2千（所得138万4,400）・${label}: 住民税が掛かる`, over.total > 0);
+  }
   A('JSランタイムエラーなし', errs.length === 0);
   if (errs.length) console.log('  JSエラー:', errs);
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
