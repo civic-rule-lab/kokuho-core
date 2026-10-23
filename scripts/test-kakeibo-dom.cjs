@@ -133,6 +133,7 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     setVal('famDepSpecific', fam.specific ? String(fam.specific) : '');
     setVal('famDepElderly', fam.elderly ? String(fam.elderly) : '');
     setVal('famDepParent', fam.parent ? String(fam.parent) : '');
+    setVal('famDepYoung', fam.young ? String(fam.young) : '');   // 16歳未満の子（2026-10-23 X223）
     // 配偶者の給与年収・働き方（2026-10-12 X184）: 指定が無ければ空欄・会社員に戻す
     setVal('famSpouseSalary', fam.spouseSalary ? String(fam.spouseSalary) : '');
     if (w.document.getElementById('famSpouseWork')) w.document.getElementById('famSpouseWork').value = fam.spouseWork || 'kaishain';
@@ -163,6 +164,13 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   if (optIn) { optIn.checked = true; }
   const h1 = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
   const h2 = await run({ salary: 6000000, age: 40, employment: 'kaishain', bonus: 1000000 });
+  if (optIn) { optIn.checked = false; }
+  // 16歳未満の子（2026-10-23 X223）: 給与130万（所得65万）・単身は均等割の非課税限度45万を超えて課税。
+  //   子1人を入れると限度101万（35万×2＋10万＋21万・地方税法施行令 第47条の3）で非課税になる
+  const y0 = await run({ salary: 1300000, age: 30, employment: 'kaishain' });
+  const y1 = await run({ salary: 1300000, age: 30, employment: 'kaishain', family: { young: 1 } });
+  if (optIn) { optIn.checked = true; }
+  const y2 = await run({ salary: 1300000, age: 30, employment: 'kaishain' });   // 保育料も試算 → 保育所の子1人を16歳未満として数える
   if (optIn) { optIn.checked = false; }
 
   let pass = 0, fail = 0;
@@ -623,6 +631,12 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
 
   A('JSランタイムエラーなし', errs.length === 0);
   if (errs.length) console.log('  JSエラー:', errs);
+  {
+    const jy0 = find(y0.heads, '住民税'), jy1 = find(y1.heads, '住民税'), jy2 = find(y2.heads, '住民税');
+    A(`16歳未満の子なし・給与130万: 住民税が掛かる（${jy0 && jy0[1]}）`, !!jy0 && num(jy0[1]) > 0);
+    A(`16歳未満の子1人・給与130万: 住民税 0 円（非課税）（${jy1 && jy1[1]}）`, !!jy1 && num(jy1[1]) === 0);
+    A(`保育料も試算・給与130万: 保育所の子を数えて住民税 0 円（${jy2 && jy2[1]}）`, !!jy2 && num(jy2[1]) === 0);
+  }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });

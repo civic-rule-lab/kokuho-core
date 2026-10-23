@@ -95,6 +95,25 @@ function ref(inp) {
   A('月給が空: 入力を求める', /月給を入れてください/.test(res()));
   set('monthly', '300000'); set('paidMonths', '13'); await w.calcIkukyu(); await wait(10);
   A('月数 13: 範囲の案内', /0〜12/.test(res()));
+  // 2026-10-23 追加（X223）: 本人の区分（ひとり親・寡婦）を住民税の所得控除と135万円以下の非課税に反映する
+  //   期待値: ひとり親控除30万・寡婦控除26万（地方税法 第314条の2第1項第8号・第8号の2）だけ課税総所得が下がる。
+  //   合計所得500万円超は対象外（第292条第1項第11号・第12号）。合計所得135万円以下は非課税（第295条第1項第2号）
+  {
+    const base = { prefSlug: 'tokyo', age: 35, monthly: 300000, bonus: 0, bonusExempt: false, paidMonths: 12, exemptMonths: 0, salaryOverride: 0,
+      spouse: 'none', depGeneral: 0, depSpecific: 0, depElderly: 0, depParent: 0 };
+    const run = (o) => w.computeIkukyu(Object.assign({}, base, o), shahoData).normal.jumin;
+    const n0 = run({ selfStatus: 'none' }), m0 = run({ selfStatus: 'mother' }), f0 = run({ selfStatus: 'father' }), wd = run({ selfStatus: 'widow' });
+    A(`月給30万: ひとり親（母）の課税総所得 ${m0.taxableIncome} ＝ 区分なし ${n0.taxableIncome} − 300,000`, m0.taxableIncome === n0.taxableIncome - 300000);
+    A(`月給30万: ひとり親（父）も −300,000（${f0.taxableIncome}）`, f0.taxableIncome === n0.taxableIncome - 300000);
+    A(`月給30万: 寡婦は −260,000（${wd.taxableIncome}）`, wd.taxableIncome === n0.taxableIncome - 260000);
+    A('月給30万: ひとり親の所得割は区分なしより少ない', m0.incomeLevy < n0.incomeLevy);
+    const nHi = run({ selfStatus: 'none', monthly: 600000 }), mHi = run({ selfStatus: 'mother', monthly: 600000 });
+    A(`月給60万（合計所得500万超 ${mHi.totalIncome}）: ひとり親控除なし＝課税総所得が区分なしと同じ`, mHi.totalIncome > 5000000 && mHi.taxableIncome === nHi.taxableIncome);
+    const nLo = run({ selfStatus: 'none', monthly: 150000 }), mLo = run({ selfStatus: 'mother', monthly: 150000 });
+    A(`月給15万（合計所得 ${mLo.totalIncome} ≤ 135万）: 区分なしは課税`, mLo.totalIncome <= 1350000 && nLo.isTaxable === true && nLo.incomeLevy > 0);
+    A('月給15万: ひとり親は均等割・所得割とも 0（非課税）', mLo.incomeLevy === 0 && mLo.perCapita === 0 && mLo.isTaxable === false);
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });
