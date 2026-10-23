@@ -5,7 +5,7 @@
 'use strict';
 
 const path = require('path');
-const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, fuyoIncomeLimitJumin, calcSpouseDeductionJumin } =
+const { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, fuyoIncomeLimitJumin, calcSpouseDeductionJumin, calcSelfStatusDeductionJumin } =
   require(path.join(__dirname, '../js/core/jumin.js'));
 
 let passed = 0;
@@ -487,6 +487,34 @@ console.log('\n== 障害者・未成年者・寡婦・ひとり親の135万円�
   const fy27 = calculateJumin(null, { salary: 2_090_000, singleParentDeduction: 300_000, dependents: 1, fiscalYear: 2027 });
   eq('令和9年度 ひとり親 給与209万: 合計所得 1,350,000', fy27.totalIncome, 1_350_000);
   zero('令和9年度 ひとり親 給与209万', fy27);
+}
+
+// ─────────────────────────────────────────────────────────────
+// 本人の区分による所得控除（地方税法 第314条の2第1項第6号・第8号・第8号の2、第292条第1項第11号・第12号）
+// ─────────────────────────────────────────────────────────────
+console.log('\n== 本人の区分による所得控除（calcSelfStatusDeductionJumin） ==');
+
+{
+  const f = calcSelfStatusDeductionJumin;
+  eq('ひとり親（母）所得300万: 30万', f({ selfIncome: 3_000_000, singleParent: 'mother' }).singleParentDeduction, 300_000);
+  eq('ひとり親（父）所得300万: 30万', f({ selfIncome: 3_000_000, singleParent: 'father' }).singleParentDeduction, 300_000);
+  eq('寡婦 所得300万: 26万', f({ selfIncome: 3_000_000, singleParent: 'widow' }).singleParentDeduction, 260_000);
+  eq('ひとり親 所得500万ちょうど: 30万', f({ selfIncome: 5_000_000, singleParent: 'mother' }).singleParentDeduction, 300_000);
+  eq('ひとり親 所得500万1円: 0', f({ selfIncome: 5_000_001, singleParent: 'mother' }).singleParentDeduction, 0);
+  eq('ひとり親 所得500万1円: 区分は none（人的控除差も付けない）', f({ selfIncome: 5_000_001, singleParent: 'mother' }).singleParent, 'none');
+  eq('寡婦 所得500万1円: 0', f({ selfIncome: 5_000_001, singleParent: 'widow' }).singleParentDeduction, 0);
+  eq('障害者: 26万', f({ selfIncome: 3_000_000, selfDisability: 'general' }).disabilityDeduction, 260_000);
+  eq('特別障害者: 30万', f({ selfIncome: 3_000_000, selfDisability: 'special' }).disabilityDeduction, 300_000);
+  eq('障害者は所得要件なし（所得1,000万でも26万）', f({ selfIncome: 10_000_000, selfDisability: 'general' }).disabilityDeduction, 260_000);
+  eq('障害者: selfDisabled=true', f({ selfDisability: 'general' }).selfDisabled, true);
+  eq('区分なし: すべて0', JSON.stringify(f({ selfIncome: 3_000_000 })), JSON.stringify({ singleParentDeduction: 0, disabilityDeduction: 0, selfDisabled: false, singleParent: 'none' }));
+  eq('想定外の値は区分なし', f({ selfIncome: 3_000_000, singleParent: 'x', selfDisability: 'y' }).singleParentDeduction + f({ selfDisability: 'y' }).disabilityDeduction, 0);
+  // calculateJumin にそのまま渡すと 135万以下の非課税まで効く
+  const st = f({ selfIncome: 1_300_000, singleParent: 'widow' });
+  const r = calculateJumin(null, Object.assign({ otherIncome: 1_300_000 }, st));
+  eq('寡婦 所得130万を calculateJumin に渡す: 非課税', r.total, 0);
+  const sd = f({ selfIncome: 1_300_000, selfDisability: 'special' });
+  eq('特別障害者 所得130万を calculateJumin に渡す: 非課税', calculateJumin(null, Object.assign({ otherIncome: 1_300_000 }, sd)).total, 0);
 }
 
 // ─────────────────────────────────────────────────────────────

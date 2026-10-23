@@ -196,6 +196,29 @@ function ref(input) {
   set('business', ''); await w.calcJieigyo(); await wait(10);
   A('事業所得が空: 入力を求める', /事業所得を入れてください/.test(res()));
 
+  // 2026-10-23 追加（X223）: 本人の区分（ひとり親・寡婦・障害者）を住民税の所得控除と135万円以下の非課税に反映する
+  //   期待値: ひとり親30万・寡婦26万・障害者26万・特別障害者30万（地方税法 第314条の2第1項第6号・第8号・第8号の2）だけ課税総所得が下がる。
+  //   寡婦・ひとり親は合計所得500万円超で対象外（第292条第1項第11号・第12号）。合計所得135万円以下は非課税（第295条第1項第2号）
+  {
+    const base = { business: 2600000, aoiro: 0, kyosai: 0, medical: 0, age: 40, family: 1, nenkinExempt: false, housingLoan: false, kyuchi: 1,
+      spouse: 'none', spouseSalary: 0, spouseAge: 0, spouseKokuho: 'kokuho', spouseNenkin: false, depGeneral: 0, depSpecific: 0, depElderly: 0, depParent: 0,
+      selfStatus: 'none', selfDisability: 'none' };
+    const run = (o) => w.computeJieigyo(Object.assign({}, base, o), kokuhoData, juminData).jumin;
+    const n0 = run({});
+    A(`所得260万: ひとり親（母） −300,000`, run({ selfStatus: 'mother' }).taxableIncome === n0.taxableIncome - 300000);
+    A(`所得260万: 寡婦 −260,000`, run({ selfStatus: 'widow' }).taxableIncome === n0.taxableIncome - 260000);
+    A(`所得260万: 障害者 −260,000`, run({ selfDisability: 'general' }).taxableIncome === n0.taxableIncome - 260000);
+    A(`所得260万: 特別障害者 −300,000`, run({ selfDisability: 'special' }).taxableIncome === n0.taxableIncome - 300000);
+    A(`所得260万: ひとり親＋障害者 −560,000`, run({ selfStatus: 'mother', selfDisability: 'general' }).taxableIncome === n0.taxableIncome - 560000);
+    const nHi = run({ business: 6000000 }), mHi = run({ business: 6000000, selfStatus: 'mother' }), dHi = run({ business: 6000000, selfDisability: 'general' });
+    A('所得600万: ひとり親控除なし（500万超）', mHi.taxableIncome === nHi.taxableIncome);
+    A('所得600万: 障害者控除は所得によらず −260,000', dHi.taxableIncome === nHi.taxableIncome - 260000);
+    const nLo = run({ business: 1300000 }), mLo = run({ business: 1300000, selfStatus: 'mother' }), dLo = run({ business: 1300000, selfDisability: 'general' });
+    A('所得130万: 区分なしは課税', nLo.isTaxable === true && nLo.incomeLevy > 0);
+    A('所得130万: ひとり親は非課税（均等割・所得割 0）', mLo.isTaxable === false && mLo.incomeLevy === 0 && mLo.perCapita === 0);
+    A('所得130万: 本人障害者は非課税（均等割・所得割 0）', dLo.isTaxable === false && dLo.incomeLevy === 0 && dLo.perCapita === 0);
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });

@@ -244,13 +244,17 @@ __OPERATOR_FOOTER__
     if(r.bonus){ bPrem = r.bonus.health.employee + r.bonus.care.employee + r.bonus.shienkin.employee + r.bonus.koseiNenkin.employee; bKoyo = (r.bonus.koyo && r.bonus.koyo.applies) ? r.bonus.koyo.employee : 0; }
     function scenario(salary, premMonths, koyoMonths, bonusExempt){
       var si = Math.round(mPrem * premMonths + mKoyo * koyoMonths + (bonusExempt ? 0 : bPrem) + bKoyo);
+      // 本人の区分（ひとり親・寡婦）を住民税の所得控除にも入れる（地方税法 第314条の2第1項第8号・第8号の2、所得500万円以下）。
+      //   合計所得135万円以下なら calculateJumin が非課税にする（第295条第1項第2号）
+      var st = calcSelfStatusDeductionJumin({ selfIncome: calcSalaryIncome(salary, JUMIN_FY), singleParent: input.selfStatus });
       var hd = furusatoHumanDeductionDiff({ selfTotalIncome: calcSalaryIncome(salary, JUMIN_FY), spouse: input.spouse,
         dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
-        selfDisability: "none", singleParent: input.selfStatus, workingStudent: false }, FURUSATO_DATA);
+        selfDisability: "none", singleParent: st.singleParent, workingStudent: false }, FURUSATO_DATA);
       var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);
       var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;
       var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
       var rj = calculateJumin(null, { salary: salary, pension: 0, age: input.age, socialInsurance: si, spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents,
+        singleParentDeduction: st.singleParentDeduction,
         humanDeductionDiff: hd, fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: 1 });
       var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
       var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);
