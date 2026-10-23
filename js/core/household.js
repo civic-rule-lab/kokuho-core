@@ -21,7 +21,7 @@ const _calcKokuho = _isNode
 
 const _income = _isNode
   ? require('./shared/income.js')
-  : { calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcPensionIncome };
+  : { calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcPensionIncome, calcKeigenPensionDeduction };
 
 let _calcJumin = null;
 let _calcKaigo = null;
@@ -50,6 +50,8 @@ function _hasSalaryOrPension(m) {
 /**
  * household の members 配列から calculateKokuho の inputs を導出する。
  * 擬制世帯主がいる場合は世帯主の所得を reductionJudgmentIncome に加算する。
+ * 軽減判定の所得は、65歳以上の公的年金所得から1人15万円（年金所得が上限）を差し引く（国保法施行令 附則第5条）。
+ *   対象は判定に入る人（加入者・擬制世帯主）。所得割の income には差し引かない。
  * 所得割は加入者ごとに基礎控除を引くため、kokuho の members（所得・40〜64歳か）も渡す
  * （2026-10-04・TASKS X170-12。旧実装は所得を合計して1本で渡し、基礎控除が世帯で1回になっていた）。
  */
@@ -59,6 +61,8 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
 
   const income     = insured.reduce((sum, m) => sum + _memberIncome(m), 0);
   const headExtra  = (head && !head.isKokuhoInsured) ? _memberIncome(head) : 0;
+  const judged     = insured.concat((head && !head.isKokuhoInsured) ? [head] : []);
+  const pensionSpecial = judged.reduce((sum, m) => sum + _income.calcKeigenPensionDeduction(m.pension || 0, m.age), 0);
 
   return {
     income,
@@ -66,7 +70,7 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
       income:     _memberIncome(m),
       careTarget: (m.age || 0) >= 40 && (m.age || 0) < 65,
     })),
-    reductionJudgmentIncome: income + headExtra,
+    reductionJudgmentIncome: Math.max(0, income + headExtra - pensionSpecial),
     family:             insured.length,
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
     under18:            insured.filter(m => (m.age || 0) < 18).length,
