@@ -206,6 +206,7 @@ __OPERATOR_FOOTER__
         kyuchi:JUMIN_KYUCHI,
         spouseDeduction:spouseDed, dependentDeduction:depDed,
         disabilityDeduction:disDed, singleParentDeduction:spDed,
+        selfDisabled:chk("disabled"),   // 本人の障害者（合計所得135万円以下で非課税）。寡婦・ひとり親は spDed から判定される
         lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
         dependents:dependents, humanDeductionDiff:humanDiff,
         specialDependentSalaries: childSalary>0 ? [childSalary] : []
