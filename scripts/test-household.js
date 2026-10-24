@@ -288,6 +288,37 @@ console.log('\n== 軽減判定の年金特別控除（X221） ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 国保の加入者が 0 人の世帯（2026-10-24 追加）
+//   国民健康保険法 第76条第1項: 保険料は「被保険者の属する世帯の世帯主」から徴収する＝被保険者がいなければ 0 円。
+//   旧実装は平等割と子ども・子育て支援金の世帯割を課していた（saitama で 0 円にならない）。
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 国保の加入者が 0 人の世帯 ==');
+{
+  const members = [
+    { id: 'h', role: 'head', age: 76, pension: 1_500_000, isKokuhoInsured: false },
+    { id: 's', role: 'spouse', age: 77, pension: 800_000, isKokuhoInsured: false },
+  ];
+  const inputs = deriveKokuhoInputs(members);
+  eq('全員が後期: family = 0', inputs.family, 0);
+  const r = calculateKokuho(inputs, saitamaKokuho);
+  eq('全員が後期: 国保 total = 0', r.total, 0);
+  eq('全員が後期: 国保 月額 = 0', r.monthly, 0);
+  const h = calculateHousehold({ kokuho: saitamaKokuho }, { members }, { mode: 'accurate' });
+  eq('全員が後期: household の kokuho.total = 0', h.kokuho.total, 0);
+  // 加入者が 1 人いれば従来どおり平等割がかかる
+  const one = calculateKokuho({ income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, saitamaKokuho);
+  ok(`加入者 1 人・所得 0: 平等割・均等割がかかる（${one.total} 円 > 0）`, one.total > 0);
+  // 資産割があっても 0 人なら 0
+  eq('family 0・固定資産税あり: total = 0', calculateKokuho({ income: 0, family: 0, fixedAssetTax: 100_000 }, saitamaKokuho).total, 0);
+  // saitama（令和7年度）は平等割・子育て支援金の世帯割が無く不具合が表に出ないため、平等割のある大阪市（令和8年度）でも確かめる
+  const osaka = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/osaka/kokuho-2026.json'), 'utf-8'));
+  const ho = calculateHousehold({ kokuho: osaka }, { members }, { mode: 'accurate' });
+  eq('大阪市・全員が後期: household の kokuho.total = 0（旧実装は平等割で 13,426 円）', ho.kokuho.total, 0);
+  const o1 = calculateKokuho({ income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, osaka);
+  ok(`大阪市・加入者 1 人・所得 0: 平等割がかかる（${o1.total} 円 > 0）`, o1.total > 0);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);
