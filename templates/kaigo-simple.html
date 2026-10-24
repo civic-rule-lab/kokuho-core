@@ -161,6 +161,7 @@ __OPERATOR_FOOTER__
     var age=70;
     var pShotoku=(typeof calcPensionIncome==="function")?calcPensionIncome(pension,age):0;
     var sShotoku=(typeof calcSalaryIncome==="function")?calcSalaryIncome(salary):0;
+    sShotoku-=(typeof calcIncomeAdjustmentDeduction==="function")?calcIncomeAdjustmentDeduction(sShotoku,pShotoku):0; // 所得金額調整控除（給与と年金の両方がある人・租特法41条の3の11第2項）
     var totalIncome=pShotoku+sShotoku+other;          // 合計所得金額（第6段階以上）
     var sumIncome=pension+(sShotoku+other);           // 合算しきい値（第1〜5段階）＝課税年金収入＋年金以外の所得
     var f=taxFlags();

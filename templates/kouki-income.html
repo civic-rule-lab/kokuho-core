@@ -186,6 +186,7 @@ __OPERATOR_FOOTER__
     var pension=num("m"+i+"_pension"), salary=num("m"+i+"_salary"), other=num("m"+i+"_other"), dep=checked("m"+i+"_dep");
     var pInc=(typeof calcPensionIncome==="function")?calcPensionIncome(pension,76):0;
     var sInc=(typeof calcSalaryIncome==="function")?calcSalaryIncome(salary):0;
+    sInc-=(typeof calcIncomeAdjustmentDeduction==="function")?calcIncomeAdjustmentDeduction(sInc,pInc):0; // 所得金額調整控除（給与と年金の両方がある人・租特法41条の3の11第2項）
     return { pension:pension, dep:dep,
              totalIncome:pInc+sInc+other,
              judgePart:Math.max(pInc-150000,0)+sInc+other,

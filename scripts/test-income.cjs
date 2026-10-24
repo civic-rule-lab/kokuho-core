@@ -18,6 +18,8 @@ const {
   calcTaxableIncomeForKokuho,
   calcTaxableIncomeForJumin,
   calcKeigenPensionDeduction,
+  calcIncomeAdjustmentDeduction,
+  calcSalaryPensionIncome,
 } = require(path.join(__dirname, '../js/core/shared/income.js'));
 
 let passed = 0;
@@ -108,9 +110,10 @@ eq('pension=2,000,000, age=70 → 900,000',
 
 // 給与＋年金＋事業所得
 // salaryIncome=2,020,000 + pensionIncome(150万,68歳)=floor(150万-110万)=400,000 + other=500,000
-eq('salary=3M + pension=1.5M(68歳) + other=50万 → 2,920,000',
+//   − 所得金額調整控除 100,000（給与・年金とも10万超 → 10万+10万−10万。2026-10-25 修正・旧期待値 2,920,000 は控除漏れ）
+eq('salary=3M + pension=1.5M(68歳) + other=50万 → 2,820,000',
   calcTaxableIncomeForKokuho({ salary: 3_000_000, pension: 1_500_000, age: 68, otherIncome: 500_000 }),
-  2_920_000);
+  2_820_000);
 
 // 空入力
 eq('空 params → 0',
@@ -164,6 +167,30 @@ console.log('\n== 軽減判定の年金特別控除 calcKeigenPensionDeduction =
   eq('70歳・年金125万（所得15万）: 15万', f(1_250_000, 70), 150_000);
   eq('年金0: 0', f(0, 70), 0);
   eq('年齢未指定: 0', f(1_950_000, undefined), 0);
+}
+
+// ─── 所得金額調整控除（租税特別措置法 第41条の3の11 第2項・地方税法 第313条第2項）─────
+// 給与所得と年金所得の両方がある人: min(給与所得, 10万) + min(年金所得, 10万) − 10万 を給与所得から引く（2026-10-25 追加・全方向試算 A-2）
+console.log('\n== 所得金額調整控除 calcIncomeAdjustmentDeduction / calcSalaryPensionIncome ==');
+{
+  const f = calcIncomeAdjustmentDeduction;
+  eq('給与所得132万・年金所得90万: 10万', f(1_320_000, 900_000), 100_000);
+  eq('給与所得85万・年金所得5万: 5万', f(850_000, 50_000), 50_000);
+  eq('給与所得5万・年金所得2万（合計10万以下）: 0', f(50_000, 20_000), 0);
+  eq('給与所得6万・年金所得4万（合計ちょうど10万）: 0', f(60_000, 40_000), 0);
+  eq('年金所得0: 0', f(2_020_000, 0), 0);
+  eq('給与所得0: 0', f(0, 900_000), 0);
+  // 66歳・給与200万（所得132万）・年金200万（所得90万）→ 132万 + 90万 − 10万 = 212万
+  eq('66歳・給与200万・年金200万: 212万', calcSalaryPensionIncome(2_000_000, 2_000_000, 66), 2_120_000);
+  // 70歳・給与150万（所得85万）・年金115万（所得5万）→ 85万 + 5万 − 5万 = 85万
+  eq('70歳・給与150万・年金115万: 85万', calcSalaryPensionIncome(1_500_000, 1_150_000, 70), 850_000);
+  // 64歳・給与300万（所得202万）・年金150万（所得85万）→ 202万 + 85万 − 10万 = 277万
+  eq('64歳・給与300万・年金150万: 277万', calcSalaryPensionIncome(3_000_000, 1_500_000, 64), 2_770_000);
+  eq('給与だけ（300万）: 202万（控除なし）', calcSalaryPensionIncome(3_000_000, 0, 40), 2_020_000);
+  eq('国保の総所得金額等: 66歳・給与200万・年金200万・副業10万 → 222万',
+    calcTaxableIncomeForKokuho({ salary: 2_000_000, pension: 2_000_000, age: 66, otherIncome: 100_000 }), 2_220_000);
+  eq('住民税の課税所得: 66歳・給与200万・年金200万 → 212万 − 基礎控除43万 = 169万',
+    calcTaxableIncomeForJumin({ salary: 2_000_000, pension: 2_000_000, age: 66 }), 1_690_000);
 }
 
 // ─── 結果 ─────────────────────────────────────────────────────
