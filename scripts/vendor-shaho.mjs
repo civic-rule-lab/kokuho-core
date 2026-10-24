@@ -1,7 +1,8 @@
 /**
  * vendor-shaho.mjs — 社会保険(shaho) / 所得税(shotoku) エンジン＋データを kokuho-core に vendor（同期コピー）する。
  *
- * 正本は shaho-keisan（Private）／ shotoku-keisan。ここにコピーされる kokuho-core 側は「生成物」であり手で編集しない。
+ * 正本は非公開の社会保険料エンジン・所得税エンジンのリポ。ここにコピーされる kokuho-core 側は「生成物」であり手で編集しない。
+ * 公開リポなので、正本のリポ名や手元の場所はこのファイルに書かない（場所は環境変数で渡す。値は内部の手順書を参照）。
  * 家計簿(city-integrated.html)が同一オリジンで社会保険料控除→住民税/所得税/保育料を実額結線するために必要。
  *
  * 変換（冪等）:
@@ -20,9 +21,9 @@
  *   - shaho 正本 shaho.js は UMD 済み（window.Shaho）。
  *
  * 使い方（Mac 上・kokuho-core リポ内で）:
- *   node scripts/vendor-shaho.mjs
- *   SHAHO_SRC=~/Desktop/制度計算/shaho-keisan SHOTOKU_SRC=~/Desktop/制度計算/shotoku-keisan node scripts/vendor-shaho.mjs
- *   （shaho 正本が未接続のときは配信ミラー shaho-site を SHAHO_SRC に指定可）
+ *   SHAHO_SRC=<社会保険料エンジンの正本の場所> SHOTOKU_SRC=<所得税エンジンの正本の場所> node scripts/vendor-shaho.mjs
+ *   （SHAHO_SRC・SHOTOKU_SRC は必須。既定値は持たない＝古い作業フォルダを誤って写さないため。2026-10-24）
+ *   （社会保険料の正本が手元に無いときは、公開の配信リポを SHAHO_SRC に指定可）
  *   node scripts/vendor-shaho.mjs --restrip
  *   （正本に触れず、既存の vendored コピーから自己テストだけを落とす。正本リポが手元に無い環境での是正用）
  *
@@ -33,14 +34,12 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import os from 'os';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CORE = path.join(__dirname, '..');
-const HOME = os.homedir();
 
-const SHAHO_SRC   = process.env.SHAHO_SRC   || path.join(HOME, 'Desktop', '制度計算', 'shaho-keisan');
-const SHOTOKU_SRC = process.env.SHOTOKU_SRC || path.join(HOME, 'Desktop', '制度計算', 'shotoku-keisan');
+const SHAHO_SRC   = process.env.SHAHO_SRC   || '';
+const SHOTOKU_SRC = process.env.SHOTOKU_SRC || '';
 
 const SHAHO_DATA = ['kenpo-2026.json', 'kosei-nenkin.json', 'koyo-2026.json', 'standard-monthly.json', 'senpo-2026.json'];
 
@@ -140,6 +139,10 @@ if (process.argv.includes('--restrip')) {
   process.exit(0);
 }
 
+if (!SHAHO_SRC || !SHOTOKU_SRC) {
+  throw new Error('SHAHO_SRC と SHOTOKU_SRC（正本の場所）を環境変数で指定してください。既定値は持ちません（古い作業フォルダを誤って写さないため）');
+}
+
 console.log('=== vendor-shaho: shaho / shotoku を kokuho-core に同期 ===');
 console.log(`CORE:        ${CORE}`);
 console.log(`SHAHO_SRC:   ${SHAHO_SRC}`);
@@ -148,7 +151,7 @@ console.log(`SHOTOKU_SRC: ${SHOTOKU_SRC}\n`);
 // ── shaho エンジン ──
 const shahoEngine = findFirst(SHAHO_SRC, ['js/core/shaho.js', 'shaho.js']);
 if (!shahoEngine) throw new Error(`shaho.js が ${SHAHO_SRC} に無い（js/core/shaho.js を確認）`);
-vendorEngine(shahoEngine, path.join(CORE, 'js', 'core', 'shaho.js'), 'shaho-keisan/js/core/shaho.js');
+vendorEngine(shahoEngine, path.join(CORE, 'js', 'core', 'shaho.js'), '社会保険料エンジンの正本（非公開リポ）js/core/shaho.js');
 
 // ── shaho データ（正本レイアウトは root か data/shaho の両対応。senpo は任意） ──
 let shahoDataCount = 0;
@@ -165,7 +168,7 @@ const shotokuCode = readFileSync(shotokuEngine, 'utf8');
 if (!/createEngineFromDB/.test(shotokuCode) || !/window\.Shotoku/.test(shotokuCode)) {
   throw new Error('shotoku-engine.js が UMD 化されていない（createEngineFromDB / window.Shotoku が必要）。正本を UMD 化してから vendor すること。');
 }
-vendorEngine(shotokuEngine, path.join(CORE, 'js', 'core', 'shotoku.js'), 'shotoku-keisan/shotoku-engine.js');
+vendorEngine(shotokuEngine, path.join(CORE, 'js', 'core', 'shotoku.js'), '所得税エンジンの正本（非公開リポ）shotoku-engine.js');
 
 const shotokuData = findFirst(SHOTOKU_SRC, ['data/national/shotokuzei-2026.json']);
 if (!shotokuData) throw new Error(`shotokuzei-2026.json が ${SHOTOKU_SRC}/data/national に無い`);
