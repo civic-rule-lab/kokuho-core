@@ -259,6 +259,35 @@ console.log('\n== taxStatus の伝達 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 軽減判定の年金特別控除（2026-10-24 追加・X221）
+//   国民健康保険法施行令 附則第5条: 65歳以上の公的年金所得から15万円を差し引いて軽減判定する（所得割には差し引かない）。
+//   期待値: 判定所得＝所得−15万。saitama（令和7年度）の5割基準＝43万＋30.5万×人数、2割基準＝43万＋56万×人数（データの reduction）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 軽減判定の年金特別控除（X221） ==');
+{
+  const one = deriveKokuhoInputs([{ id: 'h', role: 'head', age: 70, pension: 1_850_000, isKokuhoInsured: true }]);
+  eq('70歳・年金185万: income（所得割）は 75万のまま', one.income, 750_000);
+  eq('70歳・年金185万: 判定所得 = 75万 − 15万 = 60万', one.reductionJudgmentIncome, 600_000);
+  const r1 = calculateKokuho(one, saitamaKokuho);
+  const noDed = calculateKokuho({ ...one, reductionJudgmentIncome: 750_000 }, saitamaKokuho);
+  ok(`70歳・年金185万: 控除ありの方が軽減が厚い（${r1.reductionLabel} ${r1.total} < ${noDed.reductionLabel} ${noDed.total}）`, r1.total < noDed.total);
+  const y64 = deriveKokuhoInputs([{ id: 'h', role: 'head', age: 64, pension: 1_850_000, isKokuhoInsured: true }]);
+  eq('64歳: 判定所得 = 所得（控除なし）', y64.reductionJudgmentIncome, y64.income);
+  const sal = deriveKokuhoInputs([{ id: 'h', role: 'head', age: 70, salary: 2_000_000, isKokuhoInsured: true }]);
+  eq('70歳・給与のみ: 判定所得 = 所得（年金がないので控除なし）', sal.reductionJudgmentIncome, sal.income);
+  // 擬制世帯主（社保・70歳・年金185万）＋加入者の配偶者（68歳・年金150万）: 2人とも判定に入るので15万ずつ
+  const gisei = deriveKokuhoInputs([
+    { id: 'h', role: 'head', age: 70, pension: 1_850_000, isKokuhoInsured: false },
+    { id: 's', role: 'spouse', age: 68, pension: 1_500_000, isKokuhoInsured: true },
+  ]);
+  eq('擬制世帯主＋配偶者: income は加入者の配偶者だけ 40万', gisei.income, 400_000);
+  eq('擬制世帯主＋配偶者: 判定所得 = (40万＋75万) − 15万×2 = 85万', gisei.reductionJudgmentIncome, 850_000);
+  // 年金所得が15万未満なら、その額までしか引かない（判定所得は負にしない）
+  const small = deriveKokuhoInputs([{ id: 'h', role: 'head', age: 70, pension: 1_200_000, isKokuhoInsured: true }]);
+  eq('70歳・年金120万（所得10万）: 判定所得 0', small.reductionJudgmentIncome, 0);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);

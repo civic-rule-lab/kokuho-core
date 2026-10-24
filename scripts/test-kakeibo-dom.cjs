@@ -158,6 +158,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   // 社会保険料控除の一本化（2026-10-11）: 年金のみ・自営67歳（国保＋介護1号）、年金のみ・自営77歳（後期高齢＋介護1号）
   const r7 = await run({ salary: 0, pension: 2500000, age: 67, employment: 'jiei' });
   const r8 = await run({ salary: 0, pension: 2500000, age: 77, employment: 'jiei' });
+  // 軽減判定の年金特別控除（2026-10-24・X221）: 66歳・年金195万（所得85万）の国保、77歳・年金165万（所得55万）の後期
+  const p15k = await run({ salary: 0, pension: 1950000, age: 66, employment: 'jiei' });
+  const p15kk = await run({ salary: 0, pension: 1650000, age: 77, employment: 'jiei' });
 
   // 保育料 opt-in（賞与なし／あり）— エンジン直算との等値検証
   const optIn = w.document.getElementById('hoikuOptIn');
@@ -636,6 +639,21 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A(`16歳未満の子なし・給与130万: 住民税が掛かる（${jy0 && jy0[1]}）`, !!jy0 && num(jy0[1]) > 0);
     A(`16歳未満の子1人・給与130万: 住民税 0 円（非課税）（${jy1 && jy1[1]}）`, !!jy1 && num(jy1[1]) === 0);
     A(`保育料も試算・給与130万: 保育所の子を数えて住民税 0 円（${jy2 && jy2[1]}）`, !!jy2 && num(jy2[1]) === 0);
+  }
+  {
+    // 国民健康保険法施行令 附則第5条: 65歳以上の公的年金所得から15万円を差し引いて軽減判定（所得割には差し引かない）
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const { calculateKouki } = require('../js/core/kouki.js');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8')), kkd = JSON.parse(fs.readFileSync(KOUKI_FIXTURE, 'utf8'));
+    const kBase = { income: 850000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+    const kWith = calculateKokuho({ ...kBase, reductionJudgmentIncome: 700000 }, kd), kWithout = calculateKokuho(kBase, kd);
+    const kc = find(p15k.heads, '国民健康保険');
+    A(`66歳・年金195万: 国保 ${kc && kc[1]} が判定所得70万（85万−15万）の直算 ${kWith.total}（${kWith.reductionLabel}）と一致`, !!kc && num(kc[1]) === kWith.total);
+    A(`66歳・年金195万: 15万を引かない場合（${kWithout.total}・${kWithout.reductionLabel}）より安い`, kWith.total < kWithout.total);
+    const kkWith = calculateKouki({ totalIncome: 550000, reductionJudgmentIncome: 400000 }, kkd), kkWithout = calculateKouki({ totalIncome: 550000 }, kkd);
+    const kkc = p15kk.heads.find(h => h[0].includes('後期'));
+    A(`77歳・年金165万: 後期 ${kkc && kkc[1]} が判定所得40万（55万−15万）の直算 ${kkWith.total} と一致`, !!kkc && num(kkc[1]) === kkWith.total);
+    A(`77歳・年金165万: 15万を引かない場合（${kkWithout.total}）より安い`, kkWith.total < kkWithout.total);
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;

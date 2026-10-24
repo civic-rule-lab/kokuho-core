@@ -17,6 +17,7 @@ const {
   calcPensionIncome,
   calcTaxableIncomeForKokuho,
   calcTaxableIncomeForJumin,
+  calcKeigenPensionDeduction,
 } = require(path.join(__dirname, '../js/core/shared/income.js'));
 
 let passed = 0;
@@ -149,6 +150,21 @@ eq('控除過大 → 0',
     socialInsurance: 5_000_000,
   }),
   0);
+
+// ─── 軽減判定の年金特別控除（国民健康保険法施行令 附則第5条）─────────────────
+// 65歳以上の公的年金所得から15万円（年金所得が上限）。64歳以下・年金なしは0
+console.log('\n== 軽減判定の年金特別控除 calcKeigenPensionDeduction ==');
+{
+  const f = calcKeigenPensionDeduction;
+  eq('66歳・年金195万（所得85万）: 15万', f(1_950_000, 66), 150_000);
+  eq('65歳ちょうど・年金168万（所得58万）: 15万', f(1_680_000, 65), 150_000);
+  eq('64歳・年金195万: 0（65歳未満）', f(1_950_000, 64), 0);
+  eq('70歳・年金120万（所得10万）: 年金所得の10万が上限', f(1_200_000, 70), 100_000);
+  eq('70歳・年金110万（所得0）: 0', f(1_100_000, 70), 0);
+  eq('70歳・年金125万（所得15万）: 15万', f(1_250_000, 70), 150_000);
+  eq('年金0: 0', f(0, 70), 0);
+  eq('年齢未指定: 0', f(1_950_000, undefined), 0);
+}
 
 // ─── 結果 ─────────────────────────────────────────────────────
 
