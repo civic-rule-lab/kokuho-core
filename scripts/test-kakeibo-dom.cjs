@@ -160,6 +160,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   const r8 = await run({ salary: 0, pension: 2500000, age: 77, employment: 'jiei' });
   // 軽減判定の年金特別控除（2026-10-24・X221）: 66歳・年金195万（所得85万）の国保、77歳・年金165万（所得55万）の後期
   const p15k = await run({ salary: 0, pension: 1950000, age: 66, employment: 'jiei' });
+  // 社保の年齢（2026-10-24・X224）: 会社員 72歳（厚年なし）・76歳（健保なし＝後期高齢者医療）
+  const s72 = await run({ salary: 3000000, age: 72, employment: 'kaishain' });
+  const s76 = await run({ salary: 3000000, age: 76, employment: 'kaishain' });
   const p15kk = await run({ salary: 0, pension: 1650000, age: 77, employment: 'jiei' });
 
   // 保育料 opt-in（賞与なし／あり）— エンジン直算との等値検証
@@ -654,6 +657,22 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const kkc = p15kk.heads.find(h => h[0].includes('後期'));
     A(`77歳・年金165万: 後期 ${kkc && kkc[1]} が判定所得40万（55万−15万）の直算 ${kkWith.total} と一致`, !!kkc && num(kkc[1]) === kkWith.total);
     A(`77歳・年金165万: 15万を引かない場合（${kkWithout.total}）より安い`, kkWith.total < kkWithout.total);
+  }
+  {
+    // 厚生年金保険法 第9条: 70歳以上は厚年なし。健康保険法 第3条第1項第7号・高齢者医療確保法 第50条: 75歳以上は健保なし＝後期高齢者医療
+    const { calculateKouki } = require('../js/core/kouki.js');
+    const { calcSalaryIncome } = require('../js/core/shared/income.js');
+    const kkd = JSON.parse(fs.readFileSync(KOUKI_FIXTURE, 'utf8'));
+    const shCard = (r) => r.sys.split("ci-grp'").find(x => x.includes('社会保険（会社員）')) || '';
+    const rowNum = (cardHtml, label) => { const m = cardHtml.match(new RegExp(label + '[^<]*</div><div[^>]*>([\\d,]+) 円')); return m ? num(m[1]) : null; };
+    const c72 = shCard(s72), c76 = shCard(s76);
+    A('72歳・会社員: 厚生年金は「70歳以上は対象外」で 0 円', /厚生年金（70歳以上は対象外）/.test(c72) && rowNum(c72, '厚生年金') === 0);
+    A('72歳・会社員: 健康保険はかかる（> 0）', rowNum(c72, '健康保険') > 0);
+    A('76歳・会社員: 健康保険は「後期高齢者医療のため対象外」で 0 円', /75歳以上は後期高齢者医療のため対象外/.test(c76) && rowNum(c76, '健康保険') === 0);
+    const kk76 = find(s76.heads, '後期高齢者医療');
+    const inc = calcSalaryIncome(3000000);
+    const exp76 = calculateKouki({ totalIncome: inc, reductionJudgmentIncome: inc }, kkd).total;
+    A(`76歳・会社員: 後期高齢者医療のカードが出て、直算 ${exp76} と一致（${kk76 && kk76[1]}）`, !!kk76 && num(kk76[1]) === exp76);
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
