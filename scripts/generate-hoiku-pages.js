@@ -2,7 +2,7 @@
  * 【実装ドラフト v1・レビュー用／本番未配置】保育料ページ生成スクリプト
  *
  * ※これは kokuho-core に置く前提の generate-hoiku-pages.js のドラフト。
- *   現状は hoiku-keisan/docs/drafts/ に置いてレビューするだけ（本番 kokuho-core には未配置）。
+ *   現状は保育料の作業リポ（非公開）の drafts に置いてレビューするだけ（本番 kokuho-core には未配置）。
  *   移行時は kokuho-core/scripts/ へ。生成対象・テンプレ・エンジンの正本は kokuho-core。
  *
  * registry/index.json を回し、各自治体の保育料ページを生成する。

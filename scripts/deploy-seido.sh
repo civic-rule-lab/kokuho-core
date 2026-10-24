@@ -213,8 +213,8 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/kaigo.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/kouki.js"         "$PUBLIC_DIR/js/core/"
   cp "$CORE_DIR/js/core/hoiku.js"         "$PUBLIC_DIR/js/core/"
-  cp "$CORE_DIR/js/core/shaho.js"         "$PUBLIC_DIR/js/core/"   # 家計簿の社会保険（会社員）＝vendored（正本 shaho-keisan）
-  cp "$CORE_DIR/js/core/shotoku.js"       "$PUBLIC_DIR/js/core/"   # 家計簿の所得税＝vendored（正本 shotoku-keisan）
+  cp "$CORE_DIR/js/core/shaho.js"         "$PUBLIC_DIR/js/core/"   # 家計簿の社会保険（会社員）＝vendored（正本は非公開リポ）
+  cp "$CORE_DIR/js/core/shotoku.js"       "$PUBLIC_DIR/js/core/"   # 家計簿の所得税＝vendored（正本は非公開リポ）
   cp "$CORE_DIR/js/core/shogakukin.js"        "$PUBLIC_DIR/js/core/"   # 家計簿の奨学金結線（給付＋減免コア）
   cp "$CORE_DIR/js/core/shogakukin-bridge.js" "$PUBLIC_DIR/js/core/"   # 同上（年収→jumin→supporter ブリッジ）
   cp "$CORE_DIR/js/core/shogakukin-2026.json" "$PUBLIC_DIR/js/core/"   # 同上（全国共通スペック。家計簿が fetch する）

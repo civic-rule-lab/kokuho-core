@@ -4,7 +4,7 @@
 //       別リポの jumin.js を参照するため、場所を次の順で解決:
 //         1) 環境変数 JUMIN_PATH
 //         2) ~/Desktop/seido-keisan/js/core/jumin.js
-//         3) hoiku-keisan からの相対 ../../seido-keisan/js/core/jumin.js（制度計算/直下に seido-keisan がある場合）
+//         3) 保育料の作業リポからの相対 ../../seido-keisan/js/core/jumin.js（作業フォルダの直下に seido-keisan がある場合）
 //         4) ../../../seido-keisan/js/core/jumin.js（Desktop 直下に seido-keisan がある通常配置）
 //       見つからない場合はスキップ（exit 0）。jumin 未接続でもゲート単体は壊さない。
 'use strict';

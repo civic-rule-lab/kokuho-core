@@ -60,7 +60,7 @@ docs/change-reports/r8-crosscheck-*.md
 AGENTS.md
 docs/CLAUDE-template.md
 
-# 内部文書・方法論・監視仕様（公開しない・2026-08-03 露出事案対応。正本: kokuho-internal/docs/from-kokuho-core/）
+# 内部文書・方法論・監視仕様（公開しない・2026-08-03 露出事案対応。正本は非公開の保管リポ）
 POLICIES.md
 docs/r8-discovery-manual.md
 docs/r8-source-survey-2026-05-15.md
