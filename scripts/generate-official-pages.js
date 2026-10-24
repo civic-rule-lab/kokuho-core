@@ -41,7 +41,7 @@ const BASE_URL  = "https://kokuho-keisan.jp";
 const _require = createRequire(import.meta.url);
 const { PREFECTURE_INFO } = _require("../js/core/prefecture-info.js");
 const { calculateKokuho } = _require("../js/core/kokuho.js");
-const { calcSalaryIncome, calcPensionIncome } = _require("../js/core/shared/income.js");
+const { calcSalaryPensionIncome } = _require("../js/core/shared/income.js");
 
 // 世帯モデル別の計算例（市ごとに数字が変わる固有コンテンツ＝SEO索引対策）。
 // 収入は世帯主1人。ラベルの年齢どおりに介護分（40〜64歳）と18歳未満の人数を入れる。
@@ -59,7 +59,7 @@ const [MODEL_SINGLE, MODEL_COUPLE, MODEL_FAMILY] = CALC_EXAMPLE_MODELS;
 // モデル世帯 → calculateKokuho の入力。計算例・FAQ・前年比較・近隣比較はすべてここを通す。
 function modelInputs(m) {
   return {
-    income:             calcSalaryIncome(m.salary || 0) + calcPensionIncome(m.pension || 0, m.age),
+    income:             calcSalaryPensionIncome(m.salary || 0, m.pension || 0, m.age),   // 給与と年金の両方があれば所得金額調整控除を引く
     family:             m.family,
     preschool:          0,
     under18:            m.under18 || 0,

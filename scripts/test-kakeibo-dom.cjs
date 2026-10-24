@@ -164,6 +164,10 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   const s72 = await run({ salary: 3000000, age: 72, employment: 'kaishain' });
   const s76 = await run({ salary: 3000000, age: 76, employment: 'kaishain' });
   const p15kk = await run({ salary: 0, pension: 1650000, age: 77, employment: 'jiei' });
+  // 所得金額調整控除（2026-10-25・全方向試算 A-2）: 自営 66歳・給与200万（所得132万）＋年金200万（所得90万）→ 合計所得 212万（10万引く）
+  const adj = await run({ salary: 2000000, pension: 2000000, age: 66, employment: 'jiei' });
+  //   配偶者 70歳・給与110万（所得45万）＋年金133万（所得23万）→ 68万 − 10万 = 58万 で配偶者控除（引かないと 68万で特別控除）
+  const adjSp = await run({ salary: 6000000, age: 45, employment: 'kaishain', family: { spouse: 'elderly', spouseSalary: 1100000, spousePension: 1330000, spouseAge: 70 } });
 
   // 保育料 opt-in（賞与なし／あり）— エンジン直算との等値検証
   const optIn = w.document.getElementById('hoikuOptIn');
@@ -673,6 +677,18 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const inc = calcSalaryIncome(3000000);
     const exp76 = calculateKouki({ totalIncome: inc, reductionJudgmentIncome: inc }, kkd).total;
     A(`76歳・会社員: 後期高齢者医療のカードが出て、直算 ${exp76} と一致（${kk76 && kk76[1]}）`, !!kk76 && num(kk76[1]) === exp76);
+  }
+  {
+    // 租税特別措置法 第41条の3の11 第2項（住民税は地方税法 第313条第2項で同じ計算）
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kBase = { family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+    const kAdj = calculateKokuho({ ...kBase, income: 2120000, reductionJudgmentIncome: 1970000 }, kd);
+    const kNo  = calculateKokuho({ ...kBase, income: 2220000, reductionJudgmentIncome: 2070000 }, kd);
+    const kc = find(adj.heads, '国民健康保険');
+    A(`66歳・給与200万＋年金200万: 国保 ${kc && kc[1]} が合計所得212万（10万引く）の直算 ${kAdj.total} と一致`, !!kc && num(kc[1]) === kAdj.total);
+    A(`66歳・給与200万＋年金200万: 引かない場合（${kNo.total}）より安い`, kAdj.total < kNo.total);
+    A('配偶者 70歳・給与110万＋年金133万: 合計所得 580,000 円で配偶者控除', /合計所得 580,000 円）＝配偶者控除 /.test(adjSp.sys));
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
