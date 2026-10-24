@@ -279,7 +279,6 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   A('賞与ありは住民税も所得税も増える（給与＋賞与で課税）',
     num(find(r2.heads, '住民税')[1]) > num(find(r1.heads, '住民税')[1]) &&
     num(find(r2.heads, '所得税')[1]) > num(find(r1.heads, '所得税')[1]));
-  A('年金のみ会社員: 給与0で所得税カードなし', !find(r4.heads, '所得税'));
 
   // ── 保育料の結線（賞与→住民税→保育料指数の伝播をエンジン直算と等値比較） ──
   const hoiku1 = find(h1.heads, '保育料（認可・0〜2歳）');
@@ -689,6 +688,37 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A(`66歳・給与200万＋年金200万: 国保 ${kc && kc[1]} が合計所得212万（10万引く）の直算 ${kAdj.total} と一致`, !!kc && num(kc[1]) === kAdj.total);
     A(`66歳・給与200万＋年金200万: 引かない場合（${kNo.total}）より安い`, kAdj.total < kNo.total);
     A('配偶者 70歳・給与110万＋年金133万: 合計所得 580,000 円で配偶者控除', /合計所得 580,000 円）＝配偶者控除 /.test(adjSp.sys));
+  }
+  // ── 所得税カードに本人の年金を入れる（2026-10-25）。旧実装は calcShotokuzei に年金を渡さず、
+  //   給与200万＋年金200万でも給与だけで課税し、年金のみの人にはカードが出なかった。
+  //   年金所得＝公的年金等控除後（所得税法35条4項・65歳以上は租特法41条の15の3）、給与もあれば所得金額調整控除（租特法41条の3の11第2項）を
+  //   所得税の給与所得（別表第五方式）と年金所得で計算して引く。社会保険料控除はページの表示値（住民税と共通）を使う。
+  {
+    const Shotoku = require('../js/core/shotoku.js');
+    const { calcPensionIncome, calcIncomeAdjustmentDeduction } = require('../js/core/shared/income.js');
+    const eng = Shotoku.createEngineFromDB(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8')));
+    const siOf = (sys) => { const m = sys.match(/社会保険料控除（住民税・所得税に共通）: ([\d,]+) 円/); return m ? num(m[1]) : 0; };
+    const expTax = (salary, pension, age, sys) => {
+      const pInc = calcPensionIncome(pension, age);
+      const net = pInc - (salary > 0 ? calcIncomeAdjustmentDeduction(eng.kyuyoShotoku(salary), pInc) : 0);
+      return eng.calcShotokuzei({ salary, otherIncome: net, socialInsurance: siOf(sys), spouse: null }).annualTax;
+    };
+    // (a) 自営66歳・給与200万（所得税の給与所得 1,320,000）＋年金200万（年金所得 900,000）→ 調整控除 10万・合計所得 2,120,000
+    const tA = find(adj.heads, '所得税'), eA = expTax(2000000, 2000000, 66, adj.sys);
+    const eAnoPen = eng.calcShotokuzei({ salary: 2000000, otherIncome: 0, socialInsurance: siOf(adj.sys), spouse: null }).annualTax;
+    A(`66歳・給与200万＋年金200万: 所得税 ${tA && tA[1]} が年金所得を含めた直算 ${eA} と一致`, !!tA && num(tA[1]) === eA);
+    A(`66歳・給与200万＋年金200万: 年金を入れない場合（${eAnoPen}）より高い`, eA > eAnoPen);
+    // (b) 年金のみ・自営67歳・250万（年金所得 1,400,000）: カードが出て直算と一致
+    const tB = find(r7.heads, '所得税'), eB = expTax(0, 2500000, 67, r7.sys);
+    A(`年金のみ自営67歳・250万: 所得税カードが出て直算 ${eB} と一致`, !!tB && num(tB[1]) === eB && eB > 0);
+    // (c) 年金のみ・会社員を選んだ67歳・250万（旧テストは「カードなし」を期待していた）
+    const tC = find(r4.heads, '所得税'), eC = expTax(0, 2500000, 67, r4.sys);
+    A(`年金のみ（会社員選択）67歳・250万: 所得税カードが出て直算 ${eC} と一致`, !!tC && num(tC[1]) === eC);
+    // (d) 65歳未満の年金（公的年金等控除の最低60万）: 自営62歳・年金300万（年金所得 1,975,000＝控除 102.5万。67歳なら 110万で 1,900,000）
+    const r62 = await run({ salary: 0, pension: 3000000, age: 62, employment: 'jiei' });
+    const tD = find(r62.heads, '所得税'), eD = expTax(0, 3000000, 62, r62.sys);
+    A(`年金のみ自営62歳・300万: 所得税カードが直算 ${eD} と一致（65歳未満の控除）`, !!tD && num(tD[1]) === eD && eD > 0);
+    A('年金300万の年金所得: 62歳 1,975,000 / 67歳 1,900,000 円（控除 102.5万 / 110万）', calcPensionIncome(3000000, 62) === 1975000 && calcPensionIncome(3000000, 67) === 1900000);
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
