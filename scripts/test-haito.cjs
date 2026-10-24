@@ -43,5 +43,33 @@ A('配当 0: すべて 0', [r.none, r.separate, r.sogo].every(m => m.shotokuTax 
 r = judgeHaito({ dividend: 300000, shotokuTaxable: 0, juminTaxable: 0 }, data, P);
 A('課税所得 0・総合: 所得税 0（配当控除で打ち消し・税額 0 が下限）、住民税 21,600', r.sogo.shotokuTax === 0 && r.sogo.juminTax === 21600);
 
+// 6) 浮動小数点の端数（2026-10-24 追加・X222／全方向試算 HAITO-1・HAITO-2・shotoku F1）
+//   期待値は BigInt の整数計算: 源泉所得税 = floor(配当 × 15315 / 100000)（15%×1.021・租特法 8条の5・復興財確法 13条）、
+//   累進の年税額 = floor((課税所得 × 税率% / 100 − 控除額) × 1021 / 1000 を 100 円未満切捨て)。
+{
+  const { shotokuAnnualTax } = require(path.join(ROOT, 'js/core/haito.js'));
+  let bad = 0, first = null;
+  for (let v = 0; v <= 1_000_000; v++) {
+    const got = judgeHaito({ dividend: v, shotokuTaxable: 0, juminTaxable: 0 }, data, P).none.shotokuTax;
+    const exp = Number(BigInt(v) * 15315n / 100000n);
+    if (got !== exp) { bad++; if (!first) first = [v, got, exp]; }
+  }
+  A(`申告不要の所得税: 配当 0〜100万円（1円刻み）が整数計算と全件一致（不一致 ${bad}件${first ? ' 初回=' + first : ''}）`, bad === 0);
+  bad = 0; first = null;
+  for (let k = 0; k <= 45_000_000; k += 1000) {
+    const row = P.taxTable.find(t => t[0] == null || k <= t[0]);
+    let t = BigInt(k) * BigInt(Math.round(row[1] * 100)) / 100n - BigInt(row[2]); if (t < 0n) t = 0n;
+    const exp = Number(t * 1021n / 1000n / 100n * 100n), got = shotokuAnnualTax(k, P).annual;
+    if (got !== exp) { bad++; if (!first) first = [k, got, exp]; }
+  }
+  A(`累進の年税額: 課税所得 0〜4,500万（1,000円刻み）が整数計算と全件一致（不一致 ${bad}件${first ? ' 初回=' + first : ''}）`, bad === 0);
+  A('例: 課税所得 1,975,000 の年税額 102,100（浮動小数点だと 102,000）', shotokuAnnualTax(1975000, P).annual === 102100);
+  const big = judgeHaito({ dividend: 50_000_000_000, shotokuTaxable: 0, juminTaxable: 0 }, data, P).none.shotokuTax;
+  A(`配当 500億円でも桁あふれしない（${big} ＝ 7,657,500,000）`, big === 7657500000);
+  // 所得税エンジン（js/core/shotoku.js）も同じ整数計算
+  const eng = Shotoku.createEngineFromDB(2026, JSON.parse(fs.readFileSync(path.join(ROOT, 'data/national/shotokuzei-2026.json'), 'utf8')));
+  A('所得税エンジン: 給与 5,316,000・社保 797,400 の年税額 102,100', eng.calcShotokuzei({ salary: 5316000, socialInsurance: 797400 }).annualTax === 102100);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
