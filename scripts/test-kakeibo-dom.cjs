@@ -164,6 +164,8 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   const s72 = await run({ salary: 3000000, age: 72, employment: 'kaishain' });
   const s76 = await run({ salary: 3000000, age: 76, employment: 'kaishain' });
   const p15kk = await run({ salary: 0, pension: 1650000, age: 77, employment: 'jiei' });
+  // 給与所得者等の数（2026-10-25・全方向試算 B-4）: 自営夫婦35歳、本人の給与50万（55万以下）、配偶者 給与110万（所得45万）
+  const ern = await run({ salary: 500000, age: 35, employment: 'jiei', family: { spouseSalary: 1100000, spouseWork: 'jiei', spouseAge: 35 } });
   // 擬制世帯主（2026-10-25・全方向試算 B-3）: 本人 会社員35歳・給与70万（所得5万）、配偶者 自営35歳・給与108万（所得43万）だけが国保
   const gis = await run({ salary: 700000, age: 35, employment: 'kaishain', family: { spouseSalary: 1080000, spouseWork: 'jiei', spouseAge: 35 } });
   // 特定同一世帯所属者（2026-10-25・全方向試算 B-2）: 本人 70歳・年金170万（所得60万）が国保、配偶者 76歳・年金200万（所得90万）が後期
@@ -751,6 +753,16 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const kc = find(gis.heads, '国民健康保険（配偶者）');
     A(`擬制世帯主（会社員・給与70万）＋配偶者（自営・給与108万）: 国保 ${kc && kc[1]} が給与所得者等2人の直算 ${kNew.total}（${kNew.reductionLabel}）と一致。1人だと ${kOld.total}（${kOld.reductionLabel}）`,
       !!kc && num(kc[1]) === kNew.total && kNew.reductionLabel === '7割軽減' && kOld.reductionLabel === '5割軽減');
+  }
+  {
+    // 国民健康保険法施行令 第29条の7 第6項第1号: 給与収入55万円以下の本人は給与所得者等に数えない（旧実装は 2 固定）
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kb = { income: 450000, members: [{ income: 0, careTarget: false }, { income: 450000, careTarget: false }], family: 2, preschool: 0, under18: 0, care: 0, fixedAssetTax: 0, reductionJudgmentIncome: 450000 };
+    const kNew = calculateKokuho({ ...kb, salaryPensionCount: 1 }, kd), kOld = calculateKokuho({ ...kb, salaryPensionCount: 2 }, kd);
+    const kc = find(ern.heads, '国民健康保険（配偶者の所得を含む世帯分）');
+    A(`自営夫婦・本人給与50万＋配偶者給与110万: 国保 ${kc && kc[1]} が給与所得者等1人の直算 ${kNew.total}（${kNew.reductionLabel}）と一致。2人だと ${kOld.total}（${kOld.reductionLabel}）`,
+      !!kc && num(kc[1]) === kNew.total && kNew.reductionLabel === '5割軽減' && kOld.reductionLabel === '7割軽減');
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;

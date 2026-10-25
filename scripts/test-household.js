@@ -417,6 +417,29 @@ console.log('\n== 特定世帯・特定継続世帯の平等割 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 給与所得者等の数え方（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25 全方向試算 B-4）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 給与所得者等の数え方 ==');
+{
+  const cnt = (members) => deriveKokuhoInputs(members).salaryPensionCount;
+  eq('社保の配偶者（給与300万）は数えない: 世帯主（国保・給与200万）だけの 1',
+    cnt([{ id: 'h', role: 'head', age: 45, salary: 2_000_000, isKokuhoInsured: true },
+         { id: 's', role: 'spouse', age: 45, salary: 3_000_000, isKokuhoInsured: false, isOnSocialInsurance: true }]), 1);
+  eq('給与55万以下（50万）は数えない: 加入者2人でも 1',
+    cnt([{ id: 'h', role: 'head', age: 45, salary: 2_000_000, isKokuhoInsured: true },
+         { id: 's', role: 'spouse', age: 45, salary: 500_000, isKokuhoInsured: true }]), 1);
+  eq('給与55万超（56万）の加入者は数える: 2',
+    cnt([{ id: 'h', role: 'head', age: 45, salary: 2_000_000, isKokuhoInsured: true },
+         { id: 's', role: 'spouse', age: 45, salary: 560_000, isKokuhoInsured: true }]), 2);
+  eq('65歳以上で年金100万（110万以下）は数えない: 1',
+    cnt([{ id: 'h', role: 'head', age: 45, salary: 2_000_000, isKokuhoInsured: true },
+         { id: 's', role: 'spouse', age: 67, pension: 1_000_000, isKokuhoInsured: true }]), 1);
+  eq('擬制世帯主（社保・給与300万）は数える: 加入者の配偶者（給与100万）と合わせて 2',
+    cnt([{ id: 'h', role: 'head', age: 45, salary: 3_000_000, isKokuhoInsured: false, isOnSocialInsurance: true },
+         { id: 's', role: 'spouse', age: 45, salary: 1_000_000, isKokuhoInsured: true }]), 2);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);

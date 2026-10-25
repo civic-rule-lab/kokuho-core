@@ -24,7 +24,7 @@ const _tokuteiKubunFromAge = _isNode
 
 const _income = _isNode
   ? require('./shared/income.js')
-  : { calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcPensionIncome, calcKeigenPensionDeduction };
+  : { calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcPensionIncome, calcKeigenPensionDeduction, isKyuyoShotokushaTou };
 
 let _calcJumin = null;
 let _calcKaigo = null;
@@ -44,8 +44,10 @@ function _memberIncome(m) {
   });
 }
 
-function _hasSalaryOrPension(m) {
-  return (m.salary > 0) || (m.pension > 0);
+// 給与所得者等（給与収入55万円超、または公的年金等の収入が 65歳未満60万円・65歳以上110万円超）に当たるか
+//   （国民健康保険法施行令 第29条の7 第6項第1号）。旧実装は給与・年金が1円でもあれば数えていた（2026-10-25・全方向試算 B-4）
+function _isKyuyoShotokushaTou(m) {
+  return _income.isKyuyoShotokushaTou(m.salary || 0, m.pension || 0, m.age);
 }
 
 // ─── 国保入力の組み立て ──────────────────────────────────────────
@@ -94,7 +96,8 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
     under18:            insured.filter(m => (m.age || 0) < 18).length,
     care:               insured.filter(m => (m.age || 0) >= 40 && (m.age || 0) < 65).length,
-    salaryPensionCount: Math.max(members.filter(_hasSalaryOrPension).length, 1),
+    // 給与所得者等の数は「世帯主等」（世帯主・国保の加入者・特定同一世帯所属者）のうちで数える。社保の家族は数えない
+    salaryPensionCount: Math.max(judged.filter(_isKyuyoShotokushaTou).length, 1),
     fixedAssetTax:      fixedAssetTax || 0,
   };
 }
