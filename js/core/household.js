@@ -79,6 +79,8 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
     reductionJudgmentIncome: Math.max(0, income + headExtra + tokuteiExtra - pensionSpecial),
     family:             insured.length,
     tokuteiDouitsuCount: tokutei.length,
+    // 擬制世帯主（国保に入っていない世帯主。後期の特定同一世帯所属者を除く）も給与所得者等の数の対象（施行令 第29条の7 第6項第1号）
+    giseiSetainushi:    !!(head && !head.isKokuhoInsured && !tokutei.includes(head) && insured.length > 0),
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
     under18:            insured.filter(m => (m.age || 0) < 18).length,
     care:               insured.filter(m => (m.age || 0) >= 40 && (m.age || 0) < 65).length,
