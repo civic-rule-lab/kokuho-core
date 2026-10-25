@@ -382,6 +382,41 @@ console.log('\n== 擬制世帯主と給与所得者等の数 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 特定世帯・特定継続世帯の平等割（国民健康保険法施行令 第29条の7 第2項第8号ロ・ハ・2026-10-25 全方向試算 B-6）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 特定世帯・特定継続世帯の平等割 ==');
+{
+  // 愛南町（令和8年度）: 平等割 医療 20,000・支援 6,900・子ども子育て 670・介護 6,200。
+  //   条例の特定世帯 10,000／3,450／335、特定継続世帯 15,000／5,170／502（町の公表ページ・データ注記）
+  const ainan = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/ainan/kokuho-2026.json'), 'utf-8'));
+  const b = { income: 5_000_000, family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 };
+  const n = calculateKokuho(b, ainan).total;
+  eq('特定世帯: 平等割が 20,000＋6,900＋670 の半分（13,785）減る（介護分は減らない）', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'tokutei' }, ainan).total, 13_785);
+  // 特定継続世帯: 5,000＋1,725＋168。条例は支援金分を 5,170（10円未満切捨て）としており、1円未満切捨ての本エンジンとは 5円ずれる
+  eq('特定継続世帯: 平等割の 1/4（6,893）減る', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'keizoku' }, ainan).total, 6_893);
+  eq('加入者 2人なら特定世帯にならない（減額なし）', calculateKokuho({ ...b, family: 2 }, ainan).total - calculateKokuho({ ...b, family: 2, tokuteiSetaiKubun: 'tokutei' }, ainan).total, 0);
+
+  const kb = (spouseAge) => deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: spouseAge, pension: 1_450_000, isKokuhoInsured: false, isOnSocialInsurance: false },
+  ]).tokuteiSetaiKubun;
+  eq('配偶者 76歳（移って5年以内）: 特定世帯', kb(76), 'tokutei');
+  eq('配偶者 81歳（6〜8年目）: 特定継続世帯', kb(81), 'keizoku');
+  eq('配偶者 85歳（8年超）: どちらでもない', kb(85), null);
+  const two = deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+    { id: 'c', role: 'child',  age: 40, salary: 3_000_000,  isKokuhoInsured: true,  isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 76, pension: 1_450_000, isKokuhoInsured: false, isOnSocialInsurance: false },
+  ]);
+  eq('加入者が 2人いれば特定世帯にしない', two.tokuteiSetaiKubun, null);
+  const ov = deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 76, pension: 1_450_000, isKokuhoInsured: false, isOnSocialInsurance: false, tokuteiSetaiKubun: 'keizoku' },
+  ]);
+  eq('member.tokuteiSetaiKubun を渡せば年齢より優先', ov.tokuteiSetaiKubun, 'keizoku');
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);

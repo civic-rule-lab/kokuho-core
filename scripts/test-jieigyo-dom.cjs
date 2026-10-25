@@ -222,7 +222,8 @@ function ref(input) {
     //   所得80万・配偶者の所得0: 人数1なら 80万 > 74万で2割、人数2なら 80万 ≤ 105万で5割
     const kk = (o) => w.computeJieigyo(Object.assign({}, base, o), kokuhoData, juminData).kokuho;
     const tk = kk({ business: 800000, age: 66, spouse: 'elderly', spouseAge: 76, spouseKokuho: 'kokuho' });
-    const tkExp = calculateKokuho({ income: 800000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 800000 }, kokuhoData);
+    //   加入者は本人1人・配偶者76歳なので特定世帯（平等割 1/2・施行令 第29条の7 第2項第8号ロ・2026-10-25 B-6）
+    const tkExp = calculateKokuho({ income: 800000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 800000, tokuteiSetaiKubun: 'tokutei' }, kokuhoData);
     const tkOld = calculateKokuho({ income: 800000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
     A(`配偶者76歳・国保を選択: 特定同一世帯所属者として ${tk.reductionLabel}・${tk.total} 円（直算 ${tkExp.reductionLabel}・${tkExp.total}、数えないと ${tkOld.reductionLabel}・${tkOld.total}）`,
       tk.total === tkExp.total && tk.reductionLabel === '5割軽減' && tkOld.reductionLabel === '2割軽減');

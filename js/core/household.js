@@ -18,6 +18,9 @@ const _isNode = typeof module !== 'undefined' && !!module.exports;
 const _calcKokuho = _isNode
   ? require('./kokuho.js').calculateKokuho
   : (() => calculateKokuho)();
+const _tokuteiKubunFromAge = _isNode
+  ? require('./kokuho.js').tokuteiSetaiKubunFromAge
+  : (typeof tokuteiSetaiKubunFromAge !== 'undefined' ? tokuteiSetaiKubunFromAge : (() => null));
 
 const _income = _isNode
   ? require('./shared/income.js')
@@ -81,6 +84,13 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
     tokuteiDouitsuCount: tokutei.length,
     // 擬制世帯主（国保に入っていない世帯主。後期の特定同一世帯所属者を除く）も給与所得者等の数の対象（施行令 第29条の7 第6項第1号）
     giseiSetainushi:    !!(head && !head.isKokuhoInsured && !tokutei.includes(head) && insured.length > 0),
+    // 特定世帯・特定継続世帯（国保の加入者が1人だけで、特定同一世帯所属者がいる世帯）の平等割の区分。
+    //   移ってからの年数は member.tokuteiSetaiKubun（'tokutei' | 'keizoku' | null）で渡せる。無ければ年齢から推定する
+    //   （施行令 第29条の7 第2項第8号ロ・ハ）。特定世帯に当たる人が一人でもいれば特定世帯を優先する。
+    tokuteiSetaiKubun:  insured.length !== 1 ? null : (() => {
+      const ks = tokutei.map(m => m.tokuteiSetaiKubun !== undefined ? m.tokuteiSetaiKubun : _tokuteiKubunFromAge(m.age));
+      return ks.includes('tokutei') ? 'tokutei' : ks.includes('keizoku') ? 'keizoku' : null;
+    })(),
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
     under18:            insured.filter(m => (m.age || 0) < 18).length,
     care:               insured.filter(m => (m.age || 0) >= 40 && (m.age || 0) < 65).length,
