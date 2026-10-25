@@ -20,6 +20,7 @@ const {
   calcKeigenPensionDeduction,
   calcIncomeAdjustmentDeduction,
   calcSalaryPensionIncome,
+  isKyuyoShotokushaTou,
 } = require(path.join(__dirname, '../js/core/shared/income.js'));
 
 let passed = 0;
@@ -191,6 +192,19 @@ console.log('\n== 所得金額調整控除 calcIncomeAdjustmentDeduction / calcS
     calcTaxableIncomeForKokuho({ salary: 2_000_000, pension: 2_000_000, age: 66, otherIncome: 100_000 }), 2_220_000);
   eq('住民税の課税所得: 66歳・給与200万・年金200万 → 212万 − 基礎控除43万 = 169万',
     calcTaxableIncomeForJumin({ salary: 2_000_000, pension: 2_000_000, age: 66 }), 1_690_000);
+}
+
+// ─── 給与所得者等の判定（国民健康保険法施行令 第29条の7 第6項第1号）─────
+console.log('\n== 給与所得者等 isKyuyoShotokushaTou ==');
+{
+  const f = isKyuyoShotokushaTou;
+  eq('給与55万ちょうど: 当たらない', f(550_000, 0, 40) ? 1 : 0, 0);
+  eq('給与55万1円: 当たる', f(550_001, 0, 40) ? 1 : 0, 1);
+  eq('64歳・年金60万ちょうど: 当たらない', f(0, 600_000, 64) ? 1 : 0, 0);
+  eq('64歳・年金60万1円: 当たる', f(0, 600_001, 64) ? 1 : 0, 1);
+  eq('65歳・年金110万ちょうど: 当たらない', f(0, 1_100_000, 65) ? 1 : 0, 0);
+  eq('65歳・年金110万1円: 当たる', f(0, 1_100_001, 65) ? 1 : 0, 1);
+  eq('収入なし: 当たらない', f(0, 0, 40) ? 1 : 0, 0);
 }
 
 // ─── 結果 ─────────────────────────────────────────────────────

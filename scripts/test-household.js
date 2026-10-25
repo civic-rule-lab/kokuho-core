@@ -355,6 +355,33 @@ console.log('\n== 特定同一世帯所属者 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 擬制世帯主も給与所得者等の数に入る（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25 全方向試算 B-3）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 擬制世帯主と給与所得者等の数 ==');
+{
+  const g = deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 45, salary: 700_000,   isKokuhoInsured: false, isOnSocialInsurance: true },
+    { id: 's', role: 'spouse', age: 40, salary: 1_080_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+  ]);
+  eq('世帯主が国保に入っていない: giseiSetainushi = true', g.giseiSetainushi, true);
+  const k = deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 76, pension: 2_000_000, isKokuhoInsured: false, isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+  ]);
+  eq('世帯主が後期（特定同一世帯所属者）: giseiSetainushi = false（人数は特定同一で数える）', k.giseiSetainushi, false);
+  eq('世帯主が国保: giseiSetainushi = false', deriveKokuhoInputs([{ id: 'h', role: 'head', age: 45, salary: 1_000_000, isKokuhoInsured: true }]).giseiSetainushi, false);
+
+  // エンジン: 市原市。加入者1人・給与所得者等 2人（擬制世帯主＋加入者）・判定所得 48万
+  //   7割の基準 = 43万 ＋ 10万×(2−1) = 53万 → 7割軽減。擬制世帯主を数えないと 43万 → 5割軽減
+  const ichihara = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/ichihara/kokuho-2026.json'), 'utf-8'));
+  const base = { income: 430_000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 2, fixedAssetTax: 0, reductionJudgmentIncome: 480_000 };
+  eq('擬制世帯主あり: 7割軽減（53万以下）', calculateKokuho({ ...base, giseiSetainushi: true }, ichihara).reductionLabel, '7割軽減');
+  eq('擬制世帯主の指定なし: 従来どおり加入者数で頭打ち → 5割軽減', calculateKokuho(base, ichihara).reductionLabel, '5割軽減');
+  eq('上限は世帯主等の人数（給与所得者等 3 と入れても 2 として扱う）',
+    calculateKokuho({ ...base, salaryPensionCount: 3, giseiSetainushi: true, reductionJudgmentIncome: 560_000 }, ichihara).reductionLabel, '5割軽減');
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);
