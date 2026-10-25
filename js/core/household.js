@@ -61,7 +61,13 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
 
   const income     = insured.reduce((sum, m) => sum + _memberIncome(m), 0);
   const headExtra  = (head && !head.isKokuhoInsured) ? _memberIncome(head) : 0;
-  const judged     = insured.concat((head && !head.isKokuhoInsured) ? [head] : []);
+  // 特定同一世帯所属者: 国保から後期高齢者医療へ移り、そのまま同じ世帯にいる人（国民健康保険法施行令 第29条の7 第2項第8号イ）。
+  //   軽減判定の所得と、5割・2割の人数に入れる（同条 第6項第1号・第3号）。世帯に国保の加入者がいるときだけ。
+  //   75歳以上の非加入者を特定同一世帯所属者とみなす。社保から後期へ移った人など当たらない人は isTokuteiDouitsu: false で外す。
+  const tokutei    = insured.length === 0 ? [] : members.filter(m =>
+    !m.isKokuhoInsured && (m.isTokuteiDouitsu === true || ((m.age || 0) >= 75 && m.isTokuteiDouitsu !== false)));
+  const tokuteiExtra = tokutei.filter(m => m !== head).reduce((sum, m) => sum + _memberIncome(m), 0);
+  const judged     = insured.concat((head && !head.isKokuhoInsured) ? [head] : [], tokutei.filter(m => m !== head));
   const pensionSpecial = judged.reduce((sum, m) => sum + _income.calcKeigenPensionDeduction(m.pension || 0, m.age), 0);
 
   return {
@@ -70,8 +76,9 @@ function deriveKokuhoInputs(members, fixedAssetTax = 0) {
       income:     _memberIncome(m),
       careTarget: (m.age || 0) >= 40 && (m.age || 0) < 65,
     })),
-    reductionJudgmentIncome: Math.max(0, income + headExtra - pensionSpecial),
+    reductionJudgmentIncome: Math.max(0, income + headExtra + tokuteiExtra - pensionSpecial),
     family:             insured.length,
+    tokuteiDouitsuCount: tokutei.length,
     preschool:          insured.filter(m => (m.age || 0) < 6).length,
     under18:            insured.filter(m => (m.age || 0) < 18).length,
     care:               insured.filter(m => (m.age || 0) >= 40 && (m.age || 0) < 65).length,
@@ -164,6 +171,7 @@ function _buildKaigoMemberContext(member, taxStatus) {
  *   members[].pension               - 年金受給額（円）
  *   members[].otherIncome           - 事業・不動産所得等（所得換算済み）
  *   members[].isKokuhoInsured       - 国保加入者か
+ *   members[].isTokuteiDouitsu      - 特定同一世帯所属者か（省略時は 75歳以上の非加入者を該当とみなす。false で外す）
  *   members[].isOnSocialInsurance   - 職場社保加入か（擬制世帯主の識別に使う）
  * @param {number} [householdInput.fixedAssetTax]
  * @param {number} [householdInput.year]

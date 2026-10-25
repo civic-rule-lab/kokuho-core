@@ -319,6 +319,42 @@ console.log('\n== 国保の加入者が 0 人の世帯 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 特定同一世帯所属者（国民健康保険法施行令 第29条の7 第6項第1号・第3号）
+//   後期高齢者医療へ移り同じ世帯にいる人の所得を軽減判定に入れ、5割・2割の人数にも数える（2026-10-25 追加・全方向試算 B-2）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 特定同一世帯所属者 ==');
+{
+  // 世帯主 70歳・年金170万（所得60万・15万控除）が国保、配偶者 76歳・年金145万（所得35万・15万控除）が後期
+  const members = [
+    { id: 'h', role: 'head',   age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 76, pension: 1_450_000, isKokuhoInsured: false, isOnSocialInsurance: false },
+  ];
+  const inp = deriveKokuhoInputs(members);
+  eq('判定所得 = 60万 − 15万 ＋ 35万 − 15万 = 65万', inp.reductionJudgmentIncome, 650_000);
+  eq('特定同一世帯所属者 1人', inp.tokuteiDouitsuCount, 1);
+  eq('均等割の人数（family）は加入者だけの 1人', inp.family, 1);
+  eq('所得割の所得（income）は加入者だけの 60万', inp.income, 600_000);
+  const out = deriveKokuhoInputs([members[0], { ...members[1], isTokuteiDouitsu: false }]);
+  eq('isTokuteiDouitsu: false なら外す（判定所得 45万・0人）', [out.reductionJudgmentIncome, out.tokuteiDouitsuCount].join('/'), '450000/0');
+  const none = deriveKokuhoInputs([{ ...members[0], isKokuhoInsured: false }, members[1]]);
+  eq('国保の加入者がいなければ数えない', none.tokuteiDouitsuCount, 0);
+  // 世帯主が後期（76歳）・配偶者が国保: 世帯主の所得は従来どおり入り、人数に 1 を足す
+  const hk = deriveKokuhoInputs([
+    { id: 'h', role: 'head',   age: 76, pension: 1_450_000, isKokuhoInsured: false, isOnSocialInsurance: false },
+    { id: 's', role: 'spouse', age: 70, pension: 1_700_000, isKokuhoInsured: true,  isOnSocialInsurance: false },
+  ]);
+  eq('世帯主が後期: 判定所得 65万（二重に足さない）・特定同一 1人', [hk.reductionJudgmentIncome, hk.tokuteiDouitsuCount].join('/'), '650000/1');
+
+  // エンジン: 市原市（5割 43万＋31万×人数、2割 43万＋57万×人数）。加入者1人・判定所得 95万
+  const ichihara = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/ichihara/kokuho-2026.json'), 'utf-8'));
+  const base = { income: 600_000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0, reductionJudgmentIncome: 950_000 };
+  eq('特定同一なし: 95万 > 74万（5割）→ 2割軽減', calculateKokuho(base, ichihara).reductionLabel, '2割軽減');
+  eq('特定同一 1人: 95万 ≤ 43万＋31万×2 = 105万 → 5割軽減', calculateKokuho({ ...base, tokuteiDouitsuCount: 1 }, ichihara).reductionLabel, '5割軽減');
+  const t1 = calculateKokuho({ ...base, tokuteiDouitsuCount: 1 }, ichihara), t0 = calculateKokuho(base, ichihara);
+  ok(`特定同一 1人: 5割軽減になり、2割軽減より安い（${t1.total} < ${t0.total}）`, t1.total < t0.total);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);
