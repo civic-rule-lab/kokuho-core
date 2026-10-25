@@ -535,7 +535,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     // (E) 本人 自営500万・50歳 ＋ 配偶者 自営 給与200万・78歳: 配偶者は後期（国保に合算しない・国民年金なし）
     const e1 = await run({ salary: 5000000, age: 50, employment: 'jiei', family: { spouseSalary: 2000000, spouseWork: 'jiei', spouseAge: 78 } });
     const spInc = calcSalaryIncome(2000000);
-    const kSelf = calculateKokuho({ income: calcSalaryIncome(5000000), family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 }, kd).total;
+    // 配偶者 78歳＝国保から移って5年以内の特定同一世帯所属者、加入者は本人1人＝特定世帯（平等割 1/2・施行令 第29条の7 第2項第8号ロ・2026-10-25 B-6）
+    const kSelf = calculateKokuho({ income: calcSalaryIncome(5000000), family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0,
+      tokuteiDouitsuCount: 1, tokuteiSetaiKubun: 'tokutei', reductionJudgmentIncome: calcSalaryIncome(5000000) + spInc }, kd).total;
     const kkSp = calculateKouki({ totalIncome: spInc }, kkd).total;
     A('自営＋配偶者78歳: 本人の国保は配偶者を含まない1人分（見出しも「国民健康保険」）', !!find(e1.heads, '国民健康保険') && num(find(e1.heads, '国民健康保険')[1]) === kSelf);
     A('自営＋配偶者78歳: 「後期高齢者医療（配偶者）」カードが後期エンジン直算と一致', !!find(e1.heads, '後期高齢者医療（配偶者）') && num(find(e1.heads, '後期高齢者医療（配偶者）')[1]) === kkSp);
@@ -730,8 +732,11 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
     const kb = { income: 600000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
     //   判定所得 = 本人 60万 − 15万 ＋ 配偶者 90万 − 15万 = 120万（人数 2: 5割 105万を超え、2割 157万以下）
-    const kNew = calculateKokuho({ ...kb, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 1200000 }, kd);
+    //   加入者は本人1人・配偶者76歳（移って5年以内）なので特定世帯＝平等割 1/2（施行令 第29条の7 第2項第8号ロ・2026-10-25 B-6）
+    const kNew = calculateKokuho({ ...kb, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 1200000, tokuteiSetaiKubun: 'tokutei' }, kd);
     const kOld = calculateKokuho({ ...kb, reductionJudgmentIncome: 450000 }, kd);
+    const kNoTokuteiSetai = calculateKokuho({ ...kb, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 1200000 }, kd);
+    A(`同上: 特定世帯の平等割 1/2 で ${kNoTokuteiSetai.total} → ${kNew.total} に下がる`, kNew.total < kNoTokuteiSetai.total);
     const kc = find(tkd.heads, '国民健康保険');
     A(`本人70歳（国保）・配偶者76歳（後期）: 国保 ${kc && kc[1]} が特定同一世帯所属者を入れた直算 ${kNew.total}（${kNew.reductionLabel}）と一致。入れないと ${kOld.total}（${kOld.reductionLabel}）`,
       !!kc && num(kc[1]) === kNew.total && kNew.reductionLabel === '2割軽減' && kOld.reductionLabel === '5割軽減');
