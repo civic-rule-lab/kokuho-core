@@ -554,8 +554,12 @@ __OPERATOR_FOOTER__
               family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, salaryPensionCount:2, fixedAssetTax:0,
               reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
           } else {
+            // 配偶者が75歳以上（自営・年金のみ＝後期高齢者医療）なら、国保から移った特定同一世帯所属者として
+            //   軽減判定の所得と5割・2割の人数に入れる（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25）
+            var spTokutei = (spouseJiei && famSpouseAge>=75) ? 1 : 0;
             rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
-              reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, kokuhoData);
+              tokuteiDouitsuCount:spTokutei,
+              reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf+(spTokutei?spouseIncomeJumin-keigenSp:0))}, kokuhoData);
           }
         }catch(e){ rk=null; }
         if(rk) siParts.push([rkWithSpouse?"国民健康保険（配偶者の所得を含む世帯分）":"国民健康保険", rk.total]);
@@ -576,6 +580,7 @@ __OPERATOR_FOOTER__
       try{
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
           family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:1, fixedAssetTax:0,
+          tokuteiDouitsuCount:(age>=75?1:0),   // 本人が75歳以上（後期）なら特定同一世帯所属者として5割・2割の人数に入れる（施行令 第29条の7 第6項第1号）
           reductionJudgmentIncome:Math.max(0,spouseIncomeJumin+totalIncome-keigenSp-keigenSelf)}, kokuhoData);
       }catch(e){ rkSp=null; }
     }

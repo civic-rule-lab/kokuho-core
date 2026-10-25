@@ -164,6 +164,8 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
   const s72 = await run({ salary: 3000000, age: 72, employment: 'kaishain' });
   const s76 = await run({ salary: 3000000, age: 76, employment: 'kaishain' });
   const p15kk = await run({ salary: 0, pension: 1650000, age: 77, employment: 'jiei' });
+  // 特定同一世帯所属者（2026-10-25・全方向試算 B-2）: 本人 70歳・年金170万（所得60万）が国保、配偶者 76歳・年金200万（所得90万）が後期
+  const tkd = await run({ salary: 0, pension: 1700000, age: 70, employment: 'jiei', family: { spousePension: 2000000, spouseAge: 76 } });
   // 所得金額調整控除（2026-10-25・全方向試算 A-2）: 自営 66歳・給与200万（所得132万）＋年金200万（所得90万）→ 合計所得 212万（10万引く）
   const adj = await run({ salary: 2000000, pension: 2000000, age: 66, employment: 'jiei' });
   //   配偶者 70歳・給与110万（所得45万）＋年金133万（所得23万）→ 68万 − 10万 = 58万 で配偶者控除（引かないと 68万で特別控除）
@@ -719,6 +721,18 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const tD = find(r62.heads, '所得税'), eD = expTax(0, 3000000, 62, r62.sys);
     A(`年金のみ自営62歳・300万: 所得税カードが直算 ${eD} と一致（65歳未満の控除）`, !!tD && num(tD[1]) === eD && eD > 0);
     A('年金300万の年金所得: 62歳 1,975,000 / 67歳 1,900,000 円（控除 102.5万 / 110万）', calcPensionIncome(3000000, 62) === 1975000 && calcPensionIncome(3000000, 67) === 1900000);
+  }
+  {
+    // 国民健康保険法施行令 第29条の7 第6項第1号: 軽減判定の所得に特定同一世帯所属者の所得を入れ、5割・2割の人数にも数える
+    const { calculateKokuho } = require('./lib/kokuho-loader.cjs');
+    const kd = JSON.parse(fs.readFileSync(KOKUHO_FIXTURE, 'utf8'));
+    const kb = { income: 600000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+    //   判定所得 = 本人 60万 − 15万 ＋ 配偶者 90万 − 15万 = 120万（人数 2: 5割 105万を超え、2割 157万以下）
+    const kNew = calculateKokuho({ ...kb, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 1200000 }, kd);
+    const kOld = calculateKokuho({ ...kb, reductionJudgmentIncome: 450000 }, kd);
+    const kc = find(tkd.heads, '国民健康保険');
+    A(`本人70歳（国保）・配偶者76歳（後期）: 国保 ${kc && kc[1]} が特定同一世帯所属者を入れた直算 ${kNew.total}（${kNew.reductionLabel}）と一致。入れないと ${kOld.total}（${kOld.reductionLabel}）`,
+      !!kc && num(kc[1]) === kNew.total && kNew.reductionLabel === '2割軽減' && kOld.reductionLabel === '5割軽減');
   }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;

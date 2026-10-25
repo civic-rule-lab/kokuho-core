@@ -128,6 +128,17 @@ const shown = l => Math.floor(l.limit / 1000) * 1000;
     A('所得130万: 区分なしは課税', nLo.isTaxable === true && nLo.incomeLevy > 0);
     A('所得130万: ひとり親は非課税（均等割・所得割 0）', mLo.isTaxable === false && mLo.incomeLevy === 0 && mLo.perCapita === 0);
     A('所得130万: 本人障害者は非課税（均等割・所得割 0）', dLo.isTaxable === false && dLo.incomeLevy === 0 && dLo.perCapita === 0);
+    // 特定同一世帯所属者（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25 全方向試算 B-2）:
+    //   配偶者 76歳で「国保」を選んだ＝国保から後期へ移った人。軽減判定の所得と5割・2割の人数に入れる。
+    //   所得80万・配偶者の所得0: 人数1なら 80万 > 74万で2割、人数2なら 80万 ≤ 105万で5割
+    const kk = (o) => w.computeJieigyo(Object.assign({}, base, o), kokuhoData, juminData).kokuho;
+    const tk = kk({ business: 800000, age: 66, spouse: 'elderly', spouseAge: 76, spouseKokuho: 'kokuho' });
+    const tkExp = calculateKokuho({ income: 800000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0, tokuteiDouitsuCount: 1, reductionJudgmentIncome: 800000 }, kokuhoData);
+    const tkOld = calculateKokuho({ income: 800000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
+    A(`配偶者76歳・国保を選択: 特定同一世帯所属者として ${tk.reductionLabel}・${tk.total} 円（直算 ${tkExp.reductionLabel}・${tkExp.total}、数えないと ${tkOld.reductionLabel}・${tkOld.total}）`,
+      tk.total === tkExp.total && tk.reductionLabel === '5割軽減' && tkOld.reductionLabel === '2割軽減');
+    const tkS = kk({ business: 800000, age: 66, spouse: 'elderly', spouseAge: 76, spouseKokuho: 'shaho' });
+    A('配偶者76歳・勤め先の健保を選択: 数えない（2割軽減のまま）', tkS.total === tkOld.total);
   }
 
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
