@@ -440,6 +440,32 @@ console.log('\n== 給与所得者等の数え方 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 固定資産税額を省略しても NaN にしない（2026-10-25・全方向試算 B-7）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 固定資産税額の省略 ==');
+{
+  const aguni = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/aguni/kokuho-2026.json'), 'utf-8'));
+  const b = { income: 2_000_000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 };
+  const zero = calculateKokuho({ ...b, fixedAssetTax: 0 }, aguni).total;
+  eq('粟国村（資産割あり）: 省略すると 0 と同じ', calculateKokuho(b, aguni).total, zero);
+  eq('負の値は 0 と同じ', calculateKokuho({ ...b, fixedAssetTax: -5 }, aguni).total, zero);
+  eq('数でない値は 0 と同じ', calculateKokuho({ ...b, fixedAssetTax: 'abc' }, aguni).total, zero);
+  // 医療分 30%・支援金分 6%（介護分は対象者なし）: 10万 × 36% = 36,000 増える
+  eq('10万円なら資産割 36,000 円が加わる', calculateKokuho({ ...b, fixedAssetTax: 100_000 }, aguni).total - zero, 36_000);
+  const dir = path.join(__dirname, '../data/municipalities');
+  let withAsset = 0, nan = 0;
+  for (const slug of fs.readdirSync(dir)) {
+    const f = path.join(dir, slug, 'kokuho-2026.json');
+    if (!fs.existsSync(f)) continue;
+    const d = JSON.parse(fs.readFileSync(f, 'utf-8'));
+    if (!d.assetLevy) continue;
+    withAsset++;
+    if (!Number.isFinite(calculateKokuho({ ...b, care: 1 }, d).total)) nan++;
+  }
+  ok(`資産割のある ${withAsset} 自治体すべてで、省略しても合計が数になる（NaN ${nan} 件）`, withAsset > 100 && nan === 0);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);
