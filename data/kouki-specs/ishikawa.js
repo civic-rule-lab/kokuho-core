@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.1114, childcare: 0.0024 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分1円・子ども分1円単位（端数規定なし）。
+export const ROUNDING = {
+  income: "none",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 1, "childcare": 1},
+  source: {"url": "https://www1.g-reiki.net/ishikawa-kouiki/reiki_honbun/x998RG00000076.html", "title": "石川県後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "partial", "note": "一部は条文でなく公式資料から判断（詳しくは PR 本文）", "retrievedAt": "2026-10-27"},
+};

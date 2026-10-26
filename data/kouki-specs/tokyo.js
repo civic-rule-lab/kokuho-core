@@ -37,3 +37,13 @@ export const KOUKI = {
     { threshold: 200000, rate: 0.25 },
   ],               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分100円・子ども分100円単位。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  reducedDependent: "ceil",
+  incomeReductionAmount: "ceil",
+  levyUnit: {"medical": 100, "childcare": 100},
+  source: {"url": "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A801790A8&houcd=H419901010044&no=1&totalCount=1&fromJsp=SrMj", "title": "東京都後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://www.tokyo-ikiiki.net/_res/projects/default_project/_page_/001/001/975/r8keisanrei.pdf", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

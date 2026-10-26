@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.085, childcare: 0.0026 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。基礎賦課額・子ども分それぞれ100円未満切り捨て。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 100, "childcare": 100},
+  source: {"url": "https://en3-jg.d1-law.com/iwate_iryokouiki/d1w_reiki/DOC1900026/DOC1900026_j.html", "title": "岩手県後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "confirmed", "retrievedAt": "2026-10-26"},
+};

@@ -11,6 +11,7 @@
  *   [数値] 均等割・所得割率の妥当範囲（全国分布から）
  *   [一律] 賦課限度額85万/2.1万・医療7割軽減=7.2割・しきい値31万/57万が全国一律値か
  *   [独自] incomeReduction は null か配列（東京のみ配列）
+ *   [端数] rounding があれば値の種類と条例の出典 URL
  */
 import { readFileSync, existsSync, readdirSync } from "fs";
 import path from "path";
@@ -57,6 +58,19 @@ function check(slug, d) {
   if (!(d.incomeReduction === null || Array.isArray(d.incomeReduction))) E(`incomeReduction は null か配列のみ`);
   if (Array.isArray(d.incomeReduction) && d.prefSlug !== "tokyo") W(`東京以外で所得割独自軽減あり（要確認）`);
   if (d.status && !["verified","needs_update"].includes(d.status)) W(`status=${d.status}`);
+  if (d.rounding !== undefined) {
+    const r = d.rounding, modes = ["floor", "ceil", "round", "none"], units = [1, 10, 100];
+    const inc = typeof r.income === "object" ? r.income : { medical: r.income, childcare: r.income };
+    if (!modes.includes(inc?.medical) || !modes.includes(inc?.childcare)) E(`rounding.income が不正 ${JSON.stringify(r.income)}`);
+    if (!modes.includes(r.reducedPerCapita)) E(`rounding.reducedPerCapita が不正 ${r.reducedPerCapita}`);
+    for (const k of ["reducedDependent", "incomeReductionAmount"])
+      if (r[k] !== undefined && !modes.includes(r[k])) E(`rounding.${k} が不正 ${r[k]}`);
+    for (const k of ["incomeUnit", "reducedUnit"])
+      if (r[k] !== undefined && !units.includes(r[k])) E(`rounding.${k} が不正 ${r[k]}`);
+    if (!units.includes(r.levyUnit?.medical) || !units.includes(r.levyUnit?.childcare)) E(`rounding.levyUnit が不正 ${JSON.stringify(r.levyUnit)}`);
+    if (r.levyUnit?.total !== undefined && !units.includes(r.levyUnit.total)) E(`rounding.levyUnit.total が不正 ${r.levyUnit.total}`);
+    if (!r.source?.url) E(`rounding.source.url（条例の出典）が無い`);
+  }
 }
 
 const slugs = SLUG ? [SLUG] : readdirSync(DATA_DIR).filter(s => existsSync(path.join(DATA_DIR, s, `kouki-${YEAR}.json`)));

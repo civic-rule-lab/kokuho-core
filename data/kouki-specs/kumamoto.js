@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.1106, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分100円・子ども分100円単位。
+export const ROUNDING = {
+  income: "none",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 100, "childcare": 100},
+  source: {"url": "https://www.kumamoto-kouikirengo.jp/document/pdf/0701_ver05.pdf", "title": "熊本県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://www.kumamoto-kouikirengo.jp/system2/insurance.html", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};
