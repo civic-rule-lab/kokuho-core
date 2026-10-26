@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.09, childcare: 0.002 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分100円・子ども分100円単位。
+export const ROUNDING = {
+  income: "none",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 100, "childcare": 100},
+  source: {"url": "https://www1.g-reiki.net/aomori-kouikirengou/reiki_honbun/u351RG00000077.html", "title": "青森県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "http://www.aomori-kouikirengou.jp/seido/pdf/hokenryo_keisanrei_08nen.pdf", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

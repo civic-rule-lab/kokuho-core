@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.094, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。子ども分は10円未満切り捨て（第17条第2項）。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 100, "childcare": 10},
+  source: {"url": "https://www.kouiki-chiba.jp/reiki/reiki_honbun/x987RG00000070.html", "title": "千葉県後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "confirmed", "retrievedAt": "2026-10-26"},
+};

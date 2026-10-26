@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.0912, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分100円・子ども分100円単位。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 100, "childcare": 100},
+  source: {"url": "https://en3-jg.d1-law.com/miyagi_iryokouiki/d1w_reiki/H419901010028/H419901010028_j.html", "title": "宮城県後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.103, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分10円・子ども分10円単位。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 10, "childcare": 10},
+  source: {"url": "https://www.union.kanagawa.lg.jp/_res/projects/default_project/_page_/001/001/020/koukikoureishairyouzyourei.pdf", "title": "神奈川県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://www.union.kanagawa.lg.jp/1000009/1000664/1002086.html", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

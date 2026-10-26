@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.1151, childcare: 0.0024 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分1円・子ども分1円単位（端数規定なし）。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 1, "childcare": 1},
+  source: {"url": "https://www.kouikirengo-osaka.jp/home/wp-content/themes/tpl/old/union/pdf/list/R7/7-1_2.pdf", "title": "大阪府後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

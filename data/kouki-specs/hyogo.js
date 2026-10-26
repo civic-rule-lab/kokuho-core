@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.1077, childcare: 0.0024 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額の100円未満切り捨ての規定は無く、公式計算例も1円単位。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 1, "childcare": 1},
+  source: {"url": "https://www.kouiki-hyogo.jp/hyogo-kouki-reiki/H419901010025/H419901010025_j.html", "title": "兵庫県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://www.kouiki-hyogo.jp/seido/1001473/1001557.html", "confidence": "confirmed", "retrievedAt": "2026-10-26"},
+};

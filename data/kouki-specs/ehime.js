@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.0979, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分10円・子ども分10円単位。
+export const ROUNDING = {
+  income: "floor",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 10, "childcare": 10},
+  source: {"url": "https://www.ehime-kouiki.jp/reiki/H419901010023/H419901010023_j.html", "title": "愛媛県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://www.ehime-kouiki.jp/hokenryo/", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

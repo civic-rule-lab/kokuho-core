@@ -30,3 +30,11 @@ export const KOUKI = {
   rate:      { medical: 0.0953, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分1円・子ども分1円単位（端数規定なし）。
+export const ROUNDING = {
+  income: "none",
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 1, "childcare": 1},
+  source: {"url": "https://mie-kouiki.jp/reiki_int/reiki_honbun/u395RG00000086.html", "title": "三重県後期高齢者医療広域連合後期高齢者医療に関する条例", "example": "https://mie-kouiki.jp/wp2/wp-content/uploads/2026/04/hokenryou-modelcase-r8.pdf", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};

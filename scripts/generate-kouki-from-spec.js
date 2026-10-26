@@ -18,6 +18,7 @@
  * スペック形式（data/kouki-specs/{prefSlug}.js）:
  *   export const PREF_NAME, PREF_SLUG, STATUS, SOURCE;
  *   export const KOUKI = { perCapita:{medical,childcare}, rate:{medical,childcare}, incomeReduction };
+ *   export const ROUNDING = { income, reducedPerCapita, levyUnit:{medical,childcare}, source };  // 任意（条例の端数規定）
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import path from "path";
@@ -82,6 +83,8 @@ function buildJson(m, spec, prefSlug) {
     caps:          NATIONAL_UNIFORM.caps,
     reduction:     NATIONAL_UNIFORM.reduction,
     incomeReduction: spec.KOUKI.incomeReduction ?? null,
+    // 端数処理（条例で確認した県だけ。無い県は kouki.js が従来の扱いにする）
+    rounding:      spec.ROUNDING ?? undefined,
     publicNote:    spec.PUBLIC_NOTE ?? null,
     source:        spec.SOURCE,
     notes:         "医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。",
