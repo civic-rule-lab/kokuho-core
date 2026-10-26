@@ -30,3 +30,12 @@ export const KOUKI = {
   rate:      { medical: 0.1013, childcare: 0.0025 },   // 所得割率
   incomeReduction: null,               // 所得割の独自軽減（無い県は null）
 };
+
+// 端数処理（条例で確認）。賦課額 医療分1円・子ども分1円単位（端数規定なし）。
+// 医療分の所得割は1円未満切り捨て（第4条）、子ども分の所得割は端数規定なし（第8条の2）、軽減後の均等割は1円未満切り捨て（第13条・第14条）。
+export const ROUNDING = {
+  income: {"medical": "floor", "childcare": "none"},
+  reducedPerCapita: "floor",
+  levyUnit: {"medical": 1, "childcare": 1},
+  source: {"url": "https://ops2-kh.d1-law.com/kitei/opensearch/SrJbF01/init?jctcd=10F0CF470&houcd=DOC2300026&no=1&totalCount=1&fromJsp=SrMj", "title": "滋賀県後期高齢者医療広域連合後期高齢者医療に関する条例", "confidence": "confirmed", "retrievedAt": "2026-10-27"},
+};
