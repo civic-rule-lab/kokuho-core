@@ -466,6 +466,23 @@ console.log('\n== 固定資産税額の省略 ==');
 }
 
 // ═══════════════════════════════════════════════════════════
+// 世帯人数を省略しても NaN・「軽減なし」にしない（2026-10-25・全方向試算 B-8）
+// ═══════════════════════════════════════════════════════════
+console.log('\n== 世帯人数の省略 ==');
+{
+  const ichihara = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/municipalities/ichihara/kokuho-2026.json'), 'utf-8'));
+  const b = { income: 500_000, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+  const one = calculateKokuho({ ...b, family: 1 }, ichihara);
+  const omitted = calculateKokuho(b, ichihara);
+  eq('省略すると 1 人とみなす（合計が family: 1 と同じ）', omitted.total, one.total);
+  eq('省略しても軽減区分が付く（5割軽減）', omitted.reductionLabel, '5割軽減');
+  eq('数でない値も 1 人とみなす', calculateKokuho({ ...b, family: 'abc' }, ichihara).total, one.total);
+  eq('0 は従来どおり加入者 0 人（0 円）', calculateKokuho({ ...b, family: 0 }, ichihara).total, 0);
+  const mem = [{ income: 250_000, careTarget: false }, { income: 250_000, careTarget: false }];
+  eq('members だけ渡せばその人数（2 人）とみなす', calculateKokuho({ ...b, members: mem }, ichihara).total, calculateKokuho({ ...b, members: mem, family: 2 }, ichihara).total);
+}
+
+// ═══════════════════════════════════════════════════════════
 // 結果
 // ═══════════════════════════════════════════════════════════
 console.log(`\n${'─'.repeat(55)}`);
