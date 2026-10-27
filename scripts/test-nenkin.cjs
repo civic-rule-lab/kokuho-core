@@ -5,6 +5,7 @@
  *   3. 審査対象: 免除は配偶者・世帯主も見る／納付猶予は世帯主を見ない・50 歳以上は不可／学生は本人のみ
  *   4. 年齢: 20 歳未満・60 歳以上は対象外
  *   5. 判定後の月額と年金額への反映
+ *   6. 障害者・寡婦・ひとり親で前年所得 135 万円以下の特例（国民年金法 第90条第1項第3号）
  * 実行: node scripts/test-nenkin.cjs
  */
 'use strict';
@@ -63,6 +64,17 @@ A('4分の3免除の月額 4,480・半額 8,960・4分の1免除 13,440', j(P(88
 A('全額免除・猶予の月額 0、免除なしは 17,920', j(P(0)).monthlyAfter === 0 && j(P(1680001)).monthlyAfter === 17920);
 A('年金額への反映: 全額 1/2・4分の3 5/8・半額 6/8・4分の1 7/8・猶予 0', j(P(0)).pensionReflection === '1/2' && j(P(880000)).pensionReflection === '5/8' && j(P(1280000)).pensionReflection === '6/8' && j(P(1680000)).pensionReflection === '7/8' && j(P(500000), { householder: P(3000000) }).pensionReflection === '0');
 A('追納期限 10 年', j(P(0)).tsuinoYears === 10);
+
+// 6. 障害者・寡婦・ひとり親で前年所得 135 万円以下（国民年金法 第90条第1項第3号・施行令 第6条の7の2・第6条の8）
+A('ひとり親 所得 100 万 → 全額免除（式だけなら 4分の3免除）', j(P(1000000, {}, { hitorioya: true })).level === 'full');
+A('ひとり親 所得 135 万ちょうど → 全額免除', j(P(1350000, {}, { hitorioya: true })).level === 'full');
+A('ひとり親 所得 135 万＋1 円 → 特例に当たらず半額免除（式どおり）', j(P(1350001, {}, { hitorioya: true })).level === 'half');
+A('寡婦 所得 135 万 → 全額免除', j(P(1350000, {}, { kafu: true })).level === 'full');
+A('本人が障害者（selfShogai）所得 100 万 → 全額免除', j(P(1000000, {}, { selfShogai: true })).level === 'full');
+A('障害者控除の人数だけ（扶養親族が障害者）所得 100 万 → 特例に当たらず 4分の3免除', j(P(1000000, {}, { shogai: 1 })).level === 'threeQuarters');
+A('世帯主がひとり親で所得 120 万・本人 0 → 全額免除（世帯主も 3 号で要件を満たす）', j(P(0), { householder: P(1200000, {}, { hitorioya: true }) }).level === 'full');
+A('本人ひとり親 100 万・世帯主 500 万（免除不可）→ 納付猶予（猶予も 3 号を要件に挙げる）', j(P(1000000, {}, { hitorioya: true }), { householder: P(5000000) }).level === 'yuyo');
+A('判定の内訳に 3 号該当を出す', j(P(1000000, {}, { hitorioya: true })).detail.self.localTaxNonTaxable === true && j(P(1000000)).detail.self.localTaxNonTaxable === false);
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
