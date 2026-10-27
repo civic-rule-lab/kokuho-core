@@ -1737,8 +1737,13 @@ const CASES = [
   },
   {
     slug: "takaoka", name: "高岡市", source: "city.takaoka.toyama.jp .../3768.html",
-    // 基準額77,900円・13段階。第1〜5は80.9万/120万しきい値（sumIncome）。第6〜13は合計所得120/200/300/400/500/600/700万。
+    // 基準額77,900円・13段階。第1〜5は82.65万/120万しきい値（sumIncome）。第6〜13は合計所得120/200/300/400/500/600/700万。
     levels: [
+      // 令和8年度の境界 82.65万（介護保険法施行令第38条。80.9万から変わった）の両側
+      { level: "1",  annual: 23400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "2",  annual: 39000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826501 } },
+      { level: "4",  annual: 70100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "5",  annual: 77900,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826501 } },
       { level: "1",  annual: 23400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "2",  annual: 39000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
       { level: "3",  annual: 50600,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
@@ -1788,9 +1793,14 @@ const CASES = [
     ],
   },
   {
-    slug: "tonami", name: "砺波市（砺波組合）", source: "pci-area.tonami.toyama.jp .../hokenryou2024.pdf",
-    // 砺波地方介護保険組合（砺波/小矢部/南砺）。基準額73,200円・13段階。80.9万/120万しきい値。
+    slug: "tonami", name: "砺波市（砺波組合）", source: "pci-area.tonami.toyama.jp .../050/R8hokenryou.pdf",
+    // 砺波地方介護保険組合（砺波/小矢部/南砺）。基準額73,200円・13段階。82.65万/120万しきい値（令和8年度の公式PDF）。
     levels: [
+      // 令和8年度の境界 82.65万（介護保険法施行令第38条。80.9万から変わった）の両側
+      { level: "1",  annual: 20900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "2",  annual: 25700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826501 } },
+      { level: "4",  annual: 65800,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826501 } },
       { level: "1",  annual: 20900,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "2",  annual: 25700,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1000000 } },
       { level: "5",  annual: 73200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
@@ -1800,8 +1810,13 @@ const CASES = [
   },
   {
     slug: "kamiichi", name: "上市町（中新川広域）", source: "union.nakaniikawa.toyama.jp .../497da853...pdf",
-    // 中新川広域（上市/立山/舟橋）。基準額75,100円・13段階。80.9万/120万しきい値。
+    // 中新川広域（上市/立山/舟橋）。基準額75,100円・13段階。82.65万/120万しきい値（組合の条例が施行令第38条の区分を参照）。
     levels: [
+      // 令和8年度の境界 82.65万（介護保険法施行令第38条。80.9万から変わった）の両側
+      { level: "1",  annual: 18800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "2",  annual: 30000,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 826501 } },
+      { level: "4",  annual: 67600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826500 } },
+      { level: "5",  annual: 75100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 826501 } },
       { level: "1",  annual: 18800,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "3",  annual: 51500,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 1500000 } },
       { level: "5",  annual: 75100,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
