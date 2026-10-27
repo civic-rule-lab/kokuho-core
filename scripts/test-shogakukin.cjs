@@ -148,5 +148,20 @@ check('多子世帯区分×資産1億 減免満額維持', a1.reductionCap, { tu
 const a3 = calcShogakukin(spec, { supporters: [{ taxableIncome: 3000000 }], student: stu(), childrenCount: 3, assets: 350000000 });
 check('多子世帯区分×資産3.5億 減免も0', a3.reductionCap, { tuition: 0, admission: 0 });
 
+// 生計維持者が2人のとき: 1人ずつ「零を下回るときは零・100円未満切捨て」にしてから合算する
+//   （JASSO法施行令 第8条の2第4項「…それぞれ…控除した額（その額が零を下回る場合には、零とし、
+//     その額に百円未満の端数がある場合には、これを切り捨てた額とする。）…を合算した額」）
+// (a) 端数: 課税標準 430,050 → 25,803−1,500＝24,303→24,300 ／ 43,250 → 2,595−1,297＝1,298→1,200
+//     合算 25,500＝第Ⅱ区分（合算してから切り捨てると 25,601→25,600＝第Ⅲ区分にずれる）
+const p2 = calcShogakukin(spec, { supporters: [{ taxableIncome: 430050 }, { taxableIncome: 43250 }], student: stu(), childrenCount: 1 });
+check('2人 1人ずつ100円未満切捨て kijungaku', p2.kijungaku, 25500);
+check('2人 1人ずつ100円未満切捨て 区分', p2.kubunCode, '2');
+check('2人 1人ずつ100円未満切捨て 給付月額', p2.grantMonthly, 50600);
+// (b) 負: 451,667 → 27,100−1,500＝25,600 ／ 100,000・調整額6,000 → 6,000−1,500−6,000＝−1,500→0
+//     合算 25,600＝第Ⅲ区分（負の額を相殺すると 24,100＝第Ⅱ区分にずれる）
+const n2 = calcShogakukin(spec, { supporters: [{ taxableIncome: 451667 }, { taxableIncome: 100000, adjustmentAmount: 6000 }], student: stu(), childrenCount: 1 });
+check('2人 1人分が負なら零 kijungaku', n2.kijungaku, 25600);
+check('2人 1人分が負なら零 区分', n2.kubunCode, '3');
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);
