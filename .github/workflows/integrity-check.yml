@@ -285,3 +285,10 @@ jobs:
           node scripts/generate-seido-about.js
           node scripts/generate-seido-index.js
           node scripts/test-furusato-portals.cjs
+
+      # 2026-10-11 追加（TASKS X173-7）: 2つのトップの制度選択に後期高齢者医療を足した。作り直してから検証する。
+      - name: Run test-top-selector-dom.cjs (トップ2つの制度選択・後期の印と遷移先・jsdom)
+        run: |
+          node scripts/generate-selector.js
+          node scripts/generate-seido-index.js
+          node scripts/test-top-selector-dom.cjs
