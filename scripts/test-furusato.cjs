@@ -114,21 +114,22 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
 // 給与所得: 800万 − (800万×10%+110万) = 610万。
 // 住民税: 所得控除 = 1,152,000 + 基礎43万 + 特定扶養45万 = 2,032,000 → 課税総所得 4,068,000。
 //   人的控除差 = 5万 + 特定扶養18万 = 23万。調整控除: max(23万 − 206.8万, 5万)=5万 ×5% = 2,500。
-//   所得割 = 406,800 − 2,500 = 404,300。
+//   所得割は県・市それぞれ 100円未満切捨て（地方税法 第20条の4の2第3項・2026-10-29 C042）:
+//     県 162,720−1,000=161,720→161,700 ／ 市 244,080−1,500=242,580→242,500 → 404,200（旧: 合算後に切り捨て 404,300）。
 // 所得税(令和8年分): 合計所得610万（489万超655万以下）→ 基礎控除 67万。人的控除差調整額 = 23万 + (67万−48万) = 42万。
 // 基準額 = 4,068,000 − 420,000 = 3,648,000 → 330万超695万以下 → 69.58%。
-// 上限 = floor(404,300×20% ×100000 / 69580) + 2,000 = floor(8,086,000,000/69,580) + 2,000 = 116,211 + 2,000 = 118,211。
+// 上限 = floor(404,200×20% ×100000 / 69580) + 2,000 = floor(8,084,000,000/69,580) + 2,000 = 116,182 + 2,000 = 118,182。
 {
   const j = calculateJumin(null, { salary: 8000000, age: 50, socialInsurance: 1152000, dependentDeduction: 450000, dependents: 1, humanDeductionDiff: 230000, fiscalYear: 2027, taxCredits: 0 });
   const st = shotokuEng.calcShotokuzei({ salary: 8000000, socialInsurance: 1152000 });
   eq('D 特定扶養: 住民税 課税総所得', j.taxableIncome, 4068000);
-  eq('D 特定扶養: 住民税 所得割', j.incomeLevy, 404300);
+  eq('D 特定扶養: 住民税 所得割', j.incomeLevy, 404200);
   eq('D 特定扶養: 所得税 基礎控除（合計所得610万）', st.deductions.kiso, 670000);
   const r = calcFurusatoLimit({ incomeLevy: j.incomeLevy, taxableIncome: j.taxableIncome, humanDeductionDiff: j.humanDeductionDiff, shotokuBasicDeduction: st.deductions.kiso }, data);
   eq('D 特定扶養: 人的控除差調整額', r.humanAdjustment, 420000);
   eq('D 特定扶養: 割合の基準額', r.base, 3648000);
   eq('D 特定扶養: 特例控除の割合', r.ratio.percent, 69.58);
-  eq('D 特定扶養: 上限額', r.limit, 118211);
+  eq('D 特定扶養: 上限額', r.limit, 118182);
 }
 
 // ── 7. 対象外・特例控除が無い場合 ─────────────────────────────────────
@@ -192,16 +193,16 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
 // data/national/furusato-2026.json。前年分の所得税の基礎控除は令和7年分（国税庁 No.1199）。
 // 給与470万・単身・社保 676,800（14.4%）・fiscalYear 2026:
 //   給与所得 470万−(470万×20%+44万)=332万。課税総所得 332万−676,800−43万=2,213,200→2,213,000。
-//   所得割 221,300−2,500=218,800。令和7年分の基礎控除（合計所得332万＝132万超336万以下）88万 → +40万。
+//   所得割（県・市別に100円未満切捨て）: 県 88,520−1,000=87,520→87,500 ／ 市 132,780−1,500=131,280→131,200 → 218,700（旧 218,800）。令和7年分の基礎控除（合計所得332万＝132万超336万以下）88万 → +40万。
 //   人的控除差調整額 5万+40万=45万。基準額 2,213,000−450,000=1,763,000 → 84.895%（旧実装は課税総所得で引き 79.79%）。
-//   寄附3万円: 対象 28,000。基本分 2,800、特例分 floor(28,000×0.84895)=23,770（上限 floor(218,800×20%)=43,760 以内）→ 住民税控除 26,570。
+//   寄附3万円: 対象 28,000。基本分 2,800、特例分 floor(28,000×0.84895)=23,770（上限 floor(218,700×20%)=43,740 以内）→ 住民税控除 26,570。
 //   （旧実装: 2,800 + floor(28,000×0.7979)=22,341 → 25,141）
 {
   const data26 = require(path.join(ROOT, 'data/national/furusato-2026.json'));
   const j = calculateJumin(null, { salary: 4700000, age: 40, socialInsurance: 676800 });
   eq('R8 470万: 住民税 合計所得', j.totalIncome, 3320000);
   eq('R8 470万: 住民税 課税総所得', j.taxableIncome, 2213000);
-  eq('R8 470万: 住民税 所得割', j.incomeLevy, 218800);
+  eq('R8 470万: 住民税 所得割', j.incomeLevy, 218700);
   const kiso = furusatoShotokuBasicDeduction(j.totalIncome, data26.shotokuBasicDeductionTable.rows);
   eq('R8 470万: 令和7年分の所得税の基礎控除', kiso, 880000);
   const r = calcFurusatoLimit({ incomeLevy: j.incomeLevy, taxableIncome: j.taxableIncome, humanDeductionDiff: j.humanDeductionDiff, shotokuBasicDeduction: kiso }, data26);
