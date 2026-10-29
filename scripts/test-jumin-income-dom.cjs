@@ -72,8 +72,10 @@ function buildHtml() {
     [1650000, 1000000, 330000, '配偶者特別控除', false, 0],
     [1650001, 1000001, 310000, '配偶者特別控除', false, 0],
     [1700001, 1050001, 260000, '配偶者特別控除', false, 0],
-    [1971429, 1300000, 60000, '配偶者特別控除', false, 0],
-    [1971430, 1300001, 30000, '配偶者特別控除', false, 0],
+    // 190万円以上は別表第五の 4,000円刻み（年調給与額 A）なので、給与だけでは所得が 2,800円刻みでしか動かない（2026-10-29 C022）。
+    // 130万の境目の両側: 給与 1,971,999 → A 1,968,000 → 1,297,600 ／ 給与 1,972,000 → 1,300,400
+    [1971999, 1297600, 60000, '配偶者特別控除', false, 0],
+    [1972000, 1300400, 30000, '配偶者特別控除', false, 0],
   ];
   for (const [sal, inc, ded, label, isHaigu, hd] of cases) {
     A(`配偶者給与 ${sal.toLocaleString()}: 給与所得 ${inc.toLocaleString()}`, calcSalaryIncome(sal) === inc);
@@ -83,9 +85,10 @@ function buildHtml() {
       r.html.includes(`${label}（配偶者の合計所得 ${inc.toLocaleString()} 円）</span><span class="amount">-${ded.toLocaleString()} 円`));
   }
   // (d) 133万超 → 対象外の表示・控除なし
-  const d = run({ salary: 5000000, social: SI, spouseSalary: 2014288 });
-  A('配偶者給与 2,014,288（所得 1,330,001）: 控除なしの直算と一致', d.total === direct(5000000, 0, false, 0));
-  A('配偶者給与 2,014,288: 内訳に「対象外」', /配偶者控除<\/span><span class="amount">対象外/.test(d.html));
+  //   給与 2,016,000 → A 2,016,000 → 所得 1,331,200（2,012,000〜2,015,999 は 1,328,400 で 133万以下）
+  const d = run({ salary: 5000000, social: SI, spouseSalary: 2016000 });
+  A('配偶者給与 2,016,000（所得 1,331,200）: 控除なしの直算と一致', d.total === direct(5000000, 0, false, 0));
+  A('配偶者給与 2,016,000: 内訳に「対象外」', /配偶者控除<\/span><span class="amount">対象外/.test(d.html));
   // (e) 本人 給与1,100万（合計所得905万）＋配偶者所得 100万1円 → 2/3 の 21万
   const e = run({ salary: 11000000, social: SI, spouseSalary: 1650001 });
   A('本人1,100万＋配偶者所得100万1円: 特別控除 21万（31万×2/3 切上げ）の直算と一致', e.total === direct(11000000, 210000, false, 0));
