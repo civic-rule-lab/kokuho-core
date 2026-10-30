@@ -11,13 +11,15 @@
  *   ・16歳以上の扶養親族: 扶養控除 33万・45万・38万・45万（第314条の2第1項第11号・第4項）、人的控除差 5万・18万・10万・13万
  *     （第37条第1号イの表(8)(9)）、非課税限度額の人数（施行令 第47条の3第1号）。[確認済 2026-10-30 e-Gov 法令API]
  *   ・名古屋（所得割を直接入力）: 所得割0でも印が無ければ均等割のみ課税の階層、印があれば非課税の階層
+ *   ・給与850万円超の保護者: 保育所の子は23歳未満の扶養親族なので所得金額調整控除（租税特別措置法 第41条の3の11第1項・夫婦の双方）。
+ *     同一生計配偶者の人的控除差は本人の合計所得900万円超で逓減（第37条第1号イの表(6)）[確認済 2026-10-30]（全方向試算 C083・C132 と同型）
  * 実行: node scripts/test-hoiku-simple-dom.cjs
  */
 'use strict';
 const fs = require('fs'), path = require('path');
 const { JSDOM } = require('jsdom');
 const ROOT = path.join(__dirname, '..');
-const { calculateJumin } = require(path.join(ROOT, 'js/core/jumin.js'));
+const { calculateJumin, calcSpouseDeductionJumin } = require(path.join(ROOT, 'js/core/jumin.js'));
 const { calcHoiku } = require(path.join(ROOT, 'js/core/hoiku.js'));
 const M = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/municipalities/yokohama/hoiku-2026.json'), 'utf8'));
 const MN = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/municipalities/nagoya/hoiku-2026.json'), 'utf8'));
@@ -103,6 +105,23 @@ async function openPage(rel, url, errs) {
   const h = run({ father: 6000000, dep: { specific: 1, parent: 1 } });
   A(`父600万・19〜22歳1人＋同居の親1人: 扶養控除込みの指数で 第${hExp.level}階層 ${hExp.monthly}円 → 実際 第${h.level}階層 ${h.monthly}円`, h.level === hExp.level && h.monthly === hExp.monthly);
   A(`父600万: 扶養を足すと保育料が下がる（${h0.monthly}円 → ${h.monthly}円）`, h.monthly < h0.monthly);
+
+  // ── 給与850万円超（C083）と配偶者の人的控除差の逓減 ──
+  function expectFatherOnly(salary) {
+    const sd = calcSpouseDeductionJumin({ selfIncome: calculateJumin(null, { salary, age: 40, under23Dependent: true }).totalIncome, spouseIncome: 0 });
+    const r = calculateJumin(null, { salary, pension: 0, otherIncome: 0, age: 40, socialInsurance: Math.round(salary * 0.144), kyuchi: 1, under23Dependent: true,
+      spouseDeduction: sd.deduction, dependentDeduction: 0, dependents: 2, humanDeductionDiff: 50000 + sd.humanDiffAmount });
+    return { sd, exp: calcHoiku({ age: 'age1_2', timeType: d.getElementById('timeType').value, facility: d.getElementById('facility') ? d.getElementById('facility').value : undefined,
+      seikatsuhogo: false, hitorioya: false, month: Number(d.getElementById('month').value), father: { shotokuwari: r.hoikuShotokuwari }, mother: { shotokuwari: 0 },
+      isSeireiNotice: false, hikazei: !r.isTaxable, childOrder: 1 }, M) };
+  }
+  for (const sal of [11000000, 11500000]) {
+    const { sd, exp: x } = expectFatherOnly(sal);
+    const got = run({ father: sal });
+    A(`父${sal / 10000}万・母の収入なし: 調整控除15万・配偶者控除${sd.deduction / 10000}万・人的控除差${sd.humanDiffAmount / 10000}万で 第${x.level}階層 ${x.monthly}円 → 実際 第${got.level}階層 ${got.monthly}円`,
+      got.level === x.level && got.monthly === x.monthly);
+  }
+  A('父1,150万（合計所得940万）: 配偶者控除 22万・人的控除差 4万', expectFatherOnly(11500000).sd.deduction === 220000 && expectFatherOnly(11500000).sd.humanDiffAmount === 40000);
 
   // ── 父母とも収入0（C064）: 非課税世帯として計算し一言添える ──
   const z = run({});

@@ -17,6 +17,7 @@ const {
   calcTaxableIncomeForJumin,
   calcKeigenPensionDeduction,
   calcIncomeAdjustmentDeduction,
+  calcIncomeAdjustmentDeduction1,
   calcSalaryPensionIncome,
   isKyuyoShotokushaTou,
 } = require(path.join(__dirname, '../js/core/shared/income.js'));
@@ -265,6 +266,25 @@ console.log('\n== calcPensionIncome（年金以外の所得による控除の縮
   // 合算の関数: 給与所得（別表第五）を年金以外の所得として使う。給与1,200万（所得1,005万）＋年金200万（70歳）→ 年金所得 100万
   eq('給与1,200万＋年金200万（70歳）: 合計 10,950,000（年金控除 100万）', calcSalaryPensionIncome(12_000_000, 2_000_000, 70), 10_950_000);
   eq('国保用の総所得: 事業所得 1,500万＋年金200万（70歳）→ 1,600万', calcTaxableIncomeForKokuho({ pension: 2_000_000, age: 70, otherIncome: 15_000_000 }), 16_000_000);
+}
+
+// ─── 所得金額調整控除 第1項: 給与850万円超で23歳未満の扶養親族など（2026-10-30 全方向試算 C083）────
+//   租税特別措置法 第41条の3の11第1項（e-Gov 法令API で確認）。1円未満切上げは国税庁タックスアンサー No.1411
+console.log('\n== calcIncomeAdjustmentDeduction1（第1項） ==');
+{
+  eq('給与1,100万・要件あり → 15万（1,000万で頭打ち）', calcIncomeAdjustmentDeduction1(11_000_000, true), 150_000);
+  eq('給与900万・要件あり → 5万', calcIncomeAdjustmentDeduction1(9_000_000, true), 50_000);
+  eq('給与9,000,005・要件あり → 50,001（1円未満切上げ）', calcIncomeAdjustmentDeduction1(9_000_005, true), 50_001);
+  eq('給与850万ちょうど → 0', calcIncomeAdjustmentDeduction1(8_500_000, true), 0);
+  eq('給与1,100万・要件なし → 0', calcIncomeAdjustmentDeduction1(11_000_000, false), 0);
+  // 第2項は「給与所得控除後の給与等の金額」（第1項を引く前）で求め、第1項を引いた残額から引く（同条第2項・第4項第5号）
+  //   給与900万（給与所得705万）＋年金200万（70歳・年金所得90万）: 705万 − 5万 + 90万 − 10万 = 780万
+  eq('給与900万＋年金200万（70歳）・要件あり → 7,800,000', calcSalaryPensionIncome(9_000_000, 2_000_000, 70, undefined, 0, true), 7_800_000);
+  eq('同・要件なし → 7,850,000（従来どおり）', calcSalaryPensionIncome(9_000_000, 2_000_000, 70), 7_850_000);
+  eq('国保用の総所得: 給与1,100万・要件あり → 8,900,000', calcTaxableIncomeForKokuho({ salary: 11_000_000, under23Dependent: true }), 8_900_000);
+  const { calculateJumin } = require(path.join(__dirname, '../js/core/jumin.js'));
+  eq('住民税: 給与1,100万・令和9年度・要件あり → 合計所得 8,900,000（全方向試算 R019）',
+    calculateJumin(null, { salary: 11_000_000, age: 40, fiscalYear: 2027, under23Dependent: true }).totalIncome, 8_900_000);
 }
 
 // ─── 結果 ─────────────────────────────────────────────────────
