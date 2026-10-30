@@ -114,6 +114,18 @@ function ref(inp) {
     A('月給15万: ひとり親は均等割・所得割とも 0（非課税）', mLo.incomeLevy === 0 && mLo.perCapita === 0 && mLo.isTaxable === false);
   }
 
+  // 2026-10-30 追加（全方向試算 C154）: 配偶者控除は本人の合計所得で 33万→22万→11万→0（地方税法 第314条の2第1項第10号）
+  {
+    const base = { prefSlug: 'tokyo', age: 35, monthly: 300000, bonus: 0, bonusExempt: false, paidMonths: 12, exemptMonths: 0, salaryOverride: 0,
+      depGeneral: 0, depSpecific: 0, depElderly: 0, depParent: 0, selfStatus: 'none' };
+    const run = (o) => w.computeIkukyu(Object.assign({}, base, o), shahoData).normal.jumin;
+    for (const [monthly, ded, label] of [[300000, 330000, '合計所得900万以下'], [950000, 220000, '合計所得900万超950万以下'], [1000000, 0, '合計所得1,000万超']]) {
+      const none = run({ spouse: 'none', monthly }), gen = run({ spouse: 'general', monthly });
+      A(`月給${monthly / 10000}万（${label}・${gen.totalIncome}）: 配偶者控除 ${ded}（課税総所得 ${none.taxableIncome} → ${gen.taxableIncome}）`, gen.taxableIncome === none.taxableIncome - ded);
+    }
+    const eNone = run({ spouse: 'none', monthly: 950000 }), eld = run({ spouse: 'elderly', monthly: 950000 });
+    A(`月給95万・老人控除対象配偶者: 26万（${eNone.taxableIncome} → ${eld.taxableIncome}）`, eld.taxableIncome === eNone.taxableIncome - 260000);
+  }
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });
