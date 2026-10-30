@@ -537,6 +537,28 @@ console.log('\n== 基礎控除の逓減 calcBasicDeductionJumin ==');
   eq('所得 3,000万: 課税所得 3,000万（基礎控除なし）', t(30_000_000), 30_000_000);
 }
 
+// ─── 所得割は道府県民税・市町村民税それぞれで 100円未満切捨て（2026-10-29 全方向試算 C042）─────
+//   根拠: 地方税法 第20条の4の2第3項。調布市「個人住民税が算出されるまでの計算例」https://www.city.chofu.lg.jp/030010/p014019.html
+//   （課税所得 2,693,000・調整控除 2,500＝市 1,500／都 1,000 → 市 160,080→160,000・都 106,720→106,700）
+console.log('\n== 所得割の100円未満切捨て（県・市別） ==');
+{
+  const r = calculateJumin({ prefRate: 0.04, cityRate: 0.06 }, { salary: 0, pension: 0, otherIncome: 3_123_000, age: 40, socialInsurance: 0, kyuchi: 1 });
+  eq('調布市の計算例: 課税所得 2,693,000', r.taxableIncome, 2_693_000);
+  eq('調布市の計算例: 調整控除 2,500', r.adjustmentCredit, 2_500);
+  eq('調布市の計算例: 所得割 266,700（市 160,000＋都 106,700。合算後に切り捨てると 266,800）', r.incomeLevy, 266_700);
+  const s = calculateJumin({ prefRate: 0.02, cityRate: 0.08 }, { salary: 0, pension: 0, otherIncome: 3_123_000, age: 40, socialInsurance: 0, kyuchi: 1 });
+  // 政令市: 調整控除は 県1%（500）・市4%（2,000）。県 53,860−500＝53,360→53,300、市 215,440−2,000＝213,440→213,400
+  eq('政令市（県2%・市8%）: 所得割 266,700（県 53,300＋市 213,400）', s.incomeLevy, 266_700);
+}
+
+// ─── 給与 0円の 19〜22歳の子も特定扶養（2026-10-29 全方向試算 C128）─────
+console.log('\n== specialDependentSalaries の給与0円 ==');
+{
+  const withChild = calculateJumin({ prefRate: 0.04, cityRate: 0.06 }, { salary: 0, otherIncome: 1_430_000, age: 50, specialDependentSalaries: [0], kyuchi: 1 });
+  eq('給与0円の子: 特定扶養控除 45万', withChild.specialDependentDeduction, 450_000);
+  eq('給与0円の子: 非課税判定の人数 1', withChild.dependentsCount, 1);
+}
+
 // ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);
