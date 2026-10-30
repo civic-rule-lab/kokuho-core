@@ -6,6 +6,8 @@
  * 2026-10-04 追加（TASKS X170-12 第2段）:
  *   「1人ずつ入力」欄（.member-row）に市原市の公式計算例を入れると、加入者ごとに基礎控除を引き、
  *   介護分を 40〜64歳 の人の所得だけに掛けた金額になること。欄が空なら従来の世帯合算で計算されること。
+ * 2026-10-30 追加（全方向試算 C002）: 「65歳以上で公的年金をもらっている人の人数」×15万円を軽減の判定所得だけから引く
+ *   （国民健康保険法施行令 附則第5条 [確認済 2026-10-30 e-Gov 法令API・2026-08-01 施行時点]）。所得ベース・かんたん計算の両方
  * 実行: node scripts/test-income-dom.cjs
  */
 'use strict';
@@ -18,8 +20,8 @@ const SLUG = 'ichihara';
 const YEAR = 2026;
 const DATA = JSON.parse(fs.readFileSync(path.join(ROOT, `data/municipalities/${SLUG}/kokuho-${YEAR}.json`), 'utf8'));
 
-function buildHtml() {
-  let html = fs.readFileSync(path.join(ROOT, 'templates/kokuho-income.html'), 'utf8');
+function buildHtml(tpl) {
+  let html = fs.readFileSync(path.join(ROOT, tpl || 'templates/kokuho-income.html'), 'utf8');
   const fill = {
     '__CANONICAL_URL__': 'https://kokuho-keisan.jp/chiba/ichihara/income.html', '__CITY_NAME__': '市原市',
     '__CITY_SLUG__': SLUG, '__CSS_V__': 'x', '__FISCAL_YEAR_LABEL__': '令和8年度', '__INTRO_TEXT__': '',
@@ -43,9 +45,9 @@ function mkFetch() {
   };
 }
 
-async function runPage(fillFn) {
+async function runPage(fillFn, tpl) {
   const errors = [];
-  const dom = new JSDOM(buildHtml(), {
+  const dom = new JSDOM(buildHtml(tpl), {
     runScripts: 'dangerously', url: 'https://kokuho-keisan.jp/chiba/ichihara/income.html',
     beforeParse(w) { w.fetch = mkFetch(); w.gtag = () => {}; w.addEventListener('error', e => errors.push(String(e.message))); },
   });
@@ -143,6 +145,31 @@ const set = (d, id, v) => { d.getElementById(id).value = String(v); };
     eq('未就学児軽減の行は「差し引き済み」と書き、エンジンの値', yen(rows['未就学児軽減（差し引き済み）']), exp.preschoolReduction);
     eq('軽減の金額に「-」を付けない', /-/.test(rows['法定軽減（差し引き済み）'] + rows['未就学児軽減（差し引き済み）']), false);
     eq('軽減の行の前に、すでに差し引いてある旨の見出しがある', text.includes('すでに差し引いてあります'), true);
+  }
+
+  // ── 5. 65歳以上で公的年金をもらっている人の人数（2026-10-30・全方向試算 C002） ──
+  //   単身・所得88万（年金所得のみ）: 人数0なら判定所得88万＝2割軽減、1人なら73万（≤ 43万＋31万×1）＝5割軽減。所得割は88万のまま
+  console.log('\n== 65歳以上の年金受給者の人数（軽減判定だけ15万円引く） ==');
+  for (const tpl of ['templates/kokuho-income.html', 'templates/kokuho-simple.html']) {
+    const base = { income: 880000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
+    const exp0 = calculateKokuho(base, DATA), exp1 = calculateKokuho({ ...base, reductionJudgmentIncome: 730000 }, DATA);
+    const fill = (n) => (d) => { set(d, 'income', 880000); set(d, 'family', 1); if (d.getElementById('salaryPensionCount')) set(d, 'salaryPensionCount', 1); if (n != null) set(d, 'pension65Count', n); };
+    const r0 = await runPage(fill(null), tpl), r1 = await runPage(fill(1), tpl);
+    const name = tpl.includes('simple') ? 'かんたん' : '所得ベース';
+    eq(`${name}: 人数欄がある`, r1.errors.length === 0 && /pension65Count/.test(buildHtml(tpl)), true);
+    eq(`${name}: 人数空欄は従来どおり（${exp0.reductionLabel}）`, yen(r0.rows['年間保険料（概算）']), exp0.total);
+    eq(`${name}: 1人で判定所得 73万（${exp1.reductionLabel}）`, yen(r1.rows['年間保険料（概算）']), exp1.total);
+    eq(`${name}: 軽減が大きくなる（${exp0.reductionLabel} → ${exp1.reductionLabel}）`, exp1.total < exp0.total, true);
+  }
+  {
+    // 1人ずつ入力（2人・所得88万と30万）＋人数2 → 判定所得 118万 − 30万 = 88万
+    const { rows } = await runPage(d => {
+      set(d, 'family', 2); set(d, 'care', 0); set(d, 'salaryPensionCount', 2); set(d, 'pension65Count', 2);
+      set(d, 'memberIncome1', 880000); set(d, 'memberIncome2', 300000);
+    });
+    const exp = calculateKokuho({ family: 2, preschool: 0, under18: 0, care: 0, salaryPensionCount: 2, fixedAssetTax: 0,
+      members: [{ income: 880000 }, { income: 300000 }], reductionJudgmentIncome: 880000 }, DATA);
+    eq(`1人ずつ入力＋人数2: 判定所得 88万（${exp.reductionLabel}）の直算`, yen(rows['年間保険料（概算）']), exp.total);
   }
 
   console.log(`\n結果: PASS ${passed} / FAIL ${failed}`);
