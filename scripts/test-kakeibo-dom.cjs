@@ -134,6 +134,9 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     setVal('famDepElderly', fam.elderly ? String(fam.elderly) : '');
     setVal('famDepParent', fam.parent ? String(fam.parent) : '');
     setVal('famDepYoung', fam.young ? String(fam.young) : '');   // 16歳未満の子（2026-10-23 X223）
+    // 本人の区分・障害（2026-10-30 全方向試算 C058）
+    if (w.document.getElementById('famSelfStatus')) w.document.getElementById('famSelfStatus').value = fam.selfStatus || 'none';
+    if (w.document.getElementById('famSelfDisability')) w.document.getElementById('famSelfDisability').value = fam.selfDisability || 'none';
     // 配偶者の給与年収・働き方（2026-10-12 X184）: 指定が無ければ空欄・会社員に戻す
     setVal('famSpouseSalary', fam.spouseSalary ? String(fam.spouseSalary) : '');
     if (w.document.getElementById('famSpouseWork')) w.document.getElementById('famSpouseWork').value = fam.spouseWork || 'kaishain';
@@ -765,6 +768,71 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A(`自営夫婦・本人給与50万＋配偶者給与110万: 国保 ${kc && kc[1]} が給与所得者等1人の直算 ${kNew.total}（${kNew.reductionLabel}）と一致。2人だと ${kOld.total}（${kOld.reductionLabel}）`,
       !!kc && num(kc[1]) === kNew.total && kNew.reductionLabel === '5割軽減' && kOld.reductionLabel === '7割軽減');
   }
+
+  // ── 2026-10-30 全方向試算 C058・C066・C068・C069・C083 ──
+  {
+    // C058: 本人がひとり親・寡婦・障害者、または未成年者（18歳未満）で合計所得135万円以下なら住民税は非課税（地方税法 第295条第1項第2号）
+    //   会社員・給与185万（合計所得120万）。区分なしは課税
+    const z0 = await run({ salary: 1850000, age: 40, employment: 'kaishain' });
+    A(`給与185万・区分なし: 住民税が掛かる（${find(z0.heads, '住民税')[1]}）`, num(find(z0.heads, '住民税')[1]) > 0);
+    for (const [fam, label] of [[{ selfStatus: 'mother' }, 'ひとり親（母）'], [{ selfStatus: 'widow' }, '寡婦'], [{ selfDisability: 'general' }, '障害者']]) {
+      const z = await run({ salary: 1850000, age: 40, employment: 'kaishain', family: fam });
+      A(`給与185万・${label}: 住民税 0 円 → 実際 ${find(z.heads, '住民税')[1]}`, num(find(z.heads, '住民税')[1]) === 0);
+    }
+    const zm = await run({ salary: 1850000, age: 17, employment: 'kaishain' });
+    A(`給与185万・17歳（未成年者）: 住民税 0 円 → 実際 ${find(zm.heads, '住民税')[1]}`, num(find(zm.heads, '住民税')[1]) === 0);
+    // ひとり親控除 30万は合計所得500万円以下が要件。給与500万（所得356万）なら控除が入り住民税が下がる
+    const sp0 = await run({ salary: 5000000, age: 40, employment: 'kaishain' });
+    const sp1 = await run({ salary: 5000000, age: 40, employment: 'kaishain', family: { selfStatus: 'father' } });
+    const spExp = calculateJumin(null, { salary: 5000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(5000000, 0, 40), kyuchi: 1,
+      spouseDeduction: 0, dependentDeduction: 0, dependents: 0, humanDeductionDiff: 60000, singleParentDeduction: 300000, disabilityDeduction: 0, selfDisabled: false, minor: false, under23Dependent: false });
+    A(`給与500万・ひとり親（父）: 控除30万・人的控除差6万の直算 ${spExp.total} → 実際 ${find(sp1.heads, '住民税')[1]}（区分なし ${find(sp0.heads, '住民税')[1]}）`,
+      num(find(sp1.heads, '住民税')[1]) === spExp.total && spExp.total < num(find(sp0.heads, '住民税')[1]));
+  }
+  {
+    // C083: 給与1,100万・16歳未満の子1人 → 所得金額調整控除15万（租税特別措置法 第41条の3の11第1項）
+    const u = await run({ salary: 11000000, age: 40, employment: 'kaishain', family: { young: 1 } });
+    const uExp = calculateJumin(null, { salary: 11000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(11000000, 0, 40), kyuchi: 1,
+      spouseDeduction: 0, dependentDeduction: 0, dependents: 1, humanDeductionDiff: 50000, singleParentDeduction: 0, disabilityDeduction: 0, selfDisabled: false, minor: false, under23Dependent: true });
+    const uNo = calculateJumin(null, { salary: 11000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(11000000, 0, 40), kyuchi: 1, dependents: 1, humanDeductionDiff: 50000 });
+    A(`給与1,100万・16歳未満の子1人: 住民税が調整控除込みの直算 ${uExp.total}（無しなら ${uNo.total}）→ 実際 ${find(u.heads, '住民税')[1]}`,
+      num(find(u.heads, '住民税')[1]) === uExp.total && uExp.total < uNo.total);
+  }
+  {
+    // C066: 本人 67歳・年金150万（自営・非課税）の介護保険（第1号）は、配偶者が住民税課税なら「世帯に課税者がいる」段階になる
+    const k0 = await run({ salary: 0, pension: 1500000, age: 67, employment: 'jiei', family: { spouse: 'general' } });
+    const k1 = await run({ salary: 0, pension: 1500000, age: 67, employment: 'jiei', family: { spouseSalary: 4000000, spouseAge: 60 } });
+    const a0 = find(k0.heads, '介護保険（第1号）'), a1 = find(k1.heads, '介護保険（第1号）');
+    A(`本人67歳・年金150万: 配偶者が収入なし ${a0 && a0[1]} ＜ 配偶者が給与400万（課税）${a1 && a1[1]}`, !!a0 && !!a1 && num(a1[1]) > num(a0[1]));
+  }
+  {
+    // C068・C069: 奨学金に住民税カードと同じ配偶者控除・扶養控除・人数・人的控除差を渡す。
+    //   本人 会社員400万・配偶者 給与100万（所得35万＝配偶者控除33万）・進学する子を「扶養（19〜22歳）」に1人
+    if (sgOptIn) sgOptIn.checked = true;
+    setVal('shogakuSpouse', ''); setSel('shogakuLevel', '大学'); setSel('shogakuSetti', '私立'); setSel('shogakuAttend', '自宅'); setSel('shogakuChildren', '1');
+    const g = await run({ salary: 4000000, age: 40, employment: 'kaishain', family: { spouseSalary: 1000000, specific: 1 } });
+    if (sgOptIn) sgOptIn.checked = false;
+    const bridge = SG.bridge(), spec = SG.spec();
+    const sup = [{ salary: 4000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(4000000, 0, 40),
+      spouseDeduction: 330000, dependentDeduction: 450000, dependents: 2, humanDeductionDiff: 50000 + 50000 + 180000 },
+      { salary: 1000000, pension: 0, age: 40, socialInsurance: expectShahoAnnual(1000000, 0, 40), dependents: 1 }];
+    const ge = bridge.calcFromIncome(spec, null, { supportersIncome: sup, student: { level: '大学', schoolType: '私立', attendance: '自宅' }, childrenCount: 1 });
+    const gOld = bridge.calcFromIncome(spec, null, { supportersIncome: [Object.assign({}, sup[0], { spouseDeduction: undefined, dependentDeduction: undefined, humanDeductionDiff: undefined, hasSpouseDeduction: false, dependents: 1 }), sup[1]],
+      student: { level: '大学', schoolType: '私立', attendance: '自宅' }, childrenCount: 1 });
+    const gc = find(g.heads, sgName);
+    A(`奨学金（本人400万・配偶者100万・19〜22歳の子1人）: 家族の控除込みの直算 ${sgShortOf(ge)}（旧の渡し方なら ${sgShortOf(gOld)}）→ 実際 ${gc && gc[1]}`,
+      !!gc && gc[1] === sgShortOf(ge) && grantOf(g.sys) === (ge.grantMonthly > 0 ? ge.grantMonthly : null));
+    // 「扶養（19〜22歳）」が空欄なら進学する子1人を特定扶養として足す（配偶者控除だけ入れた世帯）
+    if (sgOptIn) sgOptIn.checked = true;
+    const h = await run({ salary: 2000000, age: 40, employment: 'kaishain', family: { spouse: 'general' } });
+    if (sgOptIn) sgOptIn.checked = false;
+    const he = bridge.calcFromIncome(spec, null, { supportersIncome: [{ salary: 2000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(2000000, 0, 40),
+      spouseDeduction: 330000, dependentDeduction: 450000, dependents: 2, humanDeductionDiff: 50000 + 50000 + 180000 }],
+      student: { level: '大学', schoolType: '私立', attendance: '自宅' }, childrenCount: 1 });
+    const hc = find(h.heads, sgName);
+    A(`奨学金（本人200万・配偶者控除・19〜22歳の欄は空）: 進学する子を特定扶養に足した直算 ${sgShortOf(he)} → 実際 ${hc && hc[1]}`, !!hc && hc[1] === sgShortOf(he));
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });
