@@ -91,7 +91,7 @@ check('[B2] 所得割非課税→第Ⅰ満額', r.grantMonthly, 75800);
 // 父 給与500万・専業主婦・大学生の子1(給与収入0=所得0→特定扶養45万)。
 // M4結線なし(旧): 課税標準= 356万-(社保75+配偶33+基礎43)=205万 → 基準額121,500(第Ⅳレンジ)。
 // M4結線あり: 特定扶養45万＋控除差18万 → 課税標準160万 → 基準額 96000-1500=94,500(第Ⅳレンジ・多子で救済)。
-// 注: jumin は特定扶養salary<=0をスキップするため、収入なしの大学生はアルバイト給与(所得58万以下)で表現。
+// 注: 2026-10-29（C128）から給与0円の子も特定扶養（下の [C179]）。ここは従来どおりアルバイト給与(所得58万以下)で表現。
 //     給与50万→給与所得0(≤58万)→特定扶養45万＋控除差18万＋非課税人数+1。
 const withSp = supporterFromIncome(null, {
   salary: 5000000, socialInsurance: 750000, hasSpouseDeduction: true,
@@ -140,6 +140,58 @@ check('ひとり親なし 母200万→課税(第Ⅲ・基準33,900)', mkOP(20000
 check('ひとり親 母250万→基準額30,900(第Ⅲ)', mkOP(2500000, 375000, 'mother').kijungaku, 30900);
 check('ひとり親 父250万→基準額32,100(第Ⅲ・母より高い)', mkOP(2500000, 375000, 'father').kijungaku, 32100);
 check('ひとり親なし 250万→基準額50,400', mkOP(2500000, 375000, null).kijungaku, 50400);
+
+// ── 2026-10-30 全方向試算 段4: 控除と課税判定を住民税エンジンに寄せる ──
+//   根拠 [確認済 2026-10-30 e-Gov 法令API]: 地方税法 第314条の2第1項（配偶者控除 33万・900万超 22万・950万超 11万／老人 38万・26万・13万、
+//   特別控除は配偶者の所得で 33万〜3万、扶養 33万・老人 38万・同居老親 45万、障害者 26万・特別障害者 30万、寡婦 26万・ひとり親 30万＝合計所得500万円以下）、
+//   第37条第1号イの表（人的控除差）、第295条第1項第2号（障害者・未成年者・寡婦・ひとり親の合計所得135万円以下は非課税）
+const J = require('../js/core/jumin.js');
+const S0 = { socialInsurance: 0 };
+// C067: 配偶者特別控除（data/national/jumin-haigusha-kojo.json: 配偶者の所得 100万超105万以下 → 31万・本人所得900万以下）
+check('[C067] 配偶者所得 105万 → 配偶者特別控除 31万', supporterFromIncome(null, { salary: 5000000, ...S0, spouseIncome: 1050000 })._jumin.taxableIncome,
+  supporterFromIncome(null, { salary: 5000000, ...S0, spouseDeduction: 310000, dependents: 0, humanDeductionDiff: 50000 })._jumin.taxableIncome);
+// C072: 老人控除対象配偶者 38万
+check('[C072] 70歳以上の配偶者 → 38万', 3560000 - 430000 - 380000 >= 0 && supporterFromIncome(null, { salary: 5000000, ...S0, hasSpouseDeduction: true, spouseAge70plus: true }).taxableIncome,
+  Math.floor((J.calculateJumin(null, { salary: 5000000 }).totalIncome - 380000 - 430000) / 1000) * 1000);
+// C073・C074: 本人 給与1,150万（合計所得955万）→ 配偶者控除 11万・人的控除差 2万
+const hi = supporterFromIncome(null, { salary: 11500000, ...S0, hasSpouseDeduction: true });
+check('[C073] 本人所得955万 → 配偶者控除 11万', hi.taxableIncome, Math.floor((9550000 - 110000 - 430000) / 1000) * 1000);
+check('[C074] 本人所得955万 → 人的控除差 5万＋2万', hi.humanDeductionDiff, 70000);
+// C075: 配偶者特別控除の配偶者は非課税判定の人数・人的控除差に入れない
+const spSp = supporterFromIncome(null, { salary: 3000000, ...S0, hasSpouseDeduction: true, spouseIncome: 1000000 });
+check('[C075] 特別控除の配偶者: 人数 0・人的控除差 5万', [spSp._jumin.dependentsCount, spSp.humanDeductionDiff], [0, 50000]);
+// C076: 老人扶養 10万・同居老親 13万
+check('[C076] 老人扶養1・同居老親1 → 人的控除差 5+10+13万', supporterFromIncome(null, { salary: 5000000, ...S0, elderlyDependents: 1, elderlyCoResDependents: 1 }).humanDeductionDiff, 280000);
+// C077: ひとり親は合計所得500万円以下（給与800万＝所得610万では控除なし）
+const sp800 = supporterFromIncome(null, { salary: 8000000, ...S0, singleParent: 'mother' });
+check('[C077] 給与800万・ひとり親 → 控除なし・人的控除差 5万', [sp800.taxableIncome, sp800.humanDeductionDiff],
+  [supporterFromIncome(null, { salary: 8000000, ...S0 }).taxableIncome, 50000]);
+// C078: 寡婦（控除26万・人的控除差1万・135万以下非課税）
+const wd = supporterFromIncome(null, { salary: 2500000, ...S0, singleParent: 'widow' });
+check('[C078] 寡婦 給与250万 → 控除26万・人的控除差 6万', [opNone250.taxableIncome + 375000 - wd.taxableIncome, wd.humanDeductionDiff], [260000, 60000]);
+check('[C078] 寡婦 給与200万（所得132万）→ 所得割非課税', supporterFromIncome(null, { salary: 2000000, ...S0, singleParent: 'widow' }).shotokuwariTaxable, false);
+// C079: 既定の人数で 19〜22歳の子を二重に数えない（配偶者1＋子1＝2）
+const c79 = supporterFromIncome(null, { salary: 5000000, ...S0, hasSpouseDeduction: true, specialDependentSalaries: [500000] });
+check('[C079] 配偶者＋19〜22歳の子1 → 非課税判定の人数 2', c79._jumin.dependentsCount, 2);
+// C080: dependents を明示した経路でも、19〜22歳の子を含めて所得割の非課税を判定する
+//   給与200万（所得132万）・dependents 0＋子1: 限度 35万×2＋10万＋32万＝112万 < 132万 → 課税。子を入れずに判定していた旧は 45万 → 課税で同じ。
+//   給与170万（所得105万）: 子を入れると限度112万 ≥ 105万 → 非課税（旧は限度45万で課税）
+check('[C080] 給与170万・明示 dependents 0＋19〜22歳の子1 → 所得割非課税', supporterFromIncome(null, { salary: 1700000, ...S0, dependents: 0, specialDependentSalaries: [0] }).shotokuwariTaxable, false);
+// C081: 既定の人数に 16歳未満・老人扶養を入れる
+check('[C081] 16歳未満2・老人扶養1 → 人数 3', supporterFromIncome(null, { salary: 3000000, ...S0, youngDependents: 2, elderlyDependents: 1 })._jumin.dependentsCount, 3);
+// C179: 給与0円の19〜22歳の子も特定扶養（人的控除差18万・人数+1）
+const c179 = supporterFromIncome(null, { salary: 5000000, ...S0, specialDependentSalaries: [0] });
+check('[C179] 給与0円の子 → 特定扶養45万・人的控除差 23万・人数1', [supporterFromIncome(null, { salary: 5000000, ...S0 }).taxableIncome - c179.taxableIncome, c179.humanDeductionDiff, c179._jumin.dependentsCount], [450000, 230000, 1]);
+// C180・C181: 障害者控除 26万（特別 30万）・人的控除差 1万（特別 10万）
+const dg = supporterFromIncome(null, { salary: 5000000, ...S0, selfDisability: 'general' }), ds = supporterFromIncome(null, { salary: 5000000, ...S0, selfDisability: 'special' });
+const nd = supporterFromIncome(null, { salary: 5000000, ...S0 });
+check('[C180] 障害者 26万・特別障害者 30万', [nd.taxableIncome - dg.taxableIncome, nd.taxableIncome - ds.taxableIncome], [260000, 300000]);
+check('[C181] 人的控除差 障害者 6万・特別障害者 15万', [dg.humanDeductionDiff, ds.humanDeductionDiff], [60000, 150000]);
+// C182: 障害者本人の合計所得135万円以下は所得割非課税
+check('[C182] 障害者 給与200万（所得132万）→ 所得割非課税', supporterFromIncome(null, { salary: 2000000, ...S0, selfDisability: 'general' }).shotokuwariTaxable, false);
+// C186: calcFromIncome でも高専本科1〜3年は対象外
+const k13 = calcFromIncome(spec, null, { supportersIncome: [{ salary: 1000000 }], student: { level: '高専1-3年', schoolType: '国公立', attendance: '自宅' }, childrenCount: 1 });
+check('[C186] 高専本科1〜3年 → 対象外・給付0', [k13.kubunCode, k13.grantMonthly, k13.notEligible], [null, 0, 'kosen13']);
 
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);
