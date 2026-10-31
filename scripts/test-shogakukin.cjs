@@ -183,5 +183,24 @@ check('[C188] taxableIncome NaN → TypeError', throwsOf(() => calcShogakukin(sp
 check('[C189] humanDeductionDiff NaN → TypeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: 1000000, humanDeductionDiff: NaN }], student: stu(), childrenCount: 1 })), 'TypeError');
 check('taxableIncome 未指定 → 0（従来どおり）', calcShogakukin(spec, { supporters: [{}], student: stu(), childrenCount: 1 }).kijungaku, 0);
 
+// ── 2026-10-31 全方向試算 段4c: 貸与 ──
+const LOAN = L.shogakukinLoan();
+const thr = (f) => { try { f(); return null; } catch (e) { return e.name; } };
+// C178: 1人分は0で止めてから合算（課税標準100万×6%＝60,000、もう1人は調整控除の実額100,000で負＝0）。
+//   私立・自宅外の控除 22,000 を引いて 38,000（旧は −94,000 と相殺して 0）
+check('[C178] 1人分の負の額で他の人の分を相殺しない', LOAN.calcLoanKijungaku(spec, { supporters: [{ taxableIncome: 1000000, cityAdjustActual: 0 }, { taxableIncome: 100000, cityAdjustActual: 100000 }], student: stu(), childrenCount: 1 }), 38000);
+check('[貸与] taxableIncome 文字列 → TypeError', thr(() => LOAN.calcLoanKijungaku(spec, { supporters: [{ taxableIncome: '1000000' }], student: stu(), childrenCount: 1 })), 'TypeError');
+// C193〜C195: 貸与総額が割賦金の基礎額（最小30,000円）未満 → 0で割らず belowMinimum
+const t1 = LOAN.simulateTeigaku(spec, 20000), t2 = LOAN.simulateType2(spec, 20000, 0.01), t3 = LOAN.simulateHeiyoHenkan(spec, 20000);
+check('[C193] 定額返還 総額2万 → belowMinimum・NaN/Infinity なし', [t1.belowMinimum, Number.isFinite(t1.monthly)], [true, true]);
+check('[C194] 第二種 総額2万 → belowMinimum・NaN/Infinity なし', [t2.belowMinimum, Number.isFinite(t2.monthly)], [true, true]);
+check('[C195] 併用返還 総額2万 → belowMinimum・NaN/Infinity なし', [t3.belowMinimum, Number.isFinite(t3.monthly), Number.isFinite(t3.hanki)], [true, true, true]);
+check('[C195] 併用返還 総額0 → 0（NaN なし）', LOAN.simulateHeiyoHenkan(spec, 0).monthly, 0);
+// C191: 利率0%の総返還額は元本ちょうど（端数は最終回）
+const z = LOAN.simulateType2(spec, 2400000, 0);
+check('[C191] 第二種 利率0% → 総返還額＝元本・最終回で端数', [z.totalPaid, z.monthly * (z.n - 1) + z.lastMonthly], [2400000, 2400000]);
+// C196: 負の利率は0として扱う
+check('[C196] 第二種 利率 −1% → 0% と同じ', LOAN.simulateType2(spec, 2400000, -0.01).monthly, z.monthly);
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);

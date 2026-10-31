@@ -19,9 +19,16 @@ const _adjBaseL = _isNodeL ? require('./jumin.js')._adjustmentCreditBase : _adju
 
 // ─── 生計維持者1人分の貸与基準額成分（合算前・切捨て前・世帯控除前） ───────
 //   課税標準×6% − 調整控除（政令市は実額×3/4、標準は humanDeductionDiff から3%合成）。調整額は引かない[L1]。
+// 数の入力を検査する（給付コア shogakukin.js の _num と同じ扱い）。null・undefined は既定値、それ以外で有限の数でなければ例外
+function _numL(v, name, dflt) {
+  if (v == null) return dflt;
+  if (typeof v !== 'number' || !Number.isFinite(v)) throw new TypeError(`${name} は有限の数で渡してください（${String(v)}）`);
+  return v;
+}
+
 function _loanSupporterComponent(s, cfg) {
   if (s.shotokuwariTaxable === false) return 0;                 // 所得割非課税 → 0円
-  const taxable = Math.max(0, Math.floor(s.taxableIncome || 0));
+  const taxable = Math.max(0, Math.floor(_numL(s.taxableIncome, 'taxableIncome', 0)));
   if (taxable <= 0) return 0;
   const cityGross = Math.floor(taxable * cfg.rate);             // ×6%
   let cityAdjust;
@@ -29,7 +36,7 @@ function _loanSupporterComponent(s, cfg) {
     const factor = s.designatedCity ? cfg.designatedCityFactor : 1;
     cityAdjust = Math.floor(Math.max(0, s.cityAdjustActual) * factor);
   } else {
-    const adjBase = _adjBaseL(taxable, s.humanDeductionDiff ?? 50000, s.totalIncome ?? taxable);
+    const adjBase = _adjBaseL(taxable, _numL(s.humanDeductionDiff, 'humanDeductionDiff', 50000), _numL(s.totalIncome, 'totalIncome', taxable));
     cityAdjust = Math.floor(adjBase * cfg.cityAdjustRate);      // 標準3%合成
   }
   return cityGross - cityAdjust;                                // ★調整額は引かない[L1]
@@ -40,8 +47,11 @@ function calcLoanKijungaku(spec, inputs) {
   const L = spec.loan, f = L.kijunFormula;
   const supporters = (Array.isArray(inputs.supporters) ? inputs.supporters : [])
     .filter(s => !s.isStudent);                                 // 本人は合算しない[L2]
+  // 1人分は0で止めてから合算する（2026-10-31 全方向試算 C178）。この額は所得割（課税標準×6%−調整控除）にあたり、1人ずつ0を下回らない。
+  //   旧実装は1人分の負の額（調整控除の実額を大きく渡したとき等）が他の人の分を相殺していた。
+  //   100円未満の切捨ては JASSO の式どおり合算後に1回（1人ずつ切り捨てるかは公表資料に記載なし[未確認]）
   let raw = 0;
-  for (const s of supporters) raw += _loanSupporterComponent(s, f);
+  for (const s of supporters) raw += Math.max(0, _loanSupporterComponent(s, f));
   const base100 = Math.floor(Math.max(0, raw) / 100) * 100;
 
   const student = inputs.student || {};
@@ -228,6 +238,9 @@ function simulateTeigaku(spec, total) {
   if (t <= 0) return { years: 0, n: 0, monthly: 0, lastMonthly: 0, totalPaid: 0 };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);                          // 小数点以下切捨て
+  // 貸与総額が割賦金の基礎額（最小 30,000円）未満だと年数が0になる。算出表に決まりが無いので計算せず印を返す
+  //   （2026-10-31 全方向試算 C193。旧は0で割って Infinity／NaN）
+  if (years < 1) return { years: 0, n: 0, monthly: 0, lastMonthly: 0, totalPaid: t, belowMinimum: true };
   const n = years * 12;
   const monthly = Math.floor(t / n);                           // 1円未満切捨て
   const lastMonthly = t - monthly * (n - 1);                   // 端数は最終回
@@ -237,8 +250,10 @@ function simulateTeigaku(spec, total) {
 // 月賦・半年賦併用（総額を半分ずつ）。
 function simulateHeiyoHenkan(spec, total) {
   const t = Math.max(0, Math.floor(total));
+  if (t <= 0) return { years: 0, monthlyN: 0, halfN: 0, monthly: 0, hanki: 0 };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);
+  if (years < 1) return { years: 0, monthlyN: 0, halfN: 0, monthly: 0, hanki: 0, belowMinimum: true };   // C195（simulateTeigaku と同じ）
   const half = Math.floor(t / 2);
   const monthlyN = years * 12, halfN = years * 2;
   const monthly = Math.floor(half / monthlyN);
@@ -266,12 +281,16 @@ function simulateType2(spec, total, annualRate, opts) {
   if (t <= 0) return { monthly: 0, n: 0, years: 0, totalPaid: 0, interest: 0, _approx: true };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);
+  if (years < 1) return { monthly: 0, n: 0, years: 0, totalPaid: t, interest: 0, belowMinimum: true, _approx: true };   // C194（simulateTeigaku と同じ）
   const n = years * 12;
-  const rate = Math.min(annualRate || 0, spec.loan.repayment.interest.cap);
+  const rate = Math.max(0, Math.min(annualRate || 0, spec.loan.repayment.interest.cap));   // 負の利率は0（C196）
   const r = rate / 12;
-  let pmt;
-  if (r <= 0) pmt = t / n;
-  else pmt = t * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+  if (r <= 0) {
+    // 利率0%は元金均等の定額返還と同じ（端数は最終回）。旧は monthly×n を総額にして元本を下回っていた（C191）
+    const monthly0 = Math.floor(t / n);
+    return { monthly: monthly0, lastMonthly: t - monthly0 * (n - 1), n, years, rate: 0, totalPaid: t, interest: 0, _approx: true };
+  }
+  const pmt = t * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
   const graceDays = Number.isFinite(o.graceDays) ? o.graceDays
     : (Number.isFinite(spec.loan.repayment.interest.graceDaysApprox) ? spec.loan.repayment.interest.graceDaysApprox : 180); // JASSO公式20点較正=179日[§6-3]
   const graceInterest = Math.round(t * rate * graceDays / 365);

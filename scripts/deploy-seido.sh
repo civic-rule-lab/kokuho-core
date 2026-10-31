@@ -217,6 +217,7 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/shotoku.js"       "$PUBLIC_DIR/js/core/"   # 家計簿の所得税＝vendored（正本は非公開リポ）
   cp "$CORE_DIR/js/core/shogakukin.js"        "$PUBLIC_DIR/js/core/"   # 家計簿の奨学金結線（給付＋減免コア）
   cp "$CORE_DIR/js/core/shogakukin-bridge.js" "$PUBLIC_DIR/js/core/"   # 同上（年収→jumin→supporter ブリッジ）
+  cp "$CORE_DIR/js/core/shogakukin-loan.js"   "$PUBLIC_DIR/js/core/"   # 同上（ブリッジが require する貸与コア。無いと calcLoanFromIncome が動かない・2026-10-31 全方向試算 C207）
   cp "$CORE_DIR/js/core/shogakukin-2026.json" "$PUBLIC_DIR/js/core/"   # 同上（全国共通スペック。家計簿が fetch する）
   cp "$CORE_DIR/js/core/furusato.js"      "$PUBLIC_DIR/js/core/"   # ふるさと納税の控除上限額（全国ページ・家計簿）
   cp "$CORE_DIR/js/core/onestop.js"       "$PUBLIC_DIR/js/core/"   # ふるさと納税 ワンストップ特例の判定（全国ページ）
