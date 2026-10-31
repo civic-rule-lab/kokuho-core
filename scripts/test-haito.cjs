@@ -71,5 +71,20 @@ A('課税所得 0・総合: 所得税 0（配当控除で打ち消し・税額 0
   A('所得税エンジン: 給与 5,316,000・社保 797,400 の年税額 102,100', eng.calcShotokuzei({ salary: 5316000, socialInsurance: 797400 }).annualTax === 102100);
 }
 
+// ── 2026-10-31 全方向試算 C166・C167: 住民税の課税総所得金額は1,000円未満切捨て（地方税法 第20条の4の2第1項）[確認済 e-Gov] ──
+{
+  // C166: 課税総所得 9,999,500＋配当 1,000＝10,000,500 → 切捨て 10,000,000 は1,000万円以下 → 配当控除は全額 2.8%＝28（旧は500円分を1.4%にして21）
+  const c166 = judgeHaito({ dividend: 1000, shotokuTaxable: 0, juminTaxable: 9999500 }, data, P).sogo;
+  A(`[C166] 課税総所得の切捨て後で1,000万円の判定: 住民税の配当控除 28 → 実際 ${c166.haitoKojoJumin}`, c166.haitoKojoJumin === 28);
+  // C167: 課税総所得 3,000,000＋配当 999 → 切捨て後も 3,000,000 → 所得割の増分 0（旧は 99）。配当 1,000 → 100
+  const a = judgeHaito({ dividend: 999, shotokuTaxable: 0, juminTaxable: 3000000 }, data, P).sogo;
+  const b = judgeHaito({ dividend: 1000, shotokuTaxable: 0, juminTaxable: 3000000 }, data, P).sogo;
+  A(`[C167] 配当 999 → 所得割の増分 0 → 実際 ${a.levyAdd}`, a.levyAdd === 0);
+  A(`[C167] 配当 1,000 → 所得割の増分 100 → 実際 ${b.levyAdd}`, b.levyAdd === 100);
+  // 課税総所得 3,000,500＋配当 500 → 3,001,000 − 3,000,000 ＝ 1,000 → 増分 100（旧は配当×10%＝50）
+  const c = judgeHaito({ dividend: 500, shotokuTaxable: 0, juminTaxable: 3000500 }, data, P).sogo;
+  A(`[C167] 課税総所得 3,000,500＋配当 500 → 増分 100 → 実際 ${c.levyAdd}`, c.levyAdd === 100);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
