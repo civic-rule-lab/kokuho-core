@@ -18,7 +18,9 @@
  *       source: { url: "https://...", retrievedAt: "2026-04-30" } },
  *     ...
  *   ];
- *   // brackets を省略すると標準9段階（BRACKETS_STANDARD_9）を使う
+ *   // brackets は自治体ごと（m.brackets）か都道府県共通（BRACKETS）で必ず入れる。どちらも無ければその自治体はエラーで止める
+ *   //   （2026-10-31 全方向試算 C109。旧は brackets-standard-9.js＝第8期までの9段階形を黙って使い、
+ *   //    第9期の標準13段階（介護保険法施行令 第38条）と違う段階表を書き出していた。既存ファイルも status を見ずに上書きする）
  *   // export const BRACKETS = [...]; // 都道府県独自の段階定義
  */
 
@@ -34,6 +36,7 @@ const STD_SPEC    = path.join(SPECS_DIR, "brackets-standard-9.js");
 
 const DRY_RUN     = process.argv.includes("--dry-run");
 const ALL         = process.argv.includes("--all");
+const FORCE       = process.argv.includes("--force");   // 検証済み・推定のファイルも上書きする
 const YEAR_ARG    = process.argv.find(a => a.startsWith("--year="));
 const YEAR        = YEAR_ARG ? parseInt(YEAR_ARG.split("=")[1]) : 2026;
 const PREF_ARGS   = process.argv.slice(2).filter(a => !a.startsWith("--"));
@@ -44,9 +47,6 @@ if (!ALL && PREF_ARGS.length === 0) {
   process.exit(1);
 }
 
-// ─── 標準段階定義を読み込む ────────────────────────────────────
-
-const { BRACKETS_STANDARD_9 } = await import(pathToFileURL(STD_SPEC).href);
 
 // ─── JSON ビルド ──────────────────────────────────────────────
 
@@ -65,7 +65,7 @@ function buildJson({ cityCode, citySlug, cityName, prefSlug, prefecture,
     status:        status     ?? "needs_update",
     baseAmount:    baseAmount ?? null,
     // brackets が省略されていれば標準9段階を埋め込む
-    brackets:      brackets   ?? BRACKETS_STANDARD_9,
+    brackets,
     fallbackLevel: "5",
     source:        source     ?? { url: null, pageTitle: null, retrievedAt: null },
   };
@@ -93,6 +93,18 @@ async function processSpec(prefSlug) {
       const dir     = path.join(DATA_DIR, m.citySlug);
       const outPath = path.join(dir, `kaigo-${YEAR}.json`);
 
+      // 検証済み・推定のファイルは上書きしない（自治体の段階表を手で入れたもの。2026-10-31 全方向試算 C109）。
+      //   上書きしたいときは --force を付ける
+      if (!FORCE && existsSync(outPath)) {
+        let cur = null;
+        try { cur = JSON.parse(readFileSync(outPath, 'utf-8')); } catch (_) { cur = null; }
+        if (cur && (cur.status === 'verified' || cur.status === 'inferred')) { skipped++; continue; }
+      }
+
+      const brackets = m.brackets ?? prefBrackets;
+      if (!Array.isArray(brackets) || brackets.length === 0) {
+        throw new Error('段階表がありません（自治体の条例・公表資料から brackets を入れてください。第8期の9段階の雛形はもう使いません）');
+      }
       const json = buildJson({
         cityCode:   m.cityCode,
         citySlug:   m.citySlug,
@@ -100,7 +112,7 @@ async function processSpec(prefSlug) {
         prefSlug,
         prefecture,
         baseAmount: m.baseAmount,
-        brackets:   m.brackets ?? prefBrackets,   // 自治体 > 都道府県 > 標準9段階
+        brackets,                                 // 自治体 > 都道府県（雛形へのフォールバックはしない）
         status:     m.status,
         source:     m.source,
         planPeriod: m.planPeriod,

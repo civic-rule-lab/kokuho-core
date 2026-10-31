@@ -89,6 +89,10 @@ function runSelfTest() {
   console.log('— pickFiscalYear —');
   eq('4月=前年度', pickFiscalYear(4, 9), 'prev');
   eq('9月=当年度', pickFiscalYear(9, 9), 'current');
+  // 2026-10-31 全方向試算 C088: 1〜3月は4月に始まった年度に属する＝当年度（子ども・子育て支援法施行令 第4条）
+  eq('1月=当年度', pickFiscalYear(1, 9), 'current');
+  eq('3月=当年度', pickFiscalYear(3, 9), 'current');
+  eq('8月=前年度', pickFiscalYear(8, 9), 'prev');
 
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   if (fail > 0) process.exitCode = 1;
