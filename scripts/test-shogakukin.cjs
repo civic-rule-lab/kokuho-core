@@ -163,5 +163,25 @@ const n2 = calcShogakukin(spec, { supporters: [{ taxableIncome: 451667 }, { taxa
 check('2人 1人分が負なら零 kijungaku', n2.kijungaku, 25600);
 check('2人 1人分が負なら零 区分', n2.kubunCode, '3');
 
+// ── 2026-10-31 全方向試算 段4b ──
+//   私立理工農系（第Ⅳ区分）の減免: 「大学及び高等専門学校は３分の１の額を、大学（通信課程）、短期大学及び専門学校については
+//   ４分の１の額を減免上限額とする」（授業料等減免事務処理要領 第7版 令和8年3月 [確認済 2026-10-31 原本]）。十の位以下は切り上げ
+//   課税標準 2,000,000 → 120,000−1,500＝118,500＝第Ⅳ区分の範囲
+const riko = (level) => calcShogakukin(spec, { supporters: [{ taxableIncome: 2000000 }], student: stu({ level }), childrenCount: 1, rikoNoPrivate: true });
+check('[C184] 私立高専・理工農 → 700,000/130,000 の1/3', [riko('高等専門学校').kubunCode, riko('高等専門学校').reductionCap], ['4', { tuition: 233400, admission: 43400 }]);
+check('[C183] 私立大学（通信課程）・理工農 → 130,000/30,000 の1/4', [riko('通信').kubunCode, riko('通信').reductionCap], ['4', { tuition: 32500, admission: 7500 }]);
+// C185: level 未指定は大学として理工農を判定（減免・給付の表と同じ既定）
+const rikoNoLevel = calcShogakukin(spec, { supporters: [{ taxableIncome: 2000000 }], student: { schoolType: '私立', attendance: '自宅' }, childrenCount: 1, rikoNoPrivate: true });
+check('[C185] level 未指定・理工農 → 大学の 1/3', [rikoNoLevel.kubunCode, rikoNoLevel.reductionCap], ['4', { tuition: 233400, admission: 86700 }]);
+// C187: 知らない学校種は例外
+const throwsOf = (f) => { try { f(); return null; } catch (e) { return e.name; } };
+check('[C187] level「大学院」→ RangeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: 0 }], student: stu({ level: '大学院' }), childrenCount: 1 })), 'RangeError');
+// C188・C189: 数でない課税標準・人的控除差は例外（null・未指定は従来どおり 0・5万）
+check('[C188] taxableIncome 文字列 → TypeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: '2000000' }], student: stu(), childrenCount: 1 })), 'TypeError');
+check('[C188] taxableIncome Infinity → TypeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: Infinity }], student: stu(), childrenCount: 1 })), 'TypeError');
+check('[C188] taxableIncome NaN → TypeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: NaN }], student: stu(), childrenCount: 1 })), 'TypeError');
+check('[C189] humanDeductionDiff NaN → TypeError', throwsOf(() => calcShogakukin(spec, { supporters: [{ taxableIncome: 1000000, humanDeductionDiff: NaN }], student: stu(), childrenCount: 1 })), 'TypeError');
+check('taxableIncome 未指定 → 0（従来どおり）', calcShogakukin(spec, { supporters: [{}], student: stu(), childrenCount: 1 }).kijungaku, 0);
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);
