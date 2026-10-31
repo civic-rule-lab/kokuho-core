@@ -276,7 +276,7 @@ __OPERATOR_FOOTER__
         return;
       }
       var rate = furusatoImpliedShotokuRate(r.ratio, FURUSATO_DATA);
-      var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku }, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku, shotokuTaxable: Math.max(0, r.base) }, FURUSATO_DATA);   // 所得税の課税所得の目安＝課税総所得−人的控除差調整額（割合の区分と同じ考え方）
       var shown = Math.floor(r.limit / 1000) * 1000;
       out.innerHTML = head +
         row("控除上限額の目安", "約 "+shown.toLocaleString("ja-JP")+" 円", "big") +

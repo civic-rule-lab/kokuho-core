@@ -221,5 +221,17 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
   eq('令和7年分 基礎控除: 合計所得 6,550,001 → 580,000', furusatoShotokuBasicDeduction(6550001, t7), 580000);
 }
 
+// ── 2026-10-31 全方向試算 C156・C157: 内訳の所得税分 ──
+{
+  const ratio = { units: 79790, percent: 79.79 };
+  // C157: 寄附 22,000・税率 5% → (22,000−2,000)×5%×1.021 ＝ 1,021（浮動小数だと 1,020）
+  const b157 = calcFurusatoBreakdown(22000, { incomeLevy: 1000000, ratio, shotokuMarginalRate: 0.05, totalIncome: 5000000 }, data);
+  eq('[C157] 寄附 22,000・税率5% の所得税分 1,021', b157.shotoku, 1021);
+  // C156: 寄附前の所得税の課税所得 10,000 → 寄附金控除で下がる所得はそこまで（所得税法 第78条・第87条）＝10,000×5%×1.021＝510
+  const b156 = calcFurusatoBreakdown(19315, { incomeLevy: 1000000, ratio, shotokuMarginalRate: 0.05, totalIncome: 5000000, shotokuTaxable: 10000 }, data);
+  eq('[C156] 課税所得 10,000 で頭打ち: 所得税分 510', b156.shotoku, 510);
+  eq('[C156] shotokuTaxable を渡さなければ従来どおり 883', calcFurusatoBreakdown(19315, { incomeLevy: 1000000, ratio, shotokuMarginalRate: 0.05, totalIncome: 5000000 }, data).shotoku, 883);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -363,7 +363,7 @@ __OPERATOR_FOOTER__
     } else {
       var shown = Math.floor(r.limit.limit / 1000) * 1000;
       var rate = furusatoImpliedShotokuRate(r.limit.ratio, FURUSATO_DATA);
-      var b = calcFurusatoBreakdown(r.limit.limit, { incomeLevy: r.jumin.incomeLevy, ratio: r.limit.ratio, shotokuMarginalRate: rate, totalIncome: r.jumin.totalIncome }, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit.limit, { incomeLevy: r.jumin.incomeLevy, ratio: r.limit.ratio, shotokuMarginalRate: rate, totalIncome: r.jumin.totalIncome, shotokuTaxable: Math.max(0, r.limit.base) }, FURUSATO_DATA);   // 所得税の課税所得の目安＝課税総所得−人的控除差調整額
       h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>ふるさと納税（2026年中の寄附）</div>" +
         row("控除上限額の目安", "約 " + shown.toLocaleString("ja-JP") + " 円", "big") +
         "<div class='hint' style='margin:0 0 12px;'>計算上の値は " + yen(r.limit.limit) + "。端数の扱いで実際とずれるため、千円未満を切り捨てて表示しています。</div>" +
