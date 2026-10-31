@@ -226,6 +226,16 @@ console.log('\n== null / 不正データ ==');
   eq('brackets=[] → null を返す', r, null);
 }
 
+// ─── 段階表が未確認の仮データ（status: needs_update）は額を返さない（2026-10-31 全方向試算 C110）────
+{
+  const r = calculateKaigo(Object.assign({}, KAIGO_DATA, { status: 'needs_update' }),
+    { pensionIncome: 1_000_000, totalIncome: 0, isSelfTaxable: false, isHouseholdAllNonTaxable: true });
+  eq('status=needs_update → null を返す', r, null);
+  const v = calculateKaigo(Object.assign({}, KAIGO_DATA, { status: 'verified' }),
+    { pensionIncome: 1_000_000, totalIncome: 0, isSelfTaxable: false, isHouseholdAllNonTaxable: true });
+  eq('status=verified → 従来どおり額を返す', v !== null && v.annual > 0, true);
+}
+
 // ─── 結果 ─────────────────────────────────────────────────────
 
 console.log(`\n${'─'.repeat(50)}`);
