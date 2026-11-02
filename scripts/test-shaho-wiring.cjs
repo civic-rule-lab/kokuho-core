@@ -60,5 +60,20 @@ const stNoBonus = shotoku.calcShotokuzei({ salary: 6000000, socialInsurance: c1.
 const stBonus = shotoku.calcShotokuzei({ salary: 7000000, socialInsurance: c2.annual }); // grossSalary=給与+賞与
 ok('賞与込みの給与収入は所得税が増える', stBonus.annualTax > stNoBonus.annualTax);
 
+console.log('\n— E. 写しの loadData() は引数なしで data/shaho を読む（2026-11-02 全方向試算 C206）—');
+let dDefault = null;
+try { dDefault = Shaho.loadData(); } catch (e) { console.log(`  ${e.message}`); }
+ok('引数なしの loadData() が読める（旧はリポ直下を見て ENOENT）', dDefault !== null);
+ok('引数なしでも同じデータ（協会けんぽの年度）', dDefault !== null && dDefault.kenpo.fiscalYear === data.kenpo.fiscalYear);
+
+console.log('\n— F. 年齢・金額の入力の検査（2026-11-02 全方向試算 C050・C051・C197〜C200・C203）—');
+const base = { monthlySalary: 300000, targetMonth: '2026-07', prefSlug: 'tokyo' };
+const throws = (fn) => { try { fn(); return false; } catch (e) { return true; } };
+ok('64.5歳は満64歳＝介護第2号', Shaho.calculateShaho({ ...base, age: 64.5 }, data).care.applies === true);
+ok('年齢が文字列なら例外', throws(() => Shaho.calculateShaho({ ...base, age: '45' }, data)));
+ok('年齢が NaN なら例外', throws(() => Shaho.calculateShaho({ ...base, age: NaN }, data)));
+ok('報酬月額が Infinity なら例外', throws(() => Shaho.calculateShaho({ ...base, monthlySalary: Infinity, age: 45 }, data)));
+ok('年齢の未指定は従来どおり計算できる', !throws(() => Shaho.calculateShaho({ ...base }, data)));
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exitCode = fail > 0 ? 1 : 0;
