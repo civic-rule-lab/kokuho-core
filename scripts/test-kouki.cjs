@@ -158,6 +158,17 @@ for (const [pref, name, inp, exp, src] of officialCases) {
   ok(good, `${pref} ${name}（${src}）`, { medicalTotal: o.medicalTotal, childcareTotal: o.childcareTotal }, exp);
 }
 
+// 入力の検査（2026-11-03 全方向試算 段7 C214〜C216）。vm の中の例外なので種類は name で見る
+{
+  const errOf = (input) => { try { calculateKouki(input, tokyo); return 'no error'; } catch (e) { return e.name; } };
+  ok(errOf({ totalIncome: 'abc' }) === 'TypeError', '[C214] totalIncome "abc" は TypeError', errOf({ totalIncome: 'abc' }), 'TypeError');
+  ok(errOf({ totalIncome: 2000000, reductionJudgmentIncome: NaN }) === 'RangeError', '[C215] 軽減判定所得 NaN は RangeError', errOf({ totalIncome: 2000000, reductionJudgmentIncome: NaN }), 'RangeError');
+  ok(errOf({ totalIncome: 2000000, reductionJudgmentIncome: 'NaN' }) === 'TypeError', '[C215] 軽減判定所得 "NaN" は TypeError', errOf({ totalIncome: 2000000, reductionJudgmentIncome: 'NaN' }), 'TypeError');
+  ok(errOf({ totalIncome: 5000000, reductionJudgmentIncome: -1 }) === 'RangeError', '[C216] 軽減判定所得 −1 は RangeError', errOf({ totalIncome: 5000000, reductionJudgmentIncome: -1 }), 'RangeError');
+  const r = calculateKouki({ totalIncome: 0, reductionJudgmentIncome: null }, tokyo);
+  ok(r.reductionLabel === '7割軽減', '[C215] 軽減判定所得 null は本人の所得で代用（従来どおり）', r.reductionLabel, '7割軽減');
+}
+
 console.log(`\n========================================`);
 console.log(`東京公式 ${tokyoCases.length} / 北海道公式 ${hokCases.length} / 兵庫公式 ${hyogoCases.length} / 各県公式 ${officialCases.length} / 84万オラクル全47県`);
 console.log(`84万オラクル 最大差: ${maxDiff}円/月（±10円以内は各広域連合の月額丸め差で正常）`);

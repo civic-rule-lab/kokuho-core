@@ -33,6 +33,16 @@ A('わからない・該当なし・2団体 → ワンストップ（チェッ�
 A('わからない・副業20万超・6団体 → 確定申告（理由に副業が載る）', (() => { const r = judgeOnestop({ shinkoku: 'unknown', municipalities: 6, reasons: { otherIncomeOver200k: true } }, data); return r.verdict === 'shinkoku' && r.reasons.some(t => /20万円/.test(t)); })());
 A('寄附額は判定に影響しない', judgeOnestop({ shinkoku: 'no', municipalities: 2, donation: 9999999 }, data).verdict === 'onestop');
 A('寄附額は戻り値に数値で入る', judgeOnestop({ shinkoku: 'no', municipalities: 2, donation: '50000' }, data).donation === 50000);
+// 自治体数の検査（2026-11-03 全方向試算 段7 C149）
+const errOf = (m) => { try { judgeOnestop({ shinkoku: 'no', municipalities: m }, data); return 'no error'; } catch (e) { return e.name; } };
+A('[C149] 自治体数 0 → 入力を求める（ワンストップ可としない）', judgeOnestop({ shinkoku: 'no', municipalities: 0 }, data).verdict === 'need-input');
+A('[C149] 自治体数 −1 は RangeError', errOf(-1) === 'RangeError');
+A('[C149] 自治体数 NaN は RangeError', errOf(NaN) === 'RangeError');
+A('[C149] 自治体数 2.5 は RangeError', errOf(2.5) === 'RangeError');
+A('[C149] 自治体数 " " は TypeError', errOf(' ') === 'TypeError');
+A('[C149] 自治体数 "3" は TypeError', errOf('3') === 'TypeError');
+A('[C149] 自治体数 Infinity → 5団体超', judgeOnestop({ shinkoku: 'no', municipalities: Infinity }, data).verdict === 'over5');
+A('自治体数 "" は未入力（従来どおり）', judgeOnestop({ shinkoku: 'no', municipalities: '' }, data).verdict === 'need-input');
 A('戻り値に期限 3 種が入る', (() => { const r = judgeOnestop({ shinkoku: 'no', municipalities: 2 }, data); return r.deadlines.application && r.deadlines.changeNotice && r.deadlines.notice; })());
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);

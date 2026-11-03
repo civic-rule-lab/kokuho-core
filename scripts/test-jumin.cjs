@@ -559,6 +559,22 @@ console.log('\n== specialDependentSalaries の給与0円 ==');
   eq('給与0円の子: 非課税判定の人数 1', withChild.dependentsCount, 1);
 }
 
+// ── 入力の検査（2026-11-03 全方向試算 段7 C123〜C126） ──
+console.log('\n[入力の検査]');
+{
+  const errOf = (inp) => { try { calculateJumin(null, Object.assign({ salary: 4_000_000, age: 40, kyuchi: 1 }, inp)); return 'no error'; } catch (e) { return e.name; } };
+  eq('[C123] 社会保険料控除 −10万 は RangeError', errOf({ socialInsurance: -100_000 }), 'RangeError');
+  eq('[C123] 医療費控除 −1 は RangeError', errOf({ medicalDeduction: -1 }), 'RangeError');
+  eq('[C124] humanDeductionDiff NaN は RangeError', errOf({ humanDeductionDiff: NaN }), 'RangeError');
+  eq('[C125] humanDeductionDiff −5万 は RangeError', errOf({ humanDeductionDiff: -50_000 }), 'RangeError');
+  eq('[C125] dependents −1 は RangeError', errOf({ dependents: -1 }), 'RangeError');
+  eq('[C125] dependents 1.5 は RangeError', errOf({ dependents: 1.5 }), 'RangeError');
+  eq('[C126] dependents "2" は TypeError', errOf({ dependents: '2' }), 'TypeError');
+  const a = calculateJumin(null, { salary: 4_000_000, age: 40, kyuchi: 1, socialInsurance: null, dependents: null });
+  const b = calculateJumin(null, { salary: 4_000_000, age: 40, kyuchi: 1, socialInsurance: 0, dependents: 0 });
+  eq('null は 0 として計算（従来どおり）', a.total, b.total);
+}
+
 // ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);

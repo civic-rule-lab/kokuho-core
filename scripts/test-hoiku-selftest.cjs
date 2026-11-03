@@ -94,6 +94,23 @@ function runSelfTest() {
   eq('3月=当年度', pickFiscalYear(3, 9), 'current');
   eq('8月=前年度', pickFiscalYear(8, 9), 'prev');
 
+  // 2026-11-03 全方向試算 段7（C089〜C092）: 数でない所得割・Infinity・子の順位・年齢区分は例外
+  console.log('— 入力の検査 —');
+  const errOf = (input) => { try { calcHoiku(input, cityA); return 'no error'; } catch (e) { return e.name; } };
+  const P = (fs) => ({ father: { shotokuwari: fs }, mother: { shotokuwari: 0 } });
+  eq('[C089] 所得割 "abc" は TypeError', errOf(P('abc')), 'TypeError');
+  eq('[C089] 所得割 "48,600" は TypeError', errOf(P('48,600')), 'TypeError');
+  eq('[C089] 所得割 {} は TypeError', errOf(P({})), 'TypeError');
+  eq('[C089] 所得割 NaN は RangeError', errOf(P(NaN)), 'RangeError');
+  eq('[C090] 所得割 Infinity は RangeError', errOf(P(Infinity)), 'RangeError');
+  eq('[C089] 所得割 null は 0（片親）として計算', calcHoiku(P(null), cityA).level, 3);
+  eq('[C091] childOrder "2" は TypeError', errOf(Object.assign(P(60000), { childOrder: '2' })), 'TypeError');
+  eq('[C091] childOrder 1.5 は RangeError', errOf(Object.assign(P(60000), { childOrder: 1.5 })), 'RangeError');
+  eq('[C091] childOrder 0 は RangeError', errOf(Object.assign(P(60000), { childOrder: 0 })), 'RangeError');
+  eq('[C091] childOrder 2 は第2子（係数0.5）', calcHoiku(Object.assign(P(60000), { childOrder: 2 }), cityA).monthly, 15000);
+  eq('[C092] age "age3" は RangeError', errOf(Object.assign(P(60000), { age: 'age3' })), 'RangeError');
+  eq('[C092] age "age0" は0歳別額', calcHoiku(Object.assign(P(60000), { age: 'age0' }), cityA).monthly, 31000);
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   if (fail > 0) process.exitCode = 1;
 }

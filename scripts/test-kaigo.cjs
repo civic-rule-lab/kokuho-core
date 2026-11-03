@@ -236,6 +236,22 @@ console.log('\n== null / 不正データ ==');
   eq('status=verified → 従来どおり額を返す', v !== null && v.annual > 0, true);
 }
 
+// ─── 入力の検査（2026-11-03 全方向試算 段7 C115・C117・C120） ───────────
+
+console.log('\n[入力の検査]');
+{
+  const errOf = (ctx, data = KAIGO_DATA) => { try { calculateKaigo(data, ctx); return 'no error'; } catch (e) { return e.name; } };
+  eq('[C115] 本人課税かつ世帯全員非課税は RangeError', errOf({ isSelfTaxable: true, isHouseholdAllNonTaxable: true, pensionIncome: 500000 }), 'RangeError');
+  eq('[C117] totalIncome NaN は RangeError', errOf({ isSelfTaxable: true, totalIncome: NaN }), 'RangeError');
+  eq('[C117] totalIncome "100" は TypeError', errOf({ isSelfTaxable: true, totalIncome: '100' }), 'TypeError');
+  eq('[C117] totalIncome null は 0 として計算', calculateKaigo(KAIGO_DATA, { isSelfTaxable: true, totalIncome: null }).level,
+     calculateKaigo(KAIGO_DATA, { isSelfTaxable: true, totalIncome: 0 }).level);
+  eq('[C117] totalIncome −50万 は 0 と同じ段階（施行令 第38条第1項第6号イ）', calculateKaigo(KAIGO_DATA, { isSelfTaxable: true, totalIncome: -500000 }).level,
+     calculateKaigo(KAIGO_DATA, { isSelfTaxable: true, totalIncome: 0 }).level);
+  const noBase = Object.assign({}, KAIGO_DATA, { baseAmount: null, brackets: KAIGO_DATA.brackets.map(b => Object.assign({}, b, { annual: undefined })) });
+  eq('[C120] baseAmount も annual も無い段階は null', calculateKaigo(noBase, { isSelfTaxable: true, totalIncome: 0 }), null);
+}
+
 // ─── 結果 ─────────────────────────────────────────────────────
 
 console.log(`\n${'─'.repeat(50)}`);
