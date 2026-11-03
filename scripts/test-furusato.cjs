@@ -233,5 +233,21 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
   eq('[C156] shotokuTaxable を渡さなければ従来どおり 883', calcFurusatoBreakdown(19315, { incomeLevy: 1000000, ratio, shotokuMarginalRate: 0.05, totalIncome: 5000000 }, data).shotoku, 883);
 }
 
+// 入力の検査（2026-11-03 全方向試算 段7 C161・C162）
+{
+  const errOf = (fn) => { try { fn(); return 'no error'; } catch (e) { return e.name; } };
+  const base = { incomeLevy: 300000, taxableIncome: 3000000, humanDeductionDiff: 50000, shotokuBasicDeduction: 950000 };
+  eq('[C161] incomeLevy "abc" は TypeError', errOf(() => calcFurusatoLimit(Object.assign({}, base, { incomeLevy: 'abc' }), data)), 'TypeError');
+  eq('[C161] taxableIncome NaN は RangeError', errOf(() => calcFurusatoLimit(Object.assign({}, base, { taxableIncome: NaN }), data)), 'RangeError');
+  const lim = calcFurusatoLimit(base, data);
+  const ctx = { incomeLevy: 300000, ratio: lim.ratio, shotokuMarginalRate: 0.1, totalIncome: 4000000 };
+  eq('[C162] 寄附額 "abc" は TypeError', errOf(() => calcFurusatoBreakdown('abc', ctx, data)), 'TypeError');
+  eq('[C162] 寄附額 Infinity は RangeError', errOf(() => calcFurusatoBreakdown(Infinity, ctx, data)), 'RangeError');
+  eq('[C162] totalIncome "abc" は TypeError', errOf(() => calcFurusatoBreakdown(50000, Object.assign({}, ctx, { totalIncome: 'abc' }), data)), 'TypeError');
+  eq('[C162] incomeLevy Infinity は RangeError', errOf(() => calcFurusatoBreakdown(50000, Object.assign({}, ctx, { incomeLevy: Infinity }), data)), 'RangeError');
+  eq('未指定（undefined）は 0（従来どおり）', calcFurusatoLimit({ incomeLevy: 300000, taxableIncome: 3000000 }, data).limit,
+     calcFurusatoLimit({ incomeLevy: 300000, taxableIncome: 3000000, humanDeductionDiff: 0, shotokuBasicDeduction: 0 }, data).limit);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

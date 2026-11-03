@@ -76,5 +76,14 @@ A('世帯主がひとり親で所得 120 万・本人 0 → 全額免除（世�
 A('本人ひとり親 100 万・世帯主 500 万（免除不可）→ 納付猶予（猶予も 3 号を要件に挙げる）', j(P(1000000, {}, { hitorioya: true }), { householder: P(5000000) }).level === 'yuyo');
 A('判定の内訳に 3 号該当を出す', j(P(1000000, {}, { hitorioya: true })).detail.self.localTaxNonTaxable === true && j(P(1000000)).detail.self.localTaxNonTaxable === false);
 
+// 入力の検査（2026-11-03 全方向試算 段7 C174・C175）
+const errOf = (fn) => { try { fn(); return 'no error'; } catch (e) { return e.name; } };
+A('[C174] 所得 NaN は RangeError（全額免除にしない）', errOf(() => j(P(NaN))) === 'RangeError');
+A('[C174] 所得 "100" は TypeError', errOf(() => j(P('100'))) === 'TypeError');
+A('[C175] 扶養 under16: undefined は 0（基準額が NaN にならない）', N.thresholds(P(0, { under16: undefined }), db.exemption).full === N.thresholds(P(0), db.exemption).full);
+A('[C175] 扶養 general: "1" は TypeError', errOf(() => N.dependentCount({ general: '1' })) === 'TypeError');
+A('[C175] 扶養 general: −1 は RangeError', errOf(() => N.dependentCount({ general: -1 })) === 'RangeError');
+A('所得 null は 0（従来どおり）', j(P(null)).level === j(P(0)).level);
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
