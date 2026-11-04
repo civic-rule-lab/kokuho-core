@@ -2,11 +2,11 @@
  * js/core/*.js（ブラウザ classic script 互換の CommonJS 群）を Node から
  * 読み込むためのローダー。package.json "type":"module" 環境では .js が ESM 扱いに
  * なり require できないため、vm サンドボックスで CommonJS として実行し、相対 require を
- * 再帰解決する（kokuho/jumin/kaigo/income/household を相互依存ごと読める）。
+ * 再帰解決する（kokuho/jumin/kaigo/income を相互依存ごと読める）。
  *
  * 使い方:
  *   const { load } = require('./lib/core-loader.cjs');
- *   const { calculateHousehold } = load('household.js');
+ *   const { calculateKokuho }    = load('kokuho.js');
  *   const { calculateKaigo }     = load('kaigo.js');
  */
 const fs = require('fs');

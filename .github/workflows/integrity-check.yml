@@ -251,8 +251,8 @@ jobs:
       # 2026-10-04 追加（TASKS X170-12）: 国保の所得入力（加入者ごとの基礎控除・介護分の対象者）と
       # 家計簿の介護分の回帰を CI でも検出する。DOM テストは jsdom（package.json の dependencies）が要るため、
       # この段の直前で lockfile どおりに入れる（手元実測 約4秒・50パッケージ）。
-      - name: Run test-household.js (世帯計算 household.js → 国保 members の結線)
-        run: node scripts/test-household.js
+      - name: Run test-kokuho.js (国保エンジンの回帰 加入者0人・特定同一世帯所属者・擬制世帯主・特定世帯・資産割と世帯人数の省略)
+        run: node scripts/test-kokuho.js
 
       - name: Install dependencies (jsdom for DOM tests)
         run: npm ci --no-audit --no-fund
