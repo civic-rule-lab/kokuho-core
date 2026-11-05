@@ -1,7 +1,7 @@
 /**
  * 5/12 修復作業の整合性テスト（Phase 1〜3 の検証）
  *
- * 検証項目（8 セクション）:
+ * 検証項目（9 セクション）:
  *   A. cityCode 一次資料整合性（registry × 総務省 snapshot）
  *   B. slug 衝突の解消（registry 内に重複なし・data dir に重複 base なし）
  *   C. registry.citySlug ↔ data/municipalities/{slug}/ 整合
@@ -10,6 +10,7 @@
  *   F. 自動防衛線の動作（validator・hook・script の各機構）
  *   G. R8 検証ライフサイクル（meta.lifecycle.* の cross-field rule）
  *   H. spec（data/*-specs）の自治体の項目が台帳と一致する（2026-11-05 追加）
+ *   I. scripts/test-* がすべて npm run test:ci から呼ばれる（2026-11-05 追加）
  *
  * 利用:
  *   node scripts/test-integrity.js           # 全 6 セクション実行
@@ -719,6 +720,28 @@ if (shouldRun("H")) {
   }
   if (badInfo.length === 0) passLine(`H: prefecture-info.js の ${nPref} 都道府県が jumin-specs と一致（出典 URL・県民税率・均等割・説明文の上乗せ額）`);
   else failLine("H", `H: prefecture-info.js の ${badInfo.length} 項目が jumin-specs と食い違う`, badInfo);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// I. scripts/test-* がすべて npm run test:ci から呼ばれる
+//   CI は npm test を走らせる（2026-11-05）。package.json に入れ忘れたテストは CI でも走らないので、ここで落とす
+//   （それまでは CI がテストを1本ずつ呼んでおり、npm test だけ・どちらにも無いテストが 16 本あった）
+// ═══════════════════════════════════════════════════════════════════
+if (shouldRun("I")) {
+  header("I. テストの登録（package.json）");
+  const pkg = JSON.parse(readFileSync(path.join(ROOT, "package.json"), "utf-8")).scripts || {};
+  const used = new Set();
+  const visit = (name, seen = new Set()) => {
+    if (seen.has(name) || !pkg[name]) return;
+    seen.add(name);
+    for (const m of pkg[name].matchAll(/npm run ([\w:-]+)/g)) visit(m[1], seen);
+    for (const m of pkg[name].matchAll(/node (scripts\/[^\s&]+)/g)) used.add(m[1]);
+  };
+  visit("test:ci");
+  const tests = readdirSync(path.join(ROOT, "scripts")).filter(f => /^test-.*\.(js|cjs|mjs)$/.test(f)).map(f => `scripts/${f}`);
+  const missing = tests.filter(t => !used.has(t));
+  if (missing.length === 0) passLine(`I: scripts/test-* の ${tests.length} 本がすべて npm run test:ci から呼ばれる`);
+  else failLine("I", `I: npm run test:ci から呼ばれないテストが ${missing.length} 本`, missing);
 }
 
 // ═══════════════════════════════════════════════════════════════════
