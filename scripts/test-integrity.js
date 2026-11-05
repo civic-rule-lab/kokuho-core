@@ -692,6 +692,33 @@ if (shouldRun("H")) {
     if (bad.length === 0) passLine(`H: ${dir} の ${n} 項目が台帳と一致（citySlug・都道府県・cityName・cityCode）`);
     else failLine("H", `H: ${dir} の ${bad.length} 項目が台帳と食い違う`, bad);
   }
+
+  // js/core/prefecture-info.js（県ページ・市区町村ページの「住民税について」の欄）が jumin-specs と一致する
+  //   （2026-11-05。spec の出典 URL を更新しても作り直しておらず、秋田県・大分県のリンクが 404 だった）
+  const { createRequire } = await import("module");
+  const { PREFECTURE_INFO } = createRequire(import.meta.url)("../js/core/prefecture-info.js");
+  const specDir = path.join(ROOT, "data", "jumin-specs");
+  const badInfo = [];
+  let nPref = 0;
+  for (const f of readdirSync(specDir)) {
+    if (!f.endsWith(".js") || f.startsWith("_")) continue;
+    const pref = f.replace(/\.js$/, "");
+    const spec = await import(path.join(specDir, f));
+    const info = PREFECTURE_INFO[pref];
+    nPref++;
+    if (!info) { badInfo.push(`${pref}: prefecture-info.js に無い`); continue; }
+    const rate = spec.PREF_DEFAULTS?.prefRate ?? 0.04;
+    const pc   = spec.PREF_DEFAULTS?.prefPerCapita ?? 1000;
+    const url  = spec.PREF_SOURCE?.url ?? null;
+    if (info.sourceUrl !== url) badInfo.push(`${pref}: sourceUrl ${info.sourceUrl}（spec は ${url}）`);
+    if (info.prefRate !== rate) badInfo.push(`${pref}: prefRate ${info.prefRate}（spec は ${rate}）`);
+    if (info.prefPerCapita !== pc) badInfo.push(`${pref}: prefPerCapita ${info.prefPerCapita}（spec は ${pc}）`);
+    const m = (info.description?.full || "").match(/均等割に([\d,]+)円/);
+    if (m && Number(m[1].replace(/,/g, "")) !== pc - 1000) badInfo.push(`${pref}: 説明文の上乗せ額 ${m[1]}円（spec は ${pc - 1000}円）`);
+    if (!info.description?.full) badInfo.push(`${pref}: description.full が空`);
+  }
+  if (badInfo.length === 0) passLine(`H: prefecture-info.js の ${nPref} 都道府県が jumin-specs と一致（出典 URL・県民税率・均等割・説明文の上乗せ額）`);
+  else failLine("H", `H: prefecture-info.js の ${badInfo.length} 項目が jumin-specs と食い違う`, badInfo);
 }
 
 // ═══════════════════════════════════════════════════════════════════
