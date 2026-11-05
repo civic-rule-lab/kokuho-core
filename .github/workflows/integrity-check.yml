@@ -292,3 +292,9 @@ jobs:
           node scripts/generate-selector.js
           node scripts/generate-seido-index.js
           node scripts/test-top-selector-dom.cjs
+
+      # 2026-11-05 追加: CI はテストを1本ずつ呼んでいたため、npm test だけに入ったテストが CI で走らなかった
+      #   （test-onestop・test-nenkin・test-haito など9本）。npm test をまるごと走らせ、テストの登録先を package.json の1か所にする。
+      #   新しいテストを package.json に入れ忘れると test-integrity.js の I 節で落ちる。上の個別の手順と重なる分は残している。
+      - name: Run npm test (package.json に登録したテストをすべて実行)
+        run: npm test
