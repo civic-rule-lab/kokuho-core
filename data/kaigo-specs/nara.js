@@ -122,7 +122,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29341",
+    cityCode:   "29342",
     citySlug:   "heguri",
     cityName:   "平群町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -130,7 +130,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29342",
+    cityCode:   "29343",
     citySlug:   "sango",
     cityName:   "三郷町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -138,7 +138,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29343",
+    cityCode:   "29344",
     citySlug:   "ikaruga",
     cityName:   "斑鳩町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -146,7 +146,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29344",
+    cityCode:   "29345",
     citySlug:   "ando",
     cityName:   "安堵町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29381",
+    cityCode:   "29385",
     citySlug:   "soni",
     cityName:   "曽爾村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -186,7 +186,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29382",
+    cityCode:   "29386",
     citySlug:   "mitsue",
     cityName:   "御杖村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -210,7 +210,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29421",
+    cityCode:   "29424",
     citySlug:   "kamimaki",
     cityName:   "上牧町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29422",
+    cityCode:   "29425",
     citySlug:   "oji",
     cityName:   "王寺町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -226,7 +226,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29423",
+    cityCode:   "29426",
     citySlug:   "koryo",
     cityName:   "広陵町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -234,7 +234,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "29424",
+    cityCode:   "29427",
     citySlug:   "kawai",
     cityName:   "河合町",
     baseAmount: null,   // TODO: 公式サイトで確認

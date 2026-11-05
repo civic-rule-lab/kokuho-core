@@ -130,7 +130,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "31388",
+    cityCode:   "31389",
     citySlug:   "nanbumachi-tottori",
     cityName:   "南部町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -138,7 +138,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "31389",
+    cityCode:   "31390",
     citySlug:   "hoki",
     cityName:   "伯耆町",
     baseAmount: null,   // TODO: 公式サイトで確認

@@ -859,7 +859,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11383", citySlug: "kamikawa", cityName: "上川町",
+    cityCode: "01457", citySlug: "kamikawa-hokkaido", cityName: "上川町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.0736, support: 0.025, care: 0.0191 },
@@ -955,7 +955,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "20386", citySlug: "nakagawa", cityName: "中川町",
+    cityCode: "01471", citySlug: "nakagawa-hokkaido", cityName: "中川町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.053399999999999996, support: 0.013999999999999999, care: 0.0106 },
@@ -1341,7 +1341,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "11242", citySlug: "hidaka", cityName: "日高町",
+    cityCode: "01601", citySlug: "hidaka-hokkaido", cityName: "日高町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.073, support: 0.025, care: 0.016 },
@@ -1507,7 +1507,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "20481", citySlug: "ikeda", cityName: "池田町",
+    cityCode: "01644", citySlug: "ikeda-hokkaido", cityName: "池田町",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {
       rate:      { medical: 0.078, support: 0.025, care: 0.017 },

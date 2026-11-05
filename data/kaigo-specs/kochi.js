@@ -242,7 +242,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "39406",
+    cityCode:   "39410",
     citySlug:   "hidakamura",
     cityName:   "日高村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -250,7 +250,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "39407",
+    cityCode:   "39411",
     citySlug:   "tsunomachi",
     cityName:   "津野町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -258,7 +258,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "39408",
+    cityCode:   "39412",
     citySlug:   "shimantomachi",
     cityName:   "四万十町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -274,7 +274,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "39425",
+    cityCode:   "39427",
     citySlug:   "miharamura",
     cityName:   "三原村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -282,7 +282,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "39426",
+    cityCode:   "39428",
     citySlug:   "kuroshiomachi",
     cityName:   "黒潮町",
     baseAmount: null,   // TODO: 公式サイトで確認

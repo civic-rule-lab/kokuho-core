@@ -90,7 +90,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "37323",
+    cityCode:   "37324",
     citySlug:   "shodoshimamachi",
     cityName:   "小豆島町",
     baseAmount: null,   // TODO: 公式サイトで確認

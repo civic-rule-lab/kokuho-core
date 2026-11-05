@@ -138,7 +138,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "32601",
+    cityCode:   "32525",
     citySlug:   "amamachi",
     cityName:   "海士町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -146,7 +146,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "32602",
+    cityCode:   "32526",
     citySlug:   "nishinoshima",
     cityName:   "西ノ島町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -154,7 +154,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "32603",
+    cityCode:   "32527",
     citySlug:   "chibumura",
     cityName:   "知夫村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -162,7 +162,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "32604",
+    cityCode:   "32528",
     citySlug:   "okinoshima",
     cityName:   "隠岐の島町",
     baseAmount: null,   // TODO: 公式サイトで確認

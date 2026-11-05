@@ -146,7 +146,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02341",
+    cityCode:   "02343",
     citySlug:   "nishimeya",
     cityName:   "西目屋村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -170,7 +170,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02363",
+    cityCode:   "02367",
     citySlug:   "inakadate",
     cityName:   "田舎館村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -186,7 +186,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02383",
+    cityCode:   "02384",
     citySlug:   "tsuruta",
     cityName:   "鶴田町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -194,7 +194,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02384",
+    cityCode:   "02387",
     citySlug:   "nakadomari",
     cityName:   "中泊町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02404",
+    cityCode:   "02405",
     citySlug:   "rokunohe",
     cityName:   "六戸町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -226,7 +226,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02405",
+    cityCode:   "02406",
     citySlug:   "yokohamacho",
     cityName:   "横浜町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -234,7 +234,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02407",
+    cityCode:   "02408",
     citySlug:   "tohokucho",
     cityName:   "東北町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -330,7 +330,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "02447",
+    cityCode:   "02450",
     citySlug:   "shingo",
     cityName:   "新郷村",
     baseAmount: null,   // TODO: 公式サイトで確認

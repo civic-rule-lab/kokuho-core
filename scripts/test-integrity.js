@@ -1,7 +1,7 @@
 /**
  * 5/12 修復作業の整合性テスト（Phase 1〜3 の検証）
  *
- * 検証項目（7 セクション）:
+ * 検証項目（8 セクション）:
  *   A. cityCode 一次資料整合性（registry × 総務省 snapshot）
  *   B. slug 衝突の解消（registry 内に重複なし・data dir に重複 base なし）
  *   C. registry.citySlug ↔ data/municipalities/{slug}/ 整合
@@ -9,6 +9,7 @@
  *   E. 公開 HTML（{pref}/{slug}/index.html）の自治体名整合
  *   F. 自動防衛線の動作（validator・hook・script の各機構）
  *   G. R8 検証ライフサイクル（meta.lifecycle.* の cross-field rule）
+ *   H. spec（data/*-specs）の自治体の項目が台帳と一致する（2026-11-05 追加）
  *
  * 利用:
  *   node scripts/test-integrity.js           # 全 6 セクション実行
@@ -662,6 +663,34 @@ if (shouldRun("G")) {
     passLine(`G-5: standard_r8 は source.type=prefecture_standard + sourceUrls を満たす`);
   } else {
     failLine("G", `G-5: standard_r8 要件不足 ${violations.standardR8Requirements.length} 件`, violations.standardR8Requirements);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// H. spec（data/*-specs/*.js）の自治体の項目が台帳と一致する
+//   生成スクリプトは spec の citySlug・cityCode で書き込み先と JSON を決める。5/12 の cityCode 一括訂正と
+//   slug 衝突の解消が spec に反映されず、kaigo-specs 524 件・pref-specs 6 件がずれていた（2026-11-05 発見・修正）
+// ═══════════════════════════════════════════════════════════════════
+if (shouldRun("H")) {
+  header("H. spec（data/*-specs）× 台帳");
+  const { specMismatch } = await import("./lib/spec-registry.js");
+  for (const dir of ["kaigo-specs", "pref-specs", "jumin-specs"]) {
+    const specDir = path.join(ROOT, "data", dir);
+    if (!existsSync(specDir)) continue;
+    let n = 0;
+    const bad = [];
+    for (const f of readdirSync(specDir)) {
+      if (!f.endsWith(".js") || f.startsWith("_") || f === "brackets-standard-9.js") continue;
+      const mod = await import(path.join(specDir, f));
+      const entries = Object.values(mod).filter(Array.isArray).flat().filter(x => x && typeof x === "object" && x.citySlug);
+      for (const e of entries) {
+        n++;
+        const why = specMismatch(e, f.replace(/\.js$/, ""));
+        if (why) bad.push(`${dir}/${f} ${e.cityName ?? ""}: ${why}`);
+      }
+    }
+    if (bad.length === 0) passLine(`H: ${dir} の ${n} 項目が台帳と一致（citySlug・都道府県・cityName・cityCode）`);
+    else failLine("H", `H: ${dir} の ${bad.length} 項目が台帳と食い違う`, bad);
   }
 }
 
