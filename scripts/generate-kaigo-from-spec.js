@@ -27,6 +27,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
+import { assertSpecMatchesRegistry } from "./lib/spec-registry.js";
 
 const __dirname   = path.dirname(fileURLToPath(import.meta.url));
 const ROOT        = path.join(__dirname, "..");
@@ -90,6 +91,8 @@ async function processSpec(prefSlug) {
 
   for (const m of municipalities) {
     try {
+      // 書き込み先と cityCode は spec から取るので、先に台帳と照らす（2026-11-05。ずれていると別の自治体のフォルダに書く）
+      assertSpecMatchesRegistry(m, prefSlug);
       const dir     = path.join(DATA_DIR, m.citySlug);
       const outPath = path.join(dir, `kaigo-${YEAR}.json`);
 

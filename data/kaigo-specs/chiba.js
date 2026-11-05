@@ -379,7 +379,7 @@ export const MUNICIPALITIES = [
   },
   {
     cityCode:   "12421",
-    citySlug:   "ichinomiya",
+    citySlug:   "ichinomiya-chiba",
     cityName:   "一宮町",
     baseAmount: null,   // TODO: 公式サイトで確認
     status:     "needs_update",

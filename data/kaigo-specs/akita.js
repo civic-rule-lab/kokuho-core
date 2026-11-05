@@ -66,7 +66,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05208",
+    cityCode:   "05209",
     citySlug:   "kazuno",
     cityName:   "鹿角市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -130,7 +130,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05325",
+    cityCode:   "05327",
     citySlug:   "kamikoanicho",
     cityName:   "上小阿仁村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -138,7 +138,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05343",
+    cityCode:   "05346",
     citySlug:   "fujisatomachi",
     cityName:   "藤里町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -146,7 +146,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05344",
+    cityCode:   "05348",
     citySlug:   "mitane",
     cityName:   "三種町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -154,7 +154,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05345",
+    cityCode:   "05349",
     citySlug:   "happocho",
     cityName:   "八峰町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -170,7 +170,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05362",
+    cityCode:   "05363",
     citySlug:   "hachirogatacho",
     cityName:   "八郎潟町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05364",
+    cityCode:   "05366",
     citySlug:   "ikawacho",
     cityName:   "井川町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -186,7 +186,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05367",
+    cityCode:   "05368",
     citySlug:   "ogatacho",
     cityName:   "大潟村",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -194,7 +194,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05463",
+    cityCode:   "05434",
     citySlug:   "misatocho",
     cityName:   "美郷町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -202,7 +202,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05464",
+    cityCode:   "05463",
     citySlug:   "ugocho",
     cityName:   "羽後町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -210,7 +210,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "05465",
+    cityCode:   "05464",
     citySlug:   "higashinarusemura",
     cityName:   "東成瀬村",
     baseAmount: null,   // TODO: 公式サイトで確認

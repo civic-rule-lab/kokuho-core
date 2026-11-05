@@ -82,7 +82,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "38211",
+    cityCode:   "38213",
     citySlug:   "shikokuchuo",
     cityName:   "四国中央市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -90,7 +90,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "38212",
+    cityCode:   "38214",
     citySlug:   "seiyo",
     cityName:   "西予市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -98,7 +98,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "38213",
+    cityCode:   "38215",
     citySlug:   "toon",
     cityName:   "東温市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -162,7 +162,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "38485",
+    cityCode:   "38488",
     citySlug:   "kihokucho",
     cityName:   "鬼北町",
     baseAmount: null,   // TODO: 公式サイトで確認

@@ -306,7 +306,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "28481",
+    cityCode:   "28464",
     citySlug:   "taishimachi",
     cityName:   "太子町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -314,7 +314,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "28501",
+    cityCode:   "28481",
     citySlug:   "kamigori",
     cityName:   "上郡町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -322,7 +322,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "28514",
+    cityCode:   "28501",
     citySlug:   "sayo",
     cityName:   "佐用町",
     baseAmount: null,   // TODO: 公式サイトで確認

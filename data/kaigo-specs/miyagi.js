@@ -90,7 +90,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04213",
+    cityCode:   "04212",
     citySlug:   "tome",
     cityName:   "登米市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -98,7 +98,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04214",
+    cityCode:   "04213",
     citySlug:   "kurihara",
     cityName:   "栗原市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -106,7 +106,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04215",
+    cityCode:   "04214",
     citySlug:   "higashimatsushima",
     cityName:   "東松島市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -114,7 +114,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04216",
+    cityCode:   "04215",
     citySlug:   "osakishi",
     cityName:   "大崎市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -122,7 +122,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04217",
+    cityCode:   "04216",
     citySlug:   "tomiya",
     cityName:   "富谷市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -210,7 +210,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04403",
+    cityCode:   "04404",
     citySlug:   "shichigahama",
     cityName:   "七ヶ浜町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04405",
+    cityCode:   "04406",
     citySlug:   "rifu",
     cityName:   "利府町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -250,7 +250,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04441",
+    cityCode:   "04444",
     citySlug:   "shikama",
     cityName:   "色麻町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -258,7 +258,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04442",
+    cityCode:   "04445",
     citySlug:   "kami",
     cityName:   "加美町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -266,7 +266,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04461",
+    cityCode:   "04501",
     citySlug:   "wakuya",
     cityName:   "涌谷町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -274,7 +274,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04462",
+    cityCode:   "04505",
     citySlug:   "misatomiyagi",
     cityName:   "美里町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -282,7 +282,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04501",
+    cityCode:   "04581",
     citySlug:   "onagawa",
     cityName:   "女川町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -290,7 +290,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "04581",
+    cityCode:   "04606",
     citySlug:   "minamisanriku",
     cityName:   "南三陸町",
     baseAmount: null,   // TODO: 公式サイトで確認

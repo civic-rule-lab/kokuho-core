@@ -106,7 +106,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "17322",
+    cityCode:   "17324",
     citySlug:   "kawakita",
     cityName:   "川北町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -122,7 +122,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "17362",
+    cityCode:   "17365",
     citySlug:   "uchinada",
     cityName:   "内灘町",
     baseAmount: null,   // TODO: 公式サイトで確認

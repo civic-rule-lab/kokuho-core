@@ -20,6 +20,7 @@
 import { writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { specMismatch } from "./lib/spec-registry.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
@@ -100,6 +101,15 @@ async function generatePref(prefSlug) {
   console.log(`${PREF_NAME} 国保データ一括生成 (令和7年度 / 2025年度)`);
   console.log(`スペック: data/pref-specs/${prefSlug}.js`);
   console.log(`${"=".repeat(60)}\n`);
+
+  // 書き込み先と cityCode は spec から取るので、先に台帳と照らす。1 件でもずれていれば何も書かない
+  //   （2026-11-05。--force で流すと千葉県一宮町の値が愛知県一宮市のフォルダに書かれる状態だった）
+  const mismatches = MUNICIPALITIES.map(m => specMismatch(m, prefSlug)).filter(Boolean);
+  if (mismatches.length) {
+    console.error(`❌ spec が台帳（registry/index.json）と食い違うため生成しません（${mismatches.length} 件）:`);
+    for (const w of mismatches.slice(0, 20)) console.error(`   ${w}`);
+    return false;
+  }
 
   for (const m of MUNICIPALITIES) {
     const dir  = path.join(OUT_BASE, m.citySlug);

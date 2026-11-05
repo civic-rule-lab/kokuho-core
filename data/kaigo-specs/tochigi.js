@@ -66,7 +66,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "09207",
+    cityCode:   "09208",
     citySlug:   "oyama",
     cityName:   "小山市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -74,7 +74,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "09208",
+    cityCode:   "09209",
     citySlug:   "moka",
     cityName:   "真岡市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -82,7 +82,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "09209",
+    cityCode:   "09210",
     citySlug:   "otawara",
     cityName:   "大田原市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -90,7 +90,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "09210",
+    cityCode:   "09211",
     citySlug:   "yaita",
     cityName:   "矢板市",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "09362",
+    cityCode:   "09364",
     citySlug:   "nogi",
     cityName:   "野木町",
     baseAmount: null,   // TODO: 公式サイトで確認

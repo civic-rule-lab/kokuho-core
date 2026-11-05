@@ -541,7 +541,7 @@ export const MUNICIPALITIES = [
     },
   },
   {
-    cityCode: "23563", citySlug: "toyone", cityName: "豊根村",
+    cityCode: "23563", citySlug: "toyne", cityName: "豊根村",
     note: "愛知県R7標準保険料率を使用。実際値は要確認。",
     caps: { medical: 660000, support: 260000, care: 170000 },
     rates: {

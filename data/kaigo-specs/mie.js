@@ -138,7 +138,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24341",
+    cityCode:   "24324",
     citySlug:   "toin",
     cityName:   "東員町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -146,7 +146,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24361",
+    cityCode:   "24341",
     citySlug:   "komono",
     cityName:   "菰野町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -154,7 +154,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24362",
+    cityCode:   "24343",
     citySlug:   "asahicho",
     cityName:   "朝日町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -162,7 +162,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24363",
+    cityCode:   "24344",
     citySlug:   "kawagoemachi",
     cityName:   "川越町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -170,7 +170,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24401",
+    cityCode:   "24441",
     citySlug:   "taki",
     cityName:   "多気町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -178,7 +178,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24402",
+    cityCode:   "24442",
     citySlug:   "meiwamachi",
     cityName:   "明和町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -186,7 +186,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24403",
+    cityCode:   "24443",
     citySlug:   "odai",
     cityName:   "大台町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -194,7 +194,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24441",
+    cityCode:   "24461",
     citySlug:   "tamaki",
     cityName:   "玉城町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -202,7 +202,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24443",
+    cityCode:   "24470",
     citySlug:   "watarai",
     cityName:   "度会町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -210,7 +210,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24444",
+    cityCode:   "24471",
     citySlug:   "taikimachi",
     cityName:   "大紀町",
     baseAmount: null,   // TODO: 公式サイトで確認
@@ -218,7 +218,7 @@ export const MUNICIPALITIES = [
     source: { url: null, retrievedAt: null },
   },
   {
-    cityCode:   "24445",
+    cityCode:   "24472",
     citySlug:   "minamiise",
     cityName:   "南伊勢町",
     baseAmount: null,   // TODO: 公式サイトで確認
