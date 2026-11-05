@@ -48,4 +48,18 @@ export const MUNICIPALITIES = [
     },
     notes: "政令市（prefRate=2%, cityRate=8%）。認知症神戸モデル(+400円均等割)は令和9年度まで継続。兵庫県民緑税(+800円)はPREF_DEFAULTSで適用済み。",
   },
+  {
+    cityCode: "28209",
+    citySlug: "toyookashi",
+    cityName: "豊岡市",
+    // 個人市民税所得割の超過課税: 標準 6.0% → 6.1%（2026-11-05 全方向試算 C130。旧は項目が無く 6% になっていた）
+    cityRate: 0.061,
+    status:   "verified",
+    source: {
+      url: "https://www.city.toyooka.lg.jp/kurashi/zeikin/1019700/1023378.html",
+      pageTitle: "豊岡市の超過課税導入の経緯について｜豊岡市公式ウェブサイト",
+      retrievedAt: "2026-11-05",
+    },
+    notes: "個人市民税 標準税率 6.0% → 豊岡市 6.1%（市公式ページ）。data/municipalities/toyookashi/jumin-2026.json（verified）と同じ値。兵庫県民緑税(+800円)はPREF_DEFAULTSで適用済み。",
+  },
 ];

@@ -35,10 +35,13 @@ const template  = readFileSync(path.join(ROOT, "templates", "prefecture-page.htm
 const targetSlug = process.argv[2] || null;
 
 // ─── 政令市スラグを jumin-specs から取得 ──────────────────────────
+// 政令市は税源移譲で県民税の所得割が標準の 4% を下回る市（2%。県の超過課税があれば 2.025% など）として見分ける。
+//   jumin-specs の MUNICIPALITIES には政令市以外（東京23区・超過課税の豊岡市など）も入るため、
+//   項目があるだけで政令市とみなさない（2026-11-05 全方向試算 段9。旧は東京23区を政令指定都市と表示していた）
 async function getDesignatedCities(prefSlug) {
   try {
     const mod = await import(`file://${ROOT}/data/jumin-specs/${prefSlug}.js`);
-    return new Set((mod.MUNICIPALITIES || []).map(m => m.citySlug));
+    return new Set((mod.MUNICIPALITIES || []).filter(m => typeof m.prefRate === 'number' && m.prefRate < 0.04).map(m => m.citySlug));
   } catch {
     return new Set();
   }

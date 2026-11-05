@@ -82,6 +82,7 @@ const TEST_SUITES = [
   {
     slug: "shinjuku",
     label: "新宿区",
+    year: 2025,
     cases: [
       {
         label: "【公式例1】単身・給与所得160万円（20歳・介護なし）",
@@ -206,6 +207,7 @@ const TEST_SUITES = [
   {
     slug: "nagano",
     label: "長野市",
+    year: 2025,
     cases: [
       {
         label: "【公式目安表】総所得202万・1人世帯・介護なし",
@@ -267,6 +269,7 @@ const TEST_SUITES = [
   {
     slug: "fujisawa",
     label: "藤沢市",
+    year: 2025,
     cases: [
       {
         label: "単身・所得0円（7割軽減）",
@@ -308,6 +311,7 @@ const TEST_SUITES = [
   {
     slug: "saitama",
     label: "さいたま市",
+    year: 2025,
     cases: [
       {
         label: "単身・所得0円（7割軽減）",
@@ -351,6 +355,7 @@ const TEST_SUITES = [
   {
     slug: "chiba",
     label: "千葉市",
+    year: 2025,
     cases: [
       {
         label: "単身・所得0円（7割軽減・平等割あり）",
@@ -387,6 +392,7 @@ const TEST_SUITES = [
   {
     slug: "osaka",
     label: "大阪市",
+    year: 2025,
     cases: [
       {
         label: "単身・所得0円（7割軽減・府統一料率）",
@@ -423,6 +429,7 @@ const TEST_SUITES = [
   {
     slug: "fukuoka",
     label: "福岡市",
+    year: 2025,
     cases: [
       {
         label: "単身・所得0円（7割軽減）",
@@ -498,6 +505,7 @@ const TEST_SUITES = [
   {
     slug: "saitama",
     label: "擬制世帯主（さいたま市）",
+    year: 2025,
     cases: [
       {
         label: "reductionJudgmentIncome なし（後方互換）→ 加入者所得0で判定 → 7割軽減",
@@ -602,6 +610,7 @@ const TEST_SUITES = [
   {
     slug: "chigasaki",
     label: "茅ヶ崎市（境界値・限度額）",
+    year: 2025,
     cases: [
       // ── 7割 / 5割 境界（境界-1 / ちょうど / +1 の3点） ──────────
       {
@@ -726,6 +735,7 @@ const TEST_SUITES = [
   {
     slug: "chigasaki",
     label: "茅ヶ崎市（入力バリデーション回帰）",
+    year: 2025,
     cases: [
       // ① income=undefined
       {
@@ -780,7 +790,7 @@ const TEST_SUITES = [
   // ============================================================
   {
     slug: "akishima",
-    year: 2026,   // ★ suite.year の既定は 2025。R8データで検証するので明示必須
+    year: 2026,
     label: "昭島市（独自の学齢児軽減 × 法定軽減の重ね掛け）",
     cases: [
       {
@@ -836,7 +846,7 @@ const TEST_SUITES = [
   // ============================================================
   {
     slug: "nichinan",
-    year: 2026,   // ★ suite.year の既定は 2025。R8データで検証するので明示必須
+    year: 2026,
     label: "日南市（介護分資産割は介護納付金課税被保険者がいる世帯のみ）",
     cases: [
       {
@@ -874,10 +884,18 @@ let totalPassed = 0;
 let totalFailed = 0;
 
 for (const suite of suites) {
-  const year     = suite.year ?? 2025;
+  // 年度は組ごとに必ず書く（2026-11-05 全方向試算 C232。旧は書き忘れると黙って 2025 年度のデータで検査していた）
+  const year     = suite.year;
+  if (!Number.isInteger(year)) {
+    console.log(`\n❌ ${suite.label}: year（年度）が書かれていません`);
+    totalFailed++;
+    continue;
+  }
   const dataPath = path.join(DATA_DIR, suite.slug, `kokuho-${year}.json`);
   if (!existsSync(dataPath)) {
+    // データが無い組は失敗に数える（旧は表示するだけで飛ばし、終了コードは 0 のままだった）
     console.log(`\n❌ ${suite.label}: kokuho-${year}.json が存在しません`);
+    totalFailed++;
     continue;
   }
   const baseData = JSON.parse(readFileSync(dataPath, "utf-8"));

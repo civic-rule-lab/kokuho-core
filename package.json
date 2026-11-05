@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test:calc": "node scripts/test-calc-verify.js",
-    "test:sanity": "node scripts/test-sanity-all.js",
+    "test:sanity": "node scripts/test-sanity-all.js && node scripts/test-sanity-all.js --year=2026",
     "test:kouki": "node scripts/test-kouki.cjs",
     "test:year": "node scripts/test-year-wiring.js",
     "test:units": "node scripts/verify-units.cjs",

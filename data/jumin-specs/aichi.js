@@ -48,16 +48,16 @@ export const MUNICIPALITIES = [
     cityName: "名古屋市",
     // 政令指定都市（税源移譲）: prefRate=2%, cityRate=8% が基準
     prefRate: 0.02,
-    // 市民税1割減税（2012年〜）: 8% × 0.9 = 7.2%
-    cityRate: 0.072,
+    // 市民税減税後の所得割の税率 7.7%（市公式「所得割の税率」2026-11-05 確認。旧は「8% × 0.9 = 7.2%」の誤り・2026-11-05 全方向試算 C129）
+    cityRate: 0.077,
     // 均等割も1割減税相当: 2,800円（公式確認値、3,000円より200円減）
     cityPerCapita: 2_800,
     status:   "verified",
     source: {
-      url: "https://www.city.nagoya.jp/zaisei/page/0000009961.html",
-      pageTitle: "名古屋市 市民税の減税",
-      retrievedAt: "2026-04-30",
+      url: "https://www.city.nagoya.jp/kurashi/zeikin/1037356/1011880/1011883/1011887/index.html",
+      pageTitle: "所得割の税率｜名古屋市公式ウェブサイト",
+      retrievedAt: "2026-11-05",
     },
-    notes: "政令市（prefRate=2%,cityRate=8%）に市民税1割減税(×0.9)を適用。あいち森と緑づくり税(+500円)はPREF_DEFAULTSで適用済み。",
+    notes: "政令市（prefRate=2%,cityRate=8%）に市民税減税を適用（所得割 7.7%・均等割 2,800円）。data/municipalities/nagoya/jumin-2026.json（verified）と同じ値。あいち森と緑づくり税(+500円)はPREF_DEFAULTSで適用済み。",
   },
 ];
