@@ -18,6 +18,7 @@
 import { writeFileSync, readdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, '..');
@@ -108,6 +109,15 @@ function buildFullDesc(prefName, surcharge, taxName) {
   return '';
 }
 
+// ─── 手で補った説明文を引き継ぐ ────────────────────────────────────
+// 超過課税あり県の description.full は生成できず手で補っている。作り直すと消えるため、
+// 既存ファイルにあれば引き継ぐ（2026-11-05。spec の出典 URL を更新しても作り直せず、
+// 県ページの「公式サイトで…」のリンクが古いまま 404 になっていた＝秋田県・大分県）
+const _require = createRequire(import.meta.url);
+let EXISTING = {};
+try { EXISTING = _require(OUTPUT).PREFECTURE_INFO || {}; } catch (_) { EXISTING = {}; }
+const keptWarnings = [];
+
 // ─── メイン ───────────────────────────────────────────────────────
 const specFiles = readdirSync(SPECS_DIR)
   .filter(f => f.endsWith('.js') && f !== '_template.js')
@@ -130,6 +140,16 @@ for (const file of specFiles) {
 
     const surcharge = calcSurcharge(prefRate, prefPerCapita);
     const taxName   = extractTaxName(notes);
+    let full        = buildFullDesc(spec.PREF_NAME, surcharge, taxName);
+    const prevFull  = EXISTING[slug]?.description?.full;
+    if (!full && prevFull) {
+      full = prevFull;
+      // 引き継いだ説明文の上乗せ額が spec と違えば、手で直す必要がある
+      const m = prevFull.match(/均等割に([\d,]+)円/);
+      if (m && surcharge?.perCapita != null && Number(m[1].replace(/,/g, '')) !== surcharge.perCapita) {
+        keptWarnings.push(`${spec.PREF_NAME}: 説明文の上乗せ額 ${m[1]}円 が spec の ${surcharge.perCapita}円 と違う`);
+      }
+    }
 
     info[slug] = {
       name:         spec.PREF_NAME,
@@ -140,12 +160,17 @@ for (const file of specFiles) {
       sourceUrl,
       description: {
         short: buildShortDesc(surcharge, taxName),
-        full:  buildFullDesc(spec.PREF_NAME, surcharge, taxName),
+        full,
       },
     };
   } catch (e) {
     errors.push(`${file}: ${e.message}`);
   }
+}
+
+if (keptWarnings.length) {
+  console.error('⚠️  引き継いだ説明文の確認が必要:');
+  keptWarnings.forEach(w => console.error('  ' + w));
 }
 
 if (errors.length) {
@@ -167,7 +192,7 @@ const output = `/**
  * 超過課税あり: ${surchargeCount}都道府県
  * 超過課税なし: ${noSurchargeCount}都道府県
  *
- * description.full（超過課税あり県）は手動補完が必要です。
+ * description.full（超過課税あり県）は手動補完が必要です。作り直しても既存の説明文は引き継ぐ。
  * 再生成: node scripts/build-prefecture-info.js
  */
 
