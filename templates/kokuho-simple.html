@@ -59,6 +59,7 @@
   <div class="result-title">計算結果</div>
 
   <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+__PROVENANCE_TOP__
 
 __TRUST_BADGE__
 __STANDARD_NOTE__
@@ -102,6 +103,51 @@ __OPERATOR_FOOTER__
 <script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
 <script src="/js/core/kokuho.js?v=__JS_V__"></script>
 <script src="/js/engine.js?v=__JS_V__"></script>
+
+<!-- M6: 根拠節の到達・出典クリックの計測（入力値・金額は送らない。gtag が無ければ何もしない） -->
+<script>
+(function () {
+  if (typeof window.gtag !== "function") return;
+  var sec = document.querySelector("section.provenance");
+  if (!sec) return;
+  var base = {
+    calc_type:  "simple",
+    prov_pos:   sec.getAttribute("data-prov-pos")   || "",
+    prov_state: sec.getAttribute("data-prov-state") || ""
+  };
+  function ev(name, extra) {
+    var p = {}, k;
+    for (k in base) p[k] = base[k];
+    if (extra) for (k in extra) p[k] = extra[k];
+    gtag("event", name, p);
+  }
+  var res = document.getElementById("result");
+  if (res && typeof MutationObserver === "function") {
+    var shown = false;
+    var mo = new MutationObserver(function () {
+      if (shown || !res.querySelector(".result-row")) return;
+      shown = true; mo.disconnect(); ev("result_shown");
+    });
+    mo.observe(res, { childList: true, subtree: true });
+  }
+  if (typeof IntersectionObserver === "function") {
+    var seen = false;
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!seen && entries[i].intersectionRatio >= 0.5) { seen = true; io.disconnect(); ev("provenance_view"); }
+      }
+    }, { threshold: [0.5] });
+    io.observe(sec);
+  }
+  sec.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var host = "";
+    try { host = new URL(a.href).hostname; } catch (_) {}
+    ev("provenance_click", { host: host });
+  });
+})();
+</script>
 
 </body>
 </html>
