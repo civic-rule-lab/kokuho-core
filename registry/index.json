@@ -4096,11 +4096,13 @@
       "prefecture": "千葉県",
       "systems": [
         "kokuho",
+        "kaigo",
         "kouki"
       ],
       "prefectureSlug": "chiba",
       "publishYear": {
         "kokuho": 2026,
+        "kaigo": 2026,
         "kouki": 2026
       }
     },
