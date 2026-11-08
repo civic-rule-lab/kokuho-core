@@ -167,6 +167,19 @@ if [ "$DRY_RUN" = false ]; then
   mkdir -p "$PUBLIC_DIR/data/municipalities"
   rsync -a --delete "$CORE_DIR/data/municipalities/" "$PUBLIC_DIR/data/municipalities/"
 
+  # 機械向けの入口（#820）: カタログ data/index.json とスキーマ data/schema/ を配信する。
+  # カタログは data/municipalities/ から生成した索引なので、古いまま配信すると機械が存在しないファイルや
+  # 旧 status を読む。--check で最新であることを確かめ、違えば止める（直し方を表示）。
+  if ! node "$CORE_DIR/scripts/generate-data-index.js" --check >/dev/null 2>&1; then
+    echo "❌ data/index.json が data/municipalities/ の現状と合っていません。"
+    echo "   対処: npm run generate:data-index を実行し、data/index.json をコミットしてから deploy してください。"
+    exit 1
+  fi
+  echo "▶ data/index.json と data/schema/ を同期中..."
+  cp "$CORE_DIR/data/index.json" "$PUBLIC_DIR/data/"
+  mkdir -p "$PUBLIC_DIR/data/schema"
+  rsync -a --delete "$CORE_DIR/data/schema/" "$PUBLIC_DIR/data/schema/"
+
   # 静的ファイル
   cp "$CORE_DIR/index.html"          "$PUBLIC_DIR/"
   cp "$CORE_DIR/js/selector.js"      "$PUBLIC_DIR/js/"
