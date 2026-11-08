@@ -959,7 +959,9 @@ function fmtSourceDate(s) {
   return null;
 }
 
-function buildProvenance(data, cityName, prefecture, publishYear) {
+// pos: "after_table"（既定・料率表の後）| "below_result"（計算結果の直下）。M6 の A/B で切り替える。
+// 節には data-prov-pos / data-prov-state を付け、ページ内の計測スクリプトがそのまま送る（値は送らない）。
+function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_table") {
   if (!data) return "";
 
   const src = data.meta?.source ?? {};
@@ -978,6 +980,12 @@ function buildProvenance(data, cityName, prefecture, publishYear) {
   const linkText = escapeHtml(title || "公式ページ");
   const pStyle = "margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;";
   const lines = [];
+
+  // 計測用の状態ラベル（下の書き分けと同じ条件。文言を変えてもここは変えない）
+  const provState = isStandard ? "standard"
+    : (data.meta?.status === "verified" && fmtSourceDate(lc.verifiedAt)) ? "verified"
+    : lc.primarySourceVerified === true ? "primary"
+    : "pending";
 
   lines.push(
     `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
@@ -1021,10 +1029,39 @@ function buildProvenance(data, cityName, prefecture, publishYear) {
   }
 
   return `
-  <section class="provenance" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+  <section class="provenance" data-prov-pos="${pos}" data-prov-state="${provState}" style="margin-top:${pos === "below_result" ? 16 : 36}px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
     <h2>この数値の根拠</h2>
     ${lines.join("\n    ")}
   </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
+// M6: 根拠節の配置（A/B）
+//   PROVENANCE_AB 未設定 → 全件 "after_table"（現状）
+//   PROVENANCE_AB=even   → cityCode 末尾が偶数の自治体を "below_result"
+//   PROVENANCE_AB=odd    → 末尾が奇数の自治体を "below_result"
+//   割り当ては決定論的（再生成で同じ結果）。cityCode が無ければ after_table。
+//   A/B の期間・割り当ては運用側で決める（本リポには書かない）。
+// ─────────────────────────────────────────────────────────────────
+
+const PROVENANCE_AB = (process.env.PROVENANCE_AB || "").trim();
+if (PROVENANCE_AB && PROVENANCE_AB !== "even" && PROVENANCE_AB !== "odd") {
+  console.error(`✖ PROVENANCE_AB は even / odd / 未設定のいずれか（今: ${PROVENANCE_AB}）`);
+  process.exit(1);
+}
+const provPosCount = { after_table: 0, below_result: 0 };
+
+function provenancePosition(regEntry) {
+  let pos = "after_table";
+  if (PROVENANCE_AB) {
+    const code = String(regEntry?.cityCode ?? "");
+    if (/^\d{5}$/.test(code)) {
+      const even = Number(code[4]) % 2 === 0;
+      if ((PROVENANCE_AB === "even") === even) pos = "below_result";
+    }
+  }
+  provPosCount[pos] += 1;
+  return pos;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -1036,8 +1073,12 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
   const canonical      = buildCanonicalUrl(prefSlug, citySlug, isIncome);
   const faq            = isIncome ? { html: "", entity: null } : buildFaq(cityName, citySlug, data, publishYear, regEntry, municipalities);
   const jsonLd         = buildJsonLd(cityName, prefecture, prefSlug, citySlug, metaDesc, isIncome, publishYear, faq.entity ? [faq.entity] : []);
+  // M6: 根拠節の配置。PROVENANCE_AB が未設定なら全件 after_table（現状どおり）。
+  const provPos        = provenancePosition(regEntry);
+  const provenance     = buildProvenance(data, cityName, prefecture, publishYear, provPos);
   const rateTable      = buildRateTable(cityName, data, publishYear)
-                       + buildProvenance(data, cityName, prefecture, publishYear);
+                       + (provPos === "after_table" ? provenance : "");
+  const provenanceTop  = provPos === "below_result" ? provenance : "";
   const calcExamples   = isIncome ? "" : (
     buildCalcExamples(cityName, data, publishYear) +
     buildRateChangeSection(cityName, citySlug, data, publishYear) +
@@ -1057,6 +1098,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__CANONICAL_URL__",      canonical)
     .replaceAll("__JSON_LD__",            jsonLd)
     .replaceAll("__RATE_TABLE__",         rateTable)
+    .replaceAll("__PROVENANCE_TOP__",     provenanceTop)
     .replaceAll("__CALC_EXAMPLES__",      calcExamples)
     .replaceAll("__INTRO_TEXT__",         introText)
     .replaceAll("__TRUST_BADGE__",        trustBadge)
@@ -1136,6 +1178,9 @@ console.log(`   出力先: ${OUT_ROOT}/{都道府県スラグ}/{自治体スラ�
 
 // 出典として描画しなかったホスト（自治体・公的機関と判定できなかったもの）を明示する。
 // 黙って落とすと「出典が無い自治体」と「出典を弾いた自治体」が区別できなくなる。
+if (PROVENANCE_AB) {
+  console.log(`▶ PROVENANCE_AB=${PROVENANCE_AB}: below_result ${provPosCount.below_result} / after_table ${provPosCount.after_table}`);
+}
 if (provenanceRejectedHosts.size > 0) {
   console.warn(`\n⚠️  出典リンクを描画しなかったホスト（要判断: 公的なら PROVENANCE_HOST_EXTRA に追加）:`);
   for (const [h, n] of [...provenanceRejectedHosts.entries()].sort((a, b) => b[1] - a[1])) {

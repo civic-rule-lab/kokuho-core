@@ -26,7 +26,7 @@ function buildHtml(tpl) {
     '__CANONICAL_URL__': 'https://kokuho-keisan.jp/chiba/ichihara/income.html', '__CITY_NAME__': '市原市',
     '__CITY_SLUG__': SLUG, '__CSS_V__': 'x', '__FISCAL_YEAR_LABEL__': '令和8年度', '__INTRO_TEXT__': '',
     '__JSON_LD__': '{}', '__JS_V__': 'x', '__META_DESC__': '', '__PREFECTURE_DESC__': '', '__PUBLISH_YEAR__': String(YEAR),
-    '__RATE_TABLE__': '', '__STANDARD_NOTE__': '', '__TRUST_BADGE__': '',
+    '__RATE_TABLE__': '', '__PROVENANCE_TOP__': '', '__STANDARD_NOTE__': '', '__TRUST_BADGE__': '',
   };
   for (const [k, v] of Object.entries(fill)) html = html.split(k).join(v);
   const inline = { '/js/core/shared/ui-input.js': 'js/core/shared/ui-input.js', '/js/core/kokuho.js': 'js/core/kokuho.js', '/js/engine.js': 'js/engine.js' };
