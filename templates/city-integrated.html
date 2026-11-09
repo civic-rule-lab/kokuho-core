@@ -1008,7 +1008,8 @@ __OPERATOR_FOOTER__
     if(siGiven!=null){ si=siGiven; }
     else if(emp==="kaishain" && sal>0){ var sa=shahoAnnual(sal, bon, 40); si = sa ? sa.annual : Math.round(gross*0.144); }
     else { si=Math.round(gross*0.144); }
-    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:other,age:(ageIn||40),socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));   // 年齢は呼び出し元の入力（本人＝年齢欄・配偶者＝配偶者の年齢欄）。無ければ 40 歳（2026-11-09・S1-2 HC-3）
+    var ag=ageIn||40;   // 年齢は呼び出し元の入力（本人＝年齢欄・配偶者＝配偶者の年齢欄）。無ければ 40 歳（2026-11-09・S1-2 HC-3）
+    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:other,age:ag,socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
   }
   function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
