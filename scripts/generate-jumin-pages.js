@@ -30,6 +30,8 @@ import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import organization from './lib/organization.cjs';
+// 出典節（2026-11-09 S1-1 ID-03・修正順 S1 3-1）。許可ホストの判定は generate-official-pages.js の正本を読む
+import provenance from './lib/seido-provenance.cjs';
 import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,7 +80,9 @@ function buildJuminExamples(cityName, data, fy) {
   <div class="jt-card">
     <div class="jt-card-title">${cityName}の住民税の計算例（${fy}）</div>
     <p style="font-size:11px;color:#6b7280;margin:0 0 8px;">${cityName}の税率で、年収別の住民税額の目安を試算しました（給与所得控除・社会保険料控除を概算した単身の概算）。</p>
+    <div style="overflow-x:auto;">
     <table class="jt-table"><thead><tr><th style="${th}">モデル</th><th style="${th}">住民税（年額）</th><th style="${th}">月額目安</th></tr></thead><tbody>${body}</tbody></table>
+    </div>
   </div>`;
 }
 
@@ -171,7 +175,9 @@ function buildJuminCompare(self, data, fy, publishedTargets) {
   <div class="jt-card">
     <div class="jt-card-title">${self.cityName}と他の都市の住民税比較（${fy}）</div>
     <p style="font-size:11px;color:#6b7280;margin:0 0 8px;">年収500万円（単身・40歳）のモデルで、所得割の合計税率と住民税額の目安を比較しました。住民税は税率がほぼ全国一律のため大きな差は出ませんが、超過課税や減税を行う自治体では金額が変わります。</p>
+    <div style="overflow-x:auto;">
     <table class="jt-table"><thead><tr><th style="${th}">自治体</th><th style="${th}">所得割合計</th><th style="${th}">住民税（年額）</th><th style="${th}">差額</th></tr></thead><tbody>${selfRow}${body}</tbody></table>
+    </div>
   </div>`;
 }
 
@@ -378,6 +384,8 @@ for (const m of targets) {
   const fy = fiscalYearLabel(year);
   const data = loadJumin(citySlug, year);
   const juminDataLiteral = data ? JSON.stringify(data) : 'null';
+  // 出典節（住民税の単独ページ 2 枚に同じもの。データが無ければ「標準税率で計算」と書く）
+  const juminSource = provenance.buildSourceSection('jumin', data, { prefName });
 
   // jumin が公開対象の自治体だけ住民税の単独ページを出す。
   // kaigo のみ公開（住民税未整備）の自治体は統合(家計簿)ページのみ生成する。
@@ -403,6 +411,7 @@ for (const m of targets) {
       '__JUMIN_DATA__': juminDataLiteral,
       '__JUMIN_CALC_EXAMPLES__': buildJuminExamples(cityName, data, fy) + buildJuminCompare(m, data, fy, publishedJumin) + faq.html,
       '__PORTAL_LINK__': '../kakeibo/',
+      '__SOURCE_SECTION__': juminSource,
       '__PUBLISH_YEAR__': String(year),
       '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
       '__CSS_V__': CSS_V,
@@ -421,6 +430,7 @@ for (const m of targets) {
       '__JSON_LD__': jsonLd(cityName, prefName, prefSlug, citySlug, incomeDesc, incomeUrl, fy, '住民税計算ツール（詳しく）'),
       '__JUMIN_DATA__': juminDataLiteral,
       '__FURUSATO_DATA__': furusatoDataLiteral,
+      '__SOURCE_SECTION__': juminSource,
       '__PUBLISH_YEAR__': String(year),
       '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
       '__CSS_V__': CSS_V,
@@ -452,6 +462,8 @@ for (const m of targets) {
     // 暫定: seido-keisan に国保ページが無い間は、既存の kokuho-keisan.jp の該当ページを参照。
     // 国保を seido-keisan へ移行したら '../' に戻す（templates の target=_blank も外す）。
     '__LINK_KOKUHO__': `https://kokuho-keisan.jp/${prefSlug}/${citySlug}/`,
+    // 出典節: ページが実行時に読む制度別 JSON を生成時にも読み、制度ごとに 1 行（S1-1 ID-03）
+    '__SOURCE_SECTION__': provenance.buildKakeiboSourceSection(citySlug, { prefName }),
     '__CSS_V__': CSS_V,
     '__JS_V__': JS_V,
   });
@@ -469,4 +481,8 @@ if (!targetSlug && generated === 0) {
   console.log(`   （registry の systems に "jumin" を追加すると一括公開対象になります）`);
 }
 if (skipped.length > 0) { console.warn('\n⚠️  スキップ:'); skipped.forEach(s => console.warn('  ', s)); }
+if (provenance.rejectedHosts().size) {
+  console.warn('\n⚠️  出典をリンクにしなかったホスト（「出典ページ未確認」と表示。公的なら generate-official-pages.js の PROVENANCE_HOST_EXTRA に追加＝オーナー判断）:');
+  for (const [h, n] of provenance.rejectedHosts()) console.warn(`   ${h}: ${n}件`);
+}
 console.log();

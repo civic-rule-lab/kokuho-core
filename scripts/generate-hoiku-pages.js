@@ -36,6 +36,8 @@ import { createHash } from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import organization from './lib/organization.cjs';
+// 出典節（2026-11-09 S1-1 ID-03・修正順 S1 3-1）。許可ホストの判定は generate-official-pages.js の正本を読む
+import provenance from './lib/seido-provenance.cjs';
 import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -209,6 +211,7 @@ for (const m of targets) {
     '__INTRO_TEXT__': introText(cityName, fy, data),
     '__HOIKU_DATA__': hoikuDataLiteral,   // muni JSON（brackets/inputBasis/timeBands/facilityTypes/status/selector 等）を丸ごと埋め込み
     '__KAKEIBO_BLOCK__': kakeiboBlock,     // kakeibo ページがある自治体だけ「まとめて見る」リンクを出す（死にリンク防止）
+    '__SOURCE_SECTION__': provenance.buildSourceSection('hoiku', data, { prefName }),
     '__PUBLISH_YEAR__': String(year),
     '__JUMIN_KYUCHI__': String(juminKyuchi(citySlug)),
     '__CSS_V__': CSS_V,
@@ -227,4 +230,8 @@ if (!targetSlug && generated === 0) {
   console.log(`   （registry の systems に "hoiku" を追加すると一括公開対象になります）`);
 }
 if (skipped.length > 0) { console.warn('\n⚠️  スキップ:'); skipped.forEach(s => console.warn('  ', s)); }
+if (provenance.rejectedHosts().size) {
+  console.warn('\n⚠️  出典をリンクにしなかったホスト（「出典ページ未確認」と表示。公的なら generate-official-pages.js の PROVENANCE_HOST_EXTRA に追加＝オーナー判断）:');
+  for (const [h, n] of provenance.rejectedHosts()) console.warn(`   ${h}: ${n}件`);
+}
 console.log();
