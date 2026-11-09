@@ -196,7 +196,11 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
     const meta = (isIncome ? cfg.prefMetaIncome : cfg.prefMeta)(prefName, fy, data);
     const intro = (isIncome ? cfg.prefIntroIncome : cfg.prefIntro)(prefName, fy, data);
     const canonical = `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
+    // 県版はどの自治体のページでもないので、「この自治体の負担をまとめて見る →」の文言を
+    // 「市区町村を選ぶ →」に替え、行き先は自治体を選べるトップ（/）のままにする（2026-11-09 S1-1 FG-07）。
+    // テンプレ側の文言は自治体版のために残す（ここでは県版の出力だけを替える）。
     return tmpl
+      .replace(PORTAL_LINK_RE, (a) => a.replace(/>[^<]*<\/a>$/, ">市区町村を選ぶ →</a>"))
       .replaceAll("__CITY_SLUG__",         prefSlug)
       .replaceAll("__CITY_NAME__",         prefName)
       .replaceAll("__META_DESC__",         meta)

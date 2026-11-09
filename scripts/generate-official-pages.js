@@ -1065,6 +1065,41 @@ function provenancePosition(regEntry) {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// この自治体の他の制度（S1-1 FG-01）
+// 国保ページから同じ自治体の住民税・介護・後期・保育料・家計簿（seido-keisan.jp）へ渡る節。
+// 公開済みの制度だけ出す。判定は各生成器と同じ定義（registry の systems か publishYear）:
+//   jumin/kaigo = generate-jumin-pages.js の isJuminPublished / isKaigoPublished、
+//   hoiku = generate-hoiku-pages.js、kouki = generate-system-pages.js、家計簿 = jumin || kaigo。
+// 別サイトへの導線なのでボタン＋「↗」（civic-site-common-rules）。スタイルは他節に依存しないよう inline。
+const isSysPublished = (m, sys) => !!((m?.systems && m.systems.includes(sys)) || (m?.publishYear && m.publishYear[sys]));
+const OTHER_SYSTEMS = [
+  { key: "kakeibo", label: "まとめて試算（家計簿）", desc: "住民税・保険料・手取りをまとめて" },
+  { key: "jumin",   label: "住民税",                 desc: "所得割・均等割の計算" },
+  { key: "kaigo",   label: "介護保険（第1号）",      desc: "65歳以上の介護保険料" },
+  { key: "kouki",   label: "後期高齢者医療",         desc: "75歳以上の保険料" },
+  { key: "hoiku",   label: "保育料",                 desc: "保育所等の保育料" },
+];
+function buildOtherSystems(regEntry, prefSlug, cityName) {
+  if (!regEntry || !prefSlug) return "";
+  const pub = (key) => key === "kakeibo"
+    ? (isSysPublished(regEntry, "jumin") || isSysPublished(regEntry, "kaigo"))
+    : isSysPublished(regEntry, key);
+  const items = OTHER_SYSTEMS.filter((s) => pub(s.key));
+  if (items.length === 0) return "";
+  const btn = "display:inline-block;padding:8px 14px;border-radius:999px;background:#f3f4f6;border:1px solid #d1d5db;color:#1f2937;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;";
+  const li = items.map((s) =>
+    `    <li style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:0 0 8px;"><a href="https://seido-keisan.jp/${prefSlug}/${regEntry.citySlug}/${s.key}/" style="${btn}">${cityName}の${s.label} <span style="font-size:13px;">↗</span></a><span style="font-size:13px;color:#4b5563;">${s.desc}</span></li>`
+  ).join("\n");
+  return `
+  <section class="other-systems" style="margin-top:28px;">
+    <h2 style="font-size:16px;margin:0 0 10px;">${cityName}の他の制度</h2>
+    <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">制度計算（seido-keisan.jp）の${cityName}のページへ移動します。</p>
+    <ul style="list-style:none;padding:0;margin:0;">
+${li}
+    </ul>
+  </section>`;
+}
+
 // render
 // ─────────────────────────────────────────────────────────────────
 
@@ -1104,6 +1139,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__TRUST_BADGE__",        trustBadge)
     .replaceAll("__STANDARD_NOTE__",      standardNote)
     .replaceAll("__PREFECTURE_DESC__",    prefDesc)
+    .replaceAll("__OTHER_SYSTEMS__",      () => buildOtherSystems(regEntry, prefSlug, cityName))
     .replaceAll("__FISCAL_YEAR_LABEL__",  fiscalYearLabel)
     .replaceAll("__PUBLISH_YEAR__",       String(publishYear))
     .replaceAll("__CSS_V__",              CSS_V)

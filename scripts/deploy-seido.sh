@@ -227,6 +227,8 @@ if [ "$DRY_RUN" = false ]; then
 
   # アンブレラ・ランディング → 公開リポの index.html
   cp "$CORE_DIR/seido-index.html"         "$PUBLIC_DIR/index.html"
+  # 独自 404 → 公開リポ直下の 404.html（GitHub Pages が自動で使う・kokuho-keisan と共通の 1 枚・2026-11-09 S1-1 FG-08）
+  cp "$CORE_DIR/404.html"                 "$PUBLIC_DIR/404.html"
 
   # ふるさと納税の控除上限額 かんたん計算（全国1ページ）→ 公開リポの furusato/index.html
   mkdir -p "$PUBLIC_DIR/furusato"
