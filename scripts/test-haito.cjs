@@ -86,5 +86,17 @@ A('課税所得 0・総合: 所得税 0（配当控除で打ち消し・税額 0
   A(`[C167] 課税総所得 3,000,500＋配当 500 → 増分 100 → 実際 ${c.levyAdd}`, c.levyAdd === 100);
 }
 
+// HT-2・HT-5（2026-11-09 S1-2）
+{
+  const e = (inp) => { try { judgeHaito(inp, data, P); return 'no error'; } catch (x) { return x.name; } };
+  const z = judgeHaito({ dividend: 999, shotokuTaxable: 0, juminTaxable: 0 }, data, P).sogo;
+  A(`[HT-2] 課税総所得 0・配当 999 → 総合課税の住民税は 0（旧 −27）→ 実際 ${z.juminTax}`, z.juminTax === 0);
+  const y = judgeHaito({ dividend: 999, shotokuTaxable: 0, juminTaxable: 3000000 }, data, P).sogo;
+  A(`[HT-2] 課税総所得 300万・配当 999 → 配当控除が所得割を減らす −27 は従来どおり → 実際 ${y.juminTax}`, y.juminTax === -27);
+  A('[HT-5] shotokuTaxable Infinity は RangeError', e({ dividend: 100000, shotokuTaxable: Infinity, juminTaxable: 0 }) === 'RangeError');
+  A('[HT-5] juminTaxable "abc" は TypeError', e({ dividend: 100000, shotokuTaxable: 0, juminTaxable: 'abc' }) === 'TypeError');
+  A('[HT-5] dividend null は 0（従来どおり）', judgeHaito({ dividend: null }, data, P).dividend === 0);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

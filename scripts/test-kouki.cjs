@@ -169,6 +169,17 @@ for (const [pref, name, inp, exp, src] of officialCases) {
   ok(r.reductionLabel === '7割軽減', '[C215] 軽減判定所得 null は本人の所得で代用（従来どおり）', r.reductionLabel, '7割軽減');
 }
 
+// 人数の検査（2026-11-09 S1-2 K-01）。旧は "x" で軽減のしきい値が NaN になり、黙って「軽減なし」を返していた
+{
+  const errOf = (input) => { try { calculateKouki(input, tokyo); return 'no error'; } catch (e) { return e.name; } };
+  const base = { totalIncome: 900000, reductionJudgmentIncome: 700000, pensionSalaryEarnerCount: 1 };
+  ok(errOf(Object.assign({}, base, { householdInsuredCount: 'x' })) === 'TypeError', '[K-01] householdInsuredCount "x" は TypeError', errOf(Object.assign({}, base, { householdInsuredCount: 'x' })), 'TypeError');
+  ok(errOf(Object.assign({}, base, { householdInsuredCount: -1 })) === 'RangeError', '[K-01] householdInsuredCount −1 は RangeError', errOf(Object.assign({}, base, { householdInsuredCount: -1 })), 'RangeError');
+  ok(errOf(Object.assign({}, base, { pensionSalaryEarnerCount: 1.5 })) === 'RangeError', '[K-01] pensionSalaryEarnerCount 1.5 は RangeError', errOf(Object.assign({}, base, { pensionSalaryEarnerCount: 1.5 })), 'RangeError');
+  const a = calculateKouki(Object.assign({}, base, { householdInsuredCount: undefined }), tokyo), b = calculateKouki(Object.assign({}, base, { householdInsuredCount: 1 }), tokyo);
+  ok(a.total === b.total, '[K-01] householdInsuredCount 未指定は 1（従来どおり）', a.total, b.total);
+}
+
 console.log(`\n========================================`);
 console.log(`東京公式 ${tokyoCases.length} / 北海道公式 ${hokCases.length} / 兵庫公式 ${hyogoCases.length} / 各県公式 ${officialCases.length} / 84万オラクル全47県`);
 console.log(`84万オラクル 最大差: ${maxDiff}円/月（±10円以内は各広域連合の月額丸め差で正常）`);
