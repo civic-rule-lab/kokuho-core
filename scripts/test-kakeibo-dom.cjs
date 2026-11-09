@@ -19,6 +19,7 @@ const fillMap = {
   '__JSON_LD__': '{}', '__CSS_V__': 'x', '__JS_V__': 'x', '__LINK_JUMIN_BLOCK__': '',
   '__LINK_KOKUHO__': 'https://kokuho-keisan.jp/tokyo/testcity/',
   '__JUMIN_KYUCHI__': '1',
+  '__SOURCE_SECTION__': '',        // 出典節は生成時に描く（scripts/lib/seido-provenance.cjs）。ここでは計算だけを見る
   '__HAS_JUMIN_PAGE__': 'true',   // 1級地（期待値の calculateJumin も級地未指定＝1級地）
 };
 for (const [k, v] of Object.entries(fillMap)) html = html.split(k).join(v);
