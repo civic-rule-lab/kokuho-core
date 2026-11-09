@@ -40,7 +40,7 @@
     "test:top-selector-dom": "node scripts/test-top-selector-dom.cjs",
     "test:integrity": "node scripts/test-integrity.js",
     "check:slug-kana": "node scripts/check-slug-kana.cjs",
-    "test:provenance": "node scripts/test-provenance-visibility.js",
+    "test:provenance": "node scripts/test-provenance-visibility.js && node scripts/test-kokuho-page-sections.cjs",
     "test:provenance-events": "node scripts/test-provenance-events.cjs",
     "test:data-schema": "node scripts/test-data-schema.cjs",
     "generate:data-index": "node scripts/generate-data-index.js",
