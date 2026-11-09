@@ -24,7 +24,10 @@
  *
  * 検査:
  *   E-1 「公式データ確認済み」バッジがあるのに根拠節が無い          → ERROR
- *   E-2 「一次資料照合中」バッジ（◔）なのに根拠節がある            → ERROR（◔ の定義と矛盾）
+ *   E-2 「一次資料照合中」バッジ（◔）なのに根拠節に出典リンクがある → ERROR（◔ の定義と矛盾）
+ *       2026-11-09（S1 3-4）: ◔ のページも根拠節は出す（最終確認日・確認状態を落とさない）。
+ *       ただし出典は「未確認ホストのため直接リンクは省略」と文字で書き、<a> を描かない。
+ *       よって検査は「節が無いこと」から「節にリンクが無いこと」に変えた。
  *   E-3 県ページが ✓（全件確認済み）なのに未確認の自治体がある      → ERROR
  *   E-4 県ページが「参考値」カードなのに確認済みの自治体がある      → ERROR
  *   E-5 県ページが表示している実数がデータと合っていない（再生成漏れ）→ ERROR
@@ -89,12 +92,14 @@ for (const rel of pages) {
   // 部分一致しないよう、◐ のラベルを先に除いてから判定する。
   const isQuarter = html.replace(/一次資料確認済み \/ 一部照合中/g, "").includes(BADGE_QUARTER);
   const isVerified = html.includes(BADGE_VERIFIED);
+  const provSec = (html.match(/<section class="provenance"[\s\S]*?<\/section>/) || [""])[0];
+  const provHasLink = /<a\s[^>]*href=/.test(provSec);
 
   if (isVerified) verifiedCount++;
   if (isVerified && !hasProv) verifiedNoProv.push(rel);
   if (isQuarter) {
     quarter.add(path.dirname(rel));
-    if (hasProv) quarterWithProv.push(rel);
+    if (provHasLink) quarterWithProv.push(rel);
   }
 }
 
@@ -124,12 +129,12 @@ if (verifiedNoProv.length === 0) {
 }
 
 if (quarterWithProv.length === 0) {
-  line(`  ✅ E-2: 「${BADGE_QUARTER}」のページは根拠節を持たない（定義どおり）`);
+  line(`  ✅ E-2: 「${BADGE_QUARTER}」のページの根拠節は出典リンクを持たない（定義どおり）`);
 } else {
   failed++;
-  console.error(`  ❌ E-2: 「${BADGE_QUARTER}」なのに根拠節がある ${quarterWithProv.length} 件`);
+  console.error(`  ❌ E-2: 「${BADGE_QUARTER}」なのに根拠節に出典リンクがある ${quarterWithProv.length} 件`);
   for (const p of quarterWithProv) console.error(`      ${p}`);
-  console.error(`      根拠節を出せるなら ✓ か ◐ が正しい表示です。`);
+  console.error(`      出典リンクを出せるなら ✓ か ◐ が正しい表示です。`);
 }
 
 // ─── E-3〜E-6: 県ページとトップ ───────────────────────────────────

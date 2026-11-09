@@ -277,6 +277,26 @@ for (const m of registry.municipalities) {
 
 // PREF_NAMES の全47県を対象に（registry未登録県は市区町村リスト空）
 const all47 = Object.keys(PREF_NAMES);
+// 同じ県の他制度ページへの導線（S1-1 gaps・2026-11-09）
+// 旧ページは運営者フッターのトップリンクしか無く、県が分かっているのに
+// seido-keisan の県後期ページ・shaho-keisan の県ページへ行けなかった。
+// 別サイトなので ui-rules §4-5 の「説明＋ボタン、末尾に ↗」。テンプレに .cta-* の定義が無いため inline で書く。
+// 行き先 URL は県スラグから組み立てる（kokuho-core の {pref}/kouki/ 47 本と shaho-keisan-site の {pref}/ 47 本と同じスラグ）。
+function buildOtherSystemsPref(prefSlug, prefName) {
+  const btn = "display:inline-block;padding:10px 16px;border-radius:999px;background:var(--acc-bg-2);border:1px solid var(--acc-line-strong);color:var(--acc-strong);text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;";
+  const row = "display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 10px;";
+  const desc = "flex:1 1 220px;font-size:13px;color:#374151;line-height:1.5;";
+  const items = [
+    { desc: `75歳以上の方の保険料（${prefName}後期高齢者医療広域連合）`, label: "後期高齢者医療の計算", href: `https://seido-keisan.jp/${prefSlug}/kouki/` },
+    { desc: `会社員の社会保険料（協会けんぽ ${prefName}支部）`,           label: "社会保険料の計算",     href: `https://shaho-keisan.jp/${prefSlug}/` },
+  ];
+  return `
+  <section class="pref-other-systems" style="margin-top:28px;">
+    <h2>${prefName}の他の制度</h2>
+${items.map((it) => `    <div style="${row}"><span style="${desc}">${it.desc}</span><a href="${it.href}" target="_blank" rel="noopener" style="${btn}">${it.label} <span style="font-size:13px;margin-left:2px;">↗</span></a></div>`).join("\n")}
+  </section>`;
+}
+
 const targetSlugs = targetSlug
   ? (all47.includes(targetSlug) ? [targetSlug] : [])
   : all47;
@@ -315,7 +335,7 @@ for (const prefSlug of targetSlugs) {
     .replaceAll("__CANONICAL_URL__",     `${BASE_URL}/${prefSlug}/`)
     .replaceAll("__JSON_LD__",           buildJsonLd(prefName, prefSlug, metaDesc))
     .replaceAll("__JUMIN_SECTION__",     buildJuminSection(info))
-    .replaceAll("__MUNICIPALITY_LIST__", muniSection)
+    .replaceAll("__MUNICIPALITY_LIST__", () => muniSection + buildOtherSystemsPref(prefSlug, prefName))
     .replaceAll("__FAQ_SECTION__",       buildFaq(prefName, info, designatedNames))
     .replaceAll("__TRUST_BADGE__",       buildTrustBadge(prefName, counts))
     .replaceAll("__CSS_V__",             CSS_V);

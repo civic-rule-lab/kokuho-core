@@ -683,6 +683,142 @@ function buildRateTable(cityName, data, publishYear) {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// 計算のしかた（S1 3-5・ui-rules §4-3）
+// 結果の数字がどう出たかを、その自治体の値を埋め込んで短く示す。
+// 値はすべて data（kokuho-{年度}.json）から取る。手書きの数値を置かない。
+// 式の形は js/core/kokuho.js の calc と同じ順（所得割＋均等割＋平等割 → 軽減 → 限度額）。
+// ─────────────────────────────────────────────────────────────────
+
+// 1万円単位で割り切れる額は「43万円」、そうでなければ「305,000円」と書く（fmtMan の四捨五入で値を変えないため）
+function fmtAmount(n) {
+  const v = Number(n) || 0;
+  return v % 10000 === 0 ? `${v / 10000}万円` : fmtYen(v);
+}
+
+function fmtRatioWari(r) {
+  const v = Number(r) || 0;
+  if (v >= 1) return "全額";
+  return `${Math.round(v * 10)}割`;
+}
+
+function buildCalcMethod(cityName, data, publishYear) {
+  if (!data) return "";
+
+  const rate  = data.rate      ?? {};
+  const pc    = data.perCapita ?? {};
+  const hh    = data.household ?? {};
+  const caps  = data.caps      ?? {};
+  const asset = data.assetLevy ?? null;
+  // 料率表（buildRateTable）と同じ優先順位・同じ既定値を使い、同じページ内で数字をずらさない
+  const childcare = data.childcareLevy ?? data.childcare ?? null;
+  const hasChildcare = !!childcare && ((childcare.rate || 0) + (childcare.perCapita || 0) + (childcare.perCapitaAdult || 0) + (childcare.household || 0)) > 0;
+  const ded = data.basicDeduction;
+
+  const li = [];
+
+  // ① 所得割
+  const incomeRates = [`医療分 ${fmtRate(rate.medical || 0)}`, `後期高齢者支援金分 ${fmtRate(rate.support || 0)}`];
+  if (hasChildcare && childcare.rate) incomeRates.push(`子ども・子育て支援金分 ${fmtRate(childcare.rate)}`);
+  li.push(
+    `<li><b>所得割</b>：（加入者ごとの前年所得 − 基礎控除 ${fmtAmount(ded)}）× 率。率は ${incomeRates.join("・")}` +
+    (rate.care ? `、40〜64歳の方は介護分 ${fmtRate(rate.care)} も加わります` : "") + `。</li>`
+  );
+
+  // ② 均等割
+  const pcParts = [`医療分 ${fmtYen(pc.medical || 0)}`, `後期高齢者支援金分 ${fmtYen(pc.support || 0)}`];
+  if (hasChildcare) {
+    const adultAmt = childcare.perCapitaAdult !== undefined
+      ? (childcare.perCapitaAdultScope === "adults_only" ? (childcare.perCapitaAdult || 0) : (childcare.perCapita || 0) + (childcare.perCapitaAdult || 0))
+      : (childcare.perCapita || 0);
+    if (adultAmt) pcParts.push(`子ども・子育て支援金分 ${fmtYen(adultAmt)}（18歳以上）`);
+  }
+  li.push(
+    `<li><b>均等割</b>：加入者1人あたり ${pcParts.join("・")} × 人数` +
+    (pc.care ? `。40〜64歳の方は1人 ${fmtYen(pc.care)}（介護分）も加わります` : "") + `。</li>`
+  );
+
+  // ③ 平等割（1世帯あたり。無い自治体は書かない）
+  const hhParts = [];
+  if (hh.medical) hhParts.push(`医療分 ${fmtYen(hh.medical)}`);
+  if (hh.support) hhParts.push(`後期高齢者支援金分 ${fmtYen(hh.support)}`);
+  if (hasChildcare && childcare.household) hhParts.push(`子ども・子育て支援金分 ${fmtYen(childcare.household)}`);
+  if (hhParts.length || hh.care) {
+    li.push(
+      `<li><b>平等割</b>：1世帯あたり ${hhParts.join("・") || "—"}` +
+      (hh.care ? `（40〜64歳の方がいる世帯は介護分 ${fmtYen(hh.care)} も）` : "") + `。</li>`
+    );
+  }
+
+  // ④ 資産割（ある自治体だけ）
+  if (asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0) + (asset.childcare || 0)) > 0) {
+    const aParts = [];
+    if (asset.medical)   aParts.push(`医療分 ${fmtRate(asset.medical)}`);
+    if (asset.support)   aParts.push(`後期高齢者支援金分 ${fmtRate(asset.support)}`);
+    if (asset.care)      aParts.push(`介護分 ${fmtRate(asset.care)}`);
+    if (asset.childcare) aParts.push(`子ども・子育て支援金分 ${fmtRate(asset.childcare)}`);
+    li.push(`<li><b>資産割</b>：固定資産税額 × ${aParts.join("・")}。</li>`);
+  }
+
+  // ⑤ 法定軽減（7割・5割・2割）
+  const red = data.reduction ?? {};
+  const st  = red.standards ?? {};
+  const ratios = red.ratios ?? {};
+  const spa = red.salaryPensionAdd || 0;
+  const limitText = (s) => {
+    if (!s) return null;
+    let t = fmtAmount(s.base || 0);
+    if (s.perPersonAdd) t += `＋${fmtAmount(s.perPersonAdd)}×加入者数`;
+    if (spa) t += `＋${fmtAmount(spa)}×（給与・年金の所得がある人数−1）`;
+    return t;
+  };
+  const tiers = [
+    [st.sevenTenths, ratios.sevenTenths],
+    [st.fiveTenths,  ratios.fiveTenths],
+    [st.twoTenths,   ratios.twoTenths],
+  ].filter(([s, r]) => s && r);
+  if (tiers.length) {
+    li.push(
+      `<li><b>法定軽減</b>：世帯の所得の合計が次の額以下なら、均等割と平等割を減らします。` +
+      tiers.map(([s, r]) => `${fmtRatioWari(r)}軽減＝${limitText(s)}`).join("、") + `。</li>`
+    );
+  }
+
+  // ⑥ 未就学児
+  const pre = data.preschoolReduction ?? null;
+  if (pre?.enabled && (pre.medicalPerCapitaRate || pre.supportPerCapitaRate)) {
+    li.push(
+      `<li><b>未就学児</b>：医療分・後期高齢者支援金分の均等割を${fmtRatioWari(pre.medicalPerCapitaRate || pre.supportPerCapitaRate)}軽減します（法定軽減の後の額に対して）。</li>`
+    );
+  }
+
+  // ⑥' 学齢児（自治体独自の軽減。ある自治体だけ）
+  const sch = data.schoolReduction ?? null;
+  if (sch?.enabled && (sch.medicalPerCapitaRate || sch.supportPerCapitaRate)) {
+    li.push(
+      `<li><b>就学児（${escapeHtml(cityName)}独自）</b>：未就学児を除く18歳未満の方の医療分・後期高齢者支援金分の均等割を${fmtRatioWari(sch.medicalPerCapitaRate || sch.supportPerCapitaRate)}軽減します（法定軽減の後の額に対して）。</li>`
+    );
+  }
+
+  // ⑦ 18歳未満の子ども・子育て支援金分
+  if (hasChildcare) {
+    li.push(`<li><b>18歳未満</b>：子ども・子育て支援金分の均等割は全額軽減（0円）です。</li>`);
+  }
+
+  // ⑧ 賦課限度額
+  const capParts = [`医療分 ${fmtMan(caps.medical || 0)}`, `後期高齢者支援金分 ${fmtMan(caps.support || 0)}`, `介護分 ${fmtMan(caps.care || 0)}`];
+  if (hasChildcare) capParts.push(`子ども・子育て支援金分 ${fmtMan(childcare.cap ?? 30000)}`);
+  li.push(`<li><b>賦課限度額</b>：区分ごとに合計し、${capParts.join("・")}を上限とします。年額の合計が保険料です。</li>`);
+
+  return `
+  <section class="calc-method" style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>計算のしかた</h2>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      ${li.join("\n      ")}
+    </ol>
+  </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
 // 来歴（L0）— この数値の根拠を静的HTMLで出す
 //
 // なぜ静的か: AIクローラー・検索クローラーは JS を実行しない。JS で描画した
@@ -973,8 +1109,14 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
   const url = pickPublicSourceUrl(data);
   const title = typeof src.title === "string" ? src.title.trim() : "";
 
-  // 出典が一つも示せないなら節ごと出さない（空リンクは出典が無いことより悪い）
-  if (!url) return "";
+  // 2026-11-09（S1 3-4・FG-03/ID-08）: 許可ホストの出典URLが無くても節は落とさない。
+  // 旧実装はここで return "" しており、例規集ベンダー等のホストを出典にする 14 自治体で
+  // 「最終確認日・確認状態」まで丸ごと消えていた（読者は確かめる手段も、確認状態も得られない）。
+  // 空リンクを出さない原則は保つ: リンクは描かず、出典名と「直接リンクは省略」を文字で書く。
+  // 許可リストにホストを足すかどうかはオーナー判断（ここでは判断しない）。
+  const rawCandidates = [src.url, ...(Array.isArray(lc.sourceUrls) ? lc.sourceUrls : [])]
+    .filter((u) => typeof u === "string" && u.trim());
+  if (!url && !title && rawCandidates.length === 0) return "";
 
   const publishedAt = fmtSourceDate(src.publishedAt);
   const linkText = escapeHtml(title || "公式ページ");
@@ -987,10 +1129,21 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
     : lc.primarySourceVerified === true ? "primary"
     : "pending";
 
-  lines.push(
-    `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
-    (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
-  );
+  if (url) {
+    lines.push(
+      `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
+      (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
+    );
+  } else {
+    // URL はあるが許可ホスト外 → 「未確認ホスト」。URL 自体がデータに無い → 「出典URL未登録」。
+    const why = rawCandidates.length > 0
+      ? "出典ページ（未確認ホストのため直接リンクは省略）"
+      : "出典ページ（URL未登録）";
+    lines.push(
+      `<p style="${pStyle}">出典: ${title ? escapeHtml(title) + " — " : ""}${why}` +
+      (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
+    );
+  }
 
   // 確認状態は data の実態どおりに書き分ける。verified でないものを確認済みに見せない。
   const verifiedAt = fmtSourceDate(lc.verifiedAt);
@@ -1029,7 +1182,7 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
   }
 
   return `
-  <section class="provenance" data-prov-pos="${pos}" data-prov-state="${provState}" style="margin-top:${pos === "below_result" ? 16 : 36}px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+  <section class="provenance" data-prov-pos="${pos}" data-prov-state="${provState}"${url ? "" : ' data-prov-link="omitted"'} style="margin-top:${pos === "below_result" ? 16 : 36}px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
     <h2>この数値の根拠</h2>
     ${lines.join("\n    ")}
   </section>`;
@@ -1085,6 +1238,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     (regEntry && municipalities ? buildNeighborCompareSection(regEntry, data, publishYear, municipalities) : "") +
     faq.html
   );
+  const calcMethod     = buildCalcMethod(cityName, data, publishYear);
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
   const standardNote   = buildStandardNote(data, cityName, prefecture);
@@ -1099,6 +1253,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__JSON_LD__",            jsonLd)
     .replaceAll("__RATE_TABLE__",         rateTable)
     .replaceAll("__PROVENANCE_TOP__",     provenanceTop)
+    .replaceAll("__CALC_METHOD__",        calcMethod)
     .replaceAll("__CALC_EXAMPLES__",      calcExamples)
     .replaceAll("__INTRO_TEXT__",         introText)
     .replaceAll("__TRUST_BADGE__",        trustBadge)
