@@ -1,7 +1,7 @@
 /**
  * アンブレラ・ランディング（seido-keisan.jp トップ）生成
  *
- * registry の jumin 公開自治体（systems に "jumin" を含む）を
+ * registry で jumin・kaigo・hoiku・kouki のいずれかを公開している自治体を
  * 都道府県→市区町村のインデックスにして templates/seido-index.html に注入し、
  * リポジトリ直下に seido-index.html を書き出す。
  * deploy-seido.sh がこれを公開リポの index.html としてコピーする。
@@ -43,8 +43,11 @@ for (const m of sorted) {
     kouki:  has(m, 'kouki'),  // generate-system-pages.js kouki と同じ判定（registry の systems に kouki）
   };
   flags.kakeibo = flags.jumin || flags.kaigo; // 家計簿(統合)は jumin か kaigo が公開なら生成される
-  // インデックス掲載条件は従来どおり（jumin/kaigo/hoiku のいずれか公開）
-  const published = flags.jumin || flags.kaigo || flags.hoiku;
+  // インデックス掲載条件: jumin/kaigo/hoiku/kouki のいずれか公開。
+  // kouki を含めるのは、後期だけ公開の自治体（tomari-kunashir・taiji・okawamura）も
+  // 配信済みの後期ページ /{pref}/{slug}/kouki/ へトップから行けるようにするため（S1-1 FG-06）。
+  // 未公開制度は sys フラグでテンプレ側が選択不可にし、最初の有効な制度へ退避する。
+  const published = flags.jumin || flags.kaigo || flags.hoiku || flags.kouki;
   if (!published) continue;
   const prefName = m.prefecture;
   if (!index[prefName]) index[prefName] = { slug: m.prefectureSlug, cities: [] };

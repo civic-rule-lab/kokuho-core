@@ -433,11 +433,16 @@ function loadCityData(citySlug, publishYear = 2025) {
   return null;
 }
 
-// 会計年度（4月始まり）を返す
-function getFiscalYear(date = new Date()) {
-  const m = date.getMonth() + 1;
-  return m >= 4 ? date.getFullYear() : date.getFullYear() - 1;
-}
+// 現行年度＝registry の publishYear.kokuho の最大値（S1-1 OPS-5・2026-11-09）。
+// 旧実装は生成時の日付から会計年度を出していた（getFiscalYear）ため、データが同じでも 4 月 1 日を境に
+// 出力（バッジ）が変わり、deploy.sh の「生成後に追跡ファイルの未コミット変更なし」要件と衝突した。
+// 生成結果は入力データだけで決まるようにする。年度を進めるときは registry の publishYear を上げる。
+const CURRENT_PUBLISH_YEAR = (() => {
+  const ys = JSON.parse(readFileSync(REGISTRY, "utf-8")).municipalities
+    .map((m) => m.publishYear?.kokuho).filter(Number.isInteger);
+  if (ys.length === 0) throw new Error("registry に publishYear.kokuho が 1 件もありません");
+  return Math.max(...ys);
+})();
 
 // fiscalYear → 表示文字列（例: 2026 → "令和8年度（2026年度）"）
 function fmtFY(fy) {
@@ -456,7 +461,7 @@ function pickPublicSourceUrl(data) {
 
 // 結果直下の免責＋確認済みバッジ（コンパクト版）
 function buildTrustBadge(data, publishYear) {
-  const currentFY = getFiscalYear();
+  const currentFY = CURRENT_PUBLISH_YEAR;
   const disclaimer = `<span class="result-note__text">実際の保険料は各自治体の窓口でご確認ください。</span>`;
 
   if (!data) {
@@ -679,6 +684,142 @@ function buildRateTable(cityName, data, publishYear) {
         </tbody>
       </table>
     </div>
+  </section>`;
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 計算のしかた（S1 3-5・ui-rules §4-3）
+// 結果の数字がどう出たかを、その自治体の値を埋め込んで短く示す。
+// 値はすべて data（kokuho-{年度}.json）から取る。手書きの数値を置かない。
+// 式の形は js/core/kokuho.js の calc と同じ順（所得割＋均等割＋平等割 → 軽減 → 限度額）。
+// ─────────────────────────────────────────────────────────────────
+
+// 1万円単位で割り切れる額は「43万円」、そうでなければ「305,000円」と書く（fmtMan の四捨五入で値を変えないため）
+function fmtAmount(n) {
+  const v = Number(n) || 0;
+  return v % 10000 === 0 ? `${v / 10000}万円` : fmtYen(v);
+}
+
+function fmtRatioWari(r) {
+  const v = Number(r) || 0;
+  if (v >= 1) return "全額";
+  return `${Math.round(v * 10)}割`;
+}
+
+function buildCalcMethod(cityName, data, publishYear) {
+  if (!data) return "";
+
+  const rate  = data.rate      ?? {};
+  const pc    = data.perCapita ?? {};
+  const hh    = data.household ?? {};
+  const caps  = data.caps      ?? {};
+  const asset = data.assetLevy ?? null;
+  // 料率表（buildRateTable）と同じ優先順位・同じ既定値を使い、同じページ内で数字をずらさない
+  const childcare = data.childcareLevy ?? data.childcare ?? null;
+  const hasChildcare = !!childcare && ((childcare.rate || 0) + (childcare.perCapita || 0) + (childcare.perCapitaAdult || 0) + (childcare.household || 0)) > 0;
+  const ded = data.basicDeduction;
+
+  const li = [];
+
+  // ① 所得割
+  const incomeRates = [`医療分 ${fmtRate(rate.medical || 0)}`, `後期高齢者支援金分 ${fmtRate(rate.support || 0)}`];
+  if (hasChildcare && childcare.rate) incomeRates.push(`子ども・子育て支援金分 ${fmtRate(childcare.rate)}`);
+  li.push(
+    `<li><b>所得割</b>：（加入者ごとの前年所得 − 基礎控除 ${fmtAmount(ded)}）× 率。率は ${incomeRates.join("・")}` +
+    (rate.care ? `、40〜64歳の方は介護分 ${fmtRate(rate.care)} も加わります` : "") + `。</li>`
+  );
+
+  // ② 均等割
+  const pcParts = [`医療分 ${fmtYen(pc.medical || 0)}`, `後期高齢者支援金分 ${fmtYen(pc.support || 0)}`];
+  if (hasChildcare) {
+    const adultAmt = childcare.perCapitaAdult !== undefined
+      ? (childcare.perCapitaAdultScope === "adults_only" ? (childcare.perCapitaAdult || 0) : (childcare.perCapita || 0) + (childcare.perCapitaAdult || 0))
+      : (childcare.perCapita || 0);
+    if (adultAmt) pcParts.push(`子ども・子育て支援金分 ${fmtYen(adultAmt)}（18歳以上）`);
+  }
+  li.push(
+    `<li><b>均等割</b>：加入者1人あたり ${pcParts.join("・")} × 人数` +
+    (pc.care ? `。40〜64歳の方は1人 ${fmtYen(pc.care)}（介護分）も加わります` : "") + `。</li>`
+  );
+
+  // ③ 平等割（1世帯あたり。無い自治体は書かない）
+  const hhParts = [];
+  if (hh.medical) hhParts.push(`医療分 ${fmtYen(hh.medical)}`);
+  if (hh.support) hhParts.push(`後期高齢者支援金分 ${fmtYen(hh.support)}`);
+  if (hasChildcare && childcare.household) hhParts.push(`子ども・子育て支援金分 ${fmtYen(childcare.household)}`);
+  if (hhParts.length || hh.care) {
+    li.push(
+      `<li><b>平等割</b>：1世帯あたり ${hhParts.join("・") || "—"}` +
+      (hh.care ? `（40〜64歳の方がいる世帯は介護分 ${fmtYen(hh.care)} も）` : "") + `。</li>`
+    );
+  }
+
+  // ④ 資産割（ある自治体だけ）
+  if (asset && ((asset.medical || 0) + (asset.support || 0) + (asset.care || 0) + (asset.childcare || 0)) > 0) {
+    const aParts = [];
+    if (asset.medical)   aParts.push(`医療分 ${fmtRate(asset.medical)}`);
+    if (asset.support)   aParts.push(`後期高齢者支援金分 ${fmtRate(asset.support)}`);
+    if (asset.care)      aParts.push(`介護分 ${fmtRate(asset.care)}`);
+    if (asset.childcare) aParts.push(`子ども・子育て支援金分 ${fmtRate(asset.childcare)}`);
+    li.push(`<li><b>資産割</b>：固定資産税額 × ${aParts.join("・")}。</li>`);
+  }
+
+  // ⑤ 法定軽減（7割・5割・2割）
+  const red = data.reduction ?? {};
+  const st  = red.standards ?? {};
+  const ratios = red.ratios ?? {};
+  const spa = red.salaryPensionAdd || 0;
+  const limitText = (s) => {
+    if (!s) return null;
+    let t = fmtAmount(s.base || 0);
+    if (s.perPersonAdd) t += `＋${fmtAmount(s.perPersonAdd)}×加入者数`;
+    if (spa) t += `＋${fmtAmount(spa)}×（給与・年金の所得がある人数−1）`;
+    return t;
+  };
+  const tiers = [
+    [st.sevenTenths, ratios.sevenTenths],
+    [st.fiveTenths,  ratios.fiveTenths],
+    [st.twoTenths,   ratios.twoTenths],
+  ].filter(([s, r]) => s && r);
+  if (tiers.length) {
+    li.push(
+      `<li><b>法定軽減</b>：世帯の所得の合計が次の額以下なら、均等割と平等割を減らします。` +
+      tiers.map(([s, r]) => `${fmtRatioWari(r)}軽減＝${limitText(s)}`).join("、") + `。</li>`
+    );
+  }
+
+  // ⑥ 未就学児
+  const pre = data.preschoolReduction ?? null;
+  if (pre?.enabled && (pre.medicalPerCapitaRate || pre.supportPerCapitaRate)) {
+    li.push(
+      `<li><b>未就学児</b>：医療分・後期高齢者支援金分の均等割を${fmtRatioWari(pre.medicalPerCapitaRate || pre.supportPerCapitaRate)}軽減します（法定軽減の後の額に対して）。</li>`
+    );
+  }
+
+  // ⑥' 学齢児（自治体独自の軽減。ある自治体だけ）
+  const sch = data.schoolReduction ?? null;
+  if (sch?.enabled && (sch.medicalPerCapitaRate || sch.supportPerCapitaRate)) {
+    li.push(
+      `<li><b>就学児（${escapeHtml(cityName)}独自）</b>：未就学児を除く18歳未満の方の医療分・後期高齢者支援金分の均等割を${fmtRatioWari(sch.medicalPerCapitaRate || sch.supportPerCapitaRate)}軽減します（法定軽減の後の額に対して）。</li>`
+    );
+  }
+
+  // ⑦ 18歳未満の子ども・子育て支援金分
+  if (hasChildcare) {
+    li.push(`<li><b>18歳未満</b>：子ども・子育て支援金分の均等割は全額軽減（0円）です。</li>`);
+  }
+
+  // ⑧ 賦課限度額
+  const capParts = [`医療分 ${fmtMan(caps.medical || 0)}`, `後期高齢者支援金分 ${fmtMan(caps.support || 0)}`, `介護分 ${fmtMan(caps.care || 0)}`];
+  if (hasChildcare) capParts.push(`子ども・子育て支援金分 ${fmtMan(childcare.cap ?? 30000)}`);
+  li.push(`<li><b>賦課限度額</b>：区分ごとに合計し、${capParts.join("・")}を上限とします。年額の合計が保険料です。</li>`);
+
+  return `
+  <section class="calc-method" style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2>計算のしかた</h2>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      ${li.join("\n      ")}
+    </ol>
   </section>`;
 }
 
@@ -919,6 +1060,66 @@ const PROVENANCE_HOST_EXTRA = new Set([
   //   トップページ（title「中島村公式ホームページ」）で 〒961-0192 福島県西白河郡中島村大字滑津字中島西11番地の1（税務課ページの所在地と一致）を確認。
   //   whois 登録者名「中島村」（Nakajima Village）、NS は gmoregistry.net、www は stech-gisc.jp（CMS ベンダー）への CNAME。乗っ取りを示す語句なし。
   "www.vill-nakajima.jp",        // 中島村（福島県）
+  // 2026-11-09 追加（オーナー承認「足してから PR」）: 後期高齢者医療・介護保険の広域連合と広域市町村圏組合（地方自治法上の特別地方公共団体）の公式ドメイン。
+  //   S1 第2期で後期・介護ページに出典節を描くようにしたところ、下記が許可リスト外で「出典ページ未確認」表示になった。
+  //   各トップページを 2026-11-09 に実取得し、題名・団体名・所在地（〒）・著作権表示・法人番号（掲載があるもの）を確認。
+  "www.koukikourei-nagano.jp",   // 長野県後期高齢者医療広域連合 — 〒380-0935
+  "www.tokyo-ikiiki.net",        // 東京都後期高齢者医療広域連合 — 〒102-0072・法人番号 4000020138584
+  "www.saitama-koukikourei.org", // 埼玉県後期高齢者医療広域連合 — © 埼玉県後期高齢者医療広域連合
+  "www.kouiki-chiba.jp",         // 千葉県後期高齢者医療広域連合 — 〒263-0016・Copyright 千葉県後期高齢者医療広域連合
+  "www.kouikirengo-osaka.jp",    // 大阪府後期高齢者医療広域連合 — 〒540-0028・Copyright 大阪府後期高齢者医療広域連合
+  "www.fukuoka-kouki.jp",        // 福岡県後期高齢者医療広域連合 — 〒812-0044・電話 092-651-3111
+  "kouiki-kyoto.jp",             // 京都府後期高齢者医療広域連合 — 〒600-8411
+  "www.aichi-kouiki.jp",         // 愛知県後期高齢者医療広域連合 — 〒461-0001・電話 0570-011-558
+  "iryokouiki-hokkaido.jp",      // 北海道後期高齢者医療広域連合 — 〒060-0062
+  "www.kouiki-okinawa.com",      // 沖縄県後期高齢者医療広域連合 — 〒904-1192・© 沖縄県後期高齢者医療広域連合
+  "www.niigata-kouiki.jp",       // 新潟県後期高齢者医療広域連合 — 〒950-0965・電話 025-285-3221
+  "www.miyazaki-kourei-kouiki.jp", // 宮崎県後期高齢者医療広域連合 — 〒880-0805
+  "www.fukuoka-kaigo.jp",        // 福岡県介護保険広域連合 — 〒812-0044
+  "www.okinawa-kouiki.jp",       // 沖縄県介護保険広域連合 — 〒904-0398・電話 098-911-7530
+  "www.east-mikawa.jp",          // 東三河広域連合（介護保険者） — 〒440-0806・法人番号 7000020239330・電話 0532-35-6000
+  "www.chitahokubu.or.jp",       // 知多北部広域連合（介護保険者） — 〒476-0003
+  "www.shiribeshi-kouiki.jp",    // 後志広域連合（介護保険者） — 〒044-8588・法人番号 8000020018155
+  "www.kisoji.com",              // 木曽広域連合（介護保険者） — 〒399-6101
+  "www.kita-alps.omachi.nagano.jp", // 北アルプス広域連合（介護保険者） — 大町市ドメイン配下・団体名を確認
+  "www.osato-k.jp",              // 大里広域市町村圏組合（介護保険者） — 〒360-0033・電話 048-501-1333
+  // 2026-11-09 追加（同上・第 2 群）: 都道府県の後期高齢者医療広域連合と介護の広域連合。各トップページを実取得し題名・団体名・所在地を確認。
+  "www.fukushima-kouiki.jp",     // 福島県後期高齢者医療広域連合 — 〒960-8043
+  "www.kumamoto-kouikirengo.jp", // 熊本県後期高齢者医療広域連合 — 〒862-0911
+  "www.kouiki-ibaraki.jp",       // 茨城県後期高齢者医療広域連合 — 題名で確認（所在地の自動抽出は不可）
+  "www.kagoshima-kouiki.jp",     // 鹿児島県後期高齢者医療広域連合 — 〒890-0064
+  "www.kouiki-hyogo.jp",         // 兵庫県後期高齢者医療広域連合 — 〒650-0021
+  "www.aomori-kouikirengou.jp",  // 青森県後期高齢者医療広域連合 — 〒030-0801・法人番号 5000020028801
+  "ssl.nara-kouiki.jp",          // 奈良県後期高齢者医療広域連合 — 〒634-0061
+  "www.yamagata-kouiki.jp",      // 山形県後期高齢者医療広域連合 — 〒991-0041
+  "www.shizuoka-ki.jp",          // 静岡県後期高齢者医療広域連合 — 〒420-0851
+  "www.gunma-kouiki.jp",         // 群馬県後期高齢者医療広域連合 — 〒371-0854
+  "www.kochi-kouiki.or.jp",      // 高知県後期高齢者医療広域連合 — 〒780-0850
+  "iwate-kouiki.jp",             // 岩手県後期高齢者医療広域連合 — 題名で確認
+  "kouiki-wakayama.jp",          // 和歌山県後期高齢者医療広域連合 — 〒640-8137
+  "mie-kouiki.jp",               // 三重県後期高齢者医療広域連合 — 〒514-0003
+  "www.yamanashi-iryoukouiki.jp", // 山梨県後期高齢者医療広域連合 — 〒400-8587
+  "www.kouikirengo-tochigi.jp",  // 栃木県後期高齢者医療広域連合 — 題名で確認
+  "akita-kouiki.jp",             // 秋田県後期高齢者医療広域連合 — 〒010-0951
+  "www.koukikourei-tokushima.jp", // 徳島県後期高齢者医療広域連合 — 〒771-0135
+  "www.kouiki-hiroshima.jp",     // 広島県後期高齢者医療広域連合 — 〒730-8626
+  "www.nagasaki-kouiki.net",     // 長崎県後期高齢者医療広域連合 — 〒850-0875
+  "www.ehime-kouiki.jp",         // 愛媛県後期高齢者医療広域連合 — 〒799-2430
+  "yamaguchi-kouiki.jp",         // 山口県後期高齢者医療広域連合 — 〒753-0072・法人番号 4000020358703
+  "www.shimane-kouiki.jp",       // 島根県後期高齢者医療広域連合 — 〒690-0887
+  "www.shigakouiki.jp",          // 滋賀県後期高齢者医療広域連合 — 題名で確認
+  "www.ishikawa-kouiki.jp",      // 石川県後期高齢者医療広域連合 — 〒920-0968
+  "koureikouiki-tottori.jp",     // 鳥取県後期高齢者医療広域連合 — 題名で確認
+  "oita-kouiki.jp",              // 大分県後期高齢者医療広域連合 — 〒870-0037・本文の「広域連合」表記で確認（題名は取得できず）
+  "www.fukui-kouiki.or.jp",      // 福井県後期高齢者医療広域連合 — 〒910-0843
+  "kagawa-kouiki.jp",            // 香川県後期高齢者医療広域連合 — 〒760-0066
+  "www.toyama-iryou.jp",         // 富山県後期高齢者医療広域連合 — 〒939-2798
+  "www.chugei-kouiki.jp",        // 中芸広域連合（介護保険者） — 〒781-6425
+  "www.kuji-kouiki.jp",          // 久慈広域連合（介護保険者） — 〒028-0056
+  "www.chubu.saga.saga.jp",      // 佐賀中部広域連合（介護保険者） — 題名で確認（メンテナンス中の表示）
+  // 保留（今回は追加しない）: www.saga-kouiki.jp（取得時「メンテナンス中」で団体名を確認できず。佐賀県後期高齢者医療広域連合と推定・60 ページ）
+  // 保留（今回は追加しない）: www.urugi.jp（売木村の独自ドメイン。自治体ドメインは §E-2 のオーナー目視が要る）、
+  //   shinagawa.kaigoweb.jp（品川区の介護情報サイト。運営主体がベンダーか区か未確認）
 ]);
 
 // 判定できなかったホストは黙って捨てず、生成ログに出して棚卸し対象にする。
@@ -973,8 +1174,14 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
   const url = pickPublicSourceUrl(data);
   const title = typeof src.title === "string" ? src.title.trim() : "";
 
-  // 出典が一つも示せないなら節ごと出さない（空リンクは出典が無いことより悪い）
-  if (!url) return "";
+  // 2026-11-09（S1 3-4・FG-03/ID-08）: 許可ホストの出典URLが無くても節は落とさない。
+  // 旧実装はここで return "" しており、例規集ベンダー等のホストを出典にする 14 自治体で
+  // 「最終確認日・確認状態」まで丸ごと消えていた（読者は確かめる手段も、確認状態も得られない）。
+  // 空リンクを出さない原則は保つ: リンクは描かず、出典名と「直接リンクは省略」を文字で書く。
+  // 許可リストにホストを足すかどうかはオーナー判断（ここでは判断しない）。
+  const rawCandidates = [src.url, ...(Array.isArray(lc.sourceUrls) ? lc.sourceUrls : [])]
+    .filter((u) => typeof u === "string" && u.trim());
+  if (!url && !title && rawCandidates.length === 0) return "";
 
   const publishedAt = fmtSourceDate(src.publishedAt);
   const linkText = escapeHtml(title || "公式ページ");
@@ -987,10 +1194,21 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
     : lc.primarySourceVerified === true ? "primary"
     : "pending";
 
-  lines.push(
-    `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
-    (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
-  );
+  if (url) {
+    lines.push(
+      `<p style="${pStyle}">出典: <a href="${escapeHtml(url)}" target="_blank" rel="noopener">${linkText} ↗</a>` +
+      (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
+    );
+  } else {
+    // URL はあるが許可ホスト外 → 「未確認ホスト」。URL 自体がデータに無い → 「出典URL未登録」。
+    const why = rawCandidates.length > 0
+      ? "出典ページ（未確認ホストのため直接リンクは省略）"
+      : "出典ページ（URL未登録）";
+    lines.push(
+      `<p style="${pStyle}">出典: ${title ? escapeHtml(title) + " — " : ""}${why}` +
+      (publishedAt ? `（公表: ${publishedAt}）` : "") + `</p>`
+    );
+  }
 
   // 確認状態は data の実態どおりに書き分ける。verified でないものを確認済みに見せない。
   const verifiedAt = fmtSourceDate(lc.verifiedAt);
@@ -1029,7 +1247,7 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
   }
 
   return `
-  <section class="provenance" data-prov-pos="${pos}" data-prov-state="${provState}" style="margin-top:${pos === "below_result" ? 16 : 36}px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+  <section class="provenance" data-prov-pos="${pos}" data-prov-state="${provState}"${url ? "" : ' data-prov-link="omitted"'} style="margin-top:${pos === "below_result" ? 16 : 36}px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
     <h2>この数値の根拠</h2>
     ${lines.join("\n    ")}
   </section>`;
@@ -1065,6 +1283,41 @@ function provenancePosition(regEntry) {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// この自治体の他の制度（S1-1 FG-01）
+// 国保ページから同じ自治体の住民税・介護・後期・保育料・家計簿（seido-keisan.jp）へ渡る節。
+// 公開済みの制度だけ出す。判定は各生成器と同じ定義（registry の systems か publishYear）:
+//   jumin/kaigo = generate-jumin-pages.js の isJuminPublished / isKaigoPublished、
+//   hoiku = generate-hoiku-pages.js、kouki = generate-system-pages.js、家計簿 = jumin || kaigo。
+// 別サイトへの導線なのでボタン＋「↗」（civic-site-common-rules）。スタイルは他節に依存しないよう inline。
+const isSysPublished = (m, sys) => !!((m?.systems && m.systems.includes(sys)) || (m?.publishYear && m.publishYear[sys]));
+const OTHER_SYSTEMS = [
+  { key: "kakeibo", label: "まとめて試算（家計簿）", desc: "住民税・保険料・手取りをまとめて" },
+  { key: "jumin",   label: "住民税",                 desc: "所得割・均等割の計算" },
+  { key: "kaigo",   label: "介護保険（第1号）",      desc: "65歳以上の介護保険料" },
+  { key: "kouki",   label: "後期高齢者医療",         desc: "75歳以上の保険料" },
+  { key: "hoiku",   label: "保育料",                 desc: "保育所等の保育料" },
+];
+function buildOtherSystems(regEntry, prefSlug, cityName) {
+  if (!regEntry || !prefSlug) return "";
+  const pub = (key) => key === "kakeibo"
+    ? (isSysPublished(regEntry, "jumin") || isSysPublished(regEntry, "kaigo"))
+    : isSysPublished(regEntry, key);
+  const items = OTHER_SYSTEMS.filter((s) => pub(s.key));
+  if (items.length === 0) return "";
+  const btn = "display:inline-block;padding:8px 14px;border-radius:999px;background:#f3f4f6;border:1px solid #d1d5db;color:#1f2937;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;";
+  const li = items.map((s) =>
+    `    <li style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:0 0 8px;"><a href="https://seido-keisan.jp/${prefSlug}/${regEntry.citySlug}/${s.key}/" style="${btn}">${cityName}の${s.label} <span style="font-size:13px;">↗</span></a><span style="font-size:13px;color:#4b5563;">${s.desc}</span></li>`
+  ).join("\n");
+  return `
+  <section class="other-systems" style="margin-top:28px;">
+    <h2 style="font-size:16px;margin:0 0 10px;">${cityName}の他の制度</h2>
+    <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">制度計算（seido-keisan.jp）の${cityName}のページへ移動します。</p>
+    <ul style="list-style:none;padding:0;margin:0;">
+${li}
+    </ul>
+  </section>`;
+}
+
 // render
 // ─────────────────────────────────────────────────────────────────
 
@@ -1085,6 +1338,7 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     (regEntry && municipalities ? buildNeighborCompareSection(regEntry, data, publishYear, municipalities) : "") +
     faq.html
   );
+  const calcMethod     = buildCalcMethod(cityName, data, publishYear);
   const introText      = buildIntroText(cityName, prefecture, data, isIncome, publishYear);
   const trustBadge     = buildTrustBadge(data, publishYear);
   const standardNote   = buildStandardNote(data, cityName, prefecture);
@@ -1099,11 +1353,13 @@ function render(template, { citySlug, cityName, prefecture, prefSlug, data, isIn
     .replaceAll("__JSON_LD__",            jsonLd)
     .replaceAll("__RATE_TABLE__",         rateTable)
     .replaceAll("__PROVENANCE_TOP__",     provenanceTop)
+    .replaceAll("__CALC_METHOD__",        calcMethod)
     .replaceAll("__CALC_EXAMPLES__",      calcExamples)
     .replaceAll("__INTRO_TEXT__",         introText)
     .replaceAll("__TRUST_BADGE__",        trustBadge)
     .replaceAll("__STANDARD_NOTE__",      standardNote)
     .replaceAll("__PREFECTURE_DESC__",    prefDesc)
+    .replaceAll("__OTHER_SYSTEMS__",      () => buildOtherSystems(regEntry, prefSlug, cityName))
     .replaceAll("__FISCAL_YEAR_LABEL__",  fiscalYearLabel)
     .replaceAll("__PUBLISH_YEAR__",       String(publishYear))
     .replaceAll("__CSS_V__",              CSS_V)

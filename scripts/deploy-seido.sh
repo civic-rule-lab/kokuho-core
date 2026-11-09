@@ -91,7 +91,7 @@ if echo "$HOIKU_VALIDATE" | grep -qE "❌|NG|失敗"; then
     echo "❌ 保育料バリデーションエラー。デプロイを中断します。"; exit 1; fi
 fi
 node "$CORE_DIR/scripts/test-hoiku-verify.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 公式表照合 失敗"; exit 1; fi; }
-JUMIN_PATH="$CORE_DIR/js/core/jumin.js" node "$CORE_DIR/scripts/test-hoiku-wiring.cjs" >/dev/null 2>&1 || true
+JUMIN_PATH="$CORE_DIR/js/core/jumin.js" node "$CORE_DIR/scripts/test-hoiku-wiring.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 結線テスト（test-hoiku-wiring）失敗"; exit 1; fi; }
 node "$CORE_DIR/scripts/test-hoiku-selftest.cjs" >/dev/null 2>&1 || { if [ "$DRY_RUN" = false ]; then echo "❌ 保育料 自己テスト 失敗"; exit 1; fi; }
 echo "✅ 保育料バリデーション通過"
 echo ""
@@ -227,6 +227,8 @@ if [ "$DRY_RUN" = false ]; then
 
   # アンブレラ・ランディング → 公開リポの index.html
   cp "$CORE_DIR/seido-index.html"         "$PUBLIC_DIR/index.html"
+  # 独自 404 → 公開リポ直下の 404.html（GitHub Pages が自動で使う・kokuho-keisan と共通の 1 枚・2026-11-09 S1-1 FG-08）
+  cp "$CORE_DIR/404.html"                 "$PUBLIC_DIR/404.html"
 
   # ふるさと納税の控除上限額 かんたん計算（全国1ページ）→ 公開リポの furusato/index.html
   mkdir -p "$PUBLIC_DIR/furusato"

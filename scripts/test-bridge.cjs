@@ -193,5 +193,14 @@ check('[C182] 障害者 給与200万（所得132万）→ 所得割非課税', s
 const k13 = calcFromIncome(spec, null, { supportersIncome: [{ salary: 1000000 }], student: { level: '高専1-3年', schoolType: '国公立', attendance: '自宅' }, childrenCount: 1 });
 check('[C186] 高専本科1〜3年 → 対象外・給付0', [k13.kubunCode, k13.grantMonthly, k13.notEligible], [null, 0, 'kosen13']);
 
+// 貸与 F4（2026-11-09 S1-2）: 給与の文字列・NaN・負は 0 扱いにせず例外
+{
+  const thr = (f) => { try { f(); return null; } catch (e) { return e.name; } };
+  check('[貸与F4] salary "5000000" → TypeError', thr(() => supporterFromIncome(null, { salary: '5000000' })), 'TypeError');
+  check('[貸与F4] salary NaN → RangeError', thr(() => supporterFromIncome(null, { salary: NaN })), 'RangeError');
+  check('[貸与F4] salary −100万 → RangeError', thr(() => supporterFromIncome(null, { salary: -1000000 })), 'RangeError');
+  check('[貸与F4] otherIncome −30万（事業の損失）は受け付ける', thr(() => supporterFromIncome(null, { salary: 3000000, otherIncome: -300000 })), null);
+}
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -249,5 +249,13 @@ eq('所得税率: 課税所得 0 → 0', furusatoMarginalShotokuRate(0, taxTable
      calcFurusatoLimit({ incomeLevy: 300000, taxableIncome: 3000000, humanDeductionDiff: 0, shotokuBasicDeduction: 0 }, data).limit);
 }
 
+// ふるさと F-1（2026-11-09 S1-2）: 区分と整合しない所得税率でも自己負担は負にしない（控除合計 ≤ 寄附額）
+{
+  const r = calcFurusatoBreakdown(58186, { incomeLevy: 238500, ratio: { percent: 84.895, units: 84895, band: 0 }, shotokuMarginalRate: 0.1, totalIncome: 3560000 }, data);
+  eq('[F-1] 不整合な率（区分0に10%）で自己負担 ≥ 0（旧 −867）', r.selfBurden >= 0 && r.totalDeduction <= r.donation, true);
+  const g = calcFurusatoBreakdown(58186, { incomeLevy: 238500, ratio: { percent: 84.895, units: 84895, band: 0 }, shotokuMarginalRate: 0.05, totalIncome: 3560000, shotokuTaxable: 3000000 }, data);
+  eq('[F-1] 整合した率（5%）は従来どおり自己負担 2,001', g.selfBurden, 2001);
+}
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

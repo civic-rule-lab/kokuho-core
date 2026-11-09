@@ -202,5 +202,13 @@ check('[C191] 第二種 利率0% → 総返還額＝元本・最終回で端数'
 // C196: 負の利率は0として扱う
 check('[C196] 第二種 利率 −1% → 0% と同じ', LOAN.simulateType2(spec, 2400000, -0.01).monthly, z.monthly);
 
+// 貸与 F1・F3（2026-11-09 S1-2）
+check('[貸与F1] 学校種「通信」→ RangeError（大学の表に落とさない）', thr(() => LOAN.calcLoanEligibility(spec, { supporters: [{ taxableIncome: 1000000 }], student: { level: '通信', schoolType: '私立', attendance: '自宅' }, childrenCount: 1 })), 'RangeError');
+check('[貸与F1] 学校種「大学院」→ RangeError', thr(() => LOAN.calcLoanEligibility(spec, { supporters: [{ taxableIncome: 1000000 }], student: { level: '大学院', schoolType: '国公立', attendance: '自宅' }, childrenCount: 1 })), 'RangeError');
+check('[貸与F3] 定額返還 総額 NaN → TypeError', thr(() => LOAN.simulateTeigaku(spec, NaN)), 'TypeError');
+check('[貸与F3] 併用返還 総額 Infinity → TypeError', thr(() => LOAN.simulateHeiyoHenkan(spec, Infinity)), 'TypeError');
+check('[貸与F3] 第二種 総額 NaN → TypeError', thr(() => LOAN.simulateType2(spec, NaN, 0.01)), 'TypeError');
+check('[貸与F3] 定額返還 総額 null → 0（NaN なし）', LOAN.simulateTeigaku(spec, null).monthly, 0);
+
 console.log(`\n${pass} passed / ${fail} failed`);
 process.exit(fail ? 1 : 0);

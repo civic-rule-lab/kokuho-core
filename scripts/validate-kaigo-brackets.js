@@ -14,6 +14,13 @@
  *       → selfTaxable=true 層、の順に並ぶ（層が前後しない）
  *   [F] fallbackLevel が brackets 内に存在
  * baseAmount=null（needs_update）でも構造は検査できる（額系は annual 有無で判定）。
+ *
+ * needs_update の扱い（2026-11-09・S1-2 介護 K-1）: エンジン calculateKaigo は C110（2026-10-31）以降、
+ *   status='needs_update' のデータには null を返す（段階表が未確認の仮データで額を出さない）。
+ *   本検査器は C110 前の「needs_update でも額を返す」前提で [R] を回していたため、needs_update の
+ *   自治体が 1 件でもあると全段階「計算 null」で exit=1 になっていた。
+ *   現在は needs_update について ①エンジンが null を返すこと（契約）を確かめ、②[R] は status だけを
+ *   外した写しで回して段階表の構造を検査する。データは変えない。
  */
 import { readFileSync, existsSync, readdirSync } from "fs";
 import path from "path";
@@ -61,8 +68,15 @@ function check(slug, data) {
   const bs = data.brackets;
 
   // [R] 到達可能性 / shadowing
+  //   needs_update はエンジンが null を返す仕様（C110）。契約を確かめたうえで、構造検査は status を外した写しで行う
+  let engineData = data;
+  if (data.status === "needs_update") {
+    const r0 = calculateKaigo(data, repCtx(bs[0].criteria));
+    if (r0 !== null) issues.push(`needs_update なのにエンジンが額を返した（C110 の契約違反）`);
+    engineData = { ...data, status: "structure-check" };
+  }
   for (const b of bs) {
-    const r = calculateKaigo(data, repCtx(b.criteria));
+    const r = calculateKaigo(engineData, repCtx(b.criteria));
     if (!r) { issues.push(`第${b.level}: 計算 null`); continue; }
     if (String(r.level) !== String(b.level))
       issues.push(`第${b.level}: 代表ctxが第${r.level}にmatch（順序/shadowing疑い）`);

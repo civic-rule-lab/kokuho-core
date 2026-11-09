@@ -7,7 +7,8 @@
  * 実行: node scripts/generate-sitemap.js
  */
 
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
+import matter from "gray-matter";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -81,6 +82,19 @@ for (const m of registry.municipalities) {
   const base = `${BASE_URL}/${prefSlug}/${m.citySlug}/`;
   urls.push({ loc: `${base}income.html`,  priority: "0.8", changefreq: "yearly" });
   urls.push({ loc: base,                  priority: "0.5", changefreq: "yearly" });
+}
+
+// 記事ページ（articles/*.md → /{slug}/。canonical は自分自身）。S1-1 S1A-03・S-9（2026-11-09 追加）。
+// slug の取り方は generate-articles.js と同じ（frontmatter の slug。無ければ生成されないので載せない）。
+// 生成済みの {slug}/index.html が無いものも載せない（404 を sitemap に出さない）。
+const ARTS_DIR = path.join(ROOT, "articles");
+if (existsSync(ARTS_DIR)) {
+  for (const f of readdirSync(ARTS_DIR).filter((f) => f.endsWith(".md")).sort()) {
+    const { data: fm } = matter(readFileSync(path.join(ARTS_DIR, f), "utf-8"));
+    if (!fm.slug) continue;
+    if (!existsSync(path.join(ROOT, fm.slug, "index.html"))) continue;
+    urls.push({ loc: `${BASE_URL}/${fm.slug}/`, priority: "0.7", changefreq: "monthly" });
+  }
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

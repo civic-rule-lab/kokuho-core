@@ -575,6 +575,16 @@ console.log('\n[入力の検査]');
   eq('null は 0 として計算（従来どおり）', a.total, b.total);
 }
 
+// ── 税額控除の検査（2026-11-09 S1-2 住民税 F1。旧は NaN で所得割・年税額が NaN） ──
+{
+  const errOf = (inp) => { try { calculateJumin(null, Object.assign({ salary: 5_000_000, age: 40, kyuchi: 1 }, inp)); return 'no error'; } catch (e) { return e.name; } };
+  eq('[住民税F1] taxCredits NaN は RangeError', errOf({ taxCredits: NaN }), 'RangeError');
+  eq('[住民税F1] taxCredits "1000" は TypeError', errOf({ taxCredits: '1000' }), 'TypeError');
+  eq('[住民税F1] taxCredits −1 は RangeError', errOf({ taxCredits: -1 }), 'RangeError');
+  eq('[住民税F1] taxCredits null は 0（従来どおり）', calculateJumin(null, { salary: 5_000_000, age: 40, kyuchi: 1, taxCredits: null }).total,
+     calculateJumin(null, { salary: 5_000_000, age: 40, kyuchi: 1, taxCredits: 0 }).total);
+}
+
 // ─────────────────────────────────────────────────────────────
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`結果: PASS ${passed} / FAIL ${failed}`);

@@ -196,7 +196,8 @@ if (shouldRun("B")) {
 
   const allowlist = new Set();
   if (legacy?.collisions) {
-    for (const c of legacy.collisions) allowlist.add(c.slug);
+    // status=resolved は解消済みの履歴。allowlist に入れない（validate-kokuho-data.js と同じ扱い）
+    for (const c of legacy.collisions) if (c.status !== "resolved") allowlist.add(c.slug);
   }
 
   const dupes = [...slugMap.entries()].filter(([, v]) => v.length > 1);

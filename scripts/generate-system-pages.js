@@ -17,6 +17,8 @@ import { createHash } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 import organization from "./lib/organization.cjs";
+// 出典節（2026-11-09 S1-1 ID-03・修正順 S1 3-1）。許可ホストの判定は generate-official-pages.js の正本を読む
+import provenance from "./lib/seido-provenance.cjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.join(__dirname, "..");
@@ -62,7 +64,8 @@ const CONFIG = {
   kaigo: {
     template: "kaigo-simple.html",
     dataPlaceholder: "__KAIGO_DATA__",
-    engineFiles: ["js/core/shared/ui-input.js", "js/core/shared/income.js", "js/core/kaigo.js"],
+    // jumin.js: 所得から住民税の課税・非課税を判定し、課税状況の選択との食い違いを注意する（2026-11-09 S1-1 W2C-05）
+    engineFiles: ["js/core/shared/ui-input.js", "js/core/shared/income.js", "js/core/jumin.js", "js/core/kaigo.js"],
     portalName: "制度計算ポータル",
     appName: (city, fy) => `${city} 介護保険料（第1号）計算ツール（${fy}）`,
     meta: (city, pref, fy, d) =>
@@ -99,6 +102,15 @@ const JS_V  = fileHash(...cfg.engineFiles);
 const template = readFileSync(path.join(TMPL_DIR, cfg.template), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("seido-keisan.jp"));
 const incomeTemplate = cfg.incomeTemplate ? readFileSync(path.join(TMPL_DIR, cfg.incomeTemplate), "utf-8").replaceAll("__OPERATOR_FOOTER__", () => organization.operatorFooterHtml("seido-keisan.jp")) : null;
 const registry = JSON.parse(readFileSync(REGISTRY, "utf-8"));
+
+// 生活保護の級地（住民税 均等割の非課税限度額に使う）。介護かんたんの課税状況チェック（W2C-05）で使う。
+//   generate-jumin-pages.js と同じく data/reference/kyuchi.json から引き、無ければ生成を止める（黙って1級地にしない）
+const KYUCHI_REF = JSON.parse(readFileSync(path.join(ROOT, "data", "reference", "kyuchi.json"), "utf-8")).municipalities;
+function juminKyuchi(citySlug) {
+  const v = KYUCHI_REF[citySlug];
+  if (!/^[123]-[12]$/.test(v || "")) throw new Error(`級地が data/reference/kyuchi.json にありません: ${citySlug}`);
+  return Number(v[0]);
+}
 
 function buildJsonLd(city, pref, prefSlug, citySlug, desc, fy) {
   const pageUrl = `${BASE_URL}/${prefSlug}/${citySlug}/${SYSTEM}/`;
@@ -138,6 +150,8 @@ function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
     .replaceAll("__FISCAL_YEAR_LABEL__", fy)
     .replaceAll("__PUBLISH_YEAR__",      String(YEAR))
     .replaceAll("__PORTAL_LINK__",       "../kakeibo/")
+    .replaceAll("__SOURCE_SECTION__",    () => provenance.buildSourceSection(SYSTEM, data, { prefName: m.prefecture }))
+    .replaceAll("__JUMIN_KYUCHI__",      () => String(juminKyuchi(m.citySlug)))
     .replaceAll("__PLAN_PERIOD__",       data.planPeriod || "")
     .replaceAll("__CSS_V__",             CSS_V)
     .replaceAll("__JS_V__",              JS_V)
@@ -174,6 +188,10 @@ console.log(`\n✅ ${SYSTEM}: ${generated}自治体のページを${DRY ? "生�
 console.log(`   出力先: {prefSlug}/{citySlug}/${SYSTEM}/index.html`);
 if (skippedNoData) console.log(`   スキップ（データ未整備/未検証）: ${skippedNoData}`);
 if (skippedNoPref) console.log(`   スキップ（prefSlug未定義）: ${skippedNoPref}`);
+if (provenance.rejectedHosts().size) {
+  console.warn(`\n⚠️  出典をリンクにしなかったホスト（「出典ページ未確認」と表示。公的なら generate-official-pages.js の PROVENANCE_HOST_EXTRA に追加＝オーナー判断）:`);
+  for (const [h, n] of provenance.rejectedHosts()) console.warn(`   ${h}: ${n}件`);
+}
 
 // ── 県版ページ生成（canonicalScope: "pref" の制度のみ。/{pref}/{system}/） ──
 // 後期は広域連合単位で料率均一。県内全自治体のデータ一致をアサートし、
@@ -196,7 +214,11 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
     const meta = (isIncome ? cfg.prefMetaIncome : cfg.prefMeta)(prefName, fy, data);
     const intro = (isIncome ? cfg.prefIntroIncome : cfg.prefIntro)(prefName, fy, data);
     const canonical = `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
+    // 県版はどの自治体のページでもないので、「この自治体の負担をまとめて見る →」の文言を
+    // 「市区町村を選ぶ →」に替え、行き先は自治体を選べるトップ（/）のままにする（2026-11-09 S1-1 FG-07）。
+    // テンプレ側の文言は自治体版のために残す（ここでは県版の出力だけを替える）。
     return tmpl
+      .replace(PORTAL_LINK_RE, (a) => a.replace(/>[^<]*<\/a>$/, ">市区町村を選ぶ →</a>"))
       .replaceAll("__CITY_SLUG__",         prefSlug)
       .replaceAll("__CITY_NAME__",         prefName)
       .replaceAll("__META_DESC__",         meta)
@@ -206,6 +228,7 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
       .replaceAll("__FISCAL_YEAR_LABEL__", fy)
       .replaceAll("__PUBLISH_YEAR__",      String(YEAR))
       .replaceAll("__PORTAL_LINK__",       "/")
+      .replaceAll("__SOURCE_SECTION__",    () => provenance.buildSourceSection(SYSTEM, data, { prefName }))
       .replaceAll("__PLAN_PERIOD__",       data.planPeriod || "")
       .replaceAll("__CSS_V__",             CSS_V)
       .replaceAll("__JS_V__",              JS_V)

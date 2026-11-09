@@ -192,6 +192,8 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/css/article.css"     "$PUBLIC_DIR/css/"
   cp "$CORE_DIR/sitemap.xml"         "$PUBLIC_DIR/"
   cp "$CORE_DIR/robots.txt"          "$PUBLIC_DIR/"
+  cp "$CORE_DIR/404.html"            "$PUBLIC_DIR/"   # 独自 404（GitHub Pages が直下の 404.html を使う・2026-11-09 S1-1 FG-08）
+  cp "$CORE_DIR/.nojekyll"           "$PUBLIC_DIR/"   # GitHub Pages の Jekyll 処理を止める（kokuho-core・seido-keisan と揃える。S1-1 S1A-02・2026-11-09）
 
   # 記事ページ（/chigasaki/, /keigen/ 等）
   for art_dir in "$CORE_DIR"/chigasaki "$CORE_DIR"/keigen; do
