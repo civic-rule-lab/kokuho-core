@@ -10,7 +10,7 @@
     "test:calc": "node scripts/test-calc-verify.js",
     "test:sanity": "node scripts/test-sanity-all.js && node scripts/test-sanity-all.js --year=2026",
     "test:kouki": "node scripts/test-kouki.cjs",
-    "test:year": "node scripts/test-year-wiring.js",
+    "test:year": "node scripts/test-year-wiring.js && node scripts/test-year-consistency.cjs",
     "test:units": "node scripts/verify-units.cjs",
     "test:jumin": "node scripts/test-jumin.cjs",
     "test:income": "node scripts/test-income.cjs",
