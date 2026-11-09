@@ -433,11 +433,16 @@ function loadCityData(citySlug, publishYear = 2025) {
   return null;
 }
 
-// 会計年度（4月始まり）を返す
-function getFiscalYear(date = new Date()) {
-  const m = date.getMonth() + 1;
-  return m >= 4 ? date.getFullYear() : date.getFullYear() - 1;
-}
+// 現行年度＝registry の publishYear.kokuho の最大値（S1-1 OPS-5・2026-11-09）。
+// 旧実装は生成時の日付から会計年度を出していた（getFiscalYear）ため、データが同じでも 4 月 1 日を境に
+// 出力（バッジ）が変わり、deploy.sh の「生成後に追跡ファイルの未コミット変更なし」要件と衝突した。
+// 生成結果は入力データだけで決まるようにする。年度を進めるときは registry の publishYear を上げる。
+const CURRENT_PUBLISH_YEAR = (() => {
+  const ys = JSON.parse(readFileSync(REGISTRY, "utf-8")).municipalities
+    .map((m) => m.publishYear?.kokuho).filter(Number.isInteger);
+  if (ys.length === 0) throw new Error("registry に publishYear.kokuho が 1 件もありません");
+  return Math.max(...ys);
+})();
 
 // fiscalYear → 表示文字列（例: 2026 → "令和8年度（2026年度）"）
 function fmtFY(fy) {
@@ -456,7 +461,7 @@ function pickPublicSourceUrl(data) {
 
 // 結果直下の免責＋確認済みバッジ（コンパクト版）
 function buildTrustBadge(data, publishYear) {
-  const currentFY = getFiscalYear();
+  const currentFY = CURRENT_PUBLISH_YEAR;
   const disclaimer = `<span class="result-note__text">実際の保険料は各自治体の窓口でご確認ください。</span>`;
 
   if (!data) {
