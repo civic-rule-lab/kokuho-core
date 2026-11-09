@@ -54,8 +54,9 @@ function buildMuniEntry(m, official = false) {
   for (const sys of (m.systems || [])) {
     systems[sys] = buildSystemEntry(m.citySlug, sys, prefSlug, official);
   }
-  // jumin 公開自治体は統合シミュレーター（家計簿）も利用可能
-  if (systems.jumin) {
+  // 統合シミュレーター（家計簿）は jumin か kaigo を公開している自治体に生成される
+  //   （generate-jumin-pages.js の targets と同じ判定。旧実装は jumin のみで、介護だけ公開の 1,677 自治体が「準備中」になっていた・2026-11-09 S1-1 FG-02）
+  if (systems.jumin || systems.kaigo) {
     systems.kakeibo = buildSystemEntry(m.citySlug, "kakeibo", prefSlug, official);
   }
   return { name: m.cityName, systems };
