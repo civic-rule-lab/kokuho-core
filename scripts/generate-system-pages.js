@@ -114,6 +114,12 @@ function buildJsonLd(city, pref, prefSlug, citySlug, desc, fy) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, organization.ORGANIZATION] });
 }
 
+// 家計簿（統合シミュレーター）ページは jumin か kaigo を公開している自治体にだけ生成される（generate-jumin-pages.js の targets と同一定義）。
+//   無い自治体では「負担をまとめて見る →」のリンクを落とす（旧実装は無条件に ../kakeibo/ を出し、3 自治体で 404・2026-11-09 S1-1 S1A-01）
+const hasSys = (m, sys) => !!((m.systems && m.systems.includes(sys)) || (m.publishYear && m.publishYear[sys]));
+const hasKakeibo = (m) => hasSys(m, "jumin") || hasSys(m, "kaigo");
+const PORTAL_LINK_RE = /<a href="__PORTAL_LINK__"[^>]*>[^<]*<\/a>/g;
+
 function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
   const fy = fmtFY(YEAR);
   const meta = (isIncome && cfg.metaIncome ? cfg.metaIncome : cfg.meta)(m.cityName, m.prefecture, fy, data);
@@ -122,7 +128,7 @@ function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
   const canonical = cfg.canonicalScope === "pref"
     ? `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`
     : `${BASE_URL}/${prefSlug}/${m.citySlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
-  let out = tmpl
+  let out = (hasKakeibo(m) ? tmpl : tmpl.replace(PORTAL_LINK_RE, ""))
     .replaceAll("__CITY_SLUG__",         m.citySlug)
     .replaceAll("__CITY_NAME__",         m.cityName)
     .replaceAll("__META_DESC__",         meta)
