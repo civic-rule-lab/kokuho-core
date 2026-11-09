@@ -27,3 +27,14 @@
 
 # Note: /chiba/tateyama/ は URL 維持・コンテンツが千葉館山市に正常化される
 # Note: /aichi/ichinomiya/ は URL 維持・愛知一宮市 base 維持
+
+# 改名のみ（同名衝突なし・命名規約 v1 の prefix-{pref} 化）(2026-05-13・commit 764fdec67e)
+# 移転スタブ（meta refresh）: ibaraki/kogashi/・gunma/otashi/ の index.html・income.html
+
+# 茨城古河市: kogashi → koga-ibaraki
+/ibaraki/kogashi/                 /ibaraki/koga-ibaraki/                    301
+/ibaraki/kogashi/income.html      /ibaraki/koga-ibaraki/income.html         301
+
+# 群馬太田市: otashi → ota-gunma
+/gunma/otashi/                    /gunma/ota-gunma/                         301
+/gunma/otashi/income.html         /gunma/ota-gunma/income.html              301

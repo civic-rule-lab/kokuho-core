@@ -1,6 +1,12 @@
 {
   "policy": "POLICIES §9 grandfather 条項（2026-05-11 追加）",
   "policyNote": "本リストに記載された slug 衝突は POLICIES §9 制定（2026-05-11）以前から registry に存在する legacy 状態。validate-kokuho-data.js は本リスト内の衝突を WARNING として扱い（block しない）、リスト外の新規衝突は ERROR で block する。リスト内の各エントリには planned migration を記録し、URL 影響（301 redirect 整備・告知期間）を考慮した別 PR で順次解消する。",
+  "currentState": {
+    "checkedAt": "2026-11-09",
+    "checkedAgainst": "registry/index.json（正）・data/municipalities/",
+    "summary": "6 件の衝突はすべて 2026-05-11 の commit 6cee628653 で解消済み。registry に重複 citySlug は無い。各 entries の cityCode・current* は registry の現状に合わせた値。cityCodeAtListing は 2026-05-11 の記載時点の値（誤り）を履歴として残したもの。status=resolved のエントリは validate-kokuho-data.js・test-integrity.js の allowlist に入らない（同じ slug で新たな衝突が起きれば ERROR になる）。",
+    "historicalSections": "⚠️_CRITICAL_FINDING・dataLocationEvidence・deferredResolutionPlan は 2026-05-11 の発覚時点の記録で、現状ではない（hokkaido-* / chiba-* ディレクトリは現存しない）。"
+  },
   "⚠️_CRITICAL_FINDING": "5/12 セッション後半で詳細判明：データは欠落していない、`{pref}-{base}` 命名の別ディレクトリに存在する。しかし registry の citySlug がそれらを参照していない。generate-official-pages.js は registry.citySlug を直接ディレクトリ名として使うため、衝突 slug の片方は正しいデータを取得し、もう片方は衝突相手のデータを誤って取得する。実証: hokkaido/hidaka/index.html は cityName=日高町（registry 由来）として表示されるが、計算データは data/municipalities/hidaka/ = 埼玉日高市のものが読まれている。さらに北海道日高町は registry/data の cityCode が 01604 だが、総務省一次資料では 01604=新冠町、北海道日高町の正準は 01601。隣接コードへの単純な転記ミスも積層している。",
   "dataLocationEvidence": {
     "actualDataLocations": {
@@ -48,10 +54,16 @@
       }
     },
     "additionalUnstandardizedDirs": [
-      "hidakacho", "hidakagawa", "hidakamura", "shinhidaka （hidaka 関連）",
-      "ikedacho", "ikedafukui", "ikedashi （ikeda 関連）",
+      "hidakacho",
+      "hidakagawa",
+      "hidakamura",
+      "shinhidaka （hidaka 関連）",
+      "ikedacho",
+      "ikedafukui",
+      "ikedashi （ikeda 関連）",
       "kamikawamachi （kamikawa 関連）",
-      "nakagawamachi", "nakagawashi （nakagawa 関連）"
+      "nakagawamachi",
+      "nakagawashi （nakagawa 関連）"
     ],
     "interpretation": "過去複数の命名対応策（-cho・-machi・-shi・-fukui・hokkaido- prefix・suffix なし）が混在。統一命名規約がない。",
     "publicUrlImpact": "公開 URL は /{pref}/{slug}/ で 12 個生成されているが、衝突 slug の片方は誤データを表示中。タイトル（cityName）は registry 由来なので正しいが、計算 rate/perCapita は衝突相手のデータが埋め込まれている。",
@@ -63,61 +75,192 @@
     {
       "slug": "hidaka",
       "entries": [
-        { "cityCode": "11244", "cityName": "日高市", "prefecture": "埼玉県", "prefectureSlug": "saitama", "publicUrl": "/saitama/hidaka/" },
-        { "cityCode": "01604", "cityName": "日高町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/hidaka/" }
+        {
+          "cityCode": "11242",
+          "cityName": "日高市",
+          "prefecture": "埼玉県",
+          "prefectureSlug": "saitama",
+          "publicUrl": "/saitama/hidaka/",
+          "cityCodeAtListing": "11244",
+          "currentCitySlug": "hidaka",
+          "currentPublicUrl": "/saitama/hidaka/",
+          "currentDataDir": "data/municipalities/hidaka/"
+        },
+        {
+          "cityCode": "01601",
+          "cityName": "日高町",
+          "prefecture": "北海道",
+          "prefectureSlug": "hokkaido",
+          "publicUrl": "/hokkaido/hidaka/",
+          "cityCodeAtListing": "01604",
+          "currentCitySlug": "hidaka-hokkaido",
+          "currentPublicUrl": "/hokkaido/hidaka-hokkaido/",
+          "currentDataDir": "data/municipalities/hidaka-hokkaido/"
+        }
       ],
-      "status": "data-corruption-detected",
+      "status": "resolved",
       "plannedRename": "後発（公開時期遅い方）を hidaka-{prefSlug} に rename。要 git log 確認",
-      "urlImpact": "両自治体とも /{pref}/hidaka/ で公開済、変更には 301 redirect 整備必要"
+      "urlImpact": "両自治体とも /{pref}/hidaka/ で公開済、変更には 301 redirect 整備必要",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     },
     {
       "slug": "ichinomiya",
       "entries": [
-        { "cityCode": "12421", "cityName": "一宮町", "prefecture": "千葉県", "prefectureSlug": "chiba", "publicUrl": "/chiba/ichinomiya/" },
-        { "cityCode": "23203", "cityName": "一宮市", "prefecture": "愛知県", "prefectureSlug": "aichi", "publicUrl": "/aichi/ichinomiya/" }
+        {
+          "cityCode": "12421",
+          "cityName": "一宮町",
+          "prefecture": "千葉県",
+          "prefectureSlug": "chiba",
+          "publicUrl": "/chiba/ichinomiya/",
+          "currentCitySlug": "ichinomiya-chiba",
+          "currentPublicUrl": "/chiba/ichinomiya-chiba/",
+          "currentDataDir": "data/municipalities/ichinomiya-chiba/"
+        },
+        {
+          "cityCode": "23203",
+          "cityName": "一宮市",
+          "prefecture": "愛知県",
+          "prefectureSlug": "aichi",
+          "publicUrl": "/aichi/ichinomiya/",
+          "currentCitySlug": "ichinomiya",
+          "currentPublicUrl": "/aichi/ichinomiya/",
+          "currentDataDir": "data/municipalities/ichinomiya/"
+        }
       ],
-      "status": "data-corruption-detected",
+      "status": "resolved",
       "plannedRename": "愛知県一宮市は人口38万・中核市で URL 価値高、千葉県一宮町を ichinomiya-chiba に rename が妥当",
-      "urlImpact": "愛知一宮市は被リンク多数想定、SEO 影響大、301 redirect 必須"
+      "urlImpact": "愛知一宮市は被リンク多数想定、SEO 影響大、301 redirect 必須",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     },
     {
       "slug": "ikeda",
       "entries": [
-        { "cityCode": "20481", "cityName": "池田町", "prefecture": "長野県", "prefectureSlug": "nagano", "publicUrl": "/nagano/ikeda/" },
-        { "cityCode": "01644", "cityName": "池田町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/ikeda/" }
+        {
+          "cityCode": "20481",
+          "cityName": "池田町",
+          "prefecture": "長野県",
+          "prefectureSlug": "nagano",
+          "publicUrl": "/nagano/ikeda/",
+          "currentCitySlug": "ikeda",
+          "currentPublicUrl": "/nagano/ikeda/",
+          "currentDataDir": "data/municipalities/ikeda/"
+        },
+        {
+          "cityCode": "01644",
+          "cityName": "池田町",
+          "prefecture": "北海道",
+          "prefectureSlug": "hokkaido",
+          "publicUrl": "/hokkaido/ikeda/",
+          "currentCitySlug": "ikeda-hokkaido",
+          "currentPublicUrl": "/hokkaido/ikeda-hokkaido/",
+          "currentDataDir": "data/municipalities/ikeda-hokkaido/"
+        }
       ],
-      "status": "data-corruption-detected",
+      "status": "resolved",
       "plannedRename": "両自治体「池田町」で同名、要利用者調査。北海道側を ikeda-hokkaido が無難",
-      "urlImpact": "両自治体規模同等、利用統計を確認してから rename 順序決定"
+      "urlImpact": "両自治体規模同等、利用統計を確認してから rename 順序決定",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     },
     {
       "slug": "kamikawa",
       "entries": [
-        { "cityCode": "11402", "cityName": "神川町", "prefecture": "埼玉県", "prefectureSlug": "saitama", "publicUrl": "/saitama/kamikawa/" },
-        { "cityCode": "01457", "cityName": "上川町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/kamikawa/" }
+        {
+          "cityCode": "11383",
+          "cityName": "神川町",
+          "prefecture": "埼玉県",
+          "prefectureSlug": "saitama",
+          "publicUrl": "/saitama/kamikawa/",
+          "cityCodeAtListing": "11402",
+          "currentCitySlug": "kamikawa",
+          "currentPublicUrl": "/saitama/kamikawa/",
+          "currentDataDir": "data/municipalities/kamikawa/"
+        },
+        {
+          "cityCode": "01457",
+          "cityName": "上川町",
+          "prefecture": "北海道",
+          "prefectureSlug": "hokkaido",
+          "publicUrl": "/hokkaido/kamikawa/",
+          "currentCitySlug": "kamikawa-hokkaido",
+          "currentPublicUrl": "/hokkaido/kamikawa-hokkaido/",
+          "currentDataDir": "data/municipalities/kamikawa-hokkaido/"
+        }
       ],
-      "status": "data-corruption-detected",
+      "status": "resolved",
       "plannedRename": "埼玉=神川 / 北海道=上川と漢字が異なるため、訓読の衝突。要漢字併記検討（kamikawa-saitama or shinkawa-saitama？）",
-      "urlImpact": "漢字読み統一の判断が要"
+      "urlImpact": "漢字読み統一の判断が要",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     },
     {
       "slug": "nakagawa",
       "entries": [
-        { "cityCode": "20386", "cityName": "中川村", "prefecture": "長野県", "prefectureSlug": "nagano", "publicUrl": "/nagano/nakagawa/" },
-        { "cityCode": "01475", "cityName": "中川町", "prefecture": "北海道", "prefectureSlug": "hokkaido", "publicUrl": "/hokkaido/nakagawa/" }
+        {
+          "cityCode": "20386",
+          "cityName": "中川村",
+          "prefecture": "長野県",
+          "prefectureSlug": "nagano",
+          "publicUrl": "/nagano/nakagawa/",
+          "currentCitySlug": "nakagawa",
+          "currentPublicUrl": "/nagano/nakagawa/",
+          "currentDataDir": "data/municipalities/nakagawa/"
+        },
+        {
+          "cityCode": "01471",
+          "cityName": "中川町",
+          "prefecture": "北海道",
+          "prefectureSlug": "hokkaido",
+          "publicUrl": "/hokkaido/nakagawa/",
+          "cityCodeAtListing": "01475",
+          "currentCitySlug": "nakagawa-hokkaido",
+          "currentPublicUrl": "/hokkaido/nakagawa-hokkaido/",
+          "currentDataDir": "data/municipalities/nakagawa-hokkaido/"
+        }
       ],
-      "status": "data-corruption-detected",
-      "plannedRename": "両自治体小規模、後発側を nakagawa-{prefSlug} に rename。git log で先発確認"
+      "status": "resolved",
+      "plannedRename": "両自治体小規模、後発側を nakagawa-{prefSlug} に rename。git log で先発確認",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     },
     {
       "slug": "tateyama",
       "entries": [
-        { "cityCode": "12205", "cityName": "館山市", "prefecture": "千葉県", "prefectureSlug": "chiba", "publicUrl": "/chiba/tateyama/" },
-        { "cityCode": "15342", "cityName": "立山町", "prefecture": "富山県", "prefectureSlug": "toyama", "publicUrl": "/toyama/tateyama/" }
+        {
+          "cityCode": "12205",
+          "cityName": "館山市",
+          "prefecture": "千葉県",
+          "prefectureSlug": "chiba",
+          "publicUrl": "/chiba/tateyama/",
+          "currentCitySlug": "tateyama",
+          "currentPublicUrl": "/chiba/tateyama/",
+          "currentDataDir": "data/municipalities/tateyama/"
+        },
+        {
+          "cityCode": "16323",
+          "cityName": "立山町",
+          "prefecture": "富山県",
+          "prefectureSlug": "toyama",
+          "publicUrl": "/toyama/tateyama/",
+          "cityCodeAtListing": "15342",
+          "currentCitySlug": "tateyama-toyama",
+          "currentPublicUrl": "/toyama/tateyama-toyama/",
+          "currentDataDir": "data/municipalities/tateyama-toyama/"
+        }
       ],
-      "status": "data-corruption-detected",
+      "status": "resolved",
       "plannedRename": "千葉=館山市（観光都市・5万人）/ 富山=立山町（観光地・2.5万人）両方 URL 価値高、tateyama-toyama に rename が無難",
-      "urlImpact": "観光関連被リンク多数想定"
+      "urlImpact": "観光関連被リンク多数想定",
+      "statusAtListing": "data-corruption-detected",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "commit 6cee628653（fix(registry,data): cityCode 一括訂正 519件 + legacy slug 衝突 6件解消）"
     }
   ],
   "namingConvention": {
@@ -125,49 +268,157 @@
     "rule": "Romaji 読み同一の自治体群について、人口最大者が `{base}` を取得、それ以外は `{base}-{prefSlug}`。tie-breaker: 市>町>村 → 公開実績 → 50音順",
     "appliedDecisions": {
       "hidaka": {
-        "base": { "prefecture": "埼玉県", "cityName": "日高市", "population_approx": 56000, "tier": "市", "newSlug": "hidaka" },
-        "suffixed": [{ "prefecture": "北海道", "cityName": "日高町", "population_approx": 12000, "tier": "町", "newSlug": "hidaka-hokkaido" }],
+        "base": {
+          "prefecture": "埼玉県",
+          "cityName": "日高市",
+          "population_approx": 56000,
+          "tier": "市",
+          "newSlug": "hidaka"
+        },
+        "suffixed": [
+          {
+            "prefecture": "北海道",
+            "cityName": "日高町",
+            "population_approx": 12000,
+            "tier": "町",
+            "newSlug": "hidaka-hokkaido"
+          }
+        ],
         "rationale": "人口優先で埼玉日高市（市・56K）が base、北海道日高町（町・12K）にサフィックス"
       },
       "ichinomiya": {
-        "base": { "prefecture": "愛知県", "cityName": "一宮市", "population_approx": 380000, "tier": "市", "newSlug": "ichinomiya" },
-        "suffixed": [{ "prefecture": "千葉県", "cityName": "一宮町", "population_approx": 12000, "tier": "町", "newSlug": "ichinomiya-chiba" }],
+        "base": {
+          "prefecture": "愛知県",
+          "cityName": "一宮市",
+          "population_approx": 380000,
+          "tier": "市",
+          "newSlug": "ichinomiya"
+        },
+        "suffixed": [
+          {
+            "prefecture": "千葉県",
+            "cityName": "一宮町",
+            "population_approx": 12000,
+            "tier": "町",
+            "newSlug": "ichinomiya-chiba"
+          }
+        ],
         "rationale": "人口優先で愛知一宮市（中核市・380K）が base、千葉一宮町（町・12K）にサフィックス。既存実態と一致"
       },
       "ikeda": {
-        "base": { "prefecture": "長野県", "cityName": "池田町", "population_approx": 10000, "tier": "町", "newSlug": "ikeda" },
-        "suffixed": [{ "prefecture": "北海道", "cityName": "池田町", "population_approx": 6500, "tier": "町", "newSlug": "ikeda-hokkaido" }],
+        "base": {
+          "prefecture": "長野県",
+          "cityName": "池田町",
+          "population_approx": 10000,
+          "tier": "町",
+          "newSlug": "ikeda"
+        },
+        "suffixed": [
+          {
+            "prefecture": "北海道",
+            "cityName": "池田町",
+            "population_approx": 6500,
+            "tier": "町",
+            "newSlug": "ikeda-hokkaido"
+          }
+        ],
         "rationale": "人口優先で長野池田町（10K）が base、北海道池田町（6.5K）にサフィックス。両者「池田町」同名なので人口で決定"
       },
       "kamikawa": {
-        "base": { "prefecture": "埼玉県", "cityName": "神川町", "population_approx": 13000, "tier": "町", "newSlug": "kamikawa" },
-        "suffixed": [{ "prefecture": "北海道", "cityName": "上川町", "population_approx": 3500, "tier": "町", "newSlug": "kamikawa-hokkaido" }],
+        "base": {
+          "prefecture": "埼玉県",
+          "cityName": "神川町",
+          "population_approx": 13000,
+          "tier": "町",
+          "newSlug": "kamikawa"
+        },
+        "suffixed": [
+          {
+            "prefecture": "北海道",
+            "cityName": "上川町",
+            "population_approx": 3500,
+            "tier": "町",
+            "newSlug": "kamikawa-hokkaido"
+          }
+        ],
         "rationale": "人口優先で埼玉神川町（13K）が base、北海道上川町（3.5K）にサフィックス。漢字違い（神川 vs 上川）だが Romaji 同じため Rule 3 で同 slug 系、cityName 表示で区別"
       },
       "nakagawa": {
-        "base": { "prefecture": "長野県", "cityName": "中川村", "population_approx": 4800, "tier": "村", "newSlug": "nakagawa" },
-        "suffixed": [{ "prefecture": "北海道", "cityName": "中川町", "population_approx": 1500, "tier": "町", "newSlug": "nakagawa-hokkaido" }],
+        "base": {
+          "prefecture": "長野県",
+          "cityName": "中川村",
+          "population_approx": 4800,
+          "tier": "村",
+          "newSlug": "nakagawa"
+        },
+        "suffixed": [
+          {
+            "prefecture": "北海道",
+            "cityName": "中川町",
+            "population_approx": 1500,
+            "tier": "町",
+            "newSlug": "nakagawa-hokkaido"
+          }
+        ],
         "rationale": "人口優先で長野中川村（4.8K）が base、北海道中川町（1.5K）にサフィックス。区分は北海道が町・長野が村だが Rule 1 の人口優先により村が勝つ"
       },
       "tateyama": {
-        "base": { "prefecture": "千葉県", "cityName": "館山市", "population_approx": 45000, "tier": "市", "newSlug": "tateyama" },
-        "suffixed": [{ "prefecture": "富山県", "cityName": "立山町", "population_approx": 25000, "tier": "町", "newSlug": "tateyama-toyama" }],
+        "base": {
+          "prefecture": "千葉県",
+          "cityName": "館山市",
+          "population_approx": 45000,
+          "tier": "市",
+          "newSlug": "tateyama"
+        },
+        "suffixed": [
+          {
+            "prefecture": "富山県",
+            "cityName": "立山町",
+            "population_approx": 25000,
+            "tier": "町",
+            "newSlug": "tateyama-toyama"
+          }
+        ],
         "rationale": "人口優先で千葉館山市（市・45K）が base、富山立山町（町・25K）にサフィックス。⚠️ 現状 data/municipalities/tateyama/ には富山立山町データが入っているため、URL 移行とデータ移動を同時実施必要"
       },
       "kogashi": {
         "base": null,
-        "suffixed": [{ "prefecture": "茨城県", "cityName": "古河市", "population_approx": 140000, "tier": "市", "newSlug": "koga-ibaraki" }],
+        "suffixed": [
+          {
+            "prefecture": "茨城県",
+            "cityName": "古河市",
+            "population_approx": 140000,
+            "tier": "市",
+            "newSlug": "koga-ibaraki"
+          }
+        ],
         "rationale": "改名のみ（同名衝突なし）。命名規約 prefix-{pref} 化に伴う移行。base 残留なし。"
       },
       "otashi": {
         "base": null,
-        "suffixed": [{ "prefecture": "群馬県", "cityName": "太田市", "population_approx": 220000, "tier": "市", "newSlug": "ota-gunma" }],
+        "suffixed": [
+          {
+            "prefecture": "群馬県",
+            "cityName": "太田市",
+            "population_approx": 220000,
+            "tier": "市",
+            "newSlug": "ota-gunma"
+          }
+        ],
         "rationale": "改名のみ（同名衝突なし）。命名規約 prefix-{pref} 化に伴う移行。base 残留なし。"
       }
     },
     "unnormalizedDirsAlsoToFix": {
       "note": "以下は legacy-slug-collisions.json のスコープ外だが、本 Rule のもとで命名統合すべき不統一例。次回 Cowork で詳細調査・段階的 rename。",
-      "patterns": ["{base}cho", "{base}machi", "{base}mura", "{base}shi", "hokkaido-{base}", "{base}fukui", "shin{base}"],
+      "patterns": [
+        "{base}cho",
+        "{base}machi",
+        "{base}mura",
+        "{base}shi",
+        "hokkaido-{base}",
+        "{base}fukui",
+        "shin{base}"
+      ],
       "knownAffectedDirs": [
         "hidaka 系: hidakacho / hidakagawa / hidakamura / shinhidaka",
         "ikeda 系: ikedacho / ikedafukui / ikedashi",

@@ -386,6 +386,8 @@ if (existsSync(LEGACY_PATH)) {
   try {
     const legacy = JSON.parse(readFileSync(LEGACY_PATH, "utf-8"));
     for (const c of legacy.collisions || []) {
+      // status=resolved は解消済みの履歴。allowlist に入れない（同 slug の新規衝突は ERROR）
+      if (c.status === "resolved") continue;
       legacyAllowed.add(c.slug);
     }
   } catch (e) {
