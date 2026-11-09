@@ -252,6 +252,14 @@ console.log('\n[入力の検査]');
   eq('[C120] baseAmount も annual も無い段階は null', calculateKaigo(noBase, { isSelfTaxable: true, totalIncome: 0 }), null);
 }
 
+// ─── LOW-1（2026-11-09 S1-2）: 仮データ（needs_update）でも矛盾した入力は例外 ───
+{
+  const nu = Object.assign({}, KAIGO_DATA, { status: 'needs_update' });
+  let name = 'no error'; try { calculateKaigo(nu, { isSelfTaxable: true, isHouseholdAllNonTaxable: true }); } catch (e) { name = e.name; }
+  eq('[LOW-1] needs_update でも 本人課税かつ世帯全員非課税は RangeError', name, 'RangeError');
+  eq('[LOW-1] needs_update で整合した入力は null（従来どおり）', calculateKaigo(nu, { isSelfTaxable: true, totalIncome: 0 }), null);
+}
+
 // ─── 結果 ─────────────────────────────────────────────────────
 
 console.log(`\n${'─'.repeat(50)}`);

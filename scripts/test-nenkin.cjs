@@ -85,5 +85,12 @@ A('[C175] 扶養 general: "1" は TypeError', errOf(() => N.dependentCount({ gen
 A('[C175] 扶養 general: −1 は RangeError', errOf(() => N.dependentCount({ general: -1 })) === 'RangeError');
 A('所得 null は 0（従来どおり）', j(P(null)).level === j(P(0)).level);
 
+// other.* の検査（2026-11-09 S1-2 NK-1）
+A('[NK-1] other.socialInsurance "200000" は TypeError', errOf(() => N.otherDeduction({ socialInsurance: '200000' }, db.exemption)) === 'TypeError');
+A('[NK-1] other.socialInsurance NaN は RangeError', errOf(() => j(P(1000000, null, { socialInsurance: NaN }))) === 'RangeError');
+A('[NK-1] other.shogai −1 は RangeError', errOf(() => N.otherDeduction({ shogai: -1 }, db.exemption)) === 'RangeError');
+A('[NK-1] other.shogai 0.5 は RangeError', errOf(() => N.otherDeduction({ shogai: 0.5 }, db.exemption)) === 'RangeError');
+A('[NK-1] other.otherKojo undefined は 0', N.otherDeduction({ socialInsurance: 100000, otherKojo: undefined }, db.exemption) === 100000);
+
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

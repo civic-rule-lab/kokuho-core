@@ -111,6 +111,10 @@ function runSelfTest() {
   eq('[C092] age "age3" は RangeError', errOf(Object.assign(P(60000), { age: 'age3' })), 'RangeError');
   eq('[C092] age "age0" は0歳別額', calcHoiku(Object.assign(P(60000), { age: 'age0' }), cityA).monthly, 31000);
 
+  // HOIKU-02（2026-11-09 S1-2）: 非課税・生活保護の早期 return も通常経路と同じ breakdown の形（額は 0）
+  eq('[HOIKU-02] 非課税の breakdown', calcHoiku({ hikazei: true, father: { shotokuwari: 0 }, childOrder: 2 }, cityA).breakdown, { index: 0, base: 0, firstFinal: 0, childOrder: 2, monthly: 0 });
+  eq('[HOIKU-02] 生活保護の breakdown', calcHoiku({ seikatsuhogo: true, father: { shotokuwari: 0 } }, cityA).breakdown, { index: 0, base: 0, firstFinal: 0, childOrder: 1, monthly: 0 });
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   if (fail > 0) process.exitCode = 1;
 }
