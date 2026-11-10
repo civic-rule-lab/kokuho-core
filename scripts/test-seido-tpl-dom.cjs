@@ -133,7 +133,7 @@ async function load(html, url, fetchImpl) {
     const fillMap = {
       '__CITY_SLUG__': 'testcity', '__PREF_SLUG__': 'aichi', '__CITY_NAME__': 'テスト市', '__FISCAL_YEAR_LABEL__': '令和8年度', '__META_DESC__': 'test',
       '__CANONICAL_URL__': 'https://seido-keisan.jp/aichi/testcity/kakeibo/', '__JSON_LD__': '{}', '__CSS_V__': 'x', '__JS_V__': 'x',
-      '__LINK_JUMIN_BLOCK__': '', '__LINK_KOKUHO__': 'https://kokuho-keisan.jp/aichi/testcity/', '__JUMIN_KYUCHI__': '1', '__HAS_JUMIN_PAGE__': 'true',
+      '__LINK_JUMIN_BLOCK__': '', '__LINK_KOKUHO__': 'https://kokuho-keisan.jp/aichi/testcity/', '__JUMIN_KYUCHI__': '1', '__HAS_JUMIN_PAGE__': 'true', '__KAIGO_YEAR__': '2026',
       '__SOURCE_SECTION__': '', '__OPERATOR_FOOTER__': '',
     };
     let base = tpl('city-integrated.html');

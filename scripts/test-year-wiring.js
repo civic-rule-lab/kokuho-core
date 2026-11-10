@@ -99,6 +99,33 @@ function loadEngine(pageSnippet) {
     }
   }
 
+  // ケース3: 介護ページ（{pref}/{slug}/kaigo/index.html）は JSON を fetch せず KAIGO_DATA を埋め込む。
+  //   埋め込んだデータの fiscalYear・citySlug が、同じページの PUBLISH_YEAR・CITY_SLUG と一致すること
+  //   （年度を自治体ごとに切り替える介護 R9 の配線・2026-11-10 D1。ページは R9 表示なのに中身は R8、の PR #185 型を防ぐ）
+  {
+    const RE = /<script>const KAIGO_DATA = (\{[\s\S]*?\}); const CITY_SLUG = "([^"]+)"; const PUBLISH_YEAR = (\d+);/;
+    let checked = 0;
+    const bad = [];
+    for (const pref of fs.readdirSync(ROOT)) {
+      const pdir = path.join(ROOT, pref);
+      if (pref.startsWith(".") || pref === "node_modules" || !fs.statSync(pdir).isDirectory()) continue;
+      for (const slug of fs.readdirSync(pdir)) {
+        const page = path.join(pdir, slug, "kaigo", "index.html");
+        if (!fs.existsSync(page)) continue;
+        checked++;
+        const m = fs.readFileSync(page, "utf8").match(RE);
+        if (!m) { bad.push(`${pref}/${slug}: KAIGO_DATA / CITY_SLUG / PUBLISH_YEAR の宣言が見つからない`); continue; }
+        let d;
+        try { d = JSON.parse(m[1]); } catch (e) { bad.push(`${pref}/${slug}: KAIGO_DATA が JSON として読めない`); continue; }
+        if (d.fiscalYear !== Number(m[3])) bad.push(`${pref}/${slug}: PUBLISH_YEAR=${m[3]} / KAIGO_DATA.fiscalYear=${d.fiscalYear}`);
+        if (d.citySlug !== m[2]) bad.push(`${pref}/${slug}: CITY_SLUG=${m[2]} / KAIGO_DATA.citySlug=${d.citySlug}`);
+      }
+    }
+    if (checked === 0) { console.error("❌ 介護ページが 1 枚もありません（生成前？）"); failed++; }
+    else if (bad.length === 0) console.log(`✅ 介護ページ ${checked} 枚: 埋め込みデータの年度・自治体がページの宣言と一致`);
+    else { console.error(`❌ 介護ページの年度・自治体の食い違い ${bad.length} 枚`); for (const b of bad.slice(0, 20)) console.error(`   ${b}`); failed++; }
+  }
+
   if (failed) {
     console.error(`\n❌ 年度配線テスト失敗: ${failed} 件`);
     process.exit(1);

@@ -459,11 +459,13 @@ for (const m of targets) {
     '__LINK_JUMIN_BLOCK__': juminLinkBlock,
     // 結果欄の「住民税を詳しく計算 →」も同じ条件で出す（住民税ページの無い自治体で 404 になっていた・TASKS X180-2）
     '__HAS_JUMIN_PAGE__': juminHere ? 'true' : 'false',
+    // 介護の年度（registry publishYear.kaigo）。介護ページと同じ年度の JSON を読ませる（無ければ null＝他制度と同じ探し方）
+    '__KAIGO_YEAR__': (m.publishYear && m.publishYear.kaigo) ? String(m.publishYear.kaigo) : 'null',
     // 暫定: seido-keisan に国保ページが無い間は、既存の kokuho-keisan.jp の該当ページを参照。
     // 国保を seido-keisan へ移行したら '../' に戻す（templates の target=_blank も外す）。
     '__LINK_KOKUHO__': `https://kokuho-keisan.jp/${prefSlug}/${citySlug}/`,
     // 出典節: ページが実行時に読む制度別 JSON を生成時にも読み、制度ごとに 1 行（S1-1 ID-03）
-    '__SOURCE_SECTION__': provenance.buildKakeiboSourceSection(citySlug, { prefName }),
+    '__SOURCE_SECTION__': provenance.buildKakeiboSourceSection(citySlug, { prefName, kaigoYear: (m.publishYear && m.publishYear.kaigo) || null }),
     '__CSS_V__': CSS_V,
     '__JS_V__': JS_V,
   });

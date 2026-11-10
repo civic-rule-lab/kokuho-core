@@ -18,8 +18,12 @@
  *       city-integrated.html の YEARS[0]／seido-haito.html・seido-jieigyo.html の KOKUHO_YEAR
  *   [X] 所得税の年分 TAX_YEAR（city-integrated.html・seido-shotoku.html）が互いに一致し、
  *       data/national/shotokuzei-{TAX_YEAR}.json が実在する（国保年度とは別の量なので国保年度とは比べない）
- *   [G] 生成器の手書き年度（generate-system-pages.js の YEAR、generate-jumin/hoiku-pages.js の DEFAULT_YEAR）が、
- *       その生成器が扱う制度の registry publishYear と一致する
+ *   [G] 生成器の手書き年度（generate-jumin/hoiku-pages.js の DEFAULT_YEAR）が、
+ *       その生成器が扱う制度の registry publishYear と一致する。
+ *       generate-system-pages.js（kaigo・kouki）は 2026-11-10 から自治体ごとに publishYear を読む（介護 R9 D1）。
+ *       DEFAULT_YEAR は publishYear の無い自治体にだけ使うので、該当自治体があれば DEFAULT_YEAR の JSON の実在を見る
+ *   [K] 家計簿ページ（kakeibo/index.html）の KAIGO_YEAR が、その自治体の registry publishYear.kaigo と一致する
+ *       （介護ページと家計簿で介護の年度が割れない。publishYear.kaigo が無い自治体は null）
  *   [P] 生成済みページの PUBLISH_YEAR が、その自治体の registry publishYear.{system} と一致する
  *       （ページが無いものは数えるだけで不合格にしない。ページの有無は validate-kokuho-data.js 等が見る）
  *   [W] 警告のみ: engines/kokuho/generate.js の既定年度（引数なしのとき）が国保年度と違う
@@ -128,8 +132,6 @@ console.log('\n[X] 所得税の年分 TAX_YEAR（2 テンプレで一致・shoto
 // ─── [G] 生成器の手書き年度 ────────────────────────────────────
 console.log('\n[G] 生成器の手書き年度 ↔ registry publishYear（その生成器が扱う制度）');
 for (const [file, re, label, systems] of [
-  // generate-system-pages.js は YEAR を固定で使い、registry の publishYear を見ない（kaigo・kouki 等）
-  ['scripts/generate-system-pages.js', /const YEAR\s*=\s*(\d{4});/g, 'YEAR', ['kaigo', 'kouki']],
   // 以下 2 本は registry の publishYear を優先し、無いときだけ DEFAULT_YEAR を使う
   ['scripts/generate-jumin-pages.js', /const DEFAULT_YEAR\s*=\s*(\d{4});/g, 'DEFAULT_YEAR', ['jumin']],
   ['scripts/generate-hoiku-pages.js', /const DEFAULT_YEAR\s*=\s*(\d{4});/g, 'DEFAULT_YEAR', ['hoiku']],
@@ -139,6 +141,43 @@ for (const [file, re, label, systems] of [
   const bad = systems.filter((s) => yearsBySystem[s] && [...yearsBySystem[s]].some((v) => v !== y));
   if (bad.length === 0) ok(`${file}: ${label} = ${y}（publishYear.${systems.join('/')} と一致）`);
   else ng(`${file}: ${label} = ${y} だが registry の ${bad.map((s) => `publishYear.${s}=${[...yearsBySystem[s]].join(',')}`).join(' / ')}`);
+}
+
+// generate-system-pages.js: 自治体ごとに publishYear.{kaigo,kouki} を読み、無い自治体だけ DEFAULT_YEAR
+{
+  const file = 'scripts/generate-system-pages.js';
+  const y = pickOne(file, /const DEFAULT_YEAR\s*=\s*(\d{4});/g, 'DEFAULT_YEAR');
+  if (y !== null) {
+    if (/const YEAR\s*=\s*\d{4};/.test(read(file))) ng(`${file}: 固定の YEAR が残っている（自治体ごとの publishYear を読む作りに戻っていない）`);
+    for (const sys of ['kaigo', 'kouki']) {
+      const noPy = registry.filter((m) => (m.systems || []).includes(sys) && !(m.publishYear && m.publishYear[sys]));
+      if (noPy.length === 0) { ok(`${file}: ${sys} は全自治体が publishYear を持つ（DEFAULT_YEAR=${y} は使われない）`); continue; }
+      const miss = noPy.filter((m) => !fs.existsSync(path.join(ROOT, 'data', 'municipalities', m.citySlug, `${sys}-${y}.json`)));
+      if (miss.length === 0) ok(`${file}: ${sys} の publishYear 無し ${noPy.length} 件は DEFAULT_YEAR=${y} の JSON がある`);
+      else ng(`${file}: ${sys} の publishYear 無しで ${sys}-${y}.json も無い ${miss.length} 件`, miss.map((m) => m.citySlug));
+    }
+  }
+}
+
+// ─── [K] 家計簿ページの介護年度 ────────────────────────────────
+console.log('\n[K] 家計簿ページの KAIGO_YEAR ↔ その自治体の registry publishYear.kaigo');
+{
+  const RE = /const KAIGO_YEAR = (\d{4}|null);/;
+  let checked = 0;
+  const bad = [];
+  for (const m of registry) {
+    if (!m.prefectureSlug) continue;
+    const p = path.join(ROOT, m.prefectureSlug, m.citySlug, 'kakeibo', 'index.html');
+    if (!fs.existsSync(p)) continue;
+    checked++;
+    const mm = fs.readFileSync(p, 'utf8').match(RE);
+    const want = (m.publishYear && m.publishYear.kaigo) || null;
+    if (!mm) bad.push(`${rel(p)}: KAIGO_YEAR の宣言が無い`);
+    else if ((mm[1] === 'null' ? null : Number(mm[1])) !== want) bad.push(`${rel(p)}: KAIGO_YEAR=${mm[1]} / registry publishYear.kaigo=${want}`);
+  }
+  console.log(`    kakeibo: 照合 ${checked} 枚`);
+  if (bad.length === 0) ok('家計簿の KAIGO_YEAR がすべて registry と一致');
+  else ng(`家計簿の KAIGO_YEAR が registry と違う ${bad.length} 枚`, bad);
 }
 
 // ─── [P] 生成済みページの PUBLISH_YEAR ─────────────────────────
