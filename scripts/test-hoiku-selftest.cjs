@@ -115,6 +115,36 @@ function runSelfTest() {
   eq('[HOIKU-02] 非課税の breakdown', calcHoiku({ hikazei: true, father: { shotokuwari: 0 }, childOrder: 2 }, cityA).breakdown, { index: 0, base: 0, firstFinal: 0, childOrder: 2, monthly: 0 });
   eq('[HOIKU-02] 生活保護の breakdown', calcHoiku({ seikatsuhogo: true, father: { shotokuwari: 0 } }, cityA).breakdown, { index: 0, base: 0, firstFinal: 0, childOrder: 1, monthly: 0 });
 
+
+  // X252（2026-11-10）: 在園していない年上のきょうだいの数え方。
+  //   市の基準（multiChild.countScope='household-all'/'allChildren'）か、施行令14条の低所得
+  //   （所得割合算額 57,700円未満・ひとり親等 77,101円未満）のときだけ順位に足す。selector を持つ市（新潟型）は足さない。
+  //   ひとり親等で 77,101円未満の第2子は 0 円が上限（14条1号かっこ書き）。
+  {
+    const Q = (s, extra) => Object.assign({ father: { shotokuwari: s }, mother: { shotokuwari: 0 }, childOrder: 1 }, extra || {});
+    const cityAll = Object.assign({}, cityA, { multiChild: { second: 0, third: 0, countScope: 'household-all' } });
+    const cityAllChildren = Object.assign({}, cityA, { multiChild: { second: 0, third: 0, countScope: 'allChildren' } });
+    const cityStd = Object.assign({}, cityA, { multiChild: { second: 0.5, third: 0 } });
+    const citySel = Object.assign({}, cityStd, { selector: { olderSiblingNotEnrolled: { appliesTo: 'child2alt' } } });
+    eq('[X252] 市が全員数える: 在園外1人 → 第2子(0円)', calcHoiku(Q(100000, { olderNotEnrolled: 1 }), cityAll).monthly, 0);
+    eq('[X252] 市が全員数える: 在園外0人 → 第1子', calcHoiku(Q(100000, { olderNotEnrolled: 0 }), cityAll).monthly, 44500);
+    eq('[X252] allChildren も同じ扱い', calcHoiku(Q(100000, { olderNotEnrolled: 1 }), cityAllChildren).monthly, 0);
+    eq('[X252] 国の基準・所得割合算額 100,000（≥57,700）: 在園外は数えない', calcHoiku(Q(100000, { olderNotEnrolled: 1 }), cityStd).monthly, 44500);
+    eq('[X252] 国の基準・30,000（<57,700）: 14条で数えて第2子 ×0.5', calcHoiku(Q(30000, { olderNotEnrolled: 1 }), cityStd).monthly, 9750);
+    eq('[X252] 境界 57,700 ちょうどは数えない', calcHoiku(Q(57700, { olderNotEnrolled: 1 }), cityStd).monthly, 30000);
+    eq('[X252] 境界 57,699 は数える', calcHoiku(Q(57699, { olderNotEnrolled: 1 }), cityStd).monthly, 15000);
+    eq('[X252] ひとり親等・70,000（<77,101）: 在園の兄姉で第2子 → 0円が上限', calcHoiku(Q(70000, { childOrder: 2, hitorioya: true }), cityStd).monthly, 0);
+    eq('[X252] ひとり親等・77,101 は上限にかからない（第2子 ×0.5）', calcHoiku(Q(77101, { childOrder: 2, hitorioya: true }), cityStd).monthly, 15000);
+    eq('[X252] ひとり親等・70,000・在園外2人 → 第3子 0円', calcHoiku(Q(70000, { olderNotEnrolled: 2, hitorioya: true }), cityStd).monthly, 0);
+    eq('[X252] selector を持つ市（新潟型）は一般規則で足さない', calcHoiku(Q(30000, { olderNotEnrolled: 1 }), citySel).monthly, 19500);
+    const r = calcHoiku(Q(30000, { olderNotEnrolled: 1 }), cityStd);
+    eq('[X252] breakdown の順位は加算後・加算数を記録', [r.breakdown.childOrder, r.breakdown.olderNotEnrolledCounted], [2, 1]);
+    const err = (x) => { try { calcHoiku(x, cityStd); return 'no-error'; } catch (e) { return e.constructor.name; } };
+    eq('[X252] olderNotEnrolled が負は RangeError', err(Q(30000, { olderNotEnrolled: -1 })), 'RangeError');
+    eq('[X252] olderNotEnrolled が文字列は TypeError', err(Q(30000, { olderNotEnrolled: '1' })), 'TypeError');
+    eq('[X252] validateBrackets は不明な countScope を拒む', validateBrackets(Object.assign({}, cityA, { multiChild: { countScope: 'everyone' } })).some((m) => /countScope/.test(m)), true);
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   if (fail > 0) process.exitCode = 1;
 }
