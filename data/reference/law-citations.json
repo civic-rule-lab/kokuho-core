@@ -12,11 +12,11 @@
         "js/core/jumin.js#calcTokuteiShinzokuDeduction",
         "js/core/jumin.js#TOKUTEI_SHINZOKU"
       ],
-      "lawRevisionId": "",
-      "enforcementDate": "",
-      "textSha256": "",
-      "textHead": "",
-      "checkedAt": ""
+      "lawRevisionId": "325AC0000000226_20261101_508AC0000000002",
+      "enforcementDate": "2026-11-01",
+      "textSha256": "ed0cf7353e0e7633780cf490281f7e49545dfc8016fbcde1f1114d56103db50d",
+      "textHead": "十二自己と生計を一にする年齢十九歳以上二十三歳未満の親族（自己の配偶者を除く。）及び児童福祉法第二十七条第一項第三号の規",
+      "checkedAt": "2026-11-10"
     }
   ]
 }
