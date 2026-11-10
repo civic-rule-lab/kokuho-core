@@ -20,6 +20,7 @@ const fillMap = {
   '__LINK_KOKUHO__': 'https://kokuho-keisan.jp/tokyo/testcity/',
   '__JUMIN_KYUCHI__': '1',
   '__SOURCE_SECTION__': '',        // 出典節は生成時に描く（scripts/lib/seido-provenance.cjs）。ここでは計算だけを見る
+  '__KAIGO_YEAR__': '2026',       // 介護の年度（registry publishYear.kaigo を生成時に埋める・介護 R9 D1/D2）
   '__HAS_JUMIN_PAGE__': 'true',   // 1級地（期待値の calculateJumin も級地未指定＝1級地）
 };
 for (const [k, v] of Object.entries(fillMap)) html = html.split(k).join(v);
@@ -51,9 +52,12 @@ const KOKUHO_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kokuho-2026
 const KAIGO_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kaigo-2026.json');
 const KOUKI_FIXTURE = path.join(ROOT, 'data/municipalities/ichihara/kouki-2026.json');
 
-function mkFetch() {
+const fetchLog = [];   // 家計簿が読みに行った URL（介護の年度の検査に使う）
+function mkFetch(extra) {
   return (url) => {
+    fetchLog.push(url);
     let p = null;
+    if (extra && extra[url]) { const j = extra[url]; return Promise.resolve({ ok: true, json: () => Promise.resolve(j) }); }
     if (url.startsWith('/data/shaho/')) p = path.join(ROOT, 'data/shaho', url.split('/').pop());
     else if (url.startsWith('/data/national/')) p = path.join(ROOT, 'data/national', url.split('/').pop());
     else if (url === '/js/core/shogakukin-2026.json') p = path.join(ROOT, 'js/core/shogakukin-2026.json');
@@ -832,6 +836,40 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
       student: { level: '大学', schoolType: '私立', attendance: '自宅' }, childrenCount: 1 });
     const hc = find(h.heads, sgName);
     A(`奨学金（本人200万・配偶者控除・19〜22歳の欄は空）: 進学する子を特定扶養に足した直算 ${sgShortOf(he)} → 実際 ${hc && hc[1]}`, !!hc && hc[1] === sgShortOf(he));
+  }
+
+  // ── 介護の年度（2026-11-10 介護 R9 D1/D2）──────────────────────────────
+  //   (1) KAIGO_YEAR=2026: 介護は kaigo-2026.json だけを読み、前年度へは下がらない。年度の注記は出ない（いまの表示と同じ）
+  //   (2) KAIGO_YEAR=2027: 介護は kaigo-2027.json を読み、kaigo-2026.json は読まない（R9 の JSON を置いても registry を上げるまでは読まない、の裏返し）。
+  //       他制度（国保 2026）と年度が違うので「※介護保険料は令和9年度の公表値で計算しています。」を出す
+  {
+    const kaigoUrls = fetchLog.filter(u => /\/kaigo-\d{4}\.json$/.test(u));
+    A(`介護年度 2026: 介護の JSON は kaigo-2026.json だけを読む（実際: ${[...new Set(kaigoUrls)].join(', ') || 'なし'}）`,
+      kaigoUrls.length > 0 && kaigoUrls.every(u => u === '/data/municipalities/testcity/kaigo-2026.json'));
+    A('介護年度 2026: 介護カードに年度の注記は出ない（いまの表示と同じ）', !/介護保険料は令和/.test(r7.sys));
+
+    const k27 = JSON.parse(fs.readFileSync(KAIGO_FIXTURE, 'utf8'));
+    k27.fiscalYear = 2027;
+    const html27 = html.replace('const KAIGO_YEAR = 2026;', 'const KAIGO_YEAR = 2027;');
+    A('介護年度 2027: テンプレの KAIGO_YEAR 宣言を差し替えられる（宣言の形が変わっていない）', html27 !== html);
+    const dom27 = new JSDOM(html27, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://seido-keisan.jp/tokyo/testcity/kakeibo/' });
+    const w27 = dom27.window;
+    fetchLog.length = 0;
+    w27.fetch = mkFetch({ '/data/municipalities/testcity/kaigo-2027.json': k27 });
+    await new Promise(r => { if (w27.document.readyState === 'complete') r(); else w27.addEventListener('load', r); });
+    const set27 = (id, v) => { const el = w27.document.getElementById(id); if (el) el.value = v; };
+    set27('salary', ''); set27('pension', '2500000'); set27('age', '67'); set27('family', '1');
+    if (w27.document.getElementById('employment')) w27.document.getElementById('employment').value = 'jiei';
+    await w27.calcAll();
+    const sys27 = w27.document.getElementById('systems').innerHTML;
+    const kUrls27 = fetchLog.filter(u => /\/kaigo-\d{4}\.json$/.test(u));
+    A(`介護年度 2027: 介護の JSON は kaigo-2027.json だけを読む（実際: ${[...new Set(kUrls27)].join(', ') || 'なし'}）`,
+      kUrls27.length > 0 && kUrls27.every(u => u === '/data/municipalities/testcity/kaigo-2027.json'));
+    const heads27 = [...sys27.matchAll(/ci-grp-head[^>]*>([^<]*)<span[^>]*>([^<]*)</g)].map(m => [m[1].trim(), m[2].trim()]);
+    const kg27 = find(heads27, '介護保険（第1号）'), kg26 = find(r7.heads, '介護保険（第1号）');
+    A('介護年度 2027: 介護カードが出て、額は同じ段階表なら 2026 と同じ', !!kg27 && !!kg26 && kg27[1] === kg26[1]);
+    A('介護年度 2027: 「※介護保険料は令和9年度の公表値で計算しています。」を出す', /介護保険料は令和9年度の公表値で計算しています/.test(sys27));
+    A('介護年度 2027: 国保など他制度には年度の注記を出さない（他制度は 2026 のまま）', !/令和9年度の料率で計算/.test(sys27));
   }
 
   console.log(`\n結果: ${pass} passed, ${fail} failed`);

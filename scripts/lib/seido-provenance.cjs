@@ -227,8 +227,10 @@ function loadJson(p) {
 function buildKakeiboSourceSection(citySlug, ctx = {}) {
   const dir = path.join(ROOT, 'data', 'municipalities', citySlug);
   const YEARS = [2026, 2025];
+  // 介護は registry の publishYear.kaigo の年度だけを読む（ページ側の KAIGO_YEAR と同じ。ctx.kaigoYear が無ければ YEARS の順）
   const load = (sys) => {
-    for (const y of YEARS) { const d = loadJson(path.join(dir, `${sys}-${y}.json`)); if (d) return { d, y }; }
+    const ys = (sys === 'kaigo' && ctx.kaigoYear) ? [ctx.kaigoYear] : YEARS;
+    for (const y of ys) { const d = loadJson(path.join(dir, `${sys}-${y}.json`)); if (d) return { d, y }; }
     return { d: null, y: null };
   };
   const SYS = [

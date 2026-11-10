@@ -124,7 +124,7 @@ __OPERATOR_FOOTER__
 
 </div>
 
-<!-- 介護保険データ（自治体スペック・第9期） -->
+<!-- 介護保険データ（自治体スペック・__PLAN_PERIOD_NAME__） -->
 <script>const KAIGO_DATA = __KAIGO_DATA__; const CITY_SLUG = "__CITY_SLUG__"; const PUBLISH_YEAR = __PUBLISH_YEAR__; const JUMIN_KYUCHI = __JUMIN_KYUCHI__;</script>
 <!-- 計算エンジン（income.js を先に読み込み、kaigo.js に所得換算を供給） -->
 <script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
@@ -150,7 +150,7 @@ __OPERATOR_FOOTER__
       html+="<tr data-level='"+b.level+"'><td class='kg-stage'>"+(b.label||("第"+b.level+"段階"))+"</td><td>×"+b.rate+"</td><td>"+annual.toLocaleString()+"円</td></tr>";
     });
     html+="</table>";
-    html+="<p style='font-size:11px;color:#6b7280;margin:6px 0 0;line-height:1.7;'>段階は所得と住民税の課税状況で決まります。（保険料は各市区町村が第9期＝令和6〜8年度に決定した公表値です。）</p>";
+    html+="<p style='font-size:11px;color:#6b7280;margin:6px 0 0;line-height:1.7;'>段階は所得と住民税の課税状況で決まります。（保険料は各市区町村が__PLAN_PERIOD_LABEL__に決定した公表値です。）</p>";
     el.innerHTML=html;
   }
 

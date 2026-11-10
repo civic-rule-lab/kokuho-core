@@ -25,7 +25,10 @@ const ROOT      = path.join(__dirname, "..");
 const TMPL_DIR  = path.join(ROOT, "templates");
 const REGISTRY  = path.join(ROOT, "registry", "index.json");
 const BASE_URL  = "https://seido-keisan.jp";   // アンブレラ（制度計算.jp）
-const YEAR      = 2026;
+// 年度は自治体ごとに registry の publishYear.{制度} から取る（介護 R9 の年度切替・2026-11-10 オーナー決定 D1）。
+//   R9 のデータ（{制度}-2027.json）を先に置いても、registry を 2027 に上げるまでページは R8 のまま。
+//   DEFAULT_YEAR は publishYear が無い自治体だけに使う（2026-11-10 時点で kaigo・kouki の該当は 0 件）。
+const DEFAULT_YEAR = 2026;
 
 const SYSTEM = process.argv[2];
 const ARGS   = process.argv.slice(3);
@@ -91,8 +94,15 @@ function fileHash(...files) {
   for (const f of files) h.update(readFileSync(path.join(ROOT, f)));
   return h.digest("hex").slice(0, 8);
 }
-function loadData(slug) {
-  const p = path.join(ROOT, "data", "municipalities", slug, `${SYSTEM}-${YEAR}.json`);
+function yearOf(m) { return (m.publishYear && m.publishYear[SYSTEM]) || DEFAULT_YEAR; }
+// 介護の計画期間 "第9期（2024-2026）" → 名称 "第9期"・表示 "第9期＝令和6〜8年度"。形が違えば止める（表示を黙って崩さない）
+function planPeriodParts(data) {
+  const mm = /^(第\d+期)（(\d{4})-(\d{4})）$/.exec(data.planPeriod || "");
+  if (!mm) throw new Error(`planPeriod の形が想定外: ${data.citySlug} ${JSON.stringify(data.planPeriod)}（例 "第9期（2024-2026）"）`);
+  return { name: mm[1], label: `${mm[1]}＝令和${Number(mm[2]) - 2018}〜${Number(mm[3]) - 2018}年度` };
+}
+function loadData(slug, year) {
+  const p = path.join(ROOT, "data", "municipalities", slug, `${SYSTEM}-${year}.json`);
   if (!existsSync(p)) return null;
   try { return JSON.parse(readFileSync(p, "utf-8")); } catch (e) { console.warn(`⚠️ JSON parse: ${p} ${e.message}`); return null; }
 }
@@ -133,7 +143,8 @@ const hasKakeibo = (m) => hasSys(m, "jumin") || hasSys(m, "kaigo");
 const PORTAL_LINK_RE = /<a href="__PORTAL_LINK__"[^>]*>[^<]*<\/a>/g;
 
 function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
-  const fy = fmtFY(YEAR);
+  const year = yearOf(m);
+  const fy = fmtFY(year);
   const meta = (isIncome && cfg.metaIncome ? cfg.metaIncome : cfg.meta)(m.cityName, m.prefecture, fy, data);
   const intro = (isIncome && cfg.introIncome ? cfg.introIncome : cfg.intro)(m.cityName, fy, data);
   // canonicalScope: "pref" の制度（後期）は県版ページ /{pref}/{system}/ に canonical を集約
@@ -148,11 +159,13 @@ function render(m, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
     .replaceAll("__JSON_LD__",           buildJsonLd(m.cityName, m.prefecture, prefSlug, m.citySlug, meta, fy))
     .replaceAll("__INTRO_TEXT__",        intro)
     .replaceAll("__FISCAL_YEAR_LABEL__", fy)
-    .replaceAll("__PUBLISH_YEAR__",      String(YEAR))
+    .replaceAll("__PUBLISH_YEAR__",      String(year))
     .replaceAll("__PORTAL_LINK__",       "../kakeibo/")
     .replaceAll("__SOURCE_SECTION__",    () => provenance.buildSourceSection(SYSTEM, data, { prefName: m.prefecture }))
     .replaceAll("__JUMIN_KYUCHI__",      () => String(juminKyuchi(m.citySlug)))
     .replaceAll("__PLAN_PERIOD__",       data.planPeriod || "")
+    .replaceAll("__PLAN_PERIOD_NAME__",  () => planPeriodParts(data).name)
+    .replaceAll("__PLAN_PERIOD_LABEL__", () => planPeriodParts(data).label)
     .replaceAll("__CSS_V__",             CSS_V)
     .replaceAll("__JS_V__",              JS_V)
     .replaceAll(cfg.dataPlaceholder,     JSON.stringify(data));
@@ -171,10 +184,12 @@ if (process.env.GEN_SLICE) {
 }
 
 let generated = 0, skippedNoData = 0, skippedNoPref = 0;
+const missingForPublishYear = [];   // registry が年度を指しているのに JSON が無い＝ページが消える。黙って飛ばさず止める
 for (const m of runTargets) {
   const prefSlug = m.prefectureSlug;
   if (!prefSlug) { skippedNoPref++; continue; }
-  const data = loadData(m.citySlug);
+  const data = loadData(m.citySlug, yearOf(m));
+  if (!data && m.publishYear && m.publishYear[SYSTEM]) missingForPublishYear.push(`${m.citySlug}: ${SYSTEM}-${yearOf(m)}.json`);
   if (!cfg.eligible(m, data)) { skippedNoData++; continue; }
   if (DRY) { generated++; continue; }
   const dir = path.join(ROOT, prefSlug, m.citySlug, SYSTEM);
@@ -188,6 +203,11 @@ console.log(`\n✅ ${SYSTEM}: ${generated}自治体のページを${DRY ? "生�
 console.log(`   出力先: {prefSlug}/{citySlug}/${SYSTEM}/index.html`);
 if (skippedNoData) console.log(`   スキップ（データ未整備/未検証）: ${skippedNoData}`);
 if (skippedNoPref) console.log(`   スキップ（prefSlug未定義）: ${skippedNoPref}`);
+if (missingForPublishYear.length) {
+  console.error(`\n❌ registry の publishYear.${SYSTEM} が指す年度の JSON が無い ${missingForPublishYear.length} 件（ページを生成していない）:`);
+  for (const s of missingForPublishYear) console.error(`   ${s}`);
+  process.exitCode = 1;
+}
 if (provenance.rejectedHosts().size) {
   console.warn(`\n⚠️  出典をリンクにしなかったホスト（「出典ページ未確認」と表示。公的なら generate-official-pages.js の PROVENANCE_HOST_EXTRA に追加＝オーナー判断）:`);
   for (const [h, n] of provenance.rejectedHosts()) console.warn(`   ${h}: ${n}件`);
@@ -209,8 +229,8 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
       "publisher": organization.ORGANIZATION_REF };
     return JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumb, app, organization.ORGANIZATION] });
   }
-  function renderPref(prefName, prefSlug, data, { isIncome = false, tmpl = template } = {}) {
-    const fy = fmtFY(YEAR);
+  function renderPref(prefName, prefSlug, data, year, { isIncome = false, tmpl = template } = {}) {
+    const fy = fmtFY(year);
     const meta = (isIncome ? cfg.prefMetaIncome : cfg.prefMeta)(prefName, fy, data);
     const intro = (isIncome ? cfg.prefIntroIncome : cfg.prefIntro)(prefName, fy, data);
     const canonical = `${BASE_URL}/${prefSlug}/${SYSTEM}/${isIncome ? "income.html" : ""}`;
@@ -226,7 +246,7 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
       .replaceAll("__JSON_LD__",           buildPrefJsonLd(prefName, prefSlug, meta, fy))
       .replaceAll("__INTRO_TEXT__",        intro)
       .replaceAll("__FISCAL_YEAR_LABEL__", fy)
-      .replaceAll("__PUBLISH_YEAR__",      String(YEAR))
+      .replaceAll("__PUBLISH_YEAR__",      String(year))
       .replaceAll("__PORTAL_LINK__",       "/")
       .replaceAll("__SOURCE_SECTION__",    () => provenance.buildSourceSection(SYSTEM, data, { prefName }))
       .replaceAll("__PLAN_PERIOD__",       data.planPeriod || "")
@@ -241,14 +261,22 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
   const byPref = new Map();
   for (const m of targets) {
     if (!m.prefectureSlug) continue;
-    const d = loadData(m.citySlug);
+    const y = yearOf(m);
+    const d = loadData(m.citySlug, y);
     if (!cfg.eligible(m, d)) continue;
     if (!byPref.has(m.prefectureSlug)) byPref.set(m.prefectureSlug, { prefName: m.prefecture, items: [] });
-    byPref.get(m.prefectureSlug).items.push({ slug: m.citySlug, data: d });
+    byPref.get(m.prefectureSlug).items.push({ slug: m.citySlug, data: d, year: y });
   }
 
   let prefGenerated = 0, prefFailed = 0;
   for (const [prefSlug, { prefName, items }] of byPref) {
+    // 県版は 1 年度で描く。県内で年度が割れている（一部だけ新年度に切り替えた）間は県版を作らない
+    const years = new Set(items.map(x => x.year));
+    if (years.size !== 1) {
+      console.error(`❌ ${prefName}(${prefSlug}): 県内で publishYear.${SYSTEM} が割れている（${[...years].join(",")}）。県版ページ生成をスキップ`);
+      prefFailed++;
+      continue;
+    }
     const keys = new Set(items.map(x => uniformKey(x.data)));
     if (keys.size !== 1) {
       console.error(`❌ ${prefName}(${prefSlug}): 県内で${SYSTEM}データが不均一（${keys.size}パターン）。県版ページ生成をスキップ`);
@@ -261,8 +289,8 @@ if (cfg.canonicalScope === "pref" && !TARGET_SLUG) {
     const rep = { ...items[0].data, cityName: prefName, citySlug: prefSlug, cityCode: prefCode };
     const dir = path.join(ROOT, prefSlug, SYSTEM);
     mkdirSync(dir, { recursive: true });
-    writeFileSync(path.join(dir, "index.html"), renderPref(prefName, prefSlug, rep, { isIncome: false, tmpl: template }), "utf-8");
-    if (incomeTemplate) writeFileSync(path.join(dir, "income.html"), renderPref(prefName, prefSlug, rep, { isIncome: true, tmpl: incomeTemplate }), "utf-8");
+    writeFileSync(path.join(dir, "index.html"), renderPref(prefName, prefSlug, rep, items[0].year, { isIncome: false, tmpl: template }), "utf-8");
+    if (incomeTemplate) writeFileSync(path.join(dir, "income.html"), renderPref(prefName, prefSlug, rep, items[0].year, { isIncome: true, tmpl: incomeTemplate }), "utf-8");
     prefGenerated++;
   }
   console.log(`\n✅ ${SYSTEM} 県版: ${prefGenerated}都道府県を${DRY ? "生成予定（dry-run）" : "生成"}（出力先: {prefSlug}/${SYSTEM}/）`);
