@@ -27,6 +27,8 @@ console.log('— 公的年金等控除（65歳未満/以上） —');
 });
 
 // 独立式: 特定親族特別控除（住民税・所得ベース）
+// 独立の出典: 総務省説明資料（令7.5.15）の7段階表（令和8年度、扶養の所得要件58万円）。
+// エンジンは地方税法 第314条の2 第1項第12号イ〜ニの式で計算するので、出典の違う2つを突き合わせる。
 function tokutei(x){ if(!(x>580000)||x>1230000)return 0;
   const b=[[950000,450000],[1000000,410000],[1050000,310000],[1100000,210000],[1150000,110000],[1200000,60000],[1230000,30000]];
   for(const [cap,d] of b){ if(x<=cap)return d; } return 0; }
@@ -34,6 +36,10 @@ console.log('— 特定親族特別控除 —');
 [500000,580000,600000,950000,951000,1000000,1050000,1100000,1150000,1200000,1230000,1230001,1500000].forEach(x=>{
   eq('tokutei '+x, jum.calcTokuteiShinzokuDeduction(x), tokutei(x));
 });
+// 全範囲（57万〜124万円を1円刻み）で、条文の式（エンジン）と総務省の段階表が一致するか
+{ let mism=0, first=null;
+  for(let x=570000; x<=1240000; x++){ const g=jum.calcTokuteiShinzokuDeduction(x), e=tokutei(x); if(g!==e){ mism++; if(first===null) first=x+': got='+g+' exp='+e; } }
+  eq('tokutei 全範囲 570,000〜1,240,000 円で不一致 0 件'+(first?'（最初: '+first+'）':''), mism, 0); }
 
 console.log('\n==== 純粋関数: '+pass+' pass / '+fail+' fail ====');
 process.exitCode=fail?1:0;

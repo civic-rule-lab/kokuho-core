@@ -1,0 +1,22 @@
+{
+  "description": "エンジンが根拠にしている条文の記録。どの版の、どの号の本文を読んで実装したか。scripts/watch-law-citations.js が e-Gov 法令API v2 と突き合わせて改正を検知する。lawRevisionId・enforcementDate・textSha256・textHead・checkedAt は --record が書く（人が条文を読み直してコードを直した後に実行する）。",
+  "citations": [
+    {
+      "id": "jumin-tokutei-shinzoku",
+      "label": "特定親族特別控除（住民税）",
+      "lawTitle": "地方税法",
+      "lawId": "325AC0000000226",
+      "article": "第314条の2 第1項第12号",
+      "elm": "MainProvision-Article_314_2-Paragraph_1-Item_12",
+      "usedIn": [
+        "js/core/jumin.js#calcTokuteiShinzokuDeduction",
+        "js/core/jumin.js#TOKUTEI_SHINZOKU"
+      ],
+      "lawRevisionId": "",
+      "enforcementDate": "",
+      "textSha256": "",
+      "textHead": "",
+      "checkedAt": ""
+    }
+  ]
+}
