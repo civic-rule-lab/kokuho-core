@@ -12,7 +12,7 @@
  *   - NaN / Infinity が出ない
  *   - 各区分が 0 以上
  *   - 各区分が caps を超えない
- *   - 合計 = 各区分の和
+ *   - 合計 = 各区分の和（rounding.totalUnit を持つ自治体は、和をその単位で切り捨てた額。長野市・夕張市）
  *   - 軽減判定が有効な値のいずれか
  */
 
@@ -65,7 +65,9 @@ function validateResult(r, data, input) {
   if (isFinite(r.childcareTotal) && data.childcareLevy?.cap != null
       && r.childcareTotal > (data.childcareLevy.cap ?? 30000))                         issues.push(`子育て分が上限超過 (${r.childcareTotal} > ${data.childcareLevy.cap})`);
 
-  const expectedTotal = r.medicalTotal + r.supportTotal + r.careTotal + r.childcareTotal;
+  // 合計だけ切り捨てる自治体（rounding.totalUnit。2026-11-11・TASKS X253）は、区分の和をその単位で切り捨てた額が合計。
+  const totalUnit = data.rounding?.totalUnit ?? 1;
+  const expectedTotal = Math.floor((r.medicalTotal + r.supportTotal + r.careTotal + r.childcareTotal) / totalUnit) * totalUnit;
   if (Math.abs(r.total - expectedTotal) > 0)                                           issues.push(`合計不一致 (${r.total} ≠ ${expectedTotal})`);
 
   if (!VALID_LABELS.has(r.reductionLabel))                                             issues.push(`軽減判定が不正な値 "${r.reductionLabel}"`);

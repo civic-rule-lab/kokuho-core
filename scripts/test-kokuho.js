@@ -223,7 +223,24 @@ console.log('\n■ 区分ごとの端数単位');
   try { calculateKokuho(inp, { ...base, rounding: { componentUnit: 50 } }); } catch (e) { threw = e && e.name === 'RangeError'; }  // エンジンは vm で読み込むので instanceof は別の realm になる
   ok('許されない単位（50）は RangeError', threw);
   eq('特別区（新宿区）は 1 円単位のデータを持つ', kokuhoOf('shinjuku').rounding?.componentUnit, 1);
-  eq('長野市は 10 円単位のデータを持つ', kokuhoOf('nagano').rounding?.componentUnit, 10);
+  // 合計だけ切り捨てる（長野市 条例17条2項・夕張市 条例15条）
+  const rT = calculateKokuho(inp, { ...base, rounding: { componentUnit: 1, totalUnit: 10 } });
+  eq('totalUnit 10・componentUnit 1: 区分は切り捨てない', parts(rT), parts(r1));
+  eq('totalUnit 10: 合計だけ 10 円未満切捨て', rT.total, fl(raw(r1).reduce((a, v) => a + v, 0), 10));
+  // 区分で単位が違う・100 円未満の区分は全額切捨て（千葉市 条例31条2項。子ども分は対象外）
+  const rC = calculateKokuho(inp, { ...base, rounding: { componentUnit: { medical: 10, support: 10, care: 10, childcare: 1 }, componentDropBelow: 100 } });
+  eq('区分ごとの単位（医療・支援 10 円）', JSON.stringify(raw(rC).slice(0, 2)), JSON.stringify(raw(r1).slice(0, 2).map(v => fl(v, 10))));
+  const small = calculateKokuho({ income: 0, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 },
+    { ...base, perCapita: { ...base.perCapita, support: 90 }, household: base.household ? { ...base.household, support: 0 } : base.household,
+      rounding: { componentUnit: { medical: 10, support: 10, care: 10, childcare: 1 }, componentDropBelow: 100 } });
+  eq('単位で切り捨てる区分が 100 円未満なら 0（支援分 90 円×軽減後 → 0）', small.supportTotal, 0);
+  eq('子ども分は componentUnit 1 なので全額切捨ての対象外', calculateKokuho(inp, { ...base, rounding: { componentUnit: { childcare: 1 }, componentDropBelow: 100 } }).childcareTotal, r1.childcareTotal);
+  let threwT = false;
+  try { calculateKokuho(inp, { ...base, rounding: { totalUnit: 5 } }); } catch (e) { threwT = e && e.name === 'RangeError'; }
+  ok('許されない totalUnit（5）は RangeError', threwT);
+  eq('長野市は合計だけ 10 円単位', JSON.stringify(kokuhoOf('nagano').rounding && [kokuhoOf('nagano').rounding.componentUnit, kokuhoOf('nagano').rounding.totalUnit]), JSON.stringify([1, 10]));
+  eq('夕張市は合計だけ 100 円単位', JSON.stringify([kokuhoOf('yubari').rounding?.componentUnit, kokuhoOf('yubari').rounding?.totalUnit]), JSON.stringify([1, 100]));
+  eq('千葉市は医療・支援・介護 10 円・子ども分 1 円・100 円未満は全額切捨て', JSON.stringify(kokuhoOf('chiba').rounding?.componentUnit) + kokuhoOf('chiba').rounding?.componentDropBelow, JSON.stringify({ medical: 10, support: 10, care: 10, childcare: 1 }) + '100');
 }
 
 // ═══════════════════════════════════════════════════════════
