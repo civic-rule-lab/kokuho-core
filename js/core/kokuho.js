@@ -8,6 +8,14 @@
 // これは「データ欠落時の最後の手段」であり、正は各自治体 JSON の childcareLevy.cap。
 const CHILDCARE_CAP_NATIONAL = 30000;
 
+// 区分（医療・支援・介護・子ども分）ごとの賦課額の端数単位（2026-11-11・TASKS X253＝X148-1・X149-1）。
+//   既定は 100 円未満切捨て。保険税は地方税法 第20条の4の2 第3項（地方税の確定金額の百円未満の端数は切捨て。
+//   e-Gov 325AC0000000226_20261101 で確認）により区分ごとに切り捨てる（新宮市・久留米市・白山市の公表例で区分ごとを確認）。
+//   保険料（料方式）は条例次第なので、切り捨てない・単位が違う自治体だけデータ rounding.componentUnit に持つ
+//   （1＝1円単位＝特別区、10＝10円単位）。持たない自治体は既定の 100。未判明の料方式もこの既定で扱う（X149-1 の ④）。
+const DEFAULT_COMPONENT_UNIT = 100;
+const COMPONENT_UNITS = [1, 10, 100];
+
 function calculateKokuho(input, data) {
   const { income, family: familyIn, preschool, under18, care, salaryPensionCount, fixedAssetTax,
           reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi, tokuteiSetaiKubun } = input;
@@ -254,7 +262,18 @@ function calculateKokuho(input, data) {
   }
   childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCap);
 
-  const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
+  // 区分ごとの端数（限度額で頭打ちにした後に切り捨てる。限度額は単位の倍数なので順序で結果は変わらない）。
+  const componentUnit = data.rounding?.componentUnit ?? DEFAULT_COMPONENT_UNIT;
+  if (!COMPONENT_UNITS.includes(componentUnit)) {
+    throw new RangeError(`[kokuho] ${data.citySlug || "(citySlug不明)"}: rounding.componentUnit は ${COMPONENT_UNITS.join("/")} のいずれか（${String(componentUnit)}）`);
+  }
+  const floorUnit = (v) => Math.floor(v / componentUnit) * componentUnit;
+  medicalTotal   = floorUnit(medicalTotal);
+  supportTotal   = floorUnit(supportTotal);
+  careTotal      = floorUnit(careTotal);
+  childcareTotal = floorUnit(childcareTotal);
+
+  const total         = medicalTotal + supportTotal + careTotal + childcareTotal;
   const monthly        = Math.round(total / 12);
   const totalReduction = medicalReduction + supportReduction + careReduction + childcareReduction;
   const assetLevyTotal = assetLevyMedical + assetLevySupport + assetLevyCare + assetLevyChildcare;

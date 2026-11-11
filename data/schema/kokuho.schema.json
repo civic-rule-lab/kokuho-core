@@ -100,6 +100,16 @@
     },
     "preschoolReduction": { "$ref": "#/$defs/perCapitaReduction", "description": "未就学児の均等割軽減（法定 5 割）" },
     "schoolReduction": { "$ref": "#/$defs/perCapitaReduction", "description": "自治体独自の就学児等の均等割軽減" },
+    "rounding": {
+      "description": "区分（医療・支援・介護・子ども分）ごとの賦課額の端数単位。無ければ 100 円未満切捨て（保険税は地方税法 第20条の4の2 第3項）。切り捨てない・単位が違う自治体だけ持つ",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["componentUnit"],
+      "properties": {
+        "componentUnit": { "enum": [1, 10, 100], "description": "1＝1円単位（切り捨てない）、10＝10円未満切捨て、100＝100円未満切捨て" },
+        "note": { "type": "string", "description": "根拠（条例・公表例）" }
+      }
+    },
     "reduction": {
       "description": "低所得世帯の法定軽減（7割・5割・2割）の判定基準と軽減率",
       "type": "object",

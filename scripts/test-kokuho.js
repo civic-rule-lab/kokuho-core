@@ -143,9 +143,10 @@ console.log('\n== 特定世帯・特定継続世帯の平等割 ==');
   const ainan = kokuhoOf('ainan');
   const b = { income: 5_000_000, family: 1, preschool: 0, under18: 0, care: 1, salaryPensionCount: 1, fixedAssetTax: 0 };
   const n = calculateKokuho(b, ainan).total;
-  eq('特定世帯: 平等割が 20,000＋6,900＋670 の半分（13,785）減る（介護分は減らない）', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'tokutei' }, ainan).total, 13_785);
+  // 2026-11-11 から区分ごとに 100 円未満を切り捨てるので、合計の差は切り捨て後の額どうしの差になる（減額そのものは 13,785・6,893 のまま）。
+  eq('特定世帯: 平等割が 20,000＋6,900＋670 の半分（13,785）減る（介護分は減らない）→ 切捨て後の合計の差は 13,800', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'tokutei' }, ainan).total, 13_800);
   // 特定継続世帯: 5,000＋1,725＋168。条例は支援金分を 5,170（10円未満切捨て）としており、1円未満切捨ての本エンジンとは 5円ずれる
-  eq('特定継続世帯: 平等割の 1/4（6,893）減る', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'keizoku' }, ainan).total, 6_893);
+  eq('特定継続世帯: 平等割の 1/4（6,893）減る → 切捨て後の合計の差は 6,900', n - calculateKokuho({ ...b, tokuteiSetaiKubun: 'keizoku' }, ainan).total, 6_900);
   eq('加入者 2人なら特定世帯にならない（減額なし）', calculateKokuho({ ...b, family: 2 }, ainan).total - calculateKokuho({ ...b, family: 2, tokuteiSetaiKubun: 'tokutei' }, ainan).total, 0);
 
   // 後期へ移った人の年齢から区分を決める（75歳到達で移ると見なす: 5年以内＝79歳まで特定世帯、6〜8年目＝82歳まで特定継続世帯）
@@ -196,6 +197,33 @@ console.log('\n== 世帯人数の省略 ==');
   eq('0 は従来どおり加入者 0 人（0 円）', calculateKokuho({ ...b, family: 0 }, ichihara).total, 0);
   const mem = [{ income: 250_000, careTarget: false }, { income: 250_000, careTarget: false }];
   eq('members だけ渡せばその人数（2 人）とみなす', calculateKokuho({ ...b, members: mem }, ichihara).total, calculateKokuho({ ...b, members: mem, family: 2 }, ichihara).total);
+}
+
+// ═══════════════════════════════════════════════════════════
+// 区分ごとの端数単位（2026-11-11・TASKS X253）
+//   既定は 100 円未満切捨て（保険税は地方税法 第20条の4の2 第3項）。データ rounding.componentUnit で 1・10 円。
+// ═══════════════════════════════════════════════════════════
+console.log('\n■ 区分ごとの端数単位');
+{
+  const base = kokuhoOf('saitama', 2025);
+  const inp = { income: 2_000_000, family: 1, preschool: 0, care: 0, salaryPensionCount: 1 };
+  const r1   = calculateKokuho(inp, { ...base, rounding: { componentUnit: 1 } });
+  const r10  = calculateKokuho(inp, { ...base, rounding: { componentUnit: 10 } });
+  const r100 = calculateKokuho(inp, { ...base, rounding: { componentUnit: 100 } });
+  const rDef = calculateKokuho(inp, { ...base, rounding: undefined });
+  const fl = (v, u) => Math.floor(v / u) * u;
+  const parts = r => JSON.stringify([r.medicalTotal, r.supportTotal, r.careTotal, r.childcareTotal]);
+  const raw = r => [r.medicalTotal, r.supportTotal, r.careTotal, r.childcareTotal];
+  ok('1 円単位では区分の額に 100 円未満の端数が残る（この入力で端数あり）', raw(r1).some(v => v % 100 !== 0), parts(r1));
+  eq('10 円単位＝各区分を 10 円未満切捨て', parts(r10), JSON.stringify(raw(r1).map(v => fl(v, 10))));
+  eq('100 円単位＝各区分を 100 円未満切捨て', parts(r100), JSON.stringify(raw(r1).map(v => fl(v, 100))));
+  eq('rounding が無ければ既定の 100 円', parts(rDef), parts(r100));
+  eq('合計は切り捨てた区分の和（合計だけを切り捨てない）', r100.total, raw(r100).reduce((a, v) => a + v, 0));
+  let threw = false;
+  try { calculateKokuho(inp, { ...base, rounding: { componentUnit: 50 } }); } catch (e) { threw = e && e.name === 'RangeError'; }  // エンジンは vm で読み込むので instanceof は別の realm になる
+  ok('許されない単位（50）は RangeError', threw);
+  eq('特別区（新宿区）は 1 円単位のデータを持つ', kokuhoOf('shinjuku').rounding?.componentUnit, 1);
+  eq('長野市は 10 円単位のデータを持つ', kokuhoOf('nagano').rounding?.componentUnit, 10);
 }
 
 // ═══════════════════════════════════════════════════════════

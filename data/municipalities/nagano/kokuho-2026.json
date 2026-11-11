@@ -62,6 +62,10 @@
       "twoTenths": 0.2
     }
   },
+  "rounding": {
+    "componentUnit": 10,
+    "note": "長野市 令和7年度 国民健康保険料 目安表（https://www.city.nagano.nagano.jp/documents/3682/meyasuhyou.pdf）の区分ごとの額が10円単位（例 医療分 167,820円）。条例の端数条項は未確認。"
+  },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.1",
