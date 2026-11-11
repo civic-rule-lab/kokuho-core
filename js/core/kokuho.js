@@ -17,6 +17,7 @@ const CHILDCARE_CAP_NATIONAL = 30000;
 //     componentDropBelow  区分の額がこの額未満なら全額を切り捨てる（千葉市 条例31条2項「その金額が100円未満であるときは…その全額」）。
 //     totalUnit      区分の和（保険料の額）にだけ掛ける単位。既定 1（掛けない）。長野市 10（条例17条2項「保険料の確定金額」）、
 //                    夕張市 100（条例15条「保険料の賦課額」＝10条の4区分の合算額）。合計だけ切り捨てる自治体は componentUnit を 1 にする。
+//     incomeUnit     区分ごとの所得割の切捨て単位 { medical, support, care, childcare }（書いた区分だけ。京都市 10）。
 //   合計だけ切り捨てると区分の額の和と total が合わなくなる（区分は切り捨て前の額のまま）。
 const DEFAULT_COMPONENT_UNIT = 100;
 const COMPONENT_UNITS = [1, 10, 100];
@@ -88,10 +89,21 @@ function calculateKokuho(input, data) {
     ? memberList.reduce((s, m) => s + (m?.careTarget ? memberBase(m) : 0), 0)
     : baseIncome;
 
-  // 所得割
-  const medicalIncome = Math.round(baseIncome * data.rate.medical);
-  const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = careSafe > 0 ? Math.round(careBaseIncome * data.rate.care) : 0;
+  // 所得割。既定は 1 円未満四捨五入。rounding.incomeUnit（{ 区分: 10 }）を持つ自治体は、その区分の所得割を
+  //   単位未満切捨て（京都市 条例12条2項・14条の4第2項・15条の4第2項＝医療・支援・子ども分は 10 円未満切捨て。介護分は規定なし）。
+  const incomeUnitOf = (k) => {
+    const u = data.rounding?.incomeUnit?.[k];
+    if (u == null) return null;
+    if (!COMPONENT_UNITS.includes(u)) throw new RangeError(`[kokuho] ${data.citySlug || "(citySlug不明)"}: rounding.incomeUnit.${k} は ${COMPONENT_UNITS.join("/")} のいずれか（${String(u)}）`);
+    return u;
+  };
+  const incomeLevy = (base, rate, k) => {
+    const u = incomeUnitOf(k);
+    return u == null ? Math.round(base * rate) : Math.floor(base * rate / u) * u;
+  };
+  const medicalIncome = incomeLevy(baseIncome, data.rate.medical, "medical");
+  const supportIncome = incomeLevy(baseIncome, data.rate.support, "support");
+  const careIncome    = careSafe > 0 ? incomeLevy(careBaseIncome, data.rate.care, "care") : 0;
 
   // 均等割
   const medicalPerCapita = familySafe * data.perCapita.medical;
@@ -205,7 +217,7 @@ function calculateKokuho(input, data) {
   const childcareRate       = childcareCfg?.rate      || 0;
   const childcarePerCapita  = childcareCfg?.perCapita || 0;
   const childcareHousehold  = tokuteiAdj(childcareCfg?.household || 0);
-  const childcareIncome     = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
+  const childcareIncome     = childcareRate > 0 ? incomeLevy(baseIncome, childcareRate, "childcare") : 0;
 
   // 均等割の計算
   // 新方式(perCapitaAdult あり):

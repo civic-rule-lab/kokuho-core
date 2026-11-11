@@ -114,6 +114,9 @@
                 "care": { "enum": [1, 10, 100] }, "childcare": { "enum": [1, 10, 100] } } }
           ]
         },
+        "incomeUnit": { "type": "object", "additionalProperties": false, "description": "区分ごとの所得割の切捨て単位（書いた区分だけ。無ければ 1 円未満四捨五入）", "properties": {
+            "medical": { "enum": [1, 10, 100] }, "support": { "enum": [1, 10, 100] },
+            "care": { "enum": [1, 10, 100] }, "childcare": { "enum": [1, 10, 100] } } },
         "componentDropBelow": { "type": "number", "minimum": 0, "description": "単位で切り捨てる区分の額がこれ未満なら全額切捨て（千葉市 100）" },
         "totalUnit": { "enum": [1, 10, 100], "description": "区分の和（保険料の額）にだけ掛ける切捨て単位。既定 1" },
         "note": { "type": "string", "description": "根拠（条例の条・公表例）" }

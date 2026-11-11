@@ -240,6 +240,18 @@ console.log('\n■ 区分ごとの端数単位');
   ok('許されない totalUnit（5）は RangeError', threwT);
   eq('長野市は合計だけ 10 円単位', JSON.stringify(kokuhoOf('nagano').rounding && [kokuhoOf('nagano').rounding.componentUnit, kokuhoOf('nagano').rounding.totalUnit]), JSON.stringify([1, 10]));
   eq('夕張市は合計だけ 100 円単位', JSON.stringify([kokuhoOf('yubari').rounding?.componentUnit, kokuhoOf('yubari').rounding?.totalUnit]), JSON.stringify([1, 100]));
+  // 所得割だけの切捨て単位（京都市 条例12条2項等。医療・支援・子ども分 10 円、介護分は規定なし）
+  const kyoto = kokuhoOf('kyoto');
+  const kin = { income: 2_345_678, family: 1, preschool: 0, care: 1, salaryPensionCount: 1 };
+  const kRaw = calculateKokuho(kin, { ...kyoto, rounding: { componentUnit: 1 } });
+  const kCity = calculateKokuho(kin, kyoto);
+  const base10 = Math.max(kin.income - kyoto.basicDeduction, 0);
+  eq('京都市: 医療分＝所得割を 10 円未満切捨てた差だけ下がる', kRaw.medicalTotal - kCity.medicalTotal, Math.round(base10 * kyoto.rate.medical) - Math.floor(base10 * kyoto.rate.medical / 10) * 10);
+  eq('京都市: 介護分は所得割の切捨てなし（区分も 1 円単位）', kCity.careTotal, kRaw.careTotal);
+  eq('京都市は区分を切り捨てない（componentUnit 1）', kyoto.rounding?.componentUnit, 1);
+  let threwI = false;
+  try { calculateKokuho(kin, { ...kyoto, rounding: { incomeUnit: { medical: 7 } } }); } catch (e) { threwI = e && e.name === 'RangeError'; }
+  ok('許されない incomeUnit（7）は RangeError', threwI);
   eq('千葉市は医療・支援・介護 10 円・子ども分 1 円・100 円未満は全額切捨て', JSON.stringify(kokuhoOf('chiba').rounding?.componentUnit) + kokuhoOf('chiba').rounding?.componentDropBelow, JSON.stringify({ medical: 10, support: 10, care: 10, childcare: 1 }) + '100');
 }
 

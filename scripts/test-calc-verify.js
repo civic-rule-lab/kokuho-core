@@ -555,7 +555,7 @@ const TEST_SUITES = [
         label: "all_ages モード・単身・所得0（大人=1170円、7割軽減）",
         note:  "adults=1。perCapitaTotal=1×(1110+60)=1170。household=660。7割軽減=round(1830×0.7)=1281。childcare=549",
         input: { income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
-        expected: { childcare: 500, reductionLabel: "7割軽減" },
+        expected: { childcare: 549, reductionLabel: "7割軽減" },
         source: "手計算（perCapitaMode=all_ages）",
       },
       {
@@ -563,14 +563,14 @@ const TEST_SUITES = [
         note:  "adults=1。perCapitaTotal=1×60=60。household=660。7割軽減=round(720×0.7)=504。childcare=216",
         input: { income: 0, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1 },
         _overrideData: { childcareLevy: { rate: 0.0028, perCapita: 1110, perCapitaAdult: 60, perCapitaAdultScope: "adults_only", household: 660, cap: 30000, under18Reduction: true } },
-        expected: { childcare: 200, reductionLabel: "7割軽減" },
+        expected: { childcare: 216, reductionLabel: "7割軽減" },
         source: "手計算（perCapitaMode=adults_only）",
       },
       {
         label: "all_ages・under18=1（adults=0）→ childcarePerCapita=0、household のみ",
         note:  "adults=0。perCapitaTotal=0×1170=0。household=660。7割軽減=round(660×0.7)=462。childcare=198",
         input: { income: 0, family: 1, preschool: 0, under18: 1, care: 0, salaryPensionCount: 1 },
-        expected: { childcare: 100, reductionLabel: "7割軽減" },
+        expected: { childcare: 198, reductionLabel: "7割軽減" },
         source: "手計算（under18=family → adults=0）",
       },
       {
