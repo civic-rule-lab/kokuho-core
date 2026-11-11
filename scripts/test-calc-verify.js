@@ -388,14 +388,14 @@ const TEST_SUITES = [
         label: "単身・所得0円（7割軽減・府統一料率）",
         note:  "均等割+平等割=67,998。7割軽減=47,599。医療=20,399、支援=6,538",
         input: { income: 0, family: 1, preschool: 0, care: 0 },
-        expected: { medical: 20300, support: 6500, care: 0, total: 26800, reductionLabel: "7割軽減" },
+        expected: { medical: 20399, support: 6538, care: 0, total: 26937, reductionLabel: "7割軽減" },
         source: "手計算",
       },
       {
         label: "単身・所得200万（軽減なし・府統一料率）",
         note:  "twoTenthsLimit=99万 < 200万 → 軽減なし。医療=146,010+34,424+33,574=214,008",
         input: { income: 2000000, family: 1, preschool: 0, care: 0 },
-        expected: { medical: 214000, support: 69200, care: 0, total: 283200, reductionLabel: "軽減なし" },
+        expected: { medical: 214008, support: 69209, care: 0, total: 283217, reductionLabel: "軽減なし" },
         source: "手計算",
       },
       {
