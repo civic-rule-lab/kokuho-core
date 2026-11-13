@@ -47,7 +47,7 @@ const { calcSalaryPensionIncome } = _require("../js/core/shared/income.js");
 // 収入は世帯主1人。ラベルの年齢どおりに介護分（40〜64歳）と18歳未満の人数を入れる。
 // 旧実装は全モデルを care/under18=0 で計算しており、「40代」と書いたモデルに介護分が入っていなかった
 // （2026-10-04 修正・X170-12 C。大田区の夫婦2人で 465,300円→576,959円）。
-// かんたん計算には介護分・18歳未満の入力欄が無いので、計算例の数字とは一致しない（説明文に明記）。
+// かんたん計算は年齢ごとの人数（介護分・18歳未満を含む）を入力できる（2026-11-12）。計算例は世帯主1人に所得がある世帯なので、同じ条件を入れれば計算できる。
 const CALC_EXAMPLE_MODELS = [
   { label: "単身（40代・年収300万円）",                      salary: 3_000_000, pension: 0,         age: 40, family: 1, care: 1, under18: 0 },
   { label: "夫婦2人（40代・年収500万円）",                   salary: 5_000_000, pension: 0,         age: 40, family: 2, care: 2, under18: 0 },
@@ -89,7 +89,7 @@ function buildCalcExamples(cityName, data, publishYear) {
   return `
   <section style="margin-top:36px;padding:16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
     <h2>${cityName}の国民健康保険料の計算例（${buildFiscalYearLabel(publishYear)}）</h2>
-    <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（収入は世帯主1人・40〜64歳の方は介護分を含む概算）。かんたん計算は介護分と18歳未満の人数を入力しないため、この表の金額とは一致しません。</p>
+    <p style="font-size:12px;color:#6b7280;margin:0 0 12px;">${cityName}の料率で、代表的な世帯モデルの年間保険料の目安を試算しました（収入は世帯主1人・40〜64歳の方は介護分を含む概算）。かんたん計算に同じ所得と年齢ごとの人数を入れると、この表と同じ条件で計算できます。</p>
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr><th style="${thStyle}">世帯モデル</th><th style="${thStyle}">年間保険料（概算）</th><th style="${thStyle}">月額目安</th></tr></thead>

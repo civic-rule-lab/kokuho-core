@@ -150,16 +150,65 @@ const set = (d, id, v) => { d.getElementById(id).value = String(v); };
   // ── 5. 65歳以上で公的年金をもらっている人の人数（2026-10-30・全方向試算 C002） ──
   //   単身・所得88万（年金所得のみ）: 人数0なら判定所得88万＝2割軽減、1人なら73万（≤ 43万＋31万×1）＝5割軽減。所得割は88万のまま
   console.log('\n== 65歳以上の年金受給者の人数（軽減判定だけ15万円引く） ==');
-  for (const tpl of ['templates/kokuho-income.html', 'templates/kokuho-simple.html']) {
+  {
     const base = { income: 880000, family: 1, preschool: 0, under18: 0, care: 0, salaryPensionCount: 1, fixedAssetTax: 0 };
     const exp0 = calculateKokuho(base, DATA), exp1 = calculateKokuho({ ...base, reductionJudgmentIncome: 730000 }, DATA);
-    const fill = (n) => (d) => { set(d, 'income', 880000); set(d, 'family', 1); if (d.getElementById('salaryPensionCount')) set(d, 'salaryPensionCount', 1); if (n != null) set(d, 'pension65Count', n); };
-    const r0 = await runPage(fill(null), tpl), r1 = await runPage(fill(1), tpl);
-    const name = tpl.includes('simple') ? 'かんたん' : '所得ベース';
-    eq(`${name}: 人数欄がある`, r1.errors.length === 0 && /pension65Count/.test(buildHtml(tpl)), true);
-    eq(`${name}: 人数空欄は従来どおり（${exp0.reductionLabel}）`, yen(r0.rows['年間保険料（概算）']), exp0.total);
-    eq(`${name}: 1人で判定所得 73万（${exp1.reductionLabel}）`, yen(r1.rows['年間保険料（概算）']), exp1.total);
-    eq(`${name}: 軽減が大きくなる（${exp0.reductionLabel} → ${exp1.reductionLabel}）`, exp1.total < exp0.total, true);
+    // 所得ベース: 人数欄 pension65Count
+    {
+      const tpl = 'templates/kokuho-income.html';
+      const fill = (n) => (d) => { set(d, 'income', 880000); set(d, 'family', 1); if (d.getElementById('salaryPensionCount')) set(d, 'salaryPensionCount', 1); if (n != null) set(d, 'pension65Count', n); };
+      const r0 = await runPage(fill(null), tpl), r1 = await runPage(fill(1), tpl);
+      eq('所得ベース: 人数欄がある', r1.errors.length === 0 && /pension65Count/.test(buildHtml(tpl)), true);
+      eq(`所得ベース: 人数空欄は従来どおり（${exp0.reductionLabel}）`, yen(r0.rows['年間保険料（概算）']), exp0.total);
+      eq(`所得ベース: 1人で判定所得 73万（${exp1.reductionLabel}）`, yen(r1.rows['年間保険料（概算）']), exp1.total);
+      eq(`所得ベース: 軽減が大きくなる（${exp0.reductionLabel} → ${exp1.reductionLabel}）`, exp1.total < exp0.total, true);
+    }
+    // かんたん: 年齢ごとの人数の「65〜74歳」がそのまま年金受給者の人数になる（2026-11-12）
+    {
+      const tpl = 'templates/kokuho-simple.html';
+      const r0 = await runPage(d => { set(d, 'income', 880000); set(d, 'age18_39', 1); }, tpl);
+      const r1 = await runPage(d => { set(d, 'income', 880000); set(d, 'age65_74', 1); }, tpl);
+      eq('かんたん: 旧欄（世帯人数・年金人数）が無い', /id="(family|pension65Count)"/.test(buildHtml(tpl)), false);
+      eq(`かんたん: 18〜39歳1人は判定所得 88万（${exp0.reductionLabel}）`, yen(r0.rows['年間保険料（概算）']), exp0.total);
+      eq(`かんたん: 65〜74歳1人は判定所得 73万（${exp1.reductionLabel}）`, yen(r1.rows['年間保険料（概算）']), exp1.total);
+    }
+  }
+
+  // ── 6. かんたん計算の「年齢ごとの人数」（2026-11-12） ──
+  //   旧かんたん計算は介護分・18歳未満を入力できず、40〜64歳の世帯でも介護分 0 円、18歳未満にも子ども分の均等割を課していた。
+  console.log('\n== かんたん計算の年齢ごとの人数 ==');
+  {
+    const tpl = 'templates/kokuho-simple.html';
+    // 世帯所得 181.6万・小学校入学前1・小学生〜高校生2・高校卒業〜39歳1・40〜64歳2（6人）
+    const { rows, errors } = await runPage(d => {
+      set(d, 'income', 1816000); set(d, 'agePreschool', 1); set(d, 'ageSchool', 2); set(d, 'age18_39', 1); set(d, 'age40_64', 2);
+    }, tpl);
+    const exp = calculateKokuho({ income: 1816000, family: 6, preschool: 1, under18: 3, care: 2, salaryPensionCount: 1, fixedAssetTax: 0 }, DATA);
+    eq('JSエラーなし', errors.length, 0);
+    eq('介護分がかかる（40〜64歳 2人）', yen(rows['介護分']) > 0, true);
+    eq('介護分はエンジンの値', yen(rows['介護分']), exp.careTotal);
+    eq('子ども分はエンジンの値（18歳未満3人を除く）', yen(rows['子ども・子育て支援金分']), exp.childcareTotal);
+    eq('未就学児軽減はエンジンの値', yen(rows['未就学児軽減（差し引き済み）']), exp.preschoolReduction);
+    eq('年間保険料はエンジンの値', yen(rows['年間保険料（概算）']), exp.total);
+  }
+  {
+    // 年齢ごとの人数欄も、ほかの数値欄と同じく全角数字を半角に変換して表示する（ui-rules §1・2026-11-13 オーナー指摘）
+    const ids = ['agePreschool', 'ageSchool', 'age18_39', 'age40_64', 'age65_74'];
+    const shown = {};
+    await runPage(d => {
+      set(d, 'income', 1000000);
+      for (const id of ids) {
+        const el = d.getElementById(id);
+        el.value = '１';
+        el.dispatchEvent(new d.defaultView.Event('input', { bubbles: true }));
+        shown[id] = el.value;
+      }
+    }, 'templates/kokuho-simple.html');
+    for (const id of ids) eq(`${id}: 全角「１」を入れると半角「1」に変わる`, shown[id], '1');
+  }
+  {
+    const { text } = await runPage(d => { set(d, 'income', 1000000); }, 'templates/kokuho-simple.html');
+    eq('人数が全部空欄なら結果を出さず案内する', text.includes('年齢ごとに 1 人以上入力してください'), true);
   }
   {
     // 1人ずつ入力（2人・所得88万と30万）＋人数2 → 判定所得 118万 − 30万 = 88万
