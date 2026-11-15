@@ -22,6 +22,9 @@
   .cta-ext{font-size:13px;margin-left:2px;}
   .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
   @media (max-width:480px){ .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;} }
+  /* 「他の制度」節: 説明の列を縮め、ボタンは 1 行のまま（ボタンが折り返さないように） */
+  .other-systems .cta-list{grid-template-columns:minmax(0,max-content) max-content;}
+  @media (max-width:480px){ .other-systems .cta-list{grid-template-columns:1fr;} }
   .note ul{margin:6px 0 0;padding-left:1.4em;}
   .age-bands{border:0;padding:0;margin:14px 0 0;min-width:0;}
   .age-bands legend{font-weight:600;padding:0;margin-bottom:6px;}
