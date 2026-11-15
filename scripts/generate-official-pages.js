@@ -1221,7 +1221,15 @@ function buildProvenance(data, cityName, prefecture, publishYear, pos = "after_t
   } else if (data.meta?.status === "verified" && verifiedAt) {
     lines.push(
       `<p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">` +
-      `最終確認: ${verifiedAt} — Civic Rule Lab が上記の一次資料と照合しました。</p>`
+      `最終確認: ${verifiedAt} — Civic Rule Lab が上記の一次資料と照合しました。` +
+      // 2026-11-15（オーナー決定・TASKS X255-2）: 出典リンクを載せられないページはバッジが「◔ 一次資料照合中」になる
+      //   （buildTrustBadge。2026-09-09 の定義）。同じページの「照合しました」と食い違って見えるので、理由を書く。
+      (!url && publishYear >= CURRENT_PUBLISH_YEAR
+        ? (rawCandidates.length > 0
+            ? "出典ページの掲載元を確認中のため、表示は「一次資料照合中」としています。"
+            : "出典ページの URL を確認中のため、表示は「一次資料照合中」としています。")
+        : "") +
+      `</p>`
     );
   } else if (lc.primarySourceVerified === true) {
     // ◐ バッジと対になる説明。バッジは短く誤読されないことを優先し、
@@ -1298,23 +1306,28 @@ const OTHER_SYSTEMS = [
   { key: "hoiku",   label: "保育料",                 desc: "保育所等の保育料" },
 ];
 function buildOtherSystems(regEntry, prefSlug, cityName) {
-  if (!regEntry || !prefSlug) return "";
+  // 2026-11-15（オーナー決定・TASKS X255-3）: テンプレートにあった「あわせて使う」節（ふるさと納税 1 件）を
+  //   この節にまとめた。ふるさと納税は全国共通ページなので、公開済みの制度が 0 件でも節は出す。
+  //   ボタンはテンプレートの .cta-list / .cta-item（ui-rules §4-5）に揃える。長い自治体名で 360px を
+  //   はみ出さないよう、この節のボタンだけ折り返しを許す。
   const pub = (key) => key === "kakeibo"
     ? (isSysPublished(regEntry, "jumin") || isSysPublished(regEntry, "kaigo"))
     : isSysPublished(regEntry, key);
-  const items = OTHER_SYSTEMS.filter((s) => pub(s.key));
-  if (items.length === 0) return "";
-  const btn = "display:inline-block;padding:8px 14px;border-radius:999px;background:#f3f4f6;border:1px solid #d1d5db;color:#1f2937;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;";
-  const li = items.map((s) =>
-    `    <li style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:0 0 8px;"><a href="https://seido-keisan.jp/${prefSlug}/${regEntry.citySlug}/${s.key}/" style="${btn}">${cityName}の${s.label} <span style="font-size:13px;">↗</span></a><span style="font-size:13px;color:#4b5563;">${s.desc}</span></li>`
-  ).join("\n");
+  const items = (regEntry && prefSlug) ? OTHER_SYSTEMS.filter((s) => pub(s.key)) : [];
+  const rows = items.map((s) =>
+    `      <div class="cta-item"><span class="cta-desc">${s.desc}</span><a href="https://seido-keisan.jp/${prefSlug}/${regEntry.citySlug}/${s.key}/" target="_blank" rel="noopener" style="white-space:normal;">${cityName}の${s.label} <span class="cta-ext">↗</span></a></div>`
+  );
+  rows.push(
+    `      <div class="cta-item"><span class="cta-desc">国保加入者のふるさと納税 上限額（国保料を自動計算・全国共通）</span><a href="https://seido-keisan.jp/furusato/jieigyo/" target="_blank" rel="noopener">上限額の計算 <span class="cta-ext">↗</span></a></div>`
+  );
+  const heading = items.length > 0 ? `${cityName}の他の制度` : "関連する計算";
   return `
-  <section class="other-systems" style="margin-top:28px;">
-    <h2 style="font-size:16px;margin:0 0 10px;">${cityName}の他の制度</h2>
-    <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">制度計算（seido-keisan.jp）の${cityName}のページへ移動します。</p>
-    <ul style="list-style:none;padding:0;margin:0;">
-${li}
-    </ul>
+  <section class="other-systems related-links" style="margin-top:28px;">
+    <h2>${heading}</h2>
+    <p style="font-size:13px;color:#4b5563;margin:0 0 10px;">制度計算（seido-keisan.jp）のページへ移動します。</p>
+    <div class="cta-list">
+${rows.join("\n")}
+    </div>
   </section>`;
 }
 
