@@ -838,6 +838,56 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A(`奨学金（本人200万・配偶者控除・19〜22歳の欄は空）: 進学する子を特定扶養に足した直算 ${sgShortOf(he)} → 実際 ${hc && hc[1]}`, !!hc && hc[1] === sgShortOf(he));
   }
 
+  {
+    // 本人の区分（寡婦）・本人の障害を奨学金にも渡す（2026-11-22）。
+    //   旧実装はひとり親（母・父）だけを渡し、寡婦・障害者を選んでも奨学金カードが変わらず、支援区分が不利に出ていた。
+    //   期待値はブリッジの直算（渡した場合）。旧の渡し方（渡さない場合）と区分が違う入力を選び、画面が「渡した場合」と一致することを見る
+    const bridge = SG.bridge(), spec = SG.spec();
+    const st = { level: '大学', schoolType: '私立', attendance: '自宅' };
+    const direct = (sup) => bridge.calcFromIncome(spec, null, { supportersIncome: [sup], student: st, childrenCount: 1 });
+    const page = async (opts) => {
+      if (sgOptIn) sgOptIn.checked = true;
+      setVal('shogakuSpouse', ''); setSel('shogakuLevel', '大学'); setSel('shogakuSetti', '私立'); setSel('shogakuAttend', '自宅'); setSel('shogakuChildren', '1');
+      const r = await run(opts);
+      if (sgOptIn) sgOptIn.checked = false;
+      return r;
+    };
+    const base = (salary) => ({ salary, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(salary, 0, 40) });
+    // (1) 寡婦・会社員 200万・家族欄は空（配偶者はいない）
+    const w1 = await page({ salary: 2000000, age: 40, employment: 'kaishain', family: { selfStatus: 'widow' } });
+    const w1Old = direct(Object.assign(base(2000000), { hasSpouseDeduction: false, dependents: 1 }));
+    const w1New = direct(Object.assign(base(2000000), { hasSpouseDeduction: false, dependents: 1, singleParent: 'widow', minor: false, under23Dependent: false }));
+    const w1c = find(w1.heads, sgName);
+    A(`奨学金（寡婦・200万）: 寡婦を渡した直算 ${sgShortOf(w1New)}（渡さないと ${sgShortOf(w1Old)}）→ 実際 ${w1c && w1c[1]}`,
+      !!w1c && w1c[1] === sgShortOf(w1New) && sgShortOf(w1New) !== sgShortOf(w1Old) && grantOf(w1.sys) === (w1New.grantMonthly > 0 ? w1New.grantMonthly : null));
+    // (2) 障害者・会社員 260万・家族欄は空（配偶者控除ありの近似）
+    const d1 = await page({ salary: 2600000, age: 40, employment: 'kaishain', family: { selfDisability: 'general' } });
+    const d1Old = direct(Object.assign(base(2600000), { hasSpouseDeduction: true, dependents: 2 }));
+    const d1New = direct(Object.assign(base(2600000), { hasSpouseDeduction: true, dependents: 2, selfDisability: 'general', minor: false, under23Dependent: false }));
+    const d1c = find(d1.heads, sgName);
+    A(`奨学金（障害者・260万）: 障害を渡した直算 ${sgShortOf(d1New)}（渡さないと ${sgShortOf(d1Old)}）→ 実際 ${d1c && d1c[1]}`,
+      !!d1c && d1c[1] === sgShortOf(d1New) && sgShortOf(d1New) !== sgShortOf(d1Old) && grantOf(d1.sys) === (d1New.grantMonthly > 0 ? d1New.grantMonthly : null));
+    // (3) 特別障害者・会社員 370万・家族欄は空。特別障害者は所得金額調整控除の要件（under23Dependent）も満たす（住民税カードと同じ）
+    const d2 = await page({ salary: 3700000, age: 40, employment: 'kaishain', family: { selfDisability: 'special' } });
+    const d2Old = direct(Object.assign(base(3700000), { hasSpouseDeduction: true, dependents: 2 }));
+    const d2New = direct(Object.assign(base(3700000), { hasSpouseDeduction: true, dependents: 2, selfDisability: 'special', minor: false, under23Dependent: true }));
+    const d2c = find(d2.heads, sgName);
+    A(`奨学金（特別障害者・370万）: 障害を渡した直算 ${sgShortOf(d2New)}（渡さないと ${sgShortOf(d2Old)}）→ 実際 ${d2c && d2c[1]}`,
+      !!d2c && d2c[1] === sgShortOf(d2New) && sgShortOf(d2New) !== sgShortOf(d2Old));
+    // (4) 家族欄を入れた経路: 障害者・会社員 360万・配偶者控除（一般）。人的控除差は住民税カードと同じ額を渡し、障害者控除の額はブリッジが決める
+    const f1 = await page({ salary: 3600000, age: 40, employment: 'kaishain', family: { spouse: 'general', selfDisability: 'general' } });
+    const famSup = Object.assign(base(3600000), { spouseDeduction: 330000, dependentDeduction: 450000, dependents: 2, humanDeductionDiff: 50000 + 50000 + 10000 + 180000 });
+    const f1Old = direct(famSup);
+    const f1New = direct(Object.assign({}, famSup, { selfDisability: 'general', minor: false, under23Dependent: false }));
+    const f1c = find(f1.heads, sgName);
+    A(`奨学金（障害者・360万・配偶者控除・家族欄あり）: 障害を渡した直算 ${sgShortOf(f1New)}（渡さないと ${sgShortOf(f1Old)}）→ 実際 ${f1c && f1c[1]}`,
+      !!f1c && f1c[1] === sgShortOf(f1New) && sgShortOf(f1New) !== sgShortOf(f1Old));
+    // (5) 区分を選ばない人は変わらない（寡婦・障害なしの 260万は旧の渡し方と同じ）
+    const n1 = await page({ salary: 2600000, age: 40, employment: 'kaishain', family: {} });
+    const n1c = find(n1.heads, sgName);
+    A(`奨学金（区分なし・260万）: 旧の渡し方の直算 ${sgShortOf(d1Old)} のまま → 実際 ${n1c && n1c[1]}`, !!n1c && n1c[1] === sgShortOf(d1Old));
+  }
+
   // ── 介護の年度（2026-11-10 介護 R9 D1/D2）──────────────────────────────
   //   (1) KAIGO_YEAR=2026: 介護は kaigo-2026.json だけを読み、前年度へは下がらない。年度の注記は出ない（いまの表示と同じ）
   //   (2) KAIGO_YEAR=2027: 介護は kaigo-2027.json を読み、kaigo-2026.json は読まない（R9 の JSON を置いても registry を上げるまでは読まない、の裏返し）。
