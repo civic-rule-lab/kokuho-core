@@ -115,7 +115,8 @@ async function checkHost(host, expectation) {
   let lastErr = null;
   for (const scheme of ["https", "http"]) {
     try {
-      res = await fetch(`${scheme}://${host}/`, {
+      // 既定はトップページ。ホスト直下が使われていないサイトは registry の path で見る場所を指定する（例: /~reikidb/）
+      res = await fetch(`${scheme}://${host}${expectation.path || "/"}`, {
         redirect: "follow",
         headers: { "User-Agent": UA, "Accept-Language": "ja" },
         signal: AbortSignal.timeout(20000),

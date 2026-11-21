@@ -36,7 +36,7 @@ if (argv.includes("--base") && !BASE) {
 const TARGET = /^(data\/.*\.json|registry\/index\.json)$/;
 
 function git(args, opts = {}) {
-  return execFileSync("git", args, { encoding: "utf8", ...opts });
+  return execFileSync("git", args, { encoding: "utf8", maxBuffer: 256 * 1024 * 1024, ...opts });
 }
 
 function listChangedFiles() {

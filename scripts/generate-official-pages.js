@@ -903,6 +903,14 @@ const PROVENANCE_HOST_EXTRA = new Set([
   //   トップページで 〒519-2404 三重県多気郡大台町佐原750番地・代表電話・Copyright (c) 2021 Odai Town を確認、
   //   whois 登録者 odai chou office。法人番号の掲載は無い。乗っ取りを示す語句なし。
   "www.odaitown.jp",             // 大台町（三重県）
+  // 2026-11-22 追加（オーナー承認）: 北海道町村会 法務支援室の「例規集データベース」。道内の町村の例規集（条例本文）を収録する。
+  //   町・村のページに当年度の税率表が無く、条例本文で値を確かめた町村の出典に使う（従来は町・村のページを出典に書いており、
+  //   リンク先が公開している値を裏づけていなかった）。gr.jp（任意団体）で PROVENANCE_HOST_PATTERNS に当たらない。
+  //   whois の組織名は「北海道町村会」（登録 1999/04/27）。親サイト www.h-chosonkai.gr.jp に 〒060-0004 札幌市中央区北4条西6丁目
+  //   北海道自治会館6階・Copyright Hokkaido Association of Towns and Villages、同サイトの法務支援室ページから当データベースへリンク。
+  //   泊村の公式サイトのトップも当データベース（choson_no=131）へリンクしている。乗っ取りを示す語句なし。
+  //   ホスト直下（/）は 403 のため、定期確認は /~reikidb/ を見る（registry/provenance-host-watch.json の path）。
+  "houmu.h-chosonkai.gr.jp",     // 北海道町村会 法務支援室（例規集データベース）
   // 2026-10-02 追加（オーナー承認）: 富岡町（福島県）の公式ドメイン。
   //   トップページで 〒979-1192 福島県双葉郡富岡町大字本岡字王塚622番地の1・© Tomioka Town・法人番号1000020075434
   //   （団体コード 07543＝registry の cityCode と一致）を確認。JPRS の登録者は Information Network Fukushima co.,Ltd.（町ではない）。乗っ取りを示す語句なし。
