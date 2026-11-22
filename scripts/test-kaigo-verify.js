@@ -57,7 +57,7 @@ function ctxFromCriteria(c = {}) {
 const CASES = [
   // ── 愛知県(2026-06-26 横展開。54市町村/44保険者。★レバー2=知多北部広域/東三河広域。名古屋18段/高浜20段/deep軽減/独自境界の代表をロック) ──
   {
-    slug: "nagoya", name: "名古屋市", source: "kaigo-wel.city.nagoya.jp",
+    slug: "nagoya", annualUnit: 10, name: "名古屋市", source: "kaigo-wel.city.nagoya.jp",
     // 公式18段(政令市)・生保統合で内部17段・独自境界80/125/200/290万…。
     levels: [
       { level: "1",  annual: 20851,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
@@ -415,7 +415,7 @@ const CASES = [
   },
   // ── 埼玉県(2026-06-26 横展開。63市町村/61保険者。★大里広域レバー(熊谷/深谷/寄居統一)+独立60。政令市/多段階/deep軽減/独自境界の代表をロック) ──
   {
-    slug: "saitama", name: "さいたま市", source: "g-reiki saitamat条例第3条",
+    slug: "saitama", annualUnit: 100, name: "さいたま市", source: "g-reiki saitamat条例第3条",
     // 15段(政令市)・第2=0.40・独自境界1000/1500万。
     levels: [
       { level: "1",  annual: 21909,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
@@ -1100,7 +1100,7 @@ const CASES = [
     ],
   },
   {
-    slug: "ise", name: "伊勢市", source: "city.ise.mie.jp",
+    slug: "ise", annualUnit: 10, name: "伊勢市", source: "city.ise.mie.jp",
     // 14段・★第1-2独自0.28/0.40・独自境界第6=60万未満/第7=60-120万。
     levels: [
       { level: "1",  annual: 22562,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
@@ -1154,7 +1154,7 @@ const CASES = [
   },
   // ── 京都府(2026-06-22 横展開・独立転記) ──
   {
-    slug: "kyoto", name: "京都市", source: "city.kyoto.lg.jp(政令市・公式HTML)",
+    slug: "kyoto", annualUnit: 10, name: "京都市", source: "city.kyoto.lg.jp(政令市・公式HTML)",
     // 14段・政令市・第2=0.43/第4=0.9・高所得125/190/400/550/700/850/1000/1150万独自境界。
     levels: [
       { level: "1",  annual: 24487,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
@@ -2378,7 +2378,7 @@ const CASES = [
     ],
   },
   {
-    slug: "kakegawa", name: "掛川市（15段・820/920境界）", source: "city.kakegawa.shizuoka.jp/gyosei/docs/791787.html",
+    slug: "kakegawa", annualUnit: 100, name: "掛川市（15段・820/920境界）", source: "city.kakegawa.shizuoka.jp/gyosei/docs/791787.html",
     levels: [
       { level: "6",  annual: 80640,  ctx: { isSelfTaxable: true, totalIncome: 1000000 } },
       { level: "14", annual: 168000, ctx: { isSelfTaxable: true, totalIncome: 8500000 } },
@@ -3427,7 +3427,7 @@ const CASES = [
     ],
   },
   {
-    slug: "miyoshitokushima", name: "三好市(みよし広域=東みよしと同一)", source: "miyoshikouiki.jp 条例",
+    slug: "miyoshitokushima", annualUnit: 10, name: "三好市(みよし広域=東みよしと同一)", source: "miyoshikouiki.jp 条例",
     levels: [
       { level: "1",  annual: 21204,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "5",  annual: 74400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
