@@ -92,6 +92,23 @@ function validateKaigoData(slug, data) {
     if (!hasFallback) err(`fallbackLevel "${data.fallbackLevel}" が brackets に存在しない`);
   }
 
+  // ── rounding（年額の端数処理。2026-11-22 X258）──
+  if (data.rounding !== undefined) {
+    const rd = data.rounding;
+    if (typeof rd !== "object" || rd === null) err(`rounding はオブジェクトであること`);
+    else {
+      if (![10, 100].includes(rd.annualUnit)) err(`rounding.annualUnit は 10 か 100 (実際: ${rd.annualUnit})`);
+      if (typeof rd.note !== "string" || rd.note.length === 0) err(`rounding.note（根拠）が必要`);
+      const extra = Object.keys(rd).filter(k => !["annualUnit", "note"].includes(k));
+      if (extra.length) err(`rounding に未定義の項目: ${extra.join(", ")}`);
+      // 切り捨てる額が 1 つも無いなら、項目を持つ意味がない（年額がすでに単位の倍数）
+      if ([10, 100].includes(rd.annualUnit) && Array.isArray(data.brackets)
+          && !data.brackets.some(b => typeof b.annual === "number" && b.annual % rd.annualUnit !== 0)) {
+        warn(`rounding.annualUnit=${rd.annualUnit} だが、年額はすべてその倍数（項目が不要か、年額が切り捨て後の額になっている）`);
+      }
+    }
+  }
+
   // 各 bracket の構造チェック
   for (const [i, b] of data.brackets.entries()) {
     const prefix = `brackets[${i}](level=${b.level})`;

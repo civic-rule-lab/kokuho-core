@@ -28,7 +28,7 @@ import { fileURLToPath } from "url";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const { calculateKaigo } = require("./lib/kaigo-loader.cjs");
+const { calculateKaigo, kaigoBracketAnnual } = require("./lib/kaigo-loader.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.join(__dirname, "..", "data", "municipalities");
@@ -56,8 +56,10 @@ function layer(c = {}) {
   return 1;
 }
 
+// 年額はエンジンと同じ関数で出す（rounding.annualUnit があれば切り捨て後。2026-11-22 X258）
 function annualOf(data, b) {
-  return b.annual ?? (typeof data.baseAmount === "number" ? Math.round(data.baseAmount * b.rate) : null);
+  const a = kaigoBracketAnnual(data, b);
+  return a === null ? null : a.annual;
 }
 
 function check(slug, data) {

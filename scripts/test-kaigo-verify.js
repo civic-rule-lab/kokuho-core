@@ -18,7 +18,7 @@ import { fileURLToPath } from "url";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const { calculateKaigo } = require("./lib/kaigo-loader.cjs");
+const { calculateKaigo, kaigoBracketAnnual } = require("./lib/kaigo-loader.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -3737,8 +3737,14 @@ for (const cs of CASES) {
     const r = calculateKaigo(data, L.ctx);
     if (!r) { fail++; console.log(`  ❌ ${cs.name} 第${L.level}: 計算 null`); continue; }
     eq(`${cs.name} 第${L.level}: 段階判定`, r.level, L.level, `(出典 ${cs.source})`);
-    eq(`${cs.name} 第${L.level}: 年額`, r.annual, L.annual);
-    eq(`${cs.name} 第${L.level}: 月額`, r.monthly, Math.round(L.annual / 12));
+    // L.annual は公式の公表額。条例・公表資料が年額の端数を切り捨てると定める自治体は、ケースに annualUnit を書く
+    //   （2026-11-22 X258。データの rounding.annualUnit とは独立に、ここにも根拠の単位を持つ）。
+    //   公表額は annualListed（切り捨てない自治体は annual）と、納める額は annual と突き合わせる
+    const unit = cs.annualUnit ?? 1;
+    const payable = Math.floor(L.annual / unit) * unit;
+    eq(`${cs.name} 第${L.level}: 年額（公表額）`, r.annualListed ?? r.annual, L.annual);
+    eq(`${cs.name} 第${L.level}: 年額（納める額${unit !== 1 ? "・" + unit + "円未満切捨て" : ""}）`, r.annual, payable);
+    eq(`${cs.name} 第${L.level}: 月額`, r.monthly, Math.round(payable / 12));
   }
 }
 
@@ -3756,8 +3762,13 @@ for (const slug of readdirSync(DATA)) {
     if (!r) { fail++; console.log(`  ❌ ${slug} 第${b.level}: null`); continue; }
     eq(`${slug} 第${b.level}: 代表所得→正段階`, r.level, b.level);
     // annual フィールドがあればそれが正（百円丸め等）。なければ baseAmount×rate。
-    const expected = b.annual ?? Math.round(data.baseAmount * b.rate);
-    eq(`${slug} 第${b.level}: 年額(annual優先)`, r.annual, expected);
+    //   rounding.annualUnit を持つ自治体は、その単位で切り捨てた額（2026-11-22 X258）。
+    //   期待値はエンジンの関数を使わず、ここで独立に計算する
+    const listed = b.annual ?? Math.round(data.baseAmount * b.rate);
+    const unit = data.rounding?.annualUnit ?? 1;
+    const expected = Math.floor(listed / unit) * unit;
+    eq(`${slug} 第${b.level}: 年額(annual優先・端数処理後)`, r.annual, expected);
+    if (unit !== 1) eq(`${slug} 第${b.level}: 公表されている額を添える`, r.annualListed, listed);
   }
 }
 console.log(`  (スイープ対象 ${swept} 自治体)`);

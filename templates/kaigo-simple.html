@@ -146,10 +146,12 @@ __OPERATOR_FOOTER__
     var html="<div class='kg-base'>基準額（第5段階・年額）：<strong>"+(d.baseAmount?d.baseAmount.toLocaleString():"—")+"円</strong></div>";
     html+="<table class='kg-table'><tr><th>段階</th><th>倍率</th><th>年額</th></tr>";
     (d.brackets||[]).forEach(function(b){
-      var annual=(b.annual!=null)?b.annual:Math.round((d.baseAmount||0)*b.rate);
+      // 年額は計算と同じ関数で出す（rounding.annualUnit があれば切り捨て後の額。2026-11-22 X258）
+      var ba=kaigoBracketAnnual(d,b); var annual=ba?ba.annual:0;
       html+="<tr data-level='"+b.level+"'><td class='kg-stage'>"+(b.label||("第"+b.level+"段階"))+"</td><td>×"+b.rate+"</td><td>"+annual.toLocaleString()+"円</td></tr>";
     });
     html+="</table>";
+    if(d.rounding&&d.rounding.annualUnit){ html+="<p class='kg-round-note' style='font-size:11px;color:#6b7280;margin:6px 0 0;line-height:1.7;'>年額は、公表されている額の"+d.rounding.annualUnit+"円未満を切り捨てた額です（実際に納める額）。</p>"; }
     html+="<p style='font-size:11px;color:#6b7280;margin:6px 0 0;line-height:1.7;'>段階は所得と住民税の課税状況で決まります。（保険料は各市区町村が__PLAN_PERIOD_LABEL__に決定した公表値です。）</p>";
     el.innerHTML=html;
   }
