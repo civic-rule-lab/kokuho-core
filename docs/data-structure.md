@@ -29,9 +29,32 @@
 
 資産割あり（小笠原村等）は `assetLevy: { medical, support, care }` を追加。
 
+## kaigo JSON の年額と端数処理
+
+介護保険料（第1号）は `data/municipalities/<slug>/kaigo-<年度>.json`。`baseAmount` が基準額（年額）、
+`brackets[]` が所得段階ごとの乗率 `rate` と年額 `annual`。
+
+- **`annual` には、条例・自治体の公表資料に載っている額をそのまま入れる。** 乗率と公表額が合わない自治体があるため、
+  `annual` があれば `baseAmount × rate` より優先する
+- **年額の端数を切り捨てると条例・公表資料が定める自治体は、`rounding` を持つ。** `annual` は公表されている額
+  （切り捨てる前）のままにし、エンジン（`js/core/kaigo.js`）が `rounding.annualUnit` の単位で切り捨てる
+
+```json
+"rounding": {
+  "annualUnit": 100,
+  "note": "根拠（条例の条・自治体のページの注記の原文と出典 URL）"
+}
+```
+
+  - `annualUnit` は 10 か 100（円）。切り捨てだけを表す
+  - `note` は必須。根拠の原文を「」で引用し、出典 URL を添える
+  - 賦課期日後の資格取得・喪失（月割り）の条にだけある端数処理は、通年の年額にかからないので入れない
+  - 条例が切り捨て後の額そのものを定めている自治体は、その額を `annual` に入れ、`rounding` は付けない
+  - `rounding` が無いデータは切り捨てない
+
 ## 命名規則
 - **slug**: ローマ字小文字（`chigasaki` `fujisawa` `yokohama`）
-- **cityCode**: 総務省自治体コード6桁（例：`14207`）
+- **cityCode**: 総務省の全国地方公共団体コード 5 桁（検査数字を除く。例：`14207`）。必ず文字列で持つ（先頭ゼロを落とさない）
 - **prefectureSlug**: ローマ字小文字（`kanagawa` `nagano` `tokyo`）
 
 ## 機械向けの入口（カタログとスキーマ）
