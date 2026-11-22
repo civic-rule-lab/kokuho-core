@@ -260,6 +260,36 @@ console.log('\n[入力の検査]');
   eq('[LOW-1] needs_update で整合した入力は null（従来どおり）', calculateKaigo(nu, { isSelfTaxable: true, totalIncome: 0 }), null);
 }
 
+// ─── X258（2026-11-22）: 年額の端数処理 rounding.annualUnit ───
+console.log('\n== 年額の端数処理（rounding.annualUnit） ==');
+{
+  const { kaigoBracketAnnual } = require('./lib/kaigo-loader.cjs');
+  // 調布市 条例第8条の額（端数つき）と第11条（100円未満切捨て）の形
+  const base = {
+    citySlug: 'test', status: 'verified', baseAmount: 70_800, fallbackLevel: '5',
+    brackets: [
+      { level: '5', label: '第5段階', rate: 1.0, annual: 70_800, criteria: { selfTaxable: false } },
+      { level: '6', label: '第6段階', rate: 1.1, annual: 77_880, criteria: { selfTaxable: true, totalIncomeMax: 1_199_999 } },
+      { level: '7', label: '第7段階', rate: 1.25, criteria: { selfTaxable: true, totalIncomeMin: 1_200_000 } },
+    ],
+  };
+  const ctx6 = { isSelfTaxable: true, totalIncome: 500_000 };
+  const none = calculateKaigo(base, ctx6);
+  eq('[X258] rounding なしは切り捨てない: 77,880', none.annual, 77_880);
+  eq('[X258] rounding なしは annualListed を付けない', none.annualListed, undefined);
+  const r100 = calculateKaigo({ ...base, rounding: { annualUnit: 100, note: 't' } }, ctx6);
+  eq('[X258] annualUnit 100: 77,880 → 77,800', r100.annual, 77_800);
+  eq('[X258] annualUnit 100: 公表されている額 77,880 を添える', r100.annualListed, 77_880);
+  eq('[X258] annualUnit 100: 月額は切り捨て後の年額から（6,483）', r100.monthly, 6_483);
+  const r10 = calculateKaigo({ ...base, baseAmount: 70_805, rounding: { annualUnit: 10, note: 't' } }, { isSelfTaxable: true, totalIncome: 2_000_000 });
+  eq('[X258] annualUnit 10: annual の無い段階は baseAmount×rate（88,506）を切り捨て → 88,500', r10.annual, 88_500);
+  eq('[X258] すでに単位の倍数なら変わらない: 70,800', calculateKaigo({ ...base, rounding: { annualUnit: 100, note: 't' } }, { isSelfTaxable: false }).annual, 70_800);
+  let name = 'no error'; try { calculateKaigo({ ...base, rounding: { annualUnit: 50, note: 't' } }, ctx6); } catch (e) { name = e.name; }
+  eq('[X258] annualUnit が 10/100 以外は RangeError', name, 'RangeError');
+  eq('[X258] kaigoBracketAnnual: 段階表も同じ額（77,800）', kaigoBracketAnnual({ ...base, rounding: { annualUnit: 100, note: 't' } }, base.brackets[1]).annual, 77_800);
+  eq('[X258] kaigoBracketAnnual: annual も baseAmount も無ければ null', kaigoBracketAnnual({ brackets: [] }, { rate: 1.0 }), null);
+}
+
 // ─── 結果 ─────────────────────────────────────────────────────
 
 console.log(`\n${'─'.repeat(50)}`);
