@@ -2609,10 +2609,10 @@ const CASES = [
     ],
   },
   {
-    slug: "kusatsu", name: "草津町（県内最安）", source: "town.kusatsu.gunma.jp/.../gaiyo.pdf",
+    slug: "kusatsu", name: "草津町（県内最安）", source: "town.kusatsu.gunma.jp/reiki 介護保険条例 第2条第2項",
     // 13段階・基準額43,200円(月3,600)。
     levels: [
-      { level: "1",  annual: 12312,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
+      { level: "1",  annual: 12400,  ctx: { isHouseholdAllNonTaxable: true,  isSelfTaxable: false, sumIncome: 500000 } },
       { level: "5",  annual: 43200,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
       { level: "13", annual: 103600, ctx: { isSelfTaxable: true, totalIncome: 8000000 } },
     ],
