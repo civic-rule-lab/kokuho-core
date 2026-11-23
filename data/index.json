@@ -2,7 +2,7 @@
   "$schema": "/data/schema/index.schema.json",
   "title": "kokuho-keisan.jp 自治体制度データ カタログ",
   "description": "kokuho-keisan.jp が配信する自治体ごとの制度データ（JSON）の索引。各ファイルの所在・年度・検証状態を列挙する。値の来歴（出典 URL・検証日・検証方法）は各 JSON の meta（kokuho）または source（その他の制度）にある。",
-  "generatedAt": "2026-11-21",
+  "generatedAt": "2026-11-23",
   "catalogSchemaVersion": "1.0",
   "canonical": "https://kokuho-keisan.jp/data/index.json",
   "baseUrl": "https://kokuho-keisan.jp",
@@ -6584,10 +6584,10 @@
           "listed": true,
           "schemaVersion": "2.0",
           "status": "verified",
-          "verifiedAt": "2026-09-17",
+          "verifiedAt": "2026-11-23",
           "validFrom": "2026-04-01",
           "validUntil": "2027-03-31",
-          "updatedAt": "2026-09-17T00:00:00.000Z"
+          "updatedAt": "2026-11-23T00:00:00.000Z"
         },
         {
           "system": "kaigo",
