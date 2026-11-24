@@ -1983,11 +1983,11 @@ const CASES = [
     ],
   },
   {
-    slug: "tsubata", name: "津幡町（12段階）", source: "town.tsubata.lg.jp",
+    slug: "tsubata", name: "津幡町（13段階・第9期）", source: "町の資料 2680.pdf・介護保険条例 第4条",
     levels: [
-      { level: "5",  annual: 68400,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
-      { level: "6",  annual: 82000,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
-      { level: "12", annual: 147000, ctx: { isSelfTaxable: true, totalIncome: 7000000 } },
+      { level: "5",  annual: 69600,  ctx: { isHouseholdAllNonTaxable: false, isSelfTaxable: false, sumIncome: 1000000 } },
+      { level: "6",  annual: 83520,  ctx: { isSelfTaxable: true, totalIncome: 500000 } },
+      { level: "12", annual: 160080, ctx: { isSelfTaxable: true, totalIncome: 7000000 } },
     ],
   },
   {
