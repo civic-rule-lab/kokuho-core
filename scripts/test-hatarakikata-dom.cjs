@@ -60,6 +60,13 @@ for (const f of SCRIPTS) {
   html = html.replace(re, () => '<script>' + fs.readFileSync(path.join(ROOT, `js/core/${f}.js`), 'utf8') + '</script>');
 }
 A('ほかの外部 JS（/js/…）を読んでいない', !/<script src="\/js\//.test(html));
+{
+  // ページが読む JS は、配信スクリプトのコピーの一覧に全部ある（1 本でも無いと、本番でその JS が 404 になる）
+  const deploy = fs.readFileSync(path.join(ROOT, 'scripts/deploy-seido.sh'), 'utf8');
+  const missing = SCRIPTS.filter((f) => !deploy.includes(`cp "$CORE_DIR/js/core/${f}.js"`));
+  A('ページが読む JS は、配信スクリプトのコピーの一覧に全部ある', missing.length === 0, missing.join(' '));
+  A('配信スクリプトが、このページを生成して hatarakikata/index.html へコピーする', deploy.includes('generate-seido-hatarakikata.js') && deploy.includes('cp "$CORE_DIR/seido-hatarakikata.html"  "$PUBLIC_DIR/hatarakikata/index.html"'));
+}
 html = html.replace(/<script async src="https:\/\/www\.googletagmanager[^<]*<\/script>/g, '');
 let fetchFail = false; const fetched = [];
 const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://seido-keisan.jp/hatarakikata/',
