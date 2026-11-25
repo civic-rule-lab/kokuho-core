@@ -223,6 +223,9 @@ if [ "$DRY_RUN" = false ]; then
   cp "$CORE_DIR/js/core/onestop.js"       "$PUBLIC_DIR/js/core/"   # ふるさと納税 ワンストップ特例の判定（全国ページ）
   cp "$CORE_DIR/js/core/haito.js"         "$PUBLIC_DIR/js/core/"   # 配当の課税方式 損得判定（全国ページ）
   cp "$CORE_DIR/js/core/nenkin.js"        "$PUBLIC_DIR/js/core/"   # 国民年金の保険料・前納・免除判定（全国ページ・2026-10-22 JS 先行 deploy）
+  cp "$CORE_DIR/js/core/nenkin-kyufu.js"  "$PUBLIC_DIR/js/core/"   # 1 年で増える年金額の目安（働き方の比較・JS 先行 deploy）
+  cp "$CORE_DIR/js/core/jigyozei.js"      "$PUBLIC_DIR/js/core/"   # 個人の事業税（働き方の比較・JS 先行 deploy）
+  cp "$CORE_DIR/js/core/hatarakikata.js"  "$PUBLIC_DIR/js/core/"   # 働き方の比較の計算（全国ページ・JS 先行 deploy。ページはまだ無い）
   cp "$CORE_DIR/css/common.css"           "$PUBLIC_DIR/css/"
 
   # アンブレラ・ランディング → 公開リポの index.html
