@@ -1,0 +1,1784 @@
+{
+ "note": "架空のモデル世帯の期待値。自治体のデータは scripts/expected/hatarakikata-fixture-*.json（固定の写し）。計算を意図して変えたときだけ node scripts/test-hatarakikata.cjs --update で書き直す",
+ "schemaVersion": 1,
+ "cases": [
+  {
+   "label": "単身35歳・年収300万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 3000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 3479460,
+    "align": {
+     "nenshu": 3000000,
+     "kaishainTotal": 3479460,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 3479460,
+      "gross": 3000000,
+      "grossKind": "nenshu",
+      "siEmployer": 479460,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 442728
+       },
+       {
+        "key": "koyo",
+        "amount": 25500
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 11232
+       }
+      ],
+      "siEmployee": 457728,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 442728
+       },
+       {
+        "key": "koyo",
+        "amount": 15000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 26600
+       },
+       {
+        "key": "juminzei",
+        "amount": 115600
+       }
+      ],
+      "taxTotal": 142200,
+      "takeHome": 2400072,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 17101,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 3479460,
+      "gross": 2829460,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 535976,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 320936
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 63900
+       },
+       {
+        "key": "juminzei",
+        "amount": 188700
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 28900
+       }
+      ],
+      "taxTotal": 281500,
+      "takeHome": 2661984,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身35歳・年収500万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 5000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 5758372,
+    "align": {
+     "nenshu": 5000000,
+     "kaishainTotal": 5758372,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 5758372,
+      "gross": 5000000,
+      "grossKind": "nenshu",
+      "siEmployer": 758372,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 698160
+       },
+       {
+        "key": "koyo",
+        "amount": 42500
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 17712
+       }
+      ],
+      "siEmployee": 723136,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 698136
+       },
+       {
+        "key": "koyo",
+        "amount": 25000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 91600
+       },
+       {
+        "key": "juminzei",
+        "amount": 243000
+       }
+      ],
+      "taxTotal": 334600,
+      "takeHome": 3942264,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 26967,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 5758372,
+      "gross": 5108372,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 777085,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 562045
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 311000
+       },
+       {
+        "key": "juminzei",
+        "amount": 392500
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 142900
+       }
+      ],
+      "taxTotal": 846400,
+      "takeHome": 4134887,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身35歳・年収800万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 8000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 9221044,
+    "align": {
+     "nenshu": 8000000,
+     "kaishainTotal": 9221044,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 9221044,
+      "gross": 8000000,
+      "grossKind": "nenshu",
+      "siEmployer": 1221044,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1124964
+       },
+       {
+        "key": "koyo",
+        "amount": 68000
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 28080
+       }
+      ],
+      "siEmployee": 1164964,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1124964
+       },
+       {
+        "key": "koyo",
+        "amount": 40000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 434400
+       },
+       {
+        "key": "juminzei",
+        "amount": 453000
+       }
+      ],
+      "taxTotal": 887400,
+      "takeHome": 5947636,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 42752,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 9221044,
+      "gross": 8571044,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 1143435,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 928395
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 953500
+       },
+       {
+        "key": "juminzei",
+        "amount": 702100
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 316000
+       }
+      ],
+      "taxTotal": 1971600,
+      "takeHome": 6106009,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身35歳・年収1200万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 12000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 13436484,
+    "align": {
+     "nenshu": 12000000,
+     "kaishainTotal": 13436484,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 13436484,
+      "gross": 12000000,
+      "grossKind": "nenshu",
+      "siEmployer": 1436484,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1306404
+       },
+       {
+        "key": "koyo",
+        "amount": 102000
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 28080
+       }
+      ],
+      "siEmployee": 1366404,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1306404
+       },
+       {
+        "key": "koyo",
+        "amount": 60000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 1244000
+       },
+       {
+        "key": "juminzei",
+        "amount": 827700
+       }
+      ],
+      "taxTotal": 2071700,
+      "takeHome": 8561896,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 42752,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 13436484,
+      "gross": 12786484,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 1175040,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 960000
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 2134900
+       },
+       {
+        "key": "juminzei",
+        "amount": 1120500
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 526800
+       }
+      ],
+      "taxTotal": 3782200,
+      "takeHome": 8479244,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身45歳・年収500万（介護保険あり）",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 45,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 5000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 5798224,
+    "align": {
+     "nenshu": 5000000,
+     "kaishainTotal": 5798224,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 5798224,
+      "gross": 5000000,
+      "grossKind": "nenshu",
+      "siEmployer": 798224,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 738012
+       },
+       {
+        "key": "koyo",
+        "amount": 42500
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 17712
+       }
+      ],
+      "siEmployee": 762988,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 737988
+       },
+       {
+        "key": "koyo",
+        "amount": 25000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 89600
+       },
+       {
+        "key": "juminzei",
+        "amount": 239100
+       }
+      ],
+      "taxTotal": 328700,
+      "takeHome": 3908312,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 26967,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 5798224,
+      "gross": 5148224,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 913754,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 698714
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 291200
+       },
+       {
+        "key": "juminzei",
+        "amount": 382800
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 144900
+       }
+      ],
+      "taxTotal": 818900,
+      "takeHome": 4065570,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身62歳・年収400万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 62,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 4000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 4660688,
+    "align": {
+     "nenshu": 4000000,
+     "kaishainTotal": 4660688,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 4660688,
+      "gross": 4000000,
+      "grossKind": "nenshu",
+      "siEmployer": 660688,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 612000
+       },
+       {
+        "key": "koyo",
+        "amount": 34000
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 14688
+       }
+      ],
+      "siEmployee": 632000,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 612000
+       },
+       {
+        "key": "koyo",
+        "amount": 20000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 55500
+       },
+       {
+        "key": "juminzei",
+        "amount": 172200
+       }
+      ],
+      "taxTotal": 227700,
+      "takeHome": 3140300,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": null,
+       "kosei": 22362,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 4660688,
+      "gross": 4010688,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 550721,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 550721
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 0
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 147400
+       },
+       {
+        "key": "juminzei",
+        "amount": 305300
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 88000
+       }
+      ],
+      "taxTotal": 540700,
+      "takeHome": 3569267,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": null,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "夫婦（配偶者は収入なし）・子2人（未就学1・小学生1）・40歳・年収600万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 40,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": {
+      "age": 38,
+      "salary": 0
+     },
+     "kids": {
+      "u16": 2,
+      "preschool": 1
+     }
+    },
+    "kaishain": {
+     "nenshu": 6000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 6972600,
+    "align": {
+     "nenshu": 6000000,
+     "kaishainTotal": 6972600,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 6972600,
+      "gross": 6000000,
+      "grossKind": "nenshu",
+      "siEmployer": 972600,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 900000
+       },
+       {
+        "key": "koyo",
+        "amount": 51000
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 21600
+       }
+      ],
+      "siEmployee": 930000,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 900000
+       },
+       {
+        "key": "koyo",
+        "amount": 30000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 105600
+       },
+       {
+        "key": "juminzei",
+        "amount": 269500
+       }
+      ],
+      "taxTotal": 375100,
+      "takeHome": 4694900,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 32886,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 6972600,
+      "gross": 6322600,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 1446453,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 1016373
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 430080
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 344700
+       },
+       {
+        "key": "juminzei",
+        "amount": 414000
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 203600
+       }
+      ],
+      "taxTotal": 962300,
+      "takeHome": 4563847,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "夫婦（配偶者パート100万）・子3人（中学生・高校生・大学生）・48歳・年収700万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 48,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": {
+      "age": 46,
+      "salary": 1000000
+     },
+     "kids": {
+      "u16": 1,
+      "a1618": 1,
+      "a1922": 1
+     }
+    },
+    "kaishain": {
+     "nenshu": 7000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 8147000,
+    "align": {
+     "nenshu": 7000000,
+     "kaishainTotal": 8147000,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 8147000,
+      "gross": 7000000,
+      "grossKind": "nenshu",
+      "siEmployer": 1147000,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1062012
+       },
+       {
+        "key": "koyo",
+        "amount": 59500
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 25488
+       }
+      ],
+      "siEmployee": 1096988,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 1061988
+       },
+       {
+        "key": "koyo",
+        "amount": 35000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 109000
+       },
+       {
+        "key": "juminzei",
+        "amount": 258700
+       }
+      ],
+      "taxTotal": 367700,
+      "takeHome": 5535312,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 38805,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 8147000,
+      "gross": 7497000,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 1554780,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 1124700
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 430080
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 366400
+       },
+       {
+        "key": "juminzei",
+        "amount": 442600
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 262300
+       }
+      ],
+      "taxTotal": 1071300,
+      "takeHome": 5520920,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "夫婦（配偶者は年収400万）・35歳・年収500万",
+   "input": {
+    "mode": "kaishain",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": {
+      "age": 33,
+      "salary": 4000000
+     },
+     "kids": {}
+    },
+    "kaishain": {
+     "nenshu": 5000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kaishain",
+    "total": 5758372,
+    "align": {
+     "nenshu": 5000000,
+     "kaishainTotal": 5758372,
+     "gap": 0
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 5758372,
+      "gross": 5000000,
+      "grossKind": "nenshu",
+      "siEmployer": 758372,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 698160
+       },
+       {
+        "key": "koyo",
+        "amount": 42500
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 17712
+       }
+      ],
+      "siEmployee": 723136,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 698136
+       },
+       {
+        "key": "koyo",
+        "amount": 25000
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 91600
+       },
+       {
+        "key": "juminzei",
+        "amount": 243000
+       }
+      ],
+      "taxTotal": 334600,
+      "takeHome": 3942264,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 26967,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 5758372,
+      "gross": 5108372,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 777085,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 562045
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 311000
+       },
+       {
+        "key": "juminzei",
+        "amount": 392500
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 142900
+       }
+      ],
+      "taxTotal": 846400,
+      "takeHome": 4134887,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身35歳・個人事業・売上800万・経費200万",
+   "input": {
+    "mode": "kojin",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kojin": {
+     "uriage": 8000000,
+     "keihi": 2000000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kojin",
+    "total": 6000000,
+    "align": {
+     "nenshu": 5187000,
+     "kaishainTotal": 5999330,
+     "gap": 670
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 5999330,
+      "gross": 5187000,
+      "grossKind": "nenshu",
+      "siEmployer": 812330,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 749232
+       },
+       {
+        "key": "koyo",
+        "amount": 44090
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 19008
+       }
+      ],
+      "siEmployee": 775167,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 749232
+       },
+       {
+        "key": "koyo",
+        "amount": 25935
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 96500
+       },
+       {
+        "key": "juminzei",
+        "amount": 252600
+       }
+      ],
+      "taxTotal": 349100,
+      "takeHome": 4062733,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 28940,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 6000000,
+      "gross": 5350000,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 802649,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 587609
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 355200
+       },
+       {
+        "key": "juminzei",
+        "amount": 414100
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 155000
+       }
+      ],
+      "taxTotal": 924300,
+      "takeHome": 4273051,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type1",
+        "defaulted": true
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "単身35歳・個人事業・売上400万・経費50万・青色10万・課されない業種",
+   "input": {
+    "mode": "kojin",
+    "common": {
+     "age": 35,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": null,
+     "kids": {}
+    },
+    "kojin": {
+     "uriage": 4000000,
+     "keihi": 500000,
+     "aoiro": 100000,
+     "gyoshu": "none"
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kojin",
+    "total": 3500000,
+    "align": {
+     "nenshu": 3020000,
+     "kaishainTotal": 3499630,
+     "gap": 370
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 3499630,
+      "gross": 3020000,
+      "grossKind": "nenshu",
+      "siEmployer": 479630,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 442728
+       },
+       {
+        "key": "koyo",
+        "amount": 25670
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 11232
+       }
+      ],
+      "siEmployee": 457828,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 442728
+       },
+       {
+        "key": "koyo",
+        "amount": 15100
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 27300
+       },
+       {
+        "key": "juminzei",
+        "amount": 117000
+       }
+      ],
+      "taxTotal": 144300,
+      "takeHome": 2417872,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 17101,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 3500000,
+      "gross": 3400000,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 596339,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 381299
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 215040
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 90000
+       },
+       {
+        "key": "juminzei",
+        "amount": 239700
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 0
+       }
+      ],
+      "taxTotal": 329700,
+      "takeHome": 2573961,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": null
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 100000,
+        "defaulted": false
+       },
+       {
+        "key": "gyoshu",
+        "value": "none",
+        "defaulted": false
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "label": "夫婦（配偶者は収入なし）・子1人（高校生）・50歳・個人事業・売上1000万・経費300万・iDeCoと共済",
+   "input": {
+    "mode": "kojin",
+    "common": {
+     "age": 50,
+     "prefSlug": "tokyo",
+     "kyuchi": 1,
+     "spouse": {
+      "age": 48,
+      "salary": 0
+     },
+     "kids": {
+      "a1618": 1
+     }
+    },
+    "kojin": {
+     "uriage": 10000000,
+     "keihi": 3000000,
+     "gyoshu": "type3",
+     "ideco": 816000,
+     "kyosai": 840000
+    }
+   },
+   "result": {
+    "schemaVersion": 1,
+    "mode": "kojin",
+    "total": 7000000,
+    "align": {
+     "nenshu": 6027000,
+     "kaishainTotal": 6999830,
+     "gap": 170
+    },
+    "columns": [
+     {
+      "key": "kaishain",
+      "totalUsed": 6999830,
+      "gross": 6027000,
+      "grossKind": "nenshu",
+      "siEmployer": 972830,
+      "siEmployerItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 900000
+       },
+       {
+        "key": "koyo",
+        "amount": 51230
+       },
+       {
+        "key": "kyoshutsukin",
+        "amount": 21600
+       }
+      ],
+      "siEmployee": 930135,
+      "siEmployeeItems": [
+       {
+        "key": "kenpoKosei",
+        "amount": 900000
+       },
+       {
+        "key": "koyo",
+        "amount": 30135
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 84100
+       },
+       {
+        "key": "juminzei",
+        "amount": 238300
+       }
+      ],
+      "taxTotal": 322400,
+      "takeHome": 4774465,
+      "buckets": {
+       "savings": 0,
+       "savingsItems": [],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": 32886,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "bonus",
+        "value": "none"
+       }
+      ]
+     },
+     {
+      "key": "kojin",
+      "totalUsed": 7000000,
+      "gross": 6350000,
+      "grossKind": "jigyoShotoku",
+      "siEmployer": null,
+      "siEmployerItems": [],
+      "siEmployee": 1425762,
+      "siEmployeeItems": [
+       {
+        "key": "kokuho",
+        "amount": 995682
+       },
+       {
+        "key": "kokuminNenkin",
+        "amount": 430080
+       }
+      ],
+      "taxes": [
+       {
+        "key": "shotokuzei",
+        "amount": 93800
+       },
+       {
+        "key": "juminzei",
+        "amount": 220200
+       },
+       {
+        "key": "kojinJigyozei",
+        "amount": 205000
+       }
+      ],
+      "taxTotal": 519000,
+      "takeHome": 3399238,
+      "buckets": {
+       "savings": 1656000,
+       "savingsItems": [
+        {
+         "key": "ideco",
+         "amount": 816000
+        },
+        {
+         "key": "kyosai",
+         "amount": 840000
+        }
+       ],
+       "retained": null
+      },
+      "pension": {
+       "kiso": 21183,
+       "kosei": null,
+       "spouseKiso": 21183
+      },
+      "assumptions": [
+       {
+        "key": "aoiro",
+        "value": 650000,
+        "defaulted": true
+       },
+       {
+        "key": "gyoshu",
+        "value": "type3",
+        "defaulted": false
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}
