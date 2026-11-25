@@ -60,6 +60,8 @@ const urls = [
   { loc: `${BASE_URL}/furusato/ikukyu/`, priority: '0.7', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/haito/`, priority: '0.7', changefreq: 'yearly' },
   { loc: `${BASE_URL}/furusato/taishoku/`, priority: '0.6', changefreq: 'yearly' },
+  // 働き方の比較（全国1ページ・deploy-seido.sh が hatarakikata/index.html へコピー）
+  { loc: `${BASE_URL}/hatarakikata/`, priority: '0.7', changefreq: 'yearly' },
   // 運営者情報・プライバシーポリシー・免責事項（Organization の @id を置くページ。deploy-seido.sh が about/index.html へコピー）
   { loc: `${BASE_URL}/about/`, priority: '0.3', changefreq: 'yearly' },
 ];

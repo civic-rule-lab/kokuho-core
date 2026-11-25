@@ -124,6 +124,8 @@ if [ "$SYNC_ONLY" = false ]; then
   node "$CORE_DIR/scripts/generate-seido-haito.js"
   echo "▶ generate-seido-taishoku.js"
   node "$CORE_DIR/scripts/generate-seido-taishoku.js"
+  echo "▶ generate-seido-hatarakikata.js"
+  node "$CORE_DIR/scripts/generate-seido-hatarakikata.js"
   echo "▶ generate-seido-about.js"
   node "$CORE_DIR/scripts/generate-seido-about.js"
   echo "▶ generate-seido-sitemap.js"
@@ -250,6 +252,10 @@ if [ "$DRY_RUN" = false ]; then
   # 所得税の計算（令和8年分・全国1ページ）→ 公開リポの shotoku/index.html
   mkdir -p "$PUBLIC_DIR/shotoku"
   cp "$CORE_DIR/seido-shotoku.html"       "$PUBLIC_DIR/shotoku/index.html"
+
+  # 働き方の比較（全国1ページ）→ 公開リポの hatarakikata/index.html
+  mkdir -p "$PUBLIC_DIR/hatarakikata"
+  cp "$CORE_DIR/seido-hatarakikata.html"  "$PUBLIC_DIR/hatarakikata/index.html"
 
   # 運営者情報・プライバシーポリシー・免責事項（静的）→ 公開リポの about/index.html
   mkdir -p "$PUBLIC_DIR/about"

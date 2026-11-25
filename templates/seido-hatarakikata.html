@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja" data-system="seido">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="同じ稼ぎを会社員として受け取る場合と個人事業として受け取る場合で、社会保険料・税・手取り・年金の増え方がどう変わるかを、お住まいの自治体の国保料と住民税で計算して並べます。全国の市区町村に対応。">
+<link rel="canonical" href="https://seido-keisan.jp/hatarakikata/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="働き方で変わる 税・社会保険料・手取りの比較｜自治体別に計算">
+<meta property="og:description" content="自治体を選んで年収か売上を入れるだけ。同じ稼ぎでの社会保険料・税・手取り・年金の増え方を並べます。">
+<meta property="og:url" content="https://seido-keisan.jp/hatarakikata/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=__CSS_V__">
+<title>働き方で変わる 税・社会保険料・手取りの比較｜自治体別に計算【2026年】</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（自営業・国保加入者モード seido-jieigyo.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:var(--acc);margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:var(--acc);margin-bottom:8px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
+  .cta-list{display:grid;grid-template-columns:max-content auto;gap:10px 3em;align-items:center;margin-top:6px;}
+  .cta-item{display:contents;}
+  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:var(--acc-bg-2);border:1px solid var(--acc-line-strong);color:var(--acc-strong);text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
+  .cta-item a:hover{background:var(--acc-line);}
+  .cta-item a:active{transform:translateY(1px);}
+  .cta-ext{font-size:13px;margin-left:2px;}
+  .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
+  details{margin-top:14px;}
+  summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--acc);}
+  /* 比較の表: 見出しの列 ＋ 働き方の列（列の数は --hk-cols で渡す）。携帯幅では、働き方ごとに縦に積む */
+  .hk-grid{display:grid;grid-template-columns:minmax(0,1.15fr) repeat(var(--hk-cols),minmax(0,1fr));border-top:1px solid #e5e7eb;margin-top:8px;}
+  .hk-grid > div{padding:9px 4px;border-bottom:1px solid #e5e7eb;font-size:14px;line-height:1.5;box-sizing:border-box;min-width:0;}
+  .hk-h{font-weight:700;color:var(--acc);text-align:right;}
+  .hk-l{color:#374151;}
+  .hk-c{text-align:right;font-weight:700;color:#0f172a;font-variant-numeric:tabular-nums;}
+  .hk-c .ci-sub{display:block;font-weight:400;}
+  .hk-strong{background:var(--acc-bg);}
+  .hk-strong.hk-c{font-size:16px;color:var(--acc-strong);}
+  @media (max-width:480px){
+    .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;}
+    .hk-grid{grid-template-columns:minmax(0,1fr);border-top:none;}
+    .hk-grid > .hk-l,.hk-grid > .hk-corner{display:none;}
+    .hk-grid > .hk-h{order:var(--o);text-align:left;margin-top:14px;font-size:15px;border-bottom:2px solid var(--acc);}
+    .hk-grid > .hk-c{order:var(--o);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;}
+    .hk-c::before{content:attr(data-label);font-weight:400;color:#374151;text-align:left;}
+    .hk-c .ci-sub{grid-column:1 / -1;}
+    .hk-grid > .hk-info{grid-template-columns:minmax(0,1fr);}
+    .hk-info::before{font-weight:700;}
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">働き方で変わる</span><span class="h1-seg">税・社会保険料・</span><span class="h1-seg">手取りの比較</span><span class="h1-year">【2026年の稼ぎ・自治体別に計算】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">同じ稼ぎを、働き方を変えて受け取ったときの<b>社会保険料・税・手取り・年金の増え方</b>を並べます。会社が払う総額（額面年収＋会社が負担する社会保険料）と、売上から経費を引いた額を同じ額として比べます。国保料と住民税は、お住まいの自治体の料率で計算します（<b>__CITY_COUNT__</b> 自治体に対応）。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① お住まいの自治体</div>
+    <div class="row2">
+      <div>
+        <label for="pref">都道府県</label>
+        <select id="pref" data-step="1a"><option value="">選択してください</option></select>
+      </div>
+      <div>
+        <label for="city">市区町村</label>
+        <select id="city" data-step="1b" disabled><option value="">先に都道府県を選択</option></select>
+      </div>
+    </div>
+    <div class="hint">国保料と住民税は市区町村ごとに違います（国保は令和8年度の料率で計算）。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② いまの働き方と稼ぎ</div>
+    <label for="mode">いまの働き方</label>
+    <select id="mode" data-step="2"></select>
+    <div class="hint">選んだ働き方の数字を入れると、同じ稼ぎになるように、ほかの働き方の数字を計算します。</div>
+    <div id="boxKaishain">
+      <label for="nenshu">額面年収（2026年の見込み・円）</label>
+      <div class="hint">税や社会保険料を引かれる前の年収。源泉徴収票の「支払金額」にあたります。</div>
+      <input id="nenshu" data-step="3" type="text" inputmode="numeric" placeholder="例：5,000,000">
+    </div>
+    <div id="boxKojin" style="display:none;">
+      <div class="row2">
+        <div>
+          <label for="uriage">売上（2026年の見込み・円）</label>
+          <input id="uriage" data-step="4a" type="text" inputmode="numeric" placeholder="例：8,000,000">
+        </div>
+        <div>
+          <label for="keihi">経費（円）</label>
+          <input id="keihi" data-step="4b" type="text" inputmode="numeric" placeholder="例：2,000,000">
+        </div>
+      </div>
+      <div class="hint">売上から経費を引いた額で比べます。青色申告特別控除は、下の欄で選びます（経費には入れません）。</div>
+    </div>
+    <label for="age">年齢</label>
+    <input id="age" data-step="5" type="text" inputmode="numeric" placeholder="例：35">
+    <div class="hint">40〜64歳は介護保険料がかかります。20〜59歳は基礎年金が増える期間です。</div>
+    <div id="boxKojinOpt" style="display:none;">
+      <label for="aoiro">青色申告特別控除</label>
+      <select id="aoiro" data-step="6a"></select>
+      <label for="gyoshu">業種（個人事業税の税率）</label>
+      <select id="gyoshu" data-step="6b"></select>
+      <div class="hint">個人事業税がかかる業種かどうかは、都道府県税事務所にご確認ください。</div>
+    </div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
+    <label for="spouse">配偶者</label>
+    <select id="spouse" data-step="7">
+      <option value="none" selected>いない</option>
+      <option value="yes">いる</option>
+    </select>
+    <div id="spouseBox" style="display:none;">
+      <div class="row2">
+        <div>
+          <label for="spouseAge">配偶者の年齢</label>
+          <input id="spouseAge" data-step="8a" type="text" inputmode="numeric" placeholder="例：35">
+        </div>
+        <div>
+          <label for="spouseSalary">配偶者の給与収入（年収・円）</label>
+          <input id="spouseSalary" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+      <div class="hint">パート・給与のみの前提。年収 <span data-cfg="hifuyo"></span> 未満は扶養に入るものとして、それ以上は自分の勤め先の社会保険に入っているものとして計算します。</div>
+    </div>
+    <div class="row2">
+      <div>
+        <label for="kidsU16">子の人数（16歳未満）</label>
+        <input id="kidsU16" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kidsPre">うち小学校に入る前の子</label>
+        <input id="kidsPre" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kids1618">子の人数（16〜18歳）</label>
+        <input id="kids1618" data-step="10a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kids1922">子の人数（19〜22歳）</label>
+        <input id="kids1922" data-step="10b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint" style="margin-top:6px;">子は所得がない前提です。国保の人数と軽減、扶養控除の計算に使います。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">④ 自分の積立（任意）</div>
+    <label for="ideco">iDeCo の掛金（2026年の年額・円）</label>
+    <input id="ideco" data-step="11a" type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">上限は働き方で違います。上限を超えた分は、上限の額で計算します（会社員は年 <span data-cfg="idecoKaishain"></span>、個人事業は年 <span data-cfg="idecoKojin"></span>）。</div>
+    <label for="kyosai">小規模企業共済の掛金（2026年の年額・円）</label>
+    <input id="kyosai" data-step="11b" data-step-end type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">個人事業の列だけに入ります（上限は年 <span data-cfg="kyosai"></span>）。</div>
+  </div>
+
+  <button onclick="calcHatarakikata()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>同じ稼ぎが続いたときの1年分を比べています。独立した最初の年は、住民税と国保料が前の年の所得で決まるため、この結果と違う数字になります。
+  </div>
+
+  <h2>金額に入っていない違い</h2>
+  <p class="hint" style="margin:0 0 8px;">手取りの額には出ない、働き方による違いです。</p>
+  <div id="infoTable"></div>
+
+  <h2>計算のしかた</h2>
+  <div class="jt-card">
+    <div class="jt-card-title">同じ稼ぎにそろえてから、社会保険料と税を引く</div>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      <li>会社が払う総額 ＝ 額面年収 ＋ 会社が負担する社会保険料（健康保険・介護保険・子ども・子育て支援金・厚生年金・雇用保険・子ども・子育て拠出金）</li>
+      <li>個人事業は、売上 − 経費 を、会社が払う総額と同じ額として比べる</li>
+      <li>手取り ＝ そろえた額 − 社会保険料 − 税 − 自分の積立</li>
+      <li>売上と経費から入れたときは、同じ総額になる額面年収を 1,000 円きざみで求める</li>
+    </ol>
+  </div>
+
+  <h2>あわせて使う</h2>
+  <div class="cta-list">
+    <div class="cta-item"><span class="cta-desc">住民税・保険料・手取りを自治体別に計算</span><a href="/">家計簿シミュレーター <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">所得税の計算（令和8年分）</span><a href="/shotoku/">所得税の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">国民健康保険料の計算サイト</span><a href="https://kokuho-keisan.jp/">国保料の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">社会保険料の計算サイト（会社員）</span><a href="https://shaho-keisan.jp/">社会保険料の計算 <span class="cta-ext">↗</span></a></div>
+  </div>
+
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>2026年の稼ぎとして計算します（所得税は令和8年分・住民税は令和9年度分・国保料は令和8年度・社会保険料は2026年7月時点の料率）。</li>
+      <li>会社員は、協会けんぽ・雇用保険は一般の事業・賞与なし（年収を12で割った額を毎月の報酬とする）の前提です。</li>
+      <li>会社が払う総額には、労災保険料・退職金の積立・通勤手当・福利厚生は入れていません。</li>
+      <li>個人事業は、市区町村の国保に入る前提です（国保組合は対象外）。国保の資産割、国民年金の免除と付加保険料は入れていません。</li>
+      <li>青色申告特別控除の 65万円・55万円には、帳簿や申告の方法の要件があります。</li>
+      <li>個人事業税は、標準税率・事業主控除 <span data-cfg="jigyonushi"></span> で1年分を計算します。都道府県による税率の違いは入れていません。</li>
+      <li>iDeCo の上限は、会社員は企業年金に入っていない場合の額です。個人事業の上限は、国民年金基金・付加保険料と合わせた額です。</li>
+      <li>配偶者自身の税と社会保険料は、手取りに入れていません。</li>
+    </ul>
+  </div>
+
+  <h2>出典</h2>
+  <div class="note" style="margin-top:4px;">
+    健康保険法（第99条 傷病手当金・第102条 出産手当金）、厚生年金保険法 第43条、国民年金法 第7条・第27条、雇用保険法 第10条・第61条の6、国民健康保険法 第58条・各自治体の国保条例（料率はお住まいの自治体の公表値）、所得税法・租税特別措置法 第25条の2（青色申告特別控除）、地方税法（住民税・第72条の49の12〜第72条の49の17 個人の事業税）、確定拠出年金法施行令 第36条、小規模企業共済法 第4条、日本年金機構「厚生年金保険料額表（令和8年度版）」「国民年金保険料」、厚生労働省「令和8年度の年金額改定について」「令和8年度の雇用保険料率」、全国健康保険協会の保険料率。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
+__OPERATOR_FOOTER__
+
+</div>
+
+<!-- 制度値と自治体一覧。生成時に埋め込む（JSON は文字列のまま） -->
+<script>
+const CITY_INDEX = __CITY_INDEX__;
+const HK_CONFIG = __HK_CONFIG__;
+const HK_SHAHO = { kenpo: __SHAHO_KENPO__, kosei: __SHAHO_KOSEI__, koyo: __SHAHO_KOYO__, standard: __SHAHO_STANDARD__, senpo: null };
+const HK_SHOTOKU_DB = __SHOTOKU_DB__;
+const HK_HAIGU = __HAIGU_DATA__;
+const HK_NENKIN = __NENKIN_DATA__;
+const HK_NENKIN_KYUFU = __NENKIN_KYUFU_DATA__;
+const HK_JIGYOZEI = __JIGYOZEI_DATA__;
+</script>
+<script src="/js/core/shared/ui-input.js?v=__JS_V__"></script>
+<script src="/js/core/shared/income.js?v=__JS_V__"></script>
+<script src="/js/core/shaho.js?v=__JS_V__"></script>
+<script src="/js/core/shotoku.js?v=__JS_V__"></script>
+<script src="/js/core/jumin.js?v=__JS_V__"></script>
+<script src="/js/core/kokuho.js?v=__JS_V__"></script>
+<script src="/js/core/nenkin-kyufu.js?v=__JS_V__"></script>
+<script src="/js/core/jigyozei.js?v=__JS_V__"></script>
+<script src="/js/core/hatarakikata.js?v=__JS_V__"></script>
+<script>
+(function(){
+  "use strict";
+  // 計算は純関数 Hatarakikata.compare（js/core/hatarakikata.js）。ここには入力の読み取りと表示だけを書く。
+  // 年は制度値（HK_CONFIG.years）から読む。このファイルに年の数字を持たない。
+  var YEARS = HK_CONFIG.years;
+  var DATA = { config: HK_CONFIG, shaho: HK_SHAHO, shotokuDb: HK_SHOTOKU_DB, haigu: HK_HAIGU, nenkin: HK_NENKIN, nenkinKyufu: HK_NENKIN_KYUFU, jigyozei: HK_JIGYOZEI };
+  var KK = HK_CONFIG.kakekin;
+  var CAP = { ideco: { kaishain: KK.idecoMonthlyMax.kaishain * 12, kojin: KK.idecoMonthlyMax.kojin * 12 }, kyosai: KK.kyosaiMonthlyMax * 12 };
+
+  // 働き方（列）の名前。列を足すときは、ここと MODES に 1 行ずつ足す
+  var COLUMN_LABEL = { kaishain: "会社員", kojin: "個人事業" };
+  var MODES = [{ value: "kaishain", label: "会社員（額面年収を入れる）" }, { value: "kojin", label: "個人事業（売上と経費を入れる）" }];
+  var ITEM_LABEL = { kenpoKosei: "健康保険・厚生年金など", koyo: "雇用保険", kyoshutsukin: "子ども・子育て拠出金", kokuho: "国民健康保険", kokuminNenkin: "国民年金",
+    shotokuzei: "所得税", juminzei: "住民税", kojinJigyozei: "個人事業税", ideco: "iDeCo", kyosai: "小規模企業共済" };
+  var TAX_ROW_LABEL = { shotokuzei: "所得税", juminzei: "住民税（" + wareki(YEARS.juminFiscalYear) + "年度分）", kojinJigyozei: "個人事業税" };
+  // 金額に入っていない違い（列の名前で持つ。該当しない列は「—」）
+  var INFO_ROWS = [
+    { label: "病気・出産で働けないときの手当", cells: { kaishain: "傷病手当金・出産手当金があります", kojin: "国保では、条例や規約で定めた場合に限られます" } },
+    { label: "失業したとき・育児休業の給付", cells: { kaishain: "雇用保険の給付があります", kojin: "雇用保険に入らないため、ありません" } },
+    { label: "扶養に入る配偶者の年金の保険料", cells: { kaishain: "かかりません（年金は増えます）", kojin: "配偶者の分もかかります" } }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function raw(id){ return toHalfWidth(($(id)||{}).value || "").replace(/[^0-9]/g, ""); }
+  function num(id){ var v = raw(id); return v === "" ? 0 : Number(v); }
+  function val(id){ return ($(id)||{}).value || ""; }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function man(n){ return (n / 10000).toLocaleString("ja-JP") + " 万円"; }
+  function wareki(y){ return "令和" + (y - 2018); }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function colLabel(key){ return COLUMN_LABEL[key] || key; }
+  function placeholder(msg){ return "<span class='result-placeholder'>" + esc(msg) + "</span>"; }
+
+  // ── 自治体プルダウン（都道府県 → 市区町村。CITY_INDEX は JIS コード順） ──
+  var prefSel = $("pref"), citySel = $("city");
+  Object.keys(CITY_INDEX).forEach(function(pn){ var o = document.createElement("option"); o.value = pn; o.textContent = pn; prefSel.appendChild(o); });
+  prefSel.addEventListener("change", function(){
+    var pn = prefSel.value; citySel.innerHTML = "";
+    if(!pn){ citySel.disabled = true; citySel.innerHTML = "<option value=''>先に都道府県を選択</option>"; return; }
+    citySel.disabled = false;
+    var o0 = document.createElement("option"); o0.value = ""; o0.textContent = "選択してください"; citySel.appendChild(o0);
+    CITY_INDEX[pn].cities.forEach(function(c){ var o = document.createElement("option"); o.value = c.slug; o.textContent = c.name; citySel.appendChild(o); });
+  });
+  function currentCity(){
+    var pn = prefSel.value, slug = citySel.value; if(!pn || !slug) return null;
+    var c = CITY_INDEX[pn].cities.filter(function(x){ return x.slug === slug; })[0];
+    return c ? { pref: pn, prefSlug: CITY_INDEX[pn].slug, slug: slug, name: c.name, kyuchi: c.k, hasJumin: !!c.j } : null;
+  }
+
+  // ── 自治体データ（国保・住民税）。同じサイトの /data/municipalities/ から取得 ──
+  var _cache = {};
+  function loadMunicipal(slug, sys){
+    var key = slug + "/" + sys;
+    if(_cache[key]) return _cache[key];
+    _cache[key] = fetch("/data/municipalities/" + slug + "/" + sys + "-" + YEARS.kokuhoYear + ".json", { cache: "no-store" })
+      .then(function(r){ if(!r.ok) throw new Error(sys + " HTTP " + r.status); return r.json(); })
+      .catch(function(e){ delete _cache[key]; throw e; });
+    return _cache[key];
+  }
+
+  // ── 入力を読む。計算できないときは { message } を返す（0 円の結果を出さない） ──
+  function readInput(city){
+    var mode = val("mode"), ar = HK_CONFIG.ageRange;
+    if(mode === "kaishain"){ if(!num("nenshu")) return { message: "②の額面年収を入れてください" }; }
+    else {
+      if(!num("uriage")) return { message: "②の売上を入れてください" };
+      if(num("keihi") > num("uriage")) return { message: "経費が売上を上回っています。赤字の年は計算できません" };
+    }
+    if(raw("age") === "") return { message: "②の年齢を入れてください" };
+    var age = num("age");
+    if(age >= ar.under) return { warn: ar.under + "歳以上の方は、国保ではなく後期高齢者医療の対象です。このページでは計算できません。" };
+    if(age < ar.min) return { message: "年齢は " + ar.min + " 歳以上で入れてください" };
+    var spouse = null;
+    if(val("spouse") !== "none"){
+      if(raw("spouseAge") === "") return { message: "③の配偶者の年齢を入れてください" };
+      if(num("spouseAge") >= ar.under) return { warn: "配偶者が " + ar.under + "歳以上の場合は、このページでは計算できません（後期高齢者医療の対象のため）。" };
+      spouse = { age: num("spouseAge"), salary: num("spouseSalary") };
+    }
+    var kids = { u16: num("kidsU16"), preschool: num("kidsPre"), a1618: num("kids1618"), a1922: num("kids1922") };
+    if(kids.preschool > kids.u16) return { message: "③の「小学校に入る前の子」は、16歳未満の子の人数以下で入れてください" };
+    // 掛金は、列ごとの上限（月額×12）で打ち切る。打ち切ったことは結果に書く
+    var idecoIn = num("ideco"), kyosaiIn = num("kyosai");
+    var kakekin = {
+      kaishain: { ideco: Math.min(idecoIn, CAP.ideco.kaishain) },
+      kojin: { ideco: Math.min(idecoIn, CAP.ideco.kojin), kyosai: Math.min(kyosaiIn, CAP.kyosai) },
+      capped: { kaishainIdeco: idecoIn > CAP.ideco.kaishain, kojinIdeco: idecoIn > CAP.ideco.kojin, kyosai: kyosaiIn > CAP.kyosai }
+    };
+    var input = { mode: mode, common: { age: age, prefSlug: city.prefSlug, kyuchi: city.kyuchi, spouse: spouse, kids: kids },
+      kaishain: { ideco: kakekin.kaishain.ideco }, kojin: { ideco: kakekin.kojin.ideco, kyosai: kakekin.kojin.kyosai } };
+    if(mode === "kaishain"){ input.kaishain.nenshu = num("nenshu"); }
+    else { input.kojin.uriage = num("uriage"); input.kojin.keihi = num("keihi"); input.kojin.aoiro = Number(val("aoiro")); input.kojin.gyoshu = val("gyoshu"); }
+    return { input: input, kakekin: kakekin };
+  }
+  window.hatarakikataReadInput = readInput;
+
+  // ── 表示: 列の配列（r.columns）と行の定義から表を組み立てる。列の数を HTML に直接書かない ──
+  function assume(col, key){ return (col.assumptions || []).filter(function(a){ return a.key === key; })[0] || null; }
+  function itemNames(items){ return items.map(function(i){ return ITEM_LABEL[i.key] || i.key; }).join("・"); }
+  function taxOf(col, key){ var t = col.taxes.filter(function(x){ return x.key === key; })[0]; return t ? t.amount : null; }
+  function grossSub(col){
+    if(col.grossKind === "nenshu") return "額面年収";
+    var a = assume(col, "aoiro");
+    return "事業所得" + (a && a.value > 0 ? "（青色申告特別控除 " + man(a.value) + "を引いた後）" : "（青色申告特別控除なし）");
+  }
+  function taxSub(col, key){
+    if(key !== "kojinJigyozei") return "";
+    var g = assume(col, "gyoshu"); if(!g) return "";
+    var row = HK_JIGYOZEI.rates.filter(function(x){ return x.key === g.value; })[0];
+    return row ? "税率 " + row.ratePercent + "% で計算" : "";
+  }
+  function cell(id, label, order, amount, sub, strong){
+    return "<div class='hk-c" + (strong ? " hk-strong" : "") + "' id='" + id + "' data-label='" + esc(label) + "' style='--o:" + order + "'><span class='hk-amt'>" +
+      (amount === null ? "—" : yen(amount)) + "</span>" + (sub ? "<span class='ci-sub'>" + esc(sub) + "</span>" : "") + "</div>";
+  }
+  // rows: [{ id, label, strong, get(col) → { amount, sub } }]。どの列も該当なし（null）の行は、hideIfAllNull なら出さない
+  function grid(cols, rows, idPrefix){
+    var shown = rows.filter(function(row){ return !row.hideIfAllNull || cols.some(function(c){ return row.get(c).amount !== null; }); });
+    var h = "<div class='hk-grid' style='--hk-cols:" + cols.length + "'><div class='hk-corner'></div>";
+    cols.forEach(function(c, ci){ h += "<div class='hk-h' style='--o:" + ((ci + 1) * 100) + "'>" + esc(colLabel(c.key)) + "</div>"; });
+    shown.forEach(function(row, ri){
+      h += "<div class='hk-l" + (row.strong ? " hk-strong" : "") + "'>" + esc(row.label) + "</div>";
+      cols.forEach(function(c, ci){ var v = row.get(c); h += cell(idPrefix + c.key + "-" + row.id, row.label, (ci + 1) * 100 + ri + 1, v.amount, v.sub, row.strong); });
+    });
+    return h + "</div>";
+  }
+  function mainRows(cols){
+    var rows = [
+      { id: "gross", label: "額面年収 ／ 事業所得", get: function(c){ return { amount: c.gross, sub: grossSub(c) }; } },
+      { id: "siEmployer", label: "社会保険料（会社が負担）", get: function(c){ return { amount: c.siEmployer, sub: c.siEmployer === null ? "" : itemNames(c.siEmployerItems) }; } },
+      { id: "siEmployee", label: "社会保険料（本人が負担）", get: function(c){ return { amount: c.siEmployee, sub: itemNames(c.siEmployeeItems) }; } }
+    ];
+    // 税目は列によって数が違う。出てくる税目を、最初に出た順に 1 行ずつ
+    var taxKeys = [];
+    cols.forEach(function(c){ c.taxes.forEach(function(t){ if(taxKeys.indexOf(t.key) < 0) taxKeys.push(t.key); }); });
+    taxKeys.forEach(function(k){ rows.push({ id: "tax-" + k, label: TAX_ROW_LABEL[k] || k, get: function(c){ return { amount: taxOf(c, k), sub: taxSub(c, k) }; } }); });
+    if(cols.some(function(c){ return c.buckets.savings > 0; }))
+      rows.push({ id: "savings", label: "自分の積立", get: function(c){ return { amount: c.buckets.savings, sub: c.buckets.savings > 0 ? itemNames(c.buckets.savingsItems) : "" }; } });
+    rows.push({ id: "retained", label: "会社に残る額", hideIfAllNull: true, get: function(c){ return { amount: c.buckets.retained, sub: "" }; } });
+    rows.push({ id: "takehome", label: "手取り（年）", strong: true, get: function(c){ return { amount: c.takeHome, sub: "" }; } });
+    return rows;
+  }
+  var PENSION_ROWS = [
+    { id: "kiso", label: "基礎年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.kiso, sub: "" }; } },
+    { id: "kosei", label: "厚生年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.kosei, sub: "" }; } },
+    { id: "spouseKiso", label: "配偶者の基礎年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.spouseKiso, sub: "" }; } }
+  ];
+  function pensionTotal(c){ return (c.pension.kiso || 0) + (c.pension.kosei || 0); }
+  // 「計算上は、◯◯の◯◯が最も多くなります」。同じ額なら、そう書く
+  function topSentence(cols, what, f){
+    var max = Math.max.apply(null, cols.map(f)), tops = cols.filter(function(c){ return f(c) === max; });
+    if(tops.length === cols.length) return what + "は同じです。";
+    return tops.map(function(c){ return colLabel(c.key); }).join("と") + "の" + what + "が最も多くなります。";
+  }
+  function flow(c){
+    function li(items){ return items.map(function(i){ return "<div class='result-row'><div class='result-label'>" + esc(ITEM_LABEL[i.key] || i.key) + "</div><div class='amount'>" + yen(i.amount) + "</div></div>"; }).join(""); }
+    var h = "<div class='fz-card-title'>" + esc(colLabel(c.key)) + "</div>" +
+      "<div class='result-row'><div class='result-label'>そろえた額（" + (c.siEmployer === null ? "売上から経費を引いた額" : "会社が払う総額") + "）</div><div class='amount'>" + yen(c.totalUsed) + "</div></div>";
+    if(c.siEmployer !== null) h += "<div class='ci-sub'>会社が負担する社会保険料</div>" + li(c.siEmployerItems);
+    h += "<div class='ci-sub'>本人が負担する社会保険料</div>" + li(c.siEmployeeItems) + "<div class='ci-sub'>税</div>" + li(c.taxes);
+    if(c.buckets.savings > 0) h += "<div class='ci-sub'>自分の積立</div>" + li(c.buckets.savingsItems);
+    return h + "<div class='result-row'><div class='result-label'>手取り（そろえた額から、上のすべてを引いた額）</div><div class='amount'>" + yen(c.takeHome) + "</div></div>";
+  }
+  function render(r, city, kakekin){
+    var cols = r.columns;
+    var h = "<div class='result-title' style='font-size:15px;margin-top:4px;'>同じ稼ぎ <span id='res-total'>" + yen(r.total) + "</span> での比較（" + esc(city.name) + "・" + YEARS.shotokuYear + "年）</div>" +
+      "<div class='ci-sub'>会社が払う総額 ＝ 売上から経費を引いた額 として比べています。</div>";
+    if(r.align.gap > 0) h += "<div class='ci-sub' id='res-gap'>会社員の列は、総額 " + yen(r.align.kaishainTotal) + "（差 " + yen(r.align.gap) + "）で計算しています。社会保険料が段階で決まるため、ぴったり同じ額にはなりません。</div>";
+    h += grid(cols, mainRows(cols), "res-");
+    var capNotes = [];
+    if(kakekin.capped.kaishainIdeco) capNotes.push("会社員の iDeCo は、上限の年 " + yen(CAP.ideco.kaishain) + " で計算しました。");
+    if(kakekin.capped.kojinIdeco) capNotes.push("個人事業の iDeCo は、上限の年 " + yen(CAP.ideco.kojin) + " で計算しました。");
+    if(kakekin.capped.kyosai) capNotes.push("小規模企業共済は、上限の年 " + yen(CAP.kyosai) + " で計算しました。");
+    if(capNotes.length) h += "<div class='ci-sub' id='res-cap' style='margin-top:6px;'>" + capNotes.map(esc).join("<br>") + "</div>";
+    h += "<div class='result-title' style='font-size:15px;margin-top:20px;'>1年働くと増える年金（年額の目安）</div>" +
+      grid(cols, PENSION_ROWS, "res-pension-") +
+      "<ul class='ci-sub' style='margin:8px 0 0;padding-left:1.4em;'>" +
+        "<li>" + wareki(YEARS.nenkinFiscalYear) + "年度の年金額で計算した目安です。年金額は毎年度見直されます。</li>" +
+        "<li>受け取りは原則65歳からです。</li>" +
+        "<li>厚生年金には、障害年金・遺族年金の上乗せもあります（金額には入れていません）。</li>" +
+      "</ul>" +
+      "<div class='hint' id='res-summary' style='margin-top:14px;font-size:13px;color:#374151;'>計算上は、" + esc(topSentence(cols, "手取り", function(c){ return c.takeHome; })) +
+        "1年働くと増える年金は、" + esc(topSentence(cols, "額", pensionTotal)).replace("の額が", "が") + "</div>" +
+      "<details><summary>計算の流れを見る</summary>" + cols.map(flow).join("") + "</details>" +
+      "<div class='hint' id='res-closing' style='margin-top:12px;'>この結果は、入力した前提での計算結果の比較です。実際の手続きや申告では、年金事務所・税務署または税理士にご確認ください。</div>";
+    return h;
+  }
+  window.hatarakikataRender = render;
+
+  window.calcHatarakikata = async function(){
+    var out = $("result");
+    var city = currentCity();
+    if(!city){ out.innerHTML = placeholder("①で都道府県と市区町村を選んでください"); return; }
+    var q = readInput(city);
+    if(q.message){ out.innerHTML = placeholder(q.message); return; }
+    if(q.warn){ out.innerHTML = "<div class='warn'>" + esc(q.warn) + "</div>"; return; }
+    out.innerHTML = placeholder(city.name + "のデータを読み込んで計算中…");
+    var kokuhoData, juminData = null;
+    try{ kokuhoData = await loadMunicipal(city.slug, "kokuho"); }
+    catch(e){ out.innerHTML = "<div class='warn'>" + esc(city.name) + "の国保データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    if(city.hasJumin){ try{ juminData = await loadMunicipal(city.slug, "jumin"); }catch(e){ juminData = null; } }
+    var data = Object.assign({}, DATA, { kokuho: kokuhoData, jumin: juminData });
+    var r;
+    try{ r = Hatarakikata.compare(q.input, data); }
+    catch(e){ out.innerHTML = "<div class='warn'>計算できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "hatarakikata", city: city.slug }); }
+    out.innerHTML = render(r, city, q.kakekin);
+  };
+
+  function init(){
+    var m = $("mode"); MODES.forEach(function(o){ var op = document.createElement("option"); op.value = o.value; op.textContent = o.label; m.appendChild(op); });
+    var ao = $("aoiro");
+    HK_CONFIG.kojin.aoiroOptions.forEach(function(v){ var op = document.createElement("option"); op.value = String(v); op.textContent = v > 0 ? man(v) : "なし（白色申告）"; ao.appendChild(op); });
+    ao.value = String(HK_CONFIG.kojin.aoiroDefault);
+    var gy = $("gyoshu");
+    HK_JIGYOZEI.rates.forEach(function(x){ var op = document.createElement("option"); op.value = x.key; op.textContent = x.ratePercent + "%：" + x.label; gy.appendChild(op); });
+    gy.value = HK_CONFIG.kojin.gyoshuDefault;
+    ["nenshu","uriage","keihi","spouseSalary","ideco","kyosai"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["age","spouseAge","kidsU16","kidsPre","kids1618","kids1922"].forEach(function(id){ setupNumericInput(id); });
+    function toggleMode(){ var k = val("mode") === "kojin"; $("boxKaishain").style.display = k ? "none" : ""; $("boxKojin").style.display = k ? "" : "none"; $("boxKojinOpt").style.display = k ? "" : "none"; }
+    function toggleSpouse(){ $("spouseBox").style.display = val("spouse") === "none" ? "none" : ""; }
+    m.addEventListener("change", toggleMode); toggleMode();
+    $("spouse").addEventListener("change", toggleSpouse); toggleSpouse();
+    // 説明文の中の制度値は、制度値ファイルから入れる（HTML に数字を直接書かない）
+    var CFG_TEXT = { hifuyo: man(HK_CONFIG.spouse.hifuyoSalaryLimit), idecoKaishain: yen(CAP.ideco.kaishain), idecoKojin: yen(CAP.ideco.kojin), kyosai: yen(CAP.kyosai), jigyonushi: man(HK_JIGYOZEI.jigyonushiKojo.annual) };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-cfg]"), function(el){ el.textContent = CFG_TEXT[el.getAttribute("data-cfg")] || ""; });
+    // 金額に入っていない違い（列の名前から組み立てる）
+    var keys = Hatarakikata.DEFAULT_COLUMNS;
+    var t = "<div class='hk-grid' style='--hk-cols:" + keys.length + "'><div class='hk-corner'></div>";
+    keys.forEach(function(k, ci){ t += "<div class='hk-h' style='--o:" + ((ci + 1) * 100) + ";text-align:left;'>" + esc(colLabel(k)) + "</div>"; });
+    INFO_ROWS.forEach(function(row, ri){
+      t += "<div class='hk-l'>" + esc(row.label) + "</div>";
+      keys.forEach(function(k, ci){ t += "<div class='hk-c hk-info' data-label='" + esc(row.label) + "' style='--o:" + ((ci + 1) * 100 + ri + 1) + ";font-weight:400;text-align:left;font-size:13px;'><span class='hk-v'>" + esc(row.cells[k] || "—") + "</span></div>"; });
+    });
+    $("infoTable").innerHTML = t + "</div>";
+  }
+  if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>
