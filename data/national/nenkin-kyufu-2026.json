@@ -14,7 +14,7 @@
       "snapshot": {
         "capturedAt": "2026-11-24T15:32:06Z",
         "capturedBy": "本人端末（curl）",
-        "archive": "取得した実体は files の sha256 で照合できる。非公開の一次資料保管庫への登録は 2026-11-25 時点で未了",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
         "files": [
           { "file": "egov_kokuminnenkinho_27.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=27", "sha256": "5e51d5a9af96c0b3adaa26a79fbc78adb0303c90eb181dcd34a12a5eec5d882e", "bytes": 4890 },
           { "file": "egov_kouseinenkinhokenho_43.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十九年法律第百十五号;article=43", "sha256": "112e1e885a7b5ae881cc301f8bee39bd366aaec1e7e761d4d1acb5d825d7aea6", "bytes": 3364 },

@@ -12,7 +12,7 @@
       "snapshot": {
         "capturedAt": "2026-11-24T15:32:06Z",
         "capturedBy": "本人端末（curl）",
-        "archive": "取得した実体は files の sha256 で照合できる。非公開の一次資料保管庫への登録は 2026-11-25 時点で未了",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
         "files": [
           { "file": "nenkin_R08ryougaku.pdf", "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf", "sha256": "17cb4adcce3e25646fd48c73ae6fc79dc25a372276a47e31364ae08e7bfa1d5c", "bytes": 339589 },
           { "file": "egov_kokuminnenkinho_7.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=7", "sha256": "766f4ded6ad009da6d066cf6ba811f4a373de835b84a3083530042ac339a7040", "bytes": 3643 }
