@@ -1,7 +1,7 @@
 /**
  * test-hatarakikata-links.cjs — 働き方の比較（/hatarakikata/）への導線の検査
  *
- *  1. トップ・所得税・自営業（ふるさと納税）の生成物に、/hatarakikata/ へのリンクが 1 つずつある
+ *  1. トップ・所得税・自営業（ふるさと納税）・国民年金の生成物に、/hatarakikata/ へのリンクが 1 つずつある
  *  2. 自治体ごとの家計簿ページすべてに、/hatarakikata/ へのリンクが 1 つずつある
  *  3. リンクの文言に、使わない語（お得・節税・最適・おすすめ・有利・対策）が無い
  *  4. リンク先のページが配信される（deploy-seido.sh が hatarakikata/index.html に置く・canonical が一致）
@@ -22,7 +22,7 @@ const BANNED = ['お得', '節税', '最適', 'おすすめ', '有利', '対策'
 const texts = [];
 
 // ── 1. 全国ページ ──
-for (const [file, name] of [['seido-index.html', 'トップ'], ['seido-shotoku.html', '所得税'], ['seido-jieigyo.html', '自営業（ふるさと納税）']]) {
+for (const [file, name] of [['seido-index.html', 'トップ'], ['seido-shotoku.html', '所得税'], ['seido-jieigyo.html', '自営業（ふるさと納税）'], ['seido-nenkin.html', '国民年金']]) {
   const ls = links(read(file));
   A(`${name}（${file}）に /hatarakikata/ へのリンクが 1 つある`, ls.length === 1, `件数 ${ls.length}`);
   ls.forEach((l) => texts.push(l.text));
@@ -70,11 +70,11 @@ for (const [file, name] of [['seido-index.html', 'トップ'], ['seido-shotoku.h
 
 // ── 5. ほかのテンプレートに混ざっていない ──
 {
-  const ALLOWED = new Set(['city-integrated.html', 'seido-index.html', 'seido-shotoku.html', 'seido-jieigyo.html']);
+  const ALLOWED = new Set(['city-integrated.html', 'seido-index.html', 'seido-shotoku.html', 'seido-jieigyo.html', 'seido-nenkin.html']);
   const others = fs.readdirSync(path.join(ROOT, 'templates')).filter((f) => f.endsWith('.html') && !ALLOWED.has(f))
     .filter((f) => /href="\/hatarakikata\/"/.test(read('templates/' + f)));
-  A('導線を足した 4 つのテンプレート以外に /hatarakikata/ へのリンクが無い', others.length === 0, others.join(' '));
-  A('導線を足した 4 つのテンプレートには、リンクが 1 つずつある', [...ALLOWED].every((f) => links(read('templates/' + f)).length === 1));
+  A('導線を足した 5 つのテンプレート以外に /hatarakikata/ へのリンクが無い', others.length === 0, others.join(' '));
+  A('導線を足した 5 つのテンプレートには、リンクが 1 つずつある', [...ALLOWED].every((f) => links(read('templates/' + f)).length === 1));
 }
 
 console.log(`\n結果: ${pass} passed, ${fail} failed`);
