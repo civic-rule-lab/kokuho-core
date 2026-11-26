@@ -59,6 +59,18 @@ A('学生・本人 1,280,001 → 特例なし', j(P(1280001), { isStudent: true 
 A('学生・扶養 1 人・本人 1,660,000 → 学生納付特例（128万+38万）', j(P(1660000, { general: 1 }), { isStudent: true }).level === 'student');
 A('学生は免除の判定をしない（所得 0 でも full にならない）', j(P(0), { isStudent: true }).level === 'student');
 
+// 3-b. 扶養親族等控除額（施行令 第6条の8の2・第6条の9・第6条の9の2。2026-11-26 に条文で確かめた額）
+const E = db.exemption, TH = (dep, other) => N.thresholds(P(0, dep, other), E);
+A('加算額: 扶養親族等 1 人 38 万円（16 歳未満も同じ）', TH({ general: 1 }).half === 1280000 + 380000 && TH({ under16: 1 }).half === 1280000 + 380000);
+A('加算額: 特定扶養親族等（16〜22 歳）63 万円・老人扶養親族 48 万円', TH({ age16to22: 1 }).quarter === 1680000 + 630000 && TH({ elderly: 1 }).threeQuarters === 880000 + 480000);
+A('加算額: 同居の老親も 48 万円（58 万円にしない）', TH({ elderlyCoRes: 1 }).half === 1280000 + 480000);
+A('加算額: 同一生計配偶者 38 万円・70 歳以上なら 48 万円（人数は 1 人）', TH({ spouse: 1 }).half === 1280000 + 380000 && TH({ spouseElderly: 1 }).half === 1280000 + 480000 && TH({ spouseElderly: 1 }).dependentCount === 1 && TH({ spouse: 1, spouseElderly: 1 }).dependentCount === 1);
+A('16 歳未満の子 1 人・所得 1,260,000 → 4分の3免除（88万+38万）・+1 円で半額免除', j(P(1260000, { under16: 1 })).level === 'threeQuarters' && j(P(1260001, { under16: 1 })).level === 'half');
+A('学生納付特例の額は半額免除と同じ（128万+加算額+控除額）', [{}, { general: 2 }, { age16to22: 1, elderly: 1 }, { under16: 1, spouseElderly: 1 }].every((dp) => TH(dp, { socialInsurance: 50000 }).student === TH(dp, { socialInsurance: 50000 }).half));
+A('学生・16〜22 歳の扶養 1 人・本人 1,910,000 → 学生納付特例（128万+63万）・+1 円で特例なし', j(P(1910000, { age16to22: 1 }), { isStudent: true }).level === 'student' && j(P(1910001, { age16to22: 1 }), { isStudent: true }).level === 'none');
+A('全額免除・納付猶予の額には控除額等を足さない（施行令 第6条の11）', TH({}, { socialInsurance: 300000, hitorioya: true }).full === 670000 && TH({}, { socialInsurance: 300000 }).yuyo === 670000);
+A('制度値に 16 歳未満 0 円・同居老親 58 万円が残っていない', E.dependentDeduction.under16 === 380000 && !('elderlyCoRes' in E.dependentDeduction) && !('perDependent' in E.student));
+
 // 4. 年齢
 A('19 歳 → 対象外', j(P(0), { age: 19 }).eligible === false);
 A('60 歳 → 対象外', j(P(0), { age: 60 }).eligible === false);
