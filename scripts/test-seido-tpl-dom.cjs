@@ -62,6 +62,29 @@ for (const n of ['kouki-simple.html', 'kouki-income.html', 'kaigo-simple.html', 
   A(`${n}: 「計算の前提」見出しがある`, html.includes('<h2>計算の前提</h2>'));
 }
 
+// ── 2b. 家計簿の「計算の前提」は短い箇条＋折りたたみ（ui-rules §4-4「数点にまとめる」） ──
+console.log('\n== 家計簿: 計算の前提は数点＋くわしい前提（折りたたみ） ==');
+{
+  const s = tpl('city-integrated.html').replace(/<script[\s\S]*?<\/script>/g, '');
+  const d = new JSDOM(s).window.document;
+  const h2 = [...d.querySelectorAll('h2')].find((e) => e.textContent === '計算の前提');
+  const note = h2 && h2.nextElementSibling;
+  const short = d.getElementById('premiseShort'), det = d.getElementById('premiseDetail');
+  A('見出しの直後の枠に、短い箇条と折りたたみがこの順で入っている', !!note && !!short && !!det && note.contains(short) && note.contains(det) && note.children[0] === short && note.children[1] === det);
+  const n = short ? short.children.length : 0;
+  A('最初から見える箇条は 6 点以下で、入れ子が無い', n >= 3 && n <= 6 && !!short && !short.querySelector('ul'), `${n} 点`);
+  const len = short ? short.textContent.replace(/\s+/g, '').length : 0;
+  A('最初から見える文は 260 字以下', len > 0 && len <= 260, `${len} 字`);
+  A('折りたたみは閉じた状態で始まり、見出しは「くわしい前提を見る」', !!det && !det.hasAttribute('open') && !!det.querySelector('summary') && det.querySelector('summary').textContent === 'くわしい前提を見る');
+  const st = short ? short.textContent : '', dt = det ? det.textContent : '';
+  A('見える箇条: 概算であること・通知で確かめること・入れていない控除・目安の範囲・個別ページへの案内', ['概算です', '通知・公式案内でご確認ください', '生命保険料控除・医療費控除・住宅ローン控除などは入れていません', '目安', '簡易版', '「詳しく計算 →」'].every((k) => st.includes(k)));
+  // 短くしても、これまで書いていた前提は折りたたみの中に残す
+  const KEEP = ['賞与は任意入力', '約14.4%で概算', '20〜59歳・本人1人分', '所得金額調整控除', '年金がある場合は計算しません', '配偶者が自営の場合の所得は給与年収として入れてください', 'その他の控除は未考慮の概算です', '基礎控除43万円', '配偶者は国民年金のみ控除します', '段階判定は簡易版です', '本人1人分・単身として計算', '私立理工農系は未反映', '年間負担の合計には含めません'];
+  const miss = KEEP.filter((k) => !dt.includes(k));
+  A(`これまでの前提 ${KEEP.length} 件が折りたたみの中に残っている`, miss.length === 0, miss.join(' / '));
+  A('同じ文を見える側と折りたたみの両方に書いていない', !dt.includes('通知・公式案内でご確認ください') && !dt.includes('「詳しく計算 →」'));
+}
+
 // ── 3. ラベル ──
 console.log('\n== ラベルの結線（ID-05） ==');
 for (const n of ['kouki-income.html', 'seido-shotoku.html', 'kouki-simple.html', 'kaigo-simple.html', 'jumin-simple.html', 'jumin-income.html', 'city-integrated.html']) {
