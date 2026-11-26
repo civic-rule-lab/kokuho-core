@@ -7,7 +7,8 @@
  *  2. Enter の順と終了マーク。非表示の欄（配偶者・世帯主）を飛ばす。日本語入力の確定の Enter を無視。全角を半角に
  *  3. 年齢・本人の金額・（いるときの）配偶者と世帯主の金額が未入力なら結果を出さない（0 円と区別）。
  *     扶養の内訳の矛盾・対象外の年齢は案内だけ
- *  4. 注記文（目安・結果の末尾の 1 文・端末の中だけで計算・計算の前提）と、使わない語が画面に無いこと
+ *  4. 注記文（目安・結果の末尾の 1 文・端末の中だけで計算・計算の前提）と、使わない語が画面に無いこと。
+ *     配偶者・世帯主の「扶養親族等の数」に、だれが扶養している人の数かの説明がある
  *  5. 制度値の埋め込み: NENKIN_DB が JSON と文字列一致、fetch しない。説明の表と文中の数字が制度値から描かれる
  *  6. 本人の状況: 障害者を選ぶと、障害者控除の額（other.shogai）と本人が障害者であること（other.selfShogai）の両方が計算に渡る
  *
@@ -253,6 +254,23 @@ function sameAsEngine(label, input, opt) {
   A('節の順: 計算のしかた → 免除・納付猶予と年金額 → あわせて使う → 計算の前提 → 出典', (() => { const h = [...d.querySelectorAll('h2')].map((e) => e.textContent); return h.join('|') === '計算のしかた|免除・納付猶予と年金額|あわせて使う|計算の前提|出典'; })());
   A('「※…」の段落が無い', !/※[^<]*<br>/.test(html.replace(/<script[\s\S]*?<\/script>/g, '')));
   A('審査の順を書いている（全額免除 → 納付猶予 → 4分の3免除 → 半額免除 → 4分の1免除）', body().includes('全額免除 → 納付猶予 → 4分の3免除 → 半額免除 → 4分の1免除'));
+  // 配偶者・世帯主の「扶養親族等の数」は、だれが扶養している人の数かを欄のそばに書く（本人の欄と取り違えないように）
+  {
+    const sp = $('spouseDepsHint'), hh = $('hhDepsHint');
+    A('配偶者の扶養親族等の数に説明がある（配偶者が扶養している人・本人の分は②・16歳未満も数える・上限は制度値）', !!sp && $('spouseBox').contains(sp) && sp.textContent.includes('配偶者が扶養している人の数') && sp.textContent.includes('本人が扶養している人は②に入れ、ここには数えません') && sp.textContent.includes('16歳未満の子も数えます') && sp.textContent.includes(`所得${man(fuyoLimit)}以下`), sp && sp.textContent);
+    A('世帯主の扶養親族等の数に説明がある（世帯主が扶養している人・本人や配偶者の分は数えない）', !!hh && $('hhBox').contains(hh) && hh.textContent.includes('世帯主が扶養している人の数') && hh.textContent.includes('本人や配偶者が扶養している人は、ここには数えません'), hh && hh.textContent);
+    // 「社会保険料控除など」は経費と別で、収入の種類が「所得」でも入れる欄。そのことを 3 人の欄それぞれに書く
+    const KEY = '経費とは別のものなので、収入の種類で「所得」を選んだときも入れます。';
+    A('社会保険料控除などの欄に「所得を選んだときも入れる」説明がある（本人・配偶者・世帯主）', ['selfDedHint', 'spouseDedHint', 'hhDedHint'].every((id) => $(id) && $(id).textContent.includes(KEY)) && $('spouseBox').contains($('spouseDedHint')) && $('hhBox').contains($('hhDedHint')), ['selfDedHint', 'spouseDedHint', 'hhDedHint'].filter((id) => !$(id) || !$(id).textContent.includes(KEY)).join(' '));
+    A('配偶者・世帯主の説明に「一部免除の基準に足す」「空欄なら 0 円」がある', ['spouseDedHint', 'hhDedHint'].every((id) => $(id) && $(id).textContent.includes('一部免除の基準に足します。') && $(id).textContent.includes('空欄なら 0 円として計算します。')));
+    // 説明どおり、収入の種類が「所得」でも配偶者の控除の欄が計算に効く（架空の世帯: 本人 30 歳・所得 0、配偶者の所得 200 万円）
+    {
+      const run = (ded) => { clearAll(); set('age', '30'); set('selfAmount', '0'); $('spouse').value = 'yes'; $('spouse').dispatchEvent(new d.defaultView.Event('change', { bubbles: true })); $('spouseKind').value = 'income'; set('spouseAmount', '2000000'); set('spouseDed', ded); calc(); return res(); };
+      const r0 = run('0'), r1 = run('1500000');
+      A('収入の種類が「所得」でも、配偶者の社会保険料控除などを入れると結果が変わる', r0 !== r1 && r0.length > 0 && r1.length > 0);
+    }
+    A('説明は欄より後ろにある（配偶者・世帯主とも）', !!sp && !!hh && !!(($('spouseDeps').compareDocumentPosition(sp)) & 4) && !!(($('hhDeps').compareDocumentPosition(hh)) & 4));
+  }
   const banned = ['お得', '節税', '最適', 'おすすめ', '有利', '対策'].filter((x) => body().includes(x) || res().includes(x));
   A('使わない語（お得・節税・最適・おすすめ・有利・対策）が画面に無い', banned.length === 0, banned.join(' '));
   A('他サイトへの導線は「説明＋ボタン」で、ボタンの末尾に ↗', [...d.querySelectorAll('.cta-item')].length >= 2 && [...d.querySelectorAll('.cta-item')].every((e) => e.querySelector('.cta-desc') && e.querySelector('a .cta-ext')));
