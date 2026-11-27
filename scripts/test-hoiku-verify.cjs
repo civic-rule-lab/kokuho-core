@@ -64,6 +64,82 @@ const nagoya = JSON.parse(fs.readFileSync(
 const kobe = JSON.parse(fs.readFileSync(
   path.resolve(__dirname, '../data/municipalities/kobe/hoiku-2026.json'), 'utf8'));
 
+// --- 実自治体: 茅ヶ崎市(14207) 保育料（利用者負担額）基準額表（令和元年10月1日〜）0〜2歳児クラス ---
+// 一般市（6/8補正なし）。C=均等割のみ課税 6,700（maxShotokuwari:0）。第2子=表の金額の半額・第3子以降 0。
+// ひとり親世帯等=C〜D5(77,101未満)に枠内の額・第2子以降 0。77,101以上は通常の額。
+// 期待値は市の PDF の表から直接読んだ額（データファイルからは写していない）。
+// 出典: https://www.city.chigasaki.kanagawa.jp/_res/projects/default_project/_page_/001/004/734/201910hoikuryo.pdf (2026-11-27 取得)
+//       「保育所等のしおり」令和7年9月11日発行・令和8年9月11日発行の基準額表と同額
+const chigasaki = JSON.parse(fs.readFileSync(
+  path.resolve(__dirname, '../data/municipalities/chigasaki/hoiku-2026.json'), 'utf8'));
+// [所得割の合算額, 階層 level, 標準時間, 短時間, ひとり親 標準, ひとり親 短時間]（表の各行の範囲内の 1 点）
+const CHIGASAKI_TABLE = [
+  [0, 3, 6700, 6700, 3350, 3350],
+  [30000, 4, 7800, 7600, 3900, 3800],
+  [50000, 5, 12000, 11700, 6000, 5850],
+  [55000, 6, 15200, 14900, 7600, 7450],
+  [60000, 7, 17700, 17300, 8850, 8650],
+  [70000, 8, 19800, 19400, 9000, 9000],
+  [78000, 9, 19800, 19400, null, null],
+  [90000, 10, 24800, 24300, null, null],
+  [100000, 11, 31800, 31200, null, null],
+  [150000, 12, 39300, 38600, null, null],
+  [170000, 13, 41900, 41100, null, null],
+  [200000, 14, 46900, 46100, null, null],
+  [230000, 15, 49200, 48300, null, null],
+  [280000, 16, 54300, 53300, null, null],
+  [330000, 17, 56300, 55300, null, null],
+  [380000, 18, 58300, 57300, null, null],
+  [500000, 19, 72800, 71500, null, null],
+];
+const chigasakiCases = [];
+for (const [idx, level, std, sh, hStd, hSh] of CHIGASAKI_TABLE) {
+  const f = { father: { shotokuwari: idx } };
+  chigasakiCases.push({ name: `茅ヶ崎:所得割${idx} 第1子 標準=${std}`, muni: chigasaki, input: { ...f }, expected: { monthly: std, level } });
+  chigasakiCases.push({ name: `茅ヶ崎:所得割${idx} 第1子 短時間=${sh}`, muni: chigasaki, input: { ...f, timeType: 'short' }, expected: { monthly: sh, level } });
+  chigasakiCases.push({ name: `茅ヶ崎:所得割${idx} 第2子 標準=半額${std / 2}`, muni: chigasaki, input: { ...f, childOrder: 2 }, expected: { monthly: std / 2 } });
+  chigasakiCases.push({ name: `茅ヶ崎:所得割${idx} 第2子 短時間=半額${sh / 2}`, muni: chigasaki, input: { ...f, childOrder: 2, timeType: 'short' }, expected: { monthly: sh / 2 } });
+  chigasakiCases.push({ name: `茅ヶ崎:所得割${idx} 第3子=0`, muni: chigasaki, input: { ...f, childOrder: 3 }, expected: { monthly: 0 } });
+  if (hStd != null) {
+    chigasakiCases.push({ name: `茅ヶ崎:ひとり親等 所得割${idx} 第1子 標準=${hStd}`, muni: chigasaki, input: { ...f, hitorioya: true }, expected: { monthly: hStd, level } });
+    chigasakiCases.push({ name: `茅ヶ崎:ひとり親等 所得割${idx} 第1子 短時間=${hSh}`, muni: chigasaki, input: { ...f, hitorioya: true, timeType: 'short' }, expected: { monthly: hSh, level } });
+    chigasakiCases.push({ name: `茅ヶ崎:ひとり親等 所得割${idx} 第2子=0`, muni: chigasaki, input: { ...f, hitorioya: true, childOrder: 2 }, expected: { monthly: 0 } });
+  } else {
+    chigasakiCases.push({ name: `茅ヶ崎:ひとり親等 所得割${idx}(77,101以上) 第1子=通常の額${std}`, muni: chigasaki, input: { ...f, hitorioya: true }, expected: { monthly: std, level } });
+    chigasakiCases.push({ name: `茅ヶ崎:ひとり親等 所得割${idx}(77,101以上) 第2子=半額${std / 2}`, muni: chigasaki, input: { ...f, hitorioya: true, childOrder: 2 }, expected: { monthly: std / 2 } });
+  }
+}
+chigasakiCases.push(
+  { name: '茅ヶ崎:生活保護世帯等=0', muni: chigasaki, input: { seikatsuhogo: true }, expected: { monthly: 0, level: 1 } },
+  { name: '茅ヶ崎:非課税=0', muni: chigasaki, input: { hikazei: true }, expected: { monthly: 0, level: 2 } },
+  { name: '茅ヶ崎:境界 所得割1→D1=7800', muni: chigasaki, input: { father: { shotokuwari: 1 } }, expected: { monthly: 7800, level: 4 } },
+  { name: '茅ヶ崎:境界 48,599→D1=7800', muni: chigasaki, input: { father: { shotokuwari: 48599 } }, expected: { monthly: 7800, level: 4 } },
+  { name: '茅ヶ崎:境界 48,600→D2=12000', muni: chigasaki, input: { father: { shotokuwari: 48600 } }, expected: { monthly: 12000, level: 5 } },
+  { name: '茅ヶ崎:境界 51,999→D2=12000', muni: chigasaki, input: { father: { shotokuwari: 51999 } }, expected: { monthly: 12000, level: 5 } },
+  { name: '茅ヶ崎:境界 52,000→D3=15200', muni: chigasaki, input: { father: { shotokuwari: 52000 } }, expected: { monthly: 15200, level: 6 } },
+  { name: '茅ヶ崎:境界 57,000→D4=17700', muni: chigasaki, input: { father: { shotokuwari: 57000 } }, expected: { monthly: 17700, level: 7 } },
+  { name: '茅ヶ崎:境界 65,000→D5=19800', muni: chigasaki, input: { father: { shotokuwari: 65000 } }, expected: { monthly: 19800, level: 8 } },
+  { name: '茅ヶ崎:ひとり親等 境界 77,100→枠内 9000', muni: chigasaki, input: { father: { shotokuwari: 77100 }, hitorioya: true }, expected: { monthly: 9000, level: 8 } },
+  { name: '茅ヶ崎:ひとり親等 境界 77,101→通常 19800', muni: chigasaki, input: { father: { shotokuwari: 77101 }, hitorioya: true }, expected: { monthly: 19800, level: 9 } },
+  { name: '茅ヶ崎:境界 78,999→D5=19800', muni: chigasaki, input: { father: { shotokuwari: 78999 } }, expected: { monthly: 19800, level: 9 } },
+  { name: '茅ヶ崎:境界 79,000→D6=24800', muni: chigasaki, input: { father: { shotokuwari: 79000 } }, expected: { monthly: 24800, level: 10 } },
+  { name: '茅ヶ崎:境界 97,000→D7=31800', muni: chigasaki, input: { father: { shotokuwari: 97000 } }, expected: { monthly: 31800, level: 11 } },
+  { name: '茅ヶ崎:境界 132,000→D8=39300', muni: chigasaki, input: { father: { shotokuwari: 132000 } }, expected: { monthly: 39300, level: 12 } },
+  { name: '茅ヶ崎:境界 169,000→D9=41900', muni: chigasaki, input: { father: { shotokuwari: 169000 } }, expected: { monthly: 41900, level: 13 } },
+  { name: '茅ヶ崎:境界 183,000→D10=46900', muni: chigasaki, input: { father: { shotokuwari: 183000 } }, expected: { monthly: 46900, level: 14 } },
+  { name: '茅ヶ崎:境界 214,000→D11=49200', muni: chigasaki, input: { father: { shotokuwari: 214000 } }, expected: { monthly: 49200, level: 15 } },
+  { name: '茅ヶ崎:境界 253,000→D12=54300', muni: chigasaki, input: { father: { shotokuwari: 253000 } }, expected: { monthly: 54300, level: 16 } },
+  { name: '茅ヶ崎:境界 301,000→D13=56300', muni: chigasaki, input: { father: { shotokuwari: 301000 } }, expected: { monthly: 56300, level: 17 } },
+  { name: '茅ヶ崎:境界 358,000→D14=58300', muni: chigasaki, input: { father: { shotokuwari: 358000 } }, expected: { monthly: 58300, level: 18 } },
+  { name: '茅ヶ崎:境界 396,999→D14=58300', muni: chigasaki, input: { father: { shotokuwari: 396999 } }, expected: { monthly: 58300, level: 18 } },
+  { name: '茅ヶ崎:境界 397,000→D15=72800', muni: chigasaki, input: { father: { shotokuwari: 397000 } }, expected: { monthly: 72800, level: 19 } },
+  { name: '茅ヶ崎:父母の合算 40,000+40,000=80,000→D6=24800', muni: chigasaki, input: { father: { shotokuwari: 40000 }, mother: { shotokuwari: 40000 } }, expected: { monthly: 24800, level: 10 } },
+  { name: '茅ヶ崎:57,700未満は在園していない年上の子も数える（55,000・1人）→第2子 7600', muni: chigasaki, input: { father: { shotokuwari: 55000 }, olderNotEnrolled: 1 }, expected: { monthly: 7600 } },
+  { name: '茅ヶ崎:57,700以上は在園していない年上の子を数えない（60,000・1人）→第1子 17700', muni: chigasaki, input: { father: { shotokuwari: 60000 }, olderNotEnrolled: 1 }, expected: { monthly: 17700 } },
+  { name: '茅ヶ崎:ひとり親等 77,101未満は在園していない年上の子も数える（70,000・1人）→第2子 0', muni: chigasaki, input: { father: { shotokuwari: 70000 }, hitorioya: true, olderNotEnrolled: 1 }, expected: { monthly: 0 } },
+  { name: '茅ヶ崎:6/8補正なし（一般市）48,600→D2=12000', muni: chigasaki, input: { father: { shotokuwari: 48600 }, isSeireiNotice: true }, expected: { monthly: 12000, level: 5 } },
+);
+
 // --- 実自治体: 浜松市(22130) 3号認定 3歳未満児 ---
 // 政令市。第2子=明示実額・第3子0。母子世帯等(ひとり親)=階層3-8a(≤77,101)別額・第2子0。階層8を77,101/84,900で分割(境界食い違い)。
 const hamamatsu = JSON.parse(fs.readFileSync(
@@ -452,6 +528,7 @@ const CASES = [
     input: { father: { shotokuwari: 0 }, childOrder: 3, olderSiblingNotEnrolled: true }, expected: { monthly: 0 } },
   { name: '新潟:表② 非課税+フラグ=0', muni: niigata,
     input: { hikazei: true, childOrder: 2, olderSiblingNotEnrolled: true }, expected: { monthly: 0, level: 2 } },
+  ...chigasakiCases,
 ];
 
 function main() {
