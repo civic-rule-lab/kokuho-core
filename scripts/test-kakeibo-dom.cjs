@@ -1002,6 +1002,15 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     resetAuto();
   }
 
+  {
+    // 保育料の「兄・姉」欄の選択肢に順位（第1子・第2子）を書かない（2026-11-28・オーナー指摘。小学生以上の兄・姉がいれば第1子とは限らない）
+    const selH = w.document.getElementById('hoikuSiblings'), hintH = w.document.getElementById('hoikuSiblingsHint');
+    const optsH = selH ? [...selH.options].map(o => o.textContent) : [];
+    A(`保育料の兄・姉の選択肢は人数だけ（実際 ${optsH.join('／')}）`, optsH.join('|') === '0人|1人|2人以上' && !/第\s*[1-3１-３]\s*子/.test(optsH.join('')));
+    A('保育料: 小学生以上の兄・姉は「在園していない年上のきょうだい」に入れると案内する',
+      !!hintH && /小学生以上の兄・姉は「在園していない年上のきょうだい」に入れてください/.test(hintH.textContent) && !!w.document.getElementById('hoikuOlderOut'));
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });

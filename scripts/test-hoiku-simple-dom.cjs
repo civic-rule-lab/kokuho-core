@@ -148,6 +148,16 @@ async function openPage(rel, url, errs) {
   A(`名古屋 所得割0・印なし: 均等割のみ課税 ${nKinto}円 → 実際 ${runN(false)}円`, runN(false) === nKinto && nKinto > 0);
   A(`名古屋 所得割0・印あり: 非課税 ${nHika}円 → 実際 ${runN(true)}円`, runN(true) === nHika && nHika < nKinto);
 
+  // 兄・姉の欄の選択肢に順位（第1子・第2子）を書かない（2026-11-28・オーナー指摘。小学生以上の兄・姉がいれば第1子とは限らない）
+  for (const [nm, win] of [['横浜', w], ['名古屋', wn]]) {
+    const selO = win.document.getElementById('enrolledOlder');
+    const opts = selO ? [...selO.options].map(o => o.textContent) : [];
+    const lab = win.document.querySelector('label[for="enrolledOlder"]');
+    A(`${nm}: 通っている兄・姉の選択肢は人数だけ（実際 ${opts.join('／')}）`, opts.join('|') === '0人|1人|2人以上' && !/第\s*[1-3１-３]\s*子/.test(opts.join('')));
+    A(`${nm}: 小学生以上の兄・姉は下の欄で答えると案内する`, !!lab && /小学生以上の兄・姉は入れず、下の欄で答えてください/.test(lab.textContent));
+    A(`${nm}: 下に「在園していない年上のきょうだい」を答える欄がある`, !!(win.document.getElementById('olderNotEnrolled') || win.document.getElementById('selFlag')));
+  }
+
   A('JSランタイムエラーなし', errs.length === 0);
   if (errs.length) console.log('  JSエラー:', errs);
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
