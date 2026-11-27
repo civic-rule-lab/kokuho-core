@@ -2,7 +2,7 @@
   "$schema": "/data/schema/index.schema.json",
   "title": "kokuho-keisan.jp 自治体制度データ カタログ",
   "description": "kokuho-keisan.jp が配信する自治体ごとの制度データ（JSON）の索引。各ファイルの所在・年度・検証状態を列挙する。値の来歴（出典 URL・検証日・検証方法）は各 JSON の meta（kokuho）または source（その他の制度）にある。",
-  "generatedAt": "2026-11-23",
+  "generatedAt": "2026-11-27",
   "catalogSchemaVersion": "1.0",
   "canonical": "https://kokuho-keisan.jp/data/index.json",
   "baseUrl": "https://kokuho-keisan.jp",
@@ -50,8 +50,8 @@
       ],
       "fileCount": 1244,
       "statusCount": {
-        "inferred": 1190,
-        "verified": 54
+        "inferred": 1189,
+        "verified": 55
       }
     },
     {
@@ -94,9 +94,9 @@
   "counts": {
     "municipalities": 1734,
     "files": 8234,
-    "warnings": 1192,
+    "warnings": 1191,
     "warningsByKind": {
-      "file_not_in_registry_systems": 1192
+      "file_not_in_registry_systems": 1191
     }
   },
   "municipalities": [
@@ -48174,6 +48174,7 @@
       "page": "/kanagawa/chigasaki/",
       "systems": [
         "kokuho",
+        "jumin",
         "kaigo",
         "kouki"
       ],
@@ -48206,9 +48207,9 @@
           "system": "jumin",
           "fiscalYear": 2026,
           "url": "/data/municipalities/chigasaki/jumin-2026.json",
-          "listed": false,
+          "listed": true,
           "schemaVersion": "1.0",
-          "status": "inferred",
+          "status": "verified",
           "verifiedAt": null,
           "validFrom": null,
           "validUntil": null,
@@ -125444,12 +125445,6 @@
     {
       "kind": "file_not_in_registry_systems",
       "citySlug": "chibumura",
-      "file": "jumin-2026.json",
-      "system": "jumin"
-    },
-    {
-      "kind": "file_not_in_registry_systems",
-      "citySlug": "chigasaki",
       "file": "jumin-2026.json",
       "system": "jumin"
     },

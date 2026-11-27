@@ -151,12 +151,14 @@
       "prefecture": "神奈川県",
       "systems": [
         "kokuho",
+        "jumin",
         "kaigo",
         "kouki"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
         "kokuho": 2026,
+        "jumin": 2026,
         "kaigo": 2026,
         "kouki": 2026
       }
