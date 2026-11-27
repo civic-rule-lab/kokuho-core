@@ -922,6 +922,86 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     A('介護年度 2027: 国保など他制度には年度の注記を出さない（他制度は 2026 のまま）', !/令和9年度の料率で計算/.test(sys27));
   }
 
+  {
+    // ── 奨学金欄の「扶養する子の人数」を上の扶養欄と連動（2026-11-27・オーナー実機指摘） ──
+    //   上で子を 3 人と入れても、奨学金欄が 1 人のままだと「対象外」と出ていた。上の欄から数えて自動で入れ、手で直した値は優先する。
+    const doc = w.document;
+    const sel = doc.getElementById('shogakuChildren'), hint = doc.getElementById('shogakuKidsHint');
+    const fire = (id, type) => doc.getElementById(id).dispatchEvent(new w.Event(type, { bubbles: true }));
+    const type = (id, v) => { setVal(id, v); fire(id, 'input'); };          // 利用者が欄に入れる
+    const pick = (v) => { sel.value = v; fire('shogakuChildren', 'change'); }; // 利用者が奨学金欄を選び直す
+    const resetAuto = () => { ['famDepYoung', 'famDepGeneral', 'famDepSpecific'].forEach(id => setVal(id, '')); sel.value = w.syncShogakuKids().last; w.syncShogakuKids(); };
+    A('連動: 数える関数と連動の関数がある', typeof w.kidsFromFamily === 'function' && typeof w.syncShogakuKids === 'function' && !!sel && !!hint);
+    setVal('shogakuSpouse', ''); setSel('shogakuLevel', '大学'); setSel('shogakuSetti', '私立'); setSel('shogakuAttend', '自宅');
+    if (sgOptIn) sgOptIn.checked = true;
+    if (w.document.getElementById('hoikuOptIn')) w.document.getElementById('hoikuOptIn').checked = false;
+
+    // (1) 空欄ならいままでどおり 1 人・内訳は出さない
+    resetAuto();
+    A(`連動: 上の扶養欄が空なら 1 人のまま・内訳は出さない（実際 ${sel.value}人・表示 ${hint.style.display}）`, sel.value === '1' && hint.style.display === 'none');
+    const k0 = await run({ salary: 6000000, age: 40, employment: 'kaishain' });
+    const k0c = find(k0.heads, sgName);
+    A(`連動: 上が空欄のときの判定はいままでと同じ（${sgShortOf(expectShogaku(6000000, 0, 0, {}))}）→ 実際 ${k0c && k0c[1]}`,
+      !!k0c && k0c[1] === sgShortOf(expectShogaku(6000000, 0, 0, {})) && !/奨学金欄で選んだ/.test(k0.sys));
+
+    // (2) 上に入れると自動で変わる（16歳未満 2 ＋ 19〜22歳 1 ＝ 3 人）
+    type('famDepYoung', '2');
+    A(`連動: 16歳未満 2 人を入れると 2 人になる（実際 ${sel.value}人）`, sel.value === '2');
+    type('famDepSpecific', '1');
+    A(`連動: 19〜22歳 1 人を足すと 3 人以上になる（実際 ${sel.value}）`, sel.value === '3');
+    A(`連動: 内訳を出す（${hint.textContent.slice(0, 40)}…）`, hint.style.display === 'block' && /から 3人と数えました（16歳未満 2人、19〜22歳 1人）/.test(hint.textContent) && /ここで直せます/.test(hint.textContent));
+    type('famDepGeneral', '1');
+    A(`連動: 16〜18歳・23〜69歳の欄も数える（4 人・選択は 3 人以上）`, sel.value === '3' && /から 4人と数えました/.test(hint.textContent) && /16〜18歳・23〜69歳 1人/.test(hint.textContent));
+    type('famDepGeneral', '');
+
+    // (3) 計算だけ押しても連動する（オーナーの例: 上で 3 人 → 多子世帯）
+    resetAuto();
+    const k3 = await run({ salary: 7000000, age: 48, employment: 'kaishain', family: { young: 2, specific: 1 } });
+    const k3c = find(k3.heads, sgName);
+    A(`連動: 上で子 3 人（16歳未満 2・19〜22歳 1）→ 奨学金欄を触らなくても 多子世帯（実際 ${k3c && k3c[1]}・欄 ${sel.value}）`,
+      !!k3c && k3c[1] === '多子世帯' && sel.value === '3' && !/奨学金欄で選んだ/.test(k3.sys));
+
+    // (4) 手で直した値を優先し、食い違いを結果に出す
+    pick('1');
+    A(`連動: 手で 1 人に直すと、食い違いを欄の下に出す（${hint.textContent.slice(0, 30)}…）`, sel.value === '1' && /では 3人（16歳未満 2人、19〜22歳 1人）ですが、ここで選んだ「1人」で判定します/.test(hint.textContent));
+    const k4 = await run({ salary: 7000000, age: 48, employment: 'kaishain', family: { young: 2, specific: 1 } });
+    const k4c = find(k4.heads, sgName);
+    A(`連動: 手で直した 1 人で判定する（多子世帯にしない・実際 ${k4c && k4c[1]}）`, !!k4c && k4c[1] !== '多子世帯' && sel.value === '1');
+    A('連動: 食い違いを奨学金のカードに出す', /上の「扶養・配偶者」欄では子が 3人ですが、奨学金欄で選んだ 1人 で判定しました。/.test(k4.sys));
+    type('famDepYoung', '3');
+    A(`連動: 手で直したあとは、上を変えても上書きしない（実際 ${sel.value}人）`, sel.value === '1');
+    // (5) 上と同じ値に直すと自動に戻る
+    pick('3');
+    A('連動: 上と同じ値に直すと食い違いの表示が消える', /と数えました/.test(hint.textContent));
+    type('famDepYoung', ''); type('famDepSpecific', '1');
+    A(`連動: 自動に戻ったあとは上に合わせて変わる（実際 ${sel.value}人）`, sel.value === '1');
+
+    // (6) 16歳未満の子だけを入れたときも、上の欄で計算する（旧実装は近似＝配偶者控除ありで計算していた）
+    resetAuto();
+    const bridge = SG.bridge(), spec = SG.spec();
+    const newOf = (S) => bridge.calcFromIncome(spec, null, { supportersIncome: [{ salary: S, pension: 0, otherIncome: 0, age: 40, socialInsurance: expectShahoAnnual(S, 0, 40),
+      spouseDeduction: 0, dependentDeduction: 450000, dependents: 3, humanDeductionDiff: 50000 + 180000 }],
+      student: { level: '大学', schoolType: '私立', attendance: '自宅' }, childrenCount: 2 });
+    let S6 = 3000000;
+    for (let S = 2000000; S <= 6000000; S += 100000) { if (sgShortOf(newOf(S)) !== sgShortOf(expectShogaku(S, 0, 0, { children: 2 }))) { S6 = S; break; } }
+    const k6 = await run({ salary: S6, age: 40, employment: 'kaishain', family: { young: 2 } });
+    const k6c = find(k6.heads, sgName);
+    A(`連動: 16歳未満 2 人だけ・${S6 / 10000}万: 上の欄での直算 ${sgShortOf(newOf(S6))}（旧の近似なら ${sgShortOf(expectShogaku(S6, 0, 0, { children: 2 }))}）→ 実際 ${k6c && k6c[1]}`,
+      !!k6c && k6c[1] === sgShortOf(newOf(S6)) && sel.value === '2');
+
+    // (7) 保育料も試算するとき、保育所の子を 16歳未満の下限に数える（住民税カードと同じ数え方）
+    resetAuto();
+    const hOpt = doc.getElementById('hoikuOptIn'), hSib = doc.getElementById('hoikuSiblings');
+    if (hOpt && hSib) {
+      hOpt.checked = true; hSib.value = '1'; fire('hoikuOptIn', 'change');
+      A(`連動: 保育料を試算（保育所の子＋きょうだい 1 人）すると 2 人（実際 ${sel.value}人）`, sel.value === '2' && /16歳未満 2人/.test(hint.textContent));
+      hOpt.checked = false; hSib.value = '0'; fire('hoikuOptIn', 'change');
+      A(`連動: 保育料の試算をやめると 1 人に戻る（実際 ${sel.value}人）`, sel.value === '1' && hint.style.display === 'none');
+    }
+    if (sgOptIn) sgOptIn.checked = false;
+    resetAuto();
+  }
+
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
   process.exitCode = fail > 0 ? 1 : 0;
 })().catch(e => { console.error('HARNESS ERROR:', e); process.exit(1); });
