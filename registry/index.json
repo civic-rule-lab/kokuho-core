@@ -153,14 +153,16 @@
         "kokuho",
         "jumin",
         "kaigo",
-        "kouki"
+        "kouki",
+        "hoiku"
       ],
       "prefectureSlug": "kanagawa",
       "publishYear": {
         "kokuho": 2026,
         "jumin": 2026,
         "kaigo": 2026,
-        "kouki": 2026
+        "kouki": 2026,
+        "hoiku": 2026
       }
     },
     {

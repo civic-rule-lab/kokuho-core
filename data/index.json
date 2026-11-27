@@ -84,16 +84,16 @@
       "fiscalYears": [
         2026
       ],
-      "fileCount": 57,
+      "fileCount": 58,
       "statusCount": {
         "free": 50,
-        "verified": 7
+        "verified": 8
       }
     }
   ],
   "counts": {
     "municipalities": 1734,
-    "files": 8234,
+    "files": 8235,
     "warnings": 1191,
     "warningsByKind": {
       "file_not_in_registry_systems": 1191
@@ -48176,7 +48176,8 @@
         "kokuho",
         "jumin",
         "kaigo",
-        "kouki"
+        "kouki",
+        "hoiku"
       ],
       "files": [
         {
@@ -48231,6 +48232,18 @@
           "system": "kouki",
           "fiscalYear": 2026,
           "url": "/data/municipalities/chigasaki/kouki-2026.json",
+          "listed": true,
+          "schemaVersion": "1.0",
+          "status": "verified",
+          "verifiedAt": null,
+          "validFrom": null,
+          "validUntil": null,
+          "updatedAt": null
+        },
+        {
+          "system": "hoiku",
+          "fiscalYear": 2026,
+          "url": "/data/municipalities/chigasaki/hoiku-2026.json",
           "listed": true,
           "schemaVersion": "1.0",
           "status": "verified",
