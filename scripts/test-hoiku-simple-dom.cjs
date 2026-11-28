@@ -50,7 +50,9 @@ async function openPage(rel, url, errs) {
     setVal('fatherSalary', o.father ? String(o.father) : ''); setVal('motherSalary', o.mother ? String(o.mother) : '');
     setVal('enrolledOlder', String(o.enrolled || 0)); setChk('hitorioya', o.hitorioya); setChk('seikatsuhogo', false); setChk('selFlag', false);
     const dep = o.dep || {};
-    setVal('depGeneral', dep.general ? String(dep.general) : ''); setVal('depSpecific', dep.specific ? String(dep.specific) : '');
+    setVal('depGeneral', dep.general ? String(dep.general) : '');
+    const older = o.older || {};   // 在園していない年上のきょうだい（年齢別・2026-11-28）
+    setVal('olderYoung', older.young ? String(older.young) : ''); setVal('olderHigh', older.high ? String(older.high) : ''); setVal('olderCollege', older.college ? String(older.college) : '');
     setVal('depElderly', dep.elderly ? String(dep.elderly) : ''); setVal('depParent', dep.parent ? String(dep.parent) : '');
     w.hoikuCalc();
     const t = d.getElementById('result').textContent.replace(/\s+/g, ' ');
@@ -89,22 +91,54 @@ async function openPage(rel, url, errs) {
   A(`父140万・兄姉1人在園: 非課税（第2階層）→ 実際 第${f.level}階層`, f.level === 2);
 
   // ── 16歳以上の扶養家族（C059・C061） ──
-  A('「ほかに扶養している家族」の4欄がある', ['depGeneral', 'depSpecific', 'depElderly', 'depParent'].every(id => !!d.getElementById(id)));
+  A('「ほかに扶養している家族」は親などの3欄（兄・姉の欄は無い）', ['depGeneral', 'depElderly', 'depParent'].every(id => !!d.getElementById(id)) && !d.getElementById('depSpecific'));
+  A('在園していない年上のきょうだいは年齢別の3欄（人数だけの欄・印は無い）', ['olderYoung', 'olderHigh', 'olderCollege'].every(id => !!d.getElementById(id)) && !d.getElementById('olderNotEnrolled') && !d.getElementById('selFlag'));
   // (g) 父 240万（所得160万）・母の収入なし・子1人: 扶養なしは人数2（限度136万）で課税、16〜18歳の子1人を足すと人数3（限度171万）で非課税
   const g0 = run({ father: 2400000 });
   A(`父240万・扶養なし: 課税側（第3階層以上）→ 実際 第${g0.level}階層`, g0.level >= 3);
-  const g = run({ father: 2400000, dep: { general: 1 } });
-  A(`父240万・16〜18歳の扶養1人: 非課税（第2階層）0円 → 実際 第${g.level}階層 ${g.monthly}円`, g.level === 2 && g.monthly === 0);
+  const g = run({ father: 2400000, older: { high: 1 } });
+  A(`父240万・16〜18歳の兄姉1人（きょうだい欄に1回だけ入れる）: 非課税（第2階層）0円 → 実際 第${g.level}階層 ${g.monthly}円`, g.level === 2 && g.monthly === 0);
   // (h) 父 600万・母の収入なし・子1人・19〜22歳1人・同居の親1人: 扶養控除 45万＋45万・人的控除差 5万＋5万（配偶者）＋18万＋13万
   const hR = calculateJumin(null, { salary: 6000000, pension: 0, otherIncome: 0, age: 40, socialInsurance: Math.round(6000000 * 0.144), kyuchi: 1,
     spouseDeduction: 330000, dependentDeduction: 900000, dependents: 4, humanDeductionDiff: 50000 + 50000 + 180000 + 130000 });
   const hExp = calcHoiku({ age: 'age1_2', timeType: d.getElementById('timeType').value, facility: d.getElementById('facility') ? d.getElementById('facility').value : undefined,
     seikatsuhogo: false, hitorioya: false, month: Number(d.getElementById('month').value), father: { shotokuwari: hR.hoikuShotokuwari }, mother: { shotokuwari: 0 },
-    isSeireiNotice: false, hikazei: !hR.isTaxable, childOrder: 1 }, M);
+    isSeireiNotice: false, hikazei: !hR.isTaxable, childOrder: 1, olderNotEnrolled: 1 }, M);
   const h0 = run({ father: 6000000 });
-  const h = run({ father: 6000000, dep: { specific: 1, parent: 1 } });
+  const h = run({ father: 6000000, older: { college: 1 }, dep: { parent: 1 } });
   A(`父600万・19〜22歳1人＋同居の親1人: 扶養控除込みの指数で 第${hExp.level}階層 ${hExp.monthly}円 → 実際 第${h.level}階層 ${h.monthly}円`, h.level === hExp.level && h.monthly === hExp.monthly);
   A(`父600万: 扶養を足すと保育料が下がる（${h0.monthly}円 → ${h.monthly}円）`, h.monthly < h0.monthly);
+
+  // ── 在園していない年上のきょうだいを年齢別に 1 回だけ聞く（2026-11-28・オーナー指摘） ──
+  // (i) 中学生以下の兄姉も住民税の人数に入る: 父 240万・母の収入なし → 人数3（配偶者＋子2）→ 限度171万 → 非課税
+  //     修正前は在園していないきょうだいを人数に入れず、人数2（限度136万）で課税になっていた
+  const i1 = run({ father: 2400000, older: { young: 1 } });
+  A(`父240万・中学生以下の兄姉1人: 非課税（第2階層）0円 → 実際 第${i1.level}階層 ${i1.monthly}円`, i1.level === 2 && i1.monthly === 0);
+  // (j) 順位にも同じ人数を使う: 父 320万・中学生以下の兄姉1人。指数と順位をエンジン直算と比べる
+  {
+    const S = 3200000;
+    const jR = calculateJumin(null, { salary: S, pension: 0, otherIncome: 0, age: 40, socialInsurance: Math.round(S * 0.144), kyuchi: 1, under23Dependent: true,
+      spouseDeduction: 330000, dependentDeduction: 0, dependents: 3, humanDeductionDiff: 50000 + 50000 });
+    const base = { age: 'age1_2', timeType: d.getElementById('timeType').value, facility: d.getElementById('facility') ? d.getElementById('facility').value : undefined,
+      seikatsuhogo: false, hitorioya: false, month: Number(d.getElementById('month').value), father: { shotokuwari: jR.hoikuShotokuwari }, mother: { shotokuwari: 0 },
+      isSeireiNotice: false, hikazei: !jR.isTaxable, childOrder: 1 };
+    const jExp = calcHoiku(Object.assign({}, base, { olderNotEnrolled: 1 }), M), jNo = calcHoiku(Object.assign({}, base, { olderNotEnrolled: 0 }), M);
+    const j = run({ father: S, older: { young: 1 } });
+    A(`父320万・中学生以下の兄姉1人: 直算 第${jExp.level}階層 ${jExp.monthly}円（順位に数えないと ${jNo.monthly}円）→ 実際 第${j.level}階層 ${j.monthly}円`,
+      j.level === jExp.level && j.monthly === jExp.monthly);
+    // (k) 3 欄の合計を順位に使う（中学生以下1＋16〜18歳1）。扶養控除は 16〜18歳の 33万だけ
+    const kR = calculateJumin(null, { salary: S, pension: 0, otherIncome: 0, age: 40, socialInsurance: Math.round(S * 0.144), kyuchi: 1, under23Dependent: true,
+      spouseDeduction: 330000, dependentDeduction: 330000, dependents: 4, humanDeductionDiff: 50000 + 50000 + 50000 });
+    const kExp = calcHoiku(Object.assign({}, base, { father: { shotokuwari: kR.hoikuShotokuwari }, hikazei: !kR.isTaxable, olderNotEnrolled: 2 }), M);
+    const k = run({ father: S, older: { young: 1, high: 1 } });
+    A(`父320万・中学生以下1人＋16〜18歳1人: 直算 第${kExp.level}階層 ${kExp.monthly}円 → 実際 第${k.level}階層 ${k.monthly}円`, k.level === kExp.level && k.monthly === kExp.monthly);
+    // (l) 23〜69歳の扶養（親など）は順位に数えない・扶養控除 33万は入る
+    const lR = calculateJumin(null, { salary: S, pension: 0, otherIncome: 0, age: 40, socialInsurance: Math.round(S * 0.144), kyuchi: 1, under23Dependent: true,
+      spouseDeduction: 330000, dependentDeduction: 330000, dependents: 3, humanDeductionDiff: 50000 + 50000 + 50000 });
+    const lExp = calcHoiku(Object.assign({}, base, { father: { shotokuwari: lR.hoikuShotokuwari }, hikazei: !lR.isTaxable, olderNotEnrolled: 0 }), M);
+    const l = run({ father: S, dep: { general: 1 } });
+    A(`父320万・23〜69歳の扶養1人（親など）: 順位に数えない直算 第${lExp.level}階層 ${lExp.monthly}円 → 実際 第${l.level}階層 ${l.monthly}円`, l.level === lExp.level && l.monthly === lExp.monthly);
+  }
 
   // ── 給与850万円超（C083）と配偶者の人的控除差の逓減 ──
   function expectFatherOnly(salary) {
@@ -155,7 +189,19 @@ async function openPage(rel, url, errs) {
     const lab = win.document.querySelector('label[for="enrolledOlder"]');
     A(`${nm}: 通っている兄・姉の選択肢は人数だけ（実際 ${opts.join('／')}）`, opts.join('|') === '0人|1人|2人以上' && !/第\s*[1-3１-３]\s*子/.test(opts.join('')));
     A(`${nm}: 小学生以上の兄・姉は下の欄で答えると案内する`, !!lab && /小学生以上の兄・姉は入れず、下の欄で答えてください/.test(lab.textContent));
-    A(`${nm}: 下に「在園していない年上のきょうだい」を答える欄がある`, !!(win.document.getElementById('olderNotEnrolled') || win.document.getElementById('selFlag')));
+    A(`${nm}: 下に「在園していない年上のきょうだい」を答える欄がある`, !!win.document.getElementById('olderYoung') && !!win.document.getElementById('olderHigh') && !!win.document.getElementById('olderCollege'));
+  }
+
+  // 新潟（年収360万円未満相当で、在園していない年上のきょうだいを 1 人目に数える市）: 印をやめ、年齢別の欄の「1人以上」で同じ扱いにする
+  {
+    const wg = await openPage('niigata/niigata/hoiku/index.html', 'https://seido-keisan.jp/niigata/niigata/hoiku/', errs);
+    const dg = wg.document, sv = (id, v) => { const e = dg.getElementById(id); if (e) e.value = v; };
+    A('新潟: 印（selFlag）は無く、年齢別の3欄がある', !dg.getElementById('selFlag') && ['olderYoung', 'olderHigh', 'olderCollege'].every(id => !!dg.getElementById(id)));
+    const runG = (S, young) => { wg.hoikuTab('salary'); sv('fatherSalary', String(S)); sv('motherSalary', ''); sv('enrolledOlder', '0'); sv('olderYoung', young ? String(young) : ''); sv('olderHigh', ''); sv('olderCollege', '');
+      wg.hoikuCalc(); return dg.getElementById('result').textContent.replace(/\s+/g, ' '); };
+    let hitG = null;
+    for (let S = 2600000; S <= 4000000; S += 200000) { const t1 = runG(S, 1), t0 = runG(S, 0); if (/非在園の年上きょうだいを1人目に数えて第2子として計算/.test(t1) && !/非在園の年上きょうだい/.test(t0)) { hitG = S; break; } }
+    A(`新潟: 中学生以下の兄姉1人を入れると「1人目に数えて第2子」で計算する（年収 ${hitG && hitG / 10000}万）`, !!hitG);
   }
 
   A('JSランタイムエラーなし', errs.length === 0);

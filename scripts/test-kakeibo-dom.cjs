@@ -1008,7 +1008,52 @@ function expectHoikuMonthly(salary, bonus) { // テンプレ _juminOf→calcHoik
     const optsH = selH ? [...selH.options].map(o => o.textContent) : [];
     A(`保育料の兄・姉の選択肢は人数だけ（実際 ${optsH.join('／')}）`, optsH.join('|') === '0人|1人|2人以上' && !/第\s*[1-3１-３]\s*子/.test(optsH.join('')));
     A('保育料: 小学生以上の兄・姉は「在園していない年上のきょうだい」に入れると案内する',
-      !!hintH && /小学生以上の兄・姉は「在園していない年上のきょうだい」に入れてください/.test(hintH.textContent) && !!w.document.getElementById('hoikuOlderOut'));
+      !!hintH && /小学生以上の兄・姉は「在園していない年上のきょうだい」に数えます/.test(hintH.textContent) && !!w.document.getElementById('hoikuOlderOut'));
+  }
+
+  {
+    // ── 保育料の「在園していない年上のきょうだい」を上の扶養欄と連動（2026-11-28・オーナー指摘。同じ子を 2 回聞いていた） ──
+    const doc = w.document;
+    const selO = doc.getElementById('hoikuOlderOut'), hintO = doc.getElementById('hoikuOlderHint'), hOpt = doc.getElementById('hoikuOptIn'), hSib = doc.getElementById('hoikuSiblings');
+    const fire = (id, type) => doc.getElementById(id).dispatchEvent(new w.Event(type, { bubbles: true }));
+    const type = (id, v) => { setVal(id, v); fire(id, 'input'); };
+    const pick = (v) => { selO.value = v; fire('hoikuOlderOut', 'change'); };
+    const resetAuto = () => { ['famDepYoung', 'famDepGeneral', 'famDepSpecific'].forEach(id => setVal(id, '')); hSib.value = '0'; selO.value = w.syncHoikuOlder().last; w.syncHoikuOlder(); };
+    A('保育料の連動: 連動の関数と表示欄がある', typeof w.syncHoikuOlder === 'function' && !!selO && !!hintO);
+    hOpt.checked = true; if (sgOptIn) sgOptIn.checked = false;
+    resetAuto();
+    A(`保育料の連動: 上が空なら 0 人・内訳は出さない（実際 ${selO.value}人）`, selO.value === '0' && hintO.style.display === 'none');
+    type('famDepYoung', '1');
+    A(`保育料の連動: 16歳未満 1 人（保育所の子だけ）なら 0 人のまま（実際 ${selO.value}人）`, selO.value === '0');
+    type('famDepYoung', '3');
+    A(`保育料の連動: 16歳未満 3 人なら、保育所の子を除いて 2 人（実際 ${selO.value}人）`, selO.value === '2' && /から 2人と数えました（16歳未満 2人/.test(hintO.textContent));
+    hSib.value = '1'; fire('hoikuSiblings', 'change');
+    A(`保育料の連動: 在園の兄・姉 1 人を選ぶと、その分も除いて 1 人（実際 ${selO.value}人）`, selO.value === '1');
+    type('famDepGeneral', '1'); type('famDepSpecific', '1');
+    A(`保育料の連動: 16〜18歳・19〜22歳も数える（実際 ${selO.value}）`, selO.value === '3' && /16〜18歳・23〜69歳 1人、19〜22歳 1人/.test(hintO.textContent));
+    pick('0');
+    A('保育料の連動: 手で 0 人に直すと食い違いを出す', selO.value === '0' && /では 3人（.*）ですが、ここで選んだ「0人」で順位を決めます/.test(hintO.textContent));
+    type('famDepYoung', '4');
+    A(`保育料の連動: 手で直したあとは上を変えても上書きしない（実際 ${selO.value}人）`, selO.value === '0');
+    resetAuto();
+    pick('1');
+    A('保育料の連動: 上が空のまま手で 1 人にすると、上の欄にも入れるよう案内する', /上の「扶養・配偶者」欄にも年齢別に入れてください/.test(hintO.textContent));
+    // 計算: 上に 16歳未満 2 人（保育所の子＋小学生の兄姉）→ 触らなくても在園外 1 人で計算する。手で 0 人にした結果と比べる
+    resetAuto();
+    const hkName = '保育料（認可・0〜2歳）';
+    //   （低所得で在園外のきょうだいを数える帯＝施行令14条。数える年収を探して、差が出ることまで見る）
+    let hit = null;
+    for (const S of [2400000, 2600000, 2800000, 3000000, 3200000]) {
+      resetAuto();
+      const q1 = await run({ salary: S, age: 40, employment: 'kaishain', family: { young: 2 } });
+      const v1 = selO.value, c1 = find(q1.heads, hkName);
+      pick('0');
+      const q0 = await run({ salary: S, age: 40, employment: 'kaishain', family: { young: 2 } });
+      const c0 = find(q0.heads, hkName);
+      if (v1 === '1' && c1 && c0 && num(c1[1]) < num(c0[1]) && selO.value === '0') { hit = { S, auto: c1[1], zero: c0[1] }; break; }
+    }
+    A(`保育料の連動: 上で 16歳未満 2 人 → 欄を触らなくても在園外 1 人で計算する（年収 ${hit && hit.S / 10000}万: ${hit && hit.auto} ＜ 0 人に直すと ${hit && hit.zero}）`, !!hit);
+    hOpt.checked = false; resetAuto();
   }
 
   console.log(`\n結果: ${pass} passed, ${fail} failed`);
